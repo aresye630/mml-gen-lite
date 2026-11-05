@@ -1,0 +1,206 @@
+{
+  "command_name": "RMV VOLTELOOP",
+  "command_name_zh": "删除VoLTE话路环回功能",
+  "command_name_full": "删除VoLTE话路环回功能（RMV VOLTELOOP）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n此命令用于删除VoLTE话路环回功能。当使用完话路环回功能，为不影响用户的正常语音业务，需要及时关闭该功能，此时需要使用该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116438_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_volte_management.html",
+        "name": "VOLTE管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.9",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595902_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_volte_loopback.html",
+        "name": "Volte环回",
+        "parentTopicId": "CONCEPT_0000202103116438_2",
+        "position": "3.3.9.5",
+        "parentPosition": "3.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0207016807_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_volteloop.html",
+        "name": "删除VoLTE话路环回功能（RMV VOLTELOOP）",
+        "parentTopicId": "CONCEPT_0000202103595902_2",
+        "position": "3.3.9.5.3",
+        "parentPosition": "3.3.9.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116438_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_volte_management.html",
+        "name": "VOLTE管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.9",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595902_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_volte_loopback.html",
+        "name": "Volte环回",
+        "parentTopicId": "CONCEPT_0000202103116438_2",
+        "position": "3.3.9.5",
+        "parentPosition": "3.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0207016807_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_volteloop.html",
+        "name": "删除VoLTE话路环回功能（RMV VOLTELOOP）",
+        "parentTopicId": "CONCEPT_0000202103595902_2",
+        "position": "3.3.9.5.3",
+        "parentPosition": "3.3.9.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

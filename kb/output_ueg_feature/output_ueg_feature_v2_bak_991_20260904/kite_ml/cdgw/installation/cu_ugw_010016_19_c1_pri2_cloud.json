@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置N4(N4/Sxa/Sxb)接口数据",
+  "feature_description": "运营商在部署MEC解决方案或时新增UPF/SGW-U/PGW-U中的任一独立设备或融合设备，完成配置UEG到SMF/SGW-C/PGW-C的路由数据后，可通过配置N4（N4/Sxa/Sxb）接口使UEG与SMF/SGW-C/PGW-C建立逻辑连接。\n\n**说明** \n\n- 考虑到4G/5G互操作和平滑演进，5GC需要支持4G/5G融合接入和互操作，因此协议规定了三类网元需要原生融合部署。\n  - 用户数据：HSS+UDM融合，保证用户数据一致性。\n  - 策略数据：PCRF+PCF融合，保证策略一致性、连续性。\n  - 会话管理锚点：SMF+PGW-C融合，UPF+PGW-U融合，锚点不变保证数据连续性。从简化网络拓扑，优化转发路径考虑，一般建议EPC侧SGW-C融合到SMF+PGW-C、SGW-U融合到UPF+PGW-U。\n\n  因此部署4G/5G互操作的网络时，SMF、PGW-C需要融合部署在同一VNF上。\n- 考虑到4G/5G互操作时移动锚点不变，SMF+PGW-C融合部署时N4、Sxa、Sxb接口使用的协议相同，遵循3GPP TS 29.244标准。因此UEG上只支持使用合一抽象接口配置N4if，不支持独立配置Sxa、Sxb接口。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001341564366",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001341564366.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001627081458",
+        "topicUrl": "kite_ml/kitem_conf_ref_cloud.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001341564366",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001675281469",
+        "topicUrl": "kite_ml/kitem_ulclupf_conf_cloud.html",
+        "name": "配置UL CL UPF + 辅锚点UPF",
+        "parentTopicId": "TOPIC_0000001627081458",
+        "position": "4.3.6",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001675401321",
+        "topicUrl": "kite_ml/cdgw/installation/cu_ugw_010016_19_c1_pri2_cloud.html",
+        "name": "配置N4(N4/Sxa/Sxb)接口数据",
+        "parentTopicId": "TOPIC_0000001675281469",
+        "position": "4.3.6.4",
+        "parentPosition": "4.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

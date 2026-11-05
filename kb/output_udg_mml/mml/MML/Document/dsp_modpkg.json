@@ -1,0 +1,95 @@
+{
+  "command_name": "DSP MODPKG",
+  "command_name_zh": "查询模型包信息",
+  "command_name_full": "查询模型包信息（DSP MODPKG）",
+  "command_function": "该命令用于查询指定网元下的模型信息，包括模型包名称、模型文件名称、模型版本等。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000001861214302",
+        "topicUrl": "toctopics/zh-cn_topic_0000001861214302.html",
+        "name": "CoreMind操作维护命令",
+        "parentTopicId": "",
+        "position": "12",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000002266957545",
+        "topicUrl": "toctopics/zh-cn_topic_0000002266957545.html",
+        "name": "智能模型管理",
+        "parentTopicId": "TOPIC_0000001861214302",
+        "position": "12.1",
+        "parentPosition": "12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000002253231437",
+        "topicUrl": "MML/Document/dsp_modpkg.html",
+        "name": "查询模型包信息（DSP MODPKG）",
+        "parentTopicId": "TOPIC_0000002266957545",
+        "position": "12.1.2",
+        "parentPosition": "12.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

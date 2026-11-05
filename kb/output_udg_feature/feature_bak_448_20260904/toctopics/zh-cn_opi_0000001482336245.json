@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活网络加速卡流量加速单元",
+  "feature_description": "在UDG上开启特性的License开关激活网络加速卡流量加速单元。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001198720530",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198720530.html",
+        "name": "性能优化",
+        "parentTopicId": "",
+        "position": "25",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001429463182",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429463182.html",
+        "name": "GWFD-111201 网络加速卡流量加速单元",
+        "parentTopicId": "TOPIC_0000001198720530",
+        "position": "25.1",
+        "parentPosition": "25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001482336245",
+        "topicUrl": "toctopics/zh-cn_opi_0000001482336245.html",
+        "name": "激活网络加速卡流量加速单元",
+        "parentTopicId": "TOPIC_0000001429463182",
+        "position": "25.1.2",
+        "parentPosition": "25.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

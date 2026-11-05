@@ -1,0 +1,175 @@
+# expgv:mockdgx-v4 — 交付镜像
+#
+# 目标：在 v3 基础上把"配置生成所依赖的检索链路"整体固化进镜像，做到自包含：
+#   1) 轻量语义检索依赖（onnxruntime + transformers tokenizer + jieba，无 torch）
+#   2) bge-small-zh-v1.5 的 ONNX 权重（含已修正的 tokenizer，见 PITFALL）
+#   3) 参数化后的检索/导入脚本（env 可配，本机默认值不变）
+#   4) 分析/特性匹配代码层（沿用 v3 的 COPY 范围）
+#
+# 构建（构建上下文 = 包根 expgv-buildkit/）：
+#   docker build -f dockerfiles/Dockerfile.mockdgx-v4 -t expgv:mockdgx-v4 .
+#
+# 构建参数：
+#   PIP_INDEX   — pip 源（在线构建默认 aliyun）
+#   WHEELS_DIR  — 本地 wheel 目录（离线构建设 /wheels，优先本地，需含 v4 增量包）
+#
+# 模型配置（当前验证用 flash；现场按 MODEL_CONFIG.md 换模型）
+
+ARG BASE_IMAGE=expgv:mockdgx
+FROM ${BASE_IMAGE}
+
+ARG PIP_INDEX=https://mirrors.aliyun.com/pypi/simple/
+ARG WHEELS_DIR=""
+
+USER root
+
+# ---- 1) 轻量检索依赖 -------------------------------------------------------
+# onnxruntime: CPU 推理（arm64/cp314 wheel 可用，实测 1.29.0）
+# transformers: 仅用 tokenizer（不装 torch）
+# jieba: Milvus BM25 稀疏检索的中文 analyzer 依赖
+# pyyaml: 解析新格式 frontmatter
+#
+# ⚠ 版本可复现性：以下为开放约束，实测解析结果与现网镜像完全一致
+#   transformers 5.17.0 / tokenizers 0.23.2 / onnxruntime 1.30.0
+#   pyarrow 25.0.1 / milvus-lite 3.2.1 / huggingface_hub 1.31.0 / numpy 2.5.3
+#   若需逐字节可复现，把约束改成上述精确版本（可复现性 ✓ / 上游修复 ✗）。
+#   verify.sh 会核对实际装上的版本是否落在预期区间。
+RUN if [ -n "$WHEELS_DIR" ]; then \
+      pip install --no-cache-dir --no-index --find-links "$WHEELS_DIR/v4" \
+        onnxruntime "transformers>=4.40" jieba pyyaml numpy "pymilvus[milvus_lite]>=3.0"; \
+    else \
+      pip install --no-cache-dir -i "$PIP_INDEX" \
+        onnxruntime "transformers>=4.40" jieba pyyaml numpy "pymilvus[milvus_lite]>=3.0"; \
+    fi \
+ && find /usr/local/lib/python3*/site-packages -name '__pycache__' -type d \
+      -prune -exec rm -rf {} + 2>/dev/null || true
+
+# ---- 2) ONNX 嵌入模型 ------------------------------------------------------
+# PITFALL: bge-small-zh-v1.5 的 tokenizer.json(normalizer.lowercase) 与
+# tokenizer_config.json(do_lower_case) 原始均为 false，与 vocab.txt 的小写
+# WordPiece 不自洽 → 大写英文(如 QoS) 被切成 [UNK]，与 sentence-transformers
+# 结果余弦仅 0.867（等于换模型）。本层内的 tokenizer 资产已修正为 true。
+COPY materials/models/bge-small-zh-v1.5-onnx /opt/expgv/models/bge-small-zh-v1.5-onnx
+
+# ---- 3) 检索/建库脚本 + 代码层（先就位，建库依赖它们）---------------------
+COPY --chown=expgv:expgv materials/retrieval_scripts/ /opt/expgv/scripts/mml_retrieval/
+COPY --chown=expgv:expgv materials/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh \
+ && echo "[v5] 入口就位: /usr/local/bin/entrypoint.sh"
+
+# ---- 4) 分析与特性匹配代码层（与 v3 同源） ---------------------------------
+COPY materials/backend/  /opt/expgv/backend/
+COPY materials/scripts/  /opt/expgv/scripts/
+COPY materials/rules/    /opt/expgv/rules/
+# 验收用例样本（真实 exp，2257 行 / 1653 种命令对）—— 供 run_cases_v5.py 使用
+COPY materials/testdata/ /opt/expgv/testdata/
+
+# PITFALL: 宿主 umask 可能产出 600 文件（macOS 新建文件默认 -rw-------），
+#   COPY 原样保留 → expgv(uid 1000) 读不了脚本/配置，症状是运行期 Permission denied。
+#   必须显式归一为 a+r（可执行脚本 a+rx），否则功能随机失效且难排查。
+RUN set -eux; \
+    chmod -R a+rX /opt/expgv/backend /opt/expgv/scripts /opt/expgv/rules; \
+    find /opt/expgv/scripts /opt/expgv/backend -type f -name '*.sh' -exec chmod a+rx {} +; \
+    n=$(find /opt/expgv/scripts /opt/expgv/backend /opt/expgv/rules -type f ! -perm -004 | wc -l); \
+    test "$n" -eq 0 || { echo "!! $n 个文件对 other 不可读"; exit 1; }; \
+    echo "[v5] 代码层权限归一完成（a+rX）"
+
+# 2026-09-15 废弃旧可视化工作台：父层（expgv:mockdgx）历史快照含 app.html，
+# 而 COPY 不会删除源中已不存在的文件 → 必须在本层显式移除。
+# 该文件已无任何路由指向，仅防排查误导；原件在构建包 materials/_deprecated/。
+RUN rm -f /opt/expgv/backend/web/app.html \
+ && test -f /opt/expgv/backend/web/app_v2.html \
+ && echo "[v5] 前端就位: app_v2.html（旧 app.html 已废弃移除）"
+
+# ---- 4b) 111 知识库 + 构建期建库（零本机粘连，路径即容器内路径）-------------
+# 必须在 rules/ 就位之后建库（feature_v5_*.yaml 来自 rules/）。
+USER root
+COPY materials/kb111/ /opt/expgv/kb111/
+RUN set -eux; \
+    chmod -R a+rX /opt/expgv/kb111; \
+    n=$(find /opt/expgv/kb111 -name '*.md' | wc -l); \
+    test "$n" -gt 3000; \
+    bad=$(find /opt/expgv/kb111 -type f ! -perm -004 | wc -l); \
+    test "$bad" -eq 0 || { echo "!! $bad 个 111 文件不可读"; exit 1; }; \
+    echo "[v5] 111 知识库就位: /opt/expgv/kb111 ($n 篇)"
+
+ENV MML_MILVUS_SEED=/opt/expgv/milvus-seed/milvus_mml.db
+# PITFALL: 建库命令必须 set -o pipefail —— 否则 `python | tail` 的退出码取 tail(恒 0)，
+#   建库失败会被静默吞掉，产出一个空种子库，直到运行期检索才发现。
+# 三个集合一次建全（mml_feature / mml_nav / mml_support），缺一则对应 skill 不可用。
+ENV KB_SRC=/opt/expgv/kb MML_KB111_DIR=/opt/expgv/kb111
+# MML_EMB_BATCH: ONNX 嵌入内部分块大小。默认 16；构建期建库数据量大
+#   （support 2.2 万 JSON），在 8GB 容器里必须限制峰值内存（见 get_embeddings_onnx.py PITFALL）。
+ENV MML_EMB_BATCH=16
+RUN set -euxo pipefail; \
+    export MML_MILVUS_DIR="$MML_MILVUS_SEED"; \
+    export MML_EMB_BACKEND=onnx; \
+    export MML_EMB_MODEL=/opt/expgv/models/bge-small-zh-v1.5-onnx; \
+    export PYTHONPATH=/opt/expgv/scripts/mml_retrieval; \
+    mkdir -p /opt/expgv/milvus-seed; \
+    bash /opt/expgv/scripts/mml_retrieval/build_all_indexes.sh --rebuild; \
+    rm -f "$MML_MILVUS_SEED/LOCK"; \
+    test -d "$MML_MILVUS_SEED/collections" || { echo "!! 建库未产出 collections/"; exit 1; }; \
+    python3 /opt/expgv/scripts/assert_indexes.py; \
+    chown -R expgv:expgv /opt/expgv/milvus-seed; \
+    du -sh /opt/expgv/milvus-seed
+USER expgv
+
+# ---- 5) 默认环境：让脚本在容器内开箱可用 ------------------------------------
+# 检索脚本的默认值指向容器内路径；仍可被运行时 -e 覆盖（现场换模型/换库）
+ENV MML_EMB_BACKEND=onnx \
+    MML_EMB_MODEL=/opt/expgv/models/bge-small-zh-v1.5-onnx \
+    MML_MILVUS_DIR=/data/milvus/milvus_mml.db \
+    PYTHONPATH=/opt/expgv/scripts/mml_retrieval
+
+# 规范化 Python 版本软链（基础镜像为 py3.14）
+RUN ln -sf "$(command -v python3)" /usr/local/bin/python 2>/dev/null || true
+
+# ---- 6) 自检：构建期即验证 ONNX 推理链路 ------------------------------------
+# 切分基准 "配置QoS覆盖" 不得出现 100([UNK])；向量维度须为 512。
+RUN python3 -c "\
+import sys; sys.path.insert(0,'/opt/expgv/scripts/mml_retrieval');\
+from get_embeddings import Emb;\
+e=Emb(); ids=e._impl.tokenizer('配置QoS覆盖')['input_ids'];\
+assert 100 not in ids, ('tokenizer 未对齐(出现 UNK): %s' % ids);\
+v=e.get_embeddings('配置QoS覆盖');\
+assert len(v[0] if hasattr(v[0],'__len__') else v)==512, 'embedding 维度异常';\
+print('[v4] 检索链路自检通过:', ids)"
+
+# ---- 7) Hermes 配置：就位到「运行用户」的 HOME 并规范化 ----------------------
+# PITFALL 1: 基础镜像 USER=root、HOME=/root，而 Hermes 配置原本在 /home/expgv/.hermes/，
+#            两者不匹配 → agent 读不到 provider，报 "No inference provider configured"。
+# PITFALL 2: 容器可能以 root 或 expgv 启动（运行方式不同 HOME 不同），
+#            只规范化一处会让另一种启动方式退化到未清理的配置。
+# 故：对两个候选 HOME 都做「就位 + 规范化」，保证任一启动方式都干净。
+#   a) 删除 custom_providers 中指向本机推理服务的条目（开发机残留）
+#   b) 修正已知错名的 model.default
+# 注意：密钥不在此层落地（构建期无 .env），由运行期注入。
+# （normalize_hermes_config.py 已随 retrieval_scripts/ 整目录 COPY，无需单独 COPY）
+RUN set -eux; \
+    for TGT in "${HOME}/.hermes" "/home/expgv/.hermes"; do \
+        mkdir -p "$TGT"; \
+        if [ -f "/home/expgv/.hermes/config.yaml" ] && [ ! -f "$TGT/config.yaml" ]; then \
+            cp "/home/expgv/.hermes/config.yaml" "$TGT/config.yaml"; \
+        fi; \
+        if [ -d "/home/expgv/.hermes/skills" ] && [ ! -e "$TGT/skills" ]; then \
+            cp -r "/home/expgv/.hermes/skills" "$TGT/skills"; \
+        fi; \
+        python3 /opt/expgv/scripts/mml_retrieval/normalize_hermes_config.py "$TGT/config.yaml"; \
+        chmod 600 "$TGT/config.yaml"; \
+    done; \
+    chown -R expgv:expgv /home/expgv/.hermes 2>/dev/null || true
+
+# 构建期自检：两个 HOME 的配置都必须存在、无本机模型残留、有 model.default
+RUN set -eux; \
+    for C in "${HOME}/.hermes/config.yaml" "/home/expgv/.hermes/config.yaml"; do \
+        test -f "$C"; \
+        ! grep -qE 'localhost|127\.0\.0\.1|:11434' "$C"; \
+        grep -qE '^  default:' "$C"; \
+        echo "[v4] Hermes 配置就位且已规范化: $C"; \
+    done
+
+# ---- 8) 入口声明 -----------------------------------------------------------
+# Cmd 保留 serve 兼容旧调用；Entrypoint 负责知识层/向量库软链 + 起服务
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["serve"]

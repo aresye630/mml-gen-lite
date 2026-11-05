@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD APNOITPL",
+  "command_name_zh": "增加APN运营商标识符模板",
+  "command_name_full": "增加APN运营商标识符模板(ADD APNOITPL)",
+  "command_function": "该命令用于增加一个APNOI模板。\n\nAPNOI模板标识了GPRS业务中的APNOI数据，通过执行**MOD GPRS**或**MOD PSAPNOI**命令为用户签约APN级别或PS域UE级别的APNOI数据时，只需要签约APNOI模板即可。UDM在位置更新或用户签约APNOI数据时会把用户签约的数据下发到用户所在的SGSN，SGSN根据用户位置更新的情况决定是否更新用户的APNOI数据信息。\n\n- 当用户在网但未进行位置更新时，SGSN保持原有的APNOI数据信息不变。\n- 当用户不在网时，保持原有的APNOI数据信息不变，重新在网后SGSN会从UDM获取用户最新的位置信息并更新APNOI数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803254",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/apnoi_template.html",
+        "name": "APN运营商标识符模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.29",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802780",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_apnoitpl.html",
+        "name": "增加APN运营商标识符模板(ADD APNOITPL)",
+        "parentTopicId": "CONCEPT_0190803254",
+        "position": "4.2.3.6.29.1",
+        "parentPosition": "4.2.3.6.29",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

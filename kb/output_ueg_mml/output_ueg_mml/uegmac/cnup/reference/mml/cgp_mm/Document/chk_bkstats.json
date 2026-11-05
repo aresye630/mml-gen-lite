@@ -1,0 +1,119 @@
+{
+  "command_name": "CHK BKSTATS",
+  "command_name_zh": "备份进度检查",
+  "command_name_full": "备份进度检查(CHK BKSTATS)",
+  "command_function": "该命令用于无损升级过程，检查指定网元主备进程备份进度状况，如果备份进度达到100%，则检查成功，否则检查失败。\n\n该命令的使用场景为：在备平面进程激活后，使用该命令检查主备平面间的版本备份进度。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001195962814",
+        "topicUrl": "toctopics/zh-cn_topic_0000001195962814.html",
+        "name": "CSP机机接口命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.1",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165879206",
+        "topicUrl": "uegmac/cnup/reference/mml/cgp_mm/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001195962814",
+        "position": "2.3.1.2",
+        "parentPosition": "2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165879317",
+        "topicUrl": "uegmac/cnup/reference/mml/cgp_mm/LinkedDoc/backup_status_management.html",
+        "name": "备份状态管理",
+        "parentTopicId": "CONCEPT_0165879206",
+        "position": "2.3.1.2.7",
+        "parentPosition": "2.3.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165879319",
+        "topicUrl": "uegmac/cnup/reference/mml/cgp_mm/Document/chk_bkstats.html",
+        "name": "备份进度检查(CHK BKSTATS)",
+        "parentTopicId": "CONCEPT_0165879317",
+        "position": "2.3.1.2.7.1",
+        "parentPosition": "2.3.1.2.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "LST IPSECINTFCFGIPSEC",
+  "command_name_zh": "查询IPsec隧道接口",
+  "command_name_full": "查询IPsec隧道接口（LST IPSECINTFCFGIPSEC）",
+  "command_function": "该命令用于查询IPsec隧道。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595786",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_internet_protocol_security_management.html",
+        "name": "IPSEC功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.23",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155109",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103595786",
+        "position": "4.23.1",
+        "parentPosition": "4.23",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315747",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_ip_security_management.html",
+        "name": "IP安全管理",
+        "parentTopicId": "CONCEPT_0000202289155109",
+        "position": "4.23.1.1",
+        "parentPosition": "4.23.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555237",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_internet_key_exchange.html",
+        "name": "互联网密钥交换",
+        "parentTopicId": "CONCEPT_0000202289315747",
+        "position": "4.23.1.1.2",
+        "parentPosition": "4.23.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315749",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_ipsec_interface_configurations.html",
+        "name": "IPsec接口配置",
+        "parentTopicId": "CONCEPT_0000202289555237",
+        "position": "4.23.1.1.2.5",
+        "parentPosition": "4.23.1.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001226150755",
+        "topicUrl": "MML/Document/lst_ipsecintfcfgipsec.html",
+        "name": "查询IPsec隧道接口（LST IPSECINTFCFGIPSEC）",
+        "parentTopicId": "CONCEPT_0000202289315749",
+        "position": "4.23.1.1.2.5.4",
+        "parentPosition": "4.23.1.1.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

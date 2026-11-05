@@ -1,0 +1,150 @@
+{
+  "command_name": "CLR DNSC",
+  "command_name_zh": "清除DNS缓存",
+  "command_name_full": "清除DNS缓存(CLR DNSC)",
+  "command_function": "**须知** \n\n在话务高峰时执行此命令可能导致DNS查询记录不全、话务呼损等问题，建议在凌晨话务低谷时执行。\n\n**适用网元：SGSN、MME、AMF**\n\n该命令用于清除DNS Cache。\n\nDNS Cache是使用DNS服务器解析时查找到的域名和IP地址信息在系统中的缓存，用于快速解析域名。\n\nDNS Cache分为一级Cache和二级Cache。一级Cache保存在SPP进程上，保存了每个SPP进程各自常用的域名记录；二级Cache保存在1号SGP进程上，保存的域名记录为每个SPP进程中域名记录的集合。当SPP进程需要获取域名记录时，首先在HOSTFILE中查询。如果HOSTFILE中查询不到需要的域名记录，则在一级Cache中进行查询。如果一级Cache中查询不到需要的域名记录，则在二级Cache上查询。如果二级Cache仍查询不到需要的域名记录，则向DNS服务器进行查询。\n\n每条Cache的记录具有一定的生命周期，生命周期结束后，该记录失效。\n\nDNS服务器上的数据修改后，可以使用该命令清除UNC整系统DNS Cache，即使用该命令依次清除二级Cache和一级Cache。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320000",
+        "topicUrl": "MML/LinkedDoc/unc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.20",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321165",
+        "topicUrl": "MML/LinkedDoc/unc_n_dns_maintenance_management.html",
+        "name": "DNS维护管理",
+        "parentTopicId": "TOPIC_0234320000",
+        "position": "2.5.3.20.1",
+        "parentPosition": "2.5.3.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319894",
+        "topicUrl": "MML/LinkedDoc/unc_n_clear_dns_cache.html",
+        "name": "清除DNS Cache",
+        "parentTopicId": "TOPIC_0234321165",
+        "position": "2.5.3.20.1.1",
+        "parentPosition": "2.5.3.20.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345945",
+        "topicUrl": "MML/Document/clr_dnsc.html",
+        "name": "清除DNS缓存(CLR DNSC)",
+        "parentTopicId": "TOPIC_0234319894",
+        "position": "2.5.3.20.1.1.1",
+        "parentPosition": "2.5.3.20.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

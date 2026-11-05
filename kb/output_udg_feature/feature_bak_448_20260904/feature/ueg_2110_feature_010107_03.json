@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活静态地址用户路由冗余",
+  "feature_description": "网络同时部署主用备用两台UDG。当主用UDG故障或者主用UDG通信链路故障的时候通过备份tunnel，将静态地址用户的下行数据备份到备用UDG上。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317409",
+        "topicUrl": "toctopics/zh-cn_topic_0239317409.html",
+        "name": "基本接入功能",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0319612408",
+        "topicUrl": "feature/ueg_2110_feature_010107.html",
+        "name": "GWFD-010107 静态地址用户路由冗余",
+        "parentTopicId": "TOPIC_0239317409",
+        "position": "4.7",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0319612403",
+        "topicUrl": "feature/ueg_2110_feature_010107_03.html",
+        "name": "激活静态地址用户路由冗余",
+        "parentTopicId": "TOPIC_0319612408",
+        "position": "4.7.3",
+        "parentPosition": "4.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

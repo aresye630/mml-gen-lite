@@ -1,0 +1,107 @@
+{
+  "command_name": "SET LOGCLEANPOLICY",
+  "command_name_zh": "设置日志老化策略",
+  "command_name_full": "设置日志老化策略（SET LOGCLEANPOLICY）",
+  "command_function": "本命令用于设置审计日志老化策略。\n\n日志老化策略包括日志存留期和日志占用空间，用于设置系统对日志的最大存留时长和最大占用空间大小。当日志超过最大存留时长或者最大占用空间大小时，系统按照日志产生时间，删除最老的日志。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315563_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.6",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116140_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_log_management.html",
+        "name": "日志管理",
+        "parentTopicId": "CONCEPT_0000202289315563_1",
+        "position": "1.2.6.1",
+        "parentPosition": "1.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001089791758_1",
+        "topicUrl": "kite_s_vm/MML/Document/set_logcleanpolicy.html",
+        "name": "设置日志老化策略（SET LOGCLEANPOLICY）",
+        "parentTopicId": "CONCEPT_0000202103116140_1",
+        "position": "1.2.6.1.8",
+        "parentPosition": "1.2.6.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

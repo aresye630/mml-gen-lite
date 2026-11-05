@@ -1,0 +1,143 @@
+{
+  "command_name": "DSP SIGNATUREDB",
+  "command_name_zh": "查询协议特征库文件加载状态",
+  "command_name_full": "查询协议特征库文件加载状态（DSP SIGNATUREDB）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于查询系统中存有的知识库的信息，包括知识库版本和引擎版本。引擎是编译版本的时候固化的，网元版本不变、引擎就不会变化。知识库是不定期更新的，为了适应现网环境下各种协议软件的变化，知识库不断升级。\n\n例如：msn新推出14.0版本，用旧知识库识别率可能只会有80％；只升级知识库可以将识别率提高到100％。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289155211_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_protocol_identification.html",
+        "name": "协议识别",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.6",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315851_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_signature_database_management.html",
+        "name": "特征库管理",
+        "parentTopicId": "CONCEPT_0000202289155211_3",
+        "position": "2.2.3.2.6.1",
+        "parentPosition": "2.2.3.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103116426_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_identification_signature_database.html",
+        "name": "识别特征库",
+        "parentTopicId": "CONCEPT_0000202289315851_3",
+        "position": "2.2.3.2.6.1.1",
+        "parentPosition": "2.2.3.2.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0182837717_3",
+        "topicUrl": "MML/Document/dsp_signaturedb.html",
+        "name": "查询协议特征库文件加载状态（DSP SIGNATUREDB）",
+        "parentTopicId": "CONCEPT_0000202103116426_3",
+        "position": "2.2.3.2.6.1.1.2",
+        "parentPosition": "2.2.3.2.6.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

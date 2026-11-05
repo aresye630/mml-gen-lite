@@ -1,0 +1,119 @@
+{
+  "command_name": "SND HUDR",
+  "command_name_zh": "模拟发送UDR消息获取IMS用户的普通（别名）透明数据",
+  "command_name_full": "模拟发送UDR消息获取IMS用户的普通（别名）透明数据（SND HUDR）",
+  "command_function": "该命令用于模拟AS向目标HSS发送UDR消息，获取并存储IMS用户或PSI用户的透明数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732466",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Service_Data_Management.html",
+        "name": "业务数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.4",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732701",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Maintenance_Operation_Management.html",
+        "name": "维护操作管理",
+        "parentTopicId": "MMLREF_0191732466",
+        "position": "4.2.4.4.26",
+        "parentPosition": "4.2.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732500",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/SND_HUDR.html",
+        "name": "模拟发送UDR消息获取IMS用户的普通（别名）透明数据（SND HUDR）",
+        "parentTopicId": "MMLREF_0191732701",
+        "position": "4.2.4.4.26.2",
+        "parentPosition": "4.2.4.4.26",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

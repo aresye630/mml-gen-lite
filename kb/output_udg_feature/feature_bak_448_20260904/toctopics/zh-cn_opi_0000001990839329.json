@@ -1,0 +1,123 @@
+{
+  "feature_name": "配置计费方式",
+  "feature_description": "本指导用于描述UNC支持融合的在线计费和离线计费的操作过程。\n\n**GGSN-C/PGW-C/SMF**\n\n对于SMF，计费方式的选择有PCF下发和本地配置，PCF下发的优先级高于本地配置。对于GGSN-C/PGW-C，计费方式的选择有PCRF下发、RADIUS Server下发和本地配置，优先级从高到低依次为：PCRF下发>RADIUS Server下发>本地配置。\n\nGGSN-C/PGW-C/SMF本地配置计费方式开关有三种粒度：User Profile、DNN和计费属性，优先级依次降低。\n\n根据用户归属属性（本地用户，漫游用户和拜访用户）配置的开关**SET CHARGECTRL**是控制GGSN-C/PGW-C/SMF本地配置的计费开关是否有效的总开关，当总开关使能了某种计费，其他开关的配置才能生效。默认情况下，总开关同时使能在线/离线/融合计费。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVEF27ED6640F347AAB2947C13B7996017",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222378793",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001990679477",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679477.html",
+        "name": "方案一：未部署NCG的计费解决方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.1",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040132",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040132.html",
+        "name": "SMF配置",
+        "parentTopicId": "TOPIC_0000001990679477",
+        "position": "1.3.1.2",
+        "parentPosition": "1.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "OPI_0000001990839329",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990839329.html",
+        "name": "配置计费方式",
+        "parentTopicId": "TOPIC_0000001955040132",
+        "position": "1.3.1.2.2",
+        "parentPosition": "1.3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

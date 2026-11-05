@@ -1,0 +1,73 @@
+{
+  "feature_name": "网元选择配置举例",
+  "feature_description": "本操作指导以PDU会话建立中的AMF选择SMF为例，介绍各种网元选择方式的配置方法。\n\n运营商要求AMF优先选择同大区同数据中心的SMF，且优先使用远端优先的选择方式（先在缓存查找满足服务发现条件的网元（如果缓存功能关闭，则跳过此步），如没有命中服务发现条件则去NRF查找，如仍无命中再在本地配置查找）。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC5457930E402418CA7291BDC68928087",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229278513",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC网元选择专题",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278513",
+        "topicId": "TOPIC_0308066095",
+        "topicUrl": "toctopics/zh-cn_topic_0308066095.html",
+        "name": "5G网络的网元选择",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278513",
+        "topicId": "OPI_0308066091",
+        "topicUrl": "toctopics/zh-cn_opi_0308066091.html",
+        "name": "网元选择配置举例",
+        "parentTopicId": "TOPIC_0308066095",
+        "position": "2.6",
+        "parentPosition": "2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

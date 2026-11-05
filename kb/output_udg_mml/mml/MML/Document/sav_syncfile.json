@@ -1,0 +1,119 @@
+{
+  "command_name": "SAV SYNCFILE",
+  "command_name_zh": "生成对账文件",
+  "command_name_full": "生成对账文件(SAV SYNCFILE)",
+  "command_function": "**须知** \n\n该命令执行可能导致系统CPU和内存升高，如在话务高峰期需谨慎执行。\n\nACS服务将配置数据通过文件的方式同步给其他微服务，此文件称为对账文件或配置对账文件。\n\n该命令默认功能，用于手动生成对账文件，确保生成最新的对账文件，提高对账效率；该命令导出控制选择YES，用于导出之前生成的对账文件支撑问题定位。\n\n- 导出的对账文件可以下载到本地。在CSP界面选择“监控分析>运行日志>服务日志收集”，选择ACS服务进行收集。\n- 导出的对账文件命名规则为：“pre\\_sync\\_config \\_<PID>\\_AP<PeerID>.zip”，其中PID和PeerID可以通过DSP NCCPEERLIST: DATATYPE=PEER, SERVICEINSTANCE=\"ACS\";命令查询。\n- 每次只允许导出一个对账文件，导出的对账文件老化时间是半小时。\n- ACS重启后会主动清除导出的对账文件，避免文件残留。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315563",
+        "topicUrl": "MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.6",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595606",
+        "topicUrl": "MML/LinkedDoc/csp_n_configuration_service_management.html",
+        "name": "配置服务管理",
+        "parentTopicId": "CONCEPT_0000202289315563",
+        "position": "4.6.20",
+        "parentPosition": "4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289154931",
+        "topicUrl": "MML/LinkedDoc/csp_n_synchronization_management.html",
+        "name": "对账管理",
+        "parentTopicId": "CONCEPT_0000202103595606",
+        "position": "4.6.20.1",
+        "parentPosition": "4.6.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001143159620",
+        "topicUrl": "MML/Document/sav_syncfile.html",
+        "name": "生成对账文件(SAV SYNCFILE)",
+        "parentTopicId": "CONCEPT_0000202289154931",
+        "position": "4.6.20.1.2",
+        "parentPosition": "4.6.20.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

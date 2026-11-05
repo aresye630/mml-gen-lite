@@ -1,0 +1,93 @@
+{
+  "feature_name": "基于PCC预定义规则的带宽控制",
+  "feature_description": "PCF/PCRF作为用户计费与控制策略管理中心，能够基于用户签约、套餐使用量等多种场景动态安装或者删除预定义规则。基于PCC预定义规则的带宽控制可应用于以下两种场景：\n\n- PCF/PCRF可感知用户套餐的使用量，当用户业务访问量超出限额时通过安装预定义规则通知UEG执行带宽控制策略，以降低用户的访问速率，达到公平使用网络的原则，使访问相同业务的用户得到同样的网络体验。\n- PCF/PCRF可感知SMF的PRA（Presence Reporting Area）位置上报，当用户进入指定区域时通过安装预定义规则通知UEG执行带宽控制策略，达到对指定区域的业务做限速的目的。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001512283829",
+        "topicUrl": "toctopics/zh-cn_topic_0000001512283829.html",
+        "name": "裸机容器模式",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001103520196",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001103520196.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "TOPIC_0000001512283829",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001099238448_2",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001099238448.html",
+        "name": "带宽控制",
+        "parentTopicId": "TOPIC_0000001103520196",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001111320330",
+        "topicUrl": "kite_s_bm/cdgw/ic/cn_20_1_3d20_mec_bm.html",
+        "name": "基于PCC预定义规则的带宽控制",
+        "parentTopicId": "TOPIC_0000001099238448_2",
+        "position": "2.5.3.6",
+        "parentPosition": "2.5.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

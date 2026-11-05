@@ -1,0 +1,180 @@
+{
+  "feature_name": "配置UDM基础数据",
+  "feature_description": "开局时，配置UDM基础数据。\n\n**说明** \n\n应急UDM从逻辑上划分为FE（Front End）和BE（Back End）两个业务网元：\n\n- FE（Front End）网元也称为UDM网元，实现UDM功能实体的功能，包括协议处理、业务处理以及策略数据管理。\n- BE（Back End）网元也称为USCDB网元（Unified Subscriber Center DataBase），实现UDR（Unified Data Repository）功能实体的功能，提供用户数据的增加、删除、更新和查询服务，为FE提供数据存储、数据管理、数据服务等功能支撑。\n\n  应急UDM不支持开户，用户数据的增加、删除和更新是通过从中心UDM同步数据文件的方式实现的。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001159609202",
+        "topicUrl": "kitem_udm_conf.html",
+        "name": "配置UDM",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.13",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001205704015_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001205704015.html",
+        "name": "配置UDM基础数据",
+        "parentTopicId": "TOPIC_0000001159609202",
+        "position": "4.5.13.2",
+        "parentPosition": "4.5.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001341564366",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001341564366.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001627081458",
+        "topicUrl": "kite_ml/kitem_conf_ref_cloud.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001341564366",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001627081482",
+        "topicUrl": "kite_ml/kitem_udm_conf_cloud.html",
+        "name": "配置UDM",
+        "parentTopicId": "TOPIC_0000001627081458",
+        "position": "4.3.9",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001205704015_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001205704015.html",
+        "name": "配置UDM基础数据",
+        "parentTopicId": "TOPIC_0000001627081482",
+        "position": "4.3.9.2",
+        "parentPosition": "4.3.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

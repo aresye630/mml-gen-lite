@@ -1,0 +1,129 @@
+{
+  "feature_name": "入驻式+主锚点UPF配置实例(不和MPF对接)",
+  "feature_description": "UEG部署在园区，作为企业专用主锚点UPF。企业园区终端签约专有DNN（APN），UPF到企业园区采用VPN专线，与MPF无关。\n\nUEG使用标卡与DCGW连接。DCGW之间使用E-Trunk+EVPN或M-LAG组网，UEG使用Eth-trunk接口，一个Eth-trunk接口的成员端口，连接到同一台DCGW上。\n\nUEG通过BGP over静态路由+BFD单臂echo与对端网元（gNodeB/SMF/企业服务器）实现网络互通，如下以UEG与gNodeB之间的网络互通为例给出组网示意（如图1所示）。\n\n**图1** UEG与gNodeB之间的组网示意（标卡+DCGW）",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV17528F50213D40089A8CCB8B29FE1C03",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818390",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（电力专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001986626012",
+        "topicUrl": "toctopics/zh-cn_topic_0000001986626012.html",
+        "name": "软件安装与初始配置",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001992710556",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992710556.html",
+        "name": "部署UEG",
+        "parentTopicId": "TOPIC_0000001986626012",
+        "position": "3.6",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000002257656352",
+        "topicUrl": "toctopics/zh-cn_topic_0000002257656352.html",
+        "name": "电力专网采用风筝S部署模式",
+        "parentTopicId": "TOPIC_0000001992710556",
+        "position": "3.6.1",
+        "parentPosition": "3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001992550784",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992550784.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000002257656352",
+        "position": "3.6.1.2",
+        "parentPosition": "3.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000002029936645",
+        "topicUrl": "toctopics/zh-cn_topic_0000002029936645.html",
+        "name": "虚机容器模式UPF初始配置",
+        "parentTopicId": "TOPIC_0000001992550784",
+        "position": "3.6.1.2.1",
+        "parentPosition": "3.6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001993377058",
+        "topicUrl": "toctopics/zh-cn_topic_0000001993377058.html",
+        "name": "配置实例",
+        "parentTopicId": "TOPIC_0000002029936645",
+        "position": "3.6.1.2.1.2",
+        "parentPosition": "3.6.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "OPI_0000001188362119",
+        "topicUrl": "toctopics/zh-cn_opi_0000001188362119.html",
+        "name": "入驻式+主锚点UPF配置实例(不和MPF对接)",
+        "parentTopicId": "TOPIC_0000001993377058",
+        "position": "3.6.1.2.1.2.1",
+        "parentPosition": "3.6.1.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

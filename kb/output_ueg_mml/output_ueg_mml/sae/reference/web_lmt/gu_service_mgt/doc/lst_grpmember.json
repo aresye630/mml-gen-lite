@@ -1,0 +1,119 @@
+{
+  "command_name": "LST GRPMEMBER",
+  "command_name_zh": "查询智家随行家庭网关",
+  "command_name_full": "查询智家随行家庭网关(LST GRPMEMBER)",
+  "command_function": "该命令用于查询智家随行家庭网关数据记录。\n\n- 若需要查询用户所有的智家随行家庭网关数据记录，请输入“智家随行家庭网关IMSI号码”或“智家随行家庭网关MSISDN号码”参数。\n- 若需要查询用户签约的某个智家随行家庭网关数据记录，请输入“智家随行家庭网关IMSI号码”或“智家随行家庭网关MSISDN号码”与“智家随行家庭网关名称”参数的组合。\n- 若需要根据“智家随行家庭网关扩展ID”参数查询智家随行家庭网关数据记录，请输入“智家随行家庭网关扩展ID”参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0163185913",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/5GC_service_management.html",
+        "name": "5GC业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.43",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001918166457",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/grp_member_management.html",
+        "name": "智家随行家庭网关管理",
+        "parentTopicId": "MMLREF_0163185913",
+        "position": "4.2.3.43.17",
+        "parentPosition": "4.2.3.43",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001918166461_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_grpmember.html",
+        "name": "查询智家随行家庭网关(LST GRPMEMBER)",
+        "parentTopicId": "CONCEPT_0000001918166457",
+        "position": "4.2.3.43.17.4",
+        "parentPosition": "4.2.3.43.17",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

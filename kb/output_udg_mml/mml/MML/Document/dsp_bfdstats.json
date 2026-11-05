@@ -1,0 +1,131 @@
+{
+  "command_name": "DSP BFDSTATS",
+  "command_name_zh": "查询BFD的会话统计信息",
+  "command_name_full": "查询BFD的会话统计信息（DSP BFDSTATS）",
+  "command_function": "该命令用于显示BFD会话的统计信息。可以按照本地描述符或者目的地址过滤。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595642",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.4",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355946",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_bfd_management.html",
+        "name": "BFD管理",
+        "parentTopicId": "CONCEPT_0000202103595642",
+        "position": "4.14.4.11",
+        "parentPosition": "4.14.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315689",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_bfd_session_statistics.html",
+        "name": "BFD会话统计",
+        "parentTopicId": "CONCEPT_0000202103355946",
+        "position": "4.14.4.11.3",
+        "parentPosition": "4.14.4.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001600440309",
+        "topicUrl": "MML/Document/dsp_bfdstats.html",
+        "name": "查询BFD的会话统计信息（DSP BFDSTATS）",
+        "parentTopicId": "CONCEPT_0000202289315689",
+        "position": "4.14.4.11.3.1",
+        "parentPosition": "4.14.4.11.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "feature_name": "通过OM Portal加载或更新USCDB数字证书",
+  "feature_description": "USCDB使用加密传输协议与对端网元进行通信，需要加载数字证书才能与对端建链。\n\n**须知** \n\n- 安装USCDB网元时已不再默认加载华为证书文件，客户需要自行申请并部署商用证书文件。客户提供的证书中必须包含完整的证书链。\n- 长期使用同一数字证书，可能存在安全风险，为了提高系统安全性，强烈建议客户定期更新证书。\n- 当**SET NEWCERTSWITCH**的参数“证书开关”取值为“OFF（关闭）”时，DSG、LAS作为客户端或服务端的数字证书允许使用该方式进行加载或更新，但PGW作为客户端和服务端的数字证书不允许使用该方式进行加载或更新，加载或更新操作可参考通过LOD VERIF加载或更新证书。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVA71548085A6C4E648AA3F9C53928E310",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "日常维护",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVAF612E3D05284A54AE0C72D3C8F9C30B",
+        "parentNaviId": "DOCNAVA71548085A6C4E648AA3F9C53928E310",
+        "pidId": "pid_bookmap_0000002254818730",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "UEG 基础运维操作（风筝L，裸机容器）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_91",
+          "pid_type_8381"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_8381"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818730",
+        "topicId": "TOPIC_0000001774479777_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001774479777.html",
+        "name": "证书管理",
+        "parentTopicId": "",
+        "position": "16",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818730",
+        "topicId": "TOPIC_0000001760123925_1",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001760123925.html",
+        "name": "证书加载或更新操作",
+        "parentTopicId": "TOPIC_0000001774479777_3",
+        "position": "16.5",
+        "parentPosition": "16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818730",
+        "topicId": "TOPIC_0000001760126253_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001760126253.html",
+        "name": "通过OM Portal加载或更新证书",
+        "parentTopicId": "TOPIC_0000001760123925_1",
+        "position": "16.5.2",
+        "parentPosition": "16.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818730",
+        "topicId": "TOPIC_0000001782871889",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001782871889.html",
+        "name": "加载或更新USCDB证书",
+        "parentTopicId": "TOPIC_0000001760126253_3",
+        "position": "16.5.2.3",
+        "parentPosition": "16.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818730",
+        "topicId": "OPI_0000002183055261_2",
+        "topicUrl": "kite_ml/bas_oper_l_bm/upcc/reference/cer/cer_uscdb_01.html",
+        "name": "通过OM Portal加载或更新USCDB数字证书",
+        "parentTopicId": "TOPIC_0000001782871889",
+        "position": "16.5.2.3.1",
+        "parentPosition": "16.5.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

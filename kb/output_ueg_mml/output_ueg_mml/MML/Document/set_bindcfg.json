@@ -1,0 +1,143 @@
+{
+  "command_name": "SET BINDCFG",
+  "command_name_zh": "设置绑定配置",
+  "command_name_full": "设置绑定配置(SET BINDCFG)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会影响会话绑定，修改绑定配置需要重启UPCF后才能生效，需联系华为技术支持确认后再执行。\n\n若配置绑定参数的“类型”为“Data”且对应“IPv4Addr”或“IPv6Prefix”为“support”时，数据Gx或N7会话的绑定参数只读取Data类型配置，不使用Default的设置。\n\n该命令为配置类命令，用于在5G场景下，设置Rx会话与Gx会话、Rx会话与N7会话和N5会话与N7会话的绑定配置。绑定配置有两种方式如表1所示：\n\n| 绑定方式      | UPCF当前支持的绑定类型/功能   | 场景说明                                                         |\n|:----------|:-------------------|:-------------------------------------------------------------|\n| 基于会话类型的绑定 | 语音会话绑定             | Rx语音会话+Gx语音会话绑定即VoLTE场景。Rx语音会话+N7语音会话绑定即VoNR或EPS FallBack场景。 |\n| 基于会话类型的绑定 | 数据会话绑定             | Rx数据会话+Gx数据会话绑定即4G能力开放场景。N5数据会话+N7数据会话绑定即5G能力开放或者业务分流场景。     |\n| 基于会话类型的绑定 | IP冲突解决             | 支持基于数据Gx接口和数据N7接口所有用户会话IP冲突问题解决。                             |\n| 基于IP地址的绑定 | -                  | 支持基于IPv4的绑定配置和IPv6的绑定配置。                                     |\n\nRx进行会话绑定场景下，如果Gx和N7会话同时存在，系统需要设置绑定配置，否则，N7会话不参与IP分发和会话绑定。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0177625706",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_service_management.html",
+        "name": "服务管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.3",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167449105",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_binding_configuration_management.html",
+        "name": "绑定配置管理",
+        "parentTopicId": "TOPIC_0177625706",
+        "position": "2.2.3.5.11.3.1",
+        "parentPosition": "2.2.3.5.11.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167449211",
+        "topicUrl": "MML/Document/set_bindcfg.html",
+        "name": "设置绑定配置(SET BINDCFG)",
+        "parentTopicId": "CONCEPT_0167449105",
+        "position": "2.2.3.5.11.3.1.1",
+        "parentPosition": "2.2.3.5.11.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

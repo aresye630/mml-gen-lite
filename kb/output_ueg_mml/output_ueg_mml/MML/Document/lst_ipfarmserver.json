@@ -1,0 +1,143 @@
+{
+  "command_name": "LST IPFARMSERVER",
+  "command_name_zh": "查询IPFarmServer",
+  "command_name_full": "查询IPFarmServer（LST IPFARMSERVER）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于显示该IP farm服务器所在的IP farm中的所有IP farm服务器信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202102876442_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_dn_management.html",
+        "name": "DN管理",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.1",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103356020_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_ip_farm_management.html",
+        "name": "IP Farm 管理",
+        "parentTopicId": "CONCEPT_0000202102876442_3",
+        "position": "2.2.3.2.1.4",
+        "parentPosition": "2.2.3.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289155125_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_ip_farm_server.html",
+        "name": "IP Farm服务器",
+        "parentTopicId": "CONCEPT_0000202103356020_3",
+        "position": "2.2.3.2.1.4.2",
+        "parentPosition": "2.2.3.2.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0182837059_2",
+        "topicUrl": "MML/Document/lst_ipfarmserver.html",
+        "name": "查询IPFarmServer（LST IPFARMSERVER）",
+        "parentTopicId": "CONCEPT_0000202289155125_3",
+        "position": "2.2.3.2.1.4.2.4",
+        "parentPosition": "2.2.3.2.1.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

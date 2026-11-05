@@ -1,0 +1,131 @@
+{
+  "command_name": "DEA BAIC",
+  "command_name_zh": "去激活BAIC业务",
+  "command_name_full": "去激活BAIC业务(DEA BAIC)",
+  "command_function": "此操作用来去激活BAIC补充业务。BAIC业务去激活后，用户签约登记信息在HLR中保留，但用户不能使用该业务。\n\n如果UDM支持签约管理优化（执行**SET MAPCONF**命令将“用户被锁后是否允许操作相关补充业务”设置为“TRUE”），即使用户停机，包括运营商锁（LCK）和用户锁（SABLCK），用户的业务签约变更仍可继续进行。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802801",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplimentary_service_management.html",
+        "name": "补充业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.9",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803727",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplementary_call_barring.html",
+        "name": "呼叫闭锁类补充业务",
+        "parentTopicId": "MMLREF_0190802801",
+        "position": "4.2.3.9.2",
+        "parentPosition": "4.2.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802969",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/baic_service.html",
+        "name": "闭锁所有呼入业务",
+        "parentTopicId": "MMLREF_0190803727",
+        "position": "4.2.3.9.2.5",
+        "parentPosition": "4.2.3.9.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803312",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/dea_baic.html",
+        "name": "去激活BAIC业务(DEA BAIC)",
+        "parentTopicId": "MMLREF_0190802969",
+        "position": "4.2.3.9.2.5.3",
+        "parentPosition": "4.2.3.9.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

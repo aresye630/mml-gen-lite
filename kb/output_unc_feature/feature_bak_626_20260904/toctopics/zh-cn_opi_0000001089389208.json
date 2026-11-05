@@ -1,0 +1,76 @@
+{
+  "feature_name": "重启虚拟机",
+  "feature_description": "当需要通过重启虚拟机进行业务恢复时，可以参考本章节进行操作。\n\n重启虚拟机可以通过在MANO上选择“VNF生命周期管理 > 自愈管理 > VNF自愈”，单击“重启”，进行操作。也可以通过在网元OM Portal上执行MML，本章节主要介绍在网元OM Portal上进行重启的操作。\n\n**说明** \n\n扩展域不支持该功能。",
+  "full_nav": [
+    [
+      {
+        "name": "网络运维"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD1814C3278EF468B8E4FB78D2B40B24E",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "日常维护",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVF682F0BAAC0C4E54938AB950A0F4F71A",
+        "parentNaviId": "DOCNAVD1814C3278EF468B8E4FB78D2B40B24E",
+        "pidId": "pid_bookmap_0000002229232677",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC基础运维操作",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_8409",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_8409"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229232677",
+        "topicId": "OPI_0000001089389208",
+        "topicUrl": "toctopics/zh-cn_opi_0000001089389208.html",
+        "name": "重启虚拟机",
+        "parentTopicId": "",
+        "position": "10",
+        "parentPosition": "",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

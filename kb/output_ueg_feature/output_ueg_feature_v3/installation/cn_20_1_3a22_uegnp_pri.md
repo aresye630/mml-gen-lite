@@ -1,0 +1,348 @@
+# 配置动态路由OSPF+BFD组网（IPv4）
+
+## 操作场景
+
+VNF与对端设备可通过OSPF动态路由绑定动态BFD探测的方式进行组网连接，该方式适用于IPv4组网的网络中。
+
+在网络拓扑结构复杂、设备与IP路由繁多的网络部署时，通常使用OSPF动态路由方式发布路由。同时，利用BFD双向转发检测机制为链路提供双向、轻负荷且持续时间短的快速检测功能，提高链路可靠性。
+
+如图1所示为VNF与周边网元的OSPF动态路由互通组网示意图。VNF和网关运行动态路由协议而接入运营商/企业网络。PE（Provider Edge）的路由配置请参考运营商的网络规划配置。
+
+**图1** OSPF动态路由+BFD组网
+
+## 必备事项
+
+前提条件
+
+* 请阅读并熟悉特性IPFD-020501 支持OSPF特性概述和IPFD-020403 BFD特性概述。
+
+* 具备管理员权限的操作人员已经登录华为操作维护系统（登录MAE客户端或登录OM Portal）。
+
+* VNF与网络实体之间的网络环境已经构建完成。
+
+数据
+
+VNF使用OSPF动态路由绑定动态BFD检测功能与对端设备建立可靠的IP连接。
+
+* 在VNF上配置OSPF动态路由与对端建立链路。
+* 在VNF上配置动态BFD功能增强链路检测可靠性。
+* 在VNF上推荐采用子接口的外联口与外部网络对接。
+
+本文以一组外联口子接口为例进行说明，一组外联口（对应一个逻辑接口）分别规划在不同刀片的NP卡上，每个NP卡上各规划1个子接口负荷分担承载流量。实际场景可根据网设规划进行适配。
+
+**如下数据仅为举例，请注意修改成局点规划的数据。**
+
+| 类别 | 参数名称 | 取值样例 | 获取方法 | 说明 |
+| --- | --- | --- | --- | --- |
+| **ADD L3VPNINST** | VPN实例名称（VRFNAME） | VPN\_Access | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > VRF设计 > VRF名称(VNF)”。 | VPN实例全网统一规划，一条通信路径上所有节点绑定的VPN实例要一致，才能正常通信。 |
+| **ADD VPNINSTAF** | 地址族类型（AFTYPE） | ipv4uni | - | IPv4组网场景下，该参数选择ipv4uni。 |
+| **MOD INTERFACE** | 接口名称（IFNAME） | 100GE66/0/9  100GE67/0/9 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > 端口”。 | - |
+| **ADD INTERFACE** | 子接口名字（IFNAME） | 100GE66/0/9.1  100GE67/0/9.1 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > 子端口”。 | Ethernet子接口组网需要规划。 |
+| **ADD INTERFACE** | 接口名称（IFNAME） | Eth-trunk1 | 本端规划 | Eth-trunk子接口组网需要规划。 |
+|  | 接口名称（IFNAME） | Eth-trunk1.1 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > 子端口”。 |  |
+| **MOD TRUNKIF** | 接口名称（IFNAME） | Eth-trunk1 | 已规划数据中获取 | Eth-trunk子接口组网需要规划。  为保证转发正常，要求在同一条Eth-Trunk链路两端的Eth-Trunk接口上必须配置相同的最小激活链路数，否则在Eth-Trunk口部分成员口或者链路故障的情况下，会导致业务受损。  同一个Trunk的成员接口，可以是同一刀片上的接口，也可以是不同刀片上的接口。此处以加速省交换场景为例，该场景下同一Trunk的成员接口在不同刀片上。  当前本端工作模式为LACP的Eth-trunk接口仅支持passive模式，因此要求对接DC-GW/PE的Eth-trunk接口必须为active模式。即要求对接DC-GW/PE上的端口主动发送LACP报文。 |
+|  | 工作模式（WORKMODE） | Lacp | 固定值 |  |
+|  | 最小激活链路数（LEASTACTLINKNUM） | 1 | 与对端协商 |  |
+| **ADD TRUNKMEMBER** | Trunk接口名（TRUNKIFNAME） | Eth-trunk1 | 已规划数据中获取 |  |
+|  | 成员接口名（MEMBERIFNAME） | 100GE66/0/9  100GE67/0/9 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > 端口”。 |  |
+| **ADD IPBINDVPN** | VPN名字(VRFNAME) | VPN\_Access | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > VRF”。 | - |
+| **ADD ETHSUBIF** | VLAN类型子接口的VLAN ID（VLANTYPEVID） | 100  200 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > VLAN序号”。 | 此处以双平面为例，单平面组网时，只需规划一条数据（例如只规划VLAN 100）。 |
+| **ADD IFIPV4ADDRESS** | 接口IPv4地址（IFIPADDR） | 192.168.89.2  192.168.89.10 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > IP”。 | 如果规划外联口使用IPv4v6双栈地址，则分别执行**ADD IFIPV4ADDRESS**和**ADD IFIPV6ADDRESS**  对同一外联口配置IPv4和IPv6地址。  此处规划的IP地址是与网关互通的外联口IP。Eth-trunk子接口组网时，规划1个IP；直连PE，Ethernet子接口组网时，规划2个不同网段的IP。 |
+|  | 接口IPv4地址掩码（SUBNETMASK） | 255.255.255.248 | 参见“5G Core LLD文档 > 业务IP对接设计 > 业务IP设计 > 子网掩码”。 |  |
+| **SET BFD** | 激活BFD（BFDENABLE） | TRUE | 参见“5G Core LLD文档 > 路由设计 > 其他路由设计信息 > BFD设计 > BFD是否使能”。 | 参数“DELAYUPTIMER”（会话延迟UP时间）和“TOSEXP”（动态会话报文优先级）可以不用配置，使用默认值即可。 |
+| **ADD OSPF** | OSPF进程号(PROCID) | 6 | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > OSPF设计 > Process ID(VNF)”。 | - |
+|  | VPN的名称(VRFNAME) | VPN\_Access | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > OSPF设计 > VRF名称(VNF)”。 |  |
+|  | Schema路由器标识(SCHEMAROUID) | 192.168.35.210 | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > OSPF设计 > Router ID(VNF)”。 |  |
+|  | 使能BFD（BFDALLINTFFLG） | TRUE | 参见“5G Core LLD文档 > 路由设计 > 其他路由设计信息 > BFD设计 > BFD是否使能”。 |  |
+| **ADD OSPFAREA** | 区域号（AREAID） | 0.0.0.5 | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > OSPF设计 > Area ID(VNF)”。 | 两个接口若要建立邻居关系，则Area ID必须相同。 |
+|  | 区域类型(AREATYPE) | NSSA | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > OSPF设计 > Area Type(VNF)”。 | 两个接口若要建立邻居关系，则Area Type必须相同。 |
+| **ADD OSPFNETWORK** | OSPF进程号(PROCID) | 6 | 已规划数据中获取 | “IPADDRESS”和“WILDCARDMASK”是在指定OSPF区域内的外联口所在的网段。  “WILDCARDMASK”是反掩码，相当于把IP地址的掩码反转（0变1，1变0）。 |
+|  | 区域号（AREAID） | 0.0.0.5 | 已规划数据中获取 |  |
+|  | 网段IP地址（IPADDRESS） | 192.168.89.0  192.168.89.8 | 已规划数据中获取 |  |
+|  | 反掩码（WILDCARDMASK） | 0.0.0.7 | 已规划数据中获取 |  |
+| **ADD OSPFIMPORTROUTE** | 拓扑标识（TOPOID） | 0 | - | - |
+|  | 协议分类 （PROTOCOL） | wlr | 参见“5G Core LLD文档 > 路由设计 > 5G Core路由设计 > OSPF设计 > Import Route类型”。 |  |
+| **ADD INTERFACE** | 接口名（IFNAME） | LoopBack605 | 本端规划 | Loopback接口数据。  **ADD OSPFAREA**命令中的“区域类型(AREATYPE)”为“NSSA”时需要规划；“区域类型(AREATYPE)”为“Normal”时不需要规划。 |
+| **ADD IPBINDVPN** | 接口名（IFNAME） | LoopBack605 | 已规划数据中获取 |  |
+|  | VPN的名称(VRFNAME) | VPN\_Access |  |  |
+| **ADD IFIPV4ADDRESS** | 接口名（IFNAME） | LoopBack605 | 已规划数据中获取 |  |
+|  | 接口IPv4地址（IFIPADDR） | 192.168.235.130 | 参见“5G Core LLD文档 > 业务IP对接设计 > LoopBack IP设计”。 |  |
+|  | 接口IPv4地址掩码（SUBNETMASK） | 255.255.255.255 | 固定取值 |  |
+| **ADD OSPFINTERFACE** | OSPF进程号(PROCID) | 6 | 已规划数据中获取 |  |
+|  | 区域号（AREAID） | 0.0.0.5 |  |  |
+|  | 接口名（IFNAME） | LoopBack605 |  |  |
+
+文档
+
+获取网设LLD文档。
+
+## 操作步骤
+
+1. 配置外联口的VPN实例。
+
+   ```
+   ADD L3VPNINST:VRFNAME="VPN_Access";
+   ADD VPNINSTAF:VRFNAME="VPN_Access",AFTYPE=ipv4uni;
+   ```
+
+   一条通信路径上所有节点绑定的VPN实例要一致，才能正常通信，例如VNF逻辑接口、VNF外联口、网关上的VPN，否则从逻辑接口发出去的报文会查询路由失败。
+2. Ethernet子接口组网时，配置外联口IP地址。Eth-trunk子接口组网时，请跳过本步骤。
+
+   1. 查询接口名，确认可使用的外联口的接口类型和接口编号。
+
+      ```
+      LST INTERFACE:;
+      ```
+   2. 配置主接口的管理状态为up。
+
+      ```
+      MOD INTERFACE:IFNAME="100GE66/0/9",IFADMINSTATUS=up;
+      MOD INTERFACE:IFNAME="100GE67/0/9",IFADMINSTATUS=up;
+      ```
+   3. 配置以太网子接口。
+
+      ```
+      ADD INTERFACE:IFNAME="100GE66/0/9.1";
+      ADD INTERFACE:IFNAME="100GE67/0/9.1";
+      ```
+   4. 增加接口绑定VPN。
+
+      ```
+      ADD IPBINDVPN:IFNAME="100GE66/0/9.1",VRFNAME="VPN_Access";
+      ADD IPBINDVPN:IFNAME="100GE67/0/9.1",VRFNAME="VPN_Access";
+      ```
+   5. 在以太网子接口上关联VLAN ID。
+
+      ```
+      ADD ETHSUBIF:IFNAME="100GE66/0/9.1",VLANTYPEVID=100;
+      ADD ETHSUBIF:IFNAME="100GE67/0/9.1",VLANTYPEVID=200;
+      ```
+
+      子接口配置了VLAN，则需要在交换机、对接网关上调整VLAN的配置。
+   6. 配置外联口IP地址。
+
+      ```
+      ADD IFIPV4ADDRESS:IFNAME="100GE66/0/9.1",IFIPADDR="192.168.89.2",SUBNETMASK="255.255.255.248";
+      ADD IFIPV4ADDRESS:IFNAME="100GE67/0/9.1",IFIPADDR="192.168.89.10",SUBNETMASK="255.255.255.248";
+      ```
+
+      如果规划外联口使用IPv4v6双栈地址，则分别执行**ADD IFIPV4ADDRESS**和**ADD IFIPV6ADDRESS**对同一外联口配置IPv4和IPv6地址。
+3. Eth-trunk子接口组网时，配置外联口IP地址。Ethernet子接口组网时，请跳过本步骤。
+
+   1. 查询接口名，确认可使用的外联口的接口类型和接口编号。
+
+      ```
+      LST INTERFACE:;
+      ```
+   2. 配置主接口的管理状态为up。
+
+      ```
+      MOD INTERFACE:IFNAME="100GE66/0/9",IFADMINSTATUS=up;
+      MOD INTERFACE:IFNAME="100GE67/0/9",IFADMINSTATUS=up;
+      ```
+   3. 配置以太Trunk接口。
+
+      ```
+      ADD INTERFACE:IFNAME="Eth-trunk1";
+      ```
+   4. 配置Eth-trunk接口的工作模式并添加成员端口。
+
+      ```
+      MOD TRUNKIF:IFNAME="Eth-Trunk1",WORKMODE=Lacp,LEASTACTLINKNUM=1;
+      ADD TRUNKMEMBER:TRUNKIFNAME="Eth-trunk1",MEMBERIFNAME="100GE66/0/9";
+      ADD TRUNKMEMBER:TRUNKIFNAME="Eth-trunk1",MEMBERIFNAME="100GE67/0/9";
+      ```
+   5. 配置以太Trunk子接口。
+
+      ```
+      ADD INTERFACE:IFNAME="Eth-trunk1.1";
+      ```
+   6. 增加接口绑定VPN。
+
+      ```
+      ADD IPBINDVPN:IFNAME="Eth-trunk1.1",VRFNAME="VPN_Access";
+      ```
+   7. 在以太Trunk子接口上关联VLAN ID。
+
+      ```
+      ADD ETHSUBIF:IFNAME="Eth-trunk1.1",VLANTYPEVID=100;
+      ```
+
+      子接口配置了VLAN，则需要在交换机、对接网关上调整VLAN的配置。
+   8. 配置外联口IP地址。
+
+      ```
+      ADD IFIPV4ADDRESS:IFNAME="Eth-trunk1.1",IFIPADDR="192.168.89.2",SUBNETMASK="255.255.255.248";
+      ```
+
+      如果规划外联口使用IPv4v6双栈地址，则分别执行**ADD IFIPV4ADDRESS**和**ADD IFIPV6ADDRESS**对同一外联口配置IPv4和IPv6地址。
+4. 全局激活BFD。
+
+   ```
+   SET BFD: BFDENABLE=TRUE;
+   ```
+5. 配置OSPF路由数据。
+
+   1. 创建OSPF进程。
+
+      ```
+      ADD OSPF:PROCID=6,VRFNAME="VPN_Access",SCHEMAROUID="192.168.35.210",BFDALLINTFFLG=TRUE, LSAARRINTVFLAG=FALSE, LSAARRMAXINTV=1000, LSAARRSTARINTV=500, LSAARRHLDINTV=500,VPNINSCAPSIMFLG=TRUE,VIRTUALSYSFLAG=TRUE;
+      ```
+
+      * VNF支持VPN多实例时，需要取消环路检查（参数“VPNINSCAPSIMFLG”配置为“TRUE”），否则会导致OSPF路由引入失败。
+      * 路由器标识Router ID（“SCHEMAROUID”）的选择策略：优选用户配置的Router ID，如果未配置，则选择OSPF进程所在VRF内或者公网内的最大接口IP地址。
+      * 如果需要为OSPF动态路由绑定BFD会话，则配置参数“BFDALLINTFFLG（使能BFD）”为“TRUE”。
+      * 当OSPF路由配置共网段时，需要将参数“VIRTUALSYSFLAG（OSPF共网段虚拟系统使能标志）”配置为“TRUE”。
+   2. 增加OSPF区域。
+
+      ```
+      ADD OSPFAREA:PROCID=6,AREAID="0.0.0.5", AREATYPE=NSSA, MAXCOSTFLAG=FALSE;
+      ```
+
+      如果参数“AREATYPE（区域类型）”配置为“NSSA”时，需要配置Loopback地址，这样设备会自动选取该Loopback地址作为FA。当有其他设备存在多条开销值相同的路径到NSSA设备时，可以形成负载分担。
+   3. **（可选）**配置OSPF区域认证。
+
+      **ADD OSPFAREAAUTH**: PROCID=进程号, AREAID=区域号, AUTHENMODE=认证模式;
+
+      * 参数“AUTHENMODE”（认证模式），选择“keychain”、“simple”、“md5”、“hmac-sha256”或“hmac-md5”。
+      * 使用区域验证时，一个区域中所有设备的接口上所配置的认证模式和口令必须一致。
+   4. 配置OSPF协议的接口属性。
+      * Ethernet子接口组网场景下：
+
+        ```
+        ADD OSPFINTERFACE:PROCID=6,AREAID="0.0.0.5",IFNAME="100GE66/0/9.1",DRPRI=0,VIRTUALSYSFLAG=TRUE, CFGROUTERIDFLAG=FALSE, MAXCOSTFLAG=FALSE;
+        ADD OSPFINTERFACE:PROCID=6,AREAID="0.0.0.5",IFNAME="100GE67/0/9.1",DRPRI=0,VIRTUALSYSFLAG=TRUE, CFGROUTERIDFLAG=FALSE, MAXCOSTFLAG=FALSE;
+        ```
+      * Eth-trunk子接口组网场景下：
+
+        ```
+        ADD OSPFINTERFACE:PROCID=6,AREAID="0.0.0.5",IFNAME="Eth-trunk1.1",DRPRI=0,VIRTUALSYSFLAG=TRUE, CFGROUTERIDFLAG=FALSE, MAXCOSTFLAG=FALSE;
+        ```
+
+      * 参数“NETWORKTYPE”（网络类型）选择“broadcast”、“nbma”、“p2p”或“p2mp”。
+      * 广播或NBMA网络中，根据此接口优先级选举DR和BDR路由器，“优先级”设置为“0”表示不参与DR和BDR的选举。为避免VNF被选为DR或BDR，建议将VNF“优先级”配置为0，对端配置为非0。
+   5. 增加运行OSPF协议的接口。
+
+      ```
+      ADD OSPFNETWORK:PROCID=6,AREAID="0.0.0.5",IPADDRESS="192.168.89.0",WILDCARDMASK="0.0.0.7";
+      ADD OSPFNETWORK:PROCID=6,AREAID="0.0.0.5",IPADDRESS="192.168.89.8",WILDCARDMASK="0.0.0.7";
+      ```
+   6. **（可选）**配置OSPF接口验证参数。
+
+      根据不同的接口验证类型选择不同的配置。
+
+      * 不配置认证模式。
+
+        **ADD OSPFINTERFACEAUTH**: PROCID=进程号, AREAID=区域号, IFNAME="接口名称", AUTHENMODE=null;
+      * 配置认证模式。
+
+        **ADD OSPFINTERFACEAUTH**: PROCID=进程号, AREAID=区域号, IFNAME="接口名称", AUTHENMODE=认证模式;
+
+        + 参数“AUTHENMODE”（认证模式）可以选择“keychain”、“hmac-sha256”、“simple”、“md5”或“hmac-md5”。
+        + 参数“IFNAME”（接口名称）采用5.d中的接口名称。
+   7. 设置OSPF引入路由类型。
+
+      ```
+      ADD OSPFIMPORTROUTE:PROCID=6,TOPOID=0,PROTOCOL=wlr,IMPTCOSTCFG=FALSE,IMPTTAGCFG=FALSE,IMPTTYPECFG=FALSE;
+      ```
+6. （可选）5中**ADD OSPFAREA**命令的参数“AREATYPE（区域类型）”配置为“NSSA”时，设置Loopback接口。
+
+   1. 配置Loopback接口。
+
+      ```
+      ADD INTERFACE:IFNAME="LoopBack605";
+      ```
+   2. 增加Loopback接口绑定VPN。
+
+      ```
+      ADD IPBINDVPN:IFNAME="LoopBack605",VRFNAME="VPN_Access";
+      ```
+   3. 配置Loopback的IPv4地址。
+
+      ```
+      ADD IFIPV4ADDRESS:IFNAME="LoopBack605",IFIPADDR="192.168.235.130",SUBNETMASK="255.255.255.255",ADDRTYPE=main;
+      ```
+   4. 使能Loopback接口到OSPF进程的区域下。
+      * 通过**ADD OSPFINTERFACE**配置。
+
+        ```
+        ADD OSPFINTERFACE: PROCID=6, AREAID="0.0.0.5", IFNAME="LoopBack605";
+        ```
+      * 通过**ADD OSPFNETWORK**配置。
+
+        ```
+        ADD OSPFNETWORK: PROCID=6, AREAID="0.0.0.5", IPADDRESS="192.168.235.130", WILDCARDMASK="0.0.0.0";
+        ```
+
+      推荐使用**ADD OSPFINTERFACE**命令进行配置。使用**ADD OSPFNETWORK**命令配置时，请将“WILDCARDMASK(反掩码)”设置为“0.0.0.0”。
+
+      参数“PROCID（进程号）”与5中的“PROCID（进程号）”的取值相一致；参数“AREAID（区域号）”与5中的“AREAID（区域号）”的取值相一致。
+
+## 验证方法
+
+1. 查看接口状态及信息是否与规划数据一致。
+
+   ```
+   LST INTERFACE:;
+   ```
+
+   ```
+   LST IFIPV4ADDRESS:;
+   ```
+
+   ```
+   LST IFIPV6ADDRESS:;
+   ```
+
+   ```
+   LST IPBINDVPN:;
+   ```
+
+   * 如果一致，请执行2。
+   * 如果不一致，请先删除错误的配置，然后参考“操作步骤”重新配置。
+2. 调测OSPF动态路由。
+
+   1. 检查接口是否已添加到OSPF区域中。
+
+      **DSP OSPFINTERFACE**: PROCID=OSPF进程号;
+
+      **DSP OSPFV3INTERFACE**: PROCID=OSPFv3进程号;
+
+      * 如果是，请执行2.b。
+      * 如果否，请执行1。
+   2. 检查OSPF邻居状态是否正常。
+
+      邻居应包括邻居设备的ROUTER ID、接口的IP地址以及邻居的状态。
+
+      **DSP OSPFPEER**: PROCID=OSPF进程号;
+
+      **DSP OSPFV3PEER**: PROCID=OSPFv3进程号;
+
+      * 如果是，请执行3。
+      * 如果否，请执行2.c。
+   3. 执行**PING**，查看VNF外联口IP与DCGW接口IP能否互通。
+
+      ```
+      PING:IPVERSION=IPv4,VPNNAME="VPN_Access",DESTIPV4ADDRESS="对端网关地址";
+      ```
+
+      ```
+      PING:IPVERSION=IPv6,VPNNAME="VPN_Access",DESTIPV6ADDRESS="对端网关地址";
+      ```
+
+      * 丢包率为0%，请执行4。
+      * 丢包率不是0%，请检查物理接口及连线是否正常。正常后重新执行2.b。
+3. 检查BFD会话状态是否为up。
+
+   **DSP BFDSESSION**:;
+
+   * 如果状态为up，调测结束。
+   * 如果为其他状态，请执行4。
+4. 收集信息并寻求技术支持。
+
+   1. 执行**EXP MML**命令将当前配置数据导出为MML脚本文件并保存。
+   2. 收集并保存上述所有查询信息。
+   3. 查看并收集对端设备配置及接口状态信息。
+   4. 收集归纳所有信息并联系华为技术支持解决。
+
+版权所有 © 华为技术有限公司

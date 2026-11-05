@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD GPRSLCK",
+  "command_name_zh": "修改GPRS锁",
+  "command_name_full": "修改GPRS锁(MOD GPRSLCK)",
+  "command_function": "该命令用于修改用户GPRS锁的状态。当限制/允许用户使用GPRS网络时，可以使用该命令给用户加锁或解锁：\n\n- 通过加锁，禁止用户PS域的位置更新和GPRS业务的使用，即给用户停机。\n- 通过解锁，恢复用户PS域的位置更新和GPRS业务的使用，即给用户复机。\n\n为了简化业务发放系统的操作，目前GPRS锁的功能已经合入到LCK锁中，而该命令仅适用于“网络接入模式”为“SGSN”或“BOTH”的用户，可以通过**LST NAM**命令查询用户的网络接入模式。\n\n通过该命令给用户加锁，禁止用户PS域位置更新和GPRS业务的使用时：\n\n- 如果**SET MAPSERV**命令中的参数“GPRS用户加锁控制开关”设置为“CANCELLOCATION”，则HLR会向SGSN下发Cancel Location消息，清除SGSN中该用户的相关数据。当该用户之后的PS域位置登记请求上报给HLR，HLR将直接拒绝用户PS域的位置更新请求，通过此方式实现禁止用户PS域位置更新和GPRS业务的使用。\n- 如果**SET MAPSERV**命令中的参数“GPRS用户加锁控制开关”设置为“ROAMINGRESTRICT”，则HLR会向SGSN下发ISD（Insert Subscriber Data）消息插入ODB（Operator Determined Barring）数据，通过ODB业务实现禁止用户PS域位置更新和GPRS业务的使用。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803614",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/lock_management.html",
+        "name": "锁管理",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.15",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803600",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_gprslck.html",
+        "name": "修改GPRS锁(MOD GPRSLCK)",
+        "parentTopicId": "CONCEPT_0190803614",
+        "position": "4.2.3.5.15.3",
+        "parentPosition": "4.2.3.5.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

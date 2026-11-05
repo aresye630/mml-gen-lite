@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD TPLSUB",
+  "command_name_zh": "模板修改用户数据",
+  "command_name_full": "模板修改用户数据（MOD TPLSUB）",
+  "command_function": "**说明** \n\n该命令为运营商定制功能，如需使用请联系华为技术支持获取相关约束后再启用该功能。\n\n该命令用于对一个或多个用户采用模板修改用户签约的业务。为具有同样业务类型的用户修改签约数据时使用。\n\n使用该命令修改用户已签约的业务，即设置“EPS业务标识”参数时，会影响待修改域的业务数据，取值为“TRUE”时：\n\n- 初始化**MOD LCK**命令的“是否提供EPS锁业务”、“是否提供NON3GPP锁业务”参数值。\n- PLMN区域漫游限制、Diameter漫游限制等业务数据，使用本命令模板中配置的数据为用户重新签约。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803175",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/modify_subscriber_data_usermanagement.html",
+        "name": "用户数据修改管理",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.5",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803106",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_tplsub.html",
+        "name": "模板修改用户数据（MOD TPLSUB）",
+        "parentTopicId": "CONCEPT_0190803175",
+        "position": "4.2.3.5.5.1",
+        "parentPosition": "4.2.3.5.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "feature_name": "卸载IPsec服务（UPF）",
+  "feature_description": "当运营商不需要IPsec服务或IPsec服务动态上线失败时，可以单独卸载IPsec pod，从而下线IPsec服务。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244507641",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244507641.html",
+        "name": "UEG软件安装（风筝L）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244505869",
+        "topicUrl": "kite_ml/kite_l_soft_inst/software/vnflcm_kite_l.html",
+        "name": "基于中心VNF LCM安装（虚机容器）",
+        "parentTopicId": "TOPIC_0000001244507641",
+        "position": "3.6",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244345853",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244345853.html",
+        "name": "VNF LCM安装UEG",
+        "parentTopicId": "TOPIC_0000001244505869",
+        "position": "3.6.3",
+        "parentPosition": "3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001237243399",
+        "topicUrl": "kite_ml/kite_l_soft_inst/kitel/common/software/common/software-fs/1_5_0_Uninstallation_VNF.html",
+        "name": "卸载UEG",
+        "parentTopicId": "TOPIC_0000001244345853",
+        "position": "3.6.3.9",
+        "parentPosition": "3.6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001192003490",
+        "topicUrl": "kite_ml/kite_l_soft_inst/kitel/common/software/common/software-fs/1_7_1_Terminating_ipsec.html",
+        "name": "卸载IPsec服务（UPF）",
+        "parentTopicId": "OPI_0000001237243399",
+        "position": "3.6.3.9.1",
+        "parentPosition": "3.6.3.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD ETCSIRESTTPL",
+  "command_name_zh": "增加ETCSI限制模板",
+  "command_name_full": "增加ETCSI限制模板（ADD ETCSIRESTTPL）",
+  "command_function": "该命令用于在UDM中增加一条ETCSI限制模板数据记录。使用该命令，只能在模板中增加一个ETCSI业务键，如果一个模板需要配置多个ETCSI业务键，使用该命令定义一个ETCSI限制模板，然后使用**MOD ETCSIRESTTPL**命令增加多个ETCSI业务键。\n\nUDM在SRI消息处理中通过ETCSI限制模板中的配置数据，判断是否限制下发ETCSI业务给GMSC。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803681",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/etcsiresttpl.html",
+        "name": "ETCSI限制模板管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.57",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803651",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_etcsiresttpl.html",
+        "name": "增加ETCSI限制模板（ADD ETCSIRESTTPL）",
+        "parentTopicId": "CONCEPT_0190803681",
+        "position": "4.2.3.2.57.1",
+        "parentPosition": "4.2.3.2.57",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "command_name": "SET OVERLOADRC",
+  "command_name_zh": "设置判断对端过载的返回码",
+  "command_name_full": "设置判断对端过载的返回码（SET OVERLOADRC）",
+  "command_function": "**适用NF：SGW-C、PGW-C、SMF**\n\n**须知** \n\n本命令属于高危命令，该命令会影响Gx，Gy接口智能流控算法，如果配置错误，会导致流控失效，影响用户接入。配置此值需要慎重。\n\n此命令用来配置Gx，Gy接口智能流控时，判断对端过载的返回码列表。\n\n如果对端网元PCRF或者OCS没有按照协议标准实现，过载时的错误返回码不是3004(Diameter too busy)，此时需要使用此命令配置对端过载时的返回码。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320192",
+        "topicUrl": "MML/LinkedDoc/unc_n_charging_and_policy_interface_management.html",
+        "name": "计费和策略接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.4",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319816",
+        "topicUrl": "MML/LinkedDoc/unc_n_overloadrc.html",
+        "name": "过载返回码",
+        "parentTopicId": "TOPIC_0234320192",
+        "position": "2.10.4.4",
+        "parentPosition": "2.10.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0209896711",
+        "topicUrl": "MML/Document/set_overloadrc.html",
+        "name": "设置判断对端过载的返回码（SET OVERLOADRC）",
+        "parentTopicId": "TOPIC_0234319816",
+        "position": "2.10.4.4.1",
+        "parentPosition": "2.10.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

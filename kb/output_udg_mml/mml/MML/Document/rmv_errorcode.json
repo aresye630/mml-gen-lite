@@ -1,0 +1,131 @@
+{
+  "command_name": "RMV ERRORCODE",
+  "command_name_zh": "删除错误码",
+  "command_name_full": "删除错误码（RMV ERRORCODE）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n此命令用于删除错误码信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315825",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.5",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595874",
+        "topicUrl": "MML/LinkedDoc/udg_n_redirect_control.html",
+        "name": "重定向控制",
+        "parentTopicId": "CONCEPT_0000202289315825",
+        "position": "5.5.5",
+        "parentPosition": "5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876520",
+        "topicUrl": "MML/LinkedDoc/udg_n_redirect_common_parameter_management.html",
+        "name": "重定向公共参数管理",
+        "parentTopicId": "CONCEPT_0000202103595874",
+        "position": "5.5.5.6",
+        "parentPosition": "5.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000208157363126",
+        "topicUrl": "MML/LinkedDoc/udg_n_error_code.html",
+        "name": "错误码",
+        "parentTopicId": "CONCEPT_0000202102876520",
+        "position": "5.5.5.6.2",
+        "parentPosition": "5.5.5.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0209678506",
+        "topicUrl": "MML/Document/rmv_errorcode.html",
+        "name": "删除错误码（RMV ERRORCODE）",
+        "parentTopicId": "CONCEPT_0000208157363126",
+        "position": "5.5.5.6.2.2",
+        "parentPosition": "5.5.5.6.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

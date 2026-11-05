@@ -1,0 +1,103 @@
+{
+  "feature_name": "配置PGW-U到Untrusted Non-3GPP GW的数据（VPN缺省路由组网）",
+  "feature_description": "**说明** \n\n适用于PGW-U。\n\nUDG与ePDG互通，用于WiFi用户接入EPC网络。\n\n- 逻辑接口：Paif接口。\n- 路由：静态路由。\n\n**说明** \n\n虚机容器：\n\n- 当数据流量小于10G时可参考本举例进行P-GW到ePDG的互通部署，当数据流量大于10G时请参考配置PGW-U到Untrusted Non-3GPP GW的数据（VPN+OSPF动态路由组网）（虚机容器）部署。\n- Paif接口需与VPN实例绑定，这样可在VPN实例内配置到ePDG的缺省路由，实现与整机缺省路由的隔离。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317409",
+        "topicUrl": "toctopics/zh-cn_topic_0239317409.html",
+        "name": "基本接入功能",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0270759396",
+        "topicUrl": "toctopics/zh-cn_topic_0270759396.html",
+        "name": "GWFD-010155 Untrusted Non-3GPP网络用户接入",
+        "parentTopicId": "TOPIC_0239317409",
+        "position": "4.12",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0270759399",
+        "topicUrl": "toctopics/zh-cn_opi_0270759399.html",
+        "name": "激活Untrusted Non-3GPP网络用户接入功能",
+        "parentTopicId": "TOPIC_0270759396",
+        "position": "4.12.3",
+        "parentPosition": "4.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0272489253",
+        "topicUrl": "toctopics/zh-cn_opi_0272489253.html",
+        "name": "配置PGW-U到Untrusted Non-3GPP GW的数据（VPN缺省路由组网）",
+        "parentTopicId": "OPI_0270759399",
+        "position": "4.12.3.2",
+        "parentPosition": "4.12.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

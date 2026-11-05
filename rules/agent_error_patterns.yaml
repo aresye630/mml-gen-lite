@@ -1,0 +1,56 @@
+# agent 子进程失败真因识别表
+#
+# 用途：generations_v1.classify_agent_error() 按此表把底层日志尾
+#       （rc=1 / Traceback / HTTP 状态）翻译为**业务错误码 + 用户可读提示**。
+#
+# 口径（用户明确）：
+#   降级/跳过/丢参属内部逻辑不外露；UI 只呈现业务澄清 + 明确成败。
+#   ⇒ 用户可见文案不得含 INTERNAL / rc= / Traceback 等内部信号。
+#   ⇒ 原始日志仍保留在 gen.json error.details.log_tail（供排障），但不进 UI。
+#
+# 匹配：按序 re.search（忽略大小写），首条命中即返回。
+# 维护：新增真因只改此文件，不改代码（数据驱动）。
+
+patterns:
+  # ── 大模型侧 ──
+  - pattern: 'Error code:\s*401|Authentication Fails|invalid.{0,20}api.?key|Unauthorized'
+    code: LLM_AUTH_FAILED
+    hint: '大模型 API Key 无效或未注入。请确认部署时已通过环境变量/密钥文件提供有效 Key。'
+
+  - pattern: 'Error code:\s*429|rate.?limit|too many requests|quota.{0,10}exceed'
+    code: LLM_RATE_LIMITED
+    hint: '大模型接口被限流。请稍后重试，或检查账号配额。'
+
+  - pattern: 'Error code:\s*5\d\d|service unavailable|bad gateway|internal server error'
+    code: LLM_UPSTREAM_ERROR
+    hint: '大模型服务端异常。请稍后重试。'
+
+  - pattern: 'timeout|timed out|TimeoutError|Read timed out'
+    code: LLM_TIMEOUT
+    hint: '大模型调用超时。可重试，或调大超时阈值（INTENT_AGENT_TIMEOUT_S）。'
+
+  - pattern: 'insufficient.{0,15}(balance|credit)|payment required|402'
+    code: LLM_QUOTA_EXHAUSTED
+    hint: '大模型账号余额/额度不足。请充值或更换账号。'
+
+  # ── agent 运行环境侧 ──
+  - pattern: 'No such file or directory|command not found|not found: hermes'
+    code: AGENT_ENV_ERROR
+    hint: 'agent 运行环境异常（缺少依赖或路径）。请联系部署方检查镜像完整性。'
+
+  - pattern: 'Permission denied|EACCES'
+    code: AGENT_PERM_ERROR
+    hint: 'agent 运行权限异常。请联系部署方检查容器权限配置。'
+
+  - pattern: 'No space left on device|Disk quota'
+    code: AGENT_DISK_FULL
+    hint: '磁盘空间不足。请清理后重试。'
+
+  # ── 检索/知识库侧 ──
+  - pattern: 'Milvus|collection not found|no such collection'
+    code: KB_UNAVAILABLE
+    hint: '知识库不可访问。请联系部署方检查向量库状态。'
+
+# 兜底（未命中任何模式）：不在表中，由代码内置返回
+#   code: INTENT_AGENT_FAILED
+#   hint: agent 未能完成本次生成。请重试；若持续失败请联系部署方查看运行日志。

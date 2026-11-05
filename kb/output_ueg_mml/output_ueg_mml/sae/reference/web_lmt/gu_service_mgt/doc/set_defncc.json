@@ -1,0 +1,119 @@
+{
+  "command_name": "SET DEFNCC",
+  "command_name_zh": "设置缺省的NCC模板",
+  "command_name_full": "设置缺省的NCC模板(SET DEFNCC)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成在某些VLR/SGSN下业务呼损，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于设置VLR/SGSN/MME/S4SGSN/NGS缺省的网络能力配置NCC（Network Capability Configuration）模板。\n\n在开局配置本局数据时需要根据运营商要求配置VLR/SGSN/MME/S4SGSN/NGS缺省的NCC模板。操作员通过如下方式可配置缺省NCC模板：\n\n- 设置VLR和SGSN缺省的NCC模板\n\n  该NCC模板可用于指定VLR或SGSN所支持的业务和MAP操作（即MAP版本支持能力）的能力集合。通过执行**ADD NCCTPL**命令预先设置VLR/SGSN的能力集合，然后通过执行**ADD VLRTYP**或**ADD SGSNTYP**命令在配置VLR类型或SGSN类型的同时指定其NCC能力。在进行业务和MAP流程的处理时，HLR使用VLR号码或SGSN号码查询**VLR类型表**/**SGSN类型表**获取到NCC模板，然后根据NCC模板中配置的相应业务的处理方法进行处理。\n\n  由于**VLR类型表**/**SGSN类型表**中可能没有配置所有的VLR号码或SGSN号码，所以会出现使用VLR号码或SGSN号码查询**VLR类型表**/**SGSN类型表**时匹配不上的情况，这样就不能进行网络兼容处理。因此，HLR需要设置VLR或SGSN的缺省NCC模板。当出现VLR号码或SGSN号码与**VLR类型表**/**SGSN类型表**不能匹配而无法获取NCC模板时，则HLR按照缺省NCC模板进行业务和MAP流程的处理。\n- 设置MME和S4SGSN缺省的NCC模板\n\n  该NCC模板用于指定MME或S4SGSN所支持的业务的能力集合。通过执行**ADD NCCTPL**命令预先设置MME/S4SGSN的能力集合，然后通过执行**ADD DPETYPE**命令在配置Diameter对端类型的同时指定其NCC能力。在进行业务的处理时，HSS使用对端身份标识查询**Diameter对端类型表**获取到NCC模板，然后根据NCC模板中配置的相应业务的处理方法进行处理。\n\n  由于**Diameter对端类型表**中可能没有配置所有的对端身份标识，所以会出现使用对端身份标识查询**Diameter对端类型表**时匹配不上的情况，这样就不能进行网络兼容处理。因此，HSS需要设置MME或S4SGSN的缺省NCC模板。当出现对端身份标识与**Diameter对端类型表**不能匹配而无法获取NCC模板时，则HSS按照缺省NCC模板进行业务的处理。\n- 设置NGS缺省的NCC模板\n\n  该NCC模板用于指定NGS所支持的业务的能力集合。通过执行**ADD NGSNCCTPL**命令预先设置NGS的能力集合，然后通过**ADD NGSPETYPE**命令在配置NGS对端类型的同时指定其NCC能力。在进行业务处理时，UDM使用AMF身份类型查询对应的NCC模板，然后根据NCC模板中配置的相应业务的处理方法进行处理。\n\n  由于NGS对端类型表中可能没有配置所有的AMF身份类型标识，所以会出现使用AMF身份类型标识查询NGS对端类型表时匹配不上的情况，这样就不能进行网络兼容处理。如果UDM设置NGS缺省NCC模板，当出现AMF身份类型与NGS对端类型表不能匹配而无法获取NCC模板时，则UDM按照缺省NCC模板进行业务的处理。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803441",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/defncc_management.html",
+        "name": "缺省的NCC模板",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.9",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802616",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_defncc.html",
+        "name": "设置缺省的NCC模板(SET DEFNCC)",
+        "parentTopicId": "CONCEPT_0190803441",
+        "position": "4.2.3.2.9.1",
+        "parentPosition": "4.2.3.2.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "SET NRFNOTIFYPLY",
+  "command_name_zh": "设置NRF通知策略",
+  "command_name_full": "设置NRF通知策略（SET NRFNOTIFYPLY）",
+  "command_function": "**须知** \n\n当NRF通知策略不为“NORMAL”时，相关NF的数据和状态变化不再通知给对应的订阅者，请谨慎操作。\n\n**适用NF：NRF**\n\n该命令用于设置NRF通知策略。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.8",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320337",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_service_parameters.html",
+        "name": "NRF业务参数",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.2.3.3.8.1",
+        "parentPosition": "2.2.3.3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001317233174",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_notification_management.html",
+        "name": "NRF通知管理",
+        "parentTopicId": "TOPIC_0234320337",
+        "position": "2.2.3.3.8.1.7",
+        "parentPosition": "2.2.3.3.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001307649546",
+        "topicUrl": "MML/Document/set_nrfnotifyply.html",
+        "name": "设置NRF通知策略（SET NRFNOTIFYPLY）",
+        "parentTopicId": "TOPIC_0000001317233174",
+        "position": "2.2.3.3.8.1.7.1",
+        "parentPosition": "2.2.3.3.8.1.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

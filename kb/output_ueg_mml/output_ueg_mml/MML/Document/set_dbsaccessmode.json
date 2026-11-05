@@ -1,0 +1,119 @@
+{
+  "command_name": "SET DBSACCESSMODE",
+  "command_name_zh": "设置DBS访问BE模式",
+  "command_name_full": "设置DBS访问BE模式(SET DBSACCESSMODE)",
+  "command_function": "**须知** \n\n该命令属于高危命令，如果访问模式设置不合理，将导致FE访问BE业务失败。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于设置DBS访问BE的模式。\n\n该命令的使用场景：\n\n- 在非冷备FE局点下，DBS需要按照远端location的优先级访问非冷备的BE局点。\n- 在第三DC的冷备UDM局点下，在接管状态下DBS需要访问指定远端location的冷备BE局点。在非接管状态下，DBS不需要访问冷备的BE局点，DBS收到DCI请求需要返回BE全故障错误给FE。FE能够根据错误进行区分处理，避免FE微服务因一直加载不到数据而不停自愈重启。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000204061238893",
+        "topicUrl": "MML/LinkedDoc/udrdbbroker_n_dbs_management.html",
+        "name": "DBS管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.7",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001311125961",
+        "topicUrl": "MML/LinkedDoc/udrdbbroker_n_dbs_access_mode_management.html",
+        "name": "DBS Access Mode管理",
+        "parentTopicId": "CONCEPT_0000204061238893",
+        "position": "2.2.3.7.23",
+        "parentPosition": "2.2.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001311485645",
+        "topicUrl": "MML/Document/set_dbsaccessmode.html",
+        "name": "设置DBS访问BE模式(SET DBSACCESSMODE)",
+        "parentTopicId": "CONCEPT_0000001311125961",
+        "position": "2.2.3.7.23.2",
+        "parentPosition": "2.2.3.7.23",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

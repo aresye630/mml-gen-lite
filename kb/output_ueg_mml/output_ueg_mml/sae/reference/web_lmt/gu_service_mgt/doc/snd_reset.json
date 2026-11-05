@@ -1,0 +1,107 @@
+{
+  "command_name": "SND RESET",
+  "command_name_zh": "发送模拟Reset消息",
+  "command_name_full": "发送模拟Reset消息（SND RESET）",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成全网设备过载、链路拥塞、CPU负荷过载等现象，因此执行该命令前，请详细阅读本命令的联机帮助和注意事项，并评估全网信令处理能力，禁止使用“发送消息的范围”为“ALL”方式对全网进行RESET操作。 操作前务必明确对端网元对IMSI号段方式的RESET支持情况，对于存在不支持的网元，执行本命令时禁止携带“IMSI前缀”参数。如果使用DIAMRRTPL方式发送RESET且DIAMRRTPL模板中DIAMIDENTITYTYPE取值为HOSTNAME，模板中REALMNAME参数必须存在，否则将不会发送RESET。RESET操作将对系统和网络产生重大影响，请务必联系华为技术支持。\n\n此操作用来发送Reset到VLR、Gn/Gp SGSN、MME、S4 SGSN和AAA。\n\n消息可以发送到一个或者几个在相应模板中定义的VLR、Gn/Gp SGSN、MME、S4 SNSN或AAA，或者允许用户漫游的全部VLR、Gn/Gp SGSN、MME、S4 SGSN或AAA。\n\n消息发送到多个VLR/SGSN/MME/S4SGSN/AAA时，系统会按照VLR/SGSN/MME/S4SGSN/AAA号码一个一个的发送，发送速度为20个/s，如果上一个未处理完成，再执行SND RESET命令发送多个VLR/SGSN/MME/S4SGSN/AAA时，会返回已有命令在执行的错误提示。\n\n此操作必须在非繁忙时间进行。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802702",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/network_maintenance.html",
+        "name": "网络维护管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.34",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802554",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/snd_reset.html",
+        "name": "发送模拟Reset消息（SND RESET）",
+        "parentTopicId": "CONCEPT_0190802702",
+        "position": "4.2.3.34.4",
+        "parentPosition": "4.2.3.34",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

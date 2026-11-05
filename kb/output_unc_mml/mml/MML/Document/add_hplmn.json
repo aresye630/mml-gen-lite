@@ -1,0 +1,162 @@
+{
+  "command_name": "ADD HPLMN",
+  "command_name_zh": "增加本地PLMN",
+  "command_name_full": "增加本地PLMN(ADD HPLMN)",
+  "command_function": "**适用网元：SGSN、MME**\n\n此命令用于增加归属PLMN配置信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319761",
+        "topicUrl": "MML/LinkedDoc/unc_n_network_management.html",
+        "name": "网络管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.14",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320182",
+        "topicUrl": "MML/LinkedDoc/unc_n_home_network_operator_management.html",
+        "name": "归属网络运营商管理",
+        "parentTopicId": "TOPIC_0234319761",
+        "position": "2.5.3.14.3",
+        "parentPosition": "2.5.3.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320944",
+        "topicUrl": "MML/LinkedDoc/unc_n_mno_management.html",
+        "name": "MNO管理",
+        "parentTopicId": "TOPIC_0234320182",
+        "position": "2.5.3.14.3.6",
+        "parentPosition": "2.5.3.14.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321095",
+        "topicUrl": "MML/LinkedDoc/unc_n_configuration_of_mno_network.html",
+        "name": "MNO网络配置表",
+        "parentTopicId": "TOPIC_0234320944",
+        "position": "2.5.3.14.3.6.2",
+        "parentPosition": "2.5.3.14.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001126146074",
+        "topicUrl": "MML/Document/add_hplmn.html",
+        "name": "增加本地PLMN(ADD HPLMN)",
+        "parentTopicId": "TOPIC_0234321095",
+        "position": "2.5.3.14.3.6.2.1",
+        "parentPosition": "2.5.3.14.3.6.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

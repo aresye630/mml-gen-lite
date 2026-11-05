@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD CAMELROAMTPL",
+  "command_name_zh": "增加CAMEL漫游模板",
+  "command_name_full": "增加CAMEL漫游模板(ADD CAMELROAMTPL)",
+  "command_function": "该命令用于增加CAMEL漫游模板，通过该命令，可以把一个VLRN号码前缀及其对应的名称添加到CAMEL漫游模板里，使该VLR与UDM具有CAMEL漫游协议。\n\n在HLR中CAMEL漫游协议用于用户在非归属网络漫游，当用户发起位置更新时控制O-CSI，在用户做被叫的SRI流程中控制T-CSI的下发。\n\n- 控制O-CSI下发\n\n  通过该命令将**VLR号码前缀**添加到CAMEL漫游协议模板中，就认为该VLR与HLR有漫游协议。然后通过**ADD OCSITPL**命令设置CAMEL业务的支持能力，包括与某VLR是否有CAMEL漫游协议。当用户漫游出归属网络并向网络发起位置更新请求，用户的归属HLR要根据此VLR号码前缀来判断是否限制对O-CSI数据的下发。\n- 控制T-CSI下发\n\n  通过该命令将**VLR号码**添加到CAMEL漫游协议模板中，就认为该VLR与HLR有漫游协议。然后通过**ADD TCSITPL**命令设置CAMEL业务的支持能力，包括与某VLR是否有CAMEL漫游协议。当用户在非归属网络漫游做被叫时用户的归属HLR要根据此VLR号码判断是否限制对T-CSI数据的下发。\n\n  - 当用户在网时不下发T-CSI数据。\n  - 当用户不在网时，当**SET MAPCONF**命令设置的“不在网时是否抑制TCSI功能”参数为“TRUE”（抑制），则不下发T-CSI数据；当**SET MAPCONF**命令设置的“不在网时是否抑制TCSI功能”参数为“FALSE”（不抑制），则下发T-CSI数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803363",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/camelroam_template.html",
+        "name": "CAMEL漫游协议模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.20",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803680",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_camelroamtpl.html",
+        "name": "增加CAMEL漫游模板(ADD CAMELROAMTPL)",
+        "parentTopicId": "CONCEPT_0190803363",
+        "position": "4.2.3.6.20.1",
+        "parentPosition": "4.2.3.6.20",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,72 @@
+# 主键参数表（数据外置，供 agent_projection / gen_selfcheck 共用）
+#
+# 背景：
+#   这两张表原本硬编码在 Python 里，且分散在 4 处
+#   （agent_projection.KEY_PARAMS ×2、_PRIMARY_FIRST，
+#     gen_selfcheck.G11_KEY_PARAMS、G11_PRIMARY_KEY_PARAMS），
+#   内容重复且不一致 —— 改一处忘另一处，是批量展开反复出错的结构性原因。
+#
+# 来源：命令文档的参数表（MML 语法定义的参数名），**不是 GT**，生产时可得。
+#   核验：MAPPINGNAME 出现在 3 个命令文档、FILTERNAME 20 个、RULENAME 35 个。
+#
+# 分两类：
+#   object_key   对象定义型主键（该命令**定义**的对象名）—— 优先用它做实例标识
+#   ref_key      引用型参数（引用别处已定义的对象）—— 一般不作为唯一标识
+#
+# 选取规则（写进代码逻辑，不写死参数名）：
+#   同一命令族有多个候选主键时，**按意图里该参数的唯一值数选最多的那个**
+#   （唯一值多的才是真正区分对象的；唯一值 = 1 说明是共享引用）
+
+object_key:
+  # 地址池 / 组映射链
+  - MAPPINGNAME
+  - POOLGRPNAME
+  - POOLGROUPNAME
+  - POOLNAME
+  - SECTIONNAME
+  - GROUPNAME
+  # 计费 / 策略链
+  - URRGROUPNAME
+  - URRNAME
+  - RULENAME
+  - POLICYNAME
+  - PCCPOLICYGRPNM
+  - PCCPOLICYGRPNAME
+  # 过滤链
+  - FLOWFILTERNAME
+  - FILTERNAME
+  - ACLNAME
+  # 会话 / 模板
+  - PROFILENAME
+  - USERPROFILENAME
+  - USRPROFNM
+  - TEMPLATENAME
+  - SERVERNAME
+  - HOSTNAME
+  - NFINSTANCENAME
+  - PCSCFGRPNAME
+  - SNSSAINAME
+  - WORKERNAME
+  - TNLNAME
+  - AREANAME
+  - LICITEM
+  - INDEX
+
+ref_key:
+  # 接口 / 隧道
+  - IFNAME
+  - VPNINSTANCE
+  - VPNINSTANCEIPV6
+  # VRF / VPN
+  - VRFNAME
+  - L3VPNNAME
+  - DESTVRFNAME
+  - SRCVRFNAME
+  # 接入标识
+  - APN
+  - DNN
+  - APNNAME
+
+# G11（主键唯一性）用的检查范围：
+#   只看 object_key（引用型参数在多条命令里相同是正常的）
+g11_check_keys: object_key

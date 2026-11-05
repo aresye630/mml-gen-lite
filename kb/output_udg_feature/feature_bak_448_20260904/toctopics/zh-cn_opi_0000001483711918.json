@@ -1,0 +1,81 @@
+{
+  "feature_name": "激活NSH头增强",
+  "feature_description": "当需要将用户信息通过NSH封装方式传递给第三方APP时，需要部署此功能。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD52ECB9C45BE4578ABD76437A1B7D91A",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002186980998",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG头增强功能专题",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_8e58fbe5-51c1-44f6-8549-4ba1db99822f",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_8e58fbe5-51c1-44f6-8549-4ba1db99822f"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "pid_shortdesc": "介绍头增强功能的背景、应用场景，头增强功能的方式以及配置调测等内容。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980998",
+        "topicId": "TOPIC_0000001534031913",
+        "topicUrl": "toctopics/zh-cn_topic_0000001534031913.html",
+        "name": "NSH头增强功能",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980998",
+        "topicId": "OPI_0000001483711918",
+        "topicUrl": "toctopics/zh-cn_opi_0000001483711918.html",
+        "name": "激活NSH头增强",
+        "parentTopicId": "TOPIC_0000001534031913",
+        "position": "7.2",
+        "parentPosition": "7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

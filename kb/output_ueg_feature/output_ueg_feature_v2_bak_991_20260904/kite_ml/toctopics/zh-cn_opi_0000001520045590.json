@@ -1,0 +1,180 @@
+{
+  "feature_name": "配置N4接口数据",
+  "feature_description": "**接口介绍**\n\nN4接口是SMF与UPF之间的接口，用于传输SMF和UPF间的控制面及用户面信息，通过该接口使控制面和用户面配合完成用户面规则下发和隧道建立功能。\n\nN4接口协议栈如图1所示。\n\n**图1** N4接口协议栈\n\n**说明** \n\n- PFCP（Packet Forwarding Control Protocol）：SMF与UPF间控制面的数据转发协议。\n- GTP-U（GPRS Tunnelling Protocol for the user plane）：利用隧道协议在骨干网的GSN间传输用户数据，使用隧道协议传输数据，屏蔽上层协议影响，同时提供会话级的双向快速传输通道。GTP协议用户面除数据包外，还包括数据传输出错指示、支持的扩展头列表等用户面传输辅助信令。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001205009171",
+        "topicUrl": "kitem_smf_conf.html",
+        "name": "配置SMF",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.12",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001520045590_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001520045590.html",
+        "name": "配置N4接口数据",
+        "parentTopicId": "TOPIC_0000001205009171",
+        "position": "4.5.12.1",
+        "parentPosition": "4.5.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001341564366",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001341564366.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001627081458",
+        "topicUrl": "kite_ml/kitem_conf_ref_cloud.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001341564366",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001626761594",
+        "topicUrl": "kite_ml/kitem_smf_conf_cloud.html",
+        "name": "配置SMF",
+        "parentTopicId": "TOPIC_0000001627081458",
+        "position": "4.3.8",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001520045590_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001520045590.html",
+        "name": "配置N4接口数据",
+        "parentTopicId": "TOPIC_0000001626761594",
+        "position": "4.3.8.1",
+        "parentPosition": "4.3.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

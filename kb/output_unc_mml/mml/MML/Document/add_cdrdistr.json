@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD CDRDISTR",
+  "command_name_zh": "增加话单分发",
+  "command_name_full": "增加话单分发（ADD CDRDISTR）",
+  "command_function": "**适用NF：NCG**\n\n该命令用于配置第二份最终话单的分发任务，包括话单分发的方式、采用的协议、计费中心（本文档中又称BS（Billing System））IP地址等信息。\n\nCG支持PULL和PUSH两种方式分发话单到计费中心（本文档中又称BS（Billing System））。\n\n- PULL方式\n\n  在CG的每对RU上开放第二份最终话单文件的存放目录给计费中心获取。大多数情况下，CG开放第二份最终话单的默认存储目录给计费中心获取。少数情况下，有局点要求在本地磁盘上新建一个目录，将默认存储路径下的第二份最终话单先备份到该目录下，然后开放此目录给计费中心获取。\n- PUSH方式\n\n  CG采用FTP或者SFTP协议主动将话单分发到计费中心指定目录下。\n\n不同的分发方式的准备工作，请参见表1。\n\n| 传输协议   | 传输方式   | 传输方式.1   | CG侧的准备工作                                                                                                                                                             | BS侧的准备工作                                                                                                                                                           |\n|:-------|:-------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| FTP    | PULL   | PULL     | CG作为FTP的服务器端。需准备的工作如下：根据现网规划，获取CG每对RU上用于提供给计费中心取话单的IP地址。开放给BS的用户名、密码、开放给BS的路径，然后知会BS。                                                                                | BS作为FTP的客户端。                                                                                                                                                       |\n| FTP    | PUSH   | PUSH     | CG作为FTP的客户端。需准备的工作如下： 根据现网规划，获取CG每对RU上用于分发话单的主IP地址。获取BS侧的FTP用户和密码。获取当前局点的特殊分发要求。例如，不同通道下的话单有不同的分发规则，或者各通道下的话单是否分发到不同的BS。此要求确定了CG每对RU上的分发任务个数。                        | BS作为FTP的服务器端。需准备的工作如下： 根据现网规划，BS侧开放主IP地址供CG分发话单。开放一个话单存放目录给CG。创建一个FTP用户，并设置此用户的主目录为话单存放目录，具备读写权限。CG采用此用户分发话单到BS的相应目录下。  说明： 要求FTP服务器端的连接超时时长大于等于900秒。              |\n| SFTP   | PULL   | 密码方式     | CG作为SFTP的服务器端。需准备的工作如下：根据现网规划，获取CG每对RU上用于提供给计费中心取话单的IP地址。开放给BS的用户名、密码、开放给BS的路径，然后知会BS。                                                                               | BS作为SFTP的客户端。                                                                                                                                                      |\n| SFTP   | PULL   | 密钥方式     | CG作为SFTP的服务器端。需准备的工作如下：根据现网规划，获取CG每对RU上用于提供给计费中心取话单的IP地址。开放给BS的用户名、密码、开放给BS的路径，然后知会BS。根据UNC（NCG）产品文档中的“计费中心为Linux环境时SFTP密钥方式PULL分发任务配置指南”生成密钥文件，并完成公钥文件的追加。          | BS作为SFTP的客户端。需准备的工作如下：获取CG生成的私钥文件。                                                                                                                                 |\n| SFTP   | PUSH   | 密码方式     | 与FTP的PUSH方式下的准备工作相同。                                                                                                                                                 | 与FTP的PUSH方式下的准备工作相同。  说明： 要求SFTP服务器端的连接超时时长大于等于900秒。                                                                                                               |\n| SFTP   | PUSH   | 密钥方式     | CG作为SFTP的客户端。需准备的工作如下： 根据现网规划，获取CG每对RU上用于分发话单的主IP地址。获取BS侧的SFTP用户和密码。执行“上传SFTP密钥文件到BS侧”操作。获取当前局点的特殊分发要求。例如，不同通道下的话单有不同的分发要求，或者各通道下的话单是否分发到不同的BS。此要求确定了CG每对RU上的分发任务个数。 | BS作为SFTP的服务器端。需准备的工作如下： 根据现网规划，BS侧开放主IP地址到CG取话单。开放一个目录给CG，此目录存放最终话单和私钥文件。创建一个SFTP用户，并设置此用户的主目录为话单存放目录，具备读写权限。CG采用此用户分发话单到BS的相应目录下。  说明： 要求SFTP服务器端的连接超时时长大于等于900秒。 |",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0245490879",
+        "topicUrl": "MML/LinkedDoc/unc_n_ncg_service_and_policy_management.html",
+        "name": "NCG业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.11",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174227",
+        "topicUrl": "MML/LinkedDoc/unc_n_cloudcg_management.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0245490879",
+        "position": "2.11.5",
+        "parentPosition": "2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174228",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_configuration_management.html",
+        "name": "业务配置管理",
+        "parentTopicId": "CONCEPT_0251174227",
+        "position": "2.11.5.1",
+        "parentPosition": "2.11.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174250",
+        "topicUrl": "MML/LinkedDoc/unc_n_cdr_distribution.html",
+        "name": "话单分发",
+        "parentTopicId": "CONCEPT_0251174228",
+        "position": "2.11.5.1.6",
+        "parentPosition": "2.11.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174254",
+        "topicUrl": "MML/Document/add_cdrdistr.html",
+        "name": "增加话单分发（ADD CDRDISTR）",
+        "parentTopicId": "CONCEPT_0251174250",
+        "position": "2.11.5.1.6.1",
+        "parentPosition": "2.11.5.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

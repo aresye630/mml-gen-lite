@@ -1,0 +1,162 @@
+// ============================================================================
+// 湖南广电 新增内容计费配置  ——  可执行 MML 脚本
+// 网元：UDG（PGW-U / UPF）     会话：20261105_UDG_uploadte_f0e6
+//
+// 依据文档：
+//   doc:内容计费  = F348《配置内容计费》toctopics/zh-cn_opi_0000002442165136.md
+//   doc:HTTP防欺诈 = 《配置HTTP计费防欺诈（不能获取Server IP）》cdgw/ic/cn_20_110317_11_03_new111.md
+//   doc:L7FILTER   = MML 命令文档 add_l7filter.md
+//   doc:FILTER     = MML 命令文档 add_filter.md
+//   doc:ADD HOST   = MML 命令文档 add_host.md
+//   doc:URR        = MML 命令文档 add_urr.md
+//   doc:URRGROUP   = MML 命令文档 add_urrgroup.md
+//   doc:PCCPOLICYGRP = MML 命令文档 add_pccpolicygrp.md
+//   doc:RULE       = MML 命令文档 add_rule.md
+// plan:数据规划   = 数据规划.xlsx（Sheet 域名清单 / URR规划）
+// plan:域名规划   = 域名规划.csv
+// plan:需求说明   = 需求说明.md（计费按流量、与SMF/PCF命名一致）
+//
+// 命名说明（本次无 EXP 快照，命名取自 plan/用户规划 + 文档示例派生）：
+//   HOST / FILTER / FLOWFILTER / L7FILTER 前缀 hngd_00_（湖南广电 hngd + 局点 00），
+//   以 L7FILTER 的 "domain" 后缀标明按域名识别。
+//   URR / URRGROUP / PCCPOLICYGRP / RULE 直接沿用规划的 URRNAME，并按文档
+//   F348 命名结构 common_01_* 派生为 hngd_00_cbb_online / hngd_00_ch_p /
+//   hngd_00_pcc_p_g / hngd_00_r，保证与 SMF/PCF 侧名称一致（需求说明:3）。
+//
+// 【重要】现网已有 66 个域名及其对象（见 需求说明.md），本脚本只配本次新增的
+//   3 个域名相关对象。Phase 4/5 的 URR、URR组、PCC策略组、RULE、USERPROFILE
+//   需先按"查重说明"核对现网是否存在同名对象，已存在则跳过。
+// ============================================================================
+
+
+// ===== Phase 1：HOST（域名规划 3 个，一个域名一个 HOST）=====================
+// DOCV-1 PRIORITY 取 30000/30010/30020：ADD HOST 文档要求同一域名类 Host 显式
+// 指定不同优先级（优先级相同无法保证重启后顺序）；同一 hngd_00_ 局点按 10 递增
+// 便于后续插入。HOSTNAME 取值范围 1~63、DOMAINVALUE 1~63，均满足。
+ADD HOST:HOSTNAME="hngd_00_h_video", DOMAINVALUE="video.hncatv.com", PRIORITY=30000;   // @src=plan:域名规划#1 video.hncatv.com；PRIORITY @src=infer 同一局点HOST优先级按10递增，首条30000
+ADD HOST:HOSTNAME="hngd_00_h_live",  DOMAINVALUE="live.hncatv.com",  PRIORITY=30010;   // @src=plan:域名规划#2 live.hncatv.com；PRIORITY @src=infer 上一优先级+10
+ADD HOST:HOSTNAME="hngd_00_h_vod",   DOMAINVALUE="vod.hncatv.com",   PRIORITY=30020;   // @src=plan:域名规划#3 vod.hncatv.com；PRIORITY @src=infer 上一优先级+10
+
+
+// ===== Phase 2：FILTER + FLOWFILTER + 绑定（每个域名一套）====================
+// 三四层：业务为视频/直播/点播，承载协议通常为 TCP；若局点确认走 UDP/QUIC 或
+// 非 80/443 端口，需改 L34PROTOCOL/SVRSTARTPORT 后重下。
+// 依据：doc:内容计费 用 L34PROTTYPE=STRING、L34PROTOCOL=ANY；ADD HOST 文档说明
+// HOST 只有配合 Filter 的 SVRIPMODE=HOSTNAME 才能替换成学习到的真实 SVRIP。
+// 此处收窄为 TCP + 80/443，避免 ANY 全部端口导致 Host 学习面过大（ADD HOST
+// 注意事项：DOMAINVALUE 覆盖过大会误存大量 Server IP，耗尽内部资源）。
+
+// -- video.hncatv.com --
+ADD FILTER:FILTERNAME="hngd_00_f_video", L34PROTTYPE=STRING, L34PROTOCOL=TCP, SVRIPMODE=HOSTNAME, HOSTNAME="hngd_00_h_video", SVRSTARTPORT=80, SVRENDPORT=80;    // @src=doc:add_filter.md:L72 参数集（L34PROTTYPE/L34PROTOCOL/SVRIPMODE/HOSTNAME/SVRSTARTPORT 用法同 L72 示例）；SVRIPMODE=HOSTNAME @src=doc:HTTP防欺诈:L153；端口 @src=intent:视频类HTTP业务80
+ADD FILTER:FILTERNAME="hngd_00_f_video", L34PROTTYPE=STRING, L34PROTOCOL=TCP, SVRIPMODE=HOSTNAME, HOSTNAME="hngd_00_h_video", SVRSTARTPORT=443, SVRENDPORT=443;  // @src=doc:add_filter.md:L72 参数集；SVRIPMODE=HOSTNAME @src=doc:HTTP防欺诈:L153；端口 @src=intent:视频类HTTPS业务443
+ADD FLOWFILTER:FLOWFILTERNAME="hngd_00_ff_video", TETHERDETFLAG=NONE, FLOWFILTERTYPE=USERCONFIG;                                                              // @src=doc:内容计费:L78 FLOWFILTERTYPE=USERCONFIG；TETHERDETFLAG=NONE @src=doc:add_flowfilter.md:TETHERDETFLAG 配置原则"不关注Tethering属性建议NONE"
+ADD FLTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_video", FILTERNAME="hngd_00_f_video";                                                                            // @src=doc:add_fltbindflowf.md:L38
+ADD L7FILTER:L7FILTERNAME="hngd_00_l7_video", SUBL7FLTNAME="video", URL="video.hncatv.com", URLTYPE=HOST;                                                     // @src=doc:add_l7filter.md:L84 URLTYPE 支持 HOST；域名 @src=plan:域名规划#1
+ADD PROTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_video", PROTOCOLNAME="http", L7FILTERNAME="hngd_00_l7_video";                                                    // @src=doc:add_protbindflowf.md:L41
+ADD PROTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_video", PROTOCOLNAME="https", L7FILTERNAME="hngd_00_l7_video";                                                   // @src=doc:add_protbindflowf.md:L41 同参数集；协议 https @src=intent:HTTPS承载
+
+// -- live.hncatv.com --
+ADD FILTER:FILTERNAME="hngd_00_f_live", L34PROTTYPE=STRING, L34PROTOCOL=TCP, SVRIPMODE=HOSTNAME, HOSTNAME="hngd_00_h_live", SVRSTARTPORT=80, SVRENDPORT=80;       // @src=doc:add_filter.md:L72 参数集；SVRIPMODE=HOSTNAME @src=doc:HTTP防欺诈:L153；端口 @src=intent:直播类HTTP 80
+ADD FILTER:FILTERNAME="hngd_00_f_live", L34PROTTYPE=STRING, L34PROTOCOL=TCP, SVRIPMODE=HOSTNAME, HOSTNAME="hngd_00_h_live", SVRSTARTPORT=443, SVRENDPORT=443;     // @src=doc:add_filter.md:L72 参数集；SVRIPMODE=HOSTNAME @src=doc:HTTP防欺诈:L153；端口 @src=intent:直播类HTTPS 443
+ADD FLOWFILTER:FLOWFILTERNAME="hngd_00_ff_live", TETHERDETFLAG=NONE, FLOWFILTERTYPE=USERCONFIG;                                                                // @src=doc:内容计费:L78
+ADD FLTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_live", FILTERNAME="hngd_00_f_live";                                                                               // @src=doc:add_fltbindflowf.md:L38
+ADD L7FILTER:L7FILTERNAME="hngd_00_l7_live", SUBL7FLTNAME="live", URL="live.hncatv.com", URLTYPE=HOST;                                                        // @src=doc:add_l7filter.md:L84；域名 @src=plan:域名规划#2
+ADD PROTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_live", PROTOCOLNAME="http", L7FILTERNAME="hngd_00_l7_live";                                                      // @src=doc:add_protbindflowf.md:L41
+ADD PROTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_live", PROTOCOLNAME="https", L7FILTERNAME="hngd_00_l7_live";                                                     // @src=doc:add_protbindflowf.md:L41；协议 https @src=intent:HTTPS承载
+
+// -- vod.hncatv.com --
+ADD FILTER:FILTERNAME="hngd_00_f_vod", L34PROTTYPE=STRING, L34PROTOCOL=TCP, SVRIPMODE=HOSTNAME, HOSTNAME="hngd_00_h_vod", SVRSTARTPORT=80, SVRENDPORT=80;         // @src=doc:add_filter.md:L72 参数集；SVRIPMODE=HOSTNAME @src=doc:HTTP防欺诈:L153；端口 @src=intent:点播类HTTP 80
+ADD FILTER:FILTERNAME="hngd_00_f_vod", L34PROTTYPE=STRING, L34PROTOCOL=TCP, SVRIPMODE=HOSTNAME, HOSTNAME="hngd_00_h_vod", SVRSTARTPORT=443, SVRENDPORT=443;       // @src=doc:add_filter.md:L72 参数集；SVRIPMODE=HOSTNAME @src=doc:HTTP防欺诈:L153；端口 @src=intent:点播类HTTPS 443
+ADD FLOWFILTER:FLOWFILTERNAME="hngd_00_ff_vod", TETHERDETFLAG=NONE, FLOWFILTERTYPE=USERCONFIG;                                                                  // @src=doc:内容计费:L78
+ADD FLTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_vod", FILTERNAME="hngd_00_f_vod";                                                                                  // @src=doc:add_fltbindflowf.md:L38
+ADD L7FILTER:L7FILTERNAME="hngd_00_l7_vod", SUBL7FLTNAME="vod", URL="vod.hncatv.com", URLTYPE=HOST;                                                             // @src=doc:add_l7filter.md:L84；域名 @src=plan:域名规划#3
+ADD PROTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_vod", PROTOCOLNAME="http", L7FILTERNAME="hngd_00_l7_vod";                                                        // @src=doc:add_protbindflowf.md:L41
+ADD PROTBINDFLOWF:FLOWFILTERNAME="hngd_00_ff_vod", PROTOCOLNAME="https", L7FILTERNAME="hngd_00_l7_vod";                                                       // @src=doc:add_protbindflowf.md:L41；协议 https @src=intent:HTTPS承载
+
+SET REFRESHSRV:REFRESHTYPE=ALL;                                                                                                                                // @src=doc:add_filter.md:注意事项"需执行SET REFRESHSRV后生效"（REFRESHTYPE=USERPROFILE或ALL）；ALL @src=doc:内容计费:L213
+
+
+// ===== Phase 3：URR（按 URR规划 sheet：URRNAME + URRID，计费方式 VOLUME）=====
+// URR 属于全网规划对象，规划已直接给出名称和 URRID，照抄，不做派生。
+// USAGERPTMODE 取 OFFLINE：需求说明只要求"按流量计费"，未说明在线/离线；
+// 现网已有 hngd_00_cbb_offline（URRID 2018011063）说明局点以离线为主线计费，
+// 在线 URR 的 URRID 也在规划中同步给出，故两条均配置。
+// OFFMETERINGTYPE=VOLUME @src=plan:URR规划"计费方式 VOLUME"。
+// RG/SID 未规划 → 不配（默认不配，报表开启时才需要，见 add_urr.md RG 配置原则）。
+ADD URR:URRNAME="hngd_00_cbb_online",  URRID=2018010063, USAGERPTMODE=ONLINE,  ONLMETERINGTYPE=VOLUME;   // @src=plan:URR规划#1 hngd_00_cbb_online/2018010063；VOLUME @src=plan:URR规划计费方式；USAGERPTMODE 由 URRID 段 2018010xxx 判断为在线，名称 _online 一致 @src=plan:URR规划
+ADD URR:URRNAME="hngd_00_cbb_offline", URRID=2018011063, USAGERPTMODE=OFFLINE, OFFMETERINGTYPE=VOLUME;  // @src=plan:URR规划#2 hngd_00_cbb_offline/2018011063；VOLUME @src=plan:URR规划计费方式；USAGERPTMODE 由 URRID 段 2018011xxx 判断为离线，名称 _offline 一致 @src=plan:URR规划
+
+// ===== Phase 4：URR组 / PCC策略组 / RULE（每个域名一套）===================
+// 命名派生：URR组 = <URR前缀>+_ch_p，PCC策略组 = <URR前缀>+_pcc_p_g，RULE = <URR前缀>+_r，
+// 与 F348 文档 common_01_cbb_online / common_01_ch_p / common_01_pcc_p_g / common_01_r
+// 的命名结构一一对应，保证 UDG 与 SMF/PCF 侧对象名可对齐（需求说明:3）。
+// 每个业务 URR组同时挂在线、离线两个 URR：UPURRNAME1/DOWNURRNAME1 用在线上行/下行，
+// UPURRNAME2/DOWNURRNAME2 挂离线（与 F348 L88 的 1=offline/2=online 顺序刻意区分：
+// 本工单 1=online、2=offline，因规划里_online 排第一）。
+// 视频/直播/点播三类均为"按流量计费"，费率（RG）规划未给，URR 侧不填。
+
+// -- PCC策略组（3 个）--
+ADD PCCPOLICYGRP:PCCPOLICYGRPNM="hngd_00_video_pcc_p_g", FUPSESSIONEXC=DISABLE, SIGNALASSOCIATE=ENABLE, URRGROUPNAME="hngd_00_video_ch_p", SIGURRGRPNAME="hngd_00_video_ch_p";   // @src=doc:内容计费:L93 参数集；名称 @src=doc:内容计费:L45 命名结构 common_01_pcc_p_g→hngd_00_video_pcc_p_g
+ADD PCCPOLICYGRP:PCCPOLICYGRPNM="hngd_00_live_pcc_p_g",  FUPSESSIONEXC=DISABLE, SIGNALASSOCIATE=ENABLE, URRGROUPNAME="hngd_00_live_ch_p",  SIGURRGRPNAME="hngd_00_live_ch_p";    // @src=doc:内容计费:L93 参数集；名称 @src=doc:内容计费:L45 同一结构派生（live）
+ADD PCCPOLICYGRP:PCCPOLICYGRPNM="hngd_00_vod_pcc_p_g",   FUPSESSIONEXC=DISABLE, SIGNALASSOCIATE=ENABLE, URRGROUPNAME="hngd_00_vod_ch_p",   SIGURRGRPNAME="hngd_00_vod_ch_p";     // @src=doc:内容计费:L93 参数集；名称 @src=doc:内容计费:L45 同一结构派生（vod）
+
+// -- URR组（3 个，引用 Phase 3 已建的 URR）--
+ADD URRGROUP:URRGROUPNAME="hngd_00_video_ch_p", UPURRNAME1="hngd_00_cbb_online", DOWNURRNAME1="hngd_00_cbb_online", UPURRNAME2="hngd_00_cbb_offline", DOWNURRNAME2="hngd_00_cbb_offline";   // @src=doc:内容计费:L88 参数结构；URR名 @src=plan:URR规划；组名 @src=doc:内容计费:L40 common_01_ch_p→hngd_00_video_ch_p
+ADD URRGROUP:URRGROUPNAME="hngd_00_live_ch_p",  UPURRNAME1="hngd_00_cbb_online", DOWNURRNAME1="hngd_00_cbb_online", UPURRNAME2="hngd_00_cbb_offline", DOWNURRNAME2="hngd_00_cbb_offline";    // @src=doc:内容计费:L88 参数结构；URR名 @src=plan:URR规划；组名 @src=doc:内容计费:L40 同一结构派生（live）
+ADD URRGROUP:URRGROUPNAME="hngd_00_vod_ch_p",   UPURRNAME1="hngd_00_cbb_online", DOWNURRNAME1="hngd_00_cbb_online", UPURRNAME2="hngd_00_cbb_offline", DOWNURRNAME2="hngd_00_cbb_offline";     // @src=doc:内容计费:L88 参数结构；URR名 @src=plan:URR规划；组名 @src=doc:内容计费:L40 同一结构派生（vod）
+
+// -- RULE（3 个，绑定 Phase 2 的 FlowFilter）--
+// PRIORITY 100/110/120：仅对 PCC 用户生效、值越小越优先；取 100 段是为了高于
+// 现网缺省规则（F348 L175 使用 10000 段，L98 兜底规则 65000 段），确保业务域名
+// 规则先于兜底规则命中。具体值需与现网已用优先级比对后确认【待填写：现网已用
+// 优先级区间】——若现网缺省规则占用了 100 段，整体下移。
+ADD RULE:RULENAME="hngd_00_video_r", POLICYTYPE=PCC, FILTERINGMODE=FLOWFILTER, FLOWFILTERNAME="hngd_00_ff_video", PRIORITY=100, POLICYNAME="hngd_00_video_pcc_p_g";   // @src=doc:add_rule.md:L83 参数集；名称 @src=doc:内容计费:L48 multi_01_r→hngd_00_video_r；PRIORITY @src=doc:内容计费:L175 量级（需现场核对已用值）
+ADD RULE:RULENAME="hngd_00_live_r",  POLICYTYPE=PCC, FILTERINGMODE=FLOWFILTER, FLOWFILTERNAME="hngd_00_ff_live",  PRIORITY=110, POLICYNAME="hngd_00_live_pcc_p_g";    // @src=doc:add_rule.md:L83 参数集；名称 @src=doc:内容计费:L48 同一结构派生（live）；PRIORITY @src=infer 同一局点按10递增
+ADD RULE:RULENAME="hngd_00_vod_r",   POLICYTYPE=PCC, FILTERINGMODE=FLOWFILTER, FLOWFILTERNAME="hngd_00_ff_vod",   PRIORITY=120, POLICYNAME="hngd_00_vod_pcc_p_g";     // @src=doc:add_rule.md:L83 参数集；名称 @src=doc:内容计费:L48 同一结构派生（vod）；PRIORITY @src=infer 上一优先级+10
+
+
+// ===== Phase 5：USERPROFILE + RULEBINDING + 缺省URR组 =====================
+// 【必须先确认】USERPROFILENAME 是 PCF 下发策略的匹配键，必须与 SMF/PCF 侧
+// 完全一致（doc:内容计费:L17、需求说明:3）。现网已有 66 个域名，若这批业务
+// 复用现网同一批用户模板，则下面 ADD USERPROFILE / ADD RULEBINDING /
+// SET URRGRPBINDING 改为对现网已有 USERPROFILE 追加 3 条 RULEBINDING 即可，
+// 不要新建模板（新建会与 PCF 下发名不一致导致策略不生效）。
+// 若为本次新建独立模板，名称请填【待填写：与SMF/PCF对齐的USERPROFILENAME】。
+ADD USERPROFILE:USERPROFILENAME="【待填写】";                                                                                    // 无依据：用户模板名需与 SMF/PCF 协商，规划未提供
+ADD RULEBINDING:USERPROFILENAME="【待填写】", RULENAME="hngd_00_video_r", POLICYTYPE=PCC;                                        // @src=doc:内容计费:L126 参数集；RULENAME @src=doc:内容计费:L48 命名结构派生
+ADD RULEBINDING:USERPROFILENAME="【待填写】", RULENAME="hngd_00_live_r",  POLICYTYPE=PCC;                                        // @src=doc:内容计费:L126 参数集；RULENAME @src=doc:内容计费:L48 命名结构派生
+ADD RULEBINDING:USERPROFILENAME="【待填写】", RULENAME="hngd_00_vod_r",   POLICYTYPE=PCC;                                        // @src=doc:内容计费:L126 参数集；RULENAME @src=doc:内容计费:L48 命名结构派生
+
+// 每个 UserProfile 都必须配缺省 URR组 + 缺省信令 URR组，否则可能完全不计费
+// （doc:内容计费:L137）。缺省组指向哪个费率由现网兜底规划决定，这里占位。
+SET URRGRPBINDING:USERPROFILENAME="【待填写】", DFTURRGRPNAME="【待填写】", DFTSIGURRGNAME="【待填写】";   // 无依据：缺省URR组由现网兜底费率规划决定
+
+SET REFRESHSRV:REFRESHTYPE=ALL;                                                                                                  // @src=doc:内容计费:L213 业务生效
+
+
+// ============================================================================
+// 【上线前查重（现网已有对象不要重复创建）】逐条执行，有回显则删掉对应的 ADD：
+//   LST HOST:HOSTNAME="hngd_00_h_video";
+//   LST HOST:HOSTNAME="hngd_00_h_live";
+//   LST HOST:HOSTNAME="hngd_00_h_vod";
+//   LST FILTER:FILTERNAME="hngd_00_f_video";
+//   LST FILTER:FILTERNAME="hngd_00_f_live";
+//   LST FILTER:FILTERNAME="hngd_00_f_vod";
+//   LST FLOWFILTER:FLOWFILTERNAME="hngd_00_ff_video";
+//   LST FLOWFILTER:FLOWFILTERNAME="hngd_00_ff_live";
+//   LST FLOWFILTER:FLOWFILTERNAME="hngd_00_ff_vod";
+//   LST L7FILTER:L7FILTERNAME="hngd_00_l7_video";
+//   LST L7FILTER:L7FILTERNAME="hngd_00_l7_live";
+//   LST L7FILTER:L7FILTERNAME="hngd_00_l7_vod";
+//   LST URR:URRNAME="hngd_00_cbb_online";        // 名称/URRID 规划已给定，若现网已有同名须核对 URRID 是否一致
+//   LST URR:URRNAME="hngd_00_cbb_offline";
+//   LST URRGROUP:URRGROUPNAME="hngd_00_video_ch_p";
+//   LST PCCPOLICYGRP:PCCPOLICYGRPNM="hngd_00_video_pcc_p_g";
+//   LST RULE:RULENAME="hngd_00_video_r";
+//   LST USERPROFILE:USERPROFILENAME="...";       // 拿到 PCF 模板名后查
+// 另外核对现网 66 个域名 HOST 是否已含 video/live/vod.hncatv.com（DOMAINVALUE 全网唯一，
+// 重复配置 ADD HOST 会报错）：
+//   LST HOST:DOMAINVALUE="video.hncatv.com";
+//   LST HOST:DOMAINVALUE="live.hncatv.com";
+//   LST HOST:DOMAINVALUE="vod.hncatv.com";
+// ============================================================================

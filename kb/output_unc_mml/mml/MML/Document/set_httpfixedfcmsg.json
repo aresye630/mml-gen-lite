@@ -1,0 +1,126 @@
+{
+  "command_name": "SET HTTPFIXEDFCMSG",
+  "command_name_zh": "设置HTTP指定消息类型固定速率流控信息",
+  "command_name_full": "设置HTTP指定消息类型固定速率流控信息（SET HTTPFIXEDFCMSG）",
+  "command_function": "**须知** \n\n流控阈值设置过低可能会导致流程失败，设置过高可能导致系统不能对消息进行合理流控。\n\n该命令用于设置指定消息类型的固定速率门限，减少其它网元对本网元的冲击，以及本网元对其它网元的冲击。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001183867166",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.12",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001184025724",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_flow_control_management.html",
+        "name": "HTTP流控管理",
+        "parentTopicId": "TOPIC_0000001183867166",
+        "position": "1.12.1",
+        "parentPosition": "1.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001316097470",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_fixed_rate_fl_ent_for_specified_message_types.html",
+        "name": "HTTP指定消息类型固定速率流控管理",
+        "parentTopicId": "TOPIC_0000001184025724",
+        "position": "1.12.1.1",
+        "parentPosition": "1.12.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001184132110",
+        "topicUrl": "MML/Document/set_httpfixedfcmsg.html",
+        "name": "设置HTTP指定消息类型固定速率流控信息（SET HTTPFIXEDFCMSG）",
+        "parentTopicId": "TOPIC_0000001316097470",
+        "position": "1.12.1.1.1",
+        "parentPosition": "1.12.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

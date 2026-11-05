@@ -1,0 +1,138 @@
+{
+  "command_name": "DSP WORKLOAD",
+  "command_name_zh": "查询系统负载",
+  "command_name_full": "查询系统负载(DSP WORKLOAD)",
+  "command_function": "该命令用来查看VNFC下所有ScaleGroup的负载。当前VNFC的负载是由多项指标（内存指标、CPU指标）中取最高值得到的。其中内存指标是业务上报的多个内存相关的百分比中的最高值；CPU指标为对应ScaleGroup下所有RU的CPU占用率的平均值。\n\n该命令在合一KPI模式下使用，在多KPI模式下不使用。查询KPI模式，请通过命令查看。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0231087326",
+        "topicUrl": "MML/LinkedDoc/pfp_n_legacy_monolithic_service_orchestration_management.html",
+        "name": "单体服务编排功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.15",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0231087357",
+        "topicUrl": "MML/LinkedDoc/pfp_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0231087326",
+        "position": "1.15.1",
+        "parentPosition": "1.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0231089528",
+        "topicUrl": "MML/LinkedDoc/pfp_n_resource_management.html",
+        "name": "资源管理",
+        "parentTopicId": "TOPIC_0231087357",
+        "position": "1.15.1.1",
+        "parentPosition": "1.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0231088176",
+        "topicUrl": "MML/LinkedDoc/pfp_n_vm_load_management.html",
+        "name": "VM负载管理",
+        "parentTopicId": "TOPIC_0231089528",
+        "position": "1.15.1.1.10",
+        "parentPosition": "1.15.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0129626911",
+        "topicUrl": "MML/Document/dsp_workload.html",
+        "name": "查询系统负载(DSP WORKLOAD)",
+        "parentTopicId": "TOPIC_0231088176",
+        "position": "1.15.1.1.10.1",
+        "parentPosition": "1.15.1.1.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

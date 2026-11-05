@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD TCSITPL",
+  "command_name_zh": "增加T-CSI模板",
+  "command_name_full": "增加T-CSI模板(ADD TCSITPL)",
+  "command_function": "该命令用于为HLR在配置数据库中增加一条T-CSI（Terminating CAMEL Subscription Information）模板数据记录，根据运营商CAMEL网络的实际情况进行配置，相关参数由运营商提供。用户通过签约T-CSI模板ID签约T-CSI业务。\n\nT-CSI是被叫CAMEL签约信息，在移动用户做被叫的SRI流程，T-CSI数据由HLR传递给GMSC，T-CSI智能业务将被触发。\n\n相对于呼叫普通用户，呼叫签约T-CSI模板的CAMEL用户时，GMSC将向用户归属HLR发起两次SRI（Send Routing Information）请求消息，HLR在第一次SRI响应消息中返回T-CSI数据，然后GMSC在第二次SRI请求消息中带上抑制T-CSI信元（即suppress-T-CSI），HLR检查到该信元后才向用户当前所在VLR取漫游号码，并在第二次SRI响应消息中返回取到的漫游号码。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803320",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/camel_template_configuration.html",
+        "name": "CAMEL模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.15",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803046",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/t_csi_template.html",
+        "name": "T-CSI模板",
+        "parentTopicId": "CONCEPT_0190803320",
+        "position": "4.2.3.6.15.2",
+        "parentPosition": "4.2.3.6.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803336",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_tcsitpl.html",
+        "name": "增加T-CSI模板(ADD TCSITPL)",
+        "parentTopicId": "CONCEPT_0190803046",
+        "position": "4.2.3.6.15.2.1",
+        "parentPosition": "4.2.3.6.15.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

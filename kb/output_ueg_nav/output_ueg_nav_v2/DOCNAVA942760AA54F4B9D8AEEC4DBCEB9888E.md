@@ -1,0 +1,293 @@
+# 5GC toB 部署边缘站点（站点为“风筝S”，带计算）
+
+## 目录内容
+
+- 5GC toB 部署边缘站点（站点为“风筝S”，带计算）
+  - UEG初始配置（风筝S）
+    - 初始配置与调测（MPF）
+      - 初始配置与调测（MPF，SDN）
+        - 参考：详细配置指导
+          - 组网路由配置（共部署）
+            - 配置VNF侧IP路由数据（无NP卡）
+              - 自动部署（推荐）
+                - 配置BGP/MPLS VPN（非SDN_自动）
+                - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+                - 配置静态路由+BFD组网（IPv4）
+                - 配置BGP over 静态路由+BFD（IPv6）
+                - 配置静态路由+BFD组网（IPv6）
+                - 配置BGP over 静态路由+BFD（IPv4）
+              - 手动部署
+                - 配置BGP/MPLS VPN（非SDN_手动）
+                - 配置BGP over 静态路由+BFD（IPv4）
+                - 配置BGP over 静态路由+BFD（IPv6）
+                - 配置静态路由+BFD组网（IPv6）
+                - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+                - 配置静态路由+BFD组网（IPv4）
+                - 配置动态路由OSPFv3+BFD组网（IPv6）
+          - 组网路由配置（独立部署）
+            - 配置VNF侧IP路由（SDN）
+              - BGP over静态路由+BFD (IPv6)
+              - BGP over静态路由+BFD (IPv4)
+              - BGP over静态路由+BFD (IPv4v6)
+            - 配置VNF侧IP路由数据
+              - 自动部署（推荐）
+                - 配置BGP over 静态路由+BFD（IPv4）
+                - 配置静态路由+BFD组网（IPv4）
+                - 配置BGP over 静态路由+BFD（IPv6）
+                - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+                - 配置静态路由+BFD组网（IPv6）
+              - 手动部署
+                - 配置BGP over 静态路由+BFD（IPv6）
+                - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+                - 配置静态路由+BFD组网（IPv6）
+                - 配置静态路由+BFD组网（IPv4）
+                - 配置BGP over 静态路由+BFD（IPv4）
+          - 基础数据配置
+            - 修改网元基本信息
+            - 公共参数配置
+          - 配置MPF
+            - 配置Mp2接口数据
+            - 配置用户下行路由
+            - 配置Nxua接口数据
+            - 配置Mp1接口数据
+          - 修改MTU值
+        - 配置实例（独立部署）
+          - 入驻式或共享式MPF配置实例
+          - 入驻式或共享式MPF配置实例(SDN)
+      - 初始配置与调测（MPF，非SDN）
+        - 配置实例（共部署）
+          - 入驻式或共享式MPF配置实例（共部署）
+    - 初始配置与调测（入驻式UPF）
+      - 初始配置与调测（入驻式边缘UPF，SDN）
+        - 参考：详细配置指导
+          - 组网路由配置
+            - 配置VNF侧IP路由（SDN）
+              - BGP over静态路由+BFD(IPv4)
+              - BGP over静态路由+BFD(IPv4v6)
+              - BGP over静态路由+BFD(IPv6)
+            - 配置VNF侧IP路由数据（NP卡）
+              - 配置BGP over OSPFv3/静态路由+BFD（IPv6）
+              - 配置静态路由+BFD组网（IPv6）
+              - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+              - 配置BGP over OSPF/静态路由+BFD（IPv4）
+              - 配置静态路由+BFD组网（IPv4）
+              - 配置动态路由OSPF+BFD组网（IPv4）
+              - 配置动态路由OSPFv3+BFD组网（IPv6）
+            - 配置VNF侧IP路由数据（无NP卡）
+              - 自动部署（推荐）
+                - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+                - 配置BGP over 静态路由+BFD（IPv4）
+                - 配置静态路由+BFD组网（IPv4）
+                - 配置静态路由+BFD组网（IPv6）
+                - 配置BGP over 静态路由+BFD（IPv6）
+              - 手动部署
+                - 配置静态路由+BFD组网（IPv4）
+                - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+                - 配置静态路由+BFD组网（IPv6）
+                - 配置BGP over 静态路由+BFD（IPv6）
+                - 配置BGP over 静态路由+BFD（IPv4）
+          - 配置UL CL UPF + PSA UPF(主锚点)
+            - 配置Mp2接口数据
+            - 配置N4(N4/Sxa/Sxb)接口数据
+            - 配置VXLAN隧道及分流规则
+            - 配置会话接入数据
+            - 配置Sc/N9c/S5-S/S8-S接口数据
+            - 配置Pa(N9a/S5-P/S8-P/S2b)接口数据
+            - 配置Nxuc接口数据
+            - 配置S11-U接口数据
+            - 配置Sa/N3/S1-U接口数据
+          - 配置主锚点UPF
+            - 配置Mp2接口数据
+            - 配置S11-U接口数据
+            - 配置VXLAN隧道及分流规则
+            - 配置Pa(N9a/S5-P/S8-P/S2b)接口数据
+            - 配置N4(N4/Sxa/Sxb)接口数据
+            - 配置Sa/N3/S1-U接口数据
+            - 配置Nxuc接口数据
+            - 配置会话接入数据
+          - 基础数据配置
+            - 公共参数配置
+            - 修改网元基本信息
+          - 配置UL CL UPF + 辅锚点UPF
+            - 配置Mp2接口数据
+            - 配置Sa/N3/S1-U接口数据
+            - 配置N4(N4/Sxa/Sxb)接口数据
+            - 配置Nxuc接口数据
+            - 配置Sc/N9c/S5-S/S8-S接口数据
+            - 配置VXLAN隧道及分流规则
+            - 配置Pa(N9a/S5-P/S8-P/S2b)接口数据
+            - 配置S11-U接口数据
+            - 配置会话接入数据
+        - 配置实例
+          - 入驻式+UL CL UPF+辅锚点UPF配置实例(含和MPF对接)  (SDN)
+          - 入驻式+主锚点UPF配置实例(含和MPF对接)  (SDN)
+      - 初始配置与调测（入驻式边缘UPF，非SDN）
+        - 配置实例
+          - 入驻式+主锚点UPF配置实例(含和MPF对接)
+          - 入驻式+UL CL UPF+辅锚点UPF配置实例(含和MPF对接)
+          - UL CL UPF +辅锚点UPF配置实例(不和MPF对接)
+          - 入驻式+主锚点UPF配置实例(不和MPF对接)
+    - 初始配置与调测（共享式UPF）
+      - 初始配置与调测（共享式边缘UPF，非SDN）
+        - 配置实例
+          - 主锚点UPF配置实例(不和MPF对接)
+          - 共享式+主锚点UPF配置实例(含和MPF对接)
+      - 初始配置与调测（共享式边缘UPF，SDN）
+        - 参考：详细配置指导
+          - 基础数据配置
+            - 公共参数配置
+            - 修改网元基本信息
+          - 配置主锚点UPF
+            - 配置Mp2接口数据
+            - 配置Pa(N9a/S5-P/S8-P/S2b)接口数据
+            - 配置N4(N4/Sxa/Sxb)接口数据
+            - 配置Sa/N3/S1-U接口数据
+            - 配置会话接入数据
+            - 配置VXLAN隧道及分流规则
+            - 配置Nxuc接口数据
+          - 组网路由配置
+            - 配置VNF侧IP路由数据（NP卡）
+              - 配置静态路由+BFD组网（IPv6）
+              - 配置动态路由OSPFv3+BFD组网（IPv6）
+              - 配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道
+              - 配置BGP over OSPF/静态路由+BFD（IPv4）
+              - 配置动态路由OSPF+BFD组网（IPv4）
+              - 配置BGP over OSPFv3/静态路由+BFD（IPv6）
+              - 配置静态路由+BFD组网（IPv4）
+        - 配置实例
+          - 共享式+主锚点UPF配置实例(含和MPF对接) (SDN)
+  - 配置业务数据（风筝S）
+    - APP集成管理功能
+      - 配置MPF
+        - 激活支持APP带宽管理
+          - 配置动态带宽管理规则
+          - 配置静态带宽管理规则
+        - 激活动态分流规则下发（MPF）
+          - 激活动态分流规则下发
+          - 激活动态分流规则状态
+        - 激活支持APP负载均衡
+        - 激活支持能力开放框架
+        - 激活支持APP认证鉴权
+      - 配置UPF
+        - 激活动态分流规则匹配（UPF）
+        - 激活动态分流规则安装（UPF）
+        - 配置VXLAN隧道及分流规则
+    - 计费功能
+      - 配置基于三四层过滤的内容计费
+      - 配置基于七层解析的内容计费
+    - 带宽控制
+      - 基于PCC预定义规则的带宽控制
+      - 针对HTTP应用基于用户的带宽控制
+      - 基于时间段的带宽控制
+      - 基于用户TOS的带宽控制
+      - 基于用户/用户组/整机三级的带宽控制
+      - 基于用户组TOS的带宽控制
+    - PCC规则
+      - 配置动态PCC功能
+      - 配置本地PCC功能
+  - UEG软件安装（风筝S）
+    - 安装UPF和MPF（共部署）
+      - 基于VNF LCM安装UEG（UPF和MPF共部署）
+        - 卸载UEG
+          - 一键式下线NAT服务（UPF）
+          - 卸载NAT服务（UPF）
+          - 一键式下线IPSec服务（UPF）
+          - 卸载IPSec服务（UPF）
+        - 安装可选服务
+          - 一键式上线IPSec服务（UPF）
+          - 一键式上线NAT服务（UPF）
+          - 安装NAT服务（UPF）
+          - 安装IPSec服务（UPF）
+        - 参考及FAQ
+          - 强制下线
+    - 安装UPF（独立部署）
+      - 基于中心NFVO (Orchestrator)安装（UPF）
+        - NFVO安装UEG（SDN场景）
+          - 安装可选服务
+            - 安装NAT服务（UPF）
+            - 安装IPSec服务（UPF）
+            - 一键式上线IPSec服务（UPF）
+            - 一键式上线NAT服务（UPF）
+          - 卸载UEG
+            - 一键式下线NAT服务（UPF）
+            - 卸载NAT服务（UPF）
+            - 卸载IPSec服务（UPF）
+            - 一键式下线IPSec服务（UPF）
+        - NFVO安装UEG（非SDN场景）
+          - 卸载UEG
+            - 卸载NAT服务（UPF）
+            - 一键式下线IPSec服务（UPF）
+            - 一键式下线NAT服务（UPF）
+            - 卸载IPSec服务（UPF）
+          - 安装可选服务
+            - 一键式上线NAT服务（UPF）
+            - 一键式上线IPSec服务（UPF）
+            - 安装NAT服务（UPF）
+            - 安装IPSec服务（UPF）
+      - 基于中心VNF LCM安装（UPF）
+        - VNF LCM安装UEG
+          - 安装可选服务
+            - 一键式上线IPSec服务（UPF）
+            - 一键式上线NAT服务（UPF）
+            - 安装IPSec服务（UPF）
+          - 卸载UEG
+            - 一键式下线IPSec服务（UPF）
+            - 一键式下线NAT服务（UPF）
+            - 卸载IPSec服务（UPF）
+          - 参考及FAQ
+            - 强制下线
+    - 安装MPF（独立部署）
+      - 基于VNF LCM安装MPF
+        - 参考及FAQ
+          - 强制下线
+  - 配置安全数据（风筝S）
+    - 配置UEG安全数据
+      - MPF安全数据
+        - 安全配置建议
+          - 可选配置
+            - 网络安全配置
+              - 配置IPSec功能
+                - 激活IPsec功能（指定本端接口建立IPsec隧道）
+                - 上传IPsec证书
+                - 激活IPsec功能（IPv6 IPsec隧道主备方式）
+                - 激活IPsec功能（IPv4 IPsec主备隧道）
+                - 激活IPsec功能（多Sequence的IPsec策略）
+                - 激活IPsec功能（OSPF over IPsec）
+                - 激活IPsec功能（普通IPv6 IPsec隧道）
+                - 激活IPsec功能（GRE over IPsec）
+                - 激活IPsec功能（普通IPv4 IPsec隧道）
+              - 配置GaussDB数据库TLS功能
+            - 业务安全配置
+              - 激活支持APP认证鉴权
+              - 配置ACL防止UE或用户PDN/DN对运营商网络设备攻击
+              - 激活防DDoS功能
+              - 配置ACL防止UE之间的互访
+              - 激活接入控制
+              - 配置CP白名单功能
+              - 配置互访流量的重定向功能
+              - 配置IP Spoofing防攻击
+              - 配置大流量防攻击
+            - 数据安全配置
+              - 配置跟踪匿名化功能和CHR匿名化功能（通过MAE）
+              - 配置跟踪匿名化功能和CHR匿名化功能（通过OM Portal和软件参数）
+            - 运维安全配置
+              - 更新GaussDB数据库弱口令字典
+            - 系统安全配置
+              - 配置系统安全策略
+                - 配置OM网络访问控制策略
+          - 必选配置
+            - 系统安全配置
+              - 修改数据库用户密码
+                - 修改GaussDB数据库用户密码
+            - 业务安全配置
+              - 配置禁止UE互访功能
+              - 配置APN上下行防欺诈
+              - 配置禁止UE向逻辑接口发起PING报文
+            - 网络安全配置
+              - 加载网元内服务间证书
+              - 配置证书到期提醒时间
+      - UPF安全数据
+        - 安全配置建议
+          - 可选配置
+            - 业务安全配置
+              - 激活支持APP认证鉴权

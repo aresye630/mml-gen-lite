@@ -1,0 +1,88 @@
+{
+  "feature_name": "配置业务报表功能",
+  "feature_description": "当需要在报表服务器上查询UDG的各种业务报表时，需要在UDG上激活业务报表功能。激活此功能后，在报表服务器上可基于APN、位置、用户、应用、终端、服务器、接入网多个维度对业务做流量分析或者TOPN分析，满足运营商对网络可视化的需求。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVBF7589BEA19947ADBB3E8956759A9578",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222265265",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG报表功能专题",
+        "nameIdList": [
+          "release",
+          "Software"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Software_10441490-519a-4bc6-8f85-59cf166fc370",
+          "Software_b08d6d79-1087-436f-8153-b03e0fa6d7c0"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Software": [
+            "Software_10441490-519a-4bc6-8f85-59cf166fc370",
+            "Software_b08d6d79-1087-436f-8153-b03e0fa6d7c0"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265265",
+        "topicId": "TOPIC_0305973374",
+        "topicUrl": "toctopics/zh-cn_topic_0305973374.html",
+        "name": "报表功能部署",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265265",
+        "topicId": "OPI_0294818052",
+        "topicUrl": "cdgw/user/cn_20_111101_13_05.html",
+        "name": "激活报表功能",
+        "parentTopicId": "TOPIC_0305973374",
+        "position": "2.1",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265265",
+        "topicId": "OPI_0294818054",
+        "topicUrl": "cdgw/user/cn_20_111101_13_01.html",
+        "name": "配置业务报表功能",
+        "parentTopicId": "OPI_0294818052",
+        "position": "2.1.2",
+        "parentPosition": "2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

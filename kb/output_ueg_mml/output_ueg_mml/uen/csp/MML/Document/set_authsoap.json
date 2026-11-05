@@ -1,0 +1,278 @@
+{
+  "command_name": "SET AUTHSOAP",
+  "command_name_zh": "设置网管登录认证策略",
+  "command_name_full": "设置网管登录认证策略（SET AUTHSOAP）",
+  "command_function": "**须知** \n\n- “ALL(普通认证和增强认证)”采用的认证算法强度较低，系统可能会受到安全风险。\n- “ENHANCED(增强认证)”会导致系统禁止普通认证登录CSP，网管以普通认证的方式无法登录CSP。\n\n本命令用于设置网管登录CSP的认证策略。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421942",
+        "topicUrl": "toctopics/zh-cn_topic_0225421942.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.8",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421940",
+        "topicUrl": "toctopics/zh-cn_topic_0225421940.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0225421942",
+        "position": "2.2.2.8.1",
+        "parentPosition": "2.2.2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0195445920_2",
+        "topicUrl": "uen/csp/MML/LinkedDoc/security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "TOPIC_0225421940",
+        "position": "2.2.2.8.1.9",
+        "parentPosition": "2.2.2.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0297628871_2",
+        "topicUrl": "uen/csp/MML/LinkedDoc/certification_management.html",
+        "name": "登录认证管理",
+        "parentTopicId": "CONCEPT_0195445920_2",
+        "position": "2.2.2.8.1.9.6",
+        "parentPosition": "2.2.2.8.1.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0297634436_5",
+        "topicUrl": "uen/csp/MML/Document/set_authsoap.html",
+        "name": "设置网管登录认证策略（SET AUTHSOAP）",
+        "parentTopicId": "TOPIC_0297628871_2",
+        "position": "2.2.2.8.1.9.6.1",
+        "parentPosition": "2.2.2.8.1.9.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421942",
+        "topicUrl": "toctopics/zh-cn_topic_0225421942.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.8",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421940",
+        "topicUrl": "toctopics/zh-cn_topic_0225421940.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0225421942",
+        "position": "2.2.2.8.1",
+        "parentPosition": "2.2.2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0195445920_2",
+        "topicUrl": "uen/csp/MML/LinkedDoc/security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "TOPIC_0225421940",
+        "position": "2.2.2.8.1.9",
+        "parentPosition": "2.2.2.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0297628871_2",
+        "topicUrl": "uen/csp/MML/LinkedDoc/certification_management.html",
+        "name": "登录认证管理",
+        "parentTopicId": "CONCEPT_0195445920_2",
+        "position": "2.2.2.8.1.9.6",
+        "parentPosition": "2.2.2.8.1.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0297634436_5",
+        "topicUrl": "uen/csp/MML/Document/set_authsoap.html",
+        "name": "设置网管登录认证策略（SET AUTHSOAP）",
+        "parentTopicId": "TOPIC_0297628871_2",
+        "position": "2.2.2.8.1.9.6.1",
+        "parentPosition": "2.2.2.8.1.9.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

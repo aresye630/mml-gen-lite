@@ -1,0 +1,155 @@
+{
+  "command_name": "SET INTERAMFFC",
+  "command_name_zh": "设置Inter-AMF流控参数",
+  "command_name_full": "设置Inter-AMF流控参数（SET INTERAMFFC）",
+  "command_function": "**须知** \n\n存在较大操作风险，执行不当会导致业务受损或中断。\n\n**适用NF：AMF**\n\n设置Inter-AMF接入流控功能的相关参数。\n\nAMF组Pool时，如果某个AMF故障，则故障AMF上的用户会接入到Pool内正常的AMF上，可能对正常AMF造成较大冲击，导致其过载。为了防止这类AMF间的新接入用户影响在网用户的正常业务，控制非本AMF用户的接入消息允许处理速率。这些消息包括：Registration Request(Initial类型携带5G-GUTI)、Service Request消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.3",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.2.3.3.3.2",
+        "parentPosition": "2.2.3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320843",
+        "topicUrl": "MML/LinkedDoc/unc_n_congestion_control.html",
+        "name": "拥塞控制",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.2.3.3.3.2.13",
+        "parentPosition": "2.2.3.3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0296233697",
+        "topicUrl": "MML/LinkedDoc/unc_n_inter_amf_flow_control_parameters.html",
+        "name": "Inter-AMF流控参数",
+        "parentTopicId": "TOPIC_0234320843",
+        "position": "2.2.3.3.3.2.13.3",
+        "parentPosition": "2.2.3.3.3.2.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0296243129",
+        "topicUrl": "MML/Document/set_interamffc.html",
+        "name": "设置Inter-AMF流控参数（SET INTERAMFFC）",
+        "parentTopicId": "TOPIC_0296233697",
+        "position": "2.2.3.3.3.2.13.3.1",
+        "parentPosition": "2.2.3.3.3.2.13.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

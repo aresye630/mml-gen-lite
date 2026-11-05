@@ -1,0 +1,138 @@
+{
+  "command_name": "RMV IMEIFORFD",
+  "command_name_zh": "删除强制分离策略",
+  "command_name_full": "删除强制分离策略(RMV IMEIFORFD)",
+  "command_function": "**适用网元：SGSN**\n\n此命令用于删除当前分离非活动用户的IMEISV（International Mobile station Equipment Identity and Software Version）匹配规则。分离非活动用户功能由分离非活动用户定时器（**SET GBDETACH**或**SET IUDETACH**）控制，定时器（NACTTMR）默认时长为360分钟。定时器超时后，UNC将使用手机所带的IMEISV与规则的掩码按位进行\"与\"运算，并和匹配规则比较。如果相同，UNC将保留该用户；否则UNC将强制分离该非活动用户。如果手机不携带IMEISV，则默认不匹配规则，UNC强制分离该用户。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322681",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management000.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.5",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320909",
+        "topicUrl": "MML/LinkedDoc/unc_n_force_detach_imei_configuration.html",
+        "name": "强制分离业务IMEI配置",
+        "parentTopicId": "TOPIC_0234322681",
+        "position": "2.5.3.5.6",
+        "parentPosition": "2.5.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345085",
+        "topicUrl": "MML/Document/rmv_imeiforfd.html",
+        "name": "删除强制分离策略(RMV IMEIFORFD)",
+        "parentTopicId": "TOPIC_0234320909",
+        "position": "2.5.3.5.6.2",
+        "parentPosition": "2.5.3.5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

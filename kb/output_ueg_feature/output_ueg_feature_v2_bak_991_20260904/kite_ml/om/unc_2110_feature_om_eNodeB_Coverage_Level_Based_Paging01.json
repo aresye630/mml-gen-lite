@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活基于eNodeB覆盖等级的寻呼",
+  "feature_description": "本操作指导介绍在运行网络中激活基于eNodeB覆盖等级的寻呼的操作过程。\n\n随着物联网的广泛应用，智能终端也广泛部署在各种环境中，例如智能停车、智能抄表等大都部署在信号较弱或者没有信号的偏远郊区或者地下室，这就要求IoT基站深覆盖。目前IoT基站能够实现比LTE基站增强20dB寻呼终端，满足深覆盖需要。但并不是所有的终端都是位于覆盖较差的地方，若基站都是使用高覆盖等级进行寻呼，会导致容量下降，终端功耗增加。因此通过基于eNodeB覆盖等级(Coverage Enhancement Level)寻呼技术，将小区划分为不同的覆盖等级，根据小区信号进行等级寻呼，可节约空口资源，保证业务质量，节省终端电量。\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375120453",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375120453.html",
+        "name": "MME特性指南",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001257972542",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001257972542.html",
+        "name": "GWFD-026100 NB-IoT基本功能",
+        "parentTopicId": "TOPIC_0000001375120453",
+        "position": "4.22",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0275822758",
+        "topicUrl": "kite_ml/desc/unc_2110_feature_desc_eNodeB_Coverage_Level_Based_Paging.html",
+        "name": "GWFD-026110 基于eNodeB覆盖等级的寻呼",
+        "parentTopicId": "TOPIC_0000001257972542",
+        "position": "4.22.10",
+        "parentPosition": "4.22",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0276015642",
+        "topicUrl": "kite_ml/om/unc_2110_feature_om_eNodeB_Coverage_Level_Based_Paging01.html",
+        "name": "激活基于eNodeB覆盖等级的寻呼",
+        "parentTopicId": "CONCEPT_0275822758",
+        "position": "4.22.10.3",
+        "parentPosition": "4.22.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

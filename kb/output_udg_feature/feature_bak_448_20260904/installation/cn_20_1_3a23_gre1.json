@@ -1,0 +1,110 @@
+{
+  "feature_name": "配置PGW-U/UPF与PDN/DN之间的GRE隧道",
+  "feature_description": "当用户通过WAP（Wireless Application Protocol）访问PDN/DN时，可以采用PGW-U/UPF与WAP网关之间建立GRE隧道的方式构建VPN。\n\n具体组网如图1所示。\n\n**图1** GRE隧道连通与PDN/DN组网图\n\n- PGW-U/UPF与WAP网关之间建立GRE VPN，实现用户的业务访问。\n- PGW-U/UPF与WAP网关之间必须支持Loopback接口建立GRE隧道。\n- 当PGW-U/UPF外联口之间采用BGP/OSPF动态路由时，PGW-U/UPF的Loopback接口的IP地址网段必须对外发布。\n- 用户的上行数据采用静态路由，出接口为Tunnel接口，对端接入设备必须配置到用户终端网段的静态路由。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0175096802",
+        "topicUrl": "installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0216653295",
+        "topicUrl": "installation/cu_com_010016_07.html",
+        "name": "配置VNF侧IP路由数据（无NP卡_非SDN）",
+        "parentTopicId": "TOPIC_0175096802",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0216653307",
+        "topicUrl": "installation/ce_com_190009_82.html",
+        "name": "手动部署",
+        "parentTopicId": "OPI_0216653295",
+        "position": "5.1.3",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0284974108",
+        "topicUrl": "installation/cn_20_1_3a23_gre1.html",
+        "name": "配置PGW-U/UPF与PDN/DN之间的GRE隧道",
+        "parentTopicId": "TOPIC_0216653307",
+        "position": "5.1.3.8",
+        "parentPosition": "5.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

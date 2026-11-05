@@ -1,0 +1,105 @@
+{
+  "feature_name": "激活动态分流规则下发",
+  "feature_description": "在不同场景下或针对不同运营商，支持两种方式下发动态Traffic Rule和动态DNS Rule。通过**SET MPFATTR**命令设置MPF属性配置，即管理面MEPM和MPF之间的Mm5接口可以处理的消息类型，从而设置不同的下发方式，两种场景不会同时存在：\n\n- “MM5MSGTYPE”参数配置为APPD：表示管理面MEPM向MPF下发规则的模式是APPD（APP Descriptor）模式，Mm5接口的一条HTTPS请求消息中的APPD包含一个APP实例的动态Traffic Rule、动态DNS Rule、APP依赖的服务和APP提供的服务等信息。\n- “MM5MSGTYPE”参数配置为SPEC\\_RULE：表示管理面MEPM向MPF下发规则的模式是指定Rule模式，Mm5接口的一条HTTPS请求消息中仅包含一个APP实例的动态Traffic Rule或者动态DNS Rule。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001157865041",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001157865041.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001157864297",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001157864297.html",
+        "name": "激活动态分流规则下发（MPF）",
+        "parentTopicId": "TOPIC_0000001157865041",
+        "position": "5.4.2.3",
+        "parentPosition": "5.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001111304342",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001111304342.html",
+        "name": "激活动态分流规则下发",
+        "parentTopicId": "OPI_0000001157864297",
+        "position": "5.4.2.3.1",
+        "parentPosition": "5.4.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活支持不同PLMN切片能力差异化",
+  "feature_description": "本操作指导介绍在运行网络中激活支持不同PLMN下网络切片能力差异化功能的操作过程。运营商需根据实际情况来确定及规划多PLMN下的网络切片配置。\n\nAMF、SMF支持多个PLMN，不同PLMN下的网络切片支持的能力可能不同，在业务识别时需要对不同PLMN下的网络切片进行区分，以满足运营商支持不同PLMN下网络切片能力差异化的需求。\n\n**说明** \n\n适用于AMF、SMF、NRF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450953",
+        "topicUrl": "toctopics/zh-cn_topic_0248450953.html",
+        "name": "网络切片功能",
+        "parentTopicId": "",
+        "position": "16",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001289889849",
+        "topicUrl": "toctopics/zh-cn_topic_0000001289889849.html",
+        "name": "WSFD-110009 支持不同PLMN切片能力差异化",
+        "parentTopicId": "TOPIC_0248450953",
+        "position": "16.4",
+        "parentPosition": "16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001252527766",
+        "topicUrl": "toctopics/zh-cn_opi_0000001252527766.html",
+        "name": "激活支持不同PLMN切片能力差异化",
+        "parentTopicId": "TOPIC_0000001289889849",
+        "position": "16.4.2",
+        "parentPosition": "16.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

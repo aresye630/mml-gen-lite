@@ -1,0 +1,129 @@
+{
+  "feature_name": "配置通用DNN策略数据",
+  "feature_description": "在跨地市漫游场景下，用户从拜访地A上线接入通用DNN（common.dnn），PCF支持通过N7接口给SMF下发智能分流的动态规则，使园区业务从专用DNN（stjwt.gd）接入访问。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV7677237BD2914195B5B78B8034579F54",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222379409",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 智家随行解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002274680694",
+        "topicUrl": "toctopics/zh-cn_topic_0000002274680694.html",
+        "name": "一跳入家解决方案（基于3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002206446494",
+        "topicUrl": "toctopics/zh-cn_topic_0000002206446494.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002274680694",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002206446502",
+        "topicUrl": "toctopics/zh-cn_topic_0000002206446502.html",
+        "name": "部署移动VPN",
+        "parentTopicId": "TOPIC_0000002206446494",
+        "position": "3.4.4",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002475684913",
+        "topicUrl": "toctopics/zh-cn_topic_0000002475684913.html",
+        "name": "配置专用DNN数据",
+        "parentTopicId": "TOPIC_0000002206446502",
+        "position": "3.4.4.2",
+        "parentPosition": "3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002475605141",
+        "topicUrl": "toctopics/zh-cn_topic_0000002475605141.html",
+        "name": "配置PCF",
+        "parentTopicId": "TOPIC_0000002475684913",
+        "position": "3.4.4.2.5",
+        "parentPosition": "3.4.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002442165144",
+        "topicUrl": "toctopics/zh-cn_topic_0000002442165144.html",
+        "name": "配置通用DNN数据",
+        "parentTopicId": "TOPIC_0000002475605141",
+        "position": "3.4.4.2.5.1",
+        "parentPosition": "3.4.4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "OPI_0000002475684937",
+        "topicUrl": "toctopics/zh-cn_opi_0000002475684937.html",
+        "name": "配置通用DNN策略数据",
+        "parentTopicId": "TOPIC_0000002442165144",
+        "position": "3.4.4.2.5.1.1",
+        "parentPosition": "3.4.4.2.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

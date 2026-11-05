@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD SERVICEENDPOINT",
+  "command_name_zh": "添加服务端点",
+  "command_name_full": "添加服务端点（ADD SERVICEENDPOINT）",
+  "command_function": "**适用NF：UPF、MPF**\n\n该命令用于添加服务端点。服务端点指服务对外提供的访问入口信息，一个服务端点组可以包含多个服务端点。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757821",
+        "topicUrl": "MML/LinkedDoc/mpf_n_mec_control_plane_management.html",
+        "name": "MEC控制面管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.8",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000201293478215_3",
+        "topicUrl": "MML/LinkedDoc/mpf_n_basic_configuration.html",
+        "name": "基础配置",
+        "parentTopicId": "CONCEPT_0000202789757821",
+        "position": "2.2.3.8.1",
+        "parentPosition": "2.2.3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202504882693_3",
+        "topicUrl": "MML/LinkedDoc/mpf_n_service_endpoint.html",
+        "name": "服务端点",
+        "parentTopicId": "CONCEPT_0000201293478215_3",
+        "position": "2.2.3.8.1.30",
+        "parentPosition": "2.2.3.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202319437936_3",
+        "topicUrl": "MML/Document/add_serviceendpoint.html",
+        "name": "添加服务端点（ADD SERVICEENDPOINT）",
+        "parentTopicId": "CONCEPT_0000202504882693_3",
+        "position": "2.2.3.8.1.30.1",
+        "parentPosition": "2.2.3.8.1.30",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

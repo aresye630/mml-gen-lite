@@ -1,0 +1,173 @@
+# 查询UDM业务(LST UDMSERV)
+
+- 命令功能
+- 注意事项
+- 参数说明
+- 使用实例
+- 输出结果说明
+
+## 命令功能
+
+该命令用于查询UDM业务参数的设置信息。
+
+## 注意事项
+
+无。
+
+## 参数说明
+
+无。
+
+## 使用实例
+
+在进行UDM业务参数配置前，或核查UDM业务参数配置时，或备份UDM业务参数配置时，查询UDM所有业务参数的设置信息：
+
+```
+LST UDMSERV:;
+```
+
+```
+%%LST UDMSERV:;%%
+RETCODE = 0 SUCCESS0001:操作成功
+
+             SECPOLICYOFAMFREG = NOCHECK
+            AUTHVALIDATIONTIME = 0
+             GLOBALDATAREFRESH = 60
+           AUTHENTICATION_TYPE = AUTHENTICATION_TYPE_AUSF
+                  NGC_AUTOPROV = FALSE
+        NGC_AUTOPROV_AMF_CAUSE = UNKNOWN_5GS_SUBSCRIPTION
+               NGCAUTOPROVTYPE = NOTIFY
+                NGCAUTOPROVNUM = 1
+                NGCAUTOPROVCYC = 5
+          NGCAUTOPROVNOTIFYNUM = 1
+         NGCAUTOPROVNOTIFYTIME = 28
+                 NGCAUTOSUBTPL = 0
+         NGC_ALLOW_NON5GS_AUTH = FALSE
+            NGC_NON5GS_AUTHALG = 5G-AKA
+         NGC_NON5GS_AUTH_CAUSE = AUTHENTICATION_REJECTED
+          NGC_NON5GS_AMF_CAUSE = UNKNOWN_5GS_SUBSCRIPTION
+                 NGCNOTIFYMODE = MODE1
+               MAX_SMF_REG_NUM = 10
+          MAX_SUBSCRIPTION_NUM = 10
+                 NGSODBROAMCTL = ODBROAM
+                  NGSODBPOSCTL = ODBPOS
+             ODBPOS_REJ_AMFREG = REJECT
+             CNREST_REJ_AMFREG = REJECT
+           NGC_BLACKLIST_CAUSE = AUTHENTICATION_REJECTED
+            CANCELVLRATSMSFREG = TRUE
+              NGC_IWFCACHE_TTL = 0
+               USE_FQDN_IN_URI = MIX
+           NGC_IWFCACHE_DELNUM = 500000
+              NGC_IWF_CHK_MODE = IWFIMSI_TEMPLATE
+                 NGSUECHARGING = SUPPWITHOUTNONE
+               DNNLISTINAMDATA = FALSE
+                      MAXBKAMF = 0
+           NGC_IWF_SDM_GET_OPT = OPT_ALL
+             DEFAULTSENDSCHEME = HTTPS
+         NGC_AUTOPROV_3RDPARTY = FORBIDDEN
+              NGC_AUTOPROV_HSS = TRUE
+            NGC_AUTOPROV_HLRSN = 0
+       NGC_AUTOPROV_AUTH_CAUSE = AUTHENTICATION_REJECTED
+            NGC_AUTOPROV_PHASE = AMF_REG
+      NGC_AUTOPROV_SLICE_CAUSE = DATA_NOT_FOUND
+           NGC_IWF_VOLTE_CHECK = TRUE
+                    EAPAKAMKID = IMSI
+                NGC_CHECK_IMEI = FALSE
+             NGC_FAILED_NOIMEI = FALSE
+          DEREGMAXTIMEOFRESEND = 1
+        NGC_IWF_EFFECTIVE_TIME = 0
+           NGC_IWF_SDM_REG_OPT = NOT_OPT_REG
+                    NGCADDSUPP = FALSE
+                 NGCDNNADDSUPP = FALSE
+            NGC_PCSCF_RSD_MODE = BOTH
+     MAX_NUM_OF_EESUBSCRIPTION = 12
+            RESENT_TIMES_BKAMF = 3
+         NGC_RATTYPE_CTRL_MODE = 1
+             NGC_IWF_UDR_TRANS = FALSE
+      DEFAULT_EXPIRES_DURATION = 0
+         NGC_IWFCACHE_DELSPEED = 100
+          AMF_CS_CANCEL_SWITCH = FALSE
+         NGC_IWFCACHE_TTL_HOUR = 0
+            RECORD_AUTH_RESULT = FALSE
+               NGC_IWF_RATTYPE = NR
+            NGC_AUTOPROV_NOSUB = TRUE
+        CAMPUS_MAX_IMSIPRE_NUM = 4096
+      CAMPUS_MAX_MSISDNPRE_NUM = 4096
+            CAMPUS_MAX_DNN_NUM = 1024
+         CAMPUS_MAX_SNSSAI_NUM = 1024
+                     BKAMFMODE = NONE
+                    AMFFAILNUM = 3
+                 AMFFAILPERIOD = 3
+            AMFFAILRETRYPERIOD = 60
+      NGC_AUTOPROV_PLMN_SWITCH = FALSE
+          UPDATEBACKUPAMFLIMIT = 120
+              NGSLOCKSMDATATPL = 0
+ NGSCANCELTYPEFORSMDATAREPLACE = REREGISTRATION_REQUIRED
+         5GCAUTOPROV_BLK_RATIO = 5
+                AMFDEREGBYCSRN = FALSE
+          NGC_CROSS_PLMN_JUDGE = NGSPETYPE
+     NGC_NFDISCOVERY_PLMN_CTRL = 1
+        NGC_AMF_ADDR_SN_FILTER = TRUE
+     NGC_AMF_ADDR_NONSN_FILTER = 1
+            BKUPAMF_STORE_MODE = UE
+                  NGC_VSP_TYPE = VSP_HSS
+              DELAYCANCELTIMER = 0
+              DELAYCANCELSPEED = 100
+      NFV_EVOLUTION_ROUTE_MODE = 0
+              DWP_AMF_DYN_DATA = FALSE
+         NGC_SCP_DISC_PARAM_SN = TRUE
+                MML_REPORT_OPT = 0
+          SCPSEPP_RESEND_TIMES = 0
+              SCPSEPP_RESELECT = TRUE
+       NFDISCOVERY_AMFSET_MODE = AMFINFO
+                 NEFSTOPREPORT = FALSE
+             NEFROAMSTATUSMODE = COOPERATION_MODE
+         REGMOD_CHK_AMFPOINTER = NOCHECK
+            NGC_MSG_FAIL_CAUSE = 1
+           NGC_EE_ROAM_TRIGGER = ROAMTYPECHANGE
+              CLOSENEFCHECKURL = OPEN
+               EVOPROV_ERRCODE = 3125
+            NGCCANCELTYPEVALUE = SUBSCRIPTION_WITHDRAWN
+        VOBB_DELIVERY_SCENARIO = MOBILE_BIG_NETWORK
+          NGC_DNN_CHARGE_UNSUB = DELIVERED
+         SUPP_DUAL_DOMAINS_DNN = FALSE
+    SUPPDUALDOMAINSRSISAMETIME = SUPP
+               HSM_AUTH_PARAID = 0
+                SUPP_SCP_BKAMF = NOT_SUPP
+                AMFHOTBACKMODE = BKUPAMF
+               CHECK_SMF_DEREG = NO_CHECK
+     MAIN_AMF_NFDISC_PARA_CTRL = LOC_INSID_CROSS_GUAMI
+                 SEL_SEPP_MODE = NORULE
+          NGC_SCP_BINDING_CTRL = 1
+                   NGSSXZWRRID = 0
+                      EMSIM_5G = FALSE
+                    NGSCOMISDN = FALSE
+         DEFNEFROAMNTFPLMNCTRL = NOTIFY
+             SXZW_REPLACE_MODE = FALSE
+               NEF_EXPIRY_TIME = 10080
+              NEFSUBTIMEFORMAT = RFC3339Nano
+                   SUPP_TOHOME = FALSE
+               SQNSYNCTRIGNUMS = 0
+               SQNSYNCTRIGTIME = 0
+              SQNSYNCINCREMENT = 0
+            DNN_REPLACE_SCHEME = 0
+               RESYNLOGENHANCE = 0
+           PGWINFO_PLMNID_CTRL = 2
+         TRANS_SUB_CLR_SP_CTRL = 0
+           NEF_AMF_REACHFILTER = TRUE
+              MODSMDATATPLCTRL = 1
+                       USE_AUC = FALSE
+         GROUPID_MULTIDNNSILCE = FALSE
+                   NEFSUBCHECK = 0
+             AMFAPIROOTREPLACE = 0
+
+Total count = 130
+
+There is together 1 report
+
+---    END
+```
+
+## 输出结果说明
+
+该命令执行正常，会返回命令执行成功的提示信息和相关参数，各参数含义请参见**SET UDMSERV**命令的参数说明。

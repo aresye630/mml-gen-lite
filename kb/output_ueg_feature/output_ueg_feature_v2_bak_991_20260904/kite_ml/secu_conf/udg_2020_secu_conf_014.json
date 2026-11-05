@@ -1,0 +1,1128 @@
+{
+  "feature_name": "配置禁止UE互访功能",
+  "feature_description": "为了防止UE之间的恶意攻击，保证UE的安全，可以在UEG上配置整机APN、指定APN内或APN间禁止UE互访。如果涉及跨UPF网元的不同UE会话的互访控制，需要在UPF上配置ACL规则。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284751246",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284751246.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001382798672",
+        "topicUrl": "toctopics/zh-cn_topic_0000001382798672.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284751246",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001243438611_2",
+        "topicUrl": "kite_ml/kitem_mand_conf_manda_bm.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001382798672",
+        "position": "6.2.2.1",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198438752_2",
+        "topicUrl": "kite_ml/kitem_netw_serv_c_man_bm.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_2",
+        "position": "6.2.2.1.5",
+        "parentPosition": "6.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001198438752_2",
+        "position": "6.2.2.1.5.3",
+        "parentPosition": "6.2.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284751246",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284751246.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001382798672",
+        "topicUrl": "toctopics/zh-cn_topic_0000001382798672.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284751246",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001243438611_2",
+        "topicUrl": "kite_ml/kitem_mand_conf_manda_bm.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001382798672",
+        "position": "6.2.2.1",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198438752_2",
+        "topicUrl": "kite_ml/kitem_netw_serv_c_man_bm.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_2",
+        "position": "6.2.2.1.5",
+        "parentPosition": "6.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001198438752_2",
+        "position": "6.2.2.1.5.3",
+        "parentPosition": "6.2.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001246207979",
+        "topicUrl": "toctopics/zh-cn_topic_0000001246207979.html",
+        "name": "配置安全数据（风筝L）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001258602673",
+        "topicUrl": "toctopics/zh-cn_topic_0000001258602673.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001246207979",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244645701",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244645701.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258602673",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001243438611_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001243438611.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001244645701",
+        "position": "6.2.2.1",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198438752_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198438752.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_4",
+        "position": "6.2.2.1.5",
+        "parentPosition": "6.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001198438752_4",
+        "position": "6.2.2.1.5.3",
+        "parentPosition": "6.2.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001246207979",
+        "topicUrl": "toctopics/zh-cn_topic_0000001246207979.html",
+        "name": "配置安全数据（风筝L）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001258602673",
+        "topicUrl": "toctopics/zh-cn_topic_0000001258602673.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001246207979",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244645701",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244645701.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258602673",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001243438611_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001243438611.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001244645701",
+        "position": "6.2.2.1",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198438752_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198438752.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_4",
+        "position": "6.2.2.1.5",
+        "parentPosition": "6.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001198438752_4",
+        "position": "6.2.2.1.5.3",
+        "parentPosition": "6.2.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105238422",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105238422.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105924248",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105924248.html",
+        "name": "配置UEG安全数据",
+        "parentTopicId": "TOPIC_0000001105238422",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001258325619",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001258325619.html",
+        "name": "MPF安全数据",
+        "parentTopicId": "TOPIC_0000001105924248",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001150229962",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229962.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258325619",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001189630249",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189630249.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001150229962",
+        "position": "6.2.2.2.1",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143790158",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143790158.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001189630249",
+        "position": "6.2.2.2.1.5",
+        "parentPosition": "6.2.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001143790158",
+        "position": "6.2.2.2.1.5.3",
+        "parentPosition": "6.2.2.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105238422",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105238422.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105924248",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105924248.html",
+        "name": "配置UEG安全数据",
+        "parentTopicId": "TOPIC_0000001105238422",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001258325619",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001258325619.html",
+        "name": "MPF安全数据",
+        "parentTopicId": "TOPIC_0000001105924248",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001150229962",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229962.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258325619",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001189630249",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189630249.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001150229962",
+        "position": "6.2.2.2.1",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143790158",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143790158.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001189630249",
+        "position": "6.2.2.2.1.5",
+        "parentPosition": "6.2.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001143790158",
+        "position": "6.2.2.2.1.5.3",
+        "parentPosition": "6.2.2.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001512283829",
+        "topicUrl": "toctopics/zh-cn_topic_0000001512283829.html",
+        "name": "裸机容器模式",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001149560325",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001149560325.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "TOPIC_0000001512283829",
+        "position": "2.6",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001537291733",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001537291733.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001149560325",
+        "position": "2.6.2",
+        "parentPosition": "2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001098120078",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001098120078.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001537291733",
+        "position": "2.6.2.1",
+        "parentPosition": "2.6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001144600025",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001144600025.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001098120078",
+        "position": "2.6.2.1.5",
+        "parentPosition": "2.6.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001144600025",
+        "position": "2.6.2.1.5.3",
+        "parentPosition": "2.6.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001512283829",
+        "topicUrl": "toctopics/zh-cn_topic_0000001512283829.html",
+        "name": "裸机容器模式",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001149560325",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001149560325.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "TOPIC_0000001512283829",
+        "position": "2.6",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001537291733",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001537291733.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001149560325",
+        "position": "2.6.2",
+        "parentPosition": "2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001098120078",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001098120078.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001537291733",
+        "position": "2.6.2.1",
+        "parentPosition": "2.6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001144600025",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001144600025.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001098120078",
+        "position": "2.6.2.1.5",
+        "parentPosition": "2.6.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001144600025",
+        "position": "2.6.2.1.5.3",
+        "parentPosition": "2.6.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146460135",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146460135.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001150229780",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229780.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001146460135",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001189629731",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189629731.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001150229780",
+        "position": "6.2.1",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001143629848",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143629848.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001189629731",
+        "position": "6.2.1.5",
+        "parentPosition": "6.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001143629848",
+        "position": "6.2.1.5.3",
+        "parentPosition": "6.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391524709",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391524709.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001445470597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001445470597.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001391524709",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001445470597",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001243438611_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_manda_vm.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.1",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001198438752_1",
+        "topicUrl": "kite_ml/kitem_netw_serv_c_man_vm.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_1",
+        "position": "6.1.2.1.5",
+        "parentPosition": "6.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0288651314_4",
+        "topicUrl": "kite_ml/secu_conf/udg_2020_secu_conf_014.html",
+        "name": "配置禁止UE互访功能",
+        "parentTopicId": "TOPIC_0000001198438752_1",
+        "position": "6.1.2.1.5.3",
+        "parentPosition": "6.1.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

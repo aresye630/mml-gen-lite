@@ -1,0 +1,61 @@
+{
+  "feature_name": "UPCF侧配置（upfSelectRules信元下发高通量规则）",
+  "feature_description": "本操作指导您完成高通量UPF选择解决方案中UPCF侧的初始业务配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV5C8C6E33F11F4518B9BD4A755BBFD375",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229278097",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 高通量UPF选择方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278097",
+        "topicId": "OPI_0000002024044553",
+        "topicUrl": "toctopics/zh-cn_opi_0000002024044553.html",
+        "name": "UPCF侧配置（upfSelectRules信元下发高通量规则）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

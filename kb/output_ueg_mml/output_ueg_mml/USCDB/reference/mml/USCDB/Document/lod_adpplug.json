@@ -1,0 +1,131 @@
+{
+  "command_name": "LOD ADPPLUG",
+  "command_name_zh": "添加适配插件",
+  "command_name_full": "添加适配插件(LOD ADPPLUG)",
+  "command_function": "**须知** \n\n该命令属于高危命令，如果原有适配插件包未删除，执行该命令会覆盖原有适配插件包导致原有适配插件包失效。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n本命令用于添加适配插件。本命令主要应用于如下场景：\n\n- 当某业务网元需要访问USCDB，但其命令格式无法被USCDB识别和执行时，需要通过本命令加载适用于此业务网元提供的适配插件包之后才能访问。\n- 多个业务网元融合的场景下，如果网元之间存在相同的命令名称，则需要通过本命令加载适配包对不同FE网元的相同命令进行区分映射。\n- 在HLR和HSS网元的融合局点，当业务发放系统下达融合指令给PGW后，需要通过本命令加载适配包后PGW才能将融合指令转换成华为标准格式执行。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774218",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.2",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774504",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/adaptation_plug_in_management.html",
+        "name": "适配插件管理",
+        "parentTopicId": "MMLREF_0172774218",
+        "position": "2.2.4.3.2.6",
+        "parentPosition": "2.2.4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774499",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/lod_adpplug.html",
+        "name": "添加适配插件(LOD ADPPLUG)",
+        "parentTopicId": "MMLREF_0172774504",
+        "position": "2.2.4.3.2.6.1",
+        "parentPosition": "2.2.4.3.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

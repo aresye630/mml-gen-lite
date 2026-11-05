@@ -1,0 +1,230 @@
+{
+  "command_name": "MOD POOL",
+  "command_name_zh": "修改地址池",
+  "command_name_full": "修改地址池（MOD POOL）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，该操作会改变地址池的属性，可能会导致用户激活失败。\n\n该命令是修改地址池，当系统需要修改地址池的地址租约使能、地址租期、小地址池标记、绑定VPN使能、VPN实例、外部地址检查、主用标识或告警使能时，可以通过该命令来修改。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289155129_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.2",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555261_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_session_address_management.html",
+        "name": "会话地址管理",
+        "parentTopicId": "CONCEPT_0000202289155129_2",
+        "position": "3.3.2.2",
+        "parentPosition": "3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915737_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_ip_address_pool_configuration.html",
+        "name": "地址池配置",
+        "parentTopicId": "CONCEPT_0000202289555261_2",
+        "position": "3.3.2.2.5",
+        "parentPosition": "3.3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000204522452182_2",
+        "topicUrl": "kite_s_bm/MML/Document/mod_pool.html",
+        "name": "修改地址池（MOD POOL）",
+        "parentTopicId": "CONCEPT_0000202288915737_2",
+        "position": "3.3.2.2.5.2",
+        "parentPosition": "3.3.2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289155129_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.2",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555261_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_session_address_management.html",
+        "name": "会话地址管理",
+        "parentTopicId": "CONCEPT_0000202289155129_2",
+        "position": "3.3.2.2",
+        "parentPosition": "3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915737_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_ip_address_pool_configuration.html",
+        "name": "地址池配置",
+        "parentTopicId": "CONCEPT_0000202289555261_2",
+        "position": "3.3.2.2.5",
+        "parentPosition": "3.3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000204522452182_2",
+        "topicUrl": "kite_s_bm/MML/Document/mod_pool.html",
+        "name": "修改地址池（MOD POOL）",
+        "parentTopicId": "CONCEPT_0000202288915737_2",
+        "position": "3.3.2.2.5.2",
+        "parentPosition": "3.3.2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

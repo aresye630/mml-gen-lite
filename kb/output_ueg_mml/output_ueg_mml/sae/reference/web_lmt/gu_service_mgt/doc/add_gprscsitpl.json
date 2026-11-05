@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD GPRSCSITPL",
+  "command_name_zh": "增加GPRS-CSI模板",
+  "command_name_full": "增加GPRS-CSI模板(ADD GPRSCSITPL)",
+  "command_function": "该命令用于为HLR在配置数据库中增加一条GPRS-CSI（GPRS CAMEL Subscription Information）模板数据记录，根据运营商CAMEL网络的实际情况进行配置，相关参数由运营商提供。用户通过签约GPRS-CSI模板ID签约GPRS-CSI特性。\n\nCAMEL的发展经历了四个阶段，不同的阶段CAMEL特性的应用范围不同，GPRS-CSI是CAMEL PHASE 3中的一个CAMEL签约项，是CAMEL支持GPRS网络的基础。HLR管理和存储GPRS-CSI签约信息，并在用户进行位置更新时下发给SGSN，当SGSN处理涉及CAMEL的GPRS业务时，SGSN监视所有的GPRS事件，当触发CAMEL业务时SGSN使用位置更新中收到的GPRS-CSI签约信息用内部接口向gprsSSF（GSM Service Switching Function）请求指示，使gprsSSF可以控制SGSN中的GPRS业务处理，按照用户签约的GPRS-CSI模板中的信息进行业务逻辑处理。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803320",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/camel_template_configuration.html",
+        "name": "CAMEL模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.15",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803013",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/gprs_csi_template.html",
+        "name": "GPRS-CSI模板",
+        "parentTopicId": "CONCEPT_0190803320",
+        "position": "4.2.3.6.15.8",
+        "parentPosition": "4.2.3.6.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803512",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_gprscsitpl.html",
+        "name": "增加GPRS-CSI模板(ADD GPRSCSITPL)",
+        "parentTopicId": "CONCEPT_0190803013",
+        "position": "4.2.3.6.15.8.1",
+        "parentPosition": "4.2.3.6.15.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD OCSCOUNTERMAP",
+  "command_name_zh": "增加OCS Counter映射",
+  "command_name_full": "增加OCS Counter映射(ADD OCSCOUNTERMAP)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会影响UPCF与OCS相关的业务的正常使用，需联系华为技术支持确认后再执行。\n\n该命令用于在UPCF配置数据库中增加一条配额名称与配额状态的映射记录。\n\nOCS通过Sy接口向UPCF发送的SNR/SLA消息中，当使用两个Policy-Counter-Status-Report AVP分别携带一个配额的配额名称和配额状态时，可通过执行本命令降低UPCF上策略配置的复杂度及规则匹配时系统的开销。\n\n配置了OCS Counter映射关系后，UPCF收到OCS通过Sy接口发送的SNR/SLA消息中，如果通过两个Policy-Counter-Status-Report AVP分别携带一个配额的配额名称和配额状态，则会将携带配额名称的Policy-Counter-Status-Report AVP中Policy-Counter-Identifier AVP的值映射为配额名称，将携带配额状态的Policy-Counter-Status-Report AVP中Policy-Counter-Status AVP的值映射为配额状态。\n\n**说明** \n\n该命令暂不支持N7和N28接口业务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173218603",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_maintain_management.html",
+        "name": "维护管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.1",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001523203360",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_ocs_counter_mapping_management.html",
+        "name": "OCS Counter映射管理",
+        "parentTopicId": "CONCEPT_0173218603",
+        "position": "2.2.3.5.11.1.23",
+        "parentPosition": "2.2.3.5.11.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001523363344_2",
+        "topicUrl": "MML/Document/add_ocscountermap.html",
+        "name": "增加OCS Counter映射(ADD OCSCOUNTERMAP)",
+        "parentTopicId": "CONCEPT_0000001523203360",
+        "position": "2.2.3.5.11.1.23.1",
+        "parentPosition": "2.2.3.5.11.1.23",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

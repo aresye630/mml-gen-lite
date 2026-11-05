@@ -1,0 +1,143 @@
+{
+  "command_name": "SND MTPFM3",
+  "command_name_zh": "发送MTP三层伪消息",
+  "command_name_full": "发送MTP三层伪消息(SND MTPFM3)",
+  "command_function": "该命令为维护类命令，用于请求系统在指定的MTP链路上发送MTP三层伪消息。\n\n该命令仅适用于测试场景，例如在IOT（interoperability test）测试中，操作员可以通过该命令提供仿真协议接口以完成某些特定的测试项目，而在其他情况下，请勿使用该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202866130457",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_mtp_signaling.html",
+        "name": "MTP信令",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.8",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206457038229",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_mtp_protocol_maintenance.html",
+        "name": "MTP协议维护",
+        "parentTopicId": "CONCEPT_0000202866130457",
+        "position": "2.2.3.4.1.8.6",
+        "parentPosition": "2.2.3.4.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284858",
+        "topicUrl": "reference/mml/ueg/Document/snd_mtpfm3.html",
+        "name": "发送MTP三层伪消息(SND MTPFM3)",
+        "parentTopicId": "CONCEPT_0000206457038229",
+        "position": "2.2.3.4.1.8.6.4",
+        "parentPosition": "2.2.3.4.1.8.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "feature_name": "激活Non-IP数据传输",
+  "feature_description": "本操作指导介绍在运行网络中激活Non-IP数据传输特性的操作过程。当Non-IP用户接入网络时，需要在UEG上开启Non-IP功能开关，并且为Non-IP用户配置目的服务器的地址。\n\n**说明** \n\n适用于SGW-U、PGW-U。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001259118020",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001259118020.html",
+        "name": "物联网功能",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.25",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001306638229",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001306638229.html",
+        "name": "NB-IoT",
+        "parentTopicId": "TOPIC_0000001259118020",
+        "position": "3.25.1",
+        "parentPosition": "3.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0269972721_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0269972721.html",
+        "name": "GWFD-026107 Non-IP数据传输",
+        "parentTopicId": "TOPIC_0000001306638229",
+        "position": "3.25.1.4",
+        "parentPosition": "3.25.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0269972724_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0269972724.html",
+        "name": "激活Non-IP数据传输",
+        "parentTopicId": "TOPIC_0269972721_2",
+        "position": "3.25.1.4.2",
+        "parentPosition": "3.25.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324040462",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324040462.html",
+        "name": "GW-U&UPF特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001258181148",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001258181148.html",
+        "name": "GWFD-026100 NB-IoT基本功能",
+        "parentTopicId": "TOPIC_0000001324040462",
+        "position": "3.29",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0269972721_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0269972721.html",
+        "name": "GWFD-026107 Non-IP数据传输",
+        "parentTopicId": "TOPIC_0000001258181148",
+        "position": "3.29.4",
+        "parentPosition": "3.29",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0269972724_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0269972724.html",
+        "name": "激活Non-IP数据传输",
+        "parentTopicId": "TOPIC_0269972721_2",
+        "position": "3.29.4.2",
+        "parentPosition": "3.29.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

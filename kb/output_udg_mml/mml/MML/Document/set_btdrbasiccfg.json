@@ -1,0 +1,107 @@
+{
+  "command_name": "SET BTDRBASICCFG",
+  "command_name_zh": "设置BTDR单据上报参数",
+  "command_name_full": "设置BTDR单据上报参数（SET BTDRBASICCFG）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n此命令用于配置BTDR单据上报基础信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203928566467",
+        "topicUrl": "MML/LinkedDoc/udg_n_ssu_management.html",
+        "name": "智能板管理",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203927969471",
+        "topicUrl": "MML/LinkedDoc/udg_n_real_time_flow_northbound_configuration_management.html",
+        "name": "实时流北向配置管理",
+        "parentTopicId": "CONCEPT_0000203928566467",
+        "position": "9.2",
+        "parentPosition": "9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203719490380",
+        "topicUrl": "MML/LinkedDoc/udg_n_basic_information_configuration.html",
+        "name": "基本信息配置",
+        "parentTopicId": "CONCEPT_0000203927969471",
+        "position": "9.2.1",
+        "parentPosition": "9.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203719641398",
+        "topicUrl": "MML/Document/set_btdrbasiccfg.html",
+        "name": "设置BTDR单据上报参数（SET BTDRBASICCFG）",
+        "parentTopicId": "CONCEPT_0000203719490380",
+        "position": "9.2.1.1",
+        "parentPosition": "9.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

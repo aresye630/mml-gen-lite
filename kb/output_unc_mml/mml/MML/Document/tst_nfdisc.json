@@ -1,0 +1,138 @@
+{
+  "command_name": "TST NFDISC",
+  "command_name_zh": "测试服务发现",
+  "command_name_full": "测试服务发现（TST NFDISC）",
+  "command_function": "**适用NF：NRF**\n\n该命令用于测试本NRF的服务发现流程，并呈现服务发现结果。\n\n服务发现参数在此命令中输入格式要求及参考信息如下：\n\n此命令服务发现参数输入格式与服务发现消息中的JSON格式有一定差异，需要将标准JSON格式报文中的\" \" 用\\进行转义。\n\n例如：根据targetNfType，requesterNfType进行服务发现，标准的JSON格式如下{\"targetNfType\":4,\"requesterNfType\":3}，转义后的结果（即此命令参数需要输入格式）为{\\\"targetNfType\\\":4,\\\"requesterNfType\\\":3}。\n\n此命令参数中针对枚举字段的取值进行了整数的替换对应。服务发现参数中涉及的枚举值与其对应的整数如下：\n\nNFType:\n\nNRF = 1。\n\nUDM = 2。\n\nAMF = 3。\n\nSMF = 4。\n\nAUSF = 5。\n\nNEF = 6。\n\nPCF = 7。\n\nSMSF = 8。\n\nNSSF = 9。\n\nUDR = 10。\n\nLMF = 11。\n\nGMLC = 12。\n\n5G\\_EIR = 13。\n\nSEPP = 14。\n\nUPF = 15。\n\nN3IWF = 16。\n\nAF = 17。\n\nUDSF = 18。\n\nBSF = 19。\n\nCHF = 20。\n\nNWDAF = 21。\n\nPCSCF = 22。\n\nCUSTOM\\_OCS = 23。\n\nServiceName:\n\nnnrfNfm = 1。\n\nnnrfDisc = 2。\n\nnudmSdm = 3。\n\nnudmUecm = 4。\n\nnudmUeau = 5。\n\nnudmEe = 6。\n\nnudmPp = 7。\n\nnamfComm = 8。\n\nnamfEvts = 9。\n\nnamfMt = 10。\n\nnamfLoc = 11。\n\nnsmfPdusession = 12。\n\nnsmfEventExposure = 13。\n\nnausfAuth = 14。\n\nnausfSorprotection = 15。\n\nnausfUpuprotection = 16。\n\nnnefPfdmanagement = 17。\n\nnpcfAmPolicyControl = 18。\n\nnpcfSmpolicycontrol = 19。\n\nnpcfPolicyauthorization = 20。\n\nnpcfBdtpolicycontrol = 21。\n\nnpcfEventexposure = 22。\n\nnpcfUePolicyControl = 23。\n\nnsmsfSms = 24。\n\nnnssfNsselection = 25。\n\nnnssfNssaiavailability = 26。\n\nnudrDr = 27。\n\nnlmfLoc = 28。\n\nn5gEirEic = 29。\n\nnbsfManagement = 30。\n\nnchfSpendinglimitcontrol = 31。\n\nnchfConvergedcharging = 32。\n\nnnwdafEventssubscription = 33。\n\nnnwdafAnalyticsinfo = 34。\n\nnocsSpendinglimitcontrol = 35。\n\nnocsConvergedcharging = 36。\n\nngmlcLoc = 37。\n\nDataSetId:\n\nSUBSCRIPTION = 1。\n\nPOLICY = 2。\n\nEXPOSURE = 3。\n\nAPPLICATION = 4。\n\nPduSessionType:\n\nIPV4 = 1。\n\nIPV6 = 2。\n\nIPV4V6 = 3。\n\nUNSTRUCTURED = 4。\n\nETHERNET = 5。\n\nAccessType:\n\n3GPP\\_ACCESS = 1。\n\nNON\\_3GPP\\_ACCESS = 2。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.8",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320521",
+        "topicUrl": "MML/LinkedDoc/unc_n_peer_nf_management.html",
+        "name": "对端NF管理",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.8.2",
+        "parentPosition": "2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320220",
+        "topicUrl": "MML/LinkedDoc/unc_n_nf_information_management.html",
+        "name": "NF信息管理",
+        "parentTopicId": "TOPIC_0234320521",
+        "position": "2.8.2.2",
+        "parentPosition": "2.8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320371",
+        "topicUrl": "MML/LinkedDoc/unc_n_nf_service_test.html",
+        "name": "NF业务调测",
+        "parentTopicId": "TOPIC_0234320220",
+        "position": "2.8.2.2.7",
+        "parentPosition": "2.8.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209652471",
+        "topicUrl": "MML/Document/tst_nfdisc.html",
+        "name": "测试服务发现（TST NFDISC）",
+        "parentTopicId": "TOPIC_0234320371",
+        "position": "2.8.2.2.7.1",
+        "parentPosition": "2.8.2.2.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

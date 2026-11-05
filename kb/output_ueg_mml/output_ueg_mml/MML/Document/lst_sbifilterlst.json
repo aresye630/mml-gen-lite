@@ -1,0 +1,131 @@
+{
+  "command_name": "LST SBIFILTERLST",
+  "command_name_zh": "查询服务接口过滤列表",
+  "command_name_full": "查询服务接口过滤列表(LST SBIFILTERLST)",
+  "command_function": "该命令用于在配置数据库中查询某个服务接口过滤列表：\n\n- 若需要查询所有的服务接口过滤列表，不输入任何参数。\n- 若需要查询某个过滤器名称的详细接口过滤列表，请输入“过滤器名称”参数。\n- 若需要查询某个服务的详细接口过滤列表，请输入“对端类型”参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167444231",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_hlb_management.html",
+        "name": "HLB管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.5",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173368961",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_sbi_filter_list.html",
+        "name": "服务化接口过滤列表",
+        "parentTopicId": "CONCEPT_0167444231",
+        "position": "2.2.3.5.5.6",
+        "parentPosition": "2.2.3.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173212472_2",
+        "topicUrl": "MML/Document/lst_sbifilterlst.html",
+        "name": "查询服务接口过滤列表(LST SBIFILTERLST)",
+        "parentTopicId": "CONCEPT_0173368961",
+        "position": "2.2.3.5.5.6.3",
+        "parentPosition": "2.2.3.5.5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

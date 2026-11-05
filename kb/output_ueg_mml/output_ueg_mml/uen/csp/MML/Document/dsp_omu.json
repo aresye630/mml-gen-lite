@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP OMU",
+  "command_name_zh": "查询OMU信息",
+  "command_name_full": "查询OMU信息(DSP OMU)",
+  "command_function": "本命令用于请求系统显示OMU的状态、资源信息。\n\n当CSP应用于NFV模式并启用了扩展OMU功能时，本命令会同时显示扩展OMU的状态、资源信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234692",
+        "topicUrl": "uen/csp/MML/LinkedDoc/omu_ha.html",
+        "name": "OMU双机",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.5",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234664",
+        "topicUrl": "uen/csp/MML/LinkedDoc/omu_management.html",
+        "name": "OMU管理",
+        "parentTopicId": "CONCEPT_0243234692",
+        "position": "2.2.2.5.2",
+        "parentPosition": "2.2.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0243234703_2",
+        "topicUrl": "uen/csp/MML/Document/dsp_omu.html",
+        "name": "查询OMU信息(DSP OMU)",
+        "parentTopicId": "CONCEPT_0243234664",
+        "position": "2.2.2.5.2.1",
+        "parentPosition": "2.2.2.5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

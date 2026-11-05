@@ -1,0 +1,114 @@
+{
+  "command_name": "RMV IMSIFORSMSC",
+  "command_name_zh": "删除融合短消息功能共部署SMSC支持的IMSI号段配置",
+  "command_name_full": "删除融合短消息功能共部署SMSC支持的IMSI号段配置（RMV IMSIFORSMSC）",
+  "command_function": "**适用NF：SMSF**\n\n该命令用于删除融合短消息功能共部署SMSC支持的IMSI号段或MSISDN号段（通过DWORD16 BIT9软参配置）配置。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0268371158",
+        "topicUrl": "MML/LinkedDoc/unc_n_smsf_service_management.html",
+        "name": "SMSF业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.12",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001403664517",
+        "topicUrl": "MML/LinkedDoc/unc_n_smsc_selection_management.html",
+        "name": "SMSC选择管理",
+        "parentTopicId": "TOPIC_0268371158",
+        "position": "2.12.7",
+        "parentPosition": "2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001404281141",
+        "topicUrl": "MML/Document/rmv_imsiforsmsc.html",
+        "name": "删除融合短消息功能共部署SMSC支持的IMSI号段配置（RMV IMSIFORSMSC）",
+        "parentTopicId": "TOPIC_0000001403664517",
+        "position": "2.12.7.4",
+        "parentPosition": "2.12.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "LST DNSIPRESOURCE",
+  "command_name_zh": "查询DNS IP地址资源列表",
+  "command_name_full": "查询DNS IP地址资源列表（LST DNSIPRESOURCE）",
+  "command_function": "**适用NF：CloudEPSN**\n\n该命令用于查询DNS的管理接口和业务接口IP地址资源信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202547011696",
+        "topicUrl": "MML/LinkedDoc/udg_n_sfip_management.html",
+        "name": "SFIP管理",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000205730856709",
+        "topicUrl": "MML/LinkedDoc/sfip_n_third_party_application_management.html",
+        "name": "第三方应用管理",
+        "parentTopicId": "CONCEPT_0000202547011696",
+        "position": "8.6",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000205730985451",
+        "topicUrl": "MML/LinkedDoc/sfip_n_ip_resource_management.html",
+        "name": "IP资源管理",
+        "parentTopicId": "CONCEPT_0000205730856709",
+        "position": "8.6.5",
+        "parentPosition": "8.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206961311568",
+        "topicUrl": "MML/Document/lst_dnsipresource.html",
+        "name": "查询DNS IP地址资源列表（LST DNSIPRESOURCE）",
+        "parentTopicId": "CONCEPT_0000205730985451",
+        "position": "8.6.5.2",
+        "parentPosition": "8.6.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

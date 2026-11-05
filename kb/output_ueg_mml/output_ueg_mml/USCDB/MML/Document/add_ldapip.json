@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD LDAPIP",
+  "command_name_zh": "增加LDAP客户端IP地址",
+  "command_name_full": "增加LDAP客户端IP地址(ADD LDAPIP)",
+  "command_function": "该命令用于在LDAP服务端增加客户端IP地址，只有通过该命令增加的有效IP地址，才允许LDAP客户端建立与此LDAP服务端的连接，否则请求会被拒绝。此数据存放在LDAP服务端的第三方FE IP地址列表内，供LDAP服务端鉴权使用。\n\n作为BE的USCDB网元通过LAS服务提供了标准的LDAP接口，可以与第三方FE通信。\n\nBE与第三方FE之间通过IP建立连接。在LDAP连接中：\n\n- BE作为LDAP服务端\n- 第三方FE作为LDAP客户端\n\n出于安全考虑，BE通过以下两个信息对第三方FE进行鉴权，只有二者同时满足，第三方FE才被允许建立与BE的通信。\n\n- LDAP客户端的IP地址\n- LDAP服务端为LDAP客户端定义的用户名和密码\n\nLDAP客户端使用**ADD LDAPUSER**增加的客户端用户名和密码，并用通过该命令增加的IP登录，才能通过LDAP服务端的鉴权。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001136640911",
+        "topicUrl": "USCDB/reference/mml/UDRLas/LinkedDoc/udrlas_management.html",
+        "name": "LAS管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.2",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001135120647",
+        "topicUrl": "USCDB/MML/LinkedDoc/ldap_client_ip_management.html",
+        "name": "LDAP客户端IP地址管理",
+        "parentTopicId": "CONCEPT_0000001136640911",
+        "position": "2.2.4.2.3",
+        "parentPosition": "2.2.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001088101230",
+        "topicUrl": "USCDB/MML/Document/add_ldapip.html",
+        "name": "增加LDAP客户端IP地址(ADD LDAPIP)",
+        "parentTopicId": "CONCEPT_0000001135120647",
+        "position": "2.2.4.2.3.1",
+        "parentPosition": "2.2.4.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

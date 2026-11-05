@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD SCARD",
+  "command_name_zh": "增加VoWIFI/VoLTE辅卡",
+  "command_name_full": "增加VoWIFI/VoLTE辅卡（ADD SCARD）",
+  "command_function": "该命令用于增加VoLTE用户和VoWIFI有卡用户的辅卡。\n\n可以为VoWIFI有卡用户新增辅卡，该辅卡可以是虚拟卡或者真实的USIM卡。也可以为VoLTE用户新增辅卡，该辅卡为真实的USIM卡。\n\n- VoWIFI（Voice over WIFI）是指用户终端通过Non-3GPP的WiFi网络接入，从而连接到运营商的IMS网络实现语音、短信、补充业务等IMS业务。VoWIFI终端包括有卡终端和无卡终端。\n  - 有卡终端，是指支持VoWIFI并有真实USIM卡的手机终端，可以使用CS/PS/EPS/IMS业务，具备数据、短消息和语音权限，支持VoLTE和VoWIFI。\n  - 无卡终端，是指支持VoWIFI并无真实USIM卡的其他终端，不能使用CS/PS业务，只能通过Non-3GPP方式接入EPS网络，具备数据和语音权限，不能使用短信，语音通过VoWIFI提供。\n- VoLTE（Voice over Long Term Evolution）是基于IMS（IP Multimedia Subsystem）网络的LTE语音解决方案。华为VoLTE解决方案通过在现有的CS（Circuit Switched domain）网络上叠加部署IMS网络和LTE网络，提供端到端的QoS保障，为终端用户提供高质量的语音通话、视频通话和更为丰富的数据业务。\n\n该命令适用于以下用户在以下场景中增加辅卡：\n\n该命令的参数索引关系如图1所示：\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803543",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/definition.html",
+        "name": "开户",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.1",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0166138020",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_scard.html",
+        "name": "增加VoWIFI/VoLTE辅卡（ADD SCARD）",
+        "parentTopicId": "CONCEPT_0190803543",
+        "position": "4.2.3.5.1.7",
+        "parentPosition": "4.2.3.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活支持4G到5G多切片时的重选",
+  "feature_description": "本操作指导介绍在运行网络中激活支持4G到5G多切片时的重选的操作过程。\n\n空闲态UE移动出4G基站覆盖区域进入5G基站的覆盖区域，执行小区重选，发起移动注册更新流程，进行4G到5G的重选。\n\nUE在4G网络时，不需要切片信息，4G网络一张网络满足所有应用；UE从4G移动到5G之后，在5G组网场景下，则需要通过对切片信息的判断，将UE接入不同的切片网络，分别为不同业务场景提供服务。比如当存在2B、2C两个切片网络，需要区分处理，让2B的用户接入到2B的切片网络，2C的用户接入到2C的切片网络。\n\n本特性通过互操作过程中的切片信息，判断用户从4G网络重选到5G网络后，AMF是否需要重分配、I-SMF是否需要插入、初始插入的I-SMF是否需要重选、I-UPF是否需要重选，让支持对应切片的网元为UE提供服务，最大化的保证用户在4G到5G多切片重选时的业务连续性。\n\n**说明** \n\n适用于AMF、SMF、NSSF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450903",
+        "topicUrl": "toctopics/zh-cn_topic_0248450903.html",
+        "name": "互操作功能",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0276471293",
+        "topicUrl": "toctopics/zh-cn_concept_0276471293.html",
+        "name": "WSFD-110006 支持4G到5G多切片时的重选",
+        "parentTopicId": "TOPIC_0248450903",
+        "position": "6.11",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0276471296",
+        "topicUrl": "toctopics/zh-cn_opi_0276471296.html",
+        "name": "激活支持4G到5G多切片时的重选",
+        "parentTopicId": "CONCEPT_0276471293",
+        "position": "6.11.3",
+        "parentPosition": "6.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

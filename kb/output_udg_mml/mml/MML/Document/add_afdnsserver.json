@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD AFDNSSERVER",
+  "command_name_zh": "增加防欺诈可信DNS服务器",
+  "command_name_full": "增加防欺诈可信DNS服务器（ADD AFDNSSERVER）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于配置可信的DNS服务器IP，用于从DNS响应中学习应用服务器IP地址。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876540",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_anti_fraud.html",
+        "name": "业务防欺诈",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.8",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555347",
+        "topicUrl": "MML/LinkedDoc/udg_n_anti_fraud_trusted_dns_server.html",
+        "name": "防欺诈可信DNS服务器",
+        "parentTopicId": "CONCEPT_0000202102876540",
+        "position": "5.8.7",
+        "parentPosition": "5.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837807",
+        "topicUrl": "MML/Document/add_afdnsserver.html",
+        "name": "增加防欺诈可信DNS服务器（ADD AFDNSSERVER）",
+        "parentTopicId": "CONCEPT_0000202289555347",
+        "position": "5.8.7.1",
+        "parentPosition": "5.8.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置N40、Bx接口话单支持媒体中继流量字段",
+  "feature_description": "在N40计费场景下，当运营商需要核对话单流量时，请参考本章节进行配置。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF3E973F9A7A24393805B169F26A77E72",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002243122044",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 媒体中继解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002415996849",
+        "topicUrl": "toctopics/zh-cn_topic_0000002415996849.html",
+        "name": "媒体中继业务配置",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002184693166",
+        "topicUrl": "toctopics/zh-cn_topic_0000002184693166.html",
+        "name": "新建媒体中继基础配置",
+        "parentTopicId": "TOPIC_0000002415996849",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002470352388",
+        "topicUrl": "toctopics/zh-cn_topic_0000002470352388.html",
+        "name": "配置CHF",
+        "parentTopicId": "TOPIC_0000002184693166",
+        "position": "3.4.3",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "OPI_0000002501533537",
+        "topicUrl": "toctopics/zh-cn_opi_0000002501533537.html",
+        "name": "配置N40、Bx接口话单支持媒体中继流量字段",
+        "parentTopicId": "TOPIC_0000002470352388",
+        "position": "3.4.3.1",
+        "parentPosition": "3.4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

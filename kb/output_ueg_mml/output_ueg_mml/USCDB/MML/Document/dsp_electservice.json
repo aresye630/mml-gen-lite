@@ -1,0 +1,155 @@
+{
+  "command_name": "DSP ELECTSERVICE",
+  "command_name_zh": "查询仲裁服务状态",
+  "command_name_full": "查询仲裁服务状态（DSP ELECTSERVICE）",
+  "command_function": "该命令用于查询仲裁服务状态。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0231883279",
+        "topicUrl": "USCDB/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.1",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767897957_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "TOPIC_0231883279",
+        "position": "2.2.4.1.3",
+        "parentPosition": "2.2.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001768057269_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/common_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0000001767897957_2",
+        "position": "2.2.4.1.3.2",
+        "parentPosition": "2.2.4.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767897997_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/common_vnfc_n_system_maintenance.html",
+        "name": "系统维护",
+        "parentTopicId": "TOPIC_0000001768057269_2",
+        "position": "2.2.4.1.3.2.3",
+        "parentPosition": "2.2.4.1.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720258054_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/common_vnfc_n_elect_service_status.html",
+        "name": "仲裁服务状态",
+        "parentTopicId": "TOPIC_0000001767897997_2",
+        "position": "2.2.4.1.3.2.3.3",
+        "parentPosition": "2.2.4.1.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0259103974_4",
+        "topicUrl": "USCDB/MML/Document/dsp_electservice.html",
+        "name": "查询仲裁服务状态（DSP ELECTSERVICE）",
+        "parentTopicId": "TOPIC_0000001720258054_2",
+        "position": "2.2.4.1.3.2.3.3.1",
+        "parentPosition": "2.2.4.1.3.2.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

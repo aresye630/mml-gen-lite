@@ -1,0 +1,41 @@
+﻿# 增加话单中字段的映射关系（ADD CDFFIELDMAP）
+
+- 命令功能
+- 注意事项
+- 参数说明
+- 使用实例
+
+## 命令功能
+
+**适用NF：NCG**
+
+该命令用于增加话单中字段的映射关系。
+
+## 注意事项
+
+- 该命令执行后立即生效。
+
+- 仅当FIELDNAME参数设置为RGTRIGGER、QBCQOSFTRIGGER、CAUSEFORRECCLOSING时才能将TRIGGERTYPE参数设置为SPECIALSCENARIO，否则该命令会执行失败。
+- 使用该命令添加字段映射关系可能会使控制trigger和causeForRecClosing字段填充规则的相关软参失效。
+
+- 最多可输入1001条记录。
+
+#### 操作用户权限
+
+G\_1，管理员级别命令组；G\_2，操作员级别命令组
+
+## 参数说明
+
+| 参数标识        | 参数名称       | 参数说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:------------|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| FIELDNAME   | 字段名称       | 可选必选说明：必选参数  参数含义：该参数用于指定字段名称。  数据来源：本端规划 取值范围： PDUTRIGGER（PDU级Trigger）RGTRIGGER（RG级Trigger）QBCPDUTRIGGER（QBC级PDU trigger）QBCQOSFTRIGGER（QBC级QOSF trigger）CAUSEFORRECCLOSING（关闭原因）  默认值：无  配置原则：无                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| TRIGGERTYPE | trigger 类型 | 可选必选说明：必选参数  参数含义：该参数用于指定Trigger类型。  数据来源：本端规划 取值范围： SPECIALSCENARIO（特殊场景）QUOTATHRESHOLD（配额阈值）QHT（配额保持时长）QFLOWEND（QoS流结束）QUOTAEXHAUSTED（配额耗尽）VT（配额有效时长）OTHERQUOTATYPE（其他配额类型）FORCEDREAUTHORISATION（强制重新授权）UNUSEDQUOTATIMER（未使用配额时长）UCITIMER（业务停止时长）ABNORMALRLS（异常释放）QOSCHG（QoS更新）VOLUMELIMIT（流量阈值）TIMELIMIT（时间阈值）PLMNCHG（PLMN更新）ULCHG（用户位置更新）RATCHG（RAT更新）SESSAMBRCHG（会话AMBR更新）UETZCHG（用户时区更新）TARIFFTIMECHG（费率时间更新）MAXNUMCCC（计费条件改变阈值）MGTINTERVENTION（管理介入）PRACHG（区域用户位置上报更新）PSDATAOFFCHG（PS数据关闭状态更新）SRVNDCHG（服务节点更新）RMVUPF（删除UPF）ADDUPF（添加UPF）SSDATAFLOW（开始服务数据流）INSERTISMF（ 插入I-SMF）REMOVALISMF（删除I-SMF）CHANGEISMF（更新I-SMF）SERVPLMNRTCTCHG（服务PLMN速率控制更新）APNRATECTRLCHG（APN速率控制更新）  默认值：无  配置原则：  仅当FIELDNAME字段配置为RGTRIGGER、QBCQOSFTRIGGER、CAUSEFORRECCLOSING时，SPECIALSCENARIO枚举才有意义。  FIELDNAME为RGTRIGGER、TRIGGERTYPE为SPECIALSCENARIO时用于如下场景的填值映射：上游usedUnitContainers下triggers没有携带且DWORD15 BIT24为1，DWORD15 BIT25为0。 上游usedUnitContainers下triggers没有携带且DWORD15 BIT24为0，DWORD15 BIT25为1，且ChargingRecord下triggers也不存在。  FIELDNAME为QBCQOSFTRIGGER、TRIGGERTYPE为SPECIALSCENARIO时用于如下特殊场景的填值映射：上游multipleQFIContainer下triggers没有携带且DWORD15 BIT30为1，DWORD15 BIT31为0。 上游multipleQFIContainer下triggers没有携带且DWORD15 BIT30为0，DWORD15 BIT31为1，且ChargingRecord下triggers也不存在。  FIELDNAME为CAUSEFORRECCLOSING、TRIGGERTYPE为SPECIALSCENARIO时用于如下特殊场景的填值映射：chargingstatus为2且DWORD4 BIT32为0。 chargingstatus为2且ocsabnormalcode不为600且DWORD4 BIT32为1。 |
+| MAPVALUE    | 字段映射值      | 可选必选说明：必选参数  参数含义：该参数用于指定字段映射值。  数据来源：本端规划  取值范围：整数类型，取值范围是0~2147483647。  默认值：无  配置原则：无                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+## 使用实例
+
+增加一个PDUTRIGGER映射，trigger类型为QUOTATHRESHOLD，映射值为1000：
+
+```
+ADD CDFFIELDMAP: FIELDNAME=PDUTRIGGER, TRIGGERTYPE=QUOTATHRESHOLD, MAPVALUE=1000;
+```

@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活AMF Pool特性",
+  "feature_description": "本操作指导介绍在运行网络中激活AMF Pool特性的操作过程。\n\nAMF Pool是指多个AMF同时为相同的无线区域服务，Pool内的AMF与相应区域内所有gNodeB连接。Pool内AMF之间实现资源共享、业务负荷分担。gNodeB探测AMF的设备状态（是否可用）并获取AMF的负荷权重，根据设备状态及负荷权重来及时调整Pool的负荷均衡策略。\n\n**说明** \n\n适用于AMF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375200269",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375200269.html",
+        "name": "AMF特性指南",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184605010",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184605010.html",
+        "name": "GWFD-024200 POOL-5G",
+        "parentTopicId": "TOPIC_0000001375200269",
+        "position": "5.15",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0191610808",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_amf_pool_00.html",
+        "name": "GWFD-024201 AMF Pool",
+        "parentTopicId": "TOPIC_0000001184605010",
+        "position": "5.15.1",
+        "parentPosition": "5.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0191611153",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_om_amf_pool_01.html",
+        "name": "激活AMF Pool特性",
+        "parentTopicId": "CONCEPT_0191610808",
+        "position": "5.15.1.7",
+        "parentPosition": "5.15.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

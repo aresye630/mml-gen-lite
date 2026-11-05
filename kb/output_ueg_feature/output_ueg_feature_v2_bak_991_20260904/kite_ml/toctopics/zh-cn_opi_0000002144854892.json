@@ -1,0 +1,128 @@
+{
+  "feature_name": "激活RedCap接入（AMF和SMF，周边部分网元未升级场景）",
+  "feature_description": "本操作指导用于gNodeB和部分网元（AMF和SMF）支持RedCap功能的场景下，激活RedCap用户接入。RedCap功能支持周边网元免升级的情况，当部分网元不支持RedCap功能时，会将其当作普通NR用户处理。\n\n**说明** \n\n适用于AMF和SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324360342",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324360342.html",
+        "name": "UEG公共特性指南",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001643797489",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001643797489.html",
+        "name": "RedCap基本功能",
+        "parentTopicId": "TOPIC_0000001324360342",
+        "position": "2.8",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000002144854896",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000002144854896.html",
+        "name": "GWFD-026201 RedCap终端标准接入",
+        "parentTopicId": "TOPIC_0000001643797489",
+        "position": "2.8.1",
+        "parentPosition": "2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000002145012930",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000002145012930.html",
+        "name": "激活RedCap接入",
+        "parentTopicId": "TOPIC_0000002144854896",
+        "position": "2.8.1.3",
+        "parentPosition": "2.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000002144854892",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002144854892.html",
+        "name": "激活RedCap接入（AMF和SMF，周边部分网元未升级场景）",
+        "parentTopicId": "TOPIC_0000002145012930",
+        "position": "2.8.1.3.2",
+        "parentPosition": "2.8.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

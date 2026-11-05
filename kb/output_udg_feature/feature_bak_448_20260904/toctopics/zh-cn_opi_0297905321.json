@@ -1,0 +1,86 @@
+{
+  "feature_name": "公共参数配置",
+  "feature_description": "本页面涉及的公共参数均有默认值，请根据网设LLD规划的值进行调整。\n\n网设LLD中未描述的参数，一般情况下是使用系统初始值。如有疑问，请联系华为技术支持工程师。对于使用系统初始值的参数，为了避免被误修改，建议参考本页面重新配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0233049494",
+        "topicUrl": "toctopics/zh-cn_topic_0233049494.html",
+        "name": "基础数据配置",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0297905321",
+        "topicUrl": "toctopics/zh-cn_opi_0297905321.html",
+        "name": "公共参数配置",
+        "parentTopicId": "TOPIC_0233049494",
+        "position": "4.4",
+        "parentPosition": "4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

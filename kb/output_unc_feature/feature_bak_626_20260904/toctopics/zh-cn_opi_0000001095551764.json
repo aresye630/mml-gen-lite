@@ -1,0 +1,97 @@
+{
+  "feature_name": "激活SBI接口加密特性(CERT)",
+  "feature_description": "为降低网络安全风险，建议开启SBI接口加密特性。\n\n**说明** \n\n适用于AMF、SMF、NRF、NSSF、SMSF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVA7BE1C5944E4460EB0C4BEAE46395950",
+        "parentNaviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "pidId": "pid_bookmap_0000002193794102",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC安全配置",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095683976",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095683976.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095363946",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095363946.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001095683976",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001142283723",
+        "topicUrl": "toctopics/zh-cn_topic_0000001142283723.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001095363946",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "OPI_0000001095551764",
+        "topicUrl": "toctopics/zh-cn_opi_0000001095551764.html",
+        "name": "激活SBI接口加密特性(CERT)",
+        "parentTopicId": "TOPIC_0000001142283723",
+        "position": "2.2.5.1",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

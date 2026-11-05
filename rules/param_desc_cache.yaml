@@ -1,0 +1,2804 @@
+cmd_param_desc:
+  ADD ACLRULEADV4:
+    name: 增加高级ACL规则
+    func: 该命令用于创建高级ACL规则。高级ACL可以基于五元组（源目的IP，源目的端口号，协议号）进行报文匹配。主要应用场景为路由策略以及端口流量策略等。
+    params:
+      ACLNAME:
+        name: ACL规则组标识
+        desc: 该参数用于指定规则属于哪个规则组。
+      ACLRULENAME:
+        name: 规则名称
+        desc: 该参数用于指定规则名称。
+      ACLRULEID:
+        name: 规则ID
+        desc: 该参数用于指定规则的ID。如果不输入该参数，则规则ID按照规则组步长增长。
+      ACLACTION:
+        name: 规则行为
+        desc: 该参数用于指定对符合本规则的报文采取的动作。
+      ACLFRAGTYPE:
+        name: 报文分片类型
+        desc: 该参数用于指定规则所的报文分片类型，共有分片报文中的首片、分片报文中的非首片、非分片报文三种报文类型。如果不输入该参数，则表示不校验报文的分片信息。
+      ACLSOURCEIP:
+        name: 源IP地址
+        desc: 该参数用于指定规则要匹配的源IPv4地址。
+      ACLSRCWILD:
+        name: 源IP地址反掩码
+        desc: 该参数用于指定规则要匹配的源IPv4地址反掩码。
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定规则匹配要生效的VPN实例。
+      ACLRULEDESCRIPTION:
+        name: 规则描述
+        desc: 该参数用于指定规则描述。
+      ACLPROTOCOL:
+        name: 协议类型值
+        desc: 该参数用于指定规则协议类型。
+      ACLDESTIP:
+        name: 目的IP地址
+        desc: 该参数用于指定规则要匹配的目的IPv4地址。
+      ACLDESTWILD:
+        name: 目的IP地址反掩码
+        desc: 该参数用于指定规则要匹配的目的IPv4地址反掩码。
+      ACLSRCPORTOP:
+        name: 源端口范围类型
+        desc: 该参数用于指定规则源端口范围类型。如果不输入该参数，则表示不校验报文的源端口。
+      ACLSRCPORTBEGIN:
+        name: 源端口的开始端口号
+        desc: 该参数用于指定规则源端口号的开始端口。
+      ACLSRCPORTEND:
+        name: 源端口的结束端口号
+        desc: 该参数用于指定规则源端口号的结束端口。
+      ACLDESTPORTOP:
+        name: 目的端口范围类型
+        desc: 该参数用于指定规则目的端口范围类型。如果不输入该参数，则表示不校验报文的目的端口。
+      ACLDESTPORTBEGIN:
+        name: 目的端口的开始端口号
+        desc: 该参数用于指定规则目的端口号的开始端口。
+      ACLDESTPORTEND:
+        name: 目的端口的结束端口号
+        desc: 该参数用于指定规则目的端口号的结束端口。
+      ACLPRECEDENCE:
+        name: 报文优先级
+        desc: 该参数用于指定规则的报文优先级。如果不输入该参数，则表示不校验报文优先级。
+      ACLTOS:
+        name: 服务优先级
+        desc: 该参数用于指定规则的数据包过滤服务优先级。如果不输入该参数，则表示不校验报文的服务优先级。
+      ACLDSCP:
+        name: DSCP值
+        desc: 该参数用于指定规则的差分服务码。如果不输入该参数，则表示不校验报文的差分服务码。
+      ACLICMPNAME:
+        name: ICMP名称
+        desc: 该参数用于指定规则的网络控制管理协议名称。如果不输入该参数，则表示不校验报文的ICMP名称。
+      ACLICMPTYPE:
+        name: 网络控制管理协议类型
+        desc: 该参数用于指定规则的网络控制管理协议报文的类型。
+      ACLICMPCODE:
+        name: 网络控制管理协议消息码
+        desc: 该参数用于指定规则的网络控制管理协议消息码。
+      ACLSYNFLAG:
+        name: TCP-FLAG
+        desc: 该参数用于指定规则的TCP-Flag值。如果不输入该参数，则表示不校验报文的TCP-Flag值。
+      ACLTTLOP:
+        name: TTL范围
+        desc: 该参数用于指定TTL的范围。如果不输入该参数，则表示不校验报文的TTL的范围。
+      ACLTTL:
+        name: TTL值
+        desc: 该参数用于指定TTL的值。
+      ACLTTLEND:
+        name: 结束TTL值
+        desc: 该参数用于指定TTL的结束值。
+  ADD ACLRULEADV4IPSEC:
+    name: 增加高级ACL规则
+    func: ''
+    params:
+      ACLNAME:
+        name: ACL规则组标识
+        desc: 该参数用于指定规则属于哪个规则组。
+      ACLRULENAME:
+        name: 规则名称
+        desc: 该参数用于指定规则名称。
+      ACLRULEID:
+        name: 规则ID
+        desc: 该参数用于指定规则的ID。如果不输入该参数，则规则ID按照规则组步长增长。
+      ACLACTION:
+        name: 规则行为
+        desc: 该参数用于指定对符合本规则的报文采取的动作。
+      ACLFRAGTYPE:
+        name: 报文分片类型
+        desc: 该参数用于指定规则所的报文分片类型，共有分片报文中的首片、分片报文中的非首片、非分片报文三种报文类型。如果不输入该参数，则表示不校验报文的分片信息。
+      ACLSOURCEIP:
+        name: 源IP地址
+        desc: 该参数用于指定规则要匹配的源IPv4地址。
+      ACLSRCWILD:
+        name: 源IP地址反掩码
+        desc: 该参数用于指定规则要匹配的源IPv4地址反掩码。
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定规则匹配要生效的VPN实例。
+      ACLRULEDESCRIPTION:
+        name: 规则描述
+        desc: 该参数用于指定规则描述。
+      ACLPROTOCOL:
+        name: 协议类型值
+        desc: 该参数用于指定规则协议类型。
+      ACLDESTIP:
+        name: 目的IP地址
+        desc: 该参数用于指定规则要匹配的目的IPv4地址。
+      ACLDESTWILD:
+        name: 目的IP地址反掩码
+        desc: 该参数用于指定规则要匹配的目的IPv4地址反掩码。
+      ACLSRCPORTOP:
+        name: 源端口范围类型
+        desc: 该参数用于指定规则源端口范围类型。如果不输入该参数，则表示不校验报文的源端口。
+      ACLSRCPORTBEGIN:
+        name: 源端口的开始端口号
+        desc: 该参数用于指定规则源端口号的开始端口。
+      ACLSRCPORTEND:
+        name: 源端口的结束端口号
+        desc: 该参数用于指定规则源端口号的结束端口。
+      ACLDESTPORTOP:
+        name: 目的端口范围类型
+        desc: 该参数用于指定规则目的端口范围类型。如果不输入该参数，则表示不校验报文的目的端口。
+      ACLDESTPORTBEGIN:
+        name: 目的端口的开始端口号
+        desc: 该参数用于指定规则目的端口号的开始端口。
+      ACLDESTPORTEND:
+        name: 目的端口的结束端口号
+        desc: 该参数用于指定规则目的端口号的结束端口。
+      ACLPRECEDENCE:
+        name: 报文优先级
+        desc: 该参数用于指定规则的报文优先级。如果不输入该参数，则表示不校验报文优先级。
+      ACLTOS:
+        name: 服务优先级
+        desc: 该参数用于指定规则的数据包过滤服务优先级。如果不输入该参数，则表示不校验报文的服务优先级。
+      ACLDSCP:
+        name: DSCP值
+        desc: 该参数用于指定规则的差分服务码。如果不输入该参数，则表示不校验报文的差分服务码。
+      ACLICMPNAME:
+        name: ICMP名称
+        desc: 该参数用于指定规则的网络控制管理协议名称。如果不输入该参数，则表示不校验报文的ICMP名称。
+      ACLICMPTYPE:
+        name: 网络控制管理协议类型
+        desc: 该参数用于指定规则的网络控制管理协议报文的类型。
+      ACLICMPCODE:
+        name: 网络控制管理协议消息码
+        desc: 该参数用于指定规则的网络控制管理协议消息码。
+      ACLSYNFLAG:
+        name: TCP-FLAG
+        desc: 该参数用于指定规则的TCP-Flag值。如果不输入该参数，则表示不校验报文的TCP-Flag值。
+  ADD AGENTIP:
+    name: 增加远端地址池代理IP信息
+    func: ''
+    params:
+      POOLNAME:
+        name: 地址池名称
+        desc: 该参数用于指定配置代理IP地址的地址池名称。
+      SECTIONNUM:
+        name: 地址段号
+        desc: 该参数用于指定配置代理IP地址的地址段号。
+      IPVERSION:
+        name: IP地址类型
+        desc: 该参数用于指定配置代理IP地址的地址类型。
+      V4AGENTIP:
+        name: IPv4代理地址
+        desc: 该参数用于指定IPv4代理地址。
+      V6AGENTIP:
+        name: IPv6代理地址
+        desc: 该参数用于指定IPv6代理地址。
+  ADD APNIMSSIGFLTR:
+    name: 添加APN的IMS分类器
+    func: '**须知**'
+    params:
+      APN:
+        name: APN名称
+        desc: 该参数用于指定APN实例名。
+      PRIORITY:
+        name: 优先级
+        desc: 该参数用于指定静态分组过滤优先级。值越小优先级越高。
+      IPVERSION:
+        name: IP地址版本
+        desc: 该参数用于指定过滤规则是IPv4类型还是IPv6类型。
+      SRCIPV4SPECTYPE:
+        name: 源IPv4地址指定方式
+        desc: 该参数用于指定P-CSCF数据包服务器的IPv4地址是使用特定地址还是使用任意地址。
+      SRCIPV4ADDR:
+        name: 源IPv4地址
+        desc: 该参数用于指定P-CSCF数据包服务器的IPv4地址。
+      SRCIPV4MASKLEN:
+        name: 源IPv4地址掩码长度
+        desc: 该参数用于指定P-CSCF数据包服务器IPv4地址的地址掩码长度。
+      SRCIPV6SPECTYPE:
+        name: 源IPv6地址指定方式
+        desc: 该参数用于指定P-CSCF数据包服务器的IPv6地址是使用特定地址还是使用任意地址。
+      SRCIPV6ADDR:
+        name: 源IPv6地址
+        desc: 该参数用于指定P-CSCF数据包服务器的IPv6地址。
+      SRCIPV6PREFLEN:
+        name: 源IPv6地址前缀长度
+        desc: 该参数用于指定P-CSCF数据包服务器IPv6地址的地址前缀长度。
+      SRCPORTSPECTYPE:
+        name: 源端口指定方式
+        desc: 该参数用于指定P-CSCF服务器端口是使用特定端口还是使用任意端口。
+      SRCPORTSTART:
+        name: 源端口号开始
+        desc: 该参数用于指定服务器端口起始值。
+      SRCPORTEND:
+        name: 源端口号结束
+        desc: 该参数用于指定服务器端口终止值。
+      DSTIPV4SPECTYPE:
+        name: 目的IPv4地址指定方式
+        desc: 该参数用于指定数据包手机的IPv4地址是使用特定地址还是使用任意地址。
+      DSTIPV4ADDR:
+        name: 目的IPv4地址
+        desc: 该参数用于指定数据包手机的IPv4地址。
+      DSTIPV4MASKLEN:
+        name: 目的IPv4地址掩码长度
+        desc: 该参数用于指定数据包手机IPv4地址的地址掩码长度。
+      DSTIPV6SPECTYPE:
+        name: 目的IPv6地址指定方式
+        desc: 该参数用于指定数据包手机的IPv6地址是使用特定地址还是使用任意地址。
+      DSTIPV6ADDR:
+        name: 目的IPv6地址
+        desc: 该参数用于指定数据包手机的IPv6地址。
+      DSTIPV6PREFLEN:
+        name: 目的IPv6地址前缀长度
+        desc: 该参数用于指定数据包手机IPv6地址的地址前缀长度。
+      DSTPORTSPECTYPE:
+        name: 目的端口指定方式
+        desc: 该参数用于指定手机端口是使用特定端口还是使用任意端口。
+      DSTPORTSTART:
+        name: 目的端口号开始
+        desc: 该参数用于指定手机端口起始值。
+      DSTPORTEND:
+        name: 目的端口号结束
+        desc: 该参数用于指定手机端口终止值。
+      PROSPECTYPE:
+        name: 协议指定方式
+        desc: 该参数用于指定协议号是使用特定协议号还是使用任意协议号。
+      PROTOCOL:
+        name: 协议类型
+        desc: 该参数用于指定协议号。
+  ADD AUTOSCALINGBFD:
+    name: 增加BFD会话自动化配置模板
+    func: 该命令在静态路由场景或动态协议场景下，用于添加动态或静态BFD会话自动化配置模板。
+    params:
+      TEMPLATENAME:
+        name: 模板名称
+        desc: 该参数用于指定BFD自动化配置模板名称。
+      BFDTYPE:
+        name: BFD类型
+        desc: 该参数用来表示BFD自动化配置模板类型。
+      SERVICENAME:
+        name: 服务名称
+        desc: 该参数用来表示接口自动化配置服务模板名称。要求和ADD AUTOSCALINGSERVICE命令中配置的SERVICENAME参数保持一致。
+      IPVERSION:
+        name: IP版本
+        desc: 该参数用来表示IP版本。
+      DESTADDR4:
+        name: 目的地址
+        desc: 该参数用于表示IPv4目的地址。
+      DESTADDR6:
+        name: 目的地址
+        desc: 该参数用于表示IPv6目的地址。
+      MINECHORXINT:
+        name: 单臂Echo会话的收包间隔（ms）
+        desc: 该参数用于表示单臂Echo会话的收包间隔（ms）。
+      MINRXINTERVAL:
+        name: 动态BFD会话的收包间隔（ms）
+        desc: 该参数用于表示动态BFD会话的收包间隔。
+      MINTXINTERVAL:
+        name: 动态BFD会话的发包间隔（ms）
+        desc: 该参数用于表示动态BFD会话的发包间隔。
+      DETECTMULTI:
+        name: 检测倍数
+        desc: 该参数用于表示检测倍数，如果BFD会话在设置的检测周期内没有收到对端发来的BFD报文，则认为链路发生了故障，BFD会话的状态将会置为Down。
+      ONEARMECHO:
+        name: 单臂Echo
+        desc: 该参数用于指定是否是单臂echo功能BFD会话。
+  ADD AUTOSCALINGSERVICE:
+    name: 增加自动化配置参数
+    func: 该命令用于增加接口自动化配置模板，基于模板的参数自动生成以太接口下的配置。
+    params:
+      SERVICENAME:
+        name: 服务名称
+        desc: 该参数用于指定接口自动化配置服务模板的名称。
+      VPNNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定VPN实例名称。配置该参数前，须先使用ADD L3VPNINST命令添加VPN实例。
+      AFTYPE:
+        name: 地址族
+        desc: 该参数用于指定地址族类型。
+      IPALLOCTYPE4:
+        name: IPv4地址分配方式
+        desc: 该参数用于指定IPv4地址分配方式。用户配置方式是指用户配置地址池指定接口地址
+      IPALLOCTYPE6:
+        name: IPv6地址分配方式
+        desc: 该参数用于指定IPv6地址分配方式。用户配置方式是指用户配置地址池指定接口地址
+      AUTOCFGIFTYPE:
+        name: 自动化配置接口类型
+        desc: 该参数用于指定自动化配置接口类型。虚拟网卡是指对以太接口实现自动化配置；以太Trunk是指对以太Trunk接口实现自动化配置。
+      ETHTRUNKTMPID:
+        name: 以太Trunk模板ID
+        desc: 该参数用于指定以太Trunk模板ID。配置该参数前，须先使用ADD AUTOSCALINGETHTRUNK命令添加以太Trunk模板。
+      VNICID:
+        name: 虚拟网卡ID
+        desc: 该参数用于指定接口的虚拟网卡ID。该虚拟网卡ID即为以太网主接口ID。
+      VLANID:
+        name: VLAN ID
+        desc: 该参数用于指定VLAN ID。该VLAN ID表示以太网子接口ID。配置该参数后，如果子接口不存在，将会新增子接口，可以通过执行LST
+          INTERFACE命令查询接口变化。
+      BEGINADDR4:
+        name: 起始地址
+        desc: 该参数用于指定IPv4地址池的起始地址。
+      ENDADDR4:
+        name: 结束地址
+        desc: 该参数用于指定IPv4地址池的结束地址。
+      BEGINADDR6:
+        name: 起始地址
+        desc: 该参数用于指定IPv6地址池的起始地址。
+      ENDADDR6:
+        name: 结束地址
+        desc: 该参数用于指定IPv6地址池的结束地址。
+      MASKLEN:
+        name: 地址池掩码长度
+        desc: IPv4场景，该参数用于指定扩容业务的地址池掩码长度；IPv6场景，该参数用于指定扩容业务的地址池前缀长度。
+      OSPFENABLE:
+        name: 使能OSPF
+        desc: 该参数用于指定是否将扩容出的接口都使能单个OSPF进程。
+      OSPFPROCID:
+        name: OSPF进程ID
+        desc: 该参数用于指定扩容业务OSPF的进程ID。 根据AFTYPE来区分是OSPFv2协议还是OSPFv3协议。 配置该参数前，若地址族参数AFTYPE取值为IPv4时须先使用ADD
+          OSPF命令添加OSPF特性的进程，若地址族参数AFTYPE取值为IPv6时须先使用ADD OSPFV
+      OSPFAREAID:
+        name: OSPF区域ID
+        desc: 该参数用于指定扩容业务OSPF的区域ID。 根据AFTYPE来区分是OSPFv2协议还是OSPFv3协议。 配置该参数前，须先使用ADD
+          OSPFAREA命令在OSPF进程下创建区域。
+      OSPFINSTID:
+        name: OSPF实例ID
+        desc: 该参数用于指定扩容业务OSPFv3的实例ID。配置该参数前，需指定AFTYPE参数为IPv6。
+      OSPFCOST:
+        name: OSPF开销
+        desc: 该参数用于指定扩容业务OSPF的开销值。 根据AFTYPE来区分是OSPFv2协议还是OSPFv3协议。
+      OSPFHELLOTIMER:
+        name: 邻居发送Hello包时间间隔（s）
+        desc: 该参数用于指定接口发送Hello报文的时间间隔。OSPFHELLOTIMER的值写入Hello报文中后随之发送。OSPFHELLOTIMER的值越小，发现网络拓扑改变的速度越快，路由开销也就越大。确定接口和邻接路由器的参数要保持一致。
+      OSPFDEADTIMER:
+        name: 邻居失效的时间（s）
+        desc: 该参数用于指定OSPF邻居失效的时间。OSPF邻居的失效时间是指：在该时间间隔内，若未收到邻居的Hello报文，就认为该邻居已失效。
+      TPINENABLE:
+        name: 使能入方向的流量策略
+        desc: 该参数用于指定是否使能入方向的流量策略。
+      TPINNAME:
+        name: 入方向的流量策略名称
+        desc: 该参数用于指定扩容业务入方向的流量策略名称。配置该参数前，须先使用ADD MQCPOLICY命令添加流量策略。
+      TPINLINKFLAG:
+        name: 入方向的流量策略链接标记
+        desc: 该参数用于指定扩容业务入方向的流量策略链接标记。配置该参数前，须先使用ADD MQCPOLICY命令添加流量策略。
+      TPOUTENABLE:
+        name: 使能出方向的流量策略
+        desc: 该参数用于指定是否使能出方向的流量策略。
+      TPOUTNAME:
+        name: 出方向的流量策略名称
+        desc: 该参数用于指定扩容业务出方向的流量策略名称。配置该参数前，须先使用ADD MQCPOLICY命令添加流量策略。
+      TPOUTLINKFLAG:
+        name: 出方向的流量策略链接标记
+        desc: 该参数用于指定扩容业务出方向的流量策略链接标记。配置该参数前，须先使用ADD MQCPOLICY命令添加流量策略。
+      MTU:
+        name: 最大传输单元
+        desc: 该参数用于指定扩容业务接口最大传输单元。若模板配置为0，自动化配置生成MTU为1500。
+      FLOWMODE:
+        name: 引流模式
+        desc: 该参数用于指定引流模式。该引流模式用于配置接口的WLR业务引流重定向功能。配置引流表模式时将接口收到的来自DPU的报文与WLR引流表进行匹配，如果匹配成功，则将报文引流到CSLB_VNFC中进行处理；否则，再查找路由表转发报文。配置路由模式时仅匹配路由表进行报文引流。
+      NETWORKINSTID:
+        name: 网络分组标识
+        desc: 该参数用于指定网络分组标识。需要根据网络规划确定网络分组标识。
+      ISBACKUP:
+        name: 备用路由组标记
+        desc: 该参数用于指定备用路由组标记。该参数为TRUE表示接口服务模板在保护组上生效，否则在非保护组上生效。
+      TRUSTUPSTREAM:
+        name: 简单流分类QoS策略
+        desc: 该参数用于指定简单流分类QoS策略。
+      OSPFGRPENABLE:
+        name: 使能OSPF进程组
+        desc: 该参数用于使能OSPF进程组。
+      OSPFGRPID:
+        name: OSPF进程组ID
+        desc: 该参数用于指定OSPF进程组ID。 根据AFTYPE来区分是OSPFv2协议还是OSPFv3协议。 配置该参数前，须先使用ADD AUTOSCALINGOSPFPROCGRP命令添加OSPF进程组模板。
+      ADDRMODE:
+        name: 地址模式
+        desc: 该参数用于标识申请的地址是主机地址还是网段地址。
+  ADD AUTOSCALINGSRBFD:
+    name: 增加静态路由的动态BFD自动化配置模板
+    func: 该命令用于添加静态路由的动态BFD自动化配置模板。
+    params:
+      SERVICENAME:
+        name: 服务名称
+        desc: 该参数用来表示接口自动化配置服务模板名称。要求和ADD AUTOSCALINGSERVICE命令中配置的SERVICENAME参数保持一致。
+      IPVERSION:
+        name: 地址族
+        desc: 该参数用来表示IP地址类型。
+      MINRXINTERVAL:
+        name: 最小接收间隔（ms）
+        desc: 该参数用于指定期望从对端接收BFD报文的最小接收间隔。如果未指定，采用全局缺省值。
+      MINTXINTERVAL:
+        name: 最小发送间隔（ms）
+        desc: 该参数用于指定向对端发送BFD报文的最小传输间隔。如果未指定，采用全局缺省值。
+      MULTIPLIER:
+        name: 检测倍数
+        desc: 该参数用于指定本地检测倍数。如果未指定，采用全局缺省值。
+  ADD AUTOSCALINGSRROUTE:
+    name: 增加静态路由自动化配置模板
+    func: 该命令用于添加静态路由自动化配置模板。
+    params:
+      SERVICENAME:
+        name: 服务名称
+        desc: 该参数用来表示接口自动化配置服务模板名称。要求和ADD AUTOSCALINGSERVICE命令中配置的SERVICENAME参数保持一致。
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用来指定VPN实例的名称。
+      IPVERSION:
+        name: 地址族
+        desc: 该参数用来指定VPN实例的地址族信息。
+      PREFIX4:
+        name: 路由前缀IPv4
+        desc: 该参数用来指定IPv4前缀信息。
+      PREFIX6:
+        name: 路由前缀IPv6
+        desc: 该参数用来指定IPv6前缀信息。
+      MASKLENGTH:
+        name: 路由掩码长度
+        desc: IPv4场景，该参数用于表示路由的掩码长度；IPv6场景，该参数用于表示路由的前缀长度。
+      NEXTHOPALLOCTYPE4:
+        name: IPv4路由下一跳分配方式
+        desc: 该参数用于指定IPv4路由下一跳的获取方式。用户配置方式是指用户配置静态路由的下一跳；DHCP方式是指静态路由下一跳支持DHCP联动。
+      NEXTHOPALLOCTYPE6:
+        name: IPv6路由下一跳分配方式
+        desc: 该参数用于指定IPv6路由下一跳的获取方式。用户配置方式是指用户配置静态路由的下一跳；DHCP方式是指静态路由下一跳支持DHCP联动。
+      NEXTHOP4:
+        name: 路由下一跳IPv4
+        desc: 该参数用来指定IPv4下一跳IP地址。
+      NEXTHOP6:
+        name: 路由下一跳IPv6
+        desc: 该参数用来指定IPv6下一跳IP地址。
+      PREFERENCE:
+        name: 路由优先级
+        desc: 该参数用来指定路由优先级。
+      BFDENABLE:
+        name: BFD使能标识
+        desc: BFD使能标识。为静态路由模板使能BFD，若使能静态路由动态BFD则依赖ADD AUTOSCALINGSRBFD命令配置，若使能静态路由静态BFD，则依赖ADD
+          AUTOSCALINGBFD命令且配置BFDTYPE为Static。
+      TAG:
+        name: 路由tag
+        desc: 该参数用来指定路由的tag。
+      DESCRIPTION:
+        name: 路由描述
+        desc: 该参数用来指定路由的描述信息。
+      BFDTEMPLATENAME:
+        name: BFD模板名称
+        desc: 该参数用来指定BFD自动化配置模板名称。该参数由ADD AUTOSCALINGBFD命令配置获得。
+  ADD BCSRVLEVELPLY:
+    name: 增加带宽管理控制器业务级别策略
+    func: 该命令用于配置指定BWM控制器下，特定ServiceLevel的业务流量保证带宽比例和峰值带宽比例。
+    params:
+      BWMCNAME:
+        name: 带宽管理控制器名称
+        desc: 该参数用于表示带宽管理控制器的名字。
+      SERVICELEVEL:
+        name: 业务级别
+        desc: 该参数用于指定使用同一控制器的不同业务流间的优先级，值越小优先级越高。如果配置优先级，优先保证高优先级的带宽。
+      CIRRATE:
+        name: 承诺信息速率比例
+        desc: 该参数用于表示此业务等级的保证带宽比例，此业务等级实际承诺信息速率相当于CIRRate*CIR（BwmController命令）。
+      PIRRATE:
+        name: 峰值信息速率比例
+        desc: 该参数用于表示此业务等级的峰值带宽比例，此业务等级实际峰值信息速率相当于PIRRate*PIR（BwmController命令）。
+      MAXPKTLOSTRATE:
+        name: 最大丢包率
+        desc: 该参数用于表示此业务等级的最大丢包比率。
+      SHAPRATE:
+        name: 流量整形速率比例
+        desc: 该参数用于表示此业务等级的最高峰值带宽比例，实际承诺信息速率相当于ShapRate* RATE（BwmController命令）。
+      MAXINCRDELAY:
+        name: 最大增加时延
+        desc: 该参数用于表示此业务等级因Shaping队列缓存的最大增加时延。
+  ADD BGPPEER:
+    name: 增加BGP对等体
+    func: 该命令用于增加IPv4或IPv6地址类型的对等体。
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定用户所配置的VPN实例名称。
+      ADDRESSTYPE:
+        name: 地址类型
+        desc: 该参数用于指定对等体的地址类型。
+      PEERADDR:
+        name: IPv4对等体地址
+        desc: 该参数用于指定连接对等体的IPv4接口地址。
+      PEERADDRV6:
+        name: IPv6对等体地址
+        desc: 该参数用于指定连接对等体的IPv6接口地址。
+      REMOTEAS:
+        name: 对等体AS号
+        desc: 该参数用于指定对等体所在AS号。
+      GROUPNAME:
+        name: 组名
+        desc: 该参数用于指定对等体所在的对等体组。
+      ROUTEREFRESH:
+        name: 路由刷新
+        desc: 该参数用于指定对等体是否向对端发送REFRESH报文。
+      FOURBYTEAS:
+        name: 4字节AS号功能
+        desc: 该参数用于指定对等体是否使能4字节AS号。
+      CONVENTIONAL:
+        name: 常规路由器
+        desc: 该参数用于指定对等体是否为常规路由器，不使能扩展能力。
+      LOCALIFADDR:
+        name: 本地接口地址
+        desc: 该参数用于指定与对等体建立连接的本地接口地址。
+      LOCALIFNAME:
+        name: 本地接口名称
+        desc: 该参数用于指定与对等体相连的本地接口名称。
+      EBGPMAXHOP:
+        name: EBGP最大跳数
+        desc: 该参数用于指定BGP同非直连网络上的对等体建立EBGP连接时允许的最大跳数。
+      VALIDTTLHOPS:
+        name: 需要检测的TTL跳数值
+        desc: 该参数用于指定在BGP对等体上应用GTSM功能，并设置跳数。
+      FAKEAS:
+        name: 伪AS号
+        desc: 该参数用于指定对等体采用伪AS号与本端建立连接。
+      ISIGNORE:
+        name: 是否忽略
+        desc: 该参数用于指定是否忽略与指定对等体建立会话。
+      CONNECTMODE:
+        name: 连接模式
+        desc: 该参数用于指定对等体组的建接方式，只侦听连接请求或只发起连接。
+      ISLOGCHANGE:
+        name: 是否记录日志
+        desc: 该参数用于配置是否使能BGP记录指定对等体/对等体组会话状态和事件信息的功能。
+      PSWDTYPE:
+        name: 密码类型
+        desc: 该参数用于指定认证密码的类型。
+      PSWDCIPHERTEXT:
+        name: 密码
+        desc: 该参数用于指定的认证密码。
+      KEEPALIVETIME:
+        name: 存活时间（s）
+        desc: 该参数用于指定对等体的保活时间。
+      HOLDTIME:
+        name: 保持时间（s）
+        desc: 该参数用于指定对等体的保持时间。
+      KEYCHAINNAME:
+        name: Keychain名称
+        desc: 该参数用于指定该对等体组TCP连接时的Keychain认证名称。
+      PATHMTUDISCOVERY:
+        name: 路径MTU发现功能
+        desc: 该参数用于指定该对等体是否能够进行路径MTU自动发现。
+      DESCRIPTION:
+        name: 描述
+        desc: 该参数用于为该对等体组添加描述信息。
+      TRACKINGENABLE:
+        name: 使能快速感知邻居不可达并断开连接功能
+        desc: 该参数用于指定是否使能Tracking功能，快速感知邻居断连。
+      TRACKINGDELAYTIME:
+        name: 邻居断连延迟时间（s）
+        desc: 该参数用于指定Tracking功能的延时时间。
+      CONNRETRYTIME:
+        name: 重连时间（s）
+        desc: 该参数用于指定全局连接重传时间间隔。
+  ADD BGPPEERAF:
+    name: 增加BGP对等体地址族
+    func: 对等体可以有多个地址族，该命令用于添加BGP IPv4或IPv6对等体地址族。
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定VPN实例名称。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于指定地址族类型。
+      ADDRESSTYPE:
+        name: 地址类型
+        desc: 该参数用于指定对等体的地址类型。
+      REMOTEADDRESS:
+        name: IPv4对等体地址
+        desc: 该参数用于指定连接对等体的IPv4接口地址。
+      REMOTEADDRESSV6:
+        name: IPv6对等体地址
+        desc: 该参数用于指定连接对等体的IPv6接口地址。
+      PEERGROUPNAME:
+        name: 所属对等体组名称
+        desc: 该参数用于指定路由器所属对等体组名称。
+      ADVERTISECOMMUNITY:
+        name: 团体属性发布
+        desc: 该参数用于选择是否将团体属性发布给对等体。
+      ADVERTISEEXTCOMMUNITY:
+        name: 扩展团体属性发布
+        desc: 该参数用于选择是否将扩展团体属性发布给对等体。
+      DISCARDEXTCOMMUNITY:
+        name: 扩展团体属性丢弃
+        desc: 该参数用于选择是否丢弃路由信息中的扩展团体属性。
+      ALLOWASLOOPENABLE:
+        name: 允许AS号重复
+        desc: 该参数用于选择是否允许对等体发送AS_Path中含有本地AS号的路由。
+      ALLOWASLOOPLIMIT:
+        name: 允许AS号重复数
+        desc: 该参数用于指定允许的AS号最大重复个数。
+      DEFAULTRTADVENABLE:
+        name: 允许缺省路由通告
+        desc: 该参数用于选择是否向对等体发布缺省路由。
+      DEFAULTRTADVPOLICY:
+        name: 缺省路由通告策略
+        desc: 该参数用于指定配置路由的发布策略。
+      DEFAULTRTMATCHMODE:
+        name: 带条件匹配缺省路由发布
+        desc: 该参数用于指定缺省路由匹配的模式。
+      KEEPALLROUTES:
+        name: 全局路由更新保存
+        desc: 该参数用于指定是否保存自BGP连接建立之后的所有来自对等体（组）的BGP路由更新信息，即使这些路由没有通过已配置的入口策略。
+      NEXTHOPCONFIGURE:
+        name: 下一跳处理模式
+        desc: 该参数用于指定向IBGP对等体发送路由时是否将下一跳改为本地接口地址。
+      PREFERREDVALUE:
+        name: 路由首选值
+        desc: 该参数用于指定BGP路由的首选值。
+      PUBLICASONLY:
+        name: 仅携带公有AS号
+        desc: 该参数用于指定发送BGP更新报文时AS_Path属性不携带私有AS号，仅携带公有AS号。
+      ROUTELIMIT:
+        name: 路由超限阈值
+        desc: 该参数用于指定从BGP对等体收到的最大路由数量。
+      ROUTELIMITPERCENT:
+        name: 路由超限百分比
+        desc: 该参数用于指定路由器开始生成告警消息时的路由数量的百分比，当数量超过（number×alert-percent）÷100时，开始发出警告信息。
+      ROUTELIMITTYPE:
+        name: 路由超限告警类型
+        desc: 该参数用于指定路由器接收路由数超出允许接收的最大路由数时的动作类型。
+      ROUTELIMITIDLETIMEOUT:
+        name: 超时定时器（min）
+        desc: 该参数用于指定当路由超限断开连接后，设置自动重新建立连接超时定时器的时间，在定时器超时前，不自动重新建立连接。
+      RTUPDTINTERVAL:
+        name: 路由更新时间（s）
+        desc: 该参数用于指定向指定对等体/对等体组发送相同路由前缀更新报文的时间间隔。
+      REFLECTCLIENT:
+        name: 路由反射器客户
+        desc: 该参数用于指定本机作为路由反射器。
+      SUBSTITUTEASENABLE:
+        name: 替换AS Path属性
+        desc: 该参数用于指定是否使能替换AS_PATH中指定对等体的AS号。
+      IMPORTRTPOLICYNAME:
+        name: 引入路由策略
+        desc: 该参数用于指定本机路由的入口策略。
+      EXPORTRTPOLICYNAME:
+        name: 发布路由策略
+        desc: 该参数用于指定本机路由的出口策略。
+      IMPORTPREFFILTNAME:
+        name: 引入前缀过滤策略
+        desc: 该参数用于指定IPv4地址族的入口Prefix过滤策略。
+      EXPORTPREFFILTNAME:
+        name: 发布前缀过滤策略
+        desc: 该参数用于指定IPv4地址族的出口Prefix过滤策略。
+      IMPORTASPATHFILTER:
+        name: 接收路由AS Path过滤
+        desc: 该参数用于指定本地的入口AS_PATH过滤策略名称。
+      EXPORTASPATHFILTER:
+        name: 发布路由AS Path过滤
+        desc: 该参数用于指定本地的出口AS_PATH过滤策略名称。
+      IMPORTACLNAMEORNUM:
+        name: 接收路由ACL规则标识
+        desc: 该参数用于指定路由器入口方向上的IPv4地址族访问控制列表（ACL）名称。
+      EXPORTACLNAMEORNUM:
+        name: 发布路由ACL规则标识
+        desc: 该参数用于指定路由器出口方向上IPv4地址族的访问控制列表（ACL）名称。
+      ADVBESTEXTERNAL:
+        name: 是否发布bestExternal路由
+        desc: 该参数用于指定是否发布bestExternal路由。
+      ADVADDPATHNUM:
+        name: 向邻居发布多少条add-path路由
+        desc: 该参数用于指定向邻居发布多少条add-path路由。
+      ADDPATHMODE:
+        name: add-path模式
+        desc: 该参数用于指定add-path模式。
+      PUBLICASONLYFORCE:
+        name: 强制删除私有AS号
+        desc: 该参数用于指定是否强制删除私有as号。
+      PUBLICASONLYLIMITED:
+        name: 删除左边的私有AS号
+        desc: 该参数用于指定是否删除左边的私有AS号。
+      PUBLICASONLYREPLACE:
+        name: 用本地AS号替换所有的私有AS号
+        desc: 该参数用于指定是否用本地AS号替换所有的私有AS号。
+      INCLUDEPEERAS:
+        name: 不忽略BGP邻居的AS号
+        desc: 该参数用于指定是否忽略BGP邻居的AS号。
+      IMPORTACL6NAMEORNUM:
+        name: 接收路由ACL6规则标识
+        desc: 该参数用于指定路由器入口方向上的IPv6地址族访问控制列表（ACL）编号或者名称。
+      EXPORTACL6NAMEORNUM:
+        name: 发布路由ACL6规则标识
+        desc: 该参数用于指定路由器出口方向上IPv6地址族的访问控制列表（ACL）编号或者名称。
+      IMPORTPREF6FILTNAME:
+        name: 引入IPv6前缀过滤策略
+        desc: 该参数用于指定IPv6地址族的入口前缀过滤策略。
+      EXPORTPREF6FILTNAME:
+        name: 发布IPv6前缀过滤策略
+        desc: 该参数用于指定IPv6地址族的出口前缀过滤策略。
+      ISSOURELAYNEIGHINTER:
+        name: 迭代多源邻居源接口
+        desc: 该参数用于指定是否迭代多源邻居源接口。多源邻居路由迭代到某个出接口后，如果此接口对应的邻居链路故障，该路由的流量仍然会从此接口流出，造成流量丢失。配置迭代多源邻居源接口可以避免此问题。
+  ADD BGPVRFAF:
+    name: 增加BGP VPN地址族
+    func: 该命令用于添加BGP公网地址族以及BGP VPN实例地址族。BGP VPN实例下可以有多个地址族。
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定VPN实例名称。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于指定BGP VPN实例下的地址族。
+      ASPATHIGNORE:
+        name: 忽略AS路径
+        desc: 该参数用于指定在选择最优路由时是否忽略AS_PATH属性。
+      MEDNONEASMAXIMUM:
+        name: MED使用最大值
+        desc: 该参数用于指定在选择最优路由时，如没有MED属性，则把MED按最大值来处理。
+      ALWAYSCOMPAREMED:
+        name: 总是比较MED
+        desc: 该参数用于允许比较来自不同自治系统中邻居路由的MED值。
+      DEFAULTLOCALPREF:
+        name: 缺省本地优先级
+        desc: 该参数用于指定该地址族下的缺省本地优先级。
+      DEFAULTMED:
+        name: 缺省MED
+        desc: 该参数用于指定BGP路由的缺省MED值。
+      DEFAULTRTIMPORTENABLE:
+        name: 缺省路由引入使能
+        desc: 该参数用于指定是否允许将缺省路由引入到BGP路由表中。
+      MAXIMUMLOADBALANCE:
+        name: 最大等价路由数
+        desc: 该参数用于指定在负载分担方式下的等价路由的最大数量。
+      PREFERENCEEXTERNAL:
+        name: 外部路由协议优先级
+        desc: 该参数用于指定EBGP路由的协议优先级。
+      PREFERENCEINTERNAL:
+        name: 内部路由协议优先级
+        desc: 该参数用于指定IBGP路由的协议优先级。
+      PREFERENCELOCAL:
+        name: 本地路由协议优先级
+        desc: 该参数用于指定本地路由的协议优先级。
+      REFLECTBETWEENCLIENT:
+        name: 客户机路由反射
+        desc: 该参数用于指定是否使能客户机之间的路由反射。
+      REFLECTORCLUSTERID:
+        name: 路由反射器集群ID
+        desc: 该参数用于指定反射器的集群ID。
+      REFLECTORCLUSTERIPV4:
+        name: 路由反射器集群ID(IPv4)
+        desc: 该参数用于指定IPv4地址类型的反射器集群ID。
+      AUTOMATICSUMMARY:
+        name: 自动聚合
+        desc: 该参数用于使能对本地引入的路由进行自动聚合。
+      ROUTERIDNEGLECT:
+        name: 忽略路由器ID
+        desc: 该参数用于指定BGP在选择最优路由时是否忽略路由ID。
+      IGPMETRICIGNORE:
+        name: 忽略IGP Metric
+        desc: 该参数用于指定BGP在选择最优路由时忽略IGP Metric的比较。
+      PREFERENCEPOLICYNAME:
+        name: 协议优先级策略名
+        desc: 该参数用于指定路由策略，可以为满足匹配条件的从对等体收到的路由配置优先级。
+      DETERMINMED:
+        name: 使能Deterministic-MED
+        desc: 该参数用于指定是否开启BGP deterministic-med功能，使能后在对从多个不同AS收到的相同前缀的路由进行选路时，首先会按路由的AS_Path最左边的AS号进行分组。在组内进行比较后，再用组中的优选路由和其他组中的优选路由进行比较，消除了选路的结果和路由接收顺序的相关
+      EIBGPLOADBALANCE:
+        name: EBGP/IBGP负载分担数
+        desc: 该参数用于指定EBGP和IBGP路由负载分担的最大条数。
+      EBGPIFSENSITIVE:
+        name: EBGP接口快速感知
+        desc: 使能后，当某个接口状态变为Down时，立即清除建立在该接口上的直连EBGP邻居的BGP会话。
+      IBGPIFSENSITIVE:
+        name: IBGP接口快速感知
+        desc: 使能后，当某个接口状态变为Down时，立即清除建立在该接口上的直连IBGP邻居的BGP会话。
+      MAXLOADEBGPNUM:
+        name: EBGP负载分担数
+        desc: 该参数用于指定EBGP路由参与BGP负载分担最大条数。
+      MAXLOADIBGPNUM:
+        name: IBGP负载分担数
+        desc: 该参数用于指定IBGP路由参与BGP负载分担最大条数。
+      NHPRELAYROUTEPOLICYNAME:
+        name: 下一跳迭代路由策略名
+        desc: 该参数用于指定下一跳迭代使用的路由策略名称。
+      ECMPNEXTHOPCHANGED:
+        name: 负载分担改下一跳
+        desc: 该参数用于指定是否允许BGP只在发布形成负载分担的路由时才修改下一跳为自己，而在发布没有形成负载分担的路由时，不对下一跳作特殊处理。
+      EIBGPEXTHOPCHANGED:
+        name: EBGP/IBGP负载分担改下一跳
+        desc: 该参数用于指定是否允许EBGP路由和IBGP路由只在形成负载分担的路由时才修改下一跳为自己，而在发布没有形成负载分担的路由时，不对下一跳作特殊处理。
+      EBGPECMPNEXTHOPCHANGED:
+        name: EBGP负载分担改下一跳
+        desc: 该参数用于指定是否允许EBGP路由在形成负载分担的路由时才修改下一跳为自己，而在发布没有形成负载分担的EBGP路由时，不对下一跳作特殊处理。
+      IBGPECMPNEXTHOPCHANGED:
+        name: IBGP负载分担改下一跳
+        desc: 该参数用于指定是否允许IBGP路由只在形成负载分担的路由时才修改下一跳为自己，而在发布没有形成负载分担的IBGP路由时，不对下一跳作特殊处理。
+      REFLECTCHGPATH:
+        name: 反射器应用出口策略
+        desc: 该参数用于指定是否使能路由反射器通过出口策略修改BGP路由的路径属性。
+      ACTIVEROUTEADVERTISE:
+        name: 活跃路由通告
+        desc: 该参数用于指定BGP仅发布在IP路由表中被优选的路由。
+      POLICYEXTCOMMENABLE:
+        name: 修改扩展团体属性
+        desc: 该参数用于指定是否使能修改扩展团体属性。
+      SUPERNETUNIADV:
+        name: 发布超网单播路由
+        desc: 该参数用于指定是否使能向BGP对等体发布BGP超网单播路由，BGP超网路由是指路由目的地址与下一跳地址相同或者路由目的地址更精确。
+      ROUTERID:
+        name: 路由器标识
+        desc: 该参数用于指定BGP VPN实例地址族下的路由器ID。
+      VRFRIDAUTOSEL:
+        name: 私网BGP实例自动选择路由器ID
+        desc: 该参数用于指定是否设置VPN实例自动选择Router ID。
+      POLICYVPNTARGET:
+        name: 是否需要过VpnTarget的策略
+        desc: 该参数用于指定是否需要过VpnTarget的策略。
+      NEXTHOPSELDEPENDTYPE:
+        name: 下一跳迭代方式
+        desc: 该参数用于指定下一跳迭代方式。
+      TNLSELECTORNAME:
+        name: 隧道选择器名称
+        desc: 该参数用于指定隧道选择器名称。
+      BESTEXTERNAL:
+        name: 是否发布bestExternal路由
+        desc: 该参数用于指定是否发布bestExternal路由。
+      ROUTESELECTDELAY:
+        name: 路由选路延迟时间
+        desc: 该参数用于指定路由选路延迟时间。
+      ADDPATHSELNUM:
+        name: 选择add-path路由的数量
+        desc: 该参数用于指定选择add-path路由的数量。
+      APPLYLABELMODE:
+        name: 标签分配方式
+        desc: 该参数用于指定标签分配方式。
+      ORIGINATORPRIOR:
+        name: 选择最佳路由时，Router ID优先于CLUSTER_LIST
+        desc: 该参数用于指定选择最佳路由时，Router ID是否优先于CLUSTER_LIST。
+      RELAYDELAYENABLE:
+        name: 迭代延迟使能
+        desc: 该参数用于指定是否使能迭代延迟。
+      RRFILTERNUMBER:
+        name: 路由反射器组支持的扩展团体属性过滤器号
+        desc: 该参数用于给定路由反射器组支持的扩展团体属性过滤器号。
+      LOADASPATHIGNORE:
+        name: 负载均衡忽略AS Path
+        desc: 该参数用于指定路由在形成负载分担时是否不比较路由的AS-Path属性。
+      MEDCONFED:
+        name: 联盟内部比较MED
+        desc: 该参数用于指定是否仅在联盟内比较MED值的大小。
+      AUTOFRRENABLE:
+        name: 自动FRR使能
+        desc: 该参数用于指定是否允许自动FRR使能。
+  ADD BWMRULE:
+    name: 增加带宽管理规则
+    func: 该命令用于增加一条用户组或用户的业务带宽管理规则。规则包括用户组级默认、特定规则和用户级默认、特定规则。当运营商希望基于用户组或用户级进行精细化带宽控制时，则使用该命令配置用户组和用户级的规则，并配置业务类型、用户属性和时间段及相应的带宽控
+    params:
+      USERGROUPTYPE:
+        name: 用户组类型
+        desc: 该参数用于配置带宽管理用户组的类型。
+      USERGROUPNAME:
+        name: 用户组名称
+        desc: 该参数用于配置具体用户组的名称，该参数由增加带宽管理用户组定义。
+      BWMRULETYPE:
+        name: 带宽管理规则类型
+        desc: 该参数用于配置带宽管理规则的类型。
+      BWMRULENAME:
+        name: 带宽管理规则名称
+        desc: 该参数用于配置带宽管理规则的名称。
+      BWMSERVICENAME:
+        name: 带宽控制业务名称
+        desc: 该参数用于配置带宽管理业务名称，该参数由增加带宽管理业务命令定义。
+      RATTYPE:
+        name: RAT
+        desc: 该参数用于配置用户无线接入技术类型。
+      ROAMINGTYPE:
+        name: 漫游
+        desc: 该参数用于配置用户归属的属性。
+      UPBWMCTRLNAME1:
+        name: 上行带宽管理控制器名称一
+        desc: 该参数用于配置上行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      DNBWMCTRLNAME1:
+        name: 下行带宽管理控制器名称一
+        desc: 该参数用于配置下行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      TIMERANGENAME1:
+        name: 时间段名称一
+        desc: 该参数用于配置业务控制策略生效时段的名称，该参数由增加时间段命令定义，不配置这个参数时，该规则一直生效。
+      UPBWMCTRLNAME2:
+        name: 上行带宽管理控制器名称二
+        desc: 该参数用于配置上行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      DNBWMCTRLNAME2:
+        name: 下行带宽管理控制器名称二
+        desc: 该参数用于配置下行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      TIMERANGENAME2:
+        name: 时间段名称二
+        desc: 该参数用于配置业务控制策略生效时段的名称，该参数由增加时间段命令定义，不配置这个参数时，该规则一直生效。
+      UPBWMCTRLNAME3:
+        name: 上行带宽管理控制器名称三
+        desc: 该参数用于配置上行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      DNBWMCTRLNAME3:
+        name: 下行带宽管理控制器名称三
+        desc: 该参数用于配置下行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      TIMERANGENAME3:
+        name: 时间段名称三
+        desc: 该参数用于配置业务控制策略生效时段的名称，该参数由增加时间段命令定义，不配置这个参数时，该规则一直生效。
+      UPBWMCTRLNAME4:
+        name: 上行带宽管理控制器名称四
+        desc: 该参数用于配置上行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      DNBWMCTRLNAME4:
+        name: 下行带宽管理控制器名称四
+        desc: 该参数用于配置下行方向带宽管理控制器的名称，该参数由增加带宽管理控制器命令定义。
+      TIMERANGENAME4:
+        name: 时间段名称四
+        desc: 该参数用于配置业务控制策略生效时段的名称，该参数由增加时间段命令定义，不配置这个参数时，该规则一直生效。
+      BWMRULEPRI:
+        name: 带宽管理规则优先级
+        desc: 该参数用于配置带宽管理规则的优先级，进行业务规则匹配时，优先匹配优先级高的规则，优先级的值越小，优先级越高。
+      SERVICELEVEL:
+        name: 业务级别
+        desc: 该参数用于指定使用同一控制器的不同业务流间的优先级，值越小优先级越高。如果配置优先级，优先保证高优先级的带宽。
+      CFGDOMAINNAME:
+        name: 配置域名称
+        desc: 该参数表示命令所属公共配置域的名称。
+  ADD CPADDRPOOL:
+    name: 增加地址池
+    func: ''
+    params:
+      POOLNAME:
+        name: 地址池名称
+        desc: 该参数用于指定地址池的名称。
+      IPVERSION:
+        name: IP地址类型
+        desc: 该参数用于指定IP地址类型。
+      SINGLEIPFLAG:
+        name: 子池类型
+        desc: 该参数用于指定地址池子池类型。
+      POOLTYPE:
+        name: 地址池类型
+        desc: 该参数用于指定地址池类型。
+      CHECKIPVALID:
+        name: 白名单检查开关
+        desc: 该参数用于指定静态地址用户的白名单检查开关。
+      HASVPN:
+        name: 绑定VPN
+        desc: 该参数用于指定是否绑定VPN。
+      VPNINSTANCE:
+        name: VPN实例名
+        desc: 该参数用于指定VPN实例名称。
+      IPLEASE:
+        name: 地址租约使能标志
+        desc: 该参数指定是否使能IP地址租约功能。
+      RELEASETIME:
+        name: 地址租期(秒)
+        desc: 该参数指定用户释放之后，对应用户IP地址的等待释放时间。取值为0时，表示用户去激活后，其使用的本地地址将被立即释放，且可重新分配给其他用户使用。取值非0时，表示用户去激活后，其使用的地址不会立即释放，而是等待配置的时间之后才能被使用。
+      IMSSW:
+        name: IMS开关
+        desc: 指定使能IP地址租约功能是否对IMS用户有效。
+      OVERLAP:
+        name: 是否允许地址重叠
+        desc: 指定该地址池是全局地址池，还是局部地址池，局部地址池允许地址重叠。
+      SPECIPALLOCSW:
+        name: 是否分配特殊IP地址
+        desc: 该参数用于指定是否分配特殊IP地址。IP地址中主机号全0或全1的IP地址是特殊IP地址。
+      ALARMSW:
+        name: 是否开启地址使用率的告警功能
+        desc: 该参数用于指定告警“ALM-100297 地址池组使用率超阈值”是否对本地址池内IP地址使用率生效。
+  ADD CPSECTION:
+    name: 增加地址段
+    func: ''
+    params:
+      POOLNAME:
+        name: 地址池名称
+        desc: 该参数用于指定已配置的地址池的名称。
+      SECTIONNUM:
+        name: 地址段号
+        desc: 该参数用于指定配置Section的编号。
+      IPVERSION:
+        name: IP地址类型
+        desc: 该参数用于指定匹配地址池的地址类型。增加的SECTION的IPVERSION参数值需要与对应的地址池所在配置ADDRPOOL中的“IPVERSION”属性保持一致。
+      V4STARTIP:
+        name: IPv4起始地址
+        desc: 该参数用于指定IPv4地址段的起始地址。
+      V4ENDIP:
+        name: IPv4结束地址
+        desc: 该参数用于指定IPv4地址段的结束地址。
+      V6PREFIXSTART:
+        name: IPv6前缀起始地址
+        desc: 该参数用于指定IPv6地址段的起始前缀。
+      V6PREFIXEND:
+        name: IPv6前缀结束地址
+        desc: 该参数用于指定IPv6地址段的终止前缀。
+      V6PREFIXLENGTH:
+        name: IPv6前缀长度
+        desc: 该参数用于指定IPv6地址段的前缀长度。
+  ADD CPURR:
+    name: 增加URR
+    func: 该命令用于增加使用量上报规则信息，通过该命令可以针对不同应用类型的数据采取不同的上报规则。URR即Usage Reporting Rule用量上报规则，一般对应用户报文的时长、流量等上报控制规则。URR可以通过ADD
+      CPURRGROUP命
+    params:
+      URRNAME:
+        name: 使用量上报规则名称
+        desc: 该参数用于设置URR名称。
+      URRID:
+        name: URR标识
+        desc: 该参数用于设置URR标识。
+      USAGERPTMODE:
+        name: 使用量上报模式
+        desc: 该参数用于设置计费模式。
+      OFFCOMPOUNDTYPE:
+        name: 离线计费标识组成类型
+        desc: 该参数用于设置离线计费标识组成类型。
+      ONLCOMPOUNDTYPE:
+        name: 在线计费标识组成类型
+        desc: 该参数用于设置在线计费标识组成类型。
+      RG:
+        name: 离线计费组
+        desc: 该参数用于设置离线计费组。
+      SID:
+        name: 离线业务标识
+        desc: 该参数用于设置离线业务标识。
+      UPSID:
+        name: 离线上行业务标识
+        desc: 该参数用于设置离线上行业务标识。
+      DOWNSID:
+        name: 离线下行业务标识
+        desc: 该参数用于设置离线下行业务标识。
+      ONLINERG:
+        name: 在线计费组
+        desc: 该参数用于设置在线计费组。
+      ONLINESID:
+        name: 在线业务标识
+        desc: 该参数用于设置在线业务标识。
+      OFFMETERINGTYPE:
+        name: 离线计费统计类型
+        desc: 该参数用于设置离线计费统计类型。
+      ONLMETERINGTYPE:
+        name: 在线计费统计类型
+        desc: 该参数用于设置在线计费统计类型。
+      TIMERSUVALUE:
+        name: 时间配额值（秒）
+        desc: 该参数用于设置计费方式为时长计费，并指定该计费方式与OCS/CHF交互消息中默认请求的时间配额值。
+      VOLUMERSUVALUE:
+        name: 流量配额值（字节）
+        desc: 该参数用于设置计费方式为流量计费，并指定该计费方式在与OCS/CHF交互消息中默认请求的流量配额值。
+      OFCSRVTMPLNAME:
+        name: 离线业务模板名
+        desc: 该参数用于设置离线计费模板名。
+      REDIRENDTOKEN:
+        name: Gy重定向结束Token
+        desc: 该参数用于设置Gy重定向结束Token。
+      MONITORINGKEY:
+        name: 监控属性值
+        desc: 指定监控属性值。
+      EVENTRSUVALUE:
+        name: 事件配额值（次）
+        desc: 该参数用于设置当业务处于事件计费方式时，与OCS/CHF交互消息中默认请求的事件计费配额值。
+      N40AGESW:
+        name: N40接口场景下是否允许老化
+        desc: 该参数用于控制N40接口计费场景，QHT或RG老化功能开启时，是否允许该URR被老化。
+  ADD DHCPSERVER:
+    name: 增加DHCP服务器
+    func: ''
+    params:
+      GROUPNAME:
+        name: DHCP服务器组名称
+        desc: 该参数指定DHCP服务器组名称。
+      ISPRIMARY:
+        name: 是否是主DHCP服务器
+        desc: 该参数指定是否为主DHCP服务器。
+      IPVERSION:
+        name: IP地址类型
+        desc: 该参数指定DHCP服务器的IP地址类型。
+      V4IPADDRESS:
+        name: DHCPv4服务器IP地址
+        desc: 该参数指定DHCP服务器的IPv4地址。
+      V6IPADDRESS:
+        name: DHCPv6服务器IP地址
+        desc: 该参数指定DHCP服务器的IPv6地址。
+      WALVALUE:
+        name: WAL值
+        desc: 该参数表示整机（UNC）每秒发送给该DHCP服务器的最大消息数。
+  ADD DHCPSERVERGRP:
+    name: 增加DHCP服务器组
+    func: ''
+    params:
+      GROUPNAME:
+        name: DHCP服务器组名称
+        desc: 该参数用于指定DHCP服务器组的名称。
+      IPVERSION:
+        name: IP类型
+        desc: 该参数用于指定IP地址类型。
+      REQLEASETIME:
+        name: 租约时间(小时)
+        desc: 该参数用于指定DHCP服务器组的地址租期。
+      RETRYINTVAL:
+        name: DHCP消息超时重发时间(秒)
+        desc: 该参数用于指定向DHCP服务器发送消息的超时时间。
+      RETRYTIMES:
+        name: DHCP重发次数
+        desc: 该参数用于指定向DHCP服务器发送消息的重发次数。
+      HASVPN:
+        name: 绑定VPN
+        desc: 该参数用于指定是否绑定VPN实例。
+      VPNINSTANCE:
+        name: VPN实例名
+        desc: 该参数用于指定VPN实例名。
+  ADD DRGROUPINFO:
+    name: 增加容灾组信息
+    func: ''
+    params:
+      DRGROUPID:
+        name: 容灾组标识
+        desc: 该参数用于标识一条容灾组信息，不同容灾组信息的该标识不能相同。
+      DRGROUPNAME:
+        name: 容灾组名称
+        desc: 该参数用于表示容灾组的名称。
+      LDRINSTID:
+        name: 本端容灾实例标识
+        desc: 该参数用于表示容灾组中本端的网元标识。
+      DFTMODE:
+        name: 本端默认运行模式
+        desc: 该参数用于配置默认的运行模式，容灾功能运行后，会根据该默认的运行模式，与对端协商真实使用的运行模式。
+      PDRINSTID:
+        name: 对端容灾实例标识
+        desc: 该参数用于表示容灾组中对端的网元标识。
+      IPVERSION:
+        name: 对端容灾控制通道IP地址版本号
+        desc: 该参数用于用户指定对端容灾控制通道IP地址类型。
+      PGRCIP:
+        name: 对端容灾控制通道IPv4地址
+        desc: 该参数用于配置对端容灾控制通道的IPv4地址。
+      PGRCIPV6:
+        name: 对端容灾控制通道IPv6地址
+        desc: 该参数用于配置对端容灾控制通道的IPv6地址。
+  ADD ECHOIPLIST:
+    name: 配置GTP路径管理IP地址
+    func: 该命令用来增加对端网元所属的GTP数据面IP地址段，即配置GTP路径管理黑白名单中的地址段。
+    params:
+      IPVERSION:
+        name: IP地址版本类型
+        desc: 该参数用来指定IP类型。
+      IPV4ADDR:
+        name: IPv4地址
+        desc: 指定GTP路径管理黑白名单中的IPv4地址段的地址。
+      IPV4MASK:
+        name: IP掩码
+        desc: 该参数用来指定IPv4掩码长度。
+      IPV6ADDR:
+        name: IPv6地址
+        desc: 指定GTP路径管理黑白名单中的IPv6地址段的地址。
+      IPV6MASK:
+        name: IP掩码
+        desc: 该参数用来指定IPv6掩码长度。
+  ADD FILTER:
+    name: 增加过滤器
+    func: 该命令用于增加过滤器，其中包含三、四层的协议、源端口号、目的端口号、源IP地址和目的IP地址等。数据报文通过时，系统会根据过滤器选择到对应的规则，然后执行选中规则对应的计费策略和动作策略。
+    params:
+      FILTERNAME:
+        name: 过滤器名字
+        desc: 该参数用于设置过滤器名字。
+      L34PROTTYPE:
+        name: 三四层IPv4协议输入类型
+        desc: 该参数用于设置三四层IPv4协议输入类型。
+      L34PROTNUM:
+        name: 三四层协议数字类型
+        desc: 该参数用于设置三四层协议类型数字。
+      L34PROTOCOL:
+        name: 三四层协议类型
+        desc: 该参数用于设置三四层协议类型字符串。
+      MSIPMODE:
+        name: 手机IP地址配置模式
+        desc: 该参数用于设置手机IP地址配置模式。
+      MSIP:
+        name: 手机IP地址
+        desc: 该参数用于设置报文中用于匹配的手机IP地址。
+      MSIPMASKTYPE:
+        name: 手机IP地址掩码类型
+        desc: 该参数用于设置手机IP地址掩码类型。
+      MSIPMASKLEN:
+        name: 手机IP地址掩码长度
+        desc: 该参数用于设置手机IP地址掩码长度。
+      MSIPMASK:
+        name: 手机IP地址反掩码
+        desc: 该参数用于设置手机IP地址反掩码。
+      MSIPLISTNAME:
+        name: 手机IP列表名称
+        desc: 该参数用于设置手机IP列表名称。
+      SVRIPMODE:
+        name: 服务器IP地址配置模式
+        desc: 该参数用于设置服务器IP地址配置模式。
+      SVRIP:
+        name: 服务器IP地址
+        desc: 该参数用于设置服务器IP地址。
+      SVRIPMASKTYPE:
+        name: 服务器IP地址掩码类型
+        desc: 该参数用于设置服务器IP地址掩码类型。
+      SVRIPLISTNAME:
+        name: 服务器IP列表名称
+        desc: 该参数用于设置服务器IP列表名称。
+      SVRIPMASKLEN:
+        name: 服务器IP地址掩码长度
+        desc: 该参数用于设置服务器IP地址掩码长度。
+      SVRIPMASK:
+        name: 服务器IP地址反掩码
+        desc: 该参数用于设置服务器IP地址反掩码。
+      HOSTNAME:
+        name: Host配置名称
+        desc: 该参数用于设置Host配置名称。
+      DOMAINVALUE:
+        name: 域名
+        desc: 该参数用于指定域名。
+      HOSTPRIORITY:
+        name: Host优先级
+        desc: 该参数用于设置host优先级。
+      MSSTARTPORT:
+        name: 手机起始端口号
+        desc: 该参数用于设置手机起始端口号。该参数不大于手机结束端口号。
+      MSENDPORT:
+        name: 手机结束端口号
+        desc: 该参数用于设置手机结束端口号。该参数不小于手机起始端口号。
+      SVRSTARTPORT:
+        name: 服务器起始端口号
+        desc: 该参数用于设置服务器起始端口号。该参数不大于服务器结束端口号。
+      SVRENDPORT:
+        name: 服务器结束端口号
+        desc: 该参数用于设置服务器结束端口号。该参数不小于服务器起始端口号。
+      TOSCFGTYPE:
+        name: Tos配置类型
+        desc: 该参数用于配置TOS类型的配置方式。
+      TOSCLASSTYPE:
+        name: Tos分类类型
+        desc: 该参数用于配置TOS类型业务的类别名。
+      TOSVALUE:
+        name: 服务类型
+        desc: 该参数用于设置服务类型。
+      CFGDOMAINNAME:
+        name: 配置域名称
+        desc: 该参数表示命令所属公共配置域的名称。
+  ADD IMPORTROUTE:
+    name: 增加指定协议中的入口路由配置
+    func: BGP协议自身不能发现路由，所以需要引入其他协议的路由（如IGP或者静态路由等）注入到BGP路由表中，从而将这些路由在AS之内和AS之间传播。
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定BGP VPN实例。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于指定BGP VPN实例下的地址族。
+      IMPORTPROTOCOL:
+        name: 路由协议
+        desc: 用户设定引入其他协议路由时的策略名称。
+      IMPORTPROCESSID:
+        name: 路由进程号
+        desc: 该参数用于指定所引入路由的协议进程号。
+      IMPORTROUTEPOLICY:
+        name: 引入路由策略
+        desc: 用户设定引入其他协议路由时的策略名称。
+      MEDENABLE:
+        name: 使能MED
+        desc: 该参数用于使能MED。
+      MED:
+        name: MED
+        desc: 指定引入路由的MED值，BGP选路时，选择MED值较小的路由。
+  ADD IPSECPROPOSALIPSEC:
+    name: 增加IPsec提议
+    func: ''
+    params:
+      PROPOSALNAME:
+        name: Proposal名称
+        desc: Proposal名称。
+      IPSECPROTOCOL:
+        name: IPsec安全协议
+        desc: IPsec协议：AH / ESP / AH-ESP。
+      ESPAUTHALGO:
+        name: ESP认证算法
+        desc: ESP认证算法。
+      ESPENCRYPTALGO:
+        name: ESP加密算法
+        desc: 加密算法。
+      AHAUTHALGO:
+        name: AH认证算法
+        desc: 认证算法。
+      ENCAPMODE:
+        name: 封装模式
+        desc: 封装模式。
+  ADD MPFROUTE:
+    name: 增加MPF路由
+    func: 该命令用于发布用户路由。
+    params:
+      MPFROUTEID:
+        name: MPF路由标识
+        desc: 该参数用于指定MPF路由标识。
+      VPNINSTANCE:
+        name: VPN实例名
+        desc: 该参数用于配置VPN实例。
+      IPVERSION:
+        name: MPF地址类型
+        desc: 该参数用于指定路由地址类型。
+      V4STARTIP:
+        name: IPv4起始地址
+        desc: 该参数用于指定IPv4地址段的起始地址。
+      V4ENDIP:
+        name: IPv4结束地址
+        desc: 该参数用于配置IPv4结束地址。
+      V6PREFIXSTART:
+        name: IPv6前缀起始地址
+        desc: 该参数用于指定IPv6起始前缀。
+      V6PREFIXEND:
+        name: IPv6前缀结束地址
+        desc: 该参数用于配置IPv6前缀结束地址。
+  ADD OSPF:
+    name: 创建OSPF进程配置
+    func: 该命令用于增加OSPF特性的进程。
+    params:
+      PROCID:
+        name: 进程号
+        desc: OSPF进程号。
+      VRFNAME:
+        name: VPN名称
+        desc: 虚拟专用网(VPN)实例名称。
+      SCHEMAROUID:
+        name: 路由器标识
+        desc: 路由器标识。
+      SILENTALLFLAG:
+        name: 抑制接口收发OSPF报文
+        desc: 禁止OSPF进程下所有接口收发OSPF报文标志。
+      BFDALLINTFFLG:
+        name: 使能BFD
+        desc: 配置OSPF进程下使能BFD特性。
+      BFDRXCFGFLAG:
+        name: 是否配置BFD最小接收报文间隔
+        desc: 是否配置BFD最小接收报文间隔。
+      BFDMINRXINTV:
+        name: 接收BFD包的最小时间间隔（ms）
+        desc: 期望从对端接收BFD报文的最小接收间隔。
+      BFDTXCFGFLAG:
+        name: 是否配置BFD最小发送报文间隔
+        desc: 是否配置BFD最小发送报文间隔。
+      BFDMINTXINTV:
+        name: 发送BFD包的最小时间间隔（ms）
+        desc: 向对端发送BFD报文的最小发送间隔。
+      SCHEMABFDDETMUL:
+        name: BFD检测乘数
+        desc: 该参数用于指定会话检测倍数，如果BFD会话在设置的检测周期内没有收到对端发来的BFD报文，则认为链路发生了故障，BFD会话的状态将会置为Down。
+      FRRBINDINGFLAG:
+        name: BFD会话与接口链路状态绑定标志
+        desc: 是否将BFD会话状态与接口的链路状态进行绑定。
+      RFC1583COMPFLG:
+        name: 兼容RFC1583
+        desc: 使能兼容RFC1583的路由选择优先规则。
+      ROUTAGFLAG:
+        name: 配置VPN引入路由的tag值
+        desc: 配置VPN引入路由的tag值。
+      ROUTAG:
+        name: VPN引入路由的tag值
+        desc: 标识VPN引入路由的tag值。
+      BANDWIDTHREF:
+        name: 计算链路开销参考值（Mbps）
+        desc: 计算链路开销时所依据的参考值。
+      RXMTLIMITENABLE:
+        name: 使能最大重传数
+        desc: 标志是否使能最大重传限制数。
+      RETRANSLIMIT:
+        name: 最大重传限制
+        desc: 最大重传限制数。
+      OPAQCAPFLG:
+        name: Opaque LSA能力
+        desc: 使能Opaque-LSA能力，从而OSPF进程可以生成Opaque LSA，并能从邻居设备接收Opaque LSA。
+      DESCRIPTIONTEXT:
+        name: 描述信息
+        desc: OSPF进程的描述信息。
+      LSAARRINTVFLAG:
+        name: 取消使用智能定时器配置LSA接收的间隔时间
+        desc: 取消使用智能定时器配置LSA接收的间隔时间。
+      LSAARRINTV:
+        name: 接收时间间隔（ms）
+        desc: LSA被接收的时间间隔。
+      LSAARRMAXINTV:
+        name: 接收最长间隔时间（ms）
+        desc: 接收OSPF LSA的最长间隔时间。
+      LSAARRSTARINTV:
+        name: 接收初始间隔时间（ms）
+        desc: 接收OSPF LSA的初始间隔时间。
+      LSAARRHLDINTV:
+        name: 接收基数间隔时间（ms）
+        desc: 接收OSPF LSA的基数间隔时间。
+      LSAORIGINSTFLAG:
+        name: 是否指定LSA更新的时间间隔为0
+        desc: 是否指定LSA更新的时间间隔为0，即取消LSA的5秒的更新时间间隔。
+      LSAORIGINTV:
+        name: 更新时间间隔（s）
+        desc: 指定设置除OSPF Router LSA和Network LSA外LSA的更新间隔时间。
+      LSAORIGMAXINTV:
+        name: 更新最长间隔时间（ms）
+        desc: 更新Router LSA和Network LSA的最长间隔时间。
+      LSAORIGSTARINTV:
+        name: 更新初始间隔时间（ms）
+        desc: 更新Router LSA和Network LSA的初始间隔时间。
+      LSAORIGHLDINTV:
+        name: 更新基数间隔时间（ms）
+        desc: 更新Router LSA和Network LSA的基数间隔时间。
+      VPNINSCAPSIMFLG:
+        name: 去使能VPN路由环路检测
+        desc: 禁止路由环路检测，直接进行路由计算。当在MCE（Multi-VPN-Instance CE）路由器上支持VPN多实例时，需要取消环路检查。
+      STUBROUFLG:
+        name: Stub路由器
+        desc: 配置Stub路由器。
+      STUBROUSTUPINTV:
+        name: On-Startup时间间隔（s）
+        desc: 路由器在发生主备倒换过程中保持为Stub路由器的时间间隔。
+      STUBROUINCSTUB:
+        name: 是否为Stub链路发布最大开销值
+        desc: 指定设备为Router LSA中的stub链路设置最大开销65535。
+      SAFESYNCFLG:
+        name: 安全同步
+        desc: 配置安全同步。
+      SPFINTVSEC:
+        name: SPF计算间隔时间（s）
+        desc: OSPF的SPF（最短路径优先）计算间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFINTVMILLISEC:
+        name: SPF计算间隔时间（ms）
+        desc: OSPF的SPF计算间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFMAXINTERVAL:
+        name: SPF计算最长间隔时间（ms）
+        desc: 通过智能定时器设置OSPF SPF计算的最长间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFSTARTINTV:
+        name: SPF计算初始间隔时间（ms）
+        desc: 指定通过智能定时器设置OSPF SPF计算的初始间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFHOLDINTERVAL:
+        name: SPF计算基数间隔时间（ms）
+        desc: 指定通过智能定时器设置OSPF SPF计算的基数间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      RTTAGDISFLAG:
+        name: 禁止使用tag检测环路
+        desc: 禁止使用tag检测环路。
+      ECAROUTEFLAG:
+        name: 使能ECA路由类型
+        desc: 为VPN使能的ECA路由类型。
+      DOMAINNULLFLAG:
+        name: 配置Domain ID为空
+        desc: 设置该标志删除所有Domain ID配置。
+      SUPPREACH:
+        name: 使能可达性抑制
+        desc: 使能可达性抑制。
+      SPFCONSERVFLAG:
+        name: SPF正常模式标志
+        desc: SPF正常模式标志。
+      SHAMHELLOFLAG:
+        name: 使能Sham-hello
+        desc: OSPF特有特性，使能Sham-hello后，节点收到任何有效的OSPF报文，都保持活动状态。
+      MPLSLDPAUTOCFG:
+        name: 是否自动使能MPLS LDP功能
+        desc: 是否使能指定OSPF进程下所有可建立OSPF邻居的接口自动使能MPLS LDP的功能。
+      VIRTUALSYSFLAG:
+        name: OSPF共网段虚拟系统使能标志
+        desc: OSPF共网段虚拟系统使能标志。
+  ADD OSPFIMPORTROUTE:
+    name: 创建OSPF引入路由配置
+    func: 该命令用来将外部路由引入到OSPF域中，并在OSPF域中发布引入的路由信息。
+    params:
+      PROCID:
+        name: OSPF进程号
+        desc: OSPF进程号。
+      TOPOID:
+        name: 拓扑标识
+        desc: 拓扑标识。
+      PROTOCOL:
+        name: 协议分类
+        desc: 用于指定OSPF引入外部路由的路由类型。
+      PROTOCOLPROCID:
+        name: 协议进程号
+        desc: 引入路由协议的进程号。
+      IMPTCOSTCFG:
+        name: 引入路由开销值配置
+        desc: 标志是否设置路径开销值。
+      IMPTTAGCFG:
+        name: 引入路由标签配置
+        desc: 标志是否设置类型的值。
+      IMPTTYPECFG:
+        name: 引入路由类型配置
+        desc: 标志是否置位外部LSA的标记。
+      COST:
+        name: 路径Cost值
+        desc: 该参数用于指定自治系统外部路径的开销。
+      TAG:
+        name: 标签
+        desc: 外部LSA中的标记。
+      TYPE:
+        name: 引入路由类型
+        desc: 外部LSA的度量类型。
+      ROUPOLINAME:
+        name: 路由策略名称
+        desc: 路由策略名称。
+      PERMITIBGPCFG:
+        name: 允许BGP配置
+        desc: 使能引入IBGP路由。
+  ADD OSPFINTERFACE:
+    name: 创建OSPF接口配置
+    func: 该命令用于使能一个新的接口到OSPF进程的区域下。
+    params:
+      PROCID:
+        name: 进程号
+        desc: OSPF进程号。
+      AREAID:
+        name: 区域标识
+        desc: OSPF区域号。
+      IFNAME:
+        name: 接口名
+        desc: 指定特定的接口名称。
+      DRPRI:
+        name: 指定路由器优先级
+        desc: 指定路由器优先级。
+      NETWORKTYPE:
+        name: 接口网络类型
+        desc: 接口网络类型。
+      P2MPMASKIGN:
+        name: 在P2MP网络上忽略网络掩码
+        desc: 设置在P2MP网络上忽略对网络掩码的检查，在P2MP网络上，当设备的掩码长度不一致时，使用此命令忽略对Hello报文中网络掩码的检查，从而可以正常建立OSPF邻居关系。
+      SMARTDISCOVER:
+        name: 使能Smart-Discover
+        desc: 是否使能Smart-discover特性。
+      TIMERDEADINTV:
+        name: 邻居失效的时间（s）
+        desc: OSPF邻居失效的时间。OSPF邻居的失效时间是指：在该时间间隔内，若未收到邻居的Hello报文，就认为该邻居已失效。OSPF协议不支持NULL接口的配置。
+      TIMERHELLOINTV:
+        name: 邻居发送Hello包时间间隔（s）
+        desc: 接口发送Hello报文的时间间隔。hello interval的值写入Hello报文中后随之发送。hello interval的值越小，发现网络拓扑改变的速度越快，路由开销也就越大。确定接口和邻接路由器的参数要保持一致。
+          OSPF协议不支持NULL接口的配置。
+      TIMERCONSERFLAG:
+        name: 是否使能邻居失效定时器保守模式
+        desc: 是否使能邻居失效定时器保守模式。使能后，即使邻居失效时间小于10s，仍按照实际配置值来判断邻居是否失效。
+      TIMERRETRANINTV:
+        name: 重发LSA的时间间隔（s）
+        desc: 接口重传LSA的时间间隔。当一台路由器向它的邻居发送一条＂链路状态广播＂（LSA）后，需要等到对方的确认报文。若在该重传LSA的时间间隔内未收到对方的确认报文，就会重传这条LSA。
+          相邻路由器重传LSA时间间隔的值不要设置得太小，否则将会引起不必要的重传。 OSPF协议不支持NU
+      TIMERPOLLINTV:
+        name: 发送Hello报文的Poll时间间隔（s）
+        desc: 发送轮询Hello报文的时间间隔。在NBMA网络上，当邻居失效后，路由器将按ospf timer poll设置的轮询时间间隔定期地发送Hello报文。轮询时间间隔值至少应为Hello报文时间间隔的4倍。
+          OSPF协议不支持NULL接口的配置。
+      TIMERWAITINTV:
+        name: 等待超时时间（s）
+        desc: 等待时间。
+      CONFIGCOST:
+        name: 接口开销值
+        desc: 配置接口开销。
+      BFDENABLE:
+        name: 使能BFD
+        desc: 使能BFD。
+      MINRXRECVINTV:
+        name: 接收BFD包的最小时间间隔（ms）
+        desc: 指定期望从对端接收BFD报文的最小接收间隔。
+      MINTXTRANINTV:
+        name: 发送BFD包的最小时间间隔（ms）
+        desc: 指定向对端发送BFD报文的最小发送间隔。
+      DETECTMULINTV:
+        name: 本地检测倍数
+        desc: 指定本地检测倍数。
+      FRRBINDINGFLAG:
+        name: BFD会话与接口链路状态绑定标志
+        desc: 是否将BFD会话状态与接口的链路状态进行绑定。
+      FRRBLOCKFLAG:
+        name: 阻止指定OSPF接口的FRR能力
+        desc: 是否阻止指定OSPF接口的FRR能力。
+      BFDBLOCK:
+        name: 阻塞接口动态创建BFD特性
+        desc: 阻塞接口动态创建BFD特性。
+      TRANSDELAY:
+        name: 接口对LSA的传输延迟时间（s）
+        desc: 接口对LSA的传输延迟时间。LSA在本路由器的链路状态数据库LSDB中会随时间老化（每秒钟加1），但在网络的传输过程中却不会，所以有必要在发送之前在LSA的老化时间上增加本命令所设置的一段时间。此配置对低速率的网络尤其重要。
+          OSPF协议不支持NULL接口的配置。
+      LINKCOST:
+        name: 低链路质量Cost值
+        desc: 链路的Cost值。当链路传输质量下降时，需要提高该链路的Cost值。
+      SUPPEREACH:
+        name: 可达性抑制
+        desc: 是否使能接口的可达性抑制。
+      MTUENABLE:
+        name: 使能MTU
+        desc: 使能接口MTU。
+      MPLSLDPAUTOCFG:
+        name: 禁止自动使能MPLS LDP功能标志位
+        desc: 禁止OSPF接口自动使能MPLS LDP功能标志位。
+      LDPSYNCENABLE:
+        name: 使能LDP和OSPF同步功能
+        desc: 使能LDP和OSPF同步功能。
+      LDPSYNCBLOCK:
+        name: 阻止接口上运行LDP和OSPF同步功能
+        desc: 阻止接口上运行LDP和OSPF同步功能。
+      SILENTENABLE:
+        name: 禁止该接口接收和发送OSPF报文
+        desc: 禁止该接口接收和发送OSPF报文。
+      VIRTUALSYSFLAG:
+        name: OSPF共网段虚拟系统使能标志
+        desc: OSPF共网段虚拟系统使能标志。
+      CFGROUTERIDFLAG:
+        name: OSPF虚Router-id配置标志
+        desc: OSPF虚Router-id配置标志。
+      CFGROUTERID:
+        name: OSPF配置的虚Router-id
+        desc: OSPF虚Router-id。
+      MAXCOSTFLAG:
+        name: 保持最大开销值标志
+        desc: 是否配置本地设备通告链路最大开销值的时间。
+      MAXCOSTITVL:
+        name: 保持最大开销值时间间隔（s）
+        desc: 指定OSPF在本地设备的中保持通告最大开销值的时间。
+      INFINITEFLAG:
+        name: 永久保持最大开销值标志
+        desc: 指定在LDP会话重新建立之前，OSPF在本地设备中永久通告最大开销值。
+      HOLDDOWNITVL:
+        name: 抑制邻居时间间隔（s）
+        desc: 配置接口不建立OSPF邻居而等待LDP会话建立的时间间隔。
+  ADD OSPFV3:
+    name: 创建OSPFv3进程配置
+    func: 该命令用于增加OSPFv3特性的进程。
+    params:
+      PROCID:
+        name: OSPFv3进程号
+        desc: OSPFv3进程号。
+      ROUTERID:
+        name: 路由器标识
+        desc: 路由器标识。
+      VRFNAME:
+        name: VPN名称
+        desc: VPN名称。
+      SILENTALLFLAG:
+        name: 抑制接口收发OSPFv3报文
+        desc: 抑制OSPFv3进程下所有接口收发OSPFv3报文标志。
+      BFDALLINTFFLG:
+        name: 使能BFD
+        desc: 是否使能BFD。
+      BFDRXCFGFLAG:
+        name: 是否配置BFD最小接收报文间隔
+        desc: 是否配置BFD最小接收报文间隔。
+      BFDMINRXINTV:
+        name: 接收BFD包的最小时间间隔（ms）
+        desc: 期望从对端接收BFD报文的最小接收间隔。
+      BFDTXCFGFLAG:
+        name: 是否配置BFD最小发送报文间隔
+        desc: 是否配置BFD最小发送报文间隔。
+      BFDMINTXINTV:
+        name: 发送BFD包的最小时间间隔（ms）
+        desc: 向对端发送BFD报文的最小发送间隔。
+      DETECTMULINTV:
+        name: BFD检测乘数间隔
+        desc: BFD检测乘数间隔。
+      FRRBINDINGFLAG:
+        name: BFD会话与接口链路状态绑定标志
+        desc: 是否将BFD会话状态与接口的链路状态进行绑定。
+      ROUTAGFLAG:
+        name: 配置VPN引入路由的tag值
+        desc: 配置VPN引入路由的tag值。
+      ROUTAG:
+        name: VPN引入路由的tag值
+        desc: 标识VPN引入路由的tag值。
+      BANDWIDTHREF:
+        name: 计算链路开销参考值（Mbps）
+        desc: 计算链路开销时所依据的参考值。
+      RXMTLIMITENABLE:
+        name: 使能最大重传次数
+        desc: 使能最大重传次数。
+      RETRANSLIMIT:
+        name: 最大重传限制
+        desc: 最大重传限制。
+      DESCRIPTIONTEXT:
+        name: 描述信息
+        desc: OSPFv3进程描述信息。
+      VPNINSCAPSIMFLG:
+        name: 去使能VPN路由环路检测
+        desc: 禁止路由环路检测，直接进行路由计算。当在MCE（Multi-VPN-Instance CE）路由器上支持VPN多实例时，需要取消环路检查。
+      RTTAGDISFLAG:
+        name: 去使能标签环路检测
+        desc: 去使能标签环路检测。
+      STUBROUFLG:
+        name: OSPFv3 Stub路由器
+        desc: 配置Stub路由器。
+      STUBROUSTUPINTV:
+        name: On-Startup时间间隔（s）
+        desc: 路由器在发生主备倒换过程中保持为Stub路由器的时间间隔。
+      DOMAINNULLFLAG:
+        name: 配置Domain ID为空
+        desc: 配置Domain ID为空。
+      VIRTUALSYSFLAG:
+        name: OSPFv3共网段虚拟系统使能标志
+        desc: OSPFv3共网段虚拟系统使能标志。
+      SANAME:
+        name: IPsec SA名称
+        desc: IPsec SA的名称。
+      SPFMAXINTERVAL:
+        name: SPF计算最长间隔时间（ms）
+        desc: 通过智能定时器设置OSPFv3 SPF计算的最长间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFSTARTINTV:
+        name: SPF计算初始间隔时间（ms）
+        desc: 指定通过智能定时器设置OSPFv3 SPF计算的初始间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFHOLDINTERVAL:
+        name: SPF计算基数间隔时间（ms）
+        desc: 指定通过智能定时器设置OSPFv3 SPF计算的基数间隔时间。通过调节SPF的计算间隔，可以抑制网络频繁变化可能导致的占用过多带宽资源和路由器资源。
+      SPFDELAYINTV:
+        name: SPF计算延迟时间（s）
+        desc: 从OSPFv3收到变化到开始进行SPF计算的延迟时间。
+      SPFHOLDTIME:
+        name: SPF计算抑制间隔时间（s）
+        desc: OSPFv3两次连续的SPF计算抑止间隔时间。
+  ADD OSPFV3IMPORTROUTE:
+    name: 创建OSPFv3引入路由配置
+    func: 该命令用来将外部路由引入到OSPFv3域中，并在OSPFv3域中发布引入的路由信息。
+    params:
+      PROCID:
+        name: OSPFv3进程号
+        desc: OSPFv3进程号。
+      TOPOID:
+        name: 拓扑标识
+        desc: 拓扑标识。
+      PROTOCOL:
+        name: 协议号
+        desc: 协议号。
+      PROTOCOLPROCID:
+        name: 协议进程号
+        desc: 协议进程号。
+      IMPTCOSTCFG:
+        name: 引入路由开销值配置
+        desc: 引入路由Cost使能标志。
+      IMPTTAGCFG:
+        name: 引入路由标签配置
+        desc: 引入路由Tag使能标志。
+      IMPTTYPECFG:
+        name: 引入路由类型配置
+        desc: 引入路由Type使能标志。
+      COST:
+        name: 路径Cost值
+        desc: 路径Cost值。
+      TAG:
+        name: 标签
+        desc: 标签。
+      TYPE:
+        name: 引入路由类型
+        desc: 引入路由类型。
+      ROUPOLINAME:
+        name: 路由策略名称
+        desc: 路由策略名称。
+      PERMITIBGPCFG:
+        name: 允许BGP配置
+        desc: 允许BGP配置。
+      INHERITCOSTCFG:
+        name: 指定引入路由时继承原路由的开销值
+        desc: 指定引入路由时继承原路由的开销值。
+  ADD OSPFV3INTERFACE:
+    name: 创建OSPFv3接口配置
+    func: 该命令用于在使能一个新的接口到OSPFv3进程的区域下。
+    params:
+      PROCID:
+        name: OSPFv3进程号
+        desc: OSPFv3进程号。
+      AREAID:
+        name: OSPFv3区域号
+        desc: OSPFv3区域号。
+      IFNAME:
+        name: 接口名称
+        desc: 接口名称。
+      INSTANCEID:
+        name: 实例号
+        desc: 实例号。同一接口下可以绑定多个OSPFv3进程，不同的进程可以使用实例号区分。
+      MTUENABLE:
+        name: 使能MTU
+        desc: 使能MTU。
+      NETWORKTYPE:
+        name: 接口网络类型
+        desc: 接口网络类型。
+      TIMERDEADINTV:
+        name: 邻居失效的时间（s）
+        desc: OSPFv3邻居失效的时间。OSPFv3邻居的失效时间是指：在该时间间隔内，若未收到邻居的Hello报文，就认为该邻居已失效。OSPFv3协议不支持NULL接口的配置。
+      TIMERHELLOINTV:
+        name: 发送Hello包的时间间隔（s）
+        desc: 接口发送Hello报文的时间间隔。hello interval的值写入Hello报文中后随之发送。hello interval的值越小，发现网络拓扑改变的速度越快，路由开销也就越大。确定接口和邻接路由器的参数要保持一致。
+          OSPFv3协议不支持NULL接口的配置。
+      TIMERCONSERFLAG:
+        name: 是否使能邻居失效定时器保守模式
+        desc: 是否使能邻居失效定时器保守模式。使能后，即使邻居失效时间小于10s，仍按照实际配置值来判断邻居是否失效。
+      TIMERRETRANINTV:
+        name: 重发LSA的时间间隔（s）
+        desc: 接口重传LSA的时间间隔。当一台路由器向它的邻居发送一条＂链路状态广播＂（LSA）后，需要等到对方的确认报文。若在该重传LSA的时间间隔内未收到对方的确认报文，就会重传这条LSA。
+          相邻路由器重传LSA时间间隔的值不要设置得太小，否则将会引起不必要的重传。 OSPFv3协议不支持
+      TIMERPOLLINTV:
+        name: 发送Hello包的Poll时间间隔（s）
+        desc: 发送轮询Hello报文的时间间隔。在NBMA网络上，当邻居失效后，路由器将按OSPFV3 timer poll设置的轮询时间间隔定期地发送Hello报文。轮询时间间隔值至少应为Hello报文时间间隔的4倍。
+          OSPFv3协议不支持NULL接口的配置。
+      TIMERWAITINTV:
+        name: 超时时间（s）
+        desc: 超时时间。
+      CONFIGCOST:
+        name: 接口开销值
+        desc: 接口开销值。
+      BFDENABLE:
+        name: 使能BFD
+        desc: 使能BFD。
+      MINRXRECVINTV:
+        name: 接收BFD包的最小时间间隔（ms）
+        desc: 接收BFD包的最小时间间隔。
+      MINTXTRANINTV:
+        name: 发送BFD包的最小时间间隔（ms）
+        desc: 发送BFD包的最小时间间隔。
+      DETECTMULINTV:
+        name: 本地检测倍数
+        desc: 本地检测倍数。
+      FRRBINDINGFLAG:
+        name: BFD会话与接口链路状态绑定标志
+        desc: 是否将BFD会话状态与接口的链路状态进行绑定。
+      FRRBLOCKFLAG:
+        name: 阻止指定OSPFv3接口的FRR能力
+        desc: 是否阻止指定OSPFv3接口的FRR能力。
+      BFDBLOCK:
+        name: 阻塞接口动态创建BFD特性
+        desc: 阻塞接口动态创建BFD特性。
+      TRANSDELAY:
+        name: 接口对LSA的传输延迟时间（s）
+        desc: 接口对LSA的传输延迟时间。
+      DRPRI:
+        name: 指定路由器优先级
+        desc: 指定路由器优先级。
+      SILENTENABLE:
+        name: 禁止该接口接收和发送OSPFv3报文
+        desc: 禁止该接口接收和发送OSPFv3报文。
+      VIRTUALSYSFLAG:
+        name: OSPFv3共网段虚拟系统使能标志
+        desc: OSPFv3共网段虚拟系统使能标志。
+      CFGROUTERIDFLAG:
+        name: OSPFv3虚拟路由器标识使能标识
+        desc: OSPFv3虚拟路由器标识使能标识。
+      CFGROUTERID:
+        name: OSPFv3虚拟路由器标识
+        desc: OSPFv3虚拟路由器标识。
+  ADD POOL:
+    name: 增加POOL配置信息
+    func: '**须知**'
+    params:
+      POOLID:
+        name: POOL标识
+        desc: 该参数用于指定POOL标识。
+      NRILENGTH:
+        name: NRI长度
+        desc: 该参数用于指定NRI的长度，即NRI由几个bit组成。最大的长度为10bits。
+  ADD PROTBINDFLOWF:
+    name: 增加流过滤器协议绑定关系
+    func: 该命令用于向流过滤器中新增协议与流过滤器绑定关系，使用该protocol的业务会在流过滤器协议层级的匹配流程时可以匹配成功。
+    params:
+      FLOWFILTERNAME:
+        name: 流过滤器名称
+        desc: 该参数用于指定流过滤器名称。
+      PROTOCOLNAME:
+        name: 协议名称
+        desc: 该参数用于设置协议名称。
+      L7FILTERNAME:
+        name: 七层过滤器名字
+        desc: 该参数用于设置七层过滤器名称。
+  ADD REDUNDRDTIP:
+    name: 增加冗余备份重定向IP地址
+    func: 该命令用来配置全局的冗余备份隧道虚拟重定向IP，即用于将业务流重定向到Gre Tunnel的虚拟IP地址。
+    params:
+      IPVERSION:
+        name: IP版本
+        desc: 该参数用于设置冗余备份重定向IP类型。
+      IPV4ADDRESS:
+        name: IPV4地址
+        desc: 该参数用于设置地址类型为IPv4的冗余备份重定向的目的地址，即用于将业务流重定向到Gre Tunnel的虚拟IP地址。
+      IPV6ADDRESS:
+        name: IPV6地址
+        desc: 该参数用于设置地址类型为IPv6的冗余备份重定向的目的地址，即用于将业务流重定向到Gre Tunnel的虚拟IP地址。
+  ADD RULE:
+    name: 增加规则
+    func: 该命令用于在配置业务策略的时候增加规则，其中包含策略类型、流过滤器、流过滤器组、策略信息、生效时间段以及优先级等。通过运营商的报文匹配流过滤器获取相应规则的策略信息。
+    params:
+      RULENAME:
+        name: 规则名称
+        desc: 该参数用于设置规则名称。
+      POLICYTYPE:
+        name: 策略类型
+        desc: 该参数用于设置策略类型。
+      RULESPECTYPE:
+        name: 规则规格类型
+        desc: 该参数用于指定规则类型，当取值为SPECIFICATION_LIMITED时，表示规格受限规则，表示会话安装的规则数和被USERPROFILE绑定的规则数量均存在一定限制。
+      FILTERINGMODE:
+        name: 流过滤器或流过滤器组选择
+        desc: 该参数用于设置流过滤器或流过滤器组选择。
+      FLOWFILTERNAME:
+        name: 流过滤器名称
+        desc: 该参数用于设置流过滤器名称。
+      FLWFLTRGRPNAME:
+        name: 流过滤器组名称
+        desc: 该参数用于设置流过滤器组名称。
+      TIMERANGENAME:
+        name: 时间段名称
+        desc: 该参数用于设置TimeRange名称。
+      PRIORITY:
+        name: 全局优先级
+        desc: 该参数用于设置全局优先级，仅对PCC用户生效。
+      POLICYNAME:
+        name: 策略名称
+        desc: 该参数用于设置策略名称。
+      RDSTRIGGERFLAG:
+        name: Radius消息触发标识
+        desc: 该参数用于设置Radius消息触发标识。
+      RDSACTIONTYPE:
+        name: Radius消息触发时报文默认处理动作
+        desc: 该参数用于设置Radius消息触发时报文默认处理动作。
+      REDIRIPVERFLAG:
+        name: IP重定向虚拟IP协议版本
+        desc: 该参数用于设置IP重定向IP协议版本。
+      IPREDIRECTIPV6:
+        name: IP重定向IPv6地址
+        desc: 该参数用于设置IP重定向IPv6地址。
+      IPREDIRECTIP:
+        name: IP重定向IP地址
+        desc: 该参数用于设置IP重定向IP地址。
+      REMARKFPISEL:
+        name: 重标记、FPI或SAI选择
+        desc: 该参数用于设置重标记、FPI或SAI选择。
+      REMARKCFGTYPE:
+        name: Remark配置类型
+        desc: 该参数用于设置重标记配置类型。
+      REMARKCLASS:
+        name: Remark分类类型
+        desc: 该参数用于设置重标记分类类型。
+      REMARK:
+        name: 重标记
+        desc: 该参数用于设置重标记。
+      FPIVALUE:
+        name: FPI值
+        desc: 该参数用于设置FPI值。
+      SRVLBOFLAG:
+        name: 本地业务分流标识
+        desc: 该参数用于设置本地业务分流标识。
+      RDSBUFFERTIME:
+        name: 指定业务触发radius消息发送时的业务报文延时时间
+        desc: 该参数用于指定业务触发radius消息发送时的业务报文延时时间。
+      ADCMUTEFLAG:
+        name: ADC静默通知标识
+        desc: 设置ADC静默通知标识。
+      WORKERNAME:
+        name: 通用Rule子策略名称
+        desc: 该参数用于设置通用Rule下子策略名称。
+      WORKERPARA:
+        name: 通用策略参数
+        desc: 该参数设置通用Rule子策略参数。
+      CFGDOMAINNAME:
+        name: 配置域名称
+        desc: 该参数表示命令所属公共配置域的名称。
+      REPLACEUPNAME:
+        name: 替换用户模板名称
+        desc: 该参数用于指定替换的用户模板名称。
+      ALGSWITCH:
+        name: ALG功能开关
+        desc: 该参数用于设置是否对FTP业务报文做ALG处理。
+      SAIVALUE:
+        name: SAI值
+        desc: 该参数用于标识当规则对应的业务类型，通过匹配该规则的业务下行报文传递给无线基站，无线基站基于业务类型的业务保障。
+  ADD RULEBINDING:
+    name: 增加用户模板和规则的绑定关系
+    func: 该命令用于增加用户模板与规则绑定关系，当用户数据报文可以匹配到多个规则时，需要将多个规则绑定到用户模板下。
+    params:
+      USERPROFILENAME:
+        name: 用户模板名称
+        desc: 该参数用于设置用户模板名称。
+      RULENAME:
+        name: 规则名称
+        desc: 该参数用于设置规则名称。
+      POLICYTYPE:
+        name: 策略类型
+        desc: 该参数用于显示策略类型。
+  ADD SECTION:
+    name: 添加地址池IP地址段
+    func: 该命令为地址池增加地址段。系统在激活用户时需要为对应的地址池分配地址段，可用该命令配置对应地址池的地址段。
+    params:
+      POOLNAME:
+        name: 地址池名称
+        desc: 该参数用于指定已配置的地址池的名称。
+      SECTIONNUM:
+        name: 地址段号
+        desc: 该参数用于指定配置Section的编号。
+      IPVERSION:
+        name: IP地址类型
+        desc: 该参数用于指定匹配地址池的地址类型。
+      V4STARTIP:
+        name: 地址段的起始IPv4地址
+        desc: 该参数用于指定IPv4地址段的起始地址。
+      V4ENDIP:
+        name: 地址段的终止IPv4地址
+        desc: 该参数用于指定IPv4地址段的终止地址。
+      V6PREFIXSTART:
+        name: IPv6前缀起始地址
+        desc: 该参数用于指定IPv6地址段的起始前缀。
+      V6PREFIXEND:
+        name: IPv6前缀结束地址
+        desc: 该参数用于指定IPv6地址段的终止前缀。
+      V6PREFIXLENGTH:
+        name: IPv6前缀长度
+        desc: 该参数用于指定IPv6地址段的前缀长度。
+      MASK:
+        name: 掩码
+        desc: 该参数用于控制系统发布用户wlr_ud网段路由掩码长度。 该参数配置为N，代表发布用户wlr_ud路由覆盖的地址个数为2的N次方（2^N）。
+          如果地址段内的地址个数小于2的N次方（2^N），则按照原有规则生成路由。 改变系统发布用户wlr_ud网段路由掩码长度会对系统信令处理能力
+  ADD SRROUTE:
+    name: 增加IPv4静态路由
+    func: 该命令用于添加IPv4静态路由。
+    params:
+      AFTYPE:
+        name: 地址族
+        desc: 该参数用来指定VPN实例的地址族信息。
+      PREFIX:
+        name: 路由前缀
+        desc: 该参数用来指定前缀信息。
+      MASKLENGTH:
+        name: 路由掩码长度
+        desc: 该参数用来指定掩码长度。
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用来指定VPN实例的名称。
+      DESTVRFNAME:
+        name: 下一跳VPN名字
+        desc: 该参数用来指定路由的下一跳所属VPN实例的名字。
+      IFNAME:
+        name: 路由出接口名字
+        desc: 该参数用来指定路由的出接口名字。
+      NEXTHOP:
+        name: 路由下一跳
+        desc: 该参数用来指定下一跳IP地址。
+      PREFERENCE:
+        name: 路由优先级
+        desc: 该参数用来指定路由优先级。
+      BFDENABLE:
+        name: 动态BFD使能标识
+        desc: 动态BFD使能标识。为静态路由绑定动态BFD会话。通过动态BFD会话检测链路状态，为静态路由提供检测机制，可以快速感知链路变化，提高网络可靠性。
+      SESSIONNAME:
+        name: 静态BFD会话名
+        desc: 该参数用来指定静态路由所联动的静态BFD的会话名。为静态路由绑定静态BFD会话。通过静态BFD会话检测链路状态，为静态路由提供检测机制，可以快速感知链路变化，提高网络可靠性。
+      TAG:
+        name: 路由Tag值
+        desc: 该参数用于表示路由的tag属性值。
+      DESCRIPTION:
+        name: 路由描述
+        desc: 该参数用来指定路由的描述信息。
+      DHCPENABLE:
+        name: DHCP使能标识
+        desc: 该参数用于指定DHCP使能标志。
+  ADD TLSPARA:
+    name: 增加TLS参数
+    func: ''
+    params:
+      INDEX:
+        name: 索引
+        desc: 该参数用于指定TLS参数索引。
+      MODE:
+        name: HTTP模式
+        desc: 该参数用于指定开启服务化接口的TLS协议时的HTTP模式，HTTP模式指客户端模式或服务端模式的区分。
+      AUTHMODE:
+        name: 认证模式
+        desc: 该参数用于指定身份认证方式。
+      VERIFY:
+        name: 是否验证对端证书
+        desc: 该参数用于指定是否验证对端证书。
+      VERIFYCN:
+        name: 域名校验开关
+        desc: 该参数用于指定在证书校验阶段是否校验对端域名。开启域名校验时，将校验对端证书中的域名与实际域名是否一致，如果不一致则HTTPS建链失败。
+      VERIFYIP:
+        name: IP校验开关
+        desc: 该参数用于指定在证书校验阶段是否校验对端IP地址。开启IP校验后，将校验对端证书中的IP地址与实际IP地址是否一致，如果不一致则HTTPS建链失败。
+      VERIFYSNI:
+        name: SNI校验开关
+        desc: 该参数用于控制是否使用SNI验证证书中的域名。如果开启了该功能，当使用SNI匹配证书的域名失败后，建链失败。
+      VDEPTH:
+        name: 校验深度
+        desc: 该参数用于指定校验深度。
+      CIPHER:
+        name: 加密套件集合
+        desc: 该参数用于指定加密套件集合。
+      PROTOCAL:
+        name: 协议版本
+        desc: 该参数用于指定协议版本。
+      NESCENE:
+        name: 设备证书场景
+        desc: 该参数用于设备证书场景。
+      CASCENE:
+        name: CA证书场景
+        desc: 该参数用于CA证书场景。
+      DESC:
+        name: 描述
+        desc: 该参数用于指定TLS上下文描述。
+      CRLFLAG:
+        name: CRL是否开启
+        desc: 该参数用于指定开启服务化接口的TLS协议时是否开启吊销证书列表。
+      PSKGRPIDX:
+        name: 预共享密钥组索引
+        desc: 在身份认证模式为预共享密钥时，该参数用于指定关联的预共享密钥组索引。
+      VERIFYCNFULL:
+        name: 域名校验全匹配
+        desc: 该参数用于指定检验证书域名时是否全匹配。
+  ADD TLSPSK:
+    name: 增加预共享密钥
+    func: ''
+    params:
+      PSKIDX:
+        name: 索引
+        desc: 该参数用于指定TLS预共享密钥的记录索引。
+      PSKGRPIDX:
+        name: 预共享密钥组索引
+        desc: 该参数用于指定TLS预共享密钥组的索引。
+      MODE:
+        name: 模式
+        desc: 该参数用于指定PSK信息在TLS的客户端或服务端使用。
+      PSKID:
+        name: 预共享密钥标识
+        desc: 该参数用于指定预共享密钥的密钥ID。
+      PSKTYPE:
+        name: 预共享密钥内容类型
+        desc: 该参数用于控制预共享密钥值类型。
+      PSKVALUE:
+        name: 预共享密钥值
+        desc: 该参数用于标识一条预共享密钥的密钥值，通过密钥ID可以找到对应的预共享密钥。
+      DESC:
+        name: 描述
+        desc: 该参数用于对TLS预共享密钥进行描述。
+  ADD UCFIP:
+    name: 配置UCF报表本地IP资源池
+    func: ''
+    params:
+      INDEX:
+        name: 索引号
+        desc: 该参数用于标识记录索引号。
+      PROTOCOLTYPE:
+        name: 协议类型
+        desc: 该参数用于指定UCF报表使用的协议类型。
+      IPTYPE:
+        name: IP类型
+        desc: 该参数用于指定IP地址的类型。
+      IPV4:
+        name: IPv4地址
+        desc: 该参数用于指定UCF本端的IPv4地址。
+      IPV6:
+        name: IPv6地址
+        desc: 该参数用于指定UCF本端的IPv6地址。
+      PORTSTART:
+        name: 起始端口号
+        desc: 该参数用于指定UCF报表地址的起始端口号。
+      PORTEND:
+        name: 结束端口号
+        desc: 该参数用于指定UCF报表地址的结束端口号。
+      VPNNAME:
+        name: VPN名称
+        desc: 该参数用于指定报表传输使用的VPN名称。
+      DESC:
+        name: 描述
+        desc: 该参数用于标识报表IP资源池的描述信息。
+  ADD UCFSVRIP:
+    name: 添加UCF报表服务器的接入点IP地址
+    func: ''
+    params:
+      PROTOCOLTYPE:
+        name: 协议类型
+        desc: 该参数用于指定协议类型。
+      ACCESSNAME:
+        name: 接入点名称
+        desc: 该参数用于指定UCF服务器的接入点名称。
+      UCFSVRNAME:
+        name: UCF服务器名称
+        desc: 该参数用于指定UCF服务器名称。
+      IPTYPE:
+        name: IP类型
+        desc: 该参数用于指定UCF服务器的IP类型。
+      IPV4:
+        name: UCF服务器IPv4地址
+        desc: 该参数用于指定UCF服务器的IPv4地址。
+      IPV6:
+        name: UCF服务器IPv6地址
+        desc: 该参数用于指定UCF服务器的IPv6地址。
+      SVRPORT:
+        name: UCF服务器端口号
+        desc: 该参数用于指定UCF服务器端口号。
+      USER:
+        name: 服务器用户名
+        desc: 该参数用于指定服务器用户名。
+      PWD:
+        name: 服务器密码
+        desc: 该参数用于指定服务器密码。
+      AUTHMODE:
+        name: 服务器认证方式
+        desc: 该参数用于指定服务器认证方式。
+      SVRPATH:
+        name: 服务器上传路径
+        desc: 该参数用于指定服务器上传路径。
+  ADD UPIPDOMAIN:
+    name: 增加当前UPF绑定的IP域
+    func: ''
+    params:
+      UPNODE:
+        name: UPF节点标识
+        desc: 该参数用于表示UPF节点标识。
+      IPDOMAIN:
+        name: IP地址段归属的域
+        desc: 该参数用于表示IP地址段归属的域。例如当两个UPF上的IP地址段中存在重叠的地址时，可以配置地址段1归属IPDOAMAIN1，地址段2归属IPDOMAIN2，随UE
+          IP将IPDOMAIN携带给PCF，PCF检测到IP地址冲突，不影响用户正常使用业务。
+      DNNSWITCH:
+        name: DNN开关
+        desc: 该参数用于表示是否打开指定DNN绑定UPNODE和IPDOMAIN的开关。
+      DNN:
+        name: 数据网络名称
+        desc: 该参数用于表示数据网络名称。
+  ADD UPPOOL:
+    name: 添加地址池
+    func: '**须知**'
+    params:
+      POOLNAME:
+        name: 地址池名称
+        desc: 地址池的名称。
+      POOLTYPE:
+        name: 地址池类型
+        desc: 用于指定地址池类型。
+      IPVERSION:
+        name: IP地址类型
+        desc: 用于指定IP地址类型。
+      IPLEASE:
+        name: 地址租约使能标志
+        desc: 指定是否使能IP地址租约功能。
+      RELEASETIME:
+        name: 地址租期（秒）
+        desc: 用户释放之后，对应用户IP地址的等待释放时间。取值为0时，表示用户去激活后，其使用的本地地址将被立即释放，且可重新分配给其他用户使用。取值非0时，表示用户去激活后，其使用的地址不会立即释放，而是等待配置的时间之后才能被使用。
+      SINGLEIPFLAG:
+        name: 小地址池标志
+        desc: 配置指定本地地址池是否为小地址池（每个地址子段只有一个地址的地址池）。
+      CHECKIPVALID:
+        name: 检查地址合法性
+        desc: 检查外部地址的合法性。
+      HASVPN:
+        name: 绑定VPN
+        desc: 指定是否绑定VPN。
+      VPNINSTANCE:
+        name: VPN实例名
+        desc: 指定VPN实例名。
+      ALARMSWITCH:
+        name: 告警特性是否使能
+        desc: 指定是否开启本地址池内ALM-81216 地址池占用率超门限告警功能。
+      IMSSW:
+        name: IMS开关
+        desc: 指定使能IP地址租约功能是否对IMS用户有效。
+      REDUNDFUNC:
+        name: 冗余备份功能开关
+        desc: 指定是否开启外部地址池内静态地址用户路由冗余功能。
+      MASTERFLAG:
+        name: 主用标记
+        desc: 标识是否是主用UPF。
+  ADD URR:
+    name: 增加URR
+    func: 该命令用于增加使用量上报规则信息，通过该命令可以针对不同应用类型的数据采取不同的上报规则。
+    params:
+      URRNAME:
+        name: 使用量上报规则名称
+        desc: 该参数用于设置URR名称。
+      URRID:
+        name: URR标识
+        desc: 该参数用于设置URR标识。
+      USAGERPTMODE:
+        name: 使用量上报模式
+        desc: 该参数用于设置使用量上报模式。
+      DFTQUOTAVOLUME:
+        name: 默认流量配额
+        desc: 该参数用于设置默认流量配额大小，单位参考DFTQUOTAPARA参数。
+      DFTQUOTATIME:
+        name: 默认时长配额（秒）
+        desc: 该参数用于设置默认时长配额。
+      ONLMETERINGTYPE:
+        name: 在线计费统计类型
+        desc: 该参数用于设置在线计费统计类型。
+      OFFMETERINGTYPE:
+        name: 离线计费统计类型
+        desc: 该参数用于设置离线计费统计类型。
+      DFTQUOTAPARA:
+        name: 默认流量配额的单位
+        desc: 默认流量配额的单位。
+      CFGDOMAINNAME:
+        name: 配置域名称
+        desc: 该参数表示命令所属公共配置域的名称。
+      RG:
+        name: 计费组
+        desc: 该参数用于设置计费组。
+      SID:
+        name: 业务标识
+        desc: 该参数用于设置业务标识。
+  ADD USERPROFILE:
+    name: 增加用户模板
+    func: 该命令用于增加用户模板。用户模板可用于设置Alias Marking功能是否开启，防范攻击功能是否开启，免费业务是否进行在线、离线计费，用户实时位置信息是否上报到报表服务器，UserProfile级别的监控属性，预留配置属性等功能。
+    params:
+      USERPROFILENAME:
+        name: 用户模板名称
+        desc: 该参数用于指定用户模板名称。
+      UPSPECTYPE:
+        name: 用户模板规格类型
+        desc: 该参数用于指定用户模板类型，当取值为SPECIFICATION_LIMITED时，表示规格受限用户模板，表示会话安装的该类型的USERPROFILE数和该类型的USERPROFILE绑定的规则数量均存在一定限制。
+      ALIASMARKFLAG:
+        name: Alias Marking使能标记
+        desc: 指定Alias Marking使能标记。
+      DDOSCHECK:
+        name: 防DDOS攻击标记
+        desc: 指定防DDOS攻击标记。
+      CAPMODETHRES:
+        name: Captive模式时间阈值（分）
+        desc: 指定Captive模式时间阈值。
+      LOCRPTSWITCH:
+        name: 实时位置上报开关
+        desc: 指定实时位置上报开关。
+      EXTENDPROPNAME:
+        name: 扩展属性名称
+        desc: 指定扩展属性名称。
+      USERPROFALIAS:
+        name: 用户模板别名
+        desc: 该参数用于指定用户模板的别名。
+      TETHERINGMAXNUM:
+        name: Tethering用户下最多可接入后台终端的数量
+        desc: 该参数用于指定Tethering用户下最多可接入后台终端的数量。
+      V4TCPMSSVALUE:
+        name: IPv4 TCP报文长度（字节）
+        desc: 该参数用于表示对端能接收的最大报文段长度，用于IPv4用户。MSS值一般设置为外出接口上MTU的长度减去固定的IP首部和TCP首部的长度。User-profile下优先级高于APN下配置的TCP
+          MSS值。
+      V6TCPMSSVALUE:
+        name: IPv6 TCP报文长度（字节）
+        desc: 该参数用于表示对端能接收的最大报文段长度， 用于IPv6用户。MSS值一般设置为外出接口上MTU的长度减去固定的IP首部和TCP首部的长度。User-profile下优先级高于APN下配置的TCP
+          MSS值。
+      CFGDOMAINNAME:
+        name: 配置域名称
+        desc: 该参数表示命令所属公共配置域的名称。
+  ADD VPNINSTAF:
+    name: 增加L3VPN实例地址族
+    func: 该命令用于设置指定VPN实例下的地址族。
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定L3VPN实例名称。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于指定VPN实例下的地址族。
+      VRFRD:
+        name: 路由标识
+        desc: 该参数用于指定用户需要修改的路由标识符。在不同VPN使用相同网段的场景下，BGP服务可以根据VRFRD区分使用相同网段的不同VPN的路由。
+      IMPOLICYNAME:
+        name: 引入路由策略名称
+        desc: 该参数用于指定路由交叉入该VPN时的入口策略名称。
+      LOCALCROSSNHPMOD:
+        name: 可更改本地交叉下一跳
+        desc: 该参数用于指定是否使能本地交叉修改下一跳功能。
+      EXPOLICYNAME:
+        name: 发布路由策略名称
+        desc: 该参数用于指定路由发布时的出口策略名称。
+      EXPLYADDERTFIRST:
+        name: 路由上送时首先添加ERT
+        desc: 该参数用于指定路由上送时是否在过策略前添加ERT。
+      VRFLABELMODE:
+        name: 实例的标签分配模式
+        desc: 该参数用于指定VPN实例的标签分配模式。
+      VRFLABEL:
+        name: 实例的标签值
+        desc: 该参数用于指定VPN实例的静态标签值。
+      TNLPOLICYNAME:
+        name: 隧道策略名称
+        desc: 该参数用于指定隧道策略名称。
+      FRRENABLE:
+        name: FRR使能
+        desc: 该参数用于指定是否允许FRR使能。
+  ADD VPNINSTAFIPSEC:
+    name: 增加L3VPN实例地址族
+    func: ''
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定用户增加地址族的L3VPN实例名称。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于设置指定VPN实例下的地址族。
+  ADD VPNTARGET:
+    name: 增加VPN Target
+    func: 该命令用于设置指定VPN地址族参数VPN Target。
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定用户增加地址族的L3VPN实例名称。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于指定VPN实例下的地址族。
+      VRFRTTYPE:
+        name: VPN RT类型
+        desc: 该参数用于设定VPN Target的类型为Import RT或者是Export RT。
+      VRFRTVALUE:
+        name: VPN RT的值
+        desc: 该参数用于设定VPN Target值。
+  ADD VPNVNIMAP:
+    name: 增加VPN VNI映射
+    func: 该命令用于添加VNI与VPN的映射关系。
+    params:
+      VPNINSTANCE:
+        name: VPN实例名
+        desc: 该参数用于配置VPN实例。
+      RULESWITCH:
+        name: Rule开关
+        desc: 该参数用于控制是否支持配置Rule。
+      RULENAME:
+        name: 规则名称
+        desc: 该参数用于设置规则名称。
+      VNI:
+        name: VNI
+        desc: 配置VXLAN隧道头中的VNI标识的值。
+  MOD TRUNKIF:
+    name: 修改Trunk工作模式配置
+    func: 该命令用于修改Trunk工作模式配置。
+    params:
+      IFNAME:
+        name: 接口名称
+        desc: 该参数用于指定Trunk接口名称。
+      WORKMODE:
+        name: 工作模式
+        desc: 该参数用于指定Trunk接口工作模式。
+      LEASTACTLINKNUM:
+        name: 最小激活链路数
+        desc: 该参数用于指定Eth-Trunk接口的最小激活链路数。
+      LOADBALANCE:
+        name: 负载分担模式
+        desc: 该参数用于指定Eth-Trunk接口的负载分担模式。
+  MOD VPNINSTAF:
+    name: 修改L3VPN实例地址族
+    func: '**须知**'
+    params:
+      VRFNAME:
+        name: VPN实例名称
+        desc: 该参数用于指定L3VPN实例名称。
+      AFTYPE:
+        name: 地址族类型
+        desc: 该参数用于指定VPN实例下的地址族。
+      VRFRD:
+        name: 路由标识
+        desc: 该参数用于指定用户需要修改的路由标识符。在不同VPN使用相同网段的场景下，BGP服务可以根据VRFRD区分使用相同网段的不同VPN的路由。
+      IMPOLICYNAME:
+        name: 引入路由策略名称
+        desc: 该参数用于指定路由交叉入该VPN时的入口策略名称。
+      LOCALCROSSNHPMOD:
+        name: 可更改本地交叉下一跳
+        desc: 该参数用于指定是否使能本地交叉修改下一跳功能。
+      EXPOLICYNAME:
+        name: 发布路由策略名称
+        desc: 该参数用于指定路由发布时的出口策略名称。
+      EXPLYADDERTFIRST:
+        name: 路由上送时首先添加ERT
+        desc: 该参数用于指定路由上送时是否在过策略前添加ERT。
+      VRFLABELMODE:
+        name: 实例的标签分配模式
+        desc: 该参数用于指定VPN实例的标签分配模式。
+      VRFLABEL:
+        name: 实例的标签值
+        desc: 该参数用于指定VPN实例的静态标签值。
+      TNLPOLICYNAME:
+        name: 隧道策略名称
+        desc: 该参数用于指定隧道策略名称。
+      FRRENABLE:
+        name: FRR使能
+        desc: 该参数用于指定是否允许FRR使能。
+  SET APNADDRESSATTR:
+    name: 设置ApnAddressAttr配置
+    func: '**须知**'
+    params:
+      APN:
+        name: APN名称
+        desc: 指定APN实例名。
+      SUPPORTIPV4:
+        name: 支持IPV4
+        desc: 表明是否支持IPv4地址。
+      SUPPORTIPV6:
+        name: 支持IPV6
+        desc: 表明是否支持IPv6地址。
+      FRAMEDROUTE:
+        name: 手机后路由
+        desc: 用来配置指定APN是否允许手机后路由用户接入。
+      ANTISPOOFINGDL:
+        name: 下行防欺诈
+        desc: 用来配置指定APN的下行数据是否支持防欺诈功能。
+      ANTISPOOFINGUL:
+        name: 上行防欺诈
+        desc: 用来配置指定APN的上行数据是否支持防欺诈功能。
+      IPTYPEFORDUALIP:
+        name: 为双栈用户返回的地址类型
+        desc: 指定APN在用户请求IPv4v6双栈地址时，给用户分配双栈地址还是只分配IPv4地址或者只分配IPv6地址。
+      SINGLEADDRCAUSE:
+        name: 分配单栈地址时返回的原因值
+        desc: 指定当用户请求IPv4v6双栈地址，给用户只分配IPv4地址或者只分配IPv6地址时，激活响应消息中携带的原因值。
+      CPCTRL:
+        name: 基于CP分配IP地址
+        desc: 指定是否开启CP控制单双栈地址分配。
+      IPV6RAMTUSW:
+        name: RA携带MTU选项开关
+        desc: 该参数用于配置IPv6的RA消息中是否支持携带MTU选项。
+      IPV6MTU:
+        name: IPv6 MTU值
+        desc: 该参数用于配置IPv6 MTU值。
+      IPV6RALIFETIME:
+        name: IPv6 RA消息路由生命周期(秒)
+        desc: 该参数用于配置IPv6 RA消息路由生命周期。
+      HOSTROUTEIP:
+        name: 主机地址
+        desc: 用于配置指定APN下是否支持CP使用主机地址接入。
+      IGNOREV4POOLID:
+        name: 忽略IPV4地址池名开关
+        desc: 开关使能后，忽略SMF下发的IPV4地址池名字，从本地配置的地址池中分配地址。
+      IGNOREV6POOLID:
+        name: 忽略IPV6地址池名开关
+        desc: 开关使能后，忽略SMF下发的IPV6地址池名字，从本地配置的地址池中分配地址。
+  SET APNPCCFUNC:
+    name: 设置APN PCC功能
+    func: 此命令用于使能或关闭指定APN/DNN用户的动态PCC功能。
+    params:
+      APN:
+        name: APN名称
+        desc: 该参数用于指定APN实例名称。
+      HOMEPCCSWITCH:
+        name: 本地用户动态PCC功能
+        desc: 该参数用于指定APN的本地用户动态PCC功能是否使能。
+      ROAMPCCSWITCH:
+        name: 漫游用户动态PCC功能
+        desc: 该参数用于指定APN的漫游用户动态PCC功能是否使能。
+      VISITPCCSWITCH:
+        name: 拜访用户动态PCC功能
+        desc: 该参数用于指定APN的拜访用户动态PCC功能是否使能。
+      PCCTEMPLATE:
+        name: PCC模板名称
+        desc: 该参数用于指定APN绑定的PCC模板。
+      PCFSELECTMODE:
+        name: 选择PCF方式
+        desc: 配置PCF的选择策略。
+      DISCCUSTOM:
+        name: PCF状态过滤参数
+        desc: 配置标准服务发现时PCF状态过滤参数。
+  SET AUTOCONFIG:
+    name: 设置自动配置开关
+    func: '**须知**'
+    params:
+      SWITCHFLAG:
+        name: 自动配置开关
+        desc: 该参数用于指定自动配置开关状态。
+  SET CPAPNADDRESSATTR:
+    name: 设置基于APN的地址分配属性
+    func: ''
+    params:
+      APN:
+        name: APN名称
+        desc: 指定APN实例名。
+      ANTISPOOFINGDI:
+        name: 下行防欺诈
+        desc: 用来配置指定APN的下行数据是否支持防欺诈功能。当使能时，下行用户报文内层源地址和目的地址相同则丢包。
+      ALLOCWITHOUTPCO:
+        name: 不携带PCO本地分配地址
+        desc: 该参数用于配置指定APN在DHCPV4DEFER开关开启的前提下，当PCO中同时携带IPv4 address allocation via
+          DHCPv4信元和IP address allocation via NAS signalling信元或者都不携带时是否给对端分配地址的属性
+      ANTISPOOFINGUI:
+        name: 上行防欺诈
+        desc: 用来配置指定APN的上行数据是否支持防欺诈功能。当使能时，上行用户报文内层源地址和用户所分配的地址不相同则丢包。
+      FRAMEDROUTE:
+        name: 手机后路由
+        desc: 用来配置指定APN是否允许手机后路由用户接入。
+      IGNORECONFLICT:
+        name: 忽略静态地址冲突
+        desc: 当HLR/HSS/UDM静态签约用户携带的静态地址和RADIUS服务器返回的地址不一致时，是否忽略RADIUS服务器下发的地址，使用用户签约的静态地址激活。
+      IPV4ALLOCTYPE:
+        name: IPV4分配方式
+        desc: 用来配置IPv4分配方式。
+      IPV4RADIUSPRIOR:
+        name: IPV4优先使用AAA下发地址
+        desc: 该参数用于指定在“LOCAL”或“DHCP”分配方式下，如果存在AAA签约的静态IPv4地址，是否优先使用该地址。
+      IPV6ALLOCTYPE:
+        name: IPV6分配方式
+        desc: 用来配置IPv6分配方式。
+      IPV6RADIUSPRIOR:
+        name: IPV6优先使用AAA下发地址
+        desc: 该参数用于指定在“LOCAL”或“DHCP”分配方式下，如果存在AAA签约的静态IPv6地址，是否优先使用该地址。
+      IPV6RAINTV:
+        name: IPV6 RA消息发送周期(秒)
+        desc: 该参数用于指定IPv6 RA消息发送的最大周期时长。UNC会在最大周期时长的3/4到最大周期期间发送RA消息。
+      IPV6RAOFLAG:
+        name: IPV6 RA消息O标记
+        desc: 表明是否支持IPv6 RA消息O标记。
+      RADIUSIPROUTE:
+        name: 为Radius分配地址下发路由
+        desc: 表明是否支持为Radius分配地址下发路由。
+      DHCPIPROUTE:
+        name: 为DHCP分配地址下发路由
+        desc: 表明是否支持为DHCP分配地址下发路由。
+      STATICIP:
+        name: 静态地址
+        desc: 用于配置指定APN下使用签约静态地址接入属性，如果参数取值为Disable，则表示禁用会话签约的静态地址。针对5G会话，该参数依赖软参Dword1052Bit27完成控制。
+      STATICIPROUTE:
+        name: 为静态分配地址下发路由
+        desc: 该参数用于指定是否为静态分配地址下发路由。
+      SUPPORTIPV4:
+        name: 支持IPV4
+        desc: 表明是否支持IPv4地址。
+      SUPPORTIPV6:
+        name: 支持IPV6
+        desc: 表明是否支持IPv6地址。
+      SUPPORTPRIOR:
+        name: 优先支持的地址类型
+        desc: 表明用户在激活时未指定请求双栈地址类型的情况下，优先返回给用户的地址类型。
+      IPTYPEFORDUALIP:
+        name: 为双栈用户返回的地址类型
+        desc: 指定APN在用户请求IPv4v6双栈地址时，给用户分配双栈地址还是只分配IPv4地址或者只分配IPv6地址。
+      SINGLEADDRCAUSE:
+        name: 分配单栈地址时返回的原因值
+        desc: 指定当用户请求IPv4v6双栈地址，给用户只分配IPv4地址或者只分配IPv6地址时，激活响应消息中携带的原因值。SGSN/MME会将该原因值转换成对应的NAS原因值给UE，其中前者映射的NAS原因值指示UE不再针对该APN发起另一种IP类型的PDP或PDN连接请求；而后者是允许
+      IPV4ALLOCPRIALG:
+        name: 基于优先级的IPV4分配算法
+        desc: 该参数用于指定IPv4是否使用基于地址池优先级算法。
+      IPV6ALLOCPRIALG:
+        name: 基于优先级的IPV6分配算法
+        desc: 该参数用于指定IPv6是否使用基于地址池优先级算法。
+      RDSSVRCTRL:
+        name: 基于Radius分配IP地址
+        desc: 指定是否开启Radius AAA控制单双栈地址分配。
+      IPV6RAMTUSW:
+        name: RA携带MTU选项开关
+        desc: 该参数用于配置IPv6的RA消息中是否支持携带MTU选项。
+      IPV6MTU:
+        name: IPv6 MTU值
+        desc: 该参数用于配置IPv6 MTU值。
+      IPV6RALIFETIME:
+        name: IPv6 RA消息路由生命周期(秒)
+        desc: 该参数用于配置IPv6 RA消息路由生命周期。
+      IPV6RATIMES:
+        name: IPv6路由广播次数
+        desc: 该参数用于设置IPv6 PDU/PDN会话建立后，Router Advertisement发送次数。
+      IPV4RDSPOOLPRI:
+        name: IPV4优先使用AAA下发地址池
+        desc: 该参数用于指定对IPv4地址是否优先使用AAA下发地址池。
+      IPV6RDSPOOLPRI:
+        name: IPV6优先使用AAA下发地址池
+        desc: 该参数用于指定对IPv6地址是否优先使用AAA下发地址池。
+      CONFLICTSTG:
+        name: 地址冲突时去激活策略
+        desc: 该参数用于指定地址冲突场景下的去激活策略。当选择的去激活策略为去激活新用户或者去激活新老用户，且新用户是双栈用户时，该新用户会先进行降栈再尝试接入。
+      ALLOCPRECEDENCE:
+        name: UE地址分配属性
+        desc: 当IPV4ALLOCTYPE/IPV6ALLOCTYPE参数取值为Local时，本参数用于指定UE IP的分配主体是SMF还是UPF。
+  SET IPALLOCBYLOCGLBSW:
+    name: 设置基于位置区分配地址的全局开关
+    func: 该命令用于配置基于位置区分配地址的全局开关。
+    params:
+      SWITCH:
+        name: IPv4 开关
+        desc: 该参数用于指定基于位置区分配地址的IPv4开关。
+      IPV6SWITCH:
+        name: IPv6 开关
+        desc: 该参数用于指定基于位置区分配地址的IPv6开关。
+  SET LICENSESWITCH:
+    name: 设置License项的开关
+    func: ''
+    params:
+      LICITEM:
+        name: License项
+        desc: 该参数用于指定需要开通的License项。
+      SWITCH:
+        name: 开关
+        desc: 该参数用于表示License项的配置开关是否已经打开。
+  SET PCCFUNC:
+    name: 设置PCC功能
+    func: 此命令用于设置动态PCC功能。使能或关闭全局用户的动态PCC功能。
+    params:
+      HOMEPCCSWITCH:
+        name: 本地用户动态PCC功能
+        desc: 该参数用于是否开启本地用户动态PCC功能。
+      ROAMPCCSWITCH:
+        name: 漫游用户动态PCC功能
+        desc: 该参数用于是否开启漫游用户动态PCC功能。
+      VISITPCCSWITCH:
+        name: 拜访用户动态PCC功能
+        desc: 该参数用于是否开启拜访用户动态PCC功能。
+      REPORTLEVEL:
+        name: 缺省上报级别
+        desc: 该参数用于指定PCC使能情况下的缺省上报级别。
+      METERMETHOD:
+        name: 缺省离线计费统计方式
+        desc: 该参数用于指定PCC使能情况下的缺省离线计费统计方式。
+      ARPEXTAVPSW:
+        name: 承载绑定ARP扩展参数开关
+        desc: 该参数用于指定是否使用参数pre-emption-capability和pre-emption-vulnerability。
+      PREEMPTCAPVALUE:
+        name: Pre-emption-Capability缺省值
+        desc: 该参数表示一个业务数据流是否可以抢占已经分配给其他低优先级业务数据流的资源。
+      PREEMPTVULVALUE:
+        name: Pre-emption-Vulnerability缺省值
+        desc: 该参数表示一个业务数据流是否可以被高优先级业务抢占。
+      COMPOLICY:
+        name: 公共策略
+        desc: 该参数用于指定SMF通过R8及以上协议版本Gx接口和PCRF交互，IP-CAN-Type为3GPP-EPS时common-policy的选择原则。
+      LOCSLCTMODE:
+        name: PCC本端主机名选择模式
+        desc: 该参数用于设置PCC本端主机名选择模式。
+      LOCALHOSTNAME:
+        name: 本端主机名
+        desc: 该参数用于设置PCC本端主机名。
+      URLCATEINTEGSW:
+        name: URL分类集成开关
+        desc: 该参数用来设置是否开启URL分类服务集成功能。
+      QOSREQNOGXRESP:
+        name: Gx接口不回复UE侧QoS请求时的处理
+        desc: 该参数用于控制在UE侧发起缺省承载QoS更新或者融合网关形态下的一次上下文QoS更新，PCRF在CCA-U中未下发QoS或QoS信息不完整时，UNC是否接受请求的QoS。
+      MKPARSEFORMAT:
+        name: Monitoring-Key的解析方式
+        desc: 该参数用于指定网元对PCRF下发的Monitoring-Key的解析方式，对PCF无效。
+      LOCALPCCSELECT:
+        name: 本地PCC策略选择模式
+        desc: 该参数用于指定UNC本地PCC策略选择模式。
+      N7FEATURELIST:
+        name: N7接口特性列表
+        desc: 该参数用于指定要开启的Supported-Features动态协商参数。
+      PCFSELECTMODE:
+        name: 选择PCF方式
+        desc: 配置选择PCF时使用的参数。
+      REDIRECTSWITCH:
+        name: 重定向功能开关
+        desc: 该参数用于是否开启重定向功能。
+      N7FAILOVERSW:
+        name: N7 Failover功能开关
+        desc: 该参数用于指定系统是否支持N7接口failover功能。使能时，在与主PCF交互失败的情况下，SMF会执行Failover动作，将用户消息交互切换到备PCF上进行处理。
+      PCFFINDREMOTESW:
+        name: 远端查询PCF开关
+        desc: 该参数用于指定用户在发现PCF时，除了在本地查询以外是否还支持到远端NRF进行查询，只对4G接入的用户生效。当配置为使能时，允许4G用户从远端NRF查询PCF。当配置为不使能时，不允许4G用户从远端NRF查询PCF。缺省为不使能。
+      PCFLBPARA:
+        name: PCF负荷分担参数
+        desc: 本参数用于指定PCF负荷分担参数。
+      UPFGLOCGBNDGNAME:
+        name: UPF组与Diameter本端主机组的绑定关系组名称
+        desc: 该参数设置UPF组与Diameter本端主机组的绑定关系组名称。
+      USEN15PCFSW:
+        name: 优先使用N15 PCF开关
+        desc: 本参数用于指定N7优先使用N15 PCF。
+      DISCCUSTOM:
+        name: PCF状态过滤参数
+        desc: 配置标准服务发现时PCF状态过滤参数。
+  SET QOSCAR:
+    name: 设置QosCar配置
+    func: 该命令用于配置用户上下行QoSCar功能的全局开关。可以指定无线接入类型、漫游属性来配置用户上下行CAR功能。当使能CAR功能后，对于E-UTRAN接入的非GBR承载，系统会根据用户协商后的APN-AMBR对用户的报文发送速率做控制；对于E
+    params:
+      USERTYPE:
+        name: 用户漫游类型
+        desc: 该参数用于指定用户的漫游属性。
+      ULRAT:
+        name: 上行RAT类型
+        desc: 该参数用于指定用户上行的接入类型。
+      DLRAT:
+        name: 下行RAT类型
+        desc: 该参数用于指定用户下行的接入类型。
+  SET QOSCTRL:
+    name: 设置QoS控制配置
+    func: ''
+    params:
+      USERTYPE:
+        name: 用户漫游类型
+        desc: 该参数用于指定用户的漫游属性。
+      RATTYPE:
+        name: RAT类型
+        desc: 该参数用于指定用户的接入类型。
+  SET RSFTPFIRSTTIME:
+    name: 首次认证使能
+    func: 该命令用于首次认证使能。
+    params:
+      FIRSTTIMEENABLE:
+        name: 首次认证使能
+        desc: 首次认证使能。
+  SET SOFTPARA:
+    name: 设置软件参数表
+    func: '**须知**'
+    params:
+      DT:
+        name: 参数类型
+        desc: 软件参数的数据类型。
+      PARANUM:
+        name: 参数索引
+        desc: 软件参数的索引。
+      VALUE:
+        name: 参数值
+        desc: 软件参数的取值。

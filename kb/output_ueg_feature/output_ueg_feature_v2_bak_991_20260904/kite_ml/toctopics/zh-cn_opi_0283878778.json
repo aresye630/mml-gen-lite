@@ -1,0 +1,616 @@
+{
+  "feature_name": "上传IPsec证书",
+  "feature_description": "在IPsec VPN中，对等体间可以通过证书进行身份认证。对等体事先向证书颁发机构申请证书，在建立VPN连接之前，先验证对方证书是否合法。认证通过后，才能与对方建立连接，从而有效防止中间人攻击。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0239304519",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0239304519.html",
+        "name": "安全管理功能",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.10",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0239304519",
+        "position": "3.10.6",
+        "parentPosition": "3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "3.10.6.4",
+        "parentPosition": "3.10.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0283878778_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0283878778.html",
+        "name": "上传IPsec证书",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "3.10.6.4.1",
+        "parentPosition": "3.10.6.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0283878778_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0283878778.html",
+        "name": "上传IPsec证书",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.1",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0283878778_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0283878778.html",
+        "name": "上传IPsec证书",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.1",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0283878778_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0283878778.html",
+        "name": "上传IPsec证书",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.1",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0283878778_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0283878778.html",
+        "name": "上传IPsec证书",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.1",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

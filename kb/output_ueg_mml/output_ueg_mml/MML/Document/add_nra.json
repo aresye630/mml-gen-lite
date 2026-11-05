@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD NRA",
+  "command_name_zh": "增加空路由区对照表",
+  "command_name_full": "增加空路由区对照表(ADD NRA)",
+  "command_function": "**适用网元：SGSN**\n\n该命令用于增加空路由区配置表。对每个存在不支持GPRS业务的小区的位置区，SGSN将属于该位置区的所有不支持GPRS业务的小区组成称之为NULL RA。配置此命令后，在2.5G/3G手机的电路域寻呼流程中，系统除了寻呼支持GPRS业务的路由区，还会寻呼空路由区表内的路由区，从而提高电路域寻呼的成功率。同一位置区下，只能有一个NULL RA，NULL RA与普通RA的编码格式相同。\n\n与MSC/VLR设备对接时，位置区下存在不支持GPRS业务的小区，则需要执行此命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.5",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.2.3.3.5.3",
+        "parentPosition": "2.2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321317",
+        "topicUrl": "MML/LinkedDoc/unc_n_cs_combination_service.html",
+        "name": "电路域联合业务",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.2.3.3.5.3.1",
+        "parentPosition": "2.2.3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320687",
+        "topicUrl": "MML/LinkedDoc/unc_n_information_of_null_routing_area.html",
+        "name": "空路由区信息",
+        "parentTopicId": "TOPIC_0234321317",
+        "position": "2.2.3.3.5.3.1.4",
+        "parentPosition": "2.2.3.3.5.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001172345019",
+        "topicUrl": "MML/Document/add_nra.html",
+        "name": "增加空路由区对照表(ADD NRA)",
+        "parentTopicId": "TOPIC_0234320687",
+        "position": "2.2.3.3.5.3.1.4.1",
+        "parentPosition": "2.2.3.3.5.3.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

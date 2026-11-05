@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD UPDIAMETERAAA",
+  "command_name_zh": "修改Diameter AAA服务器",
+  "command_name_full": "修改Diameter AAA服务器（MOD UPDIAMETERAAA）",
+  "command_function": "**适用NF：UPF**\n\n**须知** \n\n本命令属于高危命令，该操作会修改Diameter AAA服务器信息，可能导致用户激活失败或影响用户业务。\n\n此命令用于修改Diameter AAA服务器信息，包括VPN实例。当网络重新规划，需要修改Diameter AAA的VPN信息时，需要执行该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206136561392",
+        "topicUrl": "MML/LinkedDoc/udg_n_diameter_aaa_management.html",
+        "name": "Diameter AAA管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.20",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206288486681",
+        "topicUrl": "MML/LinkedDoc/udg_n_server_configuration.html",
+        "name": "服务器配置",
+        "parentTopicId": "CONCEPT_0000206136561392",
+        "position": "5.20.1",
+        "parentPosition": "5.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206136798952",
+        "topicUrl": "MML/LinkedDoc/udg_n_diameter_aaa_information.html",
+        "name": "Diameter AAA信息",
+        "parentTopicId": "CONCEPT_0000206288486681",
+        "position": "5.20.1.1",
+        "parentPosition": "5.20.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206297314579",
+        "topicUrl": "MML/Document/mod_updiameteraaa.html",
+        "name": "修改Diameter AAA服务器（MOD UPDIAMETERAAA）",
+        "parentTopicId": "CONCEPT_0000206136798952",
+        "position": "5.20.1.1.3",
+        "parentPosition": "5.20.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

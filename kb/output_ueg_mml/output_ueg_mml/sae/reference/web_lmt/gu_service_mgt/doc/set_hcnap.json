@@ -1,0 +1,119 @@
+{
+  "command_name": "SET HCNAP",
+  "command_name_zh": "设置用户显示名称",
+  "command_name_full": "设置用户显示名称(SET HCNAP)",
+  "command_function": "该命令用于在UDM的业务数据库中为指定IMPU或者PUSI签约、去签约Display name业务。\n\nDisplay name业务（显示主叫号码名称）是指在会话时显示IMPU关联的显示名称。\n\n- 注册和鉴权过程中会对用户身份进行验证，发起方的一个或多个IMPU存储在P-CSCF中，此时，UDM会下发每个IMPU关联的显示名称给P-CSCF。用户发起会话时，用户的INVITE请求包含在注册时收到的IMPU，P-CSCF将经过身份验证的IMPU及关联显示名称转发给S-CSCF。\n- S-CSCF1将INVITE请求转发给S-CSCF2，其中包含经过身份验证的IMPU和主叫方的显示名称，S-CSCF2存储IMPU及显示名称，S-CSCF2将INVITE请求转发给P-CSCF2，P-CSCF2将INVITE请求转发给用户，用户终端显示IMPU和显示名称信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732466",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Service_Data_Management.html",
+        "name": "业务数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.4",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001170194265",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/User_Name_Display_Management.html",
+        "name": "用户显示名称管理",
+        "parentTopicId": "MMLREF_0191732466",
+        "position": "4.2.4.4.32",
+        "parentPosition": "4.2.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001123674436",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_hcnap.html",
+        "name": "设置用户显示名称(SET HCNAP)",
+        "parentTopicId": "CONCEPT_0000001170194265",
+        "position": "4.2.4.4.32.1",
+        "parentPosition": "4.2.4.4.32",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

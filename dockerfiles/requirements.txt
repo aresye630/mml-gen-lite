@@ -1,0 +1,32 @@
+# mml-gen-lite 依赖（版本对齐容器实测值，确定性构建）
+# 实测环境：python:3.14-slim
+
+# ── Web ──────────────────────────────────────────────
+fastapi==0.141.1
+uvicorn==0.52.3
+python-multipart==0.0.32
+PyYAML==6.0.3
+
+# ── 向量检索 ──────────────────────────────────────────
+pymilvus==3.0.2
+onnxruntime==1.31.1
+transformers==5.22.1
+numpy==2.5.4
+
+# ── 文件解析 ──────────────────────────────────────────
+# markitdown 支持 docx/xlsx/pptx/pdf/html/csv → markdown
+markitdown[pdf,docx,pptx,xlsx]
+
+# ── Agent 运行时 ──────────────────────────────────────
+# hermes 是 agent 本体（app.py 通过 `hermes chat -q` 调用）
+hermes-agent==0.15.2
+
+# ── MCP 协议 ──────────────────────────────────────────
+# hermes 0.15.2 用驼峰 isError，必须锁 1.26.0（2.x 改成 is_error 会报错）
+mcp==1.26.0
+
+# ── 数据与文档 ────────────────────────────────────────
+pandas==3.1.0
+openpyxl==3.1.5
+python-docx==1.2.0
+pdfplumber==0.11.10

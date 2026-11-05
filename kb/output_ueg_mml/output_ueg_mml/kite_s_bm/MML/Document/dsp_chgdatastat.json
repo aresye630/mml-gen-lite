@@ -1,0 +1,230 @@
+{
+  "command_name": "DSP CHGDATASTAT",
+  "command_name_zh": "显示计费数据统计信息",
+  "command_name_full": "显示计费数据统计信息（DSP CHGDATASTAT）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n用来查询计费数据统计信息，比如预定义URR流量上报信息、UserProfile安装次数、整体转发和计费流量差异比例信息、缺省费率流量增量信息、子协议Top30的流量增量信息、预定义规则Top20的匹配次数增量信息、URR Top20的流量增量信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203074912558_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_monitoring.html",
+        "name": "业务监控",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.15",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203075631822_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_statistics_management000.html",
+        "name": "业务统计管理",
+        "parentTopicId": "CONCEPT_0000203074912558_2",
+        "position": "3.3.15.1",
+        "parentPosition": "3.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203075392198_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_charging_data_statistics.html",
+        "name": "计费数据统计信息",
+        "parentTopicId": "CONCEPT_0000203075631822_2",
+        "position": "3.3.15.1.1",
+        "parentPosition": "3.3.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203075387238_2",
+        "topicUrl": "kite_s_bm/MML/Document/dsp_chgdatastat.html",
+        "name": "显示计费数据统计信息（DSP CHGDATASTAT）",
+        "parentTopicId": "CONCEPT_0000203075392198_2",
+        "position": "3.3.15.1.1.1",
+        "parentPosition": "3.3.15.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203074912558_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_monitoring.html",
+        "name": "业务监控",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.15",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203075631822_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_statistics_management000.html",
+        "name": "业务统计管理",
+        "parentTopicId": "CONCEPT_0000203074912558_2",
+        "position": "3.3.15.1",
+        "parentPosition": "3.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203075392198_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_charging_data_statistics.html",
+        "name": "计费数据统计信息",
+        "parentTopicId": "CONCEPT_0000203075631822_2",
+        "position": "3.3.15.1.1",
+        "parentPosition": "3.3.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203075387238_2",
+        "topicUrl": "kite_s_bm/MML/Document/dsp_chgdatastat.html",
+        "name": "显示计费数据统计信息（DSP CHGDATASTAT）",
+        "parentTopicId": "CONCEPT_0000203075392198_2",
+        "position": "3.3.15.1.1.1",
+        "parentPosition": "3.3.15.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP USERRUNINFOSTATE",
+  "command_name_zh": "查询指定用户的运行信息",
+  "command_name_full": "查询指定用户的运行信息（DSP USERRUNINFOSTATE）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于显示当前进行用户收集运行信息的所有用户，或者查询指定用户的运行信息。\n\n用于查询指定用户的运行信息，输出用户使用静态规则时各种rule信息的匹配次数统计、该rule下的流量统计。或者使用动态规则时的flow信息，各种rule信息的匹配次数统计、该rule下的流量统计，用户业务car/shaping的信息，用户当前使用的五元组信息，用户访问业务的协议信息。或者输出动态和预定义ADC规则匹配次数统计。Rule group information统计项只对PCC用户生效。User profile and Common-Policy统计项只针对非PCC用户生效。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155129",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315767",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_information_management.html",
+        "name": "会话信息管理",
+        "parentTopicId": "CONCEPT_0000202289155129",
+        "position": "5.2.1",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116344",
+        "topicUrl": "MML/LinkedDoc/udg_n_display_user_running_information.html",
+        "name": "用户运行信息查询",
+        "parentTopicId": "CONCEPT_0000202289315767",
+        "position": "5.2.1.1",
+        "parentPosition": "5.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0186526349",
+        "topicUrl": "MML/Document/dsp_userruninfostate.html",
+        "name": "查询指定用户的运行信息（DSP USERRUNINFOSTATE）",
+        "parentTopicId": "CONCEPT_0000202103116344",
+        "position": "5.2.1.1.1",
+        "parentPosition": "5.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

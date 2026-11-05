@@ -1,0 +1,155 @@
+{
+  "command_name": "DSP LBGRGRP",
+  "command_name_zh": "查询容灾组信息",
+  "command_name_full": "查询容灾组信息（DSP LBGRGRP）",
+  "command_function": "该命令用于查询容灾组信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001987762397",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_cloud_session_loadbalance_management.html",
+        "name": "CSLB功能管理",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.6",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001953482966",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_business_management.html",
+        "name": "业务管理",
+        "parentTopicId": "TOPIC_0000001987762397",
+        "position": "2.2.3.1.6.2",
+        "parentPosition": "2.2.3.1.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001987762401",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_service_management.html",
+        "name": "服务管理",
+        "parentTopicId": "TOPIC_0000001953482966",
+        "position": "2.2.3.1.6.2.1",
+        "parentPosition": "2.2.3.1.6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001987762409",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_geographical_recovery_group_information.html",
+        "name": "容灾组信息",
+        "parentTopicId": "TOPIC_0000001987762401",
+        "position": "2.2.3.1.6.2.1.6",
+        "parentPosition": "2.2.3.1.6.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0129627057_3",
+        "topicUrl": "MML/Document/dsp_lbgrgrp.html",
+        "name": "查询容灾组信息（DSP LBGRGRP）",
+        "parentTopicId": "TOPIC_0000001987762409",
+        "position": "2.2.3.1.6.2.1.6.1",
+        "parentPosition": "2.2.3.1.6.2.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

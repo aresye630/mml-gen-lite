@@ -1,0 +1,131 @@
+{
+  "command_name": "DEA IMSSRVBEARER",
+  "command_name_zh": "去激活指定用户的IMS Bypass状态",
+  "command_name_full": "去激活指定用户的IMS Bypass状态（DEA IMSSRVBEARER）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，此命令将触发对特定用户/用户组/整机的IMS Bypass用户发送QoS URR Stop消息，可能中断这些用户的语音业务。\n\n该命令用于退出指定用户的IMS Bypass状态，触发指定的IMS Bypass用户发送QoS URR Stop消息，SMF收到此消息后会去激活IMS Bypass的专有承载。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103116438_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_volte_management.html",
+        "name": "VOLTE管理",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.9",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000204001140714_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_ims_bypass.html",
+        "name": "IMS Bypass",
+        "parentTopicId": "CONCEPT_0000202103116438_3",
+        "position": "2.2.3.2.9.6",
+        "parentPosition": "2.2.3.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206894130730_3",
+        "topicUrl": "MML/Document/dea_imssrvbearer.html",
+        "name": "去激活指定用户的IMS Bypass状态（DEA IMSSRVBEARER）",
+        "parentTopicId": "CONCEPT_0000204001140714_3",
+        "position": "2.2.3.2.9.6.3",
+        "parentPosition": "2.2.3.2.9.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

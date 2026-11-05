@@ -1,0 +1,73 @@
+{
+  "feature_name": "SGSN典型配置实例",
+  "feature_description": "本任务实例实现以下场景配置：UNC与RNC、SG、HLR、GGSN、DNS、CG通过IP骨干网相连。UNC到HLR通过两个SG负荷分担转接，采用M3UA通信，在链路上由层三设备汇聚后再与SG相连。UNC到RNC、GGSN和到CG均采用VRF+OSPF动态路由+BFD组网方式，UNC通过业务网与DNS互通。\n\n**图1** 典型组网图",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001824739225",
+        "topicUrl": "toctopics/zh-cn_topic_0000001824739225.html",
+        "name": "典型配置实例",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001824779117",
+        "topicUrl": "init_install/unc_2000_init_mme_21.html",
+        "name": "SGSN典型配置实例",
+        "parentTopicId": "TOPIC_0000001824739225",
+        "position": "9.7",
+        "parentPosition": "9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

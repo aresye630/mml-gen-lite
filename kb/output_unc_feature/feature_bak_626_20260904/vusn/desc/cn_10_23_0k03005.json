@@ -1,0 +1,136 @@
+{
+  "feature_name": "Pool功能预设置",
+  "feature_description": "新建MME Pool时对本Pool的功能和参数按前期规划好的数据进行配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450950",
+        "topicUrl": "toctopics/zh-cn_topic_0248450950.html",
+        "name": "容灾功能",
+        "parentTopicId": "",
+        "position": "13",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0193105975",
+        "topicUrl": "toctopics/zh-cn_topic_0193105975.html",
+        "name": "MME容灾方案",
+        "parentTopicId": "TOPIC_0248450950",
+        "position": "13.4",
+        "parentPosition": "13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0193105989",
+        "topicUrl": "toctopics/zh-cn_topic_0193105989.html",
+        "name": "新建部署",
+        "parentTopicId": "TOPIC_0193105975",
+        "position": "13.4.3",
+        "parentPosition": "13.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0202493441",
+        "topicUrl": "toctopics/zh-cn_topic_0202493441.html",
+        "name": "全网新建Pool",
+        "parentTopicId": "TOPIC_0193105989",
+        "position": "13.4.3.1",
+        "parentPosition": "13.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0202493444",
+        "topicUrl": "toctopics/zh-cn_topic_0202493444.html",
+        "name": "激活业务",
+        "parentTopicId": "TOPIC_0202493441",
+        "position": "13.4.3.1.3",
+        "parentPosition": "13.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0193105996",
+        "topicUrl": "vusn/desc/cn_10_23_0k03005.html",
+        "name": "Pool功能预设置",
+        "parentTopicId": "TOPIC_0202493444",
+        "position": "13.4.3.1.3.3",
+        "parentPosition": "13.4.3.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "feature_name": "激活UDM分配IP地址功能",
+  "feature_description": "可以在本地配置静态IP地址网段与UPF的绑定关系，当用户接入网络时，对静态IP地址用户、Radius分配IP地址用户可以基于配置的网段绑定关系为用户选择指定的UPF。\n\n**说明** \n\n适用于GGSN、PGW-C、SMF、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV5EDE565D71884B54B441B767C23ACB0C",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002187138762",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 用户IP地址管理解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_b69482b8-b462-421a-84a8-94ad427a44f9",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_b69482b8-b462-421a-84a8-94ad427a44f9"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "用户面IP地址管理;用户IP地址分配",
+          "pid_shortdesc": "介绍什么是IP地址分配、IP地址分配方式以及对应地址分配方式的配置。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138762",
+        "topicId": "TOPIC_0000001167295997",
+        "topicUrl": "toctopics/zh-cn_topic_0000001167295997.html",
+        "name": "UDM分配IP地址",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138762",
+        "topicId": "OPI_0000001156993735",
+        "topicUrl": "toctopics/zh-cn_opi_0000001156993735.html",
+        "name": "激活UDM分配IP地址功能",
+        "parentTopicId": "TOPIC_0000001167295997",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

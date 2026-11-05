@@ -1,0 +1,155 @@
+{
+  "command_name": "MOD UPFADDRATTR",
+  "command_name_zh": "修改UPF地址属性",
+  "command_name_full": "修改UPF地址属性（MOD UPFADDRATTR）",
+  "command_function": "**须知** \n\nISPROXY参数设置错误会导致UPG热备特性和双UPG故障bypass功能失效。\n\nSMF与UPF之间只允许配置1条直连路径（ISPROXY参数只能设置1条非代理路径），误配置可能会导致双UPG故障bypass功能不可用。\n\n**适用NF：SMF**\n\n该命令用于修改UPF地址属性。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.10",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320121",
+        "topicUrl": "MML/LinkedDoc/unc_n_pfcp_interface_management.html",
+        "name": "PFCP接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.2.3.3.10.2",
+        "parentPosition": "2.2.3.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321463",
+        "topicUrl": "MML/LinkedDoc/unc_n_pfcp_path_management.html",
+        "name": "PFCP路径管理",
+        "parentTopicId": "TOPIC_0234320121",
+        "position": "2.2.3.3.10.2.1",
+        "parentPosition": "2.2.3.3.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001241258353",
+        "topicUrl": "MML/LinkedDoc/unc_n_upf_based_pfcp_path_parameter_management.html",
+        "name": "UPF粒度PFCP路径参数管理",
+        "parentTopicId": "TOPIC_0234321463",
+        "position": "2.2.3.3.10.2.1.5",
+        "parentPosition": "2.2.3.3.10.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001921742361",
+        "topicUrl": "MML/Document/mod_upfaddrattr.html",
+        "name": "修改UPF地址属性（MOD UPFADDRATTR）",
+        "parentTopicId": "TOPIC_0000001241258353",
+        "position": "2.2.3.3.10.2.1.5.8",
+        "parentPosition": "2.2.3.3.10.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

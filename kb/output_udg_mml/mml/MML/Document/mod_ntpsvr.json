@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD NTPSVR",
+  "command_name_zh": "修改NTP服务器",
+  "command_name_full": "修改NTP服务器(MOD NTPSVR)",
+  "command_function": "本命令用于对一条服务器数据记录的某些参数进行修改或调整。在本命令中，系统通过“NTP服务器名”参数来唯一表示一条NTP服务器逻辑记录。\n\n**说明** \n\n执行命令修改NTP服务器后，同步状态更新需等待约三个同步周期（默认一个同步周期为一分钟）。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876254",
+        "topicUrl": "MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.10",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555067",
+        "topicUrl": "MML/LinkedDoc/csp_n_ntp_server_management.html",
+        "name": "NTP服务器管理",
+        "parentTopicId": "CONCEPT_0000202102876254",
+        "position": "4.10.7",
+        "parentPosition": "4.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0267551556",
+        "topicUrl": "MML/Document/mod_ntpsvr.html",
+        "name": "修改NTP服务器(MOD NTPSVR)",
+        "parentTopicId": "CONCEPT_0000202289555067",
+        "position": "4.10.7.3",
+        "parentPosition": "4.10.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

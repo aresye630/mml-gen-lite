@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD NAFIDAP",
+  "command_name_zh": "修改网络应用功能AP列表数据",
+  "command_name_full": "修改网络应用功能AP列表数据(MOD NAFIDAP)",
+  "command_function": "该命令用于在BSF上对一组AP的FQDN与AP域名或AP IP地址的映射关系进行修改或调整。在该命令中，系统通过以下组合来唯一标识一组AP的FQDN与AP域名或AP IP地址的映射关系：\n\n- FQDN+ REALM\n- FQDN+ ADDRTYPE+ IP\n\n  **说明** \n\n  该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206722167519",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_UIM_Management.html",
+        "name": "UIM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.12",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206570455058",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_naf_request_ap_config_management.html",
+        "name": "网络应用功能AP配置",
+        "parentTopicId": "CONCEPT_0000206722167519",
+        "position": "2.2.3.12.7",
+        "parentPosition": "2.2.3.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002070467481",
+        "topicUrl": "reference/mml/ueg/Document/mod_nafidap.html",
+        "name": "修改网络应用功能AP列表数据(MOD NAFIDAP)",
+        "parentTopicId": "CONCEPT_0000206570455058",
+        "position": "2.2.3.12.7.3",
+        "parentPosition": "2.2.3.12.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

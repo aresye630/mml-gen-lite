@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "exp 分析报告中间契约（report.json）",
+  "description": "P1 确定性管线 → P2 LLM 润色的结构化事实。渲染器按此渲染五段 md。v0.1: meta/stats/lic_switch 段落地，后续切片(T2~T7)逐段扩展。",
+  "type": "object",
+  "required": ["meta", "stats"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "段0 数据源（来源/局点/文件/角色）",
+      "required": ["source_file"],
+      "properties": {
+        "source_file": {"type": "string"},
+        "me_type": {"type": "string", "description": "ME Type=UDG/UEG/UNC"},
+        "version": {"type": "string"},
+        "patch": {"type": "string", "description": "PatchVersion"},
+        "time": {"type": "string", "description": "文件头注释 TIME 导出时间"},
+        "ne_name": {"type": "string", "description": "网元名（文件名段或 MOD ME/SET UPINFO）"},
+        "exported_at": {"type": "string"}
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "全局统计（1_检索与选型 §1-2 数据源）",
+      "required": ["cmd_count", "by_verb"],
+      "properties": {
+        "cmd_count": {"type": "integer"},
+        "by_verb": {"type": "object", "additionalProperties": {"type": "integer"}},
+        "cmd_type_count": {"type": "integer"},
+        "top_cmd_types": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "lic_switch": {
+      "type": "object",
+      "description": "SET LICENSESWITCH 分布（通用统计，值运行时发现）",
+      "properties": {
+        "cmd_count": {"type": "integer"},
+        "enable": {"type": "integer"},
+        "disable": {"type": "integer"},
+        "other": {"type": "integer"},
+        "items": {"type": "object", "description": "LICITEM → ENABLE/DISABLE（运行时值）"}
+      }
+    },
+    "env_notes": {"type": "array", "description": "检索/环境降级记录（如实，P1 无降级则空）"},
+    "profiles": {"type": "array", "description": "T2 模式归纳"},
+    "topology": {"type": "object", "description": "T3+ 拓扑数据"},
+    "chain_verdicts": {"type": "array", "description": "T3 链判定"},
+    "diffs": {"type": "array", "description": "T4 差异清单"},
+    "notices": {"type": "array", "description": "T5 注意点命中"},
+    "watchlist": {"type": "array", "description": "T6 待审视候选"},
+    "llm": {"type": "object", "description": "T8 P2 润色（可为 null）"}
+  }
+}

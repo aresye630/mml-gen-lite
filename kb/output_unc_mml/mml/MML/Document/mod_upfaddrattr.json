@@ -1,0 +1,138 @@
+{
+  "command_name": "MOD UPFADDRATTR",
+  "command_name_zh": "修改UPF地址属性",
+  "command_name_full": "修改UPF地址属性（MOD UPFADDRATTR）",
+  "command_function": "**须知** \n\nISPROXY参数设置错误会导致UPG热备特性和双UPG故障bypass功能失效。\n\nSMF与UPF之间只允许配置1条直连路径（ISPROXY参数只能设置1条非代理路径），误配置可能会导致双UPG故障bypass功能不可用。\n\n**适用NF：SMF**\n\n该命令用于修改UPF地址属性。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320121",
+        "topicUrl": "MML/LinkedDoc/unc_n_pfcp_interface_management.html",
+        "name": "PFCP接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.2",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321463",
+        "topicUrl": "MML/LinkedDoc/unc_n_pfcp_path_management.html",
+        "name": "PFCP路径管理",
+        "parentTopicId": "TOPIC_0234320121",
+        "position": "2.10.2.1",
+        "parentPosition": "2.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001241258353",
+        "topicUrl": "MML/LinkedDoc/unc_n_upf_based_pfcp_path_parameter_management.html",
+        "name": "UPF粒度PFCP路径参数管理",
+        "parentTopicId": "TOPIC_0234321463",
+        "position": "2.10.2.1.5",
+        "parentPosition": "2.10.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001921742361",
+        "topicUrl": "MML/Document/mod_upfaddrattr.html",
+        "name": "修改UPF地址属性（MOD UPFADDRATTR）",
+        "parentTopicId": "TOPIC_0000001241258353",
+        "position": "2.10.2.1.5.8",
+        "parentPosition": "2.10.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

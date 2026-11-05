@@ -1,0 +1,119 @@
+{
+  "command_name": "SND CRCERR",
+  "command_name_zh": "发送CRC校验失败的数据",
+  "command_name_full": "发送CRC校验失败的数据(SND CRCERR)",
+  "command_function": "**须知** \n\n执行该命令发送大量不一致数据会花费较长时间，且会导致CPU产生一定的波动，如在话务高峰期需谨慎执行，请务必在华为技术支持人员的指导下操作。\n\n本命令用于请求系统将OMU数据库中登记的CRC校验错误的表或记录联机设定到主机。\n\n本命令的使用场景为：当用户手工执行**STR CRC**、**CHK DATA**命令或系统每天定时执行CRC校验时，系统会登记CRC校验不一致的表或记录。用户在确认OMU数据库的数据正确后，可以使用本命令来联机设定这些表或记录，使主机与OMU数据库的数据保持一致。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854784",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/configuration_management_cgp.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.4",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855074",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/data_checking.html",
+        "name": "数据校验",
+        "parentTopicId": "CONCEPT_0165854784",
+        "position": "2.2.1.4.2",
+        "parentPosition": "2.2.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854875_2",
+        "topicUrl": "ueg/csp/MML/Document/snd_crcerr.html",
+        "name": "发送CRC校验失败的数据(SND CRCERR)",
+        "parentTopicId": "CONCEPT_0165855074",
+        "position": "2.2.1.4.2.4",
+        "parentPosition": "2.2.1.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

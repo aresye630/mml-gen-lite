@@ -1,0 +1,426 @@
+{
+  "feature_name": "配置S11-C接口数据",
+  "feature_description": "当运营商在部署分组交换网，新增SGW-C或MME时，在配置完成MME到SGW-C的路由数据后，可通过配置S11接口数据建立MME到SGW-C的逻辑连接。\n\nS11-C接口是MME与S-GW/SGW-C间的信令面接口，主要用于MME和S-GW/SGW-C之间传递承载创建、更新及删除请求消息，以及UE处于ECM-IDLE态时，用于S-GW/SGW-C通知MME寻呼UE，恢复S1承载。\n\nS11-C接口协议栈如图1所示。\n\n**图1** S11-C接口协议栈\n\nGTP-C（GPRS Tunnelling Protocol for the control plane）：利用隧道协议在骨干网的GSN间传输信令。主要信令包括路径管理、隧道管理、移动管理、位置管理，实现骨干网通道维护、会话建立/修改/删除、用户信息交互。GTP-C版本为GTPv2。\n\n以下配置数据以及步骤均以UEG双DC组网场景的配置规划为例进行介绍。\n\n双DC组网场景下，MME不仅需要和本DC内的SGW-C对接，也需要和另外一个DC的SGW-C对接。这样当用户业务接入时，MME会以负荷分担的方式选择其中一个DC的SGW-C进行业务，当其中一个DC故障时，另一个DC的SGW-C会承担园区内所有用户的业务。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198715118",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198715118.html",
+        "name": "配置MME",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.11",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001196502842",
+        "topicUrl": "init_install/unc_2000_init_mme_03.html",
+        "name": "配置S11-C接口数据",
+        "parentTopicId": "TOPIC_0000001198715118",
+        "position": "4.5.11.2",
+        "parentPosition": "4.5.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV8CDE6753523641B8ACAD6C1F13BC16B5",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818298",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网煤矿场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429777717",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429777717.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429958805",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429958805.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001429777717",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429599077",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429599077.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001429958805",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001196529620_2",
+        "topicUrl": "kite_ml/kitel_Mining_Initia_B2.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001429599077",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001198715118",
+        "topicUrl": "kite_ml/kitel_Mining_Initia_B9.html",
+        "name": "配置MME",
+        "parentTopicId": "TOPIC_0000001196529620_2",
+        "position": "2.2.3.4.6",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "OPI_0000001196502842_2",
+        "topicUrl": "init_install/unc_2000_init_mme_03.html",
+        "name": "配置S11-C接口数据",
+        "parentTopicId": "TOPIC_0000001198715118",
+        "position": "2.2.3.4.6.2",
+        "parentPosition": "2.2.3.4.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001911980889",
+        "topicUrl": "toctopics/zh-cn_topic_0000001911980889.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001866101090",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866101090.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001911980889",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913296141",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913296141.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001866101090",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001867441084",
+        "topicUrl": "toctopics/zh-cn_topic_0000001867441084.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001913296141",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913360469",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913360469.html",
+        "name": "配置MME",
+        "parentTopicId": "TOPIC_0000001867441084",
+        "position": "2.2.3.3.7",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000001196502842_2",
+        "topicUrl": "init_install/unc_2000_init_mme_03.html",
+        "name": "配置S11-C接口数据",
+        "parentTopicId": "TOPIC_0000001913360469",
+        "position": "2.2.3.3.7.2",
+        "parentPosition": "2.2.3.3.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV22ED20D5F182466F9AD869A8636504B9",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002339866657",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网通用场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339849309",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339849309.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339769477",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339769477.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000002339849309",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002305930016",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305930016.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000002339769477",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002331072490",
+        "topicUrl": "kitel_Mining_Initia_B2.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002305930016",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002365070789",
+        "topicUrl": "kitel_Mining_Initia_B9.html",
+        "name": "配置MME",
+        "parentTopicId": "TOPIC_0000002331072490",
+        "position": "2.2.3.4.6",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "OPI_0000001196502842_2",
+        "topicUrl": "init_install/unc_2000_init_mme_03.html",
+        "name": "配置S11-C接口数据",
+        "parentTopicId": "TOPIC_0000002365070789",
+        "position": "2.2.3.4.6.2",
+        "parentPosition": "2.2.3.4.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

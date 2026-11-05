@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD USERDEBUG",
+  "command_name_zh": "增加单用户DEBUG",
+  "command_name_full": "增加单用户DEBUG(ADD USERDEBUG)",
+  "command_function": "**须知** \n\n本命令属于高危命令，增加单用户DEBUG可能会导致系统性能下降，需要与华为技术支持确认后才可以实施。\n\n该命令用于配置DEBUG级别日志的用户IMSI信息。UDM/AUSF读取该命令配置的IMSI信息后，打印单用户DEBUG日志。当未到达开启时间或者超过有效时间则不打印单用户DEBUG日志。\n\n为防止日志打印过多影响性能，单用户DEBUG日志支持日志抑制功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782893",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_expert_maintenance_command.html",
+        "name": "专家维护命令",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.4",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278352764",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_debugging_command.html",
+        "name": "调试命令",
+        "parentTopicId": "CONCEPT_0000203481782893",
+        "position": "2.2.3.4.4.3",
+        "parentPosition": "2.2.3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0275166771",
+        "topicUrl": "MML/LinkedDoc/udmsubservice_n_single_subscriber_debug.html",
+        "name": "单用户DEBUG",
+        "parentTopicId": "CONCEPT_0000203278352764",
+        "position": "2.2.3.4.4.3.3",
+        "parentPosition": "2.2.3.4.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0275166772_2",
+        "topicUrl": "MML/Document/add_userdebug.html",
+        "name": "增加单用户DEBUG(ADD USERDEBUG)",
+        "parentTopicId": "MMLREF_0275166771",
+        "position": "2.2.3.4.4.3.3.1",
+        "parentPosition": "2.2.3.4.4.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

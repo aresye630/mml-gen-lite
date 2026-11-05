@@ -1,0 +1,119 @@
+{
+  "command_name": "SET CMSWITCH",
+  "command_name_zh": "设置跨网元命令开关",
+  "command_name_full": "设置跨网元命令开关(SET CMSWITCH)",
+  "command_function": "本命令用于设置跨网元命令开关。\n\n在升级观察期内，执行跨网元命令可能会影响升级回退，因此系统对这些命令做了限制，默认状态下不允许执行。如果需要在升级观察期内执行跨网元命令，请通过本命令打开跨网元命令开关。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854898",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.2",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855143",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/command_statistics.html",
+        "name": "命令统计",
+        "parentTopicId": "CONCEPT_0165854898",
+        "position": "2.2.1.2.11",
+        "parentPosition": "2.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165855108",
+        "topicUrl": "ueg/csp/MML/Document/set_cmswitch.html",
+        "name": "设置跨网元命令开关(SET CMSWITCH)",
+        "parentTopicId": "CONCEPT_0165855143",
+        "position": "2.2.1.2.11.1",
+        "parentPosition": "2.2.1.2.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "feature_name": "修改级联口数据（NP100）",
+  "feature_description": "带网络加速卡的专有硬件之间级联组网时，若VNF实例化后级联口数据与规划不一致，可参考本页面进行修改级联口数据。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0175096802",
+        "topicUrl": "installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0000001232651719",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232651719.html",
+        "name": "配置VNF侧IP路由数据（网络加速卡直连DC-GW）",
+        "parentTopicId": "TOPIC_0175096802",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0000001181556318",
+        "topicUrl": "toctopics/zh-cn_opi_0000001181556318.html",
+        "name": "修改级联口数据（NP100）",
+        "parentTopicId": "TOPIC_0000001232651719",
+        "position": "5.2.1",
+        "parentPosition": "5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

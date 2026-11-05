@@ -1,0 +1,81 @@
+{
+  "feature_name": "激活第三方应用智能运维",
+  "feature_description": "运营商为运维人员提供第三方app智能运维系统时，需要先对第三方app智能运维功能进行激活。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVE7DED619A08B413DA0C5CCA095666C6D",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222265013",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG SFIP功能专题",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "TOPIC_0000001282145608",
+        "topicUrl": "toctopics/zh-cn_topic_0000001282145608.html",
+        "name": "功能描述",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "CONCEPT_0000001281748336",
+        "topicUrl": "vsfip/desc/ce_mse_171607_09.html",
+        "name": "第三方应用智能运维",
+        "parentTopicId": "TOPIC_0000001282145608",
+        "position": "3.5",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "OPI_0000001351934321",
+        "topicUrl": "vsfip/om/ce_mse_171607_09_01.html",
+        "name": "激活第三方应用智能运维",
+        "parentTopicId": "CONCEPT_0000001281748336",
+        "position": "3.5.1",
+        "parentPosition": "3.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

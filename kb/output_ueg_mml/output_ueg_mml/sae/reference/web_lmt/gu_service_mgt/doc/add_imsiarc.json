@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD IMSIARC",
+  "command_name_zh": "增加IMSI与区号数据",
+  "command_name_full": "增加IMSI与区号数据(ADD IMSIARC)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在HLR中增加一条IMSI与区号数据记录。IMSI与区号数据记录是用来进行号码规整时，取得待登记用户所属的地区码。\n\n- 在前转号码登记时首先查询数据库中的IMSI与区号数据记录确定待登记用户所属地区，在号码规整时与**SET MAPSERV**命令中的“前转地区限制”参数配合使用，控制用户的前转号码登记。当**SET MAPSERV**命令中的“前转地区限制”参数取值为“FWDREGDSAMEAREA”（只能登记相同地区的前转号码）时，需要将通过MSISDN与区号数据记录获取的前转号码的地区码，和IMSI与区号数据记录获取的用户的地区码进行比较，两个地区码相同时，才允许登记。否则不允许。\n- 增加IMSI与区号数据的对应关系为必选配置。如果系统中没有配置用户的IMSI前缀对应的IMSI与区号数据，则不允许该IMSI前缀用户进行前转号码登记。如果该国家没有区号，该配置项中可以配置任意一个区号，但是不能不配置，如果不配置，签约前转的时候系统将提示“ERR3035:Invalid FTN”。\n- 在开局配置本局数据时需要将该HLR中使用的IMSI前缀和对应的区号全部添加到配置数据库。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802576_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/imsi_based_area_code.html",
+        "name": "IMSI与区号数据",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.4",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803728_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_imsiarc.html",
+        "name": "增加IMSI与区号数据(ADD IMSIARC)",
+        "parentTopicId": "CONCEPT_0190802576_2",
+        "position": "4.2.3.2.4.1",
+        "parentPosition": "4.2.3.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

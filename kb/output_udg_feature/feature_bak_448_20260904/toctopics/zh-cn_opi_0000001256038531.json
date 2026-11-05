@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活HTTPS业务行为识别特性",
+  "feature_description": "当前加密协议的业务识别主要基于SNI和Domain进行，对于未携带SNI的场景无法准确识别业务。在UDG开启HTTPS业务行为识别功能后，UDG会对HTTPS业务报文做TLS指纹识别，提升识别精度。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317443",
+        "topicUrl": "toctopics/zh-cn_topic_0239317443.html",
+        "name": "计费防欺诈功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001256271761",
+        "topicUrl": "toctopics/zh-cn_topic_0000001256271761.html",
+        "name": "GWFD-110404 HTTPS业务行为识别",
+        "parentTopicId": "TOPIC_0239317443",
+        "position": "18.3",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001256038531",
+        "topicUrl": "toctopics/zh-cn_opi_0000001256038531.html",
+        "name": "激活HTTPS业务行为识别特性",
+        "parentTopicId": "TOPIC_0000001256271761",
+        "position": "18.3.3",
+        "parentPosition": "18.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

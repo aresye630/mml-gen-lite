@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD SUB",
+  "command_name_zh": "开户",
+  "command_name_full": "开户(ADD SUB)",
+  "command_function": "开户是给用户开通多种业务。\n\nPGW提供强大的开户功能，不仅可以为单个用户开户，而且可以同时为多个用户批量开户。为了简化操作，还提供了模板开户功能。\n\n常见的开户方法有两种：\n\n第一种：执行**ADD SUB**命令开户，适用于为单个用户开户或大量用户批量开户的情况。\n\n第二种：事先设置各种开户模板，执行**ADD TPLSUB**命令进行模板开户。同时，为了简化操作，增加/修改各种业务也可以通过事先设置业务模板，然后采用模板进行增加/修改。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803543",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/definition.html",
+        "name": "开户",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.1",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165518139",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_sub.html",
+        "name": "开户(ADD SUB)",
+        "parentTopicId": "CONCEPT_0190803543",
+        "position": "4.2.3.5.1.1",
+        "parentPosition": "4.2.3.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

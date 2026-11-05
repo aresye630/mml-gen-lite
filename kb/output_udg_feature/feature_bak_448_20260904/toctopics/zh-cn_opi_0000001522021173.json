@@ -1,0 +1,103 @@
+{
+  "feature_name": "激活拥塞小区分析",
+  "feature_description": "当运营商想要激活拥塞小区分析功能时，需要配置本页面。\n\n**说明** \n\n适用于UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0305258510",
+        "topicUrl": "toctopics/zh-cn_topic_0305258510.html",
+        "name": "报表功能",
+        "parentTopicId": "",
+        "position": "23",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001391467842",
+        "topicUrl": "toctopics/zh-cn_topic_0000001391467842.html",
+        "name": "GWFD-111701 拥塞小区分析",
+        "parentTopicId": "TOPIC_0305258510",
+        "position": "23.15",
+        "parentPosition": "23",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000002314497758",
+        "topicUrl": "toctopics/zh-cn_topic_0000002314497758.html",
+        "name": "激活拥塞小区分析",
+        "parentTopicId": "TOPIC_0000001391467842",
+        "position": "23.15.2",
+        "parentPosition": "23.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001522021173",
+        "topicUrl": "toctopics/zh-cn_opi_0000001522021173.html",
+        "name": "激活拥塞小区分析",
+        "parentTopicId": "TOPIC_0000002314497758",
+        "position": "23.15.2.2",
+        "parentPosition": "23.15.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

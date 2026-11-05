@@ -1,0 +1,131 @@
+{
+  "command_name": "SYN MEVER",
+  "command_name_zh": "同步更新网元版本",
+  "command_name_full": "同步更新网元版本(SYN MEVER)",
+  "command_function": "**须知** \n\n在强制升级/回退时，执行该命令可能导致业务Pod重启，引起业务中断。请务必在华为技术支持人员的指导下使用该命令！\n\n本命令用于将网元指定范围内Pod的底层软件版本和进程版本更新为新版本。\n\n本命令的使用场景为：\n\n- 在双平面存在的情况下使用本命令，复位网元指定平面内的所有Pod或进程。在此方式下，需指定平面ID，对该网元指定平面内的所有版本不一致的Pod或进程进行复位处理。\n- 在强制升级/回退流程中，复位网元所有版本不一致的Pod或进程。在此方式下，不用指定平面ID，对该网元所有版本不一致的Pod或进程进行复位处理。\n- 在正常升级/回退流程结束后，进行修复更新时，触发复位网元所有版本没有更新成功的Pod或进程。在此方式下，不用指定平面ID，对该网元所有版本没有更新成功的Pod或进程进行复位处理。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299370344",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299370344.html",
+        "name": "CSP机机接口命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604960",
+        "topicUrl": "toctopics/zh-cn_concept_0246604960.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0000001299370344",
+        "position": "2.3.2.6",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604941",
+        "topicUrl": "toctopics/zh-cn_concept_0246604941.html",
+        "name": "软件管理",
+        "parentTopicId": "CONCEPT_0246604960",
+        "position": "2.3.2.6.1",
+        "parentPosition": "2.3.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604951",
+        "topicUrl": "toctopics/zh-cn_concept_0246604951.html",
+        "name": "平面管理",
+        "parentTopicId": "CONCEPT_0246604941",
+        "position": "2.3.2.6.1.2",
+        "parentPosition": "2.3.2.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0246604968_2",
+        "topicUrl": "uenmac/MML/Document/syn_mever.html",
+        "name": "同步更新网元版本(SYN MEVER)",
+        "parentTopicId": "CONCEPT_0246604951",
+        "position": "2.3.2.6.1.2.1",
+        "parentPosition": "2.3.2.6.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

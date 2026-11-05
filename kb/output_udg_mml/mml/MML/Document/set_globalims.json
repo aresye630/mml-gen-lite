@@ -1,0 +1,107 @@
+{
+  "command_name": "SET GLOBALIMS",
+  "command_name_zh": "设置全局IMS配置",
+  "command_name_full": "设置全局IMS配置（SET GLOBALIMS）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，系统只配置了语音APN才能打开该开关。\n\n该命令用来配置IMS互通相关的设置。当IMS使能开关打开时，才可以对IMS信令空口增强开关以及P-CSCF缺省组进行配置。当运营商需要控制IMS互通相关的参数时，可使用该命令对全局IMS配置参数进行配置。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116438",
+        "topicUrl": "MML/LinkedDoc/udg_n_volte_management.html",
+        "name": "VOLTE管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.9",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356122",
+        "topicUrl": "MML/LinkedDoc/udg_n_global_ims_configuration.html",
+        "name": "全局IMS配置",
+        "parentTopicId": "CONCEPT_0000202103116438",
+        "position": "5.9.4",
+        "parentPosition": "5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837830",
+        "topicUrl": "MML/Document/set_globalims.html",
+        "name": "设置全局IMS配置（SET GLOBALIMS）",
+        "parentTopicId": "CONCEPT_0000202103356122",
+        "position": "5.9.4.1",
+        "parentPosition": "5.9.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

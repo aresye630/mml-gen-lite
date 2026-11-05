@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD PROTBINDFLOWF",
+  "command_name_zh": "增加流过滤器协议绑定关系",
+  "command_name_full": "增加流过滤器协议绑定关系（ADD PROTBINDFLOWF）",
+  "command_function": "**适用NF：MPF**\n\n该命令用于向流过滤器中新增协议与流过滤器绑定关系，使用该protocol的业务会在流过滤器协议层级的匹配流程时可以匹配成功。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441906",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_mec_data_plane_management.html",
+        "name": "MEC数据面管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.8",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201442962197",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000201255441906",
+        "position": "1.8.4",
+        "parentPosition": "1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255207592",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_filter_management.html",
+        "name": "业务过滤器管理",
+        "parentTopicId": "CONCEPT_0000201442962197",
+        "position": "1.8.4.1",
+        "parentPosition": "1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201442755643",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_flow_filter_management.html",
+        "name": "流过滤器管理",
+        "parentTopicId": "CONCEPT_0000201255207592",
+        "position": "1.8.4.1.2",
+        "parentPosition": "1.8.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201442576795",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_flow_filter_protocol_binding.html",
+        "name": "流过滤器的协议绑定",
+        "parentTopicId": "CONCEPT_0000201442755643",
+        "position": "1.8.4.1.2.5",
+        "parentPosition": "1.8.4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201259822006",
+        "topicUrl": "kite_s_vm/mpf_om/MML/Document/add_protbindflowf.html",
+        "name": "增加流过滤器协议绑定关系（ADD PROTBINDFLOWF）",
+        "parentTopicId": "CONCEPT_0000201442576795",
+        "position": "1.8.4.1.2.5.1",
+        "parentPosition": "1.8.4.1.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

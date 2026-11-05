@@ -1,0 +1,126 @@
+{
+  "command_name": "SET OMIP",
+  "command_name_zh": "设置OM IP",
+  "command_name_full": "设置OM IP (SET OMIP)",
+  "command_function": "**须知** \n\n- 该类命令执行之后**可能会导致OM Portal断链**、网管断链以及VNFM断链，需使用修改后IP重新登录OM Portal，并重新对接网管以及修改VNFM侧对应网元的IP。该命令若执行不当，**会导致所有业务中断**。\n\n用于修改系统OM网络配置参数，包括外部浮动IP地址、外部物理IP、子网掩码（IPV4场景）/前缀长度（IPV6场景）、默认网关。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321101",
+        "topicUrl": "MML/LinkedDoc/csp_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.7",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321536",
+        "topicUrl": "MML/LinkedDoc/csp_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "TOPIC_0234321101",
+        "position": "1.7.2",
+        "parentPosition": "1.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0253388872",
+        "topicUrl": "MML/LinkedDoc/csp_n_proxy_management.html",
+        "name": "代理管理",
+        "parentTopicId": "TOPIC_0234321536",
+        "position": "1.7.2.2",
+        "parentPosition": "1.7.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0276163350",
+        "topicUrl": "MML/Document/set_omip.html",
+        "name": "设置OM IP (SET OMIP)",
+        "parentTopicId": "TOPIC_0253388872",
+        "position": "1.7.2.2.11",
+        "parentPosition": "1.7.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

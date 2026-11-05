@@ -1,0 +1,119 @@
+{
+  "command_name": "RMV SPECCFGITEM",
+  "command_name_zh": "删除产品内部需要调整规格比例的项目",
+  "command_name_full": "删除产品内部需要调整规格比例的项目（RMV SPECCFGITEM）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，此命令配置不正确可能导致业务资源不足引发告警以及用户业务受损，或者触发系统内存不足导致进程复位或者虚机复位，需要评估清楚风险后再操作。\n\n该命令用于删除产品内部需要调整规格比例的项目。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555353",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_o_m.html",
+        "name": "业务运维",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.12",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206205564660",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_specification_management.html",
+        "name": "业务规格管理",
+        "parentTopicId": "CONCEPT_0000202289555353",
+        "position": "5.12.7",
+        "parentPosition": "5.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206357648273",
+        "topicUrl": "MML/LinkedDoc/udg_n_internal_specification_adjustment_management.html",
+        "name": "内部规格调整管理",
+        "parentTopicId": "CONCEPT_0000206205564660",
+        "position": "5.12.7.1",
+        "parentPosition": "5.12.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206407854139",
+        "topicUrl": "MML/Document/rmv_speccfgitem.html",
+        "name": "删除产品内部需要调整规格比例的项目（RMV SPECCFGITEM）",
+        "parentTopicId": "CONCEPT_0000206357648273",
+        "position": "5.12.7.1.2",
+        "parentPosition": "5.12.7.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

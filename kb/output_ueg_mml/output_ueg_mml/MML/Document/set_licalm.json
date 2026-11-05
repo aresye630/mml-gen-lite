@@ -1,0 +1,143 @@
+{
+  "command_name": "SET LICALM",
+  "command_name_zh": "设置License告警阈值",
+  "command_name_full": "设置License告警阈值(SET LICALM)",
+  "command_function": "本命令用于设置License的告警阈值。系统根据当前使用的License控制项使用值和授权的License控制项授权值的比例和配置的告警阈值进行比较，超出相应的阈值时，上报License预警告警或过载告警，以免造成负荷过载引起业务受损。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782889",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_udm_license_management.html",
+        "name": "UDM License管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.2",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0199269017",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_license_alarm_threshold.html",
+        "name": "License告警阈值",
+        "parentTopicId": "CONCEPT_0000203481782889",
+        "position": "2.2.3.4.2.2.1",
+        "parentPosition": "2.2.3.4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0187774281",
+        "topicUrl": "MML/Document/set_licalm.html",
+        "name": "设置License告警阈值(SET LICALM)",
+        "parentTopicId": "TOPIC_0199269017",
+        "position": "2.2.3.4.2.2.1.1",
+        "parentPosition": "2.2.3.4.2.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

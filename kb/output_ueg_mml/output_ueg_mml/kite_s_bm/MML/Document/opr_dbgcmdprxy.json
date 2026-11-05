@@ -1,0 +1,131 @@
+{
+  "command_name": "OPR DBGCMDPRXY",
+  "command_name_zh": "通过命令代理执行调试命令",
+  "command_name_full": "通过命令代理执行调试命令（OPR DBGCMDPRXY）",
+  "command_function": "该命令用于在APP VNFC上执行调试命令。完整的调试命令在“CMDMSG（调试命令字符串）”参数中下发，调试命令的详细帮助可通过如下步骤获取：\n\n1、执行本命令，在“CMDMSG（调试命令字符串）”中输入“$”获取可执行的所有调试命令。\n\n2、执行本命令，在“CMDMSG（调试命令字符串）”中输入要执行的调试命令、空格和“$”，显示调试命令的第一关键字。\n\n3、执行本命令，在“CMDMSG（调试命令字符串）”中输入要执行的调试命令、第一关键字、空格和“$”，显示调试命令的第二关键字。\n\n4、依次类推，直到显示调试命令的所有关键字。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103355984_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/pfp_n_legacy_monolithic_service_orchestration_management.html",
+        "name": "单体服务编排功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.15",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595766_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/pfp_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202103355984_2",
+        "position": "3.2.15.1",
+        "parentPosition": "3.2.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555221_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/pfp_n_system_maintenance.html",
+        "name": "系统维护",
+        "parentTopicId": "CONCEPT_0000202103595766_2",
+        "position": "3.2.15.1.2",
+        "parentPosition": "3.2.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876414_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/pfp_n_debug_commands.html",
+        "name": "调试命令",
+        "parentTopicId": "CONCEPT_0000202289555221_2",
+        "position": "3.2.15.1.2.1",
+        "parentPosition": "3.2.15.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0129626981_2",
+        "topicUrl": "kite_s_bm/MML/Document/opr_dbgcmdprxy.html",
+        "name": "通过命令代理执行调试命令（OPR DBGCMDPRXY）",
+        "parentTopicId": "CONCEPT_0000202102876414_2",
+        "position": "3.2.15.1.2.1.1",
+        "parentPosition": "3.2.15.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

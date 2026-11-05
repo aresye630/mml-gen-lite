@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD CAMPUSCFG",
+  "command_name_zh": "增加园区配置",
+  "command_name_full": "增加园区配置(ADD CAMPUSCFG)",
+  "command_function": "该命令用于在大网UDM中增加一条园区配置数据记录。\n\n该命令的使用场景：\n\n- 该命令与**ADD CAMPUSDATAFILTER**命令配合使用。当使用本命令增加园区配置时，会调用**ADD CAMPUSDATAFILTER**命令配置的过滤条件。\n- 当大网UDM与园区UDM间由于传输网络故障和大网UDM失联时，为保证园区UDM上有对应的用户数据可供应急故障使用，使业务能够接续不中断，会根据过滤条件筛选用户数据，并把大网UDM的“K4序列号”和“OP序列号”替换成本命令配置的园区UDM的“K4序列号”和“OP序列号”之后，再导出用户数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001147134422",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/campus_management.html",
+        "name": "园区管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.47",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001193094179",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configure_management.html",
+        "name": "配置管理",
+        "parentTopicId": "CONCEPT_0000001147134422",
+        "position": "4.2.3.47.1",
+        "parentPosition": "4.2.3.47",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001193174049",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_campuscfg.html",
+        "name": "增加园区配置(ADD CAMPUSCFG)",
+        "parentTopicId": "CONCEPT_0000001193094179",
+        "position": "4.2.3.47.1.1",
+        "parentPosition": "4.2.3.47.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "feature_name": "加载网元内服务间证书",
+  "feature_description": "网元实例化前，必须先通过Fusionstage配置网元内服务间的证书，保证网元内各服务间的通信安全。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVA71548085A6C4E648AA3F9C53928E310",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "日常维护",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV854EECF135B048508D7A38231577648B",
+        "parentNaviId": "DOCNAVA71548085A6C4E648AA3F9C53928E310",
+        "pidId": "pid_bookmap_0000002254818654",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "UEG 基础运维操作（风筝S，虚机容器）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_91",
+          "pid_type_8381"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_8381"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818654",
+        "topicId": "TOPIC_0000001774479777_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001774479777.html",
+        "name": "证书管理",
+        "parentTopicId": "",
+        "position": "17",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818654",
+        "topicId": "TOPIC_0000001760123925_2",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001760123925.html",
+        "name": "证书加载或更新操作",
+        "parentTopicId": "TOPIC_0000001774479777_1",
+        "position": "17.5",
+        "parentPosition": "17",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818654",
+        "topicId": "TOPIC_0000001760126253_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001760126253.html",
+        "name": "通过OM Portal加载或更新证书",
+        "parentTopicId": "TOPIC_0000001760123925_2",
+        "position": "17.5.2",
+        "parentPosition": "17.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818654",
+        "topicId": "OPI_0000001769124421_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001769124421.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001760126253_1",
+        "position": "17.5.2.2",
+        "parentPosition": "17.5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

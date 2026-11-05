@@ -1,0 +1,143 @@
+{
+  "command_name": "STR CRC",
+  "command_name_zh": "整表校验",
+  "command_name_full": "整表校验(STR CRC)",
+  "command_function": "**须知** \n\n整表校验需要大约5分钟完成，且会导致CPU产生一定的波动，如在话务高峰期需谨慎执行，请务必在华为技术支持人员的指导下操作。\n\n本命令用于对OMU数据文件与主机的数据、OMU数据文件与OMU数据库的数据进行CRC校验，检查数据是否一致，可以定位到数据表级的数据错误。\n\n本命令的使用场景为：\n\n- 日常维护过程中，如备份与恢复时，使用本命令检查OMU数据文件与主机的数据或OMU数据文件与OMU数据库的数据是否一致。\n- 每天凌晨3:00，OMU自动执行本命令对所有数据表进行CRC校验，若存在不一致的情况，系统上报“ALM-4756 数据表自动CRC校验错误”告警。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202866130467",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_database_management.html",
+        "name": "数据库管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.9",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206305482476",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_data_checking.html",
+        "name": "数据校验",
+        "parentTopicId": "CONCEPT_0000202866130467",
+        "position": "2.2.3.4.2.9.4",
+        "parentPosition": "2.2.3.4.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170784578_2",
+        "topicUrl": "reference/mml/ueg/Document/str_crc.html",
+        "name": "整表校验(STR CRC)",
+        "parentTopicId": "CONCEPT_0000206305482476",
+        "position": "2.2.3.4.2.9.4.1",
+        "parentPosition": "2.2.3.4.2.9.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

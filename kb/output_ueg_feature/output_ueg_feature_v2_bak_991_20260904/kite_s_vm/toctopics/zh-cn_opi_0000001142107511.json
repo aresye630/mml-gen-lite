@@ -1,0 +1,228 @@
+{
+  "feature_name": "配置Mp2接口数据",
+  "feature_description": "当MPF（UEG）与UPF对接时，在MPF上需要配置本页面。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339532552",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339532552.html",
+        "name": "初始配置与调测（MPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390052521",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390052521.html",
+        "name": "初始配置与调测（MPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339532552",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188659569",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188659569.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001390052521",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143330128",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143330128.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001188659569",
+        "position": "4.3.2.3.6",
+        "parentPosition": "4.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001142107511",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001142107511.html",
+        "name": "配置Mp2接口数据",
+        "parentTopicId": "TOPIC_0000001143330128",
+        "position": "4.3.2.3.6.2",
+        "parentPosition": "4.3.2.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339532552",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339532552.html",
+        "name": "初始配置与调测（MPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390052521",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390052521.html",
+        "name": "初始配置与调测（MPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339532552",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188659569",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188659569.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001390052521",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143330128",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143330128.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001188659569",
+        "position": "4.3.2.3.6",
+        "parentPosition": "4.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001142107511",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001142107511.html",
+        "name": "配置Mp2接口数据",
+        "parentTopicId": "TOPIC_0000001143330128",
+        "position": "4.3.2.3.6.2",
+        "parentPosition": "4.3.2.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

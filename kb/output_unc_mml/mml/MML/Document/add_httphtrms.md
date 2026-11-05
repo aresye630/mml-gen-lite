@@ -1,0 +1,49 @@
+﻿# 增加HTR流控安全边界配置（ADD HTTPHTRMS）
+
+- 命令功能
+- 注意事项
+- 参数说明
+- 使用实例
+
+## 命令功能
+
+该命令用于增加HTR流控安全边界配置。
+
+## 注意事项
+
+- 该命令执行后立即生效。
+
+- 已经处于HTR过载状态的局向仍按照修改前安全边界值生效，解控后重新起控按照新增的安全边界值生效。
+
+- 最多可输入64条记录。
+
+- 系统部署完成后，已经存在初始记录，参数的初始记录值如下表：
+
+| LOCALNFTYPE   | PEERNFTYPE       |   MINTHD |   MAXTHD |
+|:--------------|:-----------------|---------:|---------:|
+| NFTypeAMF     | NFTypeAUSF       |      210 |     1500 |
+| NFTypeAMF     | NFTypeUDM        |      210 |     1500 |
+| NFTypeSMF     | NFTypeUDM        |      160 |     1200 |
+| NFTypeSMF     | NFTypePCF        |      160 |     1200 |
+| NFTypeCHF     | NFTypeCUSTOM_OCS |     1000 |     3000 |
+
+#### 操作用户权限
+
+G\_1，管理员级别命令组；G\_2，操作员级别命令组
+
+## 参数说明
+
+| 参数标识        | 参数名称        | 参数说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:------------|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| LOCALNFTYPE | 本端网元类型      | 可选必选说明：必选参数  参数含义：该参数用于设置本端NF类型。  数据来源：本端规划 取值范围： “INVALID（INVALID）”：无效值“NFTypeNRF（NFTypeNRF）”：NF类型为NRF“NFTypeUDM（NFTypeUDM）”：NF类型为UDM“NFTypeAMF（NFTypeAMF）”：NF类型为AMF“NFTypeSMF（NFTypeSMF）”：NF类型为SMF“NFTypeAUSF（NFTypeAUSF）”：NF类型为AUSF“NFTypeNEF（NFTypeNEF）”：NF类型为NEF“NFTypePCF（NFTypePCF）”：NF类型为PCF“NFTypeSMSF（NFTypeSMSF）”：NF类型为SMSF“NFTypeNSSF（NFTypeNSSF）”：NF类型为NSSF“NFTypeUDR（NFTypeUDR）”：NF类型为UDR“NFTypeLMF（NFTypeLMF）”：NF类型为LMF“NFTypeGMLC（NFTypeGMLC）”：NF类型为GMLC“NFType5GEIR（NFType5GEIR）”：NF类型为5GEIR“NFTypeSEPP（NFTypeSEPP）”：NF类型为SEPP“NFTypeUPF（NFTypeUPF）”：NF类型为UPF“NFTypeN3IWF（NFTypeN3IWF）”：NF类型为N3IWF“NFTypeAF（NFTypeAF）”：NF类型为AF“NFTypeUDSF（NFTypeUDSF）”：NF类型为UDSF“NFTypeBSF（NFTypeBSF）”：NF类型为BSF“NFTypeCHF（NFTypeCHF）”：NF类型为CHF“NFTypeCUSTOM_OCS（NFTypeCUSTOM_OCS）”：NF类型为CUSTOM_OCS“NFTypeSCP（NFTypeSCP）”：NF类型为SCP“NFTypeNWDAF（NFTypeNWDAF）”：NF类型为NWDAF“NFTypePCSCF（NFTypePCSCF）”：NF类型为PCSCF“NFTypeCBCF（NFTypeCBCF）”：NF类型为CBCF“NFTypeDRA（NFTypeDRA）”：NF类型为DRA“NFTypeMB_SMF（NFTypeMB_SMF）”：NF类型为MB_SMF“NFTypeUDN（NFTypeUDN）”：NF类型为UDN“NFTypeSFC（NFTypeSFC）”：NF类型为SFC“NFTypeUCBC（NFTypeUCBC）”：NF类型为UCBC“NFTypeCBE（NFTypeCBE）”：NF类型为CBE“NFTypeNEFEx（NFTypeNEFEx）”：NF类型为NEFEx“NFTypeSCF（NFTypeSCF）”：NF类型为SCF“NFTypeKMC（NFTypeKMC）”：NF类型为KMC 其中，INVALID为无效值，系统支持下发，但实际不生效。 默认值：无  配置原则：无 |
+| PEERNFTYPE  | 对端网元类型      | 可选必选说明：必选参数  参数含义：该参数用于设置对端NF类型。  数据来源：全网规划 取值范围： “INVALID（INVALID）”：无效值“NFTypeNRF（NFTypeNRF）”：NF类型为NRF“NFTypeUDM（NFTypeUDM）”：NF类型为UDM“NFTypeAMF（NFTypeAMF）”：NF类型为AMF“NFTypeSMF（NFTypeSMF）”：NF类型为SMF“NFTypeAUSF（NFTypeAUSF）”：NF类型为AUSF“NFTypeNEF（NFTypeNEF）”：NF类型为NEF“NFTypePCF（NFTypePCF）”：NF类型为PCF“NFTypeSMSF（NFTypeSMSF）”：NF类型为SMSF“NFTypeNSSF（NFTypeNSSF）”：NF类型为NSSF“NFTypeUDR（NFTypeUDR）”：NF类型为UDR“NFTypeLMF（NFTypeLMF）”：NF类型为LMF“NFTypeGMLC（NFTypeGMLC）”：NF类型为GMLC“NFType5GEIR（NFType5GEIR）”：NF类型为5GEIR“NFTypeSEPP（NFTypeSEPP）”：NF类型为SEPP“NFTypeUPF（NFTypeUPF）”：NF类型为UPF“NFTypeN3IWF（NFTypeN3IWF）”：NF类型为N3IWF“NFTypeAF（NFTypeAF）”：NF类型为AF“NFTypeUDSF（NFTypeUDSF）”：NF类型为UDSF“NFTypeBSF（NFTypeBSF）”：NF类型为BSF“NFTypeCHF（NFTypeCHF）”：NF类型为CHF“NFTypeCUSTOM_OCS（NFTypeCUSTOM_OCS）”：NF类型为CUSTOM_OCS“NFTypeSCP（NFTypeSCP）”：NF类型为SCP“NFTypeNWDAF（NFTypeNWDAF）”：NF类型为NWDAF“NFTypePCSCF（NFTypePCSCF）”：NF类型为PCSCF“NFTypeCBCF（NFTypeCBCF）”：NF类型为CBCF“NFTypeDRA（NFTypeDRA）”：NF类型为DRA“NFTypeMB_SMF（NFTypeMB_SMF）”：NF类型为MB_SMF“NFTypeUDN（NFTypeUDN）”：NF类型为UDN“NFTypeSFC（NFTypeSFC）”：NF类型为SFC“NFTypeUCBC（NFTypeUCBC）”：NF类型为UCBC“NFTypeCBE（NFTypeCBE）”：NF类型为CBE“NFTypeNEFEx（NFTypeNEFEx）”：NF类型为NEFEx“NFTypeSCF（NFTypeSCF）”：NF类型为SCF“NFTypeKMC（NFTypeKMC）”：NF类型为KMC 其中，INVALID为无效值，系统支持下发，但实际不生效。 默认值：无  配置原则：无 |
+| MINTHD      | 最小流控速率(个/秒) | 可选必选说明：必选参数  参数含义：该参数用于设置单HTTP POD放通阈值动态调整的最小速率。  数据来源：全网规划  取值范围：整数类型，取值范围是0~4294967295，单位是个每秒。  默认值：无  配置原则：  配置为0时安全边界功能不生效。  建议根据HTTP Pod用户规格和期望最长上线时间来配置此参数，即“最小流控速率（个/秒）”为：单HTTP Pod用户规格 / 最长上线时长(秒)。例如：系统HTTP单虚机最大支持30万用户，需要在1800秒内接入所有用户，那么最小流控速率需要设置为：300000个 / 1800秒 ~= 160(个/秒)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| MAXTHD      | 最大流控速率(个/秒) | 可选必选说明：必选参数  参数含义：该参数用于设置单HTTP POD放通阈值动态调整的最大速率。  数据来源：全网规划  取值范围：整数类型，取值范围是0~4294967295，单位是个每秒。  默认值：无  配置原则：  配置为0时安全边界功能不生效。  该值不为0时需大于等于"最小流控速率"；当“最大流控速率”等于“最小流控速率”时，流控效果相当于固定速率流控功能。  建议根据HTTP Pod用户规格和期望最短上线时间来配置此参数，即“最大流控速率（个/秒）”为：单HTTP Pod用户规格 / 最短上线时长(秒)。例如：系统HTTP单虚机最大支持30万用户，需要在600秒内接入所有用户，那么最大流控速率需要设置为：300000个 / 600秒 = 500(个/秒)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+## 使用实例
+
+配置本端网元类型为NFTypeAMF，对端网元类型为NFTypeUDM的HTR流控安全边界，最小流控速率为160（个/秒），最大流控速率为500（个/秒），可以用如下命令：
+
+```
+ADD HTTPHTRMS: LOCALNFTYPE=NFTypeAMF, PEERNFTYPE=NFTypeUDM, MINTHD=160, MAXTHD=500;
+```

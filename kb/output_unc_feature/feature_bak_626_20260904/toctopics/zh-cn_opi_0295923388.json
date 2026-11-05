@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置在线计费的费率标识",
+  "feature_description": "在线计费中，GGSN/PGW-C与OCS消息交互时需要用到费率标识。GGSN/PGW-C支持用户级在线计费，也支持更细粒度的按用户使用的业务进行在线计费，即内容计费。这两种方式下都以费率组（Rating Group，缩写为RG）和业务ID（Service ID，缩写为SID）作为费率标识，其中RG是必须的，SID是可选的，同时使用RG和SID进行标识，使在线计费能够做更细粒度的信用控制，且OCS可以生成更丰富的话单信息。\n\n**说明** \n\n- 适用于GGSN、PGW-C。\n- 如果OCS主动推送配额的粒度与GGSN/PGW-C本地配置不一致，则认为是无效的，去激活PDP上下文/EPS承载。所以要求GGSN/PGW-C和OCS两端的费率标识的粒度和取值要一致。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450955",
+        "topicUrl": "toctopics/zh-cn_topic_0248450955.html",
+        "name": "计费管理功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0227636706",
+        "topicUrl": "desc/unc_2030_feature_desc_online_Billing_Function.html",
+        "name": "WSFD-109001 Gy/Diameter在线计费",
+        "parentTopicId": "TOPIC_0248450955",
+        "position": "18.5",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0227639894",
+        "topicUrl": "om/unc_2030_feature_om_online_Billing_Function.html",
+        "name": "激活Gy/Diameter在线计费",
+        "parentTopicId": "TOPIC_0227636706",
+        "position": "18.5.4",
+        "parentPosition": "18.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0295923388",
+        "topicUrl": "toctopics/zh-cn_opi_0295923388.html",
+        "name": "配置在线计费的费率标识",
+        "parentTopicId": "OPI_0227639894",
+        "position": "18.5.4.5",
+        "parentPosition": "18.5.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

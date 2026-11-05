@@ -1,0 +1,138 @@
+{
+  "command_name": "SET APNIDLETIME",
+  "command_name_zh": "设置APN空闲上下文定时器配置",
+  "command_name_full": "设置APN空闲上下文定时器配置（SET APNIDLETIME）",
+  "command_function": "**适用NF：SGW-C、PGW-C、SMF、GGSN**\n\n该命令用于配置指定APN空闲上下文时长。在运营商网络中存在长时间在线的用户，为防止出现垃圾上下文和浪费无线侧资源可以配置该功能。其功能包括空闲上下文定时器时长和不活动上下文定时器时长。\n\n- 空闲上下文定时器：会话无数据传输的时长超过定时器时长后，删除会话、承载或Qos Flow。对2G、3G、4G和5G用户都生效。\n- 不活动上下文定时器：会话无数据传输的时长超过定时器时长后，释放会话的用户面资源。仅对5G用户生效。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001227622729",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management000.html",
+        "name": "接入管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322724",
+        "topicUrl": "MML/LinkedDoc/unc_n_apn_management.html",
+        "name": "APN管理",
+        "parentTopicId": "TOPIC_0000001227622729",
+        "position": "2.7.1.1",
+        "parentPosition": "2.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320107",
+        "topicUrl": "MML/LinkedDoc/unc_n_apn_specific_timer_attributes.html",
+        "name": "APN定时器属性",
+        "parentTopicId": "TOPIC_0234322724",
+        "position": "2.7.1.1.8",
+        "parentPosition": "2.7.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209653122",
+        "topicUrl": "MML/Document/set_apnidletime.html",
+        "name": "设置APN空闲上下文定时器配置（SET APNIDLETIME）",
+        "parentTopicId": "TOPIC_0234320107",
+        "position": "2.7.1.1.8.1",
+        "parentPosition": "2.7.1.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

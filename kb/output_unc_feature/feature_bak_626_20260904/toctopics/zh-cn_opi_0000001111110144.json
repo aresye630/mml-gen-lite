@@ -1,0 +1,97 @@
+{
+  "feature_name": "激活NF授权访问和NF认证功能",
+  "feature_description": "- FQDN为“huawei1.com.apn.epc.mnc456.mcc123.3gppnetwork.org”的SMF通过在NRF上设置访问授权，设定只允许AMF访问。\n- AMF与NRF之间使用TLS证书认证，保证传输层安全。\n- AMF向NRF申请Token，NF间认证，保证应用层安全。NRF支持NF的Access Token申请，NF申请后使用Token进行NF认证。NF服务提供者对NF服务消费者进行认证，利用公钥来校验Access Token中的签名是否正确（NRF上使用私钥，NF上使用公钥）。为保证安全，NRF上使用的私钥是加密保存的。NRF上Access Token的签名算法和NRF上Access Token签名的私钥以及对应的NF侧密钥需要配置。\n\n  **说明** \n\n  需要提前规划用于Token签名的公私钥对，NRF侧的私钥与此处NF侧配置的公钥配对。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVA7BE1C5944E4460EB0C4BEAE46395950",
+        "parentNaviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "pidId": "pid_bookmap_0000002193794102",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC安全配置",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095683976",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095683976.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095363946",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095363946.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001095683976",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001142283723",
+        "topicUrl": "toctopics/zh-cn_topic_0000001142283723.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001095363946",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "OPI_0000001111110144",
+        "topicUrl": "toctopics/zh-cn_opi_0000001111110144.html",
+        "name": "激活NF授权访问和NF认证功能",
+        "parentTopicId": "TOPIC_0000001142283723",
+        "position": "2.2.5.2",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

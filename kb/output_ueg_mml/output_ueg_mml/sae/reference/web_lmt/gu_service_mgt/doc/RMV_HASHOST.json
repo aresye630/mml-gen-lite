@@ -1,0 +1,119 @@
+{
+  "command_name": "RMV HASHOST",
+  "command_name_zh": "删除AS主机名",
+  "command_name_full": "删除AS主机名(RMV HASHOST)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成业务呼损甚至中断，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于删除一条AS对端实体和数据库中的ASID间的对应关系。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732707",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Global_Data_Management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.1",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732512",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/As_HostName.html",
+        "name": "AS主机名管理",
+        "parentTopicId": "CONCEPT_0191732707",
+        "position": "4.2.4.1.2",
+        "parentPosition": "4.2.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732613",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/RMV_HASHOST.html",
+        "name": "删除AS主机名(RMV HASHOST)",
+        "parentTopicId": "CONCEPT_0191732512",
+        "position": "4.2.4.1.2.2",
+        "parentPosition": "4.2.4.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

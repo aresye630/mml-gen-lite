@@ -1,0 +1,228 @@
+{
+  "feature_name": "更新GaussDB数据库弱口令字典",
+  "feature_description": "在日常维护中，系统管理员需要在弱口令字典中添加/删除弱口令。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284911170",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284911170.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284911170",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198758702_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_opt_vm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.2",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0317758838_1",
+        "topicUrl": "kite_ml/kitem_netw_om_c_opt_vm.html",
+        "name": "运维安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_1",
+        "position": "6.1.2.2.3",
+        "parentPosition": "6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001360914369_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001360914369.html",
+        "name": "更新GaussDB数据库弱口令字典",
+        "parentTopicId": "TOPIC_0317758838_1",
+        "position": "6.1.2.2.3.5",
+        "parentPosition": "6.1.2.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391524709",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391524709.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001445470597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001445470597.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001391524709",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001445470597",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001198758702_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_opt_vm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.2",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0317758838_1",
+        "topicUrl": "kite_ml/kitem_netw_om_c_opt_vm.html",
+        "name": "运维安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_1",
+        "position": "6.1.2.2.3",
+        "parentPosition": "6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001360914369_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001360914369.html",
+        "name": "更新GaussDB数据库弱口令字典",
+        "parentTopicId": "TOPIC_0317758838_1",
+        "position": "6.1.2.2.3.5",
+        "parentPosition": "6.1.2.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

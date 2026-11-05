@@ -1,0 +1,131 @@
+{
+  "command_name": "SET UDMMSCPUTHD",
+  "command_name_zh": "设置UDM 微服务进程CPU过载阈值",
+  "command_name_full": "设置UDM 微服务进程CPU过载阈值(SET UDMMSCPUTHD)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成CPU过载告警上报和恢复异常，需要与华为技术支持确认后才可以实施。\n\n该命令用于设置UDM微服务进程CPU过载告警上报阈值和恢复阈值。\n\n该命令的使用场景：各微服务进程通过内部定时器，以5秒为周期定时检查自己占用的CPU使用率，并判断是否要上报微服务进程CPU过载告警。\n\n- 当某个微服务进程的CPU使用率连续三个周期超过配置的过载告警上报阈值时，该进程上报微服务进程CPU过载告警。\n- 当某个微服务进程的CPU使用率连续三个周期小于配置的过载告警恢复阈值时，该进程恢复微服务进程CPU过载告警。\n- 如果修改了过载告警阈值或恢复阈值，微服务进程会恢复已触发的微服务进程CPU过载告警，并按照最新阈值重新判断是否上报微服务进程CPU过载告警。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782891",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.3",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0224720546",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_service_management.html",
+        "name": "服务管理",
+        "parentTopicId": "CONCEPT_0000203481782891",
+        "position": "2.2.3.4.3.2",
+        "parentPosition": "2.2.3.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001102331078_2",
+        "topicUrl": "MML/Document/set_udmmscputhd.html",
+        "name": "设置UDM 微服务进程CPU过载阈值(SET UDMMSCPUTHD)",
+        "parentTopicId": "CONCEPT_0224720546",
+        "position": "2.2.3.4.3.2.5",
+        "parentPosition": "2.2.3.4.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "SET CSIREPTPL",
+  "command_name_zh": "设置CSI替代模板",
+  "command_name_full": "设置CSI替代模板(SET CSIREPTPL)",
+  "command_function": "该命令用于设置CSI（CAMEL Subscription Information）替代模板，即增加、修改或者删除VLR/SGSN漫游区域模板与UCSI模板的对应关系。\n\n该命令的参数索引关系如图1所示：\n\n**图1** 命令参数的索引关系图\n\nCSI替代模板使用场景：\n\n1. 在系统中配置相关模板数据。\n   1. 执行**ADD UCSITPL**命令增加UCSI模板1，UCSI“模板类型”设置为“REPLACE”。\n   2. 执行**SET CSIREPTPL**命令增加CSI替代模板1，关联UCSI模板1。\n   3. 执行**ADD UCSITPL**命令增加UCSI模板2，UCSI“模板类型”设置为“SUB”，并关联CSI替代模板1。\n2. 执行**MOD CAMEL**或**MOD UCSI**命令给用户签约UCSI模板。\n   - 当用户签约了“模板类型”为“SUB”的USCI模板2，如果用户的漫游区域在用户签约的CSI替代模板1的VLR/SGSN漫游区域模板中有定义时，则采用该替代模板中关联的USCI模板1替代用户签约的UCSI模板2。\n   - 当用户签约了“模板类型”为“REPLACE”的USCI模板1，则不进行替换。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803170",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/csirep_template.html",
+        "name": "CSI替代模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.35",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802904",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_csireptpl.html",
+        "name": "设置CSI替代模板(SET CSIREPTPL)",
+        "parentTopicId": "CONCEPT_0190803170",
+        "position": "4.2.3.6.35.1",
+        "parentPosition": "4.2.3.6.35",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

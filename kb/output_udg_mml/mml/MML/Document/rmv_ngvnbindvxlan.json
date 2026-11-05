@@ -1,0 +1,119 @@
+{
+  "command_name": "RMV NGVNBINDVXLAN",
+  "command_name_zh": "删除5G LAN实例绑定VXLAN组配置",
+  "command_name_full": "删除5G LAN实例绑定VXLAN组配置（RMV NGVNBINDVXLAN）",
+  "command_function": "**适用NF：UPF**\n\n**须知** \n\n本命令属于高危命令，删除该配置会导致对应5G LAN组下的用户和DN侧业务不通。\n\n该命令用于删除5GLAN会话实例使用的VXLAN链路信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876476",
+        "topicUrl": "MML/LinkedDoc/udg_n_path_management.html",
+        "name": "路径管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.3",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555289",
+        "topicUrl": "MML/LinkedDoc/udg_n_vxlan_path_management.html",
+        "name": "VXLAN路径管理",
+        "parentTopicId": "CONCEPT_0000202102876476",
+        "position": "5.3.3",
+        "parentPosition": "5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555291",
+        "topicUrl": "MML/LinkedDoc/udg_n_vninstance_bind_vxlan_group.html",
+        "name": "5GLAN实例绑定VXLAN组",
+        "parentTopicId": "CONCEPT_0000202289555289",
+        "position": "5.3.3.8",
+        "parentPosition": "5.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201912316747",
+        "topicUrl": "MML/Document/rmv_ngvnbindvxlan.html",
+        "name": "删除5G LAN实例绑定VXLAN组配置（RMV NGVNBINDVXLAN）",
+        "parentTopicId": "CONCEPT_0000202289555291",
+        "position": "5.3.3.8.2",
+        "parentPosition": "5.3.3.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

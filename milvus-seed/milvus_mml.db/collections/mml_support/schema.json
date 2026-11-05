@@ -1,0 +1,189 @@
+{
+  "collection_name": "mml_support",
+  "enable_dynamic_field": true,
+  "fields": [
+    {
+      "auto_id": true,
+      "default_value": null,
+      "dim": null,
+      "dtype": "int64",
+      "element_type": null,
+      "is_primary": true,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "id",
+      "nullable": false
+    },
+    {
+      "analyzer_params": {
+        "type": "jieba"
+      },
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "enable_analyzer": true,
+      "enable_match": true,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 128,
+      "name": "command_name_full",
+      "nullable": false
+    },
+    {
+      "analyzer_params": {
+        "type": "jieba"
+      },
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "enable_analyzer": true,
+      "enable_match": true,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 16384,
+      "name": "command_function",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 128,
+      "name": "command_name",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 128,
+      "name": "command_name_zh",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 8192,
+      "name": "full_nav",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 512,
+      "name": "file_path",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 64,
+      "name": "product",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": 512,
+      "dtype": "float_vector",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "command_name_full_dense",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": 512,
+      "dtype": "float_vector",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "command_function_dense",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "sparse_float_vector",
+      "element_type": null,
+      "is_function_output": true,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "command_name_full_sparse",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "sparse_float_vector",
+      "element_type": null,
+      "is_function_output": true,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "command_function_sparse",
+      "nullable": false
+    }
+  ],
+  "functions": [
+    {
+      "function_type": 1,
+      "input_field_names": [
+        "command_name_full"
+      ],
+      "name": "command_name_full_bm25",
+      "output_field_names": [
+        "command_name_full_sparse"
+      ],
+      "params": {}
+    },
+    {
+      "function_type": 1,
+      "input_field_names": [
+        "command_function"
+      ],
+      "name": "command_function_bm25",
+      "output_field_names": [
+        "command_function_sparse"
+      ],
+      "params": {}
+    }
+  ],
+  "properties": {},
+  "schema_format_version": 2,
+  "version": 1
+}

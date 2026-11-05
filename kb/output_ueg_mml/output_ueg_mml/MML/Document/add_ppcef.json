@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD PPCEF",
+  "command_name_zh": "增加PCRF对端PCEF实体",
+  "command_name_full": "增加PCRF对端PCEF实体(ADD PPCEF)",
+  "command_function": "该命令为配置类命令，用于在配置数据库中增加一条对端PCEF实体数据记录。在该命令中，“对端域名”、“对端主机名”（必须全网唯一，由局方统一规划这个数据）、“协议类型”、“共享密钥”、“确认共享密钥”、“链路选择模式”、“业务绑定模式”和“业务保活时长”参数的配置需要与对端网元PCEF协商一致。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170890737",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_dcs_management.html",
+        "name": "DCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.4",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0170891038",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_peer_pcef_of_pcrf_management.html",
+        "name": "PCRF对端PCEF管理",
+        "parentTopicId": "TOPIC_0170890737",
+        "position": "2.2.3.5.4.13",
+        "parentPosition": "2.2.3.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000202836520675",
+        "topicUrl": "MML/Document/add_ppcef.html",
+        "name": "增加PCRF对端PCEF实体(ADD PPCEF)",
+        "parentTopicId": "CONCEPT_0170891038",
+        "position": "2.2.3.5.4.13.1",
+        "parentPosition": "2.2.3.5.4.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

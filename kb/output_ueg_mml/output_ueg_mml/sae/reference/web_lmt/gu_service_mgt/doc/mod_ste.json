@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD STE",
+  "command_name_zh": "修改STE业务",
+  "command_name_full": "修改STE业务(MOD STE)",
+  "command_function": "该命令用于修改2G/3G用户的Spatial Triggers业务数据。\n\n- 对于在网用户执行该命令后，如果是给用户签约Spatial Triggers业务，则UDM会向VLR下发Spatial Triggers业务数据并且更新数据库中的数据；如果是给用户去签约Spatial Triggers业务，则UDM会向VLR下发删除Spatial Triggers业务数据并且更新数据库中的数据。\n- 对于不在网用户执行该命令后，则仅会更新用户在数据库中的数据。当用户进行位置更新时，如果用户签约了Spatial Triggers业务，UDM将用户的Spatial Triggers业务数据下发给VLR。\n\n**说明** \n\n仅当用户所处VLR在**ADD NCCTPL**命令中“STE下发受限标志”参数设置为“SR”时，才会向VLR下发Spatial Triggers业务数据，否则不会下发。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803670",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/feature_service_management.html",
+        "name": "特色业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.33",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803515",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ste_service_management.html",
+        "name": "STE业务",
+        "parentTopicId": "CONCEPT_0190803670",
+        "position": "4.2.3.33.37",
+        "parentPosition": "4.2.3.33",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803508",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_ste.html",
+        "name": "修改STE业务(MOD STE)",
+        "parentTopicId": "CONCEPT_0190803515",
+        "position": "4.2.3.33.37.1",
+        "parentPosition": "4.2.3.33.37",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

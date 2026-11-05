@@ -1,0 +1,230 @@
+{
+  "command_name": "LOD UPDIAMDICT",
+  "command_name_zh": "加载Diameter字典",
+  "command_name_full": "加载Diameter字典（LOD UPDIAMDICT）",
+  "command_function": "**适用NF：UPF**\n\n**须知** \n\n本命令属于高危命令，加载Diameter字典可能会导致UPF各Diameter应用对外接口呈现的变化，此时一般需要对端网元做同步的升级适配，否则可能造成业务异常。\n\n该命令用于加载Diameter字典文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206136561374_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_diameter_management.html",
+        "name": "Diameter管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.19",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206136798938_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_diameter_dictionary_management.html",
+        "name": "Diameter字典管理",
+        "parentTopicId": "CONCEPT_0000206136561374_2",
+        "position": "3.3.19.2",
+        "parentPosition": "3.3.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206288486669_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_loading_dictionary.html",
+        "name": "加载字典",
+        "parentTopicId": "CONCEPT_0000206136798938_2",
+        "position": "3.3.19.2.3",
+        "parentPosition": "3.3.19.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206297314553_2",
+        "topicUrl": "kite_s_bm/MML/Document/lod_updiamdict.html",
+        "name": "加载Diameter字典（LOD UPDIAMDICT）",
+        "parentTopicId": "CONCEPT_0000206288486669_2",
+        "position": "3.3.19.2.3.1",
+        "parentPosition": "3.3.19.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206136561374_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_diameter_management.html",
+        "name": "Diameter管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.19",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206136798938_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_diameter_dictionary_management.html",
+        "name": "Diameter字典管理",
+        "parentTopicId": "CONCEPT_0000206136561374_2",
+        "position": "3.3.19.2",
+        "parentPosition": "3.3.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206288486669_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_loading_dictionary.html",
+        "name": "加载字典",
+        "parentTopicId": "CONCEPT_0000206136798938_2",
+        "position": "3.3.19.2.3",
+        "parentPosition": "3.3.19.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206297314553_2",
+        "topicUrl": "kite_s_bm/MML/Document/lod_updiamdict.html",
+        "name": "加载Diameter字典（LOD UPDIAMDICT）",
+        "parentTopicId": "CONCEPT_0000206288486669_2",
+        "position": "3.3.19.2.3.1",
+        "parentPosition": "3.3.19.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

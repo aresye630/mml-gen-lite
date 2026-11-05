@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD ISMFDNAI",
+  "command_name_zh": "增加I-SMF支持的DNAI",
+  "command_name_full": "增加I-SMF支持的DNAI（ADD ISMFDNAI）",
+  "command_function": "**适用NF：SMF**\n\n该命令用于增加I-SMF支持的DNAI。I-SMF支持的DNAI有两种类型：DNN级别和整系统级别。DNN级别的DNAI仅对激活该DNN的PDU会话生效。整系统级别DNAI对所有PDU会话均生效。\n\n在I-SMF插入或改变流程中I-SMF会将整系统DNAI以及用户当前会话DNN所关联的DNAI发送给锚点SMF，锚点SMF会在响应消息中将协商出的会话DNAI携带给I-SMF。当用户位置移动时，如果用户在新的区域需要进行UL CL/BP分流，I-SMF会根据从锚点SMF获取的DNAI为用户插入UL CL/BP UPF和辅锚点UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001227622729",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management000.html",
+        "name": "接入管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001153067796",
+        "topicUrl": "MML/LinkedDoc/unc_n_dnai_manage.html",
+        "name": "DNAI管理",
+        "parentTopicId": "TOPIC_0000001227622729",
+        "position": "2.7.1.24",
+        "parentPosition": "2.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001198947499",
+        "topicUrl": "MML/LinkedDoc/unc_n_i_smf_dnai_manage.html",
+        "name": "I-SMF DNAI管理",
+        "parentTopicId": "TOPIC_0000001153067796",
+        "position": "2.7.1.24.1",
+        "parentPosition": "2.7.1.24",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001101120970",
+        "topicUrl": "MML/Document/add_ismfdnai.html",
+        "name": "增加I-SMF支持的DNAI（ADD ISMFDNAI）",
+        "parentTopicId": "TOPIC_0000001198947499",
+        "position": "2.7.1.24.1.1",
+        "parentPosition": "2.7.1.24.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

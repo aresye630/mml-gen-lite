@@ -1,0 +1,134 @@
+# expgv:mockdgx — 环境底座 + 知识库（补写版）
+#
+# ⚠ 来源说明：原版 Dockerfile 未留档（该层由临时上下文 build/commit 产生）。
+#   本文件由 `docker history expgv:mockdgx` + 现网镜像实测反推重建（2026-09-14）。
+#   构建后用 tools/verify.sh 与现网镜像逐项比对（目录/pip/知识库/软链/hermes）。
+#
+# 构建（context = 包根 expgv-buildkit/）：
+#   docker build -f dockerfiles/Dockerfile.mockdgx -t expgv:mockdgx .
+#
+# 构建参数：
+#   BASE_IMAGE  — 基础镜像（默认 python:3.14-slim；跨架构时基础镜像须匹配目标架构）
+#   PIP_INDEX   — pip 源（默认 aliyun；离线构建时配合 WHEELS_DIR 走本地轮子）
+#   WHEELS_DIR  — 本地 wheel 目录（默认空=走网络；设为 /wheels 时优先本地）
+
+FROM python:3.14-slim
+
+ARG PIP_INDEX=https://mirrors.aliyun.com/pypi/simple/
+ARG WHEELS_DIR=""
+
+# ---- 1) 运行用户与目录骨架 ------------------------------------------------
+# expgv 用户 uid=1000；/data 为运行期卷挂载点（work/sessions/runs/kb）
+#
+# PITFALL（2026-09-17 实测）：基础镜像 python:3.14-slim **不含 curl**，
+#   而 hermes CLI 的部分功能（如 install.sh 辅助脚本、webhook 探活）依赖它 →
+#   运行期报 `curl: command not found`。基础排障工具也一并在构建期装齐，
+#   避免目标机（很可能离线）现场 apt 装不上。
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        curl ca-certificates jq less procps netcat-openbsd git rsync; \
+    rm -rf /var/lib/apt/lists/*; \
+    command -v curl; command -v jq; command -v ps; command -v git
+RUN useradd -m -s /bin/bash expgv \
+ && mkdir -p /opt/expgv /data/work /data/sessions /data/runs /data/kb \
+ && chown -R expgv:expgv /opt/expgv /data
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    EXPVIZ_RULES=/opt/expgv/rules \
+    EXPVIZ_SCRIPTS=/opt/expgv/scripts \
+    EXPVIZ_RUNS=/data/runs \
+    EXPVIZ_WORK=/data/work \
+    EXPVIZ_SESSIONS=/data/sessions \
+    APP_PORT=8600
+
+WORKDIR /opt/expgv
+
+# ---- 2) 基础计算层依赖 ----------------------------------------------------
+# 4 个精确版本（对齐 macOS venv-web 实测，确定性构建）
+COPY dockerfiles/requirements.txt ./
+RUN if [ -n "$WHEELS_DIR" ]; then \
+      pip install --no-cache-dir --no-index --find-links "$WHEELS_DIR/base" -r requirements.txt; \
+    else \
+      pip install --no-cache-dir -i "$PIP_INDEX" -r requirements.txt; \
+    fi
+
+# ---- 3) hermes 运行时 + pymilvus（父镜像最大的一层，实测 ~328MB）----------
+# hermes-agent 固定 0.15.2（容器内 agent 运行时）；pymilvus 供 Milvus 交互
+RUN if [ -n "$WHEELS_DIR" ]; then \
+      pip install --no-cache-dir --no-index --find-links "$WHEELS_DIR/base" \
+        hermes-agent==0.15.2 pymilvus; \
+    else \
+      pip install --no-cache-dir -i "$PIP_INDEX" hermes-agent==0.15.2 pymilvus; \
+    fi \
+ && echo "[mockdgx] hermes $(hermes --version | head -1)"
+
+# ---- 4) 解释器兼容软链 ----------------------------------------------------
+# PITFALL: skills 脚本里曾出现 /opt/homebrew/bin/python3.14 写死路径（已清理），
+# 此处保留软链以兜住第三方脚本/历史调用的解释器路径。
+RUN set -eux; \
+    mkdir -p /opt/homebrew/bin; \
+    ln -sf /usr/local/bin/python3.14 /opt/homebrew/bin/python3.14; \
+    chown -R expgv:expgv /opt/homebrew
+
+# hermes 只认 $HOME/.hermes；规范化 Python 软链
+RUN ln -sf "$(command -v python3)" /usr/local/bin/python 2>/dev/null || true
+
+# ---- 5) hermes 配置 + skills ----------------------------------------------
+# 配置内 api_key 为占位符（no-key）；真实密钥运行期注入（构建期不落地）
+COPY --chown=expgv:expgv materials/hermes/ /home/expgv/.hermes/
+# PITFALL: 宿主 umask 可能产出 600 的 skill 脚本/配置，运行期 agent 读不到。
+RUN set -eux; \
+    chmod -R u+rwX "/home/expgv/.hermes"; \
+    find "/home/expgv/.hermes" -type f -name '*.sh' -exec chmod u+x {} +; \
+    n=$(find "/home/expgv/.hermes" -type f ! -perm -004 | wc -l); \
+    test "$n" -eq 0 || { echo "!! $n 个 hermes 文件对 other 不可读"; exit 1; }; \
+    echo "[mockdgx] hermes 权限归一完成"
+
+# ---- 6) 计算层基础快照 ----------------------------------------------------
+# 注意：这是「当前版本」快照；v2/v3/v4 会再覆盖 backend/scripts/rules。
+# 原父层里的旧快照仅供占位，实际运行以最终层为准。
+COPY --chown=expgv:expgv materials/backend/ /opt/expgv/backend/
+COPY --chown=expgv:expgv materials/scripts/ /opt/expgv/scripts/
+COPY --chown=expgv:expgv materials/rules/ /opt/expgv/rules/
+
+# ⚠ N7（2026-09-18）：构建包里规则文件的宿主权限会被 COPY 原样带入镜像。
+#   实测：intent_routing.yaml / chat_noise.yaml 是宿主 -rw-------（600）→
+#   镜像内 expgv 与降权 agent 进程读不到 ⇒ 规则静默失效（意图分流/rules 读取
+#   走 try/except 兜底，不会报错，只会「行为悄悄变错」）。
+#   修法：规则目录统一 a+r，与 kb 同口径（见下方 kb 归一）。构建期硬保障，
+#   不依赖人工记得 chmod 宿主文件。
+RUN chmod -R a+r /opt/expgv/rules \
+ && find /opt/expgv/rules -type d -exec chmod a+rx {} + \
+ && BAD=$(find /opt/expgv/rules -type f ! -perm -o=r | head -5); \
+    if [ -n "$BAD" ]; then echo "[mockdgx] ✗ 规则文件权限归一失败: $BAD"; exit 1; fi; \
+    echo "[mockdgx] 规则目录权限已归一（a+r）"
+
+# 2026-09-15 废弃旧可视化工作台：基础层里可能残留历史 app.html（父层快照），
+# 无任何路由指向它但会误导排查 → 显式删除，保证每层构建都干净。
+# 旧文件保留在构建包的 materials/_deprecated/（不进镜像）供回溯。
+RUN rm -f /opt/expgv/backend/web/app.html \
+ && test -f /opt/expgv/backend/web/app_v2.html \
+ && echo "[mockdgx] 前端就位: app_v2.html（旧 app.html 已废弃）"
+
+# ---- 7) 知识库（最后拷；含权限归一）---------------------------------------
+# PITFALL: 宿主 zhijian 含 600 私有权限文件，COPY 以 root 保留后 expgv 运行时读不了
+#   → load_feature_docs 静默丢 732 篇、gt 残缺、判定卡 doc 侧错位。必须显式 a+r。
+USER root
+COPY materials/zhijian/ /opt/expgv/kb/
+RUN chmod -R a+r /opt/expgv/kb \
+ && find /opt/expgv/kb -type d -exec chmod a+rx {} + \
+ && test -d /opt/expgv/kb/output_ueg_feature/output_ueg_feature_v3 \
+ && test -n "$(ls -A /opt/expgv/kb/output_ueg_mml 2>/dev/null | head -1)" \
+ && test -n "$(ls -A /opt/expgv/kb/output_ueg_feature/output_ueg_feature_v3 2>/dev/null | head -1)" \
+ && echo "[mockdgx] 知识库就位: /opt/expgv/kb ($(du -sh /opt/expgv/kb | cut -f1))"
+USER expgv
+
+# 知识层默认 = 镜像内；运行期可用 -e KB_SRC=... 或挂载覆盖
+ENV KB_SRC=/opt/expgv/kb
+
+# 注：111 知识库、检索脚本、构建期建库均在 v4 交付层完成
+#     （见 dockerfiles/Dockerfile.mockdgx-v4 —— 该层才是最终交付镜像）。
+
+CMD ["python3"]

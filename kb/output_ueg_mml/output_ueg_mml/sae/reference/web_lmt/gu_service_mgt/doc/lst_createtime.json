@@ -1,0 +1,119 @@
+{
+  "command_name": "LST CREATETIME",
+  "command_name_zh": "查询用户开户时间",
+  "command_name_full": "查询用户开户时间(LST CREATETIME)",
+  "command_function": "该命令用于从内存库查询2G/3G/4G用户、VoLTE用户、VoBB用户及PSI用户的开户时间。\n\n对于2G/3G/4G用户：\n\n- 若需要查询单个用户的开户时间，请输入参数“IMSI”或“MSISDN”。\n- 若需要查询连续多个用户的开户时间，请输入参数“IMSI”或“MSISDN”的同时，再输入参数“用户个数”。\n- 若需要查询不连续的多个用户的开户时间，请输入参数“IMSI文件名”或“MSISDN文件名”。\n\n对于VoLTE用户：\n\n- 当需要查询2G/3G/4G网络侧的用户开户时间：\n  - 若需要查询单个用户的开户时间，请输入参数“IMSI”或“MSISDN”。\n  - 若需要查询连续多个用户的开户时间，请输入参数“IMSI”或“MSISDN”的同时，再输入参数“用户个数”。\n  - 若需要查询不连续的多个用户的开户时间，请输入参数“IMSI文件名”或“MSISDN文件名”。\n- 当需要查询IMS网络侧的用户开户时间，请输入参数“SUBID”、或“IMPI”，或“IMPU”。\n\n对于VoBB用户：若需要查询单个用户的开户时间，请输入参数“SUBID”、或“IMPI”、或“IMPU”。\n\n对于PSI用户：若需要查询单个用户的开户时间，请输入参数“PISI”或“PUSI”。\n\n**说明** \n\n- 查询结果包含用户的个人数据，如：IMSI、MSISDN等，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护，并严格控制查询结果文件的访问权限。\n- 在从运营商网络获取数据前，必须要获得运营商的授权。\n- 若需从运营商网络中获取必要的数据，需要运营商维护人员对其中的个人数据进行匿名化处理，匿名化后的数据由运营商维护人员审核后提供，以防止个人数据泄露。匿名化处理工具可以在http://support.huawei.com/网站获取，获取方法请参见产品手册“匿名化工具安全策略”页面。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802995",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_data_query.html",
+        "name": "用户数据查询",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.6",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802734",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_createtime.html",
+        "name": "查询用户开户时间(LST CREATETIME)",
+        "parentTopicId": "CONCEPT_0190802995",
+        "position": "4.2.3.5.6.5",
+        "parentPosition": "4.2.3.5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

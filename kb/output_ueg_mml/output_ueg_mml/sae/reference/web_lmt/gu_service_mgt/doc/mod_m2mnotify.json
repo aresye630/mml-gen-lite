@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD M2MNOTIFY",
+  "command_name_zh": "修改状态主动上报M2M业务",
+  "command_name_full": "修改状态主动上报M2M业务(MOD M2MNOTIFY)",
+  "command_function": "该命令用于为用户提供/撤销状态主动上报第三方业务。\n\n- 当给用户提供状态主动上报M2M业务时（即该命令中的“提供还是撤销状态主动上报第三方平台特性”取值为“TRUE”），用户必须已经成功开户且在开户时未签约状态主动上报M2M业务（即开户命令中的“提供状态主动上报第三方平台特性”参数取值为“FALSE”或“LU”）。\n- 当给用户提供PS域位置更新上报业务时（即该命令中的“提供还是撤销状态主动上报第三方平台特性”取值为“LU”），用户必须已经成功开户且在开户时未签约位置更新上报业务（即用户开户时开户命令中的“提供状态主动上报第三方平台特性”参数取值为“TRUE”或“FALSE”）。\n- 当给用户撤销状态主动上报第三方平台业务时，（即该命令中的“提供还是撤销状态主动上报第三方平台特性”取值为“FALSE”），用户必须已经成功开户且在开户时已签约状态主动上报第三方平台业务（即用户开户时开户命令中的“提供状态主动上报第三方平台特性”参数取值为“TRUE”或“LU”）。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802618",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/m2m_management.html",
+        "name": "M2M业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.30",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803446",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_m2mnotify.html",
+        "name": "修改状态主动上报M2M业务(MOD M2MNOTIFY)",
+        "parentTopicId": "CONCEPT_0190802618",
+        "position": "4.2.3.30.3",
+        "parentPosition": "4.2.3.30",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

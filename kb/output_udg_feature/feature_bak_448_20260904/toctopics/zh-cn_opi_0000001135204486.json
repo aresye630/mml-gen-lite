@@ -1,0 +1,86 @@
+{
+  "feature_name": "安装IPAPM服务",
+  "feature_description": "TWAMP（Two-Way Active Measurement Protocol）特性用于在IP传输网络下实时检测UDG与对端设备间IP链路QoS变化情况，并将QoS统计结果以性能指标的方式上报到MAE，可以有效地监控IP传输网络QoS，包括时延、抖动和丢包率，及时进行故障检测与定位。\n\nTWAMP功能由IPAPM微服务承载，仅当网元需要TWAMP功能时，才需要安装IPAPM服务。\n\n安装IPAPM服务场景：\n\n**场景一**\n\n**（静态上线）**\n\n：UDG网元和IPAPM服务\n\n**同时实例化**\n\n。实例化UDG\n\n前\n\n填写如下VNFD参数。\n\n- 配置VM：基于X86虚拟机（PBU\\_P-T\\_Num）。基于ARM虚拟机(PBU\\_P-T\\_ARM\\_Num)。\n\n配置Pod：“IPAPMEXEC\\_Instance\\_Num”，“IPAPMCTRL\\_Instance\\_Num”。\n\n| Pod类型                       | 对应VM类型              | 备注   |\n|:----------------------------|:--------------------|:-----|\n| ipapmctrl-pod/ipapmexec-pod | PBU_P-T/PBU_P-T_ARM | -    |\n\n- **场景二****（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线IPAPM服务。\n\n如VNF软件安装工具说明，MAE-VNF LCM/U2020 VNF LCM的界面菜单相似，安装网元的操作步骤相似。本文以MAE-VNF LCM为例说明VNF安装过程。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV0AFD9FCF2A9B487B871C707019F1CD67",
+        "parentNaviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "pidId": "pid_bookmap_0000002222378745",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "基于VNF LCM安装UDG（非SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7999",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7999"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "TOPIC_0222251328",
+        "topicUrl": "common/software-fs/1_5_0_Install_optional_service.html",
+        "name": "安装可选服务",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "OPI_0000001135204486",
+        "topicUrl": "toctopics/zh-cn_opi_0000001135204486.html",
+        "name": "安装IPAPM服务",
+        "parentTopicId": "TOPIC_0222251328",
+        "position": "7.2",
+        "parentPosition": "7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

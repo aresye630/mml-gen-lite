@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD HBLKLIST",
+  "command_name_zh": "增加记录空口日志的透明数据黑名单",
+  "command_name_full": "增加记录空口日志的透明数据黑名单(ADD HBLKLIST)",
+  "command_function": "该命令用于在空口日志的透明数据黑名单中增加一条记录，若一次PUR消息中所携带的所有透明数据对应在“服务标识”都在透明数据黑名单中有记录，则进行更新透明数据操作时不记录空口日志。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732463",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Network_Maintenance.html",
+        "name": "网络维护管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.12",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732681",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/ADD_HBLKLIST.html",
+        "name": "增加记录空口日志的透明数据黑名单(ADD HBLKLIST)",
+        "parentTopicId": "CONCEPT_0191732463",
+        "position": "4.2.4.12.4",
+        "parentPosition": "4.2.4.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "FMT",
+  "command_name_zh": "格式化数据",
+  "command_name_full": "格式化数据(FMT)",
+  "command_function": "本命令用于将当前网元数据库中的配置数据转换为配置数据文件。\n\n配置数据文件：按照与主机约定的格式存放网元数据库中配置数据的静态数据文件，OMU系统启动时会加载数据配置文件。\n\n本命令的使用场景为：当CSP网元出现数据库和配置数据文件的CRC校验不一致时，执行本命令重新生成配置数据文件。\n\n本命令的参数索引关系如图1所示。\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854784",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/configuration_management_cgp.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.4",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855355",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/data_formatting.html",
+        "name": "数据格式化",
+        "parentTopicId": "CONCEPT_0165854784",
+        "position": "2.2.1.4.1",
+        "parentPosition": "2.2.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854699_4",
+        "topicUrl": "ueg/csp/MML/Document/fmt.html",
+        "name": "格式化数据(FMT)",
+        "parentTopicId": "CONCEPT_0165855355",
+        "position": "2.2.1.4.1.1",
+        "parentPosition": "2.2.1.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

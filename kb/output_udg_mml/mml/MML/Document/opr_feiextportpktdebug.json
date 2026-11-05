@@ -1,0 +1,143 @@
+{
+  "command_name": "OPR FEIEXTPORTPKTDEBUG",
+  "command_name_zh": "使能外联口报文调测功能",
+  "command_name_full": "使能外联口报文调测功能（OPR FEIEXTPORTPKTDEBUG）",
+  "command_function": "**须知** \n\n如果使能调测的时候将消耗内存资源并降低性能，禁用它会释放内存资源并恢复性能，并且会在指定时间内自动禁用，默认时间是60分钟；报文调测产生的文件会在指定时间内自动删除，默认时间是7天。\n\n在报文调测的场景中，该命令用于使能外联口报文调测功能。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555071",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.2",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876260",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202289555071",
+        "position": "4.14.2.1",
+        "parentPosition": "4.14.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915555",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_forwarding_engine_instance.html",
+        "name": "转发引擎实例FEI",
+        "parentTopicId": "CONCEPT_0000202102876260",
+        "position": "4.14.2.1.19",
+        "parentPosition": "4.14.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315595",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_external_port_packets_debugging.html",
+        "name": "外联口报文调测",
+        "parentTopicId": "CONCEPT_0000202288915555",
+        "position": "4.14.2.1.19.21",
+        "parentPosition": "4.14.2.1.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001549802038",
+        "topicUrl": "MML/Document/opr_feiextportpktdebug.html",
+        "name": "使能外联口报文调测功能（OPR FEIEXTPORTPKTDEBUG）",
+        "parentTopicId": "CONCEPT_0000202289315595",
+        "position": "4.14.2.1.19.21.1",
+        "parentPosition": "4.14.2.1.19.21",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

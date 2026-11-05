@@ -1,0 +1,167 @@
+{
+  "command_name": "ADD PERFGBPAGING",
+  "command_name_zh": "增加Gb接口寻呼数据",
+  "command_name_full": "增加Gb接口寻呼数据(ADD PERFGBPAGING)",
+  "command_function": "**适用网元：SGSN**\n\n该命令用于增加2G寻呼配置参数，用于Gb模式路由区号话统上报的对象。指定路由区Gb模式附着流程，指定路由区Gb模式分离流程测量，指定路由区Gb模式SGSN内路由跟新，指定路由区Gb模式SGSN间路由更新，指定路由区Gb模式分组寻呼，指定路由区Gb模式无线资源，指定路由区Gb模式会话资源，路由区2G会话业务测量和Gb MOCN模式下基本流程测量话统测量单元下的指标上报时必需知道所要上报的LAI和RAC，否则无法上报。因此，需要通过该命令手动增加动态上报的LAI和RAC。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.5",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.2.3.3.5.3",
+        "parentPosition": "2.2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234319924",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_and_maintenance000.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.2.3.3.5.3.15",
+        "parentPosition": "2.2.3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322713",
+        "topicUrl": "MML/LinkedDoc/unc_n_performance_management.html",
+        "name": "性能管理",
+        "parentTopicId": "TOPIC_0234319924",
+        "position": "2.2.3.3.5.3.15.3",
+        "parentPosition": "2.2.3.3.5.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321411",
+        "topicUrl": "MML/LinkedDoc/unc_n_performance_measurement_object_management.html",
+        "name": "性能对象管理",
+        "parentTopicId": "TOPIC_0234322713",
+        "position": "2.2.3.3.5.3.15.3.1",
+        "parentPosition": "2.2.3.3.5.3.15.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001126306002",
+        "topicUrl": "MML/Document/add_perfgbpaging.html",
+        "name": "增加Gb接口寻呼数据(ADD PERFGBPAGING)",
+        "parentTopicId": "TOPIC_0234321411",
+        "position": "2.2.3.3.5.3.15.3.1.6",
+        "parentPosition": "2.2.3.3.5.3.15.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

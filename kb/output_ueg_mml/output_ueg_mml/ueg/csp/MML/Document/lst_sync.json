@@ -1,0 +1,119 @@
+{
+  "command_name": "LST SYNC",
+  "command_name_zh": "查询同步状态",
+  "command_name_full": "查询同步状态(LST SYNC)",
+  "command_function": "本命令用于查询HA（High Availability）模式下OMU的同步状态。本命令会查询出文件、数据库的同步类型及进度，同步失败的文件和数据库同步机制DBHA的连接状态。\n\n执行本命令，得到的报文包括以下几类信息：\n\n- OMU同步进度\n- DBHA状态结果\n- 未重播的日志\n- 重播失败的日志\n\n其中“主备OMU同步进度”和“DBHA状态结果”为查询时的固定输出，而“未重播的日志”和“重播失败的日志”则根据查询时环境的实际情况给出。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854477",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/omu_ha.html",
+        "name": "OMU双机",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.5",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854912",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/sync_management.html",
+        "name": "同步管理",
+        "parentTopicId": "CONCEPT_0165854477",
+        "position": "2.2.1.5.1",
+        "parentPosition": "2.2.1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854380_2",
+        "topicUrl": "ueg/csp/MML/Document/lst_sync.html",
+        "name": "查询同步状态(LST SYNC)",
+        "parentTopicId": "CONCEPT_0165854912",
+        "position": "2.2.1.5.1.1",
+        "parentPosition": "2.2.1.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

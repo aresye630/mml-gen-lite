@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD PODINFO",
+  "command_name_zh": "增加Pod信息",
+  "command_name_full": "增加Pod信息(ADD PODINFO)",
+  "command_function": "该命令用于添加Pod信息，是提供给CSM自动部署时添加业务网元下Pod信息的命令接口。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001313940589",
+        "topicUrl": "toctopics/zh-cn_topic_0000001313940589.html",
+        "name": "UDM机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.4",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0170302398",
+        "topicUrl": "udm/reference/mml/hidden/LinkedDoc/virtual_machine_management.html",
+        "name": "Pod管理命令",
+        "parentTopicId": "TOPIC_0000001313940589",
+        "position": "2.3.3.4.1",
+        "parentPosition": "2.3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0170794300_1",
+        "topicUrl": "udm/reference/mml/hidden/LinkedDoc/pod_management.html",
+        "name": "Pod管理",
+        "parentTopicId": "CONCEPT_0170302398",
+        "position": "2.3.3.4.1.1",
+        "parentPosition": "2.3.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0252900335",
+        "topicUrl": "udm/reference/mml/hidden/Document/add_podinfo.html",
+        "name": "增加Pod信息(ADD PODINFO)",
+        "parentTopicId": "CONCEPT_0170794300_1",
+        "position": "2.3.3.4.1.1.1",
+        "parentPosition": "2.3.3.4.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,26 @@
+# pattern_targets.yaml — 模式挖掘关注点声明（通用：命令名+参数名，禁止局点值）
+# 供 p2_patterns.py 四类检测器消费（数据驱动红线：新增关注点 = 改此 yaml）。
+
+UDG:
+  naming:            # 命名族归纳：命令族 → 关注的值参数（每行输出一条命名 profile）
+    - {cmd: ADD POOL, param: POOLNAME}
+    - {cmd: ADD POOLGROUP, param: POOLGROUPNAME}
+    - {cmd: ADD POOLGRPMAP, param: POOLGRPMAPNAME}
+    - {cmd: ADD FLOWFILTER, param: FLOWFILTERNAME}
+    - {cmd: ADD URRGROUP, param: URRGROUPNAME}
+    - {cmd: ADD PCCPOLICYGRP, param: PCCPOLICYGRPNM}
+    - {cmd: ADD RULE, param: RULENAME}
+    - {cmd: ADD BFDSESSION, param: SESSNAME}
+  id_ranges:         # 数值 ID 段分析（连续 run / 高频固定差 / 下一可用）
+    - {cmd: ADD URR, param: URRID}
+  conventions:       # 惯例众数（参数取值分布，输出众数与是否统一）
+    - {cmd: ADD URR, params: [OFFMETERINGTYPE, ONLMETERINGTYPE, USAGERPTMODE]}
+    - {cmd: ADD POOLBINDGROUP, params: [PRIORITY]}
+    - {cmd: ADD POOL, params: [POOLTYPE, IMSSW]}
+    - {cmd: ADD URRGROUP, params: [UPURRNAME1, UPURRNAME2, DOWNURRNAME1, DOWNURRNAME2]}
+    - {cmd: ADD APN, params: [HASVPN, HASVPNIPV6, IPTYPEFORDUALIP]}
+    - {cmd: SET UPPFCPPATH, params: [DEACTIVEFLAG, HEARTBEATINTERVAL]}
+    - {cmd: SET UPN4UPATH, params: [N4ECHOSW, DEACTIVEFLAG]}
+    - {cmd: SET UPGTPPATH, params: [V0ECHOSW, V1DATAECHOSW, DEACTIVEFLAG]}
+  anomalies:         # 可疑值启发式目标（T6 也复用；此处先注册，T6 实现检测器）
+    - {cmd: ADD IPFARM, params: [VIRTUALIPV4, VIRTUALIPV6]}

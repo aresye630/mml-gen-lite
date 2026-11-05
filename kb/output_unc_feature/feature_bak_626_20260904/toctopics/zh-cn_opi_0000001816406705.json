@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置4G网络基于指定区域的策略控制（SGW-C/PGW-C）",
+  "feature_description": "本操作指导介绍在运行网络中激活基于指定区域的策略控制的操作过程。\n\n基于指定区域的策略控制特性是指基于运营商订阅的PRA（Presence Report Area）区域，当用户进入或离开这些区域时，UNC获得用户当前位置信息并向PCRF/PCF上报，PCRF/PCF根据用户位置状态进行策略决策并发起策略更新，执行不同的服务策略（如特殊计费、套餐、信息推送等），满足运营商基于位置信息的差异化和定制化需求，用户通过签约享受相应服务。\n\n**说明** \n\n适用于SGW-C、PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450967",
+        "topicUrl": "toctopics/zh-cn_topic_0248450967.html",
+        "name": "智能PCC解决方案",
+        "parentTopicId": "",
+        "position": "30",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0252744849",
+        "topicUrl": "toctopics/zh-cn_topic_0252744849.html",
+        "name": "基于指定区域的策略控制",
+        "parentTopicId": "TOPIC_0248450967",
+        "position": "30.16",
+        "parentPosition": "30",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0252744850",
+        "topicUrl": "toctopics/zh-cn_topic_0252744850.html",
+        "name": "4G网络基于指定区域的策略控制",
+        "parentTopicId": "TOPIC_0252744849",
+        "position": "30.16.2",
+        "parentPosition": "30.16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001816406705",
+        "topicUrl": "toctopics/zh-cn_opi_0000001816406705.html",
+        "name": "配置4G网络基于指定区域的策略控制（SGW-C/PGW-C）",
+        "parentTopicId": "TOPIC_0252744850",
+        "position": "30.16.2.5",
+        "parentPosition": "30.16.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD EPS",
+  "command_name_zh": "修改用户的EPS数据",
+  "command_name_full": "修改用户的EPS数据(MOD EPS)",
+  "command_function": "该命令用于为用户提供、撤销或修改EPS（Evolved Packet System）业务数据。当GSM/UMTS用户需要改造为GSM/UMTS/EPS融合用户、GSM/UMTS用户需要改造为VoLTE用户时，可以执行该命令为用户提供EPS业务数据。具体的业务配置流程可参考产品手册中《用户管理》手册。\n\n- 对于在网用户执行该命令后：\n  - 如果是给用户签约该业务，则UDM会向MME/S4-SGSN/3GPP AAA下发插入用户数据消息（Insert Subscriber Data）。\n  - 如果是给用户去签约该业务，则UDM会向MME/S4-SGSN/3GPP AAA下发删除用户数据消息（Delete Subscriber Data）。\n- 对于不在网用户执行该命令只更新数据库，当用户进行位置更新时UDM将用户的EPS业务数据下发给对端设备。\n\n执行以下命令也可以为用户提供、撤销或修改EPS业务数据。\n\n- **ADD SUB**/**ADD TPLSUB**/**ADD TPLUSCSUB**\n\n  开户时直接为用户提供EPS业务数据。\n- STNSR地址管理/UE级别APN运营商标识管理/UE级别EPS用户AMBR管理/无线频率选择优先级管理/EPS用户EGR业务管理\n\n  通过执行这五组命令可以为用户修改EPS业务相关数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802564",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/eps_management.html",
+        "name": "EPS用户数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.37",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0179001592",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_eps.html",
+        "name": "修改用户的EPS数据(MOD EPS)",
+        "parentTopicId": "CONCEPT_0190802564",
+        "position": "4.2.3.37.1",
+        "parentPosition": "4.2.3.37",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

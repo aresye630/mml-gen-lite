@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置NSSF主备容灾",
+  "feature_description": "本操作指导介绍在运行网络中激活NSSF主备容灾的操作过程，组网请见NSSF双活容灾组网。\n\nNSSF通过跨DC（Data Center）建立主备容灾组，将主用NSSF中的业务数据在备用NSSF中进行备份，所有AMF将通过配置高低优先级决定主用NSSF和备用NSSF，实现容灾管理。当主用NSSF网元故障，AMF检测到主用NSSF故障则将业务选择到备用NSSF，备用NSSF网元能够接管故障主用NSSF的业务，保证业务连续性。NSSF故障恢复后，AMF会自动回切主用NSSF进行业务。\n\n**说明** \n\n适用于AMF、NSSF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV52CAE4FA98344028939466D4EF9D0C12",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193953230",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NSSF解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "TOPIC_0000001178069105",
+        "topicUrl": "toctopics/zh-cn_topic_0000001178069105.html",
+        "name": "NSSF功能部署",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "TOPIC_0000001131909700",
+        "topicUrl": "toctopics/zh-cn_topic_0000001131909700.html",
+        "name": "NSSF容灾组网",
+        "parentTopicId": "TOPIC_0000001178069105",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "OPI_0000001132069472",
+        "topicUrl": "toctopics/zh-cn_opi_0000001132069472.html",
+        "name": "配置NSSF主备容灾",
+        "parentTopicId": "TOPIC_0000001131909700",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

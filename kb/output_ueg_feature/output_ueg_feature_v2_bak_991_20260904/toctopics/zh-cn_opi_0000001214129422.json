@@ -1,0 +1,117 @@
+{
+  "feature_name": "配置惯性运行&本地应急接入数据",
+  "feature_description": "为保证在边缘网络与中心网络传输中断时用户能保持惯性运行、业务不中断，新用户能在本地应急接入，需要开启本特性，并设置相应控制参数。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001217538279",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217538279.html",
+        "name": "配置业务数据（风筝M）",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.5",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001265232041",
+        "topicUrl": "toctopics/zh-cn_topic_0000001265232041.html",
+        "name": "配置业务数据（UEG）",
+        "parentTopicId": "TOPIC_0000001217538279",
+        "position": "3.3.5.1",
+        "parentPosition": "3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001213809380",
+        "topicUrl": "toctopics/zh-cn_topic_0000001213809380.html",
+        "name": "惯性运行&本地应急接入配置",
+        "parentTopicId": "TOPIC_0000001265232041",
+        "position": "3.3.5.1.1",
+        "parentPosition": "3.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001214129422",
+        "topicUrl": "toctopics/zh-cn_opi_0000001214129422.html",
+        "name": "配置惯性运行&本地应急接入数据",
+        "parentTopicId": "TOPIC_0000001213809380",
+        "position": "3.3.5.1.1.1",
+        "parentPosition": "3.3.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

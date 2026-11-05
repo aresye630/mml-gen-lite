@@ -1,0 +1,97 @@
+{
+  "feature_name": "套餐配置",
+  "feature_description": "基于已完成配置的业务1与业务2，进行“套餐”配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV2DD5FFDCE35A4C5EA8A6E4E7A628913C",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193793234",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G PCC之SM策略解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "TOPIC_0286483653",
+        "topicUrl": "toctopics/zh-cn_topic_0286483653.html",
+        "name": "典型业务场景E2E方案设计",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "TOPIC_0000001123899006",
+        "topicUrl": "toctopics/zh-cn_topic_0000001123899006.html",
+        "name": "基于多业务场景的策略控制（动态）",
+        "parentTopicId": "TOPIC_0286483653",
+        "position": "7.6",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "TOPIC_0000001170578659",
+        "topicUrl": "toctopics/zh-cn_topic_0000001170578659.html",
+        "name": "E2E业务配置",
+        "parentTopicId": "TOPIC_0000001123899006",
+        "position": "7.6.3",
+        "parentPosition": "7.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "OPI_0000001124671552",
+        "topicUrl": "toctopics/zh-cn_opi_0000001124671552.html",
+        "name": "套餐配置",
+        "parentTopicId": "TOPIC_0000001170578659",
+        "position": "7.6.3.3",
+        "parentPosition": "7.6.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

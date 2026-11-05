@@ -1,0 +1,97 @@
+{
+  "feature_name": "SMF侧业务配置",
+  "feature_description": "PCF通过ADC功能感知到特定视频应用数据流，并为该特定应用数据流提供QoS保证等时，需要在SMF上配置ADC基本功能。\n\nUPF检测应用数据流（应用数据流通过L3/4、L7或L3/4+L7识别）时，通过SMF上报给PCF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV2DD5FFDCE35A4C5EA8A6E4E7A628913C",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193793234",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G PCC之SM策略解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "TOPIC_0286483653",
+        "topicUrl": "toctopics/zh-cn_topic_0286483653.html",
+        "name": "典型业务场景E2E方案设计",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "TOPIC_0308571769",
+        "topicUrl": "toctopics/zh-cn_topic_0308571769.html",
+        "name": "基于业务类别的带宽差异化控制方案设计（ADC）",
+        "parentTopicId": "TOPIC_0286483653",
+        "position": "7.3",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "TOPIC_0308571771",
+        "topicUrl": "toctopics/zh-cn_topic_0308571771.html",
+        "name": "E2E业务配置",
+        "parentTopicId": "TOPIC_0308571769",
+        "position": "7.3.3",
+        "parentPosition": "7.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793234",
+        "topicId": "OPI_0313928808",
+        "topicUrl": "toctopics/zh-cn_opi_0313928808.html",
+        "name": "SMF侧业务配置",
+        "parentTopicId": "TOPIC_0308571771",
+        "position": "7.3.3.2",
+        "parentPosition": "7.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

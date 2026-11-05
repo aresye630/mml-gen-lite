@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD NSPREFIX",
+  "command_name_zh": "添加号段配置信息",
+  "command_name_full": "添加号段配置信息（ADD NSPREFIX）",
+  "command_function": "**须知** \n\n该命令属于高危命令，增加新号段，如果此号段的前段和已有号段相同，并指向新的Partition，会导致用户查找不到，产生垃圾数据。因此执行该命令前，需联系华为技术支持确认后再执行。\n\n该命令为配置类命令，用于在配置数据库中增加一条号段配置信息的记录。\n\n该命令的使用场景：在混合组网下，通过配置“Partition标识”，实现不同Partition间的负荷分担。通过配置“SPR Partition标识”，实现营帐MCI订阅通知消息可以发送到指向的SPR。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001295986488",
+        "topicUrl": "toctopics/zh-cn_topic_0000001295986488.html",
+        "name": "UPCF业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.5",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167452586",
+        "topicUrl": "node/global_data_mml.html",
+        "name": "全局数据命令组",
+        "parentTopicId": "TOPIC_0000001295986488",
+        "position": "4.2.5.1",
+        "parentPosition": "4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452640",
+        "topicUrl": "node/sys_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0167452586",
+        "position": "4.2.5.1.1",
+        "parentPosition": "4.2.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0175454787",
+        "topicUrl": "doc/add_nsprefix.html",
+        "name": "添加号段配置信息（ADD NSPREFIX）",
+        "parentTopicId": "MMLREF_0167452640",
+        "position": "4.2.5.1.1.6",
+        "parentPosition": "4.2.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

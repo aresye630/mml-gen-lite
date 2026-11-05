@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD SYTOGXRCMAP",
+  "command_name_zh": "添加Sy/N28结果码映射",
+  "command_name_full": "添加Sy/N28结果码映射（ADD SYTOGXRCMAP）",
+  "command_function": "该命令用于在UPCF配置数据库中增加一条Sy/N28结果码映射记录。\n\n该命令的使用场景为：\n\n- OCS/CHF收到UPCF发送的Sy/N28请求消息后，返回的结果有三种：\n  - 返回成功的Sy/N28响应消息\n  - 不返回Sy/N28响应消息或Sy/N28响应消息超时\n  - 返回携带错误码的Sy/N28响应消息\n\n  **说明** \n\n  此场景下：\n\n  - Sy请求消息为SLR，Sy响应消息为SLA。\n  - N28请求消息为Nchf\\_SpendingLimitControl\\_Subscribe Request，N28响应消息为Nchf\\_SpendingLimitControl\\_Subscribe Response。\n- 当OCS/CHF上配额状态发生变化，OCS/CHF主动向UPCF发送Sy/N28请求消息更新用户配额状态。Sy/N28请求消息的异常状态有如下两种情况：\n  - 成功的Sy/N28请求消息，但消息中部分或全部配额信息处理失败。\n  - 未携带任何配额信息的Sy/N28请求消息。\n\n  **说明** \n\n  此场景下：\n\n  - Sy请求消息为SNR，Sy响应消息为SNA。\n  - N28请求消息为Nchf\\_SpendingLimitControl\\_Notify Request，N28响应消息为Nchf\\_SpendingLimitControl\\_Notify Response。\n\n客户要求UPCF能够根据Sy/N28消息情况对Gx/N7会话进行处理：\n\n- 使用此命令可以建立Sy结果码与Gx结果码的映射关系，从而实现基于Sy结果码控制Gx会话响应的目的。\n- 使用此命令可以建立N28结果码与Gx结果码的映射关系，从而实现基于N28结果码控制Gx会话响应的目的。\n- 使用此命令可以建立N28结果码与N7结果码的映射关系，从而实现基于N28结果码控制N7会话响应的目的。\n\nSy/N28结果码映射有5条默认记录，如表1所示：\n\n| Sy/N28接口结果码            | CCA消息结果码                 | CreateResponse结果码   | RAR/UpdateNotify消息原因码      |   PCEF主机名 |   是否默认记录 |\n|:-----------------------|:-------------------------|:--------------------|:---------------------------|----------:|---------:|\n| RC0(SLATimeOut)        | RC2001(DIAMETER_SUCCESS) | RC201(Created)      | RC9999(Keep Session Alive) |       nan |        1 |\n| RC1(CounterInfoError)  | RC2001(DIAMETER_SUCCESS) | RC201(Created)      | RC9999(Keep Session Alive) |       nan |        1 |\n| RC2(EmptySNR)          | RC2001(DIAMETER_SUCCESS) | RC201(Created)      | RC9999(Keep Session Alive) |       nan |        1 |\n| RC3(DefaultError)      | RC2001(DIAMETER_SUCCESS) | RC201(Created)      | RC9999(Keep Session Alive) |       nan |        1 |\n| RC4(NoAvailableSyLink) | RC2001(DIAMETER_SUCCESS) | RC201(Created)      | RC9999(Keep Session Alive) |       nan |        1 |\n\n**说明** \n\n- 以上默认数据允许修改Gx接口CCA消息结果码、N7接口CreateResponse结果码、Gx/N7接口RAR/UpdateNotify消息原因码、Gx接口PCEF主机名，不允许删除记录。\n- 默认记录当中的“RC2(EmptySNR)”结果码映射仅适用于Sy接口。由于“RC2(EmptySNR)”在N28接口当中不属于合法消息，UPCF会直接给CHF回复携带“400 Bad Request”的响应消息而不会进行结果码映射。\n- 默认记录当中的“RC4(NoAvailableSyLink)”结果码映射，应用于UPCF根据系统配置和签约信息需要创建Sy会话时获取不到可用的Sy链路的场景；通过修改SYRC=RC4的记录，指定Gx接口需要返回的结果码。\n- 该命令的最大记录条数为301条（包括5条默认记录）。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170890737",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_dcs_management.html",
+        "name": "DCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.4",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0275290962",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_sy_or_n28_result_code_mapping_management.html",
+        "name": "Sy/N28结果码映射管理",
+        "parentTopicId": "TOPIC_0170890737",
+        "position": "2.2.3.5.4.26",
+        "parentPosition": "2.2.3.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0275290963",
+        "topicUrl": "MML/Document/add_sytogxrcmap.html",
+        "name": "添加Sy/N28结果码映射（ADD SYTOGXRCMAP）",
+        "parentTopicId": "CONCEPT_0275290962",
+        "position": "2.2.3.5.4.26.1",
+        "parentPosition": "2.2.3.5.4.26",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

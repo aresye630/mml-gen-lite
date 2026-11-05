@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD NGSRVPLMN",
+  "command_name_zh": "增加5G Serving PLMN",
+  "command_name_full": "增加5G Serving PLMN（ADD NGSRVPLMN）",
+  "command_function": "**适用NF：SGW-C、PGW-C、AMF、SMF、NRF、NSSF、NWDAF、NEF、SCF**\n\n该命令用于为运营商配置Serving PLMN信息。\n\n运营商的每个签约用户都有其所归属的Home PLMN。从运营商的角度，如果其签约用户数量较多，分别归属于不同的Home PLMN，那么我们称这个运营商支持多Home PLMN。运营商支持多Home PLMN场景下，往往不需要在每个Home PLMN下配置网络切片，或者将每个Home PLMN下发给接入侧，而是使用某个或者某几个PLMN来代表该运营商网络，我们称这样的PLMN为该运营商的Serving PLMN。简言之，Serving PLMN就是当前为UE提供服务的运营商的PLMN。运营商在Serving PLMN下配置网络切片（见ADD PLMNNS）、GUAMI，在基站建链时，AMF将Serving PLMN下发给接入侧。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320530",
+        "topicUrl": "MML/LinkedDoc/unc_n_carrier_management.html",
+        "name": "运营商管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.1",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321041",
+        "topicUrl": "MML/LinkedDoc/unc_n_serving_plmn_information_management.html",
+        "name": "Serving PLMN信息管理",
+        "parentTopicId": "TOPIC_0234320530",
+        "position": "2.2.3.3.1.2",
+        "parentPosition": "2.2.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0209654167",
+        "topicUrl": "MML/Document/add_ngsrvplmn.html",
+        "name": "增加5G Serving PLMN（ADD NGSRVPLMN）",
+        "parentTopicId": "TOPIC_0234321041",
+        "position": "2.2.3.3.1.2.1",
+        "parentPosition": "2.2.3.3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

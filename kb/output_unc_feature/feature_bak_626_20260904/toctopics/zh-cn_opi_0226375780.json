@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活支持Direct Tunnel功能",
+  "feature_description": "本操作指导介绍在运行网络中激活支持Direct Tunnel功能的操作过程。\n\nDirect Tunnel是在3G网络中，为减小SGSN的负荷和传输时延、提升网络的可扩容性而引入的。\n\n**说明** \n\n适用于SGSN、GGSN。\n\n**接入网与核心网的承载网合一，**\n\n**Gn/Iu端口合用物理端口。**\n\n本方案中，SGSN和GGSN的Gn/Iu接口组网方式为：\n\n- RNC采用双主端口。\n- SGSN Gn/Iu合用端口，采用双主端口+OSPF。\n- GGSN Gn/Iu合用端口，采用双主端口+OSPF。\n\n组网方案如图1所示：\n\n- RNC的数据经由三层设备PE接入SGSN。\n- SGSN到核心网的数据，通过二层设备CE汇聚，经由PE接入GGSN。\n- GGSN提供两个10GE以太网接口与PE相连。\n- PE1和PE2间启用OSPF。\n- PE和SGSN间启用OSPF。\n- PE和GGSN间启用OSPF。\n\n**图1** 组网方案\n\n| 0             | 1             |\n|:--------------|:--------------|\n| 黑色连接线代表GE线缆   | 蓝色连接线代表10GE线缆 |\n| 实线连接线代表接口状态为主 | -             |\n\n**说明** \n\nPE端口不足或使用10GE端口时，需使用CE汇聚接入网和承载网流量。反之，SGSN与PE直连即可。\n\n如果CE为三层设备，则RNC的流量可以接入CE。\n\n吞吐量小于10G的组网，可以相应减少Eth-Trunk中绑定的端口数。推荐配置Eth-Trunk内冗余，捆绑端口数N+1（N与网络吞吐量相关，是实际规划的端口数）。\n\n**接入网与核心网的承载网分离**\n\n**，Gn/Iu端口使用不同物理端口。对组网无特殊要求。**\n\n本方案中，SGSN和GGSN的Gn/Iu接口组网方式为：\n\n- RNC采用主备端口。\n- SGSN Gn/Iu分离使用端口，Iu采用主备端口+VRRP+静态路由，Gn采用双主端口+OSPF。\n- GGSN Gn/Iu分离使用端口，均采用双主端口+OSPF。\n\n组网方案如图2所示：\n\n- RNC的数据经由三层设备PE接入SGSN。\n- SGSN到核心网的数据，通过二层设备CE汇聚，经由PE接入GGSN。\n- GGSN提供两个10GE以太网接口与PE相连。\n- SGSN与PE间的Gn接口，启用OSPF。\n- GGSN和PE间启用OSPF。\n- PE1和PE2间启用VRRP+OSPF。\n\n**图2** 组网方案\n\n| 0             | 1             |\n|:--------------|:--------------|\n| 黑色连接线代表GE线缆   | 蓝色连接线代表10GE线缆 |\n| 实线连接线代表接口状态为主 | 虚线连接线代表接口状态为备 |\n\n**说明** \n\nPE端口不足或使用10GE端口时，需使用CE汇聚接入网和承载网流量。反之，SGSN与PE直连即可。\n\n如果CE为三层设备，则RNC的流量可以接入CE。\n\n吞吐量小于10G的组网，可以相应减少Eth-Trunk中绑定的端口数。推荐配置Eth-Trunk内冗余，捆绑端口数N+1（N与网络吞吐量相关，是实际规划的端口数）。\n\n**接入网与核心网的承载网分离**\n\n**，不互通。要求SGSN双主组网。**\n\n本方案中，SGSN和GGSN的Gn/Iu接口组网方式为：\n\n- RNC采用双主端口。\n- SGSN Gn/Iu使用分离端口，Iu采用双主端口+BFD+静态路由，Gn采用双主端口+OSPF。\n- GGSN Gn/Iu使用分离端口，Iu/Gn均采用双主端口+OSPF。\n\n组网方案如图3所示：\n\n- RNC的数据经由三层设备PE接入SGSN。\n- SGSN到核心网的数据，通过二层设备CE汇聚，经由PE接入GGSN。\n- GGSN提供两个10GE以太网接口与PE相连。\n- GGSN和PE间启用OSPF。\n- PE1和PE2间启用OSPF。\n\n**图3** 组网方案\n\n| 0             | 1             |\n|:--------------|:--------------|\n| 黑色连接线代表GE线缆   | 蓝色连接线代表10GE线缆 |\n| 实线连接线代表接口状态为主 | -             |\n\n**说明** \n\nPE端口不足或使用10GE端口时，需使用CE汇聚接入网和承载网流量。反之，SGSN与PE直连即可。\n\n如果CE为三层设备，则RNC的流量可以接入CE。\n\n吞吐量小于10G的组网，可以相应减少Eth-Trunk中绑定的端口数。推荐配置Eth-Trunk内冗余，捆绑端口数N+1（N与网络吞吐量相关，是实际规划的端口数）。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450906",
+        "topicUrl": "toctopics/zh-cn_topic_0248450906.html",
+        "name": "组网功能",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0191285441",
+        "topicUrl": "desc/unc_2000_feature_desc_Direct_unnel.html",
+        "name": "WSFD-104506 支持Direct Tunnel功能",
+        "parentTopicId": "TOPIC_0248450906",
+        "position": "9.15",
+        "parentPosition": "9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0226375780",
+        "topicUrl": "toctopics/zh-cn_opi_0226375780.html",
+        "name": "激活支持Direct Tunnel功能",
+        "parentTopicId": "CONCEPT_0191285441",
+        "position": "9.15.3",
+        "parentPosition": "9.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

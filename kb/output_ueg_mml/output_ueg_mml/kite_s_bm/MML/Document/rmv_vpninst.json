@@ -1,0 +1,230 @@
+{
+  "command_name": "RMV VPNINST",
+  "command_name_zh": "删除VPN实例",
+  "command_name_full": "删除VPN实例（RMV VPNINST）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于删除指定的VPN实例。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876442_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_dn_management.html",
+        "name": "DN管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.1",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915725_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_vpn_management.html",
+        "name": "VPN管理",
+        "parentTopicId": "CONCEPT_0000202102876442_2",
+        "position": "3.3.1.3",
+        "parentPosition": "3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876446_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_vpn.html",
+        "name": "VPN",
+        "parentTopicId": "CONCEPT_0000202288915725_2",
+        "position": "3.3.1.3.2",
+        "parentPosition": "3.3.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837046_3",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_vpninst.html",
+        "name": "删除VPN实例（RMV VPNINST）",
+        "parentTopicId": "CONCEPT_0000202102876446_2",
+        "position": "3.3.1.3.2.2",
+        "parentPosition": "3.3.1.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876442_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_dn_management.html",
+        "name": "DN管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.1",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915725_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_vpn_management.html",
+        "name": "VPN管理",
+        "parentTopicId": "CONCEPT_0000202102876442_2",
+        "position": "3.3.1.3",
+        "parentPosition": "3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876446_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_vpn.html",
+        "name": "VPN",
+        "parentTopicId": "CONCEPT_0000202288915725_2",
+        "position": "3.3.1.3.2",
+        "parentPosition": "3.3.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837046_3",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_vpninst.html",
+        "name": "删除VPN实例（RMV VPNINST）",
+        "parentTopicId": "CONCEPT_0000202102876446_2",
+        "position": "3.3.1.3.2.2",
+        "parentPosition": "3.3.1.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

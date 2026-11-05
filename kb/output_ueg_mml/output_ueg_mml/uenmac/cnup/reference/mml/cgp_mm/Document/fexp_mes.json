@@ -1,0 +1,119 @@
+{
+  "command_name": "FEXP MES",
+  "command_name_zh": "快速导出网元数据",
+  "command_name_full": "快速导出网元数据(FEXP MES)",
+  "command_function": "本命令用于导出所有网元数据库的表数据，但不会导出存储过程。当配置网元数据失败时可以使用导出的网元数据进行做恢复处理。\n\n导出的数据文件存放在目录“/opt/HUAWEI/cgp/workshop/omu/share/cfgdata”下载，导出的网元数据文件命名规则为：\n\n- 手动导出的文件：“bkp\\_cfgdata\\_web\\_manual\\_yymmddhhmmss.tar”\n- 定时导出的文件：“bkp\\_zone\\_cfgdata\\_all\\_yymmddhhmmss.tar”\n\n，其中*YYYYMMDDhhmmss*表示导出文件时的系统本地时间的年月日时分秒；*zone*表示导出类型是定时导出，其最小值为1，最大值为7，每完成一次导出该字段值加1，当达到最大值时会重置为1，依次循环。\n\n导出文件的保存规则：\n\n- 手动导出的文件：手动导出的文件最多保留3份，超过3份时会删除最早的备份文件。\n- 定时导出的文件：每天凌晨3点10分会进行一次导出操作，定时导出的文件最多保留最近7天的文件；跨月时会保留1号导出的文件，最多保留最近5个月。\n\n本命令的使用场景为：进行数据配置操作之前，可以执行该命令进行一次手动导出，以保存一份最新的配置数据；然后进行配置数据操作，当数据配置错误导致业务严重受损时，可以使用该命令导出的数据进行恢复操作，使配置数据快速恢复到配置前的状态，避免业务长时间受损。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299370344",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299370344.html",
+        "name": "CSP机机接口命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604902",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001299370344",
+        "position": "2.3.2.2",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604959",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/LinkedDoc/backup_management.html",
+        "name": "备份管理",
+        "parentTopicId": "CONCEPT_0246604902",
+        "position": "2.3.2.2.9",
+        "parentPosition": "2.3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0246604909",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/Document/fexp_mes.html",
+        "name": "快速导出网元数据(FEXP MES)",
+        "parentTopicId": "CONCEPT_0246604959",
+        "position": "2.3.2.2.9.1",
+        "parentPosition": "2.3.2.2.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

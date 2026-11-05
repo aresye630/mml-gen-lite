@@ -1,0 +1,228 @@
+{
+  "feature_name": "配置GaussDB数据库TLS功能",
+  "feature_description": "**注意** \n\n- 开启、关闭、恢复默认TLS功能均属于高危操作，请联系华为技术人员确认后再执行。\n- 从23.0以前版本直升到当前版本，升级之前，需要配置TLS功能为场景三：恢复默认TLS功能。\n- 升级到当前版本，在未结束升级观察期时，请勿执行该操作。\n\n在日常维护中，系统管理员可以根据不同的场景开启、关闭或恢复默认配置来设置GaussDB数据库TLS功能。\n\n**场景一：开启TLS功能**\n\n- 为了提高数据库的安全性，可以开启全部业务的TLS功能，开启后GaussDB数据库仅支持TLS连接；\n- 当需要开启全部业务的TLS功能时，可以参考本章节进行操作。\n\n**场景二：关闭TLS功能**\n\n- 当不需要开启TLS功能时，可以关闭全部业务的TLS功能，关闭后GaussDB数据库仅支持非TLS连接；\n- 当需要关闭全部业务的TLS功能时，可以参考本章节进行操作。\n\n**场景三：恢复默认TLS功能**\n\n- 当前系统默认启用TLS功能，但部分业务因为启用TLS后对GaussDB数据库性能影响较大，所以关闭部分业务的TLS功能；\n- 当需要恢复默认TLS功能时，可以参考本章节进行操作。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284911170",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284911170.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284911170",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198758702_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_opt_vm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.2",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0317758837_1",
+        "topicUrl": "kite_ml/kitem_netw_secu_c_opt_vm.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_1",
+        "position": "6.1.2.2.2",
+        "parentPosition": "6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0279958233_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0279958233.html",
+        "name": "配置GaussDB数据库TLS功能",
+        "parentTopicId": "TOPIC_0317758837_1",
+        "position": "6.1.2.2.2.2",
+        "parentPosition": "6.1.2.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391524709",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391524709.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001445470597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001445470597.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001391524709",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001445470597",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001198758702_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_opt_vm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.2",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0317758837_1",
+        "topicUrl": "kite_ml/kitem_netw_secu_c_opt_vm.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_1",
+        "position": "6.1.2.2.2",
+        "parentPosition": "6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0279958233_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0279958233.html",
+        "name": "配置GaussDB数据库TLS功能",
+        "parentTopicId": "TOPIC_0317758837_1",
+        "position": "6.1.2.2.2.2",
+        "parentPosition": "6.1.2.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

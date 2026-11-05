@@ -1,0 +1,109 @@
+{
+  "feature_name": "激活IPsec功能（GRE over IPsec）",
+  "feature_description": "IPsec只支持IP报文数据的传输，GRE over IPsec解决了IPsec不支持组播报文和广播报文数据传输的问题。组播报文和广播报文经过GRE封装后变成GRE报文，通过路由，再将GRE报文引入IPsec隧道进行加解密。\n\n如图1所示，该网络需实现以下需求：\n\n- 将IPsec不支持的组播、广播报文数据在PCA和PCB之间传输。\n- PCA和PCB之间传输的数据需要加密。\n\n**图1** GRE over IPsec组网图\n\n网络环境描述如下，以IPv4网络为例：\n\n- 网络A属于10.1.1.0/24子网，通过接口interface2与Device A连接。\n- 网络B属于10.1.2.0/24子网，通过接口interface2与Device B连接。\n- Device A和Device B路由可达。假设Device A往Device B方向下一跳地址为192.168.1.2/24，Device B往Device A方向下一跳地址为192.168.2.2/24。\n\n| 设备名称              | 接口             | IP地址                                         |\n|:------------------|:---------------|:---------------------------------------------|\n| Device A VNRS微服务  | Ethernet66/0/5 | 192.168.1.1/24（IPsec报文的本端物理出接口）              |\n| Device A VNRS微服务  | Ethernet66/0/6 | 10.1.1.1/24                                  |\n| Device A VNRS微服务  | Tunnel1        | 192.168.3.1/24（GRE隧道，该IP地址用于使GRE隧道的IPv4协议UP） |\n| Device A VNRS微服务  | Tunnel2        | 10.102.101.25/32（需要双配）                       |\n| Device A VNRS微服务  | LoopBack1      | 10.102.105.238/32（GRE的本端源接口）                 |\n| Device B VNRS微服务  | Ethernet66/0/5 | 192.168.2.1/24（IPsec报文的本端物理出接口）              |\n| Device B VNRS微服务  | Ethernet66/0/6 | 10.1.2.1/24                                  |\n| Device B VNRS微服务  | Tunnel1        | 192.168.4.1/24（GRE隧道，该IP地址用于使GRE隧道的IPv4协议UP） |\n| Device B VNRS微服务  | Tunnel2        | 10.102.101.21/32（需要双配）                       |\n| Device B VNRS微服务  | LoopBack1      | 10.102.105.224/32（GRE的本端源接口）                 |\n| Device A IPsec微服务 | Tunnel2        | 10.102.101.25/32（IKE协商IP地址，同时是GRE的本端出接口）     |\n| Device B IPsec微服务 | Tunnel2        | 10.102.101.21/32（IKE协商IP地址，同时是GRE的本端出接口）     |\n| PCA               | -              | 10.1.1.2/24                                  |\n| PCB               | -              | 10.1.2.2/24                                  |\n| -                 | Device A侧网关接口  | 192.168.1.2/24                               |\n| -                 | Device B侧网关接口  | 192.168.2.2/24                               |",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVA7BE1C5944E4460EB0C4BEAE46395950",
+        "parentNaviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "pidId": "pid_bookmap_0000002193794102",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC安全配置",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095683976",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095683976.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095363946",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095363946.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001095683976",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0317758837",
+        "topicUrl": "toctopics/zh-cn_topic_0317758837.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001095363946",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001759125856",
+        "topicUrl": "toctopics/zh-cn_topic_0000001759125856.html",
+        "name": "配置IPSec功能",
+        "parentTopicId": "TOPIC_0317758837",
+        "position": "2.2.2.6",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "OPI_0000001806125313",
+        "topicUrl": "toctopics/zh-cn_opi_0000001806125313.html",
+        "name": "激活IPsec功能（GRE over IPsec）",
+        "parentTopicId": "TOPIC_0000001759125856",
+        "position": "2.2.2.6.5",
+        "parentPosition": "2.2.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

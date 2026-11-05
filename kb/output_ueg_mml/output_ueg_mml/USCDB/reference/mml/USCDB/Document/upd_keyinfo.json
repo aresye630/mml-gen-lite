@@ -1,0 +1,131 @@
+{
+  "command_name": "UPD KEYINFO",
+  "command_name_zh": "更新密钥信息",
+  "command_name_full": "更新密钥信息(UPD KEYINFO)",
+  "command_function": "该命令用于触发更新USCDB密钥信息。\n\n该命令的使用场景：长期使用同一密钥，可能存在安全风险，为了提高系统安全性，建议运营商根据安全需要定期更新密钥信息，但不建议频繁更新。管理员权限（G\\_1，管理员级别命令组）的用户可以手动更新包括“密钥加密密钥”和“工作密钥”的密钥信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774529",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.1",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001148220830",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/key_information_management.html",
+        "name": "密钥信息管理",
+        "parentTopicId": "MMLREF_0172774529",
+        "position": "2.2.4.3.1.18",
+        "parentPosition": "2.2.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001192778979",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/upd_keyinfo.html",
+        "name": "更新密钥信息(UPD KEYINFO)",
+        "parentTopicId": "CONCEPT_0000001148220830",
+        "position": "2.2.4.3.1.18.2",
+        "parentPosition": "2.2.4.3.1.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

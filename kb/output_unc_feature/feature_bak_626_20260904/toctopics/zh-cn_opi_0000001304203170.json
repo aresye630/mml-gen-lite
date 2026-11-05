@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活基于IMEI的NR差异化服务",
+  "feature_description": "本操作指导介绍在运行网络中激活基于IMEI的NR差异化服务特性的操作过程。\n\n本特性是指AMF在获取终端IMEISV后通过N2接口将IMEISV以“Masked IMEISV”信元形式发送给gNodeB，便于gNodeB基于终端的类型、软件版本进行无线侧网络质量分析，从而实现对不同终端的差异化控制。\n\n**说明** \n\n适用于AMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450964",
+        "topicUrl": "toctopics/zh-cn_topic_0248450964.html",
+        "name": "差异化服务管理",
+        "parentTopicId": "",
+        "position": "26",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0000001357002621",
+        "topicUrl": "toctopics/zh-cn_concept_0000001357002621.html",
+        "name": "WSFD-011311 基于IMEI的NR差异化服务",
+        "parentTopicId": "TOPIC_0248450964",
+        "position": "26.7",
+        "parentPosition": "26",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001304203170",
+        "topicUrl": "toctopics/zh-cn_opi_0000001304203170.html",
+        "name": "激活基于IMEI的NR差异化服务",
+        "parentTopicId": "CONCEPT_0000001357002621",
+        "position": "26.7.2",
+        "parentPosition": "26.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "command_name": "CFM ESNINFO",
+  "command_name_zh": "固化ESN材料",
+  "command_name_full": "固化ESN材料（CFM ESNINFO）",
+  "command_function": "**须知** \n\n该命令属于高危命令，成功执行此命令后，FE ESN材料将被固化。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n本命令用于固化FE侧的ESN材料信息到OM表TBL\\_ESNINFO。\n\n执行该命令固化FE侧的ESN材料到OM表TBL\\_ESNINFO后，BE的ESN则根据表TBL\\_ESNINFO中的FE侧ESN材料，再结合**ADD SRVIPADDR**添加的PGW类型的IP1地址通过加密算法处理后获得，从而实现FE侧ESN和BE的ESN解耦。\n\n在新建局点初始配置或从USCDB 20.8.0之前的版本升级到USCDB 20.8.0及之后的版本后，如果用户确认**DSP ESN**能正常查询到ESN，BE的ESN已经不需要改变，可以用于申请商用License时，可执行该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774529",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.1",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0179018353_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/license_management.html",
+        "name": "License管理",
+        "parentTopicId": "MMLREF_0172774529",
+        "position": "2.2.4.3.1.3",
+        "parentPosition": "2.2.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001240259019_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/cfm_esninfo.html",
+        "name": "固化ESN材料（CFM ESNINFO）",
+        "parentTopicId": "CONCEPT_0179018353_2",
+        "position": "2.2.4.3.1.3.5",
+        "parentPosition": "2.2.4.3.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

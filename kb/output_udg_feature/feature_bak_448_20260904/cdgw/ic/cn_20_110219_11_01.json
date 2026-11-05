@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活基于业务流标识的无线资源优化",
+  "feature_description": "运营商通过综合业务保障级别、业务签约及用户级别等信息规划业务流优先级，需要激活基于业务流标识的无线资源优化功能。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317442",
+        "topicUrl": "toctopics/zh-cn_topic_0239317442.html",
+        "name": "智能策略控制功能",
+        "parentTopicId": "",
+        "position": "17",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0000001151769519",
+        "topicUrl": "cdgw/desc/cn_20_0_110219.html",
+        "name": "GWFD-110331 基于业务流标识的无线资源优化",
+        "parentTopicId": "TOPIC_0239317442",
+        "position": "17.21",
+        "parentPosition": "17",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001151849611",
+        "topicUrl": "cdgw/ic/cn_20_110219_11_01.html",
+        "name": "激活基于业务流标识的无线资源优化",
+        "parentTopicId": "CONCEPT_0000001151769519",
+        "position": "17.21.2",
+        "parentPosition": "17.21",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

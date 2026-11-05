@@ -1,0 +1,167 @@
+{
+  "command_name": "SET SFERESALMTHD",
+  "command_name_zh": "设置VNRS内部资源不足告警的阈值参数",
+  "command_name_full": "设置VNRS内部资源不足告警的阈值参数（SET SFERESALMTHD）",
+  "command_function": "该命令用来设置ALM-231612426 VNRS内部资源不足告警的阈值参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0294748369",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.8",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001143907560",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0294748369",
+        "position": "2.2.3.1.8.2",
+        "parentPosition": "2.2.3.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001189867633",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0000001143907560",
+        "position": "2.2.3.1.8.2.1",
+        "parentPosition": "2.2.3.1.8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001143907582",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_forwarding_engine_instance.html",
+        "name": "转发引擎实例FEI",
+        "parentTopicId": "TOPIC_0000001189867633",
+        "position": "2.2.3.1.8.2.1.19",
+        "parentPosition": "2.2.3.1.8.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000002183970318",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_threshold_parameters_ternal_resources_not_sufficient.html",
+        "name": "VNRS内部资源不足告警的阈值参数",
+        "parentTopicId": "TOPIC_0000001143907582",
+        "position": "2.2.3.1.8.2.1.19.25",
+        "parentPosition": "2.2.3.1.8.2.1.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001915771589_4",
+        "topicUrl": "MML/Document/set_sferesalmthd.html",
+        "name": "设置VNRS内部资源不足告警的阈值参数（SET SFERESALMTHD）",
+        "parentTopicId": "TOPIC_0000002183970318",
+        "position": "2.2.3.1.8.2.1.19.25.1",
+        "parentPosition": "2.2.3.1.8.2.1.19.25",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

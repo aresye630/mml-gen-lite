@@ -1,0 +1,143 @@
+{
+  "command_name": "SET HTTPLOADTHD",
+  "command_name_zh": "设置HTTP2链路负荷过载阈值",
+  "command_name_full": "设置HTTP2链路负荷过载阈值(SET HTTPLOADTHD)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成负荷过载告警上报异常，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于设置HLB服务实例负荷过载告警的上报阈值和恢复阈值。\n\n该命令的使用场景：系统依据“HTTP链路遍历周期”软参设置的遍历周期定时检测HLB服务的负荷，并判断是否要上报ALM-18410 HLB服务实例负荷过载告警。\n\n- 当连续三个周期发送负荷或者接收负荷超过HLB服务负荷过载阈值，则上报ALM-18410 HLB服务实例负荷过载告警。\n- 当连续三个周期发送负荷和接收负荷都低于HLB服务过载恢复阈值，则恢复ALM-18410 HLB服务实例负荷过载告警。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782893",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_expert_maintenance_command.html",
+        "name": "专家维护命令",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.4",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278352764",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_debugging_command.html",
+        "name": "调试命令",
+        "parentTopicId": "CONCEPT_0000203481782893",
+        "position": "2.2.3.4.4.3",
+        "parentPosition": "2.2.3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001150710187",
+        "topicUrl": "MML/LinkedDoc/udmhttpservice_n_http2_link_overload_threshold.html",
+        "name": "HTTP2链路负荷过载阈值",
+        "parentTopicId": "CONCEPT_0000203278352764",
+        "position": "2.2.3.4.4.3.8",
+        "parentPosition": "2.2.3.4.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001101329084_2",
+        "topicUrl": "MML/Document/set_httploadthd.html",
+        "name": "设置HTTP2链路负荷过载阈值(SET HTTPLOADTHD)",
+        "parentTopicId": "TOPIC_0000001150710187",
+        "position": "2.2.3.4.4.3.8.1",
+        "parentPosition": "2.2.3.4.4.3.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

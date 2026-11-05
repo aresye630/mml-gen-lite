@@ -1,0 +1,126 @@
+{
+  "command_name": "ADD NRFKEY",
+  "command_name_zh": "增加NRF密钥",
+  "command_name_full": "增加NRF密钥（ADD NRFKEY）",
+  "command_function": "**须知** \n\n请注意TOKEN签名算法时私钥的长度设置，以确保密钥的安全性。当TOKEN签名算法为RSA类型时，建议原始私钥长度不小于3072bit；当TOKEN签名算法配置为ECC类型时，建议原始私钥长度不小于256bit。若配置的密钥算法对应的长度不满足要求，则密钥算法可能会被攻击破解，导致私钥泄露。\n\n**适用NF：NRF**\n\nNF服务消费者获取到Token后，携带Token访问NF服务提供方的服务。NF服务提供方会对NF服务消费者进行认证，校验Token是否正确，校验过程中NF会使用到NRF侧配置的Token签名算法和公钥（校验对应NRF上的私钥）。\n\n该命令用于配置NRF上的私钥信息，其对应的公钥信息在NF上通过ADD SBINRFKEY命令配置。NRF上配置的私钥信息生成时需给定密钥口令，用于保护私钥安全。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.8",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320262",
+        "topicUrl": "MML/LinkedDoc/unc_n_authorization_management.html",
+        "name": "授权管理",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.8.3",
+        "parentPosition": "2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321397",
+        "topicUrl": "MML/LinkedDoc/unc_n_key_management.html",
+        "name": "密钥管理",
+        "parentTopicId": "TOPIC_0234320262",
+        "position": "2.8.3.2",
+        "parentPosition": "2.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209651563",
+        "topicUrl": "MML/Document/add_nrfkey.html",
+        "name": "增加NRF密钥（ADD NRFKEY）",
+        "parentTopicId": "TOPIC_0234321397",
+        "position": "2.8.3.2.1",
+        "parentPosition": "2.8.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "feature_name": "激活支持APP认证鉴权",
+  "feature_description": "PGW-U/UPF能力开放满足基本安全要求，包括API认证授权、传输加密，对APP进行认证鉴权时需要配置鉴权开关等信息。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105238422",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105238422.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105924248",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105924248.html",
+        "name": "配置UEG安全数据",
+        "parentTopicId": "TOPIC_0000001105238422",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001213205724",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001213205724.html",
+        "name": "UPF安全数据",
+        "parentTopicId": "TOPIC_0000001105924248",
+        "position": "6.2.1",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001150229780",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229780.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001213205724",
+        "position": "6.2.1.2",
+        "parentPosition": "6.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143789640",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143789640.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001150229780",
+        "position": "6.2.1.2.2",
+        "parentPosition": "6.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001189629737",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189629737.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001143789640",
+        "position": "6.2.1.2.2.5",
+        "parentPosition": "6.2.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001201022404",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001201022404.html",
+        "name": "激活支持APP认证鉴权",
+        "parentTopicId": "TOPIC_0000001189629737",
+        "position": "6.2.1.2.2.5.1",
+        "parentPosition": "6.2.1.2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146460135",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146460135.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001150229780",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229780.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001146460135",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001143789640",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143789640.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001150229780",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001189629737",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189629737.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001143789640",
+        "position": "6.2.2.5",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0000001201022404",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001201022404.html",
+        "name": "激活支持APP认证鉴权",
+        "parentTopicId": "TOPIC_0000001189629737",
+        "position": "6.2.2.5.1",
+        "parentPosition": "6.2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

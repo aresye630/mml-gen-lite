@@ -1,0 +1,119 @@
+{
+  "command_name": "SET CHRRECORDANONY",
+  "command_name_zh": "设置CHR单据的匿名化配置",
+  "command_name_full": "设置CHR单据的匿名化配置（SET CHRRECORDANONY）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，涉及个人数据安全风险，请得到客户授权后谨慎使用。\n\n该命令用于设置CHR单据的匿名化配置，包含N4信令CHR个人数据匿名化开关属性。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555353",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_o_m.html",
+        "name": "业务运维",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.12",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595912",
+        "topicUrl": "MML/LinkedDoc/udg_n_call_history_record_management.html",
+        "name": "呼叫日志管理",
+        "parentTopicId": "CONCEPT_0000202289555353",
+        "position": "5.12.5",
+        "parentPosition": "5.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206191026988",
+        "topicUrl": "MML/LinkedDoc/udg_n_chr_security_configuration.html",
+        "name": "CHR单据安全配置",
+        "parentTopicId": "CONCEPT_0000202103595912",
+        "position": "5.12.5.3",
+        "parentPosition": "5.12.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206197242206",
+        "topicUrl": "MML/Document/set_chrrecordanony.html",
+        "name": "设置CHR单据的匿名化配置（SET CHRRECORDANONY）",
+        "parentTopicId": "CONCEPT_0000206191026988",
+        "position": "5.12.5.3.1",
+        "parentPosition": "5.12.5.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD PLCYNSGRPMEM",
+  "command_name_zh": "增加用于策略控制的网络切片群组成员",
+  "command_name_full": "增加用于策略控制的网络切片群组成员（ADD PLCYNSGRPMEM）",
+  "command_function": "**适用NF：AMF**\n\n该命令用于为应用于AM策略或者UE策略控制的网络切片群组添加成员。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.3",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.2.3.3.3.2",
+        "parentPosition": "2.2.3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321441",
+        "topicUrl": "MML/LinkedDoc/unc_n_am_policy_and_ue_policy_management.html",
+        "name": "AM策略和UE策略管理",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.2.3.3.3.2.12",
+        "parentPosition": "2.2.3.3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234319653",
+        "topicUrl": "MML/LinkedDoc/unc_n_network_slice_group_member_management_for_policy_control.html",
+        "name": "用于策略控制的网络切片群组成员管理",
+        "parentTopicId": "TOPIC_0234321441",
+        "position": "2.2.3.3.3.2.12.4",
+        "parentPosition": "2.2.3.3.3.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0225120877",
+        "topicUrl": "MML/Document/add_plcynsgrpmem.html",
+        "name": "增加用于策略控制的网络切片群组成员（ADD PLCYNSGRPMEM）",
+        "parentTopicId": "TOPIC_0234319653",
+        "position": "2.2.3.3.3.2.12.4.1",
+        "parentPosition": "2.2.3.3.3.2.12.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

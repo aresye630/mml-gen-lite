@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD SUBOCSMAP",
+  "command_name_zh": "添加OCS映射",
+  "command_name_full": "添加OCS映射（ADD SUBOCSMAP）",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会影响业务处理，需联系华为技术支持确认后再执行。\n\n该命令用于在UPCF配置数据库中增加一条用户扩展属性或消息属性的OCS映射记录。\n\n通过此命令可以添加用户扩展属性与OCS的映射关系，从而实现用户上线时根据用户扩展属性选择OCS的目的；也可以添加用户消息属性与OCS的映射关系，从而实现用户上线时根据消息属性（APN/IMSI/MSISDN等）选择OCS的目的。\n\n在OCS混合组网场景（例如，UPCF与多个OCS之间对接，一部分OCS对接采用直连方式，另一部分OCS对接采用准直连方式）：\n\n- 直连方式：UPCF根据用户扩展属性或消息属性映射到直连OCS，发送Sy消息到对应的OCS。\n- 准直连方式：UPCF根据用户扩展属性映射到DRA，发送Sy消息到DRA。\n\n该命令的参数索引关系如图1所示。\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170890737",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_dcs_management.html",
+        "name": "DCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.4",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0309524965",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_ocs_mapping_management.html",
+        "name": "OCS映射管理",
+        "parentTopicId": "TOPIC_0170890737",
+        "position": "2.2.3.5.4.30",
+        "parentPosition": "2.2.3.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0309524966_2",
+        "topicUrl": "MML/Document/add_subocsmap.html",
+        "name": "添加OCS映射（ADD SUBOCSMAP）",
+        "parentTopicId": "CONCEPT_0309524965",
+        "position": "2.2.3.5.4.30.1",
+        "parentPosition": "2.2.3.5.4.30",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

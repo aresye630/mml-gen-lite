@@ -1,0 +1,88 @@
+{
+  "feature_name": "安装VPROBE服务",
+  "feature_description": "仅当UNC网元需要部署IMR软探针功能，才需要安装VPROBE服务。\n\n安装VPROBE服务场景：\n\n- **场景一****（静态上线）**：UNC网元和VPROBE服务**同时实例化**。实例化UNC前填写如下VNFD参数。\n  - 配置NF：“Function Set List”添加“VPROBE”。例如，添加后为\"AMF/MME/SGSN/GB/VPROBE\"。\n  - 配置VM：基于X86虚拟机PBU\\_I-P\\_Num。基于ARM虚拟机PBU\\_I-P\\_ARM\\_Num。\n  - 配置Pod：“VPROBE\\_CTRL\\_Instance\\_Num”，“VPROBE\\_EXEC\\_Instance\\_Num”，“VPROBE\\_EXEC-ARM\\_Instance\\_Num”。\n- **场景二****（动态上线）**：**先**实例化UNC并扩容出VPROBE服务自身VM（PBU\\_I-P），**然后**再参考本章节，动态上线VPROBE服务。\n\n| 虚拟机                 | pod                           |\n|:--------------------|:------------------------------|\n| PBU_I-P PBU_I-P_ARM | vprobectrl-pod vprobeexec-pod |",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVBADDD44F8AC34B37BA625D99285B6797",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV3BE4923F862E442FACA11962528DB3FA",
+        "parentNaviId": "DOCNAVBADDD44F8AC34B37BA625D99285B6797",
+        "pidId": "pid_bookmap_0000002229234445",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "基于NFVO安装UNC（SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_383",
+          "pid_type_7873",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7873"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234445",
+        "topicId": "TOPIC_0267742473",
+        "topicUrl": "common/software-fs-sdn/1_5_0_Install_optional_service.html",
+        "name": "安装可选服务",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234445",
+        "topicId": "OPI_0000001405616886",
+        "topicUrl": "toctopics/zh-cn_opi_0000001405616886.html",
+        "name": "安装VPROBE服务",
+        "parentTopicId": "TOPIC_0267742473",
+        "position": "7.6",
+        "parentPosition": "7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

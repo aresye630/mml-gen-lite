@@ -1,0 +1,110 @@
+{
+  "feature_name": "配置ACL防止UE之间的互访",
+  "feature_description": "对于企业APN用户，通常通过根据企业要求提供用户之间的互访功能；对于通用APN用户，为了防止用户之间的恶意攻击，一般情况下移动运营商禁止用户互访。为保证UE的安全，可以在UDG上设置包过滤策略UE之间互访的报文。UDG对报文的源地址和目的地址进行判断，如果都在用户的IP地址网段中，则禁止报文通过。\n\n**说明** \n\n建议UE的IP地址网段与PDN侧服务器的IP地址网段隔离，否则配置了ACL防止UE之间的互访功能后，将导致UE无法访问PDN侧服务器。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVC3FF3F5E20874B47B52929C1F1C33140",
+        "parentNaviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "pidId": "pid_bookmap_0000002187138142",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG安全配置",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8003",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8003"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001144684195",
+        "topicUrl": "toctopics/zh-cn_topic_0000001144684195.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091631538",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091631538.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001144684195",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091791208",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091791208.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001091631538",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "OPI_0000001098220056",
+        "topicUrl": "secu_conf/udg_2020_secu_conf_008.html",
+        "name": "配置ACL防止UE之间的互访",
+        "parentTopicId": "TOPIC_0000001091791208",
+        "position": "2.2.5.5",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

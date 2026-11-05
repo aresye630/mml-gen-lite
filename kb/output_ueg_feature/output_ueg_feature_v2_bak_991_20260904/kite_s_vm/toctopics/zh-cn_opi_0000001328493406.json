@@ -1,0 +1,116 @@
+{
+  "feature_name": "部署UPF",
+  "feature_description": "当前移动网络上承载的业务越来越丰富，运营商为了不断优化自身的服务及提升网络安全性，要求UPF能够根据数据包的分析（包括34层和7层的内容），按照预先定义的规则执行业务管理。UPF上该能力由SMF下发的Rule（规则）实现。\n\n内容计费的配置需要做好规划，在PCF、SMF、UPF网元上统一进行配置，保证网元间配置的一致性。PCF、SMF、UPF上的配置及对应关系如图1所示。\n\n**图1** PCF/SMF/UPF配置对应关系",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0239304525",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0239304525.html",
+        "name": "计费功能",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.16",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "CONCEPT_0166863836",
+        "topicUrl": "kite_s_vm/cdgw/desc/cn_20_0_850004_01.html",
+        "name": "GWFD-022102 内容计费基本功能",
+        "parentTopicId": "TOPIC_0239304525",
+        "position": "3.16.4",
+        "parentPosition": "3.16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0000001328493406",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001328493406.html",
+        "name": "部署UPF",
+        "parentTopicId": "CONCEPT_0166863836",
+        "position": "3.16.4.3",
+        "parentPosition": "3.16.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

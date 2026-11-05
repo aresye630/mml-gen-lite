@@ -1,0 +1,119 @@
+{
+  "command_name": "LST MAXT",
+  "command_name_zh": "查询表最大元组数配置",
+  "command_name_full": "查询表最大元组数配置(LST MAXT)",
+  "command_function": "该命令为用于查询表的最大元组数。最大元组数的概念请参见**MOD MAXT**命令的相关解释。\n\n- 若需要查询所有表的最大元组数，请不要输入任何参数。\n- 若需要查询某张表的最大元组数，请输入“表号”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855441",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/resource_management_cgp.html",
+        "name": "资源管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.1",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0174422211",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/table_maxtuple_management.html",
+        "name": "表最大元组数管理",
+        "parentTopicId": "CONCEPT_0165855441",
+        "position": "2.2.1.1.2",
+        "parentPosition": "2.2.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0174422213",
+        "topicUrl": "ueg/csp/MML/Document/lst_maxt.html",
+        "name": "查询表最大元组数配置(LST MAXT)",
+        "parentTopicId": "CONCEPT_0174422211",
+        "position": "2.2.1.1.2.2",
+        "parentPosition": "2.2.1.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

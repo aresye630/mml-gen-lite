@@ -1,0 +1,128 @@
+{
+  "feature_name": "配置VoNR基本呼叫",
+  "feature_description": "UPCF支持VoNR方案，用于部署IMS应用，为基本呼叫业务提供保障的带宽，确保用户享用优质语音和高清视频。当5G用户接入IMS网络发起基本呼叫时，AF（即IMS域的P-CSCF）通过Rx接口向UPCF发起资源预留请求，将会话相关的属性，如应用标识、媒体类型、媒体流状态、媒体流描述等上报给UPCF，UPCF根据AF上报的信息和本地配置的业务策略进行策略判断，将生成的QoS规则通过N7接口下发给SMF执行策略控制。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001323880782",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001323880782.html",
+        "name": "PCRF&PCF特性指南",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001268278350",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001268278350.html",
+        "name": "PCF语音基本功能",
+        "parentTopicId": "TOPIC_0000001323880782",
+        "position": "8.11",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0307129312",
+        "topicUrl": "kite_ml/upcc/description/feature_desc/cn_90_02_606007_01.html",
+        "name": "GWFD-025903 Rx接口(使用Diameter协议)VoNR策略控制",
+        "parentTopicId": "TOPIC_0000001268278350",
+        "position": "8.11.3",
+        "parentPosition": "8.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0307129319",
+        "topicUrl": "kite_ml/upcc/description/feature_desc/cn_90_02_606007_07.html",
+        "name": "GWFD-025903 Rx接口(使用Diameter协议)VoNR策略控制特性配置",
+        "parentTopicId": "TOPIC_0307129312",
+        "position": "8.11.3.3",
+        "parentPosition": "8.11.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0307129298_2",
+        "topicUrl": "kite_ml/upcc/description/feature_desc/cn_90_02_606007_08.html",
+        "name": "配置VoNR基本呼叫",
+        "parentTopicId": "TOPIC_0307129319",
+        "position": "8.11.3.3.2",
+        "parentPosition": "8.11.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

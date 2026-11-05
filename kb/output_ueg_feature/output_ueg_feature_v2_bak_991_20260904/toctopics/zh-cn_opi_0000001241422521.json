@@ -1,0 +1,426 @@
+{
+  "feature_name": "配置AMF服务化接口数据（N8/N11/N12/N14/N15）",
+  "feature_description": "AMF的服务化接口为Namf，与参考点的对应关系如下。参考点是指5G系统服务化架构映射到传统架构后，对应传统网元之间点对点的接口，用来代表NF之间交互的参考模型，并不是真实的接口。\n\n| 参考点   | 网元间的交互     | 服务化接口      |\n|:------|:-----------|:-----------|\n| N8    | AMF<->UDM  | Namf、Nudm  |\n| N11   | AMF<->SMF  | Namf、Nsmf  |\n| N12   | AMF<->AUSF | Nausf、Namf |\n| N14   | AMF<->AMF  | Namf、Namf  |\n| N15   | AMF<->PCF  | Namf、Npcf  |\n\n园区风筝L有三种部署模式：\n\n- L1：AMF对接中心侧UDM/AUSF，需要运营商规划业务IP地址，VRF。由于数据要出园区，因此从安全性角度考虑，AMF和UDM/AUSF间建议配置IPSec隧道。\n- L1-1: L1-1是在风筝L1的基础上，变化了和UDM的对接关系。AMF支持直连对接大网主备UDM，本地直连对接UEG L的UDM，和大网2个UDM都直连对接，和园区UDM对接，保持盒子式的组网，仅和本风筝L的UDM直连对接，不对接其他风筝L的UDM。\n- L2：AMF与园区内本地DC和对端DC的UDM/AUSF对接，这样使用园区统一规划的IP地址，VRF。数据在园区内封闭传输。\n\n除此以外，L1和L2模式中AMF对接UDM和AUSF的其他配置无差异。\n\n**图1** 服务化接口协议栈图\n\n服务化接口间采用相同的协议栈，传输层统一采用HTTP/2协议，应用层携带不同的服务消息。因为底层的传输方式相同，所有的服务化接口就可以在同一总线上进行传输，支撑业务灵活上线。\n\n**说明** \n\nHTTP/2（HyperText Transport Protocol 2.0）：下一代超文本传输协议。基于HTTP协议的信息交换分为四个过程：建立连接、发送请求信息、发送响应信息、关闭连接。\n\nTLS（Transport Layer Security）：安全传输层协议。在两个通信应用程序之间提供保密性和数据完整性。\n\n**配置建议**\n\n- AMF的服务化接口业务IP地址不能和AMF其他接口业务IP地址共用。\n- AMF的服务化接口端口号没有明确时，使用HTTP知名端口号8080。\n- 一个NF类型需要配置一个HTTP本端端点组和对应的HTTP本端端点，然后根据实际部署NF数量配置分别配置对应的SBI端点并绑定对应的HTTP本端端点组。\n\n以下配置数据以及步骤均以UEG双DC组网场景的配置规划为例进行介绍。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001243274983",
+        "topicUrl": "toctopics/zh-cn_topic_0000001243274983.html",
+        "name": "配置AMF",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.10",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001241422521",
+        "topicUrl": "toctopics/zh-cn_opi_0000001241422521.html",
+        "name": "配置AMF服务化接口数据（N8/N11/N12/N14/N15）",
+        "parentTopicId": "TOPIC_0000001243274983",
+        "position": "4.5.10.2",
+        "parentPosition": "4.5.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV8CDE6753523641B8ACAD6C1F13BC16B5",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818298",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网煤矿场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429777717",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429777717.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429958805",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429958805.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001429777717",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429599077",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429599077.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001429958805",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001196529620_2",
+        "topicUrl": "kite_ml/kitel_Mining_Initia_B2.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001429599077",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001243274983_1",
+        "topicUrl": "kite_ml/kitel_Mining_Initia_B8.html",
+        "name": "配置AMF",
+        "parentTopicId": "TOPIC_0000001196529620_2",
+        "position": "2.2.3.4.5",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "OPI_0000001241422521",
+        "topicUrl": "toctopics/zh-cn_opi_0000001241422521.html",
+        "name": "配置AMF服务化接口数据（N8/N11/N12/N14/N15）",
+        "parentTopicId": "TOPIC_0000001243274983_1",
+        "position": "2.2.3.4.5.2",
+        "parentPosition": "2.2.3.4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001911980889",
+        "topicUrl": "toctopics/zh-cn_topic_0000001911980889.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001866101090",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866101090.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001911980889",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913296141",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913296141.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001866101090",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001867441084",
+        "topicUrl": "toctopics/zh-cn_topic_0000001867441084.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001913296141",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913480793",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913480793.html",
+        "name": "配置AMF",
+        "parentTopicId": "TOPIC_0000001867441084",
+        "position": "2.2.3.3.6",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000001241422521",
+        "topicUrl": "toctopics/zh-cn_opi_0000001241422521.html",
+        "name": "配置AMF服务化接口数据（N8/N11/N12/N14/N15）",
+        "parentTopicId": "TOPIC_0000001913480793",
+        "position": "2.2.3.3.6.2",
+        "parentPosition": "2.2.3.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV22ED20D5F182466F9AD869A8636504B9",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002339866657",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网通用场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339849309",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339849309.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339769477",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339769477.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000002339849309",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002305930016",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305930016.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000002339769477",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002331072490",
+        "topicUrl": "kitel_Mining_Initia_B2.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002305930016",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002331232322",
+        "topicUrl": "kitel_Mining_Initia_B8.html",
+        "name": "配置AMF",
+        "parentTopicId": "TOPIC_0000002331072490",
+        "position": "2.2.3.4.5",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "OPI_0000001241422521",
+        "topicUrl": "toctopics/zh-cn_opi_0000001241422521.html",
+        "name": "配置AMF服务化接口数据（N8/N11/N12/N14/N15）",
+        "parentTopicId": "TOPIC_0000002331232322",
+        "position": "2.2.3.4.5.2",
+        "parentPosition": "2.2.3.4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

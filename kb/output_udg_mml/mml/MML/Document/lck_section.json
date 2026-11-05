@@ -1,0 +1,119 @@
+{
+  "command_name": "LCK SECTION",
+  "command_name_zh": "锁定地址段",
+  "command_name_full": "锁定地址段（LCK SECTION）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，地址段被锁之后，被锁定地址段中的地址将不能分配给用户，地址池下的地址资源变少，可能导致用户激活失败。\n\n该命令在系统需要回收或者重新使用地址段，可以用来锁定或解锁该地址段。\n\n当有需要将已锁定的地址段进行解锁时使用本命令LCK SECTION，后将参数IsLocked设置为UNLOCK将地址段解锁。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155129",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555261",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_address_management.html",
+        "name": "会话地址管理",
+        "parentTopicId": "CONCEPT_0000202289155129",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116350",
+        "topicUrl": "MML/LinkedDoc/udg_n_section_configuration.html",
+        "name": "地址段配置",
+        "parentTopicId": "CONCEPT_0000202289555261",
+        "position": "5.2.2.4",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837117",
+        "topicUrl": "MML/Document/lck_section.html",
+        "name": "锁定地址段（LCK SECTION）",
+        "parentTopicId": "CONCEPT_0000202103116350",
+        "position": "5.2.2.4.4",
+        "parentPosition": "5.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "feature_name": "N26接口配置",
+  "feature_description": "**接口介绍**\n\nN26接口是AMF与MME之间的接口，提供AMF与MME之间的信令消息隧道，用于协助完成5G网络和LTE网络之间的互操作。\n\nN26接口协议栈如图1所示。\n\n**图1** N26接口协议栈\n\n- MME的S10和AMF的N26接口地址独立场景下，需要分别完成MME的S10接口和AMF的N26接口的数据配置。\n- MME的S10和AMF的N26接口地址合一场景下，如果已经完成MME的S10接口配置，则无需重复配置AMF的N26接口数据。\n\n**说明** \n\nGTP-C版本为GTPv2。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782619724",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782619724.html",
+        "name": "配置AMF&MME&SGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.1",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829301201",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829301201.html",
+        "name": "配置AMF",
+        "parentTopicId": "TOPIC_0000001782619724",
+        "position": "8.1.1",
+        "parentPosition": "8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001830827714",
+        "topicUrl": "init_install/unc_2000_init_amf_045.html",
+        "name": "N26接口配置",
+        "parentTopicId": "TOPIC_0000001829301201",
+        "position": "8.1.1.7",
+        "parentPosition": "8.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

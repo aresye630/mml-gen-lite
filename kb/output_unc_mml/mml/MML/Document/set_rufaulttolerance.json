@@ -1,0 +1,138 @@
+{
+  "command_name": "SET RUFAULTTOLERANCE",
+  "command_name_zh": "设置资源单元故障容忍时间",
+  "command_name_full": "设置资源单元故障容忍时间（SET RUFAULTTOLERANCE）",
+  "command_function": "该命令用于设置资源单元故障容忍时间，包括正向容忍时间、反向容忍时间、软仲裁选主时间和软仲裁停主时间。软仲裁是用来确定两个主控资源单元节点的主备身份。\n\n正向容忍时间是指网络断开后主控资源单元节点经过多长时间认为业务资源单元节点出现故障。反向容忍时间是指网络断开后业务资源单元节点经过多长时间复位。软仲裁选主时间是指网络断开后主控资源单元备节点变成主控资源单元主节点所消耗的时间。软仲裁停主时间是指防脑裂模式下网络断开后主控资源单元主节点经过多长时间放弃主身份。\n\n当需要更快的感知资源单元的故障时，可以适当缩短资源单元故障容忍时间。合理的资源单元故障容忍时间既能保证及时感知资源单元的故障，又能避免因为网络闪断而造成资源单元故障的误判。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001767897957",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001768057269",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0000001767897957",
+        "position": "1.2.2",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001767897993",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_resource_management.html",
+        "name": "资源管理",
+        "parentTopicId": "TOPIC_0000001768057269",
+        "position": "1.2.2.2",
+        "parentPosition": "1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001720417446",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_ru_management.html",
+        "name": "RU管理",
+        "parentTopicId": "TOPIC_0000001767897993",
+        "position": "1.2.2.2.1",
+        "parentPosition": "1.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001620857597",
+        "topicUrl": "MML/Document/set_rufaulttolerance.html",
+        "name": "设置资源单元故障容忍时间（SET RUFAULTTOLERANCE）",
+        "parentTopicId": "TOPIC_0000001720417446",
+        "position": "1.2.2.2.1.4",
+        "parentPosition": "1.2.2.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

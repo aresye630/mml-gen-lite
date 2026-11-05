@@ -1,0 +1,254 @@
+{
+  "command_name": "RMV UPIMSIMSISDNG",
+  "command_name_zh": "删除IMSI和MSISDN号段组",
+  "command_name_full": "删除IMSI和MSISDN号段组（RMV UPIMSIMSISDNG）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用来删除IMSI/MSISDN号码段组，删除号段组的同时，该号段组下所有的号段绑定关系同步删除。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356062_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315817_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_common_configuration.html",
+        "name": "业务匹配公共配置",
+        "parentTopicId": "CONCEPT_0000202103356062_2",
+        "position": "3.3.4.2",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356078_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_common_parameter_management.html",
+        "name": "业务公共参数管理",
+        "parentTopicId": "CONCEPT_0000202289315817_2",
+        "position": "3.3.4.2.3",
+        "parentPosition": "3.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202975890611_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_imsi_msisdn_segment_group.html",
+        "name": "IMSI MSISDN号段组",
+        "parentTopicId": "CONCEPT_0000202103356078_2",
+        "position": "3.3.4.2.3.10",
+        "parentPosition": "3.3.4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202984881541_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_upimsimsisdng.html",
+        "name": "删除IMSI和MSISDN号段组（RMV UPIMSIMSISDNG）",
+        "parentTopicId": "CONCEPT_0000202975890611_2",
+        "position": "3.3.4.2.3.10.2",
+        "parentPosition": "3.3.4.2.3.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356062_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315817_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_common_configuration.html",
+        "name": "业务匹配公共配置",
+        "parentTopicId": "CONCEPT_0000202103356062_2",
+        "position": "3.3.4.2",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356078_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_common_parameter_management.html",
+        "name": "业务公共参数管理",
+        "parentTopicId": "CONCEPT_0000202289315817_2",
+        "position": "3.3.4.2.3",
+        "parentPosition": "3.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202975890611_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_imsi_msisdn_segment_group.html",
+        "name": "IMSI MSISDN号段组",
+        "parentTopicId": "CONCEPT_0000202103356078_2",
+        "position": "3.3.4.2.3.10",
+        "parentPosition": "3.3.4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202984881541_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_upimsimsisdng.html",
+        "name": "删除IMSI和MSISDN号段组（RMV UPIMSIMSISDNG）",
+        "parentTopicId": "CONCEPT_0000202975890611_2",
+        "position": "3.3.4.2.3.10.2",
+        "parentPosition": "3.3.4.2.3.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

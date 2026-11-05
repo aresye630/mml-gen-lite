@@ -1,0 +1,114 @@
+{
+  "command_name": "STR NODE",
+  "command_name_zh": "启动节点",
+  "command_name_full": "启动节点（STR NODE）",
+  "command_function": "本命令用于启动网元下指定名称的节点。\n\n**说明** \n\n- 该命令仅在Full-stack虚机场景下支持。\n- 在存储故障期间，执行本命令启动已关闭的节点，该节点以及节点中的容器和进程，在存储故障恢复前都无法启动。\n- 执行该命令返回成功，表明命令成功下发到MANO，节点上电是否成功需要稍后执行DSP NODE命令来查看。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320742",
+        "topicUrl": "MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.10",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001317233170",
+        "topicUrl": "MML/LinkedDoc/csp_n_node_management.html",
+        "name": "节点管理",
+        "parentTopicId": "TOPIC_0234320742",
+        "position": "1.10.1",
+        "parentPosition": "1.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001292785240",
+        "topicUrl": "MML/Document/str_node.html",
+        "name": "启动节点（STR NODE）",
+        "parentTopicId": "TOPIC_0000001317233170",
+        "position": "1.10.1.17",
+        "parentPosition": "1.10.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "command_name": "GET PUBCFGUPDATEFLAG",
+  "command_name_zh": "公共配置核查是否需要导出MML判定",
+  "command_name_full": "公共配置核查是否需要导出MML判定(GET PUBCFGUPDATEFLAG)",
+  "command_function": "该命令用于判断两次核查间是否有配置变化。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001314059541",
+        "topicUrl": "toctopics/zh-cn_topic_0000001314059541.html",
+        "name": "用户面机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.2",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001146905340",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001146905340.html",
+        "name": "集中配置",
+        "parentTopicId": "TOPIC_0000001314059541",
+        "position": "2.3.3.2.1",
+        "parentPosition": "2.3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001147860058_2",
+        "topicUrl": "kite_s_bm/MML/Document/get_pubcfgupdateflag.html",
+        "name": "公共配置核查是否需要导出MML判定(GET PUBCFGUPDATEFLAG)",
+        "parentTopicId": "TOPIC_0000001146905340",
+        "position": "2.3.3.2.1.2",
+        "parentPosition": "2.3.3.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001146905340",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001146905340.html",
+        "name": "集中配置",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.27",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001147860058_2",
+        "topicUrl": "kite_s_bm/MML/Document/get_pubcfgupdateflag.html",
+        "name": "公共配置核查是否需要导出MML判定(GET PUBCFGUPDATEFLAG)",
+        "parentTopicId": "TOPIC_0000001146905340",
+        "position": "4.27.2",
+        "parentPosition": "4.27",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

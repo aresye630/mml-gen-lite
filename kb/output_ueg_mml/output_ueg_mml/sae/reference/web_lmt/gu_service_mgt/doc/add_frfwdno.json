@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD FRFWDNO",
+  "command_name_zh": "增加禁止前转号码",
+  "command_name_full": "增加禁止前转号码(ADD FRFWDNO)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在UDM中增加一条禁止前转号码数据记录。\n\n通常在开局配置本局数据时根据运营商要求在数据库中增加禁止前转号码数据记录。当用户签约前转业务登记前转号码时，在号码规整流程中查询**禁止前转号码表**按照完全匹配方式进行业务处理，如果匹配成功则登记到被禁止的前转号码的操作会失败，系统不允许用户前转到**禁止前转号码表**中的前转号码。禁止前转号码是规整之后的号码，不包含国家码。例如，执行该命令增加“112”为禁止前转号码，则当用户登记前转到“112”的号码时会失败。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803690",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/forbidden_ftn.html",
+        "name": "禁止前转号码",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.14",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802529_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_frfwdno.html",
+        "name": "增加禁止前转号码(ADD FRFWDNO)",
+        "parentTopicId": "CONCEPT_0190803690",
+        "position": "4.2.3.2.14.1",
+        "parentPosition": "4.2.3.2.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

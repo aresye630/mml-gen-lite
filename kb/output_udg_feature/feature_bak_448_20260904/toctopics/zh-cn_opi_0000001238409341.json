@@ -1,0 +1,86 @@
+{
+  "feature_name": "卸载SAPO服务",
+  "feature_description": "当运营商不需要SAPO服务或SAPO服务动态上线失败时，可以单独卸载SAPO的pod，从而下线SAPO服务。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV0AFD9FCF2A9B487B871C707019F1CD67",
+        "parentNaviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "pidId": "pid_bookmap_0000002222378745",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "基于VNF LCM安装UDG（非SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7999",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7999"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "OPI_0166321541",
+        "topicUrl": "common/software-fs/1_5_0_Uninstallation_VNF.html",
+        "name": "卸载UDG",
+        "parentTopicId": "",
+        "position": "11",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "OPI_0000001238409341",
+        "topicUrl": "toctopics/zh-cn_opi_0000001238409341.html",
+        "name": "卸载SAPO服务",
+        "parentTopicId": "OPI_0166321541",
+        "position": "11.8",
+        "parentPosition": "11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

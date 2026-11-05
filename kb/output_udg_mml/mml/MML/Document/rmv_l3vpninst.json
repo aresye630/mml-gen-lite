@@ -1,0 +1,143 @@
+{
+  "command_name": "RMV L3VPNINST",
+  "command_name_zh": "删除L3VPN实例",
+  "command_name_full": "删除L3VPN实例（RMV L3VPNINST）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会删除所有该VPN下的关联配置，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用来删除已创建的L3VPN实例。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595642",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.4",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355874",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_vpn_management.html",
+        "name": "VPN管理",
+        "parentTopicId": "CONCEPT_0000202103595642",
+        "position": "4.14.4.4",
+        "parentPosition": "4.14.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116196",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_l3vpn_management.html",
+        "name": "L3VPN管理",
+        "parentTopicId": "CONCEPT_0000202103355874",
+        "position": "4.14.4.4.2",
+        "parentPosition": "4.14.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555111",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_l3vpn_instance.html",
+        "name": "L3VPN实例",
+        "parentTopicId": "CONCEPT_0000202103116196",
+        "position": "4.14.4.4.2.2",
+        "parentPosition": "4.14.4.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001550120962",
+        "topicUrl": "MML/Document/rmv_l3vpninst.html",
+        "name": "删除L3VPN实例（RMV L3VPNINST）",
+        "parentTopicId": "CONCEPT_0000202289555111",
+        "position": "4.14.4.4.2.2.2",
+        "parentPosition": "4.14.4.4.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

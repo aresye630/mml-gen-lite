@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD PSAPNOI",
+  "command_name_zh": "修改PS域UE级别的APN运营商标识符",
+  "command_name_full": "修改PS域UE级别的APN运营商标识符(MOD PSAPNOI)",
+  "command_function": "该命令用于修改用户PS域UE级别的APN运营商标识符。\n\n- 对于在网用户执行该命令后，如果是给用户签约运营商标识符数据，则UDM会向SGSN下发运营商标识符数据并且更新数据库中的数据；如果是给用户去签约运营商标识符数据，则UDM会向SGSN下发删除运营商标识符数据并且更新数据库中的数据。\n- 对于不在网用户执行该命令后，则仅会更新用户在数据库中的数据。当用户进行位置更新时，如果用户签约了运营商标识符数据，UDM将用户的运营商标识符数据下发给SGSN。\n\n**说明** \n\n上面所述UDM向SGSN下发用户的运营商标识符的前提是要配置支持下发APNOI的NCC模板（即执行命令**ADD NCCTPL**，参数“APN运营商标识符下发受限标志”选择“SR”）。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803405",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/psapnoi_management.html",
+        "name": "PS域UE级别的APN运营商标识符管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.14",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803593",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_psapnoi.html",
+        "name": "修改PS域UE级别的APN运营商标识符(MOD PSAPNOI)",
+        "parentTopicId": "CONCEPT_0190803405",
+        "position": "4.2.3.14.1",
+        "parentPosition": "4.2.3.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

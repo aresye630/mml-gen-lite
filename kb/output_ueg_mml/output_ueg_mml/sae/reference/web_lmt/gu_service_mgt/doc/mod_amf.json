@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD AMF",
+  "command_name_zh": "修改AMF",
+  "command_name_full": "修改AMF(MOD AMF)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成用户鉴权失败，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在UDM中修改鉴权管理域AMF的取值、各域SQN的IND取值和Milenage鉴权算法参数的取值。在UMTS鉴权中，AMF和SQN都是AUTN的重要组成部分。AMF用于计算MAC-S和MAC-A，SQN是实现UE对网络合法性验证的一个重要参数。终端在保存SQN信息时，会根据SQN IND的取值不同，将SQN保存在不同的位置。一般针对不同的网络，SQN IND也会设置为不同的取值。\n\n在该命令中，系统通过以下关键参数的组合来唯一标识一条AMF鉴权管理域信息：\n\n- “HLR序列号”\n- “AMF序列号”",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803569_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/authentication_data_management.html",
+        "name": "鉴权数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.4",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802883",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/amf.html",
+        "name": "AMF",
+        "parentTopicId": "MMLREF_0190803569_2",
+        "position": "4.2.3.4.7",
+        "parentPosition": "4.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0164876224",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_amf.html",
+        "name": "修改AMF(MOD AMF)",
+        "parentTopicId": "CONCEPT_0190802883",
+        "position": "4.2.3.4.7.3",
+        "parentPosition": "4.2.3.4.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

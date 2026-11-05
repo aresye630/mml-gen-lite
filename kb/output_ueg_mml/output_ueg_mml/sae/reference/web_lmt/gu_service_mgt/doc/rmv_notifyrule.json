@@ -1,0 +1,119 @@
+{
+  "command_name": "RMV NOTIFYRULE",
+  "command_name_zh": "删除数据变更通知分发的规则",
+  "command_name_full": "删除数据变更通知分发的规则(RMV NOTIFYRULE)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成CPU和网络信令负荷过载现象，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在UDM中删除数据变更通知分发规则的数据记录信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802895_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/notifyrule.html",
+        "name": "数据变更通知分发管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.45",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802680_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/rmv_notifyrule.html",
+        "name": "删除数据变更通知分发的规则(RMV NOTIFYRULE)",
+        "parentTopicId": "CONCEPT_0190802895_2",
+        "position": "4.2.3.2.45.2",
+        "parentPosition": "4.2.3.2.45",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

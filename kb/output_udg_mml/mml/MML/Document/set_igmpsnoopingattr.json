@@ -1,0 +1,119 @@
+{
+  "command_name": "SET IGMPSNOOPINGATTR",
+  "command_name_zh": "设置IGMP Snooping属性",
+  "command_name_full": "设置IGMP Snooping属性（SET IGMPSNOOPINGATTR）",
+  "command_function": "**适用NF：UPF**\n\n该命令用于设置指定5G LAN组的IGMP Snooping功能相关属性。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202800629671",
+        "topicUrl": "MML/LinkedDoc/udg_n_5g_lan_management.html",
+        "name": "5G LAN管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.13",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206990255535",
+        "topicUrl": "MML/LinkedDoc/udg_n_igmp_snooping_configuration.html",
+        "name": "IGMP Snooping配置",
+        "parentTopicId": "CONCEPT_0000202800629671",
+        "position": "5.13.11",
+        "parentPosition": "5.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206839659372",
+        "topicUrl": "MML/LinkedDoc/udg_n_igmp_snooping_attribute_configuration.html",
+        "name": "IGMP Snooping属性配置",
+        "parentTopicId": "CONCEPT_0000206990255535",
+        "position": "5.13.11.1",
+        "parentPosition": "5.13.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000207006240611",
+        "topicUrl": "MML/Document/set_igmpsnoopingattr.html",
+        "name": "设置IGMP Snooping属性（SET IGMPSNOOPINGATTR）",
+        "parentTopicId": "CONCEPT_0000206839659372",
+        "position": "5.13.11.1.1",
+        "parentPosition": "5.13.11.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

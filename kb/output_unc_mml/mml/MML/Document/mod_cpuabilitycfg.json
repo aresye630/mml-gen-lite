@@ -1,0 +1,126 @@
+{
+  "command_name": "MOD CPUABILITYCFG",
+  "command_name_zh": "修改不同CPU类型的能力系数和基础消耗。",
+  "command_name_full": "修改不同CPU类型的能力系数和基础消耗。（MOD CPUABILITYCFG）",
+  "command_function": "**须知** \n\n如果配置不合理会导致会动态权重失效以及token迁移不能处于稳态。\n\n**适用NF：GGSN、SGW-C、SMF、PGW-C**\n\n该命令用于修改不同CPU类型的能力系数和基础消耗。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001196938422",
+        "topicUrl": "MML/LinkedDoc/unc_n_weight_distribution_management.html",
+        "name": "权重分配管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.10",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001334843361",
+        "topicUrl": "MML/LinkedDoc/unc_n_cpu_capability_coefficient_policy.html",
+        "name": "CPU能力系数策略",
+        "parentTopicId": "TOPIC_0000001196938422",
+        "position": "2.10.10.6",
+        "parentPosition": "2.10.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001951335397",
+        "topicUrl": "MML/Document/mod_cpuabilitycfg.html",
+        "name": "修改不同CPU类型的能力系数和基础消耗。（MOD CPUABILITYCFG）",
+        "parentTopicId": "TOPIC_0000001334843361",
+        "position": "2.10.10.6.3",
+        "parentPosition": "2.10.10.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

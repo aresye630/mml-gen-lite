@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置VXLAN隧道及分流规则",
+  "feature_description": "UEG作为主锚点UPF或辅锚点UPF，与MPF对接时，需要配置VXLAN隧道及分流规则（分流到MPF的规则）。\n\nUPF与MPF通过VXLAN（VXLAN-GPE）隧道互通。为简化描述，使用VXLAN替代VXLAN-GPE。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001111305068",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001111305068.html",
+        "name": "配置UPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.1",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001255200379",
+        "topicUrl": "kite_s_vm/cdgw/installation/cu_ugw_010016_19_vxlan1.html",
+        "name": "配置VXLAN隧道及分流规则",
+        "parentTopicId": "TOPIC_0000001111305068",
+        "position": "5.4.1.3",
+        "parentPosition": "5.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

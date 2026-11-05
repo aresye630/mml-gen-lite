@@ -1,0 +1,119 @@
+{
+  "command_name": "RMV LDAPIP",
+  "command_name_zh": "删除LDAP客户端IP地址",
+  "command_name_full": "删除LDAP客户端IP地址(RMV LDAPIP)",
+  "command_function": "**须知** \n\n该命令属于高危命令，删除正在使用的FE IP地址，会导致FE和BE的通信失败。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在LDAP服务端删除LDAP客户端IP地址，此数据存放在LDAP服务端的第三方FE IP地址列表内，供LDAP服务端鉴权使用。\n\n本命令的应用场景为：\n\n- LDAP服务端不再需要为某一LDAP客户端提供服务。\n- LDAP客户端IP数超过最大支持个数（100个IP地址）。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001136640911",
+        "topicUrl": "USCDB/reference/mml/UDRLas/LinkedDoc/udrlas_management.html",
+        "name": "LAS管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.2",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001135120647",
+        "topicUrl": "USCDB/MML/LinkedDoc/ldap_client_ip_management.html",
+        "name": "LDAP客户端IP地址管理",
+        "parentTopicId": "CONCEPT_0000001136640911",
+        "position": "2.2.4.2.3",
+        "parentPosition": "2.2.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001134917831_2",
+        "topicUrl": "USCDB/MML/Document/rmv_ldapip.html",
+        "name": "删除LDAP客户端IP地址(RMV LDAPIP)",
+        "parentTopicId": "CONCEPT_0000001135120647",
+        "position": "2.2.4.2.3.2",
+        "parentPosition": "2.2.4.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

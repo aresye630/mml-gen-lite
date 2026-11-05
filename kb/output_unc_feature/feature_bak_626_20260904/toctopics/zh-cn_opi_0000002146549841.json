@@ -1,0 +1,73 @@
+{
+  "feature_name": "媒体中继UPF选择配置",
+  "feature_description": "本操作指导完成媒体中继UPF选择中SMF侧的业务配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV4773FDAFD9CC47C4BEDC1DFDB0E612AD",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229278221",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC UPF选择专题",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278221",
+        "topicId": "TOPIC_0000002110871316",
+        "topicUrl": "toctopics/zh-cn_topic_0000002110871316.html",
+        "name": "媒体中继UPF选择",
+        "parentTopicId": "",
+        "position": "10",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278221",
+        "topicId": "OPI_0000002146549841",
+        "topicUrl": "toctopics/zh-cn_opi_0000002146549841.html",
+        "name": "媒体中继UPF选择配置",
+        "parentTopicId": "TOPIC_0000002110871316",
+        "position": "10.3",
+        "parentPosition": "10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

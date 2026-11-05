@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置HTTP计费防欺诈（不能获取Server IP）",
+  "feature_description": "**说明** \n\n适用于PGW-U、UPF。\n\n当运营商在不能获取业务Server IP的情况下部署免费套餐包，即未指定Server IP指定了七层Host/URL免费规则、或者指定了七层URL充值页面免费规则时，为防止黑客计费欺诈行为，需要配置HTTP计费防欺诈功能。\n\n用户访问HTTP业务时，客户端会先发起DNS域名解析流程，以获取Server IP，然后再携带Server IP发起HTTP业务请求消息，本示例以DNS请求消息和优惠的HTTP业务请求消息均采用免费的计费策略进行举例。\n\n- UDG解析DNS的数据报文，并形成指定host服务器和IP地址的映射表。\n- 当用户访问的业务时，如果报文目的IP地址没有包含在这个host服务器地址映射表中，则其访问的业务将被记录费用。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVB89C6AC3CD3C4C5FA9DC2D27CA3F022F",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002186980862",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG防欺诈功能专题",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_4b1a70c9-d16e-4041-8d39-dd92a40c6e36",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_4b1a70c9-d16e-4041-8d39-dd92a40c6e36"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "pid_shortdesc": "介绍防欺诈功能产生背景、应用场景、计费防欺诈方式及配置调测。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "TOPIC_0000001158001661",
+        "topicUrl": "toctopics/zh-cn_topic_0000001158001661.html",
+        "name": "HTTP计费防欺诈",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "OPI_0000001115528732",
+        "topicUrl": "cdgw/ic/cn_20_110317_11_0111.html",
+        "name": "激活HTTP计费防欺诈",
+        "parentTopicId": "TOPIC_0000001158001661",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "OPI_0000001162008529",
+        "topicUrl": "cdgw/ic/cn_20_110317_11_03_new111.html",
+        "name": "配置HTTP计费防欺诈（不能获取Server IP）",
+        "parentTopicId": "OPI_0000001115528732",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

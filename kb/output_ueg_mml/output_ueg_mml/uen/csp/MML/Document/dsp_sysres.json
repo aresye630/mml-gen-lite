@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP SYSRES",
+  "command_name_zh": "查询系统资源",
+  "command_name_full": "查询系统资源(DSP SYSRES)",
+  "command_function": "本命令用于请求系统显示系统资源，如Pod内模块的内存分区、消息包、消息队列、定时器、文件句柄相关的资源的使用情况，以便及时了解系统运行状况。用户可以根据需要查询Pod内模块的不同资源。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234699",
+        "topicUrl": "uen/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.2",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234701",
+        "topicUrl": "uen/csp/MML/LinkedDoc/system_resource.html",
+        "name": "系统资源",
+        "parentTopicId": "CONCEPT_0243234699",
+        "position": "2.2.2.2.3",
+        "parentPosition": "2.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0243234730",
+        "topicUrl": "uen/csp/MML/Document/dsp_sysres.html",
+        "name": "查询系统资源(DSP SYSRES)",
+        "parentTopicId": "CONCEPT_0243234701",
+        "position": "2.2.2.2.3.1",
+        "parentPosition": "2.2.2.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "feature_name": "卸载IPAPM服务",
+  "feature_description": "当运营商不需要IPAPM服务或IPAPM服务动态上线失败时，可以单独卸载IPAPM pod，从而下线IPAPM服务。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV56D4CC48858C47138C42C4B23E4F98D8",
+        "parentNaviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "pidId": "pid_bookmap_0000002187138590",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "基于NFVO安装UDG（SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7999"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7999"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138590",
+        "topicId": "OPI_0181783752",
+        "topicUrl": "common/software-fs-sdn/1_4_Uninstalling_VNF.html",
+        "name": "卸载UDG",
+        "parentTopicId": "",
+        "position": "11",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138590",
+        "topicId": "OPI_0000001188733431",
+        "topicUrl": "toctopics/zh-cn_opi_0000001188733431.html",
+        "name": "卸载IPAPM服务",
+        "parentTopicId": "OPI_0181783752",
+        "position": "11.2",
+        "parentPosition": "11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

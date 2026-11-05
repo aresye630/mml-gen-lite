@@ -1,0 +1,226 @@
+{
+  "feature_name": "配置GTP/PFCP路径管理参数",
+  "feature_description": "当运营商在部署分组交换网，新增UEG时，需配置GTP/PFCP路径管理参数。通过GTP/PFCP路径管理，UEG可以进行到对端网元的路径管理，并控制路径中断后对已激活上下文的处理方式。\n\n**说明** \n\n- GTP路径管理应用以下对接网元之间。\n  - eNodeB与SGW-U之间。\n  - SGW-U与PGW-U之间。\n  - eNodeB/GnGp-SGSN和PGW-U之间。\n  - UPF和UPF之间。\n  - R(AN)和UPF之间。\n- PFCP路径管理应用以下对接网元之间。\n  - SGW-C和SGW-U之间。\n  - PGW-C和PGW-U之间。\n  - SMF和UPF之间。\n- 路径管理在UEG和对端网元间是双向的，如果一方开启了本功能，为节省网络带宽资源，可以关闭另外一端的Echo消息开关。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0239304514",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0239304514.html",
+        "name": "基本接入功能",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.5",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "CONCEPT_0124082053_2",
+        "topicUrl": "kite_ml/cdgw/desc/cn_81_0_010102_01.html",
+        "name": "GWFD-020802 路径管理",
+        "parentTopicId": "TOPIC_0239304514",
+        "position": "3.5.3",
+        "parentPosition": "3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0124082055_2",
+        "topicUrl": "kite_ml/cdgw/om/cn_81_1_5312.html",
+        "name": "配置GTP/PFCP路径管理参数",
+        "parentTopicId": "CONCEPT_0124082053_2",
+        "position": "3.5.3.2",
+        "parentPosition": "3.5.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324040462",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324040462.html",
+        "name": "GW-U&UPF特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001229608741",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001229608741.html",
+        "name": "GWFD-020800 基本业务",
+        "parentTopicId": "TOPIC_0000001324040462",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0124082053_2",
+        "topicUrl": "kite_ml/cdgw/desc/cn_81_0_010102_01.html",
+        "name": "GWFD-020802 路径管理",
+        "parentTopicId": "TOPIC_0000001229608741",
+        "position": "3.2.2",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0124082055_2",
+        "topicUrl": "kite_ml/cdgw/om/cn_81_1_5312.html",
+        "name": "配置GTP/PFCP路径管理参数",
+        "parentTopicId": "CONCEPT_0124082053_2",
+        "position": "3.2.2.2",
+        "parentPosition": "3.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

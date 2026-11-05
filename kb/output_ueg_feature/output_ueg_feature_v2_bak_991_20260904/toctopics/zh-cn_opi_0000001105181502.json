@@ -1,0 +1,124 @@
+{
+  "feature_name": "激活动态分流规则下发",
+  "feature_description": "在不同场景下或针对不同运营商，支持两种方式下发动态Traffic Rule和动态DNS Rule。通过**SET MPFATTR**命令设置MPF属性配置，即管理面MEPM和MPF之间的Mm5接口可以处理的消息类型，从而设置不同的下发方式，两种场景不会同时存在：\n\n- “MM5MSGTYPE”参数配置为APPD：表示管理面MEPM向MPF下发规则的模式是APPD（APP Descriptor）模式，Mm5接口的一条HTTPS请求消息中的APPD包含一个APP实例的动态Traffic Rule、动态DNS Rule、APP依赖的服务和APP提供的服务等信息。\n- “MM5MSGTYPE”参数配置为SPEC\\_RULE：表示管理面MEPM向MPF下发规则的模式是指定Rule模式，Mm5接口的一条HTTPS请求消息中仅包含一个APP实例的动态Traffic Rule或者动态DNS Rule。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "公共业务",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDB5AD83D6FAE4A4995945FC2C4999F99",
+        "parentNaviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "pidId": "pid_bookmap_0000002222267905",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC APP业务访问控制（公共）",
+        "nameIdList": [
+          "release",
+          "application_type",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "application_type_6655",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_6655"
+          ],
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "动态分流",
+          "pid_shortdesc": "介绍APP业务在本产品中如何进行动态分流、数据转发以及带宽控制的。"
+        }
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "TOPIC_0000001098279832",
+        "topicUrl": "toctopics/zh-cn_topic_0000001098279832.html",
+        "name": "动态分流（MPF/UPF）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "TOPIC_0000001100093578",
+        "topicUrl": "toctopics/zh-cn_topic_0000001100093578.html",
+        "name": "配置动态分流",
+        "parentTopicId": "TOPIC_0000001098279832",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "OPI_0000001110608496_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001110608496.html",
+        "name": "激活动态分流规则下发（MPF）",
+        "parentTopicId": "TOPIC_0000001100093578",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "OPI_0000001105181502_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001105181502.html",
+        "name": "激活动态分流规则下发",
+        "parentTopicId": "OPI_0000001110608496_2",
+        "position": "4.2.1.1",
+        "parentPosition": "4.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

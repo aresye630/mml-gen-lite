@@ -1,0 +1,230 @@
+{
+  "command_name": "RMV SERVICESTAT",
+  "command_name_zh": "删除业务统计配置",
+  "command_name_full": "删除业务统计配置（RMV SERVICESTAT）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令,执行本命令后将删除指定或所有业务统计对象，影响性能统计呈现，请谨慎使用。\n\n该命令用于删除基于业务的性能统计对象组合，取消该记录下HTTP协议和DNS协议的统计开关设置，并删除该实例与协议和规则的绑定关系。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555353_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_o_m.html",
+        "name": "业务运维",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.12",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876548_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_performance_mangement.html",
+        "name": "业务性能统计管理",
+        "parentTopicId": "CONCEPT_0000202289555353_2",
+        "position": "3.3.12.1",
+        "parentPosition": "3.3.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356126_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_statistic_object.html",
+        "name": "业务实例性能统计对象",
+        "parentTopicId": "CONCEPT_0000202102876548_2",
+        "position": "3.3.12.1.2",
+        "parentPosition": "3.3.12.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0186528354_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_servicestat.html",
+        "name": "删除业务统计配置（RMV SERVICESTAT）",
+        "parentTopicId": "CONCEPT_0000202103356126_2",
+        "position": "3.3.12.1.2.3",
+        "parentPosition": "3.3.12.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555353_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_o_m.html",
+        "name": "业务运维",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.12",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876548_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_performance_mangement.html",
+        "name": "业务性能统计管理",
+        "parentTopicId": "CONCEPT_0000202289555353_2",
+        "position": "3.3.12.1",
+        "parentPosition": "3.3.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356126_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_statistic_object.html",
+        "name": "业务实例性能统计对象",
+        "parentTopicId": "CONCEPT_0000202102876548_2",
+        "position": "3.3.12.1.2",
+        "parentPosition": "3.3.12.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0186528354_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_servicestat.html",
+        "name": "删除业务统计配置（RMV SERVICESTAT）",
+        "parentTopicId": "CONCEPT_0000202103356126_2",
+        "position": "3.3.12.1.2.3",
+        "parentPosition": "3.3.12.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD EXPTASK",
+  "command_name_zh": "修改导出任务",
+  "command_name_full": "修改导出任务(MOD EXPTASK)",
+  "command_function": "该命令用于修改一个导出任务。\n\n用户可通过**DSP EXPTASK**命令查看任务，**STP EXPTASK**命令终止任务，**RMV EXPTASK**命令删除任务。\n\n**须知** \n\n执行本命令修改导出任务时，如果服务器选择“OM-SERVER”代表的CSP-Lite服务器，CSP-Lite目录“/opt/HUAWEI/cgp/workshop/omu/share/nefile/autoexport/FE类型/”每一小时扫描一次。如果子目录下有总和大于1G或超过60个导出任务的结果文件，则从老到新进行删除该目录下的文件，直到大小小于或等于1G且小于或等于60个导出任务的结果文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169301",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/exptask_management.html",
+        "name": "导出任务管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.13",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001220726176",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/mod_exptask.html",
+        "name": "修改导出任务(MOD EXPTASK)",
+        "parentTopicId": "CONCEPT_0173169301",
+        "position": "4.2.1.13.2",
+        "parentPosition": "4.2.1.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

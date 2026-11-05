@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD OPRGROUP",
+  "command_name_zh": "增加操作员组",
+  "command_name_full": "增加操作员组（ADD OPRGROUP）",
+  "command_function": "该命令用于添加PGW操作员组，一个操作员组仅允许关联一个本地操作员。\n\n当PGW Web LMT使用SSO（Single Sign On）功能时，如果在网管登录页面使用的网管用户在本地不存在，则可使用该命令添加一个操作员组，“组名称”输入网管用户的角色名，“操作员名称”输入本地存在的操作员名称。添加后在网管登录页面使用该网管用户即可登录成功。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001923620173",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/operator_group_management.html",
+        "name": "操作员组管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.20",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001877700870",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/add_oprgroup.html",
+        "name": "增加操作员组（ADD OPRGROUP）",
+        "parentTopicId": "CONCEPT_0000001923620173",
+        "position": "4.2.1.20.1",
+        "parentPosition": "4.2.1.20",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

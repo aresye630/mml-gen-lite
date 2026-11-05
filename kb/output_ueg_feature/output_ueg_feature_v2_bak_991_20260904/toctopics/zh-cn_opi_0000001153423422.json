@@ -1,0 +1,117 @@
+{
+  "feature_name": "部署UPF",
+  "feature_description": "当前移动网络上承载的业务越来越丰富，运营商为了不断优化自身的服务及提升网络安全性，要求UPF能够根据数据包的分析（包括34层和7层的内容），按照预先定义的规则执行业务管理。UPF上该能力由SMF下发的Rule（规则）实现。\n\n内容计费的配置需要做好规划，在PCF、SMF、UPF网元上统一进行配置，保证网元间配置的一致性。PCF、SMF、UPF上的配置及对应关系如图1所示。\n\n**图1** PCF/SMF/UPF配置对应关系",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001217538279",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217538279.html",
+        "name": "配置业务数据（风筝M）",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.5",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001265232041",
+        "topicUrl": "toctopics/zh-cn_topic_0000001265232041.html",
+        "name": "配置业务数据（UEG）",
+        "parentTopicId": "TOPIC_0000001217538279",
+        "position": "3.3.5.1",
+        "parentPosition": "3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001199303209",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199303209.html",
+        "name": "计费功能配置",
+        "parentTopicId": "TOPIC_0000001265232041",
+        "position": "3.3.5.1.3",
+        "parentPosition": "3.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001153423422",
+        "topicUrl": "toctopics/zh-cn_opi_0000001153423422.html",
+        "name": "部署UPF",
+        "parentTopicId": "TOPIC_0000001199303209",
+        "position": "3.3.5.1.3.2",
+        "parentPosition": "3.3.5.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

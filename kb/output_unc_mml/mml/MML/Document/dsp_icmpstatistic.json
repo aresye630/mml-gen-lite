@@ -1,0 +1,150 @@
+{
+  "command_name": "DSP ICMPSTATISTIC",
+  "command_name_zh": "查询ICMP报文统计",
+  "command_name_full": "查询ICMP报文统计（DSP ICMPSTATISTIC）",
+  "command_function": "该命令用于查看ICMP报文统计信息。统计值可以通过RTR IPSTATISTIC命令清除。\n\nICMP（Internet Control Message Protocol）是一个差错报告机制，通常被IP层或更高层协议（TCP或UDP）使用。ICMP报文被封装在IP数据报内部，作为IP数据报的数据部分通过互联网传递。\n\n当数据报产生差错时，ICMP只向数据报的源端报告这个差错，即不会去纠正这个差错也不会通知中间的网络设备。\n\n通过查看DSP ICMPSTATISTIC命令的显示信息，可以查看到接收和发送的ICMP错误报文、echo报文和echo reply报文的统计信息。\n\n例如在进行Ping和Trace-route操作时，可以通过在路由设备上查看DSP ICMPSTATISTIC命令的显示信息，判断本设备发送和接收的报文总数是否正确。\n\n不指定参数时，查询所有接口的统计信息；当指定参数时，可以查询指定接口的统计信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414752",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.3",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385574712",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_stack.html",
+        "name": "IP协议栈",
+        "parentTopicId": "TOPIC_0000002385414752",
+        "position": "1.20.3.6",
+        "parentPosition": "1.20.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419054085",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_protocol_statistics.html",
+        "name": "IP协议统计",
+        "parentTopicId": "TOPIC_0000002385574712",
+        "position": "1.20.3.6.3",
+        "parentPosition": "1.20.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414844",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_icmp_packet_statistics.html",
+        "name": "ICMP报文统计",
+        "parentTopicId": "TOPIC_0000002419054085",
+        "position": "1.20.3.6.3.6",
+        "parentPosition": "1.20.3.6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001600840689",
+        "topicUrl": "MML/Document/dsp_icmpstatistic.html",
+        "name": "查询ICMP报文统计（DSP ICMPSTATISTIC）",
+        "parentTopicId": "TOPIC_0000002385414844",
+        "position": "1.20.3.6.3.6.1",
+        "parentPosition": "1.20.3.6.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

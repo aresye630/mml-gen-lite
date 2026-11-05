@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD HLBTLSCFG",
+  "command_name_zh": "增加HLB TLS配置",
+  "command_name_full": "增加HLB TLS配置(ADD HLBTLSCFG)",
+  "command_function": "**须知** \n\n建议使用ECDHE算法。CCM\\_8算法存在风险，建议使用其他TLS1.3算法。\n\n该命令用于在配置数据库中增加一条HLB TLS配置信息。\n\n该命令的使用场景：当需要采用TLS（Transport Layer Security）协议及安全加密算法用于HLB与NRF/AMF/SMF/BSF对接时，需要执行本命令进行相关配置。\n\n该命令的参数索引关系如图1所示。\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167444231",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_hlb_management.html",
+        "name": "HLB管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.5",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0209570566",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_hlb_tls_configuration_management.html",
+        "name": "HLB TLS配置管理",
+        "parentTopicId": "CONCEPT_0167444231",
+        "position": "2.2.3.5.5.9",
+        "parentPosition": "2.2.3.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0209570567_2",
+        "topicUrl": "MML/Document/add_hlbtlscfg.html",
+        "name": "增加HLB TLS配置(ADD HLBTLSCFG)",
+        "parentTopicId": "CONCEPT_0209570566",
+        "position": "2.2.3.5.5.9.1",
+        "parentPosition": "2.2.3.5.5.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

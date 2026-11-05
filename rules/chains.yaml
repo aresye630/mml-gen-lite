@@ -1,0 +1,358 @@
+# ============================================================
+# 特性配置链规则（Groundtruth 提取 + 生成结果验证）
+#
+# 设计原则：
+#  - 数据驱动：本文件是唯一的特性知识来源。新增特性 = 新增一个 feature 块，
+#    不修改任何 Python 代码。
+#  - 任务隔离：本文件只含特性结构知识（命令名、关联参数、验证项），
+#    不含任何局点特例值（VRF 名、IP、编号等运行时从 exp 提取）。
+#  - 通用性：同一规则可作用于 UEG/UDG/UNC 任意局点的 exp.txt。
+#
+# 规则结构说明：
+#  anchors:  特性实例入口（锚点命令 + 锚点参数 + 可选值过滤 pattern）
+#  chain.direct:  命令的 via 参数值 == 锚点值 → 直接归入该实例
+#  chain.extend:  从"实例已收集的命令"出发的多跳关联：
+#       from 命令类型（已归入实例）→ 取其 join 参数值集合 V
+#       → collect 命令中 match_params 任一参数值 ∈ V 的命令归入实例
+#     join 支持多参数（取并集）；同一 from 可多次出现（多跳路径）
+#  key_params:  验证"值一致性"对照项（生成值 vs 现网多数值分布）
+#  naming:      验证"命名规律"对照项（生成值 vs 现网实例名 pattern，re.fullmatch）
+#  resource_pools: 资源编号池（冲突检测），regex 捕获编号数字
+#       filter: 可选，命令文本匹配过滤（用于区分 online/offline URR 段）
+# ============================================================
+
+features:
+
+  # ----------------------------------------------------------
+  # 双域专网 DNN（PSA/ULCL 企业接入，UEG/UDG UPF）
+  # 锚点：企业 VRF（vpn.<企业>.gd 模式）
+  # ----------------------------------------------------------
+  dual_domain_dnn:
+    description: "双域专网企业 DNN 完整链（VRF→GRE隧道→地址池→过滤器→计费→APN）"
+    products: [UEG, UDG]
+    anchors:
+      - command: ADD L3VPNINST
+        param: VRFNAME
+        pattern: "^vpn\\..*"
+    chain:
+      direct:
+        - {command: ADD L3VPNINST, via: VRFNAME}
+        - {command: ADD VPNINSTAF, via: VRFNAME}
+        - {command: ADD IPBINDVPN, via: VRFNAME}
+        - {command: ADD POOL, via: VPNINSTANCE}
+        - {command: ADD APN, via: VPNINSTANCE}
+      extend:
+        # 隧道/接口/路由：IPBINDVPN(锚点VRF) 的 IFNAME → 接口命令
+        - name: iface_by_bind
+          from: ADD IPBINDVPN
+          join: [IFNAME]
+          collect:
+            - command: ADD GRETUNNEL
+              match_params: [TNLNAME]
+            - command: ADD INTERFACE
+              match_params: [IFNAME]
+            - command: ADD IFIPV4ADDRESS
+              match_params: [IFNAME]
+            - command: ADD IFIPV6ADDRESS
+              match_params: [IFNAME]
+            - command: ADD SRROUTE
+              match_params: [IFNAME]
+            - command: ADD BFDSESSION
+              match_params: [IFNAME]
+        # 跨 VRF 弱关联：GRETUNNEL.DSTVPNNAME → 承载 VRF 中的 NETWORKROUTE
+        # （若该承载 VRF 非本实例新建 VRF，则 NETWORKROUTE 归属承载 VRF，
+        #   在验证阶段做"新增隧道是否需补路由"检查）
+        - name: networkroute_in_carrier_vrf
+          from: ADD GRETUNNEL
+          join: [DSTVPNNAME]
+          collect:
+            - command: ADD NETWORKROUTE
+              match_params: [VRFNAME]
+              belongs: false   # 归属承载 VRF，不并入本实例链
+        # 地址池附属：POOL.POOLNAME → SECTION/POOLBINDGROUP → POOLGROUP/POOLGRPMAP
+        - name: section_by_pool
+          from: ADD POOL
+          join: [POOLNAME]
+          collect:
+            - command: ADD SECTION
+              match_params: [POOLNAME]
+        - name: bindgroup_by_pool
+          from: ADD POOL
+          join: [POOLNAME]
+          collect:
+            - command: ADD POOLBINDGROUP
+              match_params: [POOLNAME]
+        - name: poolgroup_by_bind
+          from: ADD POOLBINDGROUP
+          join: [POOLGROUPNAME]
+          collect:
+            - command: ADD POOLGROUP
+              match_params: [POOLGRPNAME]
+            - command: ADD POOLGRPMAP
+              match_params: [POOLGROUPNAME]
+        # APN 附属：APN.APN → 各 SET APNxxx 附属参数
+        # 命令集 = 现网 EXP 常见 APN 附属命令（UEG/UDG 通用，跨局点稳定）
+        - name: apn_by_name
+          from: ADD APN
+          join: [APN]
+          collect:
+            - command: SET APNUEMUTACC
+              match_params: [APN]
+            - command: SET APNL2TPATTR
+              match_params: [APN]
+            - command: SET APNAFFUNC
+              match_params: [APN]
+            - command: SET APNTETHERFUNC
+              match_params: [APN]
+            - command: SET APNSRVSTATFUNC
+              match_params: [APN]
+            - command: SET APNHTTP2DGRD
+              match_params: [APN]
+            - command: SET APNIPALLOCRULE
+              match_params: [APN]
+            - command: SET APNQOSATTR
+              match_params: [APN]
+            - command: SET APNCDRATTR
+              match_params: [APN]
+            - command: SET APNPROFILE
+              match_params: [APN]
+            - command: ADD APNPROFILE
+              match_params: [APN]
+            - command: ADD TCPMSS
+              match_params: [APN]
+            - command: SET APNADDRESSATTR
+              match_params: [APN]
+            - command: SET APNVONRMONFUNC
+              match_params: [APN]
+            - command: SET APNVOLTEMONFUNC
+              match_params: [APN]
+            - command: SET APNTRFCDFDSWITCH
+              match_params: [APN]
+            - command: SET APNTRAFDFUNC
+              match_params: [APN]
+            - command: SET APNTETHERDETSW
+              match_params: [APN]
+            - command: SET APNSGLPASS
+              match_params: [APN]
+            - command: SET APNREPORTATTR
+              match_params: [APN]
+            - command: SET APNREDUNDUPSW
+              match_params: [APN]
+            - command: SET APNPPPACCESS
+              match_params: [APN]
+            - command: SET APNNONIPFUNC
+              match_params: [APN]
+            - command: SET APNIPV6INFID
+              match_params: [APN]
+            - command: SET APNIMSATTR
+              match_params: [APN]
+            - command: SET APNFLOWAGETIME
+              match_params: [APN]
+            - command: SET APNDROPFINALPKT
+              match_params: [APN]
+            - command: SET APNDLLTBUFFER
+              match_params: [APN]
+            - command: SET APNDLBUFTIME
+              match_params: [APN]
+            - command: SET APNCFFUNC
+              match_params: [APN]
+            - command: SET APNAPPPARA
+              match_params: [APN]
+            - command: SET APNTNLSTATUSRPT
+              match_params: [APN]
+            - command: SET APNNSHHEADENFUNC
+              match_params: [APN]
+            - command: SET APNDDNFLOWCTRL
+              match_params: [APN]
+    key_params:
+      - {command: ADD GRETUNNEL, param: KEEPALVEN}
+      - {command: ADD GRETUNNEL, param: KEEPALVPERIOD}
+      - {command: ADD GRETUNNEL, param: STATENABLE}
+      - {command: ADD POOL, param: POOLTYPE}
+      - {command: ADD POOL, param: IPLEASE}
+      - {command: ADD POOL, param: SINGLEIPFLAG}
+      - {command: ADD POOL, param: RELEASETIME}
+      - {command: ADD POOLBINDGROUP, param: PRIORITY}
+      - {command: ADD RULE, param: FILTERINGMODE}
+    naming:
+      VRFNAME: "^vpn\\..*\\.gd$"
+      POOLNAME: "^pool_ipv4_.*"
+      POOLGRPNAME: "^pgrp_.*"
+    resource_pools:
+      - {name: tunnel_no, command: ADD GRETUNNEL, param: TNLNAME, regex: "Tunnel(\\d+)"}
+      - {name: loopback_no, command: ADD INTERFACE, param: IFNAME, regex: "LoopBack(\\d+)"}
+      - {name: urrid_online, command: ADD URR, param: URRID, regex: "201900(\\d+)", filter: ".*ONLINE.*"}
+      - {name: urrid_offline, command: ADD URR, param: URRID, regex: "201901(\\d+)", filter: ".*OFFLINE.*"}
+      - {name: userprofile_no, command: ADD USERPROFILE, param: USERPROFILENAME, regex: "^s(\\d+)_"}
+
+  # ----------------------------------------------------------
+  # 计费策略链（URR→URRGROUP→PCCPOLICYGRP→USERPROFILE→RULE→RULEBINDING）
+  # 锚点：URRGROUPNAME
+  # ----------------------------------------------------------
+  billing_chain:
+    description: "计费策略引用链（URR/URRGROUP/PCCPOLICYGRP/USERPROFILE/RULE/RULEBINDING）"
+    products: [UEG, UDG, UNC]
+    anchors:
+      - command: ADD URRGROUP
+        param: URRGROUPNAME
+    chain:
+      direct:
+        - {command: ADD URRGROUP, via: URRGROUPNAME}
+      extend:
+        - name: urr_by_group
+          from: ADD URRGROUP
+          join: [UPURRNAME1, DOWNURRNAME1, UPURRNAME2, DOWNURRNAME2]
+          collect:
+            - command: ADD URR
+              match_params: [URRNAME]
+        - name: pcc_by_group
+          from: ADD URRGROUP
+          join: [URRGROUPNAME]
+          collect:
+            - command: ADD PCCPOLICYGRP
+              match_params: [URRGROUPNAME]
+        - name: rule_by_pcc
+          from: ADD PCCPOLICYGRP
+          join: [PCCPOLICYGRPNM]
+          collect:
+            - command: ADD RULE
+              match_params: [POLICYNAME]
+        - name: rulebinding_by_rule
+          from: ADD RULE
+          join: [RULENAME]
+          collect:
+            - command: ADD RULEBINDING
+              match_params: [RULENAME]
+        - name: userprofile_by_rb
+          from: ADD RULEBINDING
+          join: [USERPROFILENAME]
+          collect:
+            - command: ADD USERPROFILE
+              match_params: [USERPROFILENAME]
+        - name: spec_by_group
+          from: ADD URRGROUP
+          join: [URRGROUPNAME]
+          collect:
+            - command: ADD SPECURRGRPLIST
+              match_params: [URRGROUPNAME]
+        - name: flowfilter_by_rule
+          from: ADD RULE
+          join: [FLOWFILTERNAME]
+          collect:
+            - command: ADD FLOWFILTER
+              match_params: [FLOWFILTERNAME]
+        - name: bindflowf_by_flowfilter
+          from: ADD FLOWFILTER
+          join: [FLOWFILTERNAME]
+          collect:
+            - command: ADD FLTBINDFLOWF
+              match_params: [FLOWFILTERNAME]
+        - name: filter_by_bind
+          from: ADD FLTBINDFLOWF
+          join: [FILTERNAME]
+          collect:
+            - command: ADD FILTER
+              match_params: [FILTERNAME]
+    key_params:
+      - {command: ADD URR, param: OFFMETERINGTYPE}
+      - {command: ADD URR, param: ONLMETERINGTYPE}
+      - {command: ADD URR, param: USAGERPTMODE}
+      - {command: ADD RULE, param: POLICYTYPE}
+      - {command: ADD RULE, param: FILTERINGMODE}
+    naming:
+      URRGROUPNAME: "^[A-Za-z0-9]+_\\d+_ch_p$"
+    resource_pools:
+      - {name: urrid_online, command: ADD URR, param: URRID, regex: "201900(\\d+)"}
+      - {name: urrid_offline, command: ADD URR, param: URRID, regex: "201901(\\d+)"}
+      - {name: userprofile_no, command: ADD USERPROFILE, param: USERPROFILENAME, regex: "^s(\\d+)_"}
+
+  # ----------------------------------------------------------
+  # ACL 过滤链（FILTER→ACLNODE→ACL→ACLNODEBINDACL→ACLBINDAPN）
+  # 锚点：ACLNAME
+  # ----------------------------------------------------------
+  acl_chain:
+    description: "ACL 过滤引用链（FILTER/ACLNODE/ACL/绑定）"
+    products: [UEG, UDG]
+    anchors:
+      - command: ADD ACL
+        param: ACLNAME
+    chain:
+      direct:
+        - {command: ADD ACL, via: ACLNAME}
+      extend:
+        - name: aclnode_by_acl
+          from: ADD ACLNODEBINDACL
+          join: [ACLNAME]
+          collect:
+            - command: ADD ACLNODE
+              match_params: [ACLNODENAME]
+        - name: filter_by_aclnode
+          from: ADD ACLNODE
+          join: [ACLNODENAME]
+          collect:
+            - command: ADD FILTER
+              match_params: [FILTERNAME]
+        - name: apn_by_acl
+          from: ADD ACLBINDAPN
+          join: [ACLNAME]
+          collect:
+            - command: ADD APN
+              match_params: [APN]
+    key_params:
+      - {command: ADD ACLNODE, param: ACTIONTYPE}
+      - {command: ADD ACLNODE, param: DIRECTIONTYPE}
+    naming:
+      ACLNAME: "^[A-Za-z0-9_-]+$"
+    resource_pools: []
+
+  # ----------------------------------------------------------
+  # VRF 基础设施链（L3VPNINST→VPNINSTAF→IPBINDVPN→接口→地址→路由→BGP）
+  # 锚点：VRFNAME（全部 VRF）
+  # ----------------------------------------------------------
+  vrf_chain:
+    description: "VRF 基础设施引用链（定义/地址族/接口绑定/地址/路由/BGP）"
+    products: [UEG, UDG]
+    anchors:
+      - command: ADD L3VPNINST
+        param: VRFNAME
+    chain:
+      direct:
+        - {command: ADD L3VPNINST, via: VRFNAME}
+        - {command: ADD VPNINSTAF, via: VRFNAME}
+        - {command: ADD IPBINDVPN, via: VRFNAME}
+        - {command: ADD BFDSESSION, via: VRFNAME}
+        - {command: ADD BGPVRF, via: VRFNAME}
+        - {command: ADD NETWORKROUTE, via: VRFNAME}
+      extend:
+        - name: iface_by_bind
+          from: ADD IPBINDVPN
+          join: [IFNAME]
+          collect:
+            - command: ADD INTERFACE
+              match_params: [IFNAME]
+            - command: ADD GRETUNNEL
+              match_params: [TNLNAME]
+            - command: ADD IFIPV4ADDRESS
+              match_params: [IFNAME]
+            - command: ADD IFIPV6ADDRESS
+              match_params: [IFNAME]
+            - command: ADD SRROUTE
+              match_params: [IFNAME]
+        - name: bgp_by_vrf
+          from: ADD BGPVRF
+          join: [VRFNAME]
+          collect:
+            - command: ADD BGPPEER
+              match_params: [VRFNAME]
+            - command: ADD IMPORTROUTE
+              match_params: [VRFNAME]
+            - command: ADD EXPORTROUTE
+              match_params: [VRFNAME]
+    key_params:
+      - {command: ADD GRETUNNEL, param: KEEPALVEN}
+      - {command: ADD GRETUNNEL, param: TNLTYPE}
+    naming:
+      VRFNAME: "^[A-Za-z0-9_.-]+$"
+    resource_pools:
+      - {name: tunnel_no, command: ADD GRETUNNEL, param: TNLNAME, regex: "Tunnel(\\d+)"}
+      - {name: loopback_no, command: ADD INTERFACE, param: IFNAME, regex: "LoopBack(\\d+)"}

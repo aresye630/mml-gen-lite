@@ -1,0 +1,460 @@
+---
+id: GWFD-025301
+name: GWFD-025301 Gx接口(使用Diameter协议)策略控制特性配置
+ne_type: UEG
+type: feature
+description: Gx接口位于PCEF（Policy and Charging Enforcement Function）功能实体与PCF（Policy Charging Function）功能实体之间。UPCF支持基于Diameter协议的Gx接口，完成PCC（Policy and Charging Control）策略控制功能。PCF允许PCEF发起的IP-CAN会话建立请求，并下发装载动态PCC规则 。  下面以用户在PCF侧的开户的用户状态不同，则匹配不同的策略信息为例：  * 用户状态为“Normal”时，上行带宽为1 Mbit/s，下行带宽为1 Mbit/s； * 用户状态变为“SubStatusA”时，PDN连接会更新，此次带宽更新为上行带宽为500 Kbit/s，下行带宽为500 Kbit/s； * 用户状态变为“SubStatusB”时，用户禁止访问网络，PDN连接下线。
+tags: []
+risk_level: ''
+doc_source: ["业务配置","风筝L","MEC 特性指南（风筝L）","PCRF&PCF特性指南","PCF FE基本功能","GWFD-025301 Gx接口(使用Diameter协议)策略控制","GWFD-025301 Gx接口(使用Diameter协议)策略控制特性配置"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block= annotations -->
+```text
+## 操作场景
+Gx接口位于PCEF（Policy and Charging Enforcement Function）功能实体与PCF（Policy Charging Function）功能实体之间。UPCF支持基于Diameter协议的Gx接口，完成PCC（Policy and Charging Control）策略控制功能。PCF允许PCEF发起的IP-CAN会话建立请求，并下发装载动态PCC规则 。下面以用户在PCF侧的开户的用户状态不同，则匹配不同的策略信息为例：* 用户状态为“Normal”时，上行带宽为1 Mbit/s，下行带宽为1 Mbit/s；* 用户状态变为“SubStatusA”时，PDN连接会更新，此次带宽更新为上行带宽为500 Kbit/s，下行带宽为500 Kbit/s；* 用户状态变为“SubStatusB”时，用户禁止访问网络，PDN连接下线。
+
+## 必备事项
+前提条件
+
+操作员已了解GWFD-025301 Gx接口(使用Diameter协议)策略控制特性概述。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block= params -->
+```yaml
+schemas:
+  properties:
+    add_psub_list:
+      type: items
+      properties:
+        USRIDENTIFIER:
+          name: 'USRIDENTIFIER'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRMSISDN:
+          name: 'USRMSISDN'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSTATE:
+          name: 'USRSTATE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRPAIDTYPE:
+          name: 'USRPAIDTYPE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSTATION:
+          name: 'USRSTATION'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRCONTACTMETHOD:
+          name: 'USRCONTACTMETHOD'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRBILLCYCLEDATE:
+          name: 'USRBILLCYCLEDATE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSUBNETTYPE:
+          name: 'USRSUBNETTYPE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_psrv_list:
+      type: items
+      properties:
+        USRIDENTIFIER:
+          name: 'USRIDENTIFIER'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVNAME:
+          name: 'SRVNAME'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVUSAGESTATE:
+          name: 'SRVUSAGESTATE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVROAMINGTYPE:
+          name: 'SRVROAMINGTYPE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+  examples:
+    add_psub_list:
+    - USRIDENTIFIER: 46010381012****
+      USRMSISDN: '12345678901'
+      USRSTATE: Normal
+      USRPAIDTYPE: 'NULL'
+      USRSTATION: Master
+      USRCONTACTMETHOD: SMS
+      USRBILLCYCLEDATE: 'NULL'
+      USRSUBNETTYPE: MBB
+    add_psrv_list:
+    - USRIDENTIFIER: 46010381014****
+      SRVNAME: FUP_Service
+      SRVUSAGESTATE: Normal
+      SRVROAMINGTYPE: 'NULL'
+```
+
+## 3 命令模板定义
+<!-- @mml:block= commands -->
+
+### 1 登录UPCF WebUI界面。
+
+### 2 配置条件组。
+
+### 导航入口为“策略管理 > 策略 > 条件组”。
+
+### 当业务的使用需要设置控制条件时，需要配置条件组。若某规则不配置条件组，表示在同一业务里其他条件都匹配不上时，才触发此规则。
+
+### 条件组是一个或多个条件的组合。条件组中的各条件之间可以是“与”的关系，也可以是“或”的关系。条件之间的与/或关系由参数“关系”的取值决定。
+
+### **表2** 条件组
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 条件组1 | 基本信息 | 名称 | SubscriberStatus1 |
+
+### |  |  | 关系 | AND |
+
+### |  | 条件 | 名称 | SubscriberStatus1 |
+
+### |  |  | 对象属性 | * 对象：Subscriber * 属性：Status |
+
+### |  |  | 操作符 | Equal |
+
+### |  |  | 右值类型 | Value |
+
+### |  |  | 右值 | Normal |
+
+### | 条件组2 | 基本信息 | 名称 | SubscriberStatus2 |
+
+### |  |  | 关系 | AND |
+
+### |  | 条件 | 名称 | SubscriberStatus2 |
+
+### |  |  | 对象属性 | * 对象：Subscriber * 属性：Status |
+
+### |  |  | 操作符 | Equal |
+
+### |  |  | 右值类型 | Value |
+
+### |  |  | 右值 | SubStatusA |
+
+### | 条件组3 | 基本信息 | 名称 | SubscriberStatus3 |
+
+### |  |  | 关系 | AND |
+
+### |  | 条件 | 名称 | SubscriberStatus3 |
+
+### |  |  | 对象属性 | * 对象：Subscriber * 属性：Status |
+
+### |  |  | 操作符 | Equal |
+
+### |  |  | 右值类型 | Value |
+
+### |  |  | 右值 | SubStatusB |
+
+### 3 配置动作组。
+
+### 导航入口为“策略管理 > 策略 > 动作组”。
+
+### **表3** 动作组
+
+### | 类别 | 参数 |  |  | 取值样例 |
+
+### | --- | --- | --- | --- | --- |
+
+### | 动作组1 | 基本信息 | 名称 |  | AG1\_Change1 |
+
+### |  | 动作1 | 动作 |  | DEFAULTBEARERQOS |
+
+### |  |  | 动作元素 | QCI | * 值类型：Value * 值：8 |
+
+### |  |  |  | ARPLevel | * 值类型：Value * 值：1 |
+
+### |  |  |  | PreemptionCapability | * 值类型：Value * 值：Disabled |
+
+### |  |  |  | PreemptionVulnerability | * 值类型：Value * 值：Enabled |
+
+### |  |  |  | AMBRDL | * 值类型：Value * 值(kbit/s)：1000 |
+
+### |  |  |  | AMBRUL | * 值类型：Value * 值(kbit/s)：1000 |
+
+### | 动作组2 | 基本信息 | 名称 |  | AG1\_Change2 |
+
+### |  | 动作1 | 动作 |  | DEFAULTBEARERQOS |
+
+### |  |  | 动作元素 | QCI | * 值类型：Value * 值：8 |
+
+### |  |  |  | ARPLevel | * 值类型：Value * 值：1 |
+
+### |  |  |  | PreemptionCapability | * 值类型：Value * 值：Disabled |
+
+### |  |  |  | PreemptionVulnerability | * 值类型：Value * 值：Enabled |
+
+### |  |  |  | AMBRDL | * 值类型：Value * 值(kbit/s)：500 |
+
+### |  |  |  | AMBRUL | * 值类型：Value * 值(kbit/s)：500 |
+
+### | 动作组3 | 基本信息 | 名称 |  | AG2\_Change1 |
+
+### |  | 动作1 | 动作 |  | QoSAction |
+
+### |  |  | 动作元素 | QCI | * 值类型：Value * 值：8 |
+
+### |  |  |  | MBRUL | * 值类型：Value * 值(kbit/s)：1000 |
+
+### |  |  |  | MBRDL | * 值类型：Value * 值(kbit/s)：1000 |
+
+### |  |  |  | ARPLevel | * 值类型：Value * 值：1 |
+
+### |  | 动作2 | 动作 |  | ChargingAction |
+
+### |  |  | 动作元素 | MeteringMethod | * 值类型：Value * 值：Volume |
+
+### |  |  |  | RatingGroup | * 值类型：Value * 值：1 |
+
+### |  |  |  | ServiceIdentifier | * 值类型：Value * 值：123 |
+
+### | 动作组4 | 基本信息 | 名称 |  | AG2\_Change2 |
+
+### |  | 动作1 | 动作 |  | QoSAction |
+
+### |  |  | 动作元素 | QCI | * 值类型：Value * 值：8 |
+
+### |  |  |  | MBRUL | * 值类型：Value * 值(kbit/s)：500 |
+
+### |  |  |  | MBRDL | * 值类型：Value * 值(kbit/s)：500 |
+
+### |  |  |  | ARPLevel | * 值类型：Value * 值：1 |
+
+### |  | 动作2 | 动作 |  | ChargingAction |
+
+### |  |  | 动作元素 | MeteringMethod | * 值类型：Value * 值：Volume |
+
+### |  |  |  | RatingGroup | * 值类型：Value * 值：1 |
+
+### |  |  |  | ServiceIdentifier | * 值类型：Value * 值：124 |
+
+### 4 配置业务流。
+
+### 导航入口为“策略管理 > 策略 > 业务流”。
+
+### 所有的动态规则都必须配置业务流。
+
+### 业务流的数据规划如表4所示，详细参数说明请参见业务流参数表。
+
+### **表4** 业务流
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 业务流 | 基本信息 | 名称 | Flow\_Filter |
+
+### |  | 流过滤器1 | 名称 | up\_pass |
+
+### |  |  | 流方向 | Up |
+
+### |  |  | 协议 | Any IP Protocol |
+
+### |  | 流过滤器2 | 名称 | down\_pass |
+
+### |  |  | 流方向 | Down |
+
+### |  |  | 协议 | Any IP Protocol |
+
+### 5 配置规则。
+
+### 导航入口为“策略管理 > 策略 > 规则”。
+
+### 规则的数据规划如表5所示，详细参数说明请参见规则参数表。
+
+### **表5** 规则
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 规则1 | 基本信息 | 名称 | Rule1\_Change1 |
+
+### |  |  | 类型 | Default Bearer QoS |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | SubscriberStatus1  说明：  已在条件组中定义。 |
+
+### |  | 动作组 | 动作组 | AG1\_Change1  说明：  已在动作组中定义。 |
+
+### | 规则2 | 基本信息 | 名称 | Rule1\_Change2 |
+
+### |  |  | 类型 | Default Bearer QoS |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | SubscriberStatus2  说明：  已在条件组中定义。 |
+
+### |  | 动作组 | 动作组 | AG1\_Change2  说明：  已在动作组中定义。 |
+
+### | 规则3 | 基本信息 | 名称 | Rule2\_Change1 |
+
+### |  |  | 操作类型 | Change Rule |
+
+### |  |  | 类型 | Dynamic |
+
+### |  |  | 业务流 | Flow\_Filter  说明：  已在业务流中定义。 |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | SubscriberStatus1  说明：  已在条件组中定义。 |
+
+### |  | 动作组 | 动作组 | AG2\_Change1  说明：  已在动作组中定义。 |
+
+### | 规则4 | 基本信息 | 名称 | Rule2\_Change2 |
+
+### |  |  | 操作类型 | Change Rule |
+
+### |  |  | 类型 | Dynamic |
+
+### |  |  | 业务流 | Flow\_Filter  说明：  已在业务流中定义。 |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | SubscriberStatus2  说明：  已在条件组中定义。 |
+
+### |  | 动作组 | 动作组 | AG2\_Change2  说明：  已在动作组中定义。 |
+
+### | 规则5 | 基本信息 | 名称 | Rule3\_Change1 |
+
+### |  |  | 操作类型 | Term IP-CAN Session |
+
+### |  |  | 信令错误码 | 5143-BEARER\_NOT\_AUTHORIZED |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | SubscriberStatus3  说明：  已在条件组中定义。 |
+
+### 6 配置策略。
+
+### 导航入口为“策略管理 > 策略 > 策略”
+
+### 策略的数据规划如表6所示，详细参数说明请参见策略参数表。
+
+### **表6** 策略
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 策略 | 基本信息 | 名称 | Policy\_Using |
+
+### |  | 触发器 | 名称 | IPCANSessionEstablish  PLMNChange  SubscriberStatusChange  TimeRangeChange |
+
+### |  | 规则 | 名称 | * Rule1\_Change1 * Rule1\_Change2 * Rule2\_Change1 * Rule2\_Change2 * Rule3\_Change1 说明：  已在规则中定义。 |
+
+### 7 配置业务。
+
+### 导航入口为“业务管理 > 业务 > 业务”。
+
+### 业务的数据规划如表7所示，详细参数说明请参见业务参数表。
+
+### **表7** 业务
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 业务 | 基本信息 | 名称 | Service\_1 |
+
+### |  |  | 类型 | BASIC\_SERVICE |
+
+### |  |  | 是否记入基本配额 | 是 |
+
+### |  |  | 激活方式 | PCEF |
+
+### |  |  | 优先级 | 0  说明：  运营商统一规划，用于设置该业务在互斥组中的优先级。当此业务不需配置相关互斥组时，此值可任意取值。 |
+
+### |  |  | QoS模式 | 替换 |
+
+### |  |  | 签约后才能使用 | 是 |
+
+### |  | 策略 | 名称 | Policy\_Using  说明：  已在策略中定义。 |
+
+### 8 登录“UPCF 业务管理”窗口。
+
+### 9 发放业务。
+
+#### 9.1 执行**ADD PSUB**增加一个用户。
+
+#### “USRIDENTIFIER”的参数类型受软参VRM\_SUBSRCIPTIONIDTYPE（系统支持的用户类型）控制，默认为“IMSI”
+
+```jinja2
+{#- 需人工查询macro中是否存在该command并且包含parameters参数的命令，确认后人工填写jinja模板并优化该add_psub_list的变量区（command: ADD PSUB） -#}
+<!-- MISSING_MACRO: command=ADD PSUB list_name=add_psub_list step_id=9.1 -->
+```
+
+#### 9.2 执行**ADD PSRV**给用户签约业务。
+
+```jinja2
+{#- 需人工查询macro中是否存在该command并且包含parameters参数的命令，确认后人工填写jinja模板并优化该add_psrv_list的变量区（command: ADD PSRV） -#}
+<!-- MISSING_MACRO: command=ADD PSRV list_name=add_psrv_list step_id=9.2 -->
+```
+
+#### **脚本**
+
+#### CLI脚本
+

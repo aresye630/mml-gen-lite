@@ -1,0 +1,119 @@
+{
+  "command_name": "SET HTTPFIXEDFCMSG",
+  "command_name_zh": "设置HTTP指定消息类型固定速率流控信息",
+  "command_name_full": "设置HTTP指定消息类型固定速率流控信息（SET HTTPFIXEDFCMSG）",
+  "command_function": "**须知** \n\n流控阈值设置过低可能会导致流程失败，设置过高可能导致系统不能对消息进行合理流控。\n\n该命令用于设置指定消息类型的固定速率门限，减少其它网元对本网元的冲击，以及本网元对其它网元的冲击。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000204899264543",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.12",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000204693666410",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/httpctrlsvc_n_http_flow_control_management.html",
+        "name": "HTTP流控管理",
+        "parentTopicId": "CONCEPT_0000204899264543",
+        "position": "1.2.12.1",
+        "parentPosition": "1.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000204693905234",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/httpctrlsvc_n_http_fixed_rate_fl_ent_for_specified_message_types.html",
+        "name": "HTTP指定消息类型固定速率流控管理",
+        "parentTopicId": "CONCEPT_0000204693666410",
+        "position": "1.2.12.1.1",
+        "parentPosition": "1.2.12.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001184132110_2",
+        "topicUrl": "kite_s_vm/MML/Document/set_httpfixedfcmsg.html",
+        "name": "设置HTTP指定消息类型固定速率流控信息（SET HTTPFIXEDFCMSG）",
+        "parentTopicId": "CONCEPT_0000204693905234",
+        "position": "1.2.12.1.1.1",
+        "parentPosition": "1.2.12.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

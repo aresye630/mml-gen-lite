@@ -1,0 +1,107 @@
+{
+  "command_name": "EXP LOG",
+  "command_name_zh": "设置日志导出参数",
+  "command_name_full": "设置日志导出参数（EXP LOG）",
+  "command_function": "该命令用于设置日志导出参数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202547011696",
+        "topicUrl": "MML/LinkedDoc/udg_n_sfip_management.html",
+        "name": "SFIP管理",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203245452690",
+        "topicUrl": "MML/LinkedDoc/sfip_n_sfip_log_management.html",
+        "name": "SFIP日志管理",
+        "parentTopicId": "CONCEPT_0000202547011696",
+        "position": "8.3",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203245214510",
+        "topicUrl": "MML/LinkedDoc/sfip_n_log_export.html",
+        "name": "日志导出",
+        "parentTopicId": "CONCEPT_0000203245452690",
+        "position": "8.3.1",
+        "parentPosition": "8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206961311550",
+        "topicUrl": "MML/Document/exp_log.html",
+        "name": "设置日志导出参数（EXP LOG）",
+        "parentTopicId": "CONCEPT_0000203245214510",
+        "position": "8.3.1.1",
+        "parentPosition": "8.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

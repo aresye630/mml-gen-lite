@@ -1,0 +1,73 @@
+{
+  "feature_name": "NSSF典型配置实例",
+  "feature_description": "本任务实例实现以下场景配置：\n\nUNC（作为NSSF）与周边NF（本例中包含AMF、SMF、NRF）通过OSPF动态路由绑定动态BFD实现网络互通。\n\n- 网络形态：5G网络\n- 网元形态：NSSF\n- 路由协议：OSPF动态路由\n- 组网IP格式：IPv4组网\n- 接入用户：IPv4单栈用户",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001824739225",
+        "topicUrl": "toctopics/zh-cn_topic_0000001824739225.html",
+        "name": "典型配置实例",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001777939602",
+        "topicUrl": "init_install/unc_2000_init_nssf_14.html",
+        "name": "NSSF典型配置实例",
+        "parentTopicId": "TOPIC_0000001824739225",
+        "position": "9.4",
+        "parentPosition": "9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

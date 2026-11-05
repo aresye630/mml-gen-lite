@@ -1,0 +1,30 @@
+# golden_rules.yaml — 特性匹配黄金规则（验收基线）
+#
+# 语义：特性文档 F014（HTTP 计费防欺诈）的配置模式在现网 XAUPF017BHW 的落地实例。
+# 格式：命令类型 → 期望 seq 列表（56 条期望实例，✅45 + 灰 11）。
+#
+# 定位：这是「验收基线」（局点实例值 = 期望输出数据），不是「产品级通用推导规则」。
+#       「推导规则」（走链 R1~R6 + G 值驱动反向查找）在 _s2_newfmt2.py 内，数据驱动；
+#       「期望实例」外置在此，供核对（期望 ⊆ 实际 = 命中，缺失/多余 = MISSING/EXTRA）。
+# 红线：本文件允许含局点实例值（它是期望输出），但代码内禁止硬编码局点值。
+
+UDG:
+  SET LICENSESWITCH: [29]
+  SET REFRESHSRV: [96379]
+  ADD FILTER: [3061, 8775, 11370, 24198]
+  ADD FILTERIPV6: [30334]
+  ADD L7FILTER: [45672, 46081, 48711]
+  ADD FLOWFILTER: [49377, 49378, 49394, 49395, 49408, 49908]
+  ADD FLTBINDFLOWF: [49974, 60928, 60929, 64230, 84068]
+  ADD PROTBINDFLOWF: [93604, 93623, 94071]
+  ADD URR: [94130, 94131, 94158, 94159, 94410, 94411]
+  ADD HEADEN: [94122, 94123, 94124]
+  ADD URRGROUP: [94457, 94472, 94585]
+  ADD PCCPOLICYGRP: [94650, 94664, 94709, 94813]
+  ADD RULE: [94872, 94873, 94900, 94901, 94904, 95159, 95160, 95452]
+  ADD USERPROFILE: [94852]
+  LCK USERPROFILE: [95554]
+  SET URRGRPBINDING: [95585]
+  ADD RULEBINDING: [95626, 95627, 96131]
+  ADD BWMUSERGROUP: [96299]
+  ADD UPBINDBWMUSRG: [96593]

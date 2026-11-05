@@ -1,0 +1,199 @@
+---
+id: ''
+name: 安装RELAY服务
+ne_type: UDG
+type: feature
+description: 仅当UDG网元需要部署媒体中继功能时，才需要安装RELAY服务。媒体中继相关功能介绍及业务配置请参考：5G Core 媒体中继解决方案。  * UDG 20.16.2版本仅在安装了20.16.2.6及更高版本补丁时才能上线Relay服务。 * 仅部分VNFD模板支持RELAY服务。如需安装RELAY服务，请先联系华为技术支持确认使用的VNFD模板是否支持。  版本配套需满足以下版本才能支持RELAY服务功能：  | 部件名称 | 依赖版本 | | --- | --- | | MAE-CN | V100R024C10SPC220及以后版本 | | VNFM-Agent | MAE-CN VNFM-Agent V100R025C10SPC120及以后版本 | | FusionSphere | 24.1.0 + SPH35及以后版本 | | FusionStage | 25.1.0及以后版本 | | UDG | 20.15.2及以后版本 |  安装RELAY服务场景：  * **场景一****（静态上线）**：UDG网元和RELAY服务**同时实例化**。实例化UDG前填写如下VNFD参数。   + 配置媒体中继主机所在机框与连接板所在机框互联参数：     - NP卡场景：配置“Inter-Subrack NP Direct Connect Port”。     - 标卡场景：配置“NPFabricTrunkCfg”。   + 配置RELAY服务的独立业务主机组：配置Cluster\_Relay\_Id，参考“网设工具 > NFV LLD文档 > **计算资源设计** > DC配置规划 > Host Aggregate名称”。   + 配置PBU\_P-N\_C4N1\_ARM虚机指定NUMA1部署：配置NUMA\_ID\_PBU\_P-N\_C4N1\_ARM值，指定为1。   + 配置VM：基于ARM虚拟机，PBU\_E-R\_ARM\_Num和PBU\_P-N\_C4N1\_ARM\_Num)。   + 配置Pod：“RELAY\_Instance\_Num”，“RELAYCTRL\_Instance\_Num”，“PBU\_P-N\_C4N1\_Instance\_Num”，“NPCTRL\_Instance\_Num”（仅ARM标卡模版需要配置该参数，NP卡模版不涉及该参数）。   + 配置NF：     - FunctionSet List参数需添加“RELAY”。例如：添加后为"UDG/RELAY"；当多个可选服务一起静态上线时，服务之间以“/”拼接，例如："UDG/RPT/RELAY"。     - whether to initialize relay\_stack设置为true。        **表1** 虚拟机与pod对应关系        | Pod名称 | 功能说明 | 所属微服务 | 运行VM（ARM） |       | --- | --- | --- | --- |       | relay-pod | 提供媒体中继业务服务功能。 | RELAY | PBU\_E-R\_ARM |       | relayctrl-pod | 提供媒体中继业务服务的管理功能。 |  |  |       | femu-c4n1-pod | 提供NP卡管理功能。 | NPM (Network Processor Management) | PBU\_P-N\_C4N1\_ARM |       | npctrl-pod | 提供NP卡引擎的统一管理功能。  说明：仅ARM标卡场景需要部署该Pod。 |  | PBU\_A\_ARM/PBU\_Ax\_ARM |        **表2** 虚机、Pod数量        | 参数 | 备注 |       | --- | --- |       | PBU\_P-N\_C4N1\_ARM\_Num | 每个媒体中继单板上，部署虚机PBU\_P-N\_C4N1\_ARM 1个。  如果媒体中继单板数为N，则该参数值设置为N。 |       | PBU\_P-N\_C4N1\_Instance\_Num | 每个媒体中继单板上，部署femu-c4n1-pod 1个。  如果媒体中继单板数为N，则该参数值设置为N。 |       | NPCTRL\_Instance\_Num | 仅ARM标卡模版需要配置该参数，NP卡模版不涉及该参数。 |       | PBU\_E-R\_ARM\_Num | 每个媒体中继单板上，部署虚机PBU\_E-R\_ARM 2个。  如果媒体中继单板数为N，则该参数值设置为2\*N。 |       | RELAY\_Instance\_Num | 每个媒体中继单板上，部署relay-pod 2个。  如果媒体中继单板数为N，则该参数值设置为2\*N。 |       | RELAYCTRL\_Instance\_Num | 每个媒体中继单板上，最大部署relayctrl-pod 2个。  如果媒体中继单板数为1，则该参数值设置为2；如果媒体中继单板数大于1，则该参数值设置为3。 |        基于以上表格中参数值设置规则，对《NFV LLD文档》中对应的虚机、Pod数量进行确认。如果不一致，请联系华为技术支持处理。 * **场景二****（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线RELAY服务。
+risk_level: ''
+doc_source: ["网络部署","软件安装","基于VNF LCM安装UDG（非SDN）","安装可选服务","安装RELAY服务"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+仅当UDG网元需要部署媒体中继功能时，才需要安装RELAY服务。媒体中继相关功能介绍及业务配置请参考：5G Core 媒体中继解决方案。* UDG 20.16.2版本仅在安装了20.16.2.6及更高版本补丁时才能上线Relay服务。* 仅部分VNFD模板支持RELAY服务。如需安装RELAY服务，请先联系华为技术支持确认使用的VNFD模板是否支持。版本配套需满足以下版本才能支持RELAY服务功能：| 部件名称 | 依赖版本 || --- | --- || MAE-CN | V100R024C10SPC220及以后版本 || VNFM-Agent | MAE-CN VNFM-Agent V100R025C10SPC120及以后版本 || FusionSphere | 24.1.0 + SPH35及以后版本 || FusionStage | 25.1.0及以后版本 || UDG | 20.15.2及以后版本 |安装RELAY服务场景：* **场景一****（静态上线）**：UDG网元和RELAY服务**同时实例化**。实例化UDG前填写如下VNFD参数。  + 配置媒体中继主机所在机框与连接板所在机框互联参数：    - NP卡场景：配置“Inter-Subrack NP Direct Connect Port”。    - 标卡场景：配置“NPFabricTrunkCfg”。  + 配置RELAY服务的独立业务主机组：配置Cluster\_Relay\_Id，参考“网设工具 > NFV LLD文档 > **计算资源设计** > DC配置规划 > Host Aggregate名称”。  + 配置PBU\_P-N\_C4N1\_ARM虚机指定NUMA1部署：配置NUMA\_ID\_PBU\_P-N\_C4N1\_ARM值，指定为1。  + 配置VM：基于ARM虚拟机，PBU\_E-R\_ARM\_Num和PBU\_P-N\_C4N1\_ARM\_Num)。  + 配置Pod：“RELAY\_Instance\_Num”，“RELAYCTRL\_Instance\_Num”，“PBU\_P-N\_C4N1\_Instance\_Num”，“NPCTRL\_Instance\_Num”（仅ARM标卡模版需要配置该参数，NP卡模版不涉及该参数）。  + 配置NF：    - FunctionSet List参数需添加“RELAY”。例如：添加后为"UDG/RELAY"；当多个可选服务一起静态上线时，服务之间以“/”拼接，例如："UDG/RPT/RELAY"。    - whether to initialize relay\_stack设置为true。      **表1** 虚拟机与pod对应关系      | Pod名称 | 功能说明 | 所属微服务 | 运行VM（ARM） |      | --- | --- | --- | --- |      | relay-pod | 提供媒体中继业务服务功能。 | RELAY | PBU\_E-R\_ARM |      | relayctrl-pod | 提供媒体中继业务服务的管理功能。 |  |  |      | femu-c4n1-pod | 提供NP卡管理功能。 | NPM (Network Processor Management) | PBU\_P-N\_C4N1\_ARM |      | npctrl-pod | 提供NP卡引擎的统一管理功能。  说明：仅ARM标卡场景需要部署该Pod。 |  | PBU\_A\_ARM/PBU\_Ax\_ARM |      **表2** 虚机、Pod数量      | 参数 | 备注 |      | --- | --- |      | PBU\_P-N\_C4N1\_ARM\_Num | 每个媒体中继单板上，部署虚机PBU\_P-N\_C4N1\_ARM 1个。  如果媒体中继单板数为N，则该参数值设置为N。 |      | PBU\_P-N\_C4N1\_Instance\_Num | 每个媒体中继单板上，部署femu-c4n1-pod 1个。  如果媒体中继单板数为N，则该参数值设置为N。 |      | NPCTRL\_Instance\_Num | 仅ARM标卡模版需要配置该参数，NP卡模版不涉及该参数。 |      | PBU\_E-R\_ARM\_Num | 每个媒体中继单板上，部署虚机PBU\_E-R\_ARM 2个。  如果媒体中继单板数为N，则该参数值设置为2\*N。 |      | RELAY\_Instance\_Num | 每个媒体中继单板上，部署relay-pod 2个。  如果媒体中继单板数为N，则该参数值设置为2\*N。 |      | RELAYCTRL\_Instance\_Num | 每个媒体中继单板上，最大部署relayctrl-pod 2个。  如果媒体中继单板数为1，则该参数值设置为2；如果媒体中继单板数大于1，则该参数值设置为3。 |      基于以上表格中参数值设置规则，对《NFV LLD文档》中对应的虚机、Pod数量进行确认。如果不一致，请联系华为技术支持处理。* **场景二****（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线RELAY服务。
+
+## 必备事项
+前提条件
+
+* 已经实例化UDG。已经安装后检查，UDG正常工作。
+* 准备好部署所需要的镜像文件：UDG-Relay\_xx.x.x\_Docker\_ARM.zip、UDG-Relay\_xx.x.x\_PLUGIN\_RelayTrace\_ARM.zip。。
+* 如果RELAY服务带补丁动态上线，需要准备好补丁包：UDG-Relay\_xx.x.x.x\_Docker\_ARM.zip、UDG-Relay\_xx.x.x.x\_Docker\_PATCH\_ARM.zip以及UDG-Trace\_xx.x.x.x\_PLUGIN\_RelayTrace\_ARM。
+* （可选）用户探测分组日志插件包：UDG-RelayGroupTest\_xx.xx.x.xx\_PLUGIN\_ARM.zip
+* 已经完成检查软件包完整性。
+
+* 当系统进行动态上下线操作期间，不允许再同时进行扩缩容操作。同理，当系统进行扩缩容期间，不允许再进行动态上下线操作。
+* 上下线本服务时，不能同时上下线其他部件。
+* 当动态上线一个服务的任务失败；必须先动态下线此服务，再重新触发动态上线任务。如果是动态下线失败，继续重新触发动态下线任务。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties: {}
+  examples: {}
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 动态上线本服务前，必须根据客户的业务容量和设备现状进行严格的**扩容评估**。
+
+### 确保上线服务所需的I层资源、License资源、各类网络资源（如外联口网络）是充足的，如果不充足，则要**先扩容这些资源**，然后**再上线本服务**。
+
+### 由华为网设工程师进行网络设计，规划计算资源、存储资源、网络资源。
+
+### 将规划数据合入《NFV LLD文档》，作为后续操作的输入。
+
+#### 1.1 **计算资源**：承载虚拟机的主机（服务器）、主机组、虚拟机名称、虚拟机个数、容器名称、容器个数。
+
+#### 1.2 **存储资源**：承载本服务的磁盘空间。
+
+#### 1.3 **网络资源**：承载虚拟机的网络。承载容器的网络。承载业务的物理网口、业务网络。例如虚拟机的Base网络、容器Base网络、外联口网络、外联口Subport。
+
+### 2 参考《UDG边缘侧扩缩容指导书（扩容机框）》，基于《NFV LLD文档》，完成机框扩容、媒体中继主机扩容，并完成VNF扩容前改造。
+
+### 参考《UDG边缘侧扩缩容指导书（扩容机框）》指导书中，章节“**1.1 使用场景** > **表1 针对媒体中继服务上线扩容机框、主机，请按顺序执行如下章节**”，执行对应章节操作。媒体中继主机扩容时，媒体中继主机的磁盘规划，参考《NFV LLD文档》。需要新创建卷组“fsp\_RelayVG”。示例如下：
+
+### VNF扩容前改造操作：
+
+#### 2.1 NP卡场景：需要参考“配置NP级联接口”章节，完成对应MML命令配置，使两个机框之间的级联接口生效。
+
+#### 2.2 标卡场景：需要参考“配置NP与DC-GW互联口”章节，完成对应MML命令配置，使NP与DC-GW互联口生效。
+
+#### 注意：VNF扩容前改造操作，如果配置不完整或不正确，会导致主机间通信异常，导致后续扩容虚机、Pod失败，请务必按照操作指导正确配置。
+
+### 3 检查**软件包**，确保已经上传依赖的软件包。登录MAE-VNF LCM/U2020 VNF LCM，单击“包管理 > VNFD > 单击VNFD模板，查看VNFD模板详情 > 依赖的服务镜像”。
+
+#### 3.1 若“UDG-Relay\_xx.x.x\_Docker\_ARM.zip、UDG-Relay\_xx.x.x\_PLUGIN\_RelayTrace\_ARM.zip。”（带补丁安装需要检查：UDG-Relay\_xx.x.x.x\_Docker\_ARM.zip、UDG-Relay\_xx.x.x.x\_Docker\_PATCH\_ARM.zip以及UDG-Trace\_xx.x.x.x\_PLUGIN\_RelayTrace\_ARM三个软件包）的状态为“已经存在”，说明已经上传软件包，则跳过4.上传服务镜像文件。，执行后续步骤。
+
+### 4 **上传服务镜像文件**。
+
+### 如果执行LST ME命令查询的架构模式为X86，且LCM上提示ARM的包为必选时，可以忽略“是否必需上传”的提示，无需上传ARM后缀的依赖的服务镜像。
+
+#### 4.1 在“依赖的服务镜像”区域，单击“上传”，弹出“上传服务镜像”窗口。
+
+#### 4.2 在“单包”页面，单击“选择文件”，选择依赖的服务镜像包和对应的cms文件。
+
+#### 4.3 单击“完成”。
+
+#### 4.4 上传完成后，“状态”均显示为“已经存在”。上传时长依赖于现场网络情况。
+
+#### 上传镜像后需要同步镜像包到边缘站点。
+
+#### 4.5 在“VNFD”窗口中，**选择已导入的VNFD**。
+
+#### 4.6 单击图标。
+
+#### 4.7 在“边缘站点列表”区域中选择目标站点。
+
+#### 4.8 单击“确定”。
+
+#### **图1** 同步文件到边缘站点
+
+### 5 更新VNFD媒体中继服务相关input参数：
+
+#### 5.1 选择“VNF生命周期管理>VNF总览”。在“VNF总览”页面单击待操作网元行“操作”列的  图标，手动更新VNFD。
+
+#### 可通过关键字搜索待操作VNF的名称，筛选出待操作网元行；或直接查找到待操作网元行。
+
+#### 5.2 在更新VNFD界面，选择网元的VNFD以及VNFD计划。“VNFD”与“正在使用的VNFD”保持一致。“VNFD计划”与“正在使用的VNFD计划”保持一致。
+
+#### 5.3 在“公共参数”区域修改以下几个参数取值，再单击“确定”。
+
+##### 5.3.1 配置RELAY服务的独立业务主机组：配置**Cluster\_Relay\_Id**，参考“NFV LLD文档 > **计算资源设计** > DC配置规划 > Host Aggregate名称”。
+
+##### 5.3.2 配置PBU\_P-N\_C4N1\_ARM虚机指定NUMA1部署：配置**NUMA\_ID\_PBU\_P-N\_C4N1\_ARM**值，指定为1。
+
+#### 5.4 在弹出的“VNFD参数变更”提示框中，单击“确认”。
+
+#### 5.5 更新VNFD、扩容VM等操作，需要进行二次鉴权，请输入对应的用户名和密码后，点击“确认”继续操作。
+
+#### 5.6 VNFD更新完成之后，可以通过如下方式查询VNFD是否更新成功：
+
+##### 5.6.1 在LCM的“VNF总览”页面选择执行过VNFD更新的VNF。
+
+##### 5.6.2 点击“事件记录”，可以看到VNFD是否更新成功的日志打印。存在多条VNFD更新记录时，请基于操作时间查看本次更新VNFD的日志打印。
+
+### 6 参考《UDG边缘侧扩缩容指导书（扩容机框）》，完成扩容操作，扩容出计算资源、存储资源、网络资源。
+
+### 首次上线的服务仅需要参考扩容指导书，扩容出对应的VM即可，无需扩容pod。VM与pod的对应关系请参考表1 虚拟机与pod对应关系。
+
+#### 6.1 上线媒体中继服务堆栈前，需要先完成npctrl-pod扩容（仅ARM标卡模版需要，NP卡模版不需要），再完成PBU\_P-N\_C4N1\_ARM虚机扩容、femu-c4n1-pod扩容。
+
+#### 6.2 如在此步骤进行了PBU\_E-R\_ARM的扩容操作，则7-b-iii**不需要勾选**“进行虚拟机扩缩容”。
+
+#### 6.3 如在此步骤不进行PBU\_E-R\_ARM扩容，请在7-b-iii选择进“进行虚拟机扩缩容”。
+
+#### 完成扩容femu-c4n1-pod后，请检查网元是否存在新增告警。如果存在新增告警，请务必按照对应告警指导解决后再进行后续操作。
+
+#### 如果存在“ALM-100338 Fabric平面状态为Down”的告警，会导致后续上线媒体中继服务失败。请先检查VNF扩容前改造操作中，框间级联口是否正确配置。如果确认配置正确，请联系华为技术支持解决。
+
+### 7 配置堆栈。
+
+#### 7.1 登录MANO（MAE/VNF LCM）业务面客户端。
+
+##### 7.1.1 在浏览器地址栏中输入以下地址后按回车键，弹出MANO（MAE/VNF LCM）客户端界面。
+
+##### **https://MANO（MAE/VNF LCM）业务的IP地址:端口号/**（例如https://10.50.12.104:31943/）
+
+##### 7.1.2 输入用户名和密码。
+
+##### 系统默认的用户名和密码是“admin/Changeme\_123”，如果已修改MANO（MAE/VNF LCM）客户端用户名和密码，请使用新设置的用户名和密码登录。
+
+##### 7.1.3 单击“登录”，进入MANO（MAE/VNF LCM）系统界面。
+
+#### 7.2 配置堆栈。
+
+##### 7.2.1 选择菜单栏“VNF生命周期管理 >扩缩容管理 > 手动扩缩容”，进入“手动扩缩容”窗口。
+
+##### 7.2.2 选择待操作的VNF，单击右侧“操作”列的“堆栈上下线”图标。
+
+##### 7.2.3 在弹出的界面中“操作”选择“上线”，选择对应“模板”后，
+
+###### 7.2.3.1 E9000H ARM标卡机框场景：选择“UDG\_TOSCA\_RELAY\_C58\_BOND\_ARM\_xx.x.x.x.zip”；
+
+###### 7.2.3.2 E9000H ARM NP机框场景：选择“UDG\_TOSCA\_RELAY\_C56\_BOND\_LB\_ACC\_ARM\_xx.x.x.x.zip”；
+
+###### 根据实际规划依次填写RELAY相关参数，RELAY相关参数如下表所示。
+
+###### 7.2.3.3 如果已完成VM扩容，**则不需要勾选**“进行虚拟机扩缩容”。
+
+###### 7.2.3.4 如果未进行过VM扩容，请勾选“进行虚拟机扩缩容”。只扩容PBU\_E-R\_ARM虚拟机。
+
+##### 7.2.4 单击“下一步”后，按实际规划填写与确认参数取值，在弹出的确认界面点击“确认”，自动跳转到“扩缩容任务”界面，可以查看上线堆栈进度。
+
+##### 不在此表中的参数，不建议修改，使用默认值就可以。
+
+##### | 参数名称 | 含义 | 来源 | 取值样例 |
+
+##### | --- | --- | --- | --- |
+
+##### | Language | 语言类型。  枚举类型。 * english：英文版本。 * chinese：中文版本。  说明：  Language参数必须修改为与主网元语言保持一致。 | 本端规划。 | chinese |
+
+##### | Project\_Name | FusionStage上创建的项目名称。  本参数对应FusionStage：资源管理 > 项目管理 > 项目列表。  说明：  本参数仅支持小写取值。  本参数必须小于38个字符。 | 网设工具 > NFV LLD文档 > **计算资源设计** > PaaS Lite资源设计 > 项目(Project/Namespace)。  如果跟LLD规划不一致，以FusionStage上实际的创建项目为准。 | dc1\_upf01 |
+
+##### | Fabric\_MTU | Fabric网络MTU。  MTU值过大，过小都将导致网络传输故障。 | 本端规划。取值与UDG参数Fabric MTU保持一致。  通常采用VNFD模板默认值。仅当局点有特殊规划时，按局点规划配置本参数。 | * E9000H ARM标卡机框场景：1800 * E9000H ARM NP机框场景：9000 |
+
+##### | relayctrl-pod\_instance\_num | 系统初始实例化relayctrl pod的总数。 | 由配置器或网设工具生成pod数量。  * 当使用网设工具生成VNFD时，网设工具会从配置器获取pod数量，然后填写到VNFD中。 * 当采用人工修改VNFD时，需从配置器获取pod数量，手工填入VNFD。 取值与UDG参数 VNF\_Internal\_Comm\_Mode保持一致。 | 参考：表2 |
+
+##### | relay-pod\_instance\_num | 系统初始实例化此类relay pod的总数。 |  | 参考：表2 |
+
+##### | VNF\_TLS\_MODE | 网元内部服务间传输模式。用于控制VNF内ACS（配置）服务和HAFETCD（可靠性）服务之间通信的传输模式。 |  | Prefer\_Performance |
+
+##### | SWR Registry address | 镜像仓库地址。  * IPv4场景下填写镜像仓库IP。 IPv4场景下，本参数对应FusionStage：软件中心 > 软件仓库 > 镜像仓库 > 任选一个镜像 > 版本 > 拉取地址。 * IPv6场景下固定填写镜像仓库域名registry.fusionstage.local。 | 网设工具 > NFV LLD文档 > **I层IP对接设计** > FusionStage > paas-lb01& paas-lb02或PaaSCore-1&PaaSCore-2 > app\_manage\_plane > IP地址。 | IPv4样例：172.16.1.19  IPv6样例：registry.fusionstage.local |
+
+##### 7.2.5 选择菜单栏“VNF生命周期管理 >扩缩容管理 > 手动扩缩容”，进入“扩缩容任务”窗口。在任务列表中找到RELAY任务，查看“进度”及“状态”列，当进度达到100%且状态为“成功”时，RELAY动态上线完成。
+
+##### 7.2.6 如果动态上线失败，请联系华为技术支持解决。
+
+### 8 登录UDG CSP Portal。
+
+### 9 执行命令，查询进程的状态。
+
+### 预期结果：“未就绪进程数”和“故障进程数”均为0。
+

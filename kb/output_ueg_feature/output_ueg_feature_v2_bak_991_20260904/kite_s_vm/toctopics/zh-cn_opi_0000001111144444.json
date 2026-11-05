@@ -1,0 +1,105 @@
+{
+  "feature_name": "配置动态带宽管理规则",
+  "feature_description": "当APP通过Mp1接口/管理面MEPM通过Mm5接口下发动态带宽管理规则，用于管理访问APP的上下行带宽时，需要配置本页面，将动态带宽管理规则激活生效。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001157865041",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001157865041.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001157984283",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001157984283.html",
+        "name": "激活支持APP带宽管理",
+        "parentTopicId": "TOPIC_0000001157865041",
+        "position": "5.4.2.4",
+        "parentPosition": "5.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001111144444",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001111144444.html",
+        "name": "配置动态带宽管理规则",
+        "parentTopicId": "OPI_0000001157984283",
+        "position": "5.4.2.4.1",
+        "parentPosition": "5.4.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

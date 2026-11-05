@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD GWPRESELBYIMSI",
+  "command_name_zh": "增加指定用户优选网关",
+  "command_name_full": "增加指定用户优选网关（ADD GWPRESELBYIMSI）",
+  "command_function": "**适用网元：MME**\n\n该命令用于增加指定用户优选网关记录。\n\n支持4G附着流程默认承载创建时优先使用配置的S-GW主机名作为比较节点查询DNS来选择指定的S-GW，并且优先选择和该S-GW合一的P-GW或拓扑最近的P-GW，优选失败后会忽略配置再次使用原有方式查询DNS选择S-GW和P-GW。\n\n支持2G/3G PDP激活流程优先使用配置的GGSN主机名作为比较节点查询DNS来选择指定的GGSN，优选失败后会忽略配置再次使用原有方式查询DNS选择GGSN。\n\n该命令的使用场景：需要将指定用户引流到特定S-GW/GGSN，可通过本命令根据IMSI优选指定S-GW/GGSN。该命令仅在拨测场景下使用，大网场景下不建议使用。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321016",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_c_interface_management.html",
+        "name": "GTP-C接口管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.9",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002040783148",
+        "topicUrl": "MML/LinkedDoc/unc_n_preferential_gateway_selection.html",
+        "name": "网关优选",
+        "parentTopicId": "TOPIC_0234321016",
+        "position": "2.5.3.9.9",
+        "parentPosition": "2.5.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002076862249",
+        "topicUrl": "MML/LinkedDoc/unc_n_preferred_gateway_for_specified_ues.html",
+        "name": "指定用户优选网关",
+        "parentTopicId": "TOPIC_0000002040783148",
+        "position": "2.5.3.9.9.1",
+        "parentPosition": "2.5.3.9.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002059565706",
+        "topicUrl": "MML/Document/add_gwpreselbyimsi.html",
+        "name": "增加指定用户优选网关（ADD GWPRESELBYIMSI）",
+        "parentTopicId": "TOPIC_0000002076862249",
+        "position": "2.5.3.9.9.1.1",
+        "parentPosition": "2.5.3.9.9.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "ROL CPATCH",
+  "command_name_zh": "回退服务器补丁",
+  "command_name_full": "回退服务器补丁(ROL CPATCH)",
+  "command_function": "**须知** \n\n本命令执行之后，将使相应网元的当前补丁不可用，从而会中断该补丁所涉及的业务，影响整个网元的正常运行，请慎重使用。\n\n该命令用于请求系统对指定的网元执行回退服务器补丁操作，命令成功运行后，OMU侧的服务器补丁回退到更新前的状态（即执行**LOD CPATCH**前的状态）。\n\n本命令的使用场景为：当操作员想使后台的程序或数据恢复到打此服务器补丁前的状态且此服务器补丁己经执行过**LOD CPATCH**时，操作员均可以使用该命令对服务器补丁进行回退操作。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854898",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.2",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855042",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/patch_management.html",
+        "name": "版本补丁管理",
+        "parentTopicId": "CONCEPT_0165854898",
+        "position": "2.2.1.2.8",
+        "parentPosition": "2.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854783_2",
+        "topicUrl": "ueg/csp/MML/Document/rol_cpatch.html",
+        "name": "回退服务器补丁(ROL CPATCH)",
+        "parentTopicId": "CONCEPT_0165855042",
+        "position": "2.2.1.2.8.11",
+        "parentPosition": "2.2.1.2.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

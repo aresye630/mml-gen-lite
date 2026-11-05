@@ -1,0 +1,131 @@
+{
+  "command_name": "MOD CCBS",
+  "command_name_zh": "修改CCBS业务",
+  "command_name_full": "修改CCBS业务(MOD CCBS)",
+  "command_function": "此操作用来为用户签约CCBS业务。\n\n签约CCBS业务的用户，必须已经成功开户，并且未签约CCBS业务。撤销CCBS业务的用户，必须已经成功开户，并且已经签约CCBS业务。\n\nCCBS业务提供后自动激活，不需要单独的激活操作。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802801",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplimentary_service_management.html",
+        "name": "补充业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.9",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803694",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/other_services_management.html",
+        "name": "其他补充业务",
+        "parentTopicId": "MMLREF_0190802801",
+        "position": "4.2.3.9.5",
+        "parentPosition": "4.2.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803164",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ccbs_management.html",
+        "name": "完成遇忙用户呼叫补充业务",
+        "parentTopicId": "MMLREF_0190803694",
+        "position": "4.2.3.9.5.8",
+        "parentPosition": "4.2.3.9.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802649",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_ccbs.html",
+        "name": "修改CCBS业务(MOD CCBS)",
+        "parentTopicId": "MMLREF_0190803164",
+        "position": "4.2.3.9.5.8.1",
+        "parentPosition": "4.2.3.9.5.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "command_name": "DSP ACSPATCHINFO",
+  "command_name_zh": "显示系统当前补丁信息",
+  "command_name_full": "显示系统当前补丁信息（DSP ACSPATCHINFO）",
+  "command_function": "该命令用于显示VNFC系统当前补丁信息，包括补丁包名称、版本号、状态及生效时间。\n\n补丁的加载、激活、删除都会触发补丁状态的变化，通过该命令可及时查询系统当前补丁的状态信息。\n\n本命令只适用于ACS服务，其他微服务请使用DSP PATCHINFO命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767897957_1",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.2",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001768057269_1",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0000001767897957_1",
+        "position": "2.2.3.1.2.2",
+        "parentPosition": "2.2.3.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767897997_1",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_maintenance.html",
+        "name": "系统维护",
+        "parentTopicId": "TOPIC_0000001768057269_1",
+        "position": "2.2.3.1.2.2.3",
+        "parentPosition": "2.2.3.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720417454_1",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_patch_management.html",
+        "name": "补丁管理",
+        "parentTopicId": "TOPIC_0000001767897997_1",
+        "position": "2.2.3.1.2.2.3.5",
+        "parentPosition": "2.2.3.1.2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0205338949_4",
+        "topicUrl": "MML/Document/dsp_acspatchinfo.html",
+        "name": "显示系统当前补丁信息（DSP ACSPATCHINFO）",
+        "parentTopicId": "TOPIC_0000001720417454_1",
+        "position": "2.2.3.1.2.2.3.5.2",
+        "parentPosition": "2.2.3.1.2.2.3.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "SET SECPOLICY",
+  "command_name_zh": "设置系统安全策略",
+  "command_name_full": "设置系统安全策略（SET SECPOLICY）",
+  "command_function": "**须知** \n\n该命令属于高危命令，如果禁用账号锁定功能和密码安全策略，将会带来安全风险。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n本命令用于设置PGW Web LMT和DMS WebUI的安全策略。\n\n当USCDB与业务发放系统均完成硬件数据和基础数据的配置后，需要配置PGW Web LMT和DMS WebUI的安全策略。PGW Web LMT和DMS WebUI的安全策略包括以下两个方面：\n\n- 完善的密码安全措施，通过限制登录次数和返回固定错误消息等方式防止非授权人员进行密码暴力破解、非授权人员非法接入系统和密码遭盗窃。\n- 用户登录PGW Web LMT和DMS WebUI时的安全性检查和配置，用于防止非法用户登录PGW Web LMT和DMS WebUI，保证系统的安全访问。\n\n具有该命令权限的操作员包括：\n\n- ADMINISTRATOR管理员。\n- 通过**ADD OPR**命令添加为ADMINISTRATOR级别的操作员。\n- 通过**ADD CCG**命令添加具有本命令权限的命令组，然后通过**ADD OPR**命令将已具有本命令权限的命令组添加给CUSTOM级别的操作员。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169394",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/system_management.html",
+        "name": "系统管理（MVNO）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169419",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "MMLREF_0173169394",
+        "position": "4.2.2.1",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169397_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/doc/set_secpolicy.html",
+        "name": "设置系统安全策略（SET SECPOLICY）",
+        "parentTopicId": "MMLREF_0173169419",
+        "position": "4.2.2.1.1",
+        "parentPosition": "4.2.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

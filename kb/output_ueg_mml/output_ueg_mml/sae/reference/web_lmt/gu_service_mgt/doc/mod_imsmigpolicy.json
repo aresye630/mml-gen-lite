@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD IMSMIGPOLICY",
+  "command_name_zh": "修改IMS用户割接策略配置",
+  "command_name_full": "修改IMS用户割接策略配置(MOD IMSMIGPOLICY)",
+  "command_function": "该命令用于撤销或修改IMS用户的割接策略信息。IMS用户通过该命令配置的“割接策略ID”与**割接策略模板**关联，UDM根据IMS用户消息中携带的IMS用户标识及IMS用户签约的割接策略判断是否对IMS用户的Diameter消息转发到待割接设备进行处理。\n\n- 当系统对现网IMS用户进行割接操作时，IMS用户签约的割接策略中“是否转发IMS DIAMETER消息”为“TRUE”时，UDM转发IMS用户的Diameter消息到对应的待割接设备处理。\n- 当系统对现网IMS用户进行割接操作时，IMS用户签约的割接策略中“是否转发IMS DIAMETER消息”为“FALSE”时，IMS用户的Diameter消息在UDM本地处理。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803255",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/especial_scenario_command.html",
+        "name": "特殊场景使用命令",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.39",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803292",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/migpolicy.html",
+        "name": "割接策略配置",
+        "parentTopicId": "MMLREF_0190803255",
+        "position": "4.2.3.39.3",
+        "parentPosition": "4.2.3.39",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001227435153",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_imsmigpolicy.html",
+        "name": "修改IMS用户割接策略配置(MOD IMSMIGPOLICY)",
+        "parentTopicId": "CONCEPT_0190803292",
+        "position": "4.2.3.39.3.3",
+        "parentPosition": "4.2.3.39.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

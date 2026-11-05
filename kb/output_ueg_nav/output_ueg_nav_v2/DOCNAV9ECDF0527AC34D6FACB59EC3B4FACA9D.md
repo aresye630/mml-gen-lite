@@ -1,0 +1,924 @@
+# 业务配置
+
+## 目录内容
+
+- 业务配置
+  - 风筝L
+    - MEC 特性指南（风筝L）
+      - GW-C&SMF特性指南
+        - GWFD-024300 系统管理
+          - GWFD-024303 Radius功能
+            - 激活RADIUS功能
+              - 配置到AAA Server的数据（单平面+静态路由+BFD组网）
+              - 配置到AAA Server的数据（IPSec隧道）
+              - 配置业务触发RADIUS功能
+              - 配置RADIUS功能
+              - 配置到AAA Server的数据（双平面+OSPF动态路由+BFD组网 ）
+              - 配置到AAA Server的数据（带外组网GRE VPN）
+              - 配置到AAA Server的数据（带内组网GRE VPN）
+            - 调整AAA鉴权参数
+              - 修改AAA鉴权的密钥
+              - 修改AAA鉴权的可选鉴权消息属性
+              - 配置AAA鉴权的3GPP扩展属性
+              - 修改RADIUS鉴权消息的超时重发数据
+            - 调整AAA计费参数
+              - 修改AAA计费的可选计费消息属性
+              - 修改AAA计费的密钥
+              - 修改RADIUS计费消息的超时重发数据
+              - 修改AAA计费的3GPP扩展属性
+            - 修改AAA Server地址
+          - GWFD-024302 Radius鉴权接入
+            - 激活Radius鉴权接入
+          - GWFD-024304 支持Radius功能抄送功能
+            - 激活支持RADIUS抄送功能
+          - GWFD-024305 AAA负荷分担
+            - 激活AAA负荷分担
+          - GWFD-024301 基于原因值的UE行为调整（适用于SMF）
+            - 激活基于原因值的UE行为调整（SMF）
+        - GWFD-025400 VoLTE基本功能
+          - GWFD-025403 VoLTE紧急呼叫
+            - 激活VoLTE紧急呼叫（适用于SGW-C/PGW-C）
+            - 激活VoLTE紧急呼叫（适用于MME）
+          - GWFD-025401 VoLTE基础语音业务
+            - 激活VoLTE基础语音业务（适用于MME）
+            - 激活VoLTE基础语音业务（适用于SGW-C/PGW-C）
+            - 配置与P-CSCF的对接数据（适用于SGW-C/PGW-C）
+          - GWFD-025402 基于VoLTE的优先语音服务
+            - 激活基于VoLTE的优先语音服务（适用于MME）
+            - 激活基于VoLTE的优先语音服务（适用于SGW-C/PGW-C）
+        - GWFD-020800 基本业务
+          - GWFD-020802 路径管理
+            - 激活路径管理（适用于SGW-C/PGW-C/SMF）
+            - 激活路径管理（适用于SGSN/MME/AMF）
+            - 激活路径管理（适用于SGSN/MME/AMF）
+          - GWFD-020807 静态地址用户路由冗余
+            - 激活静态地址用户路由冗余
+          - GWFD-020804 地址分配方式
+            - 配置静态IP地址网段与UPF的绑定
+            - 配置静态地址黑名单
+          - GWFD-020809 支持多PDN/PDU功能
+            - 激活支持多PDN功能（适用于4G）
+        - GWFD-022900 IPV6基本功能
+          - GWFD-022906 IPv6 Prefix Delegation
+            - 激活IPv6前缀代理
+          - GWFD-022903 IPv4v6双栈接入
+            - IPv4v6双栈接入（2G/3G/4G）
+              - 激活IPv4v6双栈接入特性（适用于SGSN/MME）
+              - 激活IPv4v6双栈接入特性（适用于PGW-C）
+            - IPv4v6双栈接入（5G）
+              - 激活IPv4v6双栈接入特性
+          - GWFD-022901 IPv6承载上下文
+            - GWFD-022901WSFD-104001 IPv6承载上下文（MME、SGW-C/PGW-C）
+              - 激活IPv6承载上下文特性（适用于MME）
+              - 激活IPv6承载上下文特性（适用于PGW-C）
+            - GWFD-022901 IPv6承载上下文（AMF/SMF）
+              - 激活IPv6承载上下文特性（AMF/SMF）
+        - GWFD-023000 组网接口能力
+          - GWFD-023002 L2TP VPN
+            - GWFD-023002 L2TP VPN特性概述
+              - 激活L2TP VPN
+        - GWFD-021200 QoS与流量管理
+          - GWFD-021201 QoS与流量管理
+            - 激活QoS与流量管理（适用于MME）
+            - 激活QoS与流量管理（适用于PGW-C）
+            - 激活QoS与流量管理（适用于SMF）
+            - 配置QoS与流量管理
+        - GWFD-021400 可靠性功能
+          - GWFD-021401 系统过载控制功能
+            - 激活系统过载控制功能（适用于AMF）
+            - 激活系统过载控制功能（适用于SGSN、MME）
+            - 系统过载控制功能（适用于SPGW-C）
+              - 激活系统过载控制功能（适用于SPGW-C）
+            - 系统过载控制功能（适用于SMF）
+              - 激活系统过载控制功能（适用于SMF）
+          - GWFD-021404 周边网元过载保护
+            - N2接口固定速率流控功能
+              - 激活N2接口固定速率流控功能
+            - 统一HTR流控功能
+              - 激活统一HTR流控功能
+            - 服务化接口固定速率流控功能
+              - 激活服务化接口发送消息固定速率流控功能
+            - S6a/S6d接口固定速率流控功能
+              - 激活S6a/S6d接口固定速率流控功能
+            - SMF支持DDN流控
+              - 激活SMF支持DDN流控功能
+        - GWFD-025700 5G网络语音业务
+          - GWFD-025702 EPS Fallback
+            - 激活EPS Fallback
+          - GWFD-025703 基于VoNR的优先语音服务
+            - 激活基于VoNR的优先语音服务
+          - GWFD-025701 VoNR基础语音业务
+            - 激活VoNR基础语音业务
+        - GWFD-021300 接口功能
+          - GWFD-021313 缺省承载GBR保障
+            - 激活缺省承载GBR保障
+        - GWFD-020900 接入管理
+          - GWFD-020913 支持Null-MSISDN
+            - GWFD-020913 支持Null-MSISDN
+              - 激活支持Null-MSISDN（适用于MME）
+              - 激活支持Null-MSISDN（适用SMF/SGW-C/PGW-C）
+        - GWFD-022300 智能QoS管理增强
+          - GWFD-022301 会话类QoS保证
+            - 激活会话类QoS保证（适用于SGW-C/PGW-C）
+            - 激活会话类QoS保证（PGW-U）
+          - GWFD-022303 本地QOS控制
+            - 激活本地QOS控制（适用于SGW-C/PGW-C）
+            - 激活本地QOS控制（SMF）
+        - GWFD-021500 数据安全管理
+          - GWFD-021507 SBI接口加密
+            - 激活SBI接口加密特性(CERT)
+            - 激活SBI接口加密特性(PSK)
+          - GWFD-021501 个人隐私数据保护
+            - 激活个人隐私数据保护特性
+        - GWFD-030500 边缘安全防护
+          - GWFD-030502 IPSec
+            - 特性配置
+              - 激活IPsec功能（指定本端接口建立IPsec隧道）
+              - 上传IPsec证书
+              - 上传国密IPsec证书
+              - 激活IPsec功能（IPv4 IPsec主备隧道）
+              - 激活IPsec功能（多Sequence的IPsec策略）
+              - 激活国密IPsec支持IKEv1功能（普通IPv4 IPsec隧道）
+              - 激活国密IPsec支持IKEv1功能（指定本端接口建立IPsec隧道）
+              - 激活国密IPsec支持IKEv1功能（多Sequence的IPsec策略）
+              - 激活国密IPsec支持IKEv1功能（GRE over IPsec）
+              - 激活国密IPsec支持IKEv1功能（普通IPv6 IPsec隧道）
+              - 激活IPsec功能（普通IPv6 IPsec隧道）
+              - 激活IPsec功能（GRE over IPsec）
+              - 激活IPsec功能（普通IPv4 IPsec隧道）
+          - GWFD-030501 终端二次鉴权
+            - 激活终端二次鉴权
+        - GWFD-023200  超高带宽业务质量保障
+          - GWFD-023203 CHR功能
+            - 激活CHR功能
+            - 激活CHR功能
+        - GWFD-021100 移动性管理
+          - GWFD-021103 支持SA国际漫游接入
+            - 激活支持SA国际漫游接入
+        - GWFD-025500 VoLTE业务快速恢复
+          - GWFD-025501 P-CSCF故障时IMS业务恢复
+            - 激活P-CSCF故障时IMS业务恢复
+        - GWFD-025600 Push to Talk
+          - GWFD-025602 LTE一键通（适用于PGW-C/SGW-C）
+            - 激活LTE一键通（适用于PGW-C/SGW-C）
+          - GWFD-025601 LTE一键通基础功能（适用于PGW-C/SGW-C）
+            - 激活GWFD-025601 LTE一键通基础功能（适用于PGW-C/SGW-C）
+        - GWFD-026002 支持4G到5G多切片时的重选
+          - 激活支持4G到5G多切片时的重选
+          - 激活支持4G到5G多切片时的重选
+        - GWFD-026100 NB-IoT基本功能
+          - GWFD-026101 NB-IoT终端标准接入（适用于S/PGW-C）
+            - 激活NB-IoT终端标准接入（适用于S/PGW-C）
+        - GWFD-023100  组网能力增强
+          - GWFD-023102 支持多HPLMN功能
+            - 激活支持多HPLMN功能（适用于SGW-C/PGW-C/SMF）
+        - GWFD-022700 智能带宽管理
+          - GWFD-022701 基于业务感知的带宽控制
+            - 激活基于业务感知的带宽控制
+        - GWFD-031101 支持层二QoS
+          - 激活层二QoS
+        - GWFD-030700 5G LAN基本功能
+          - 配置5G LAN业务基本功能
+        - GWFD-024100 业务管理
+          - GWFD-024101 支持Routing Behind MS
+            - 激活支持Routing Behind MS
+            - 激活支持Routing Behind MS
+      - MME特性指南
+        - GWFD-020900 接入管理
+          - GWFD-020912 DECOR功能
+            - WSFD-208003 Pool内Decor
+              - 激活Pool内Decor
+            - DECOR功能
+              - 激活DECOR功能
+          - GWFD-020905 请求信息纠正功能（适用于SGSN、MME）
+            - 激活请求信息纠正功能
+          - GWFD-020909 LTE UE信令控制
+            - 激活LTE UE信令控制
+            - Parking APNNI相关操作
+        - GWFD-021500 数据安全管理
+          - GWFD-021505 NAS信令加密与完整性保护
+            - 激活NAS信令加密与完整性保护（适用于4G）
+          - GWFD-021504 用户身份保密性功能
+            - 激活用户身份保密性功能（适用于4G）
+          - GWFD-021510 基于用户群的灵活鉴权
+            - 激活基于用户群的灵活鉴权
+          - GWFD-021503 鉴权功能
+            - 激活鉴权功能（适用于4G）
+        - GWFD-025800 UDM语音基本功能
+          - GWFD-025807 基于HSS的P-CSCF故障恢复
+            - 激活基于HSS的P-CSCF故障恢复
+        - GWFD-024300 系统管理
+          - GWFD-024301 基于原因值的UE行为调整（适用于MME）
+            - 激活基于原因值的UE行为调整
+        - GWFD-021400 可靠性功能
+          - GWFD-021409 HSS全故障业务保活
+            - 激活HSS全故障业务保活特性
+        - GWFD-025500 VoLTE业务快速恢复
+          - GWFD-025503 S-GW/P-GW故障下的业务恢复
+            - 激活S-GW/P-GW故障下的业务恢复
+        - GWFD-026100 NB-IoT基本功能
+          - GWFD-026102 支持M2M长周期性定时器
+            - 激活支持M2M长周期性定时器
+          - GWFD-026101 NB-IoT终端标准接入（适用于MME）
+            - 激活NB-IoT终端标准接入（适用于MME）
+        - GWFD-025600 Push to Talk
+          - GWFD-025602 LTE一键通（适用于MME）
+            - 激活LTE一键通（适用于MME）
+          - GWFD-025601 LTE一键通基础功能（适用于MME）
+            - 激活LTE一键通基础功能（适用于MME）
+        - GWFD-023100  组网能力增强
+          - GWFD-023102 支持多HPLMN功能
+            - 激活支持多HPLMN功能（适用于SGSN/MME）
+        - GWFD-023104 eNodeB SON信息传送功能
+          - 激活信息传送功能
+            - 激活 EN-DC SON信息传送功能
+        - GWFD-025200 5G NSA功能
+          - GWFD-025203 支持基于终端能力接入管理
+            - 激活支持基于终端能力接入管理
+          - GWFD-025202 NSA(Opt.3)双连接管理
+            - 激活NSA(Opt.3)双连接管理
+        - GWFD-024400  MVNO基本功能
+          - GWFD-024402 基于LTE的网络共享（MOCN）
+            - 激活基于LTE的网络共享（MOCN）
+      - AMF特性指南
+        - GWFD-024200 POOL-5G
+          - GWFD-024201 AMF Pool
+            - 激活AMF Pool特性
+        - GWFD-021100 移动性管理
+          - GWFD-021102 漫游控制
+            - 激活漫游控制特性(适用于SGSN/MME)
+            - 激活漫游控制特性(适用于AMF)
+          - GWFD-020914 基站重定向
+            - 激活基站重定向
+        - GWFD-021500 数据安全管理
+          - GWFD-021503 鉴权功能
+            - 激活鉴权功能（适用于5G）
+          - GWFD-021505 NAS信令加密与完整性保护
+            - 激活NAS信令加密与完整性保护（适用于5G）
+          - GWFD-021504 用户身份保密性功能
+            - 激活用户身份保密性功能（适用于5G）
+        - GWFD-024400  MVNO基本功能
+          - GWFD-024401 基于5G的网络共享（MOCN）
+            - 激活基于5G的网络共享（MOCN）
+        - GWFD-020900 接入管理
+          - GWFD-020905 请求信息纠正功能（适用于AMF、SMF）
+            - 激活请求信息纠正功能
+          - GWFD-020908 5G UE信令控制
+            - 激活5G UE信令控制
+        - GWFD-024300 系统管理
+          - GWFD-024301 基于原因值的UE行为调整（适用于AMF）
+            - 激活基于原因值的UE行为调整（AMF）
+        - GWFD-021400 可靠性功能
+          - GWFD-021408 UDM全故障业务保活
+            - 激活UDM全故障业务保活特性
+        - GWFD-026001 支持网络切片模式下发
+          - 激活支持网络切片模式下发
+        - GWFD-023000 组网接口能力
+          - GWFD-023003 IP地址精简
+            - 激活IP地址精简
+        - GWFD-023100  组网能力增强
+          - GWFD-023102 支持多HPLMN功能
+            - 激活支持多HPLMN功能（适用于AMF）
+      - GW-U&UPF特性指南
+        - GWFD-021700 容灾功能
+          - GWFD-021702 用户面会话过载控制
+            - 配置用户面会话过载控制
+        - GWFD-020800 基本业务
+          - GWFD-020807 静态地址用户路由冗余
+            - 激活静态地址用户路由冗余
+          - GWFD-020802 路径管理
+            - 配置GTP/PFCP路径管理参数
+            - 配置GTP路径管理黑白名单
+            - 修改Echo消息的重发数据
+          - GWFD-020805 用户面地址分配
+            - 激活用户面地址分配
+              - 基于SMF+APN/DNN分配地址
+              - 基于SMF分配地址
+              - 基于RADIUS下发地址池名称分配地址
+              - 基于APN/DNN分配地址
+          - GWFD-020804 地址分配方式
+            - 激活地址分配方式
+          - GWFD-020808 用户面地址自动检测
+            - 激活用户面地址自动检测
+        - GWFD-023000 组网接口能力
+          - GWFD-023002 L2TP VPN
+            - 激活L2TP VPN
+              - 本地配置方式激活L2TP VPN
+              - AAA下发L2TP属性方式激活L2TP VPN
+        - GWFD-030700 5G LAN基本功能
+          - 可选功能
+            - 漫游场景5G LAN终端互访控制
+              - 漫游场景5G LAN终端互访控制配置
+            - GWFD-030703 支持IGMP Snooping
+              - 激活IGMP Snooping
+            - GWFD-030707 支持5G LAN终端互访
+              - 配置N19接口
+            - GWFD-030705 支持层二静态组播
+              - 配置层二静态组播功能
+            - GWFD-031103 支持FRER双发选收
+              - 配置FRER双发选收
+            - 5G LAN用户本地签约配置（风筝L）
+              - 本地调整用户所属的5G LAN组
+                - 本地调整用户所属的5G LAN组（通过WebPortal）
+                - 本地调整用户所属的5G LAN组（通过MML）
+              - 查询5G LAN用户是否已在UDM上完成5G LAN组签约
+              - 开启5G LAN用户本地签约功能开关
+            - GWFD-031104 5G LAN层二环路消除
+              - 配置5G LAN层二环路消除
+          - 基本功能
+            - 配置5G LAN基本功能
+        - GWFD-031102 确定性时延转发
+          - GWFD-031102 确定性时延转发
+            - 确定性时延转发特性激活
+        - GWFD-030600 网关能力增强
+          - GWFD-030601 GRE跨域转发
+            - 激活GRE跨域转发（OSPFv2）
+            - 激活GRE跨域转发（OSPFv3）
+        - GWFD-023500 支持APP集成管理（适用于虚机场景）
+          - GWFD-023502 支持能力开放框架
+            - GWFD-023502 支持能力开放框架（适用于PGW-U/UPF）
+              - 激活支持能力开放框架
+          - GWFD-023504 支持APP认证鉴权
+            - GWFD-023504 支持APP认证鉴权（UPF）
+              - 激活支持APP认证鉴权
+        - GWFD-022300 智能QoS管理增强
+          - GWFD-022307 业务触发的QoS保证
+            - 激活业务触发的QoS保证
+              - 激活业务触发的QoS保证（PGW-C、SMF）
+              - 配置七层业务触发的QOS保证（PGW-U、UPF）
+              - 配置三四层业务触发的QoS保证（PGW-U、UPF）
+        - 支持专用DNN/APN园区终端互访控制
+          - 激活支持专用DNN/APN园区终端互访控制
+        - GWFD-021200 QoS与流量管理
+          - GWFD-021202 支持Reflective QoS
+            - 激活支持Reflective QoS
+        - GWFD-026100 NB-IoT基本功能
+          - GWFD-026101 NB-IoT终端标准接入
+            - 激活NB-IoT终端标准接入
+        - GWFD-025700 5G网络语音业务
+          - GWFD-025701 VoNR基础语音业务
+            - 激活VoNR基础语音业务
+          - GWFD-025702 EPS Fallback
+            - 激活EPS Fallback
+        - GWFD-021400 可靠性功能
+          - GWFD-021401 系统过载控制
+            - 配置系统过载特性
+          - GWFD-021403 防DDoS功能
+            - 调整DDoS Check数据
+              - 修改DDoS流控阈值
+              - 修改DDoS Check是否使能
+            - 激活防DDoS功能
+        - GWFD-022900 IPV6基本功能
+          - GWFD-022901 IPv6承载上下文
+            - 激活IPv6承载上下文
+          - GWFD-022906 IPv6 Prefix Delegation
+            - 激活外部网元地址分配的IPv6 Prefix Delegation功能
+            - 激活本地地址池分配的IPv6 Prefix Delegation功能
+              - 基于SMF分配地址
+              - 基于SMF+APN/DNN分配地址
+              - 基于位置分配地址
+              - 基于APN/DNN分配地址
+          - GWFD-022902 N6/Gi/SGi接口IPv6组网
+            - 激活N6/Gi/SGi接口IPv6组网
+          - GWFD-022903 IPv4v6双栈接入
+            - 激活IPv4v6双栈接入
+        - GWFD-025400 VoLTE基本功能
+          - GWFD-025401 VoLTE基础语音业务
+            - 配置VoLTE基础语音业务
+        - GWFD-021600 分布式网络
+          - GWFD-021604 用户面负载信息上报
+            - 激活用户面负载信息上报
+        - GWFD-022700 智能带宽管理
+          - GWFD-022701 基于业务感知的带宽控制
+            - 激活基于业务感知的带宽控制
+              - 针对HTTP应用基于用户的带宽控制
+              - 基于用户TOS的带宽控制
+              - 基于PCC预定义规则的带宽控制
+              - 基于时间段的带宽控制
+              - 基于用户组TOS的带宽控制
+              - 基于用户/用户组/整机三级的带宽控制
+              - 基于用户组的分级带宽管理控制
+        - GWFD-023100  组网能力增强
+          - GWFD-023101 基于位置的地址分配
+            - 激活基于位置的地址分配
+              - 基于位置分配地址
+              - 基于APN/DNN+位置分配地址
+        - GWFD-025500 VoLTE业务快速恢复
+          - GWFD-025501 P-CSCF故障时IMS业务恢复
+            - 激活P-CSCF故障时IMS业务恢复
+        - GWFD-020900 接入管理
+          - GWFD-020901 接入控制
+            - 激活接入控制
+      - UEG公共特性指南
+        - IP基本特性
+          - IPFD-020400 IP可靠性
+            - IPFD-020401 QoS
+              - 特性配置
+                - 简单流分类配置（VNRS_VNFC）
+                  - 激活DSCP到VLAN优先级的映射（VNRS_VNFC）
+                  - 去激活QoS简单流分类（VNRS_VNFC）
+                  - 激活QoS简单流分类特性（VNRS_VNFC）
+                  - 去激活DSCP到VLAN优先级的映射（VNRS_VNFC）
+                - 复杂流分类配置（VNRS_VNFC）
+                  - 去激活QoS复杂流分类功能（VNRS_VNFC）
+                  - 删除VPN组（VNRS_VNFC）
+                  - 创建VPN组（VNRS_VNFC）
+                  - 激活QoS复杂流分类功能（VNRS_VNFC）
+            - IPFD-020402 ACL
+              - 特性配置
+                - 去激活支持ACL
+                - 激活支持ACL
+                - 去激活支持ACL6
+                - 激活支持ACL6
+          - IPFD-020600 VPN 功能
+            - IPFD-020602 GRE
+              - 特性配置
+                - 激活支持GRE
+                - 去激活支持GRE
+        - ServiceFabric特性（裸机容器）
+          - Service Fabric可靠性
+            - SFFD-010030 分布式集群防脑裂
+              - 激活业务节点故障状态管理增强功能
+            - SFFD-010008 通信亚健康自愈
+              - Fabric平面亚健康检测
+              - Pod间Base平面亚健康检测
+        - 网络OM增强
+          - GWFD-023801 端到端用户跟踪
+            - 激活端到端用户跟踪
+              - 激活端到端用户跟踪（4G）
+              - 激活端到端用户跟踪（5G）
+            - 激活端到端用户跟踪
+        - RedCap基本功能
+          - GWFD-026202 5G eDRX模式
+            - 激活5G eDRX模式
+              - 激活5G eDRX模式（AMF）
+                - 激活5G eDRX模式（AMF优先使用UE请求值）
+                - 激活5G eDRX模式（AMF优先使用UDM签约数据）
+              - 激活5G eDRX模式（UDM）
+              - 激活5G eDRX模式（SMF）
+              - 激活5G eDRX模式（UPF）
+          - GWFD-026201 RedCap终端标准接入
+            - 激活RedCap接入
+              - 激活RedCap接入（AMF和SMF，周边网元全升级场景）
+              - 激活RedCap接入（AMF和SMF，周边部分网元未升级场景）
+        - 公共平台基本特性
+          - NPFD-020100 操作维护功能
+            - NPFD-020113 支持NTP功能（虚机容器）
+              - 激活支持NTP功能
+      - HSS&UDM特性指南
+        - GWFD-020900 接入管理
+          - GWFD-020911 区域漫游限制
+            - GWFD-020911 区域漫游限制（适用于MME/HSS）
+              - 激活区域漫游限制特性（适用于SGSN/MME）
+            - GWFD-020911 区域漫游限制（适用于AMF/UDM）
+              - 激活区域漫游限制特性（适用于AMF）
+        - GWFD-024600 UDM FE基本功能
+          - GWFD-024604 本地用户数据同步
+            - 激活本地用户数据同步功能
+        - GWFD-025800 UDM语音基本功能
+          - GWFD-025807 基于UDM的P-CSCF故障恢复
+            - 配置基于UDM的P-CSCF故障恢复特性
+          - GWFD-025808 5G用户位置和状态查询
+            - 配置5G用户位置和状态查询特性
+          - GWFD-025809 5G UE可达性订阅和通知
+            - 配置5G UE可达性订阅和通知特性
+          - GWFD-025804 支持CSCF数据备份功能
+            - 支持P-CSCF恢复机制
+              - 特性配置
+                - 配置支持P-CSCF恢复机制
+          - GWFD-025805 支持VoLTE
+            - 特性配置
+              - 配置VoLTE用户修改为2/3/4G用户
+              - VoLTE用户补卡
+              - VoLTE用户改号
+        - GWFD-024700 AUSF基本功能
+          - GWFD-024702 EAP-AKA'鉴权
+            - 配置EAP-AKA'鉴权特性
+          - GWFD-024701 5G-AKA鉴权
+            - 配置5G-AKA鉴权特性
+      - PCRF&PCF特性指南
+        - GWFD-022200 智能策略控制基本功能
+          - GWFD-022201 PCC基本功能
+            - 配置AM策略和UE策略
+            - 激活PCC基本功能（动态PCC）
+              - 配置动态PCC功能（SMF）
+              - 部署UPF
+            - 激活PCC基本功能（本地PCC）
+              - 配置本地PCC功能（SMF）
+              - 部署UPF
+            - 激活PCC基本功能（本地PCC）
+              - 配置本地PCC功能（SMF）
+              - 部署UPF
+        - GWFD-025500 VoLTE业务快速恢复
+          - GWFD-025502 基于PCRF/PCF的VoLTE业务快速恢复
+            - 激活基于PCRF/PCF的VoLTE业务快速恢复
+        - PCF语音基本功能
+          - GWFD-025904 Rx接口（使用Diameter协议）EPS Fallback策略控制
+            - GWFD-025904 Rx接口（使用Diameter协议）EPS Fallback策略控制特性配置
+              - 配置EPS Fallback基本呼叫
+              - 配置EPS Fallback基本呼叫与紧急呼叫
+          - GWFD-025903 Rx接口(使用Diameter协议)VoNR策略控制
+            - GWFD-025903 Rx接口(使用Diameter协议)VoNR策略控制特性配置
+              - 配置VoNR基本呼叫与紧急呼叫
+              - 配置VoNR基本呼叫
+          - GWFD-025901 Rx接口(使用Diameter协议)策略控制
+            - GWFD-025901 Rx接口(使用Diameter协议)策略控制特性配置
+              - 配置VoNR基本呼叫与紧急呼叫
+              - 配置EPS Fallback基本呼叫
+              - 配置VoNR基本呼叫
+              - 配置EPS Fallback基本呼叫与紧急呼叫
+    - UEG容灾方案介绍（风筝L）
+      - 1+1主备容灾原理
+        - 1+1主备容灾部署与调测
+          - 1+1主备容灾模式
+            - 配置USCDB和USCDB对接数据
+            - 去使能容灾模式（1+1主备）
+            - 配置命令触发的主备倒换
+            - 配置容灾模式（1+1主备）
+            - 配置容灾参数
+          - 修改主用UEG上USCDB与UDM/PCF对接的IP地址
+          - 配置UEG间容灾对接路由数据
+      - 热备容灾
+        - 热备容灾部署与调测
+          - 使能热备容灾功能
+          - 去使能热备容灾功能
+      - 负荷分担容灾原理
+        - 容灾部署与调测
+          - 负荷分担容灾模式
+            - 配置容灾参数
+            - 配置故障恢复后的用户迁移
+              - 配置5G业务故障恢复后的用户迁移
+              - 配置4G业务故障恢复后的用户迁移
+            - 配置容灾模式（负荷分担）
+            - 去使能容灾模式（负荷分担）
+            - 配置USCDB和USCDB对接数据
+    - UEG UDM用户管理（风筝L）
+      - 用户数据配置（EPS网络）
+        - SAE-HSS用户数据配置
+          - 配置SAE-HSS全局数据
+          - EPS用户开户
+          - 配置SAE-HSS模板数据
+        - NB-IoT用户数据配置
+          - NB-IoT用户开户
+          - 配置NB-IoT全局数据
+          - 配置NB-IoT模板数据
+  - 风筝S
+    - MEC 特性指南（风筝S）
+      - UEG特性指南
+        - 可靠性功能
+          - GWFD-021702 用户面会话过载控制
+            - 配置用户面会话过载控制
+          - 支持APN锁定状态上报SMF
+            - 配置APN锁定状态上报SMF
+          - GWFD-021407 快速业务恢复
+            - 激活快速业务恢复特性
+          - GWFD-021401 系统过载控制
+            - 配置系统过载特性
+        - 基本接入功能
+          - GWFD-020807 静态地址用户路由冗余
+            - 激活静态地址用户路由冗余
+          - GWFD-020903 Untrusted Non-3GPP网络用户接入
+            - 激活Untrusted Non-3GPP网络用户接入功能
+              - 配置PGW-U到Untrusted Non-3GPP GW的数据（VPN+OSPF动态路由组网）（虚机容器）
+              - 配置PGW-U到Untrusted Non-3GPP GW的数据（VPN缺省路由组网）
+              - 配置PGW-U到Untrusted Non-3GPP GW的数据（OSPFv3动态路由+IPv6 BFD组网）（虚机容器）
+              - 配置PGW-U到Untrusted Non-3GPP GW的数据（静态路由+BFD组网）
+          - GWFD-024101 支持Routing Behind MS
+            - 激活支持Routing Behind MS
+          - GWFD-020802 路径管理
+            - 配置GTP/PFCP路径管理参数
+            - 配置GTP路径管理黑白名单
+            - 修改Echo消息的重发数据
+          - GWFD-020805 用户面地址分配
+            - 激活用户面地址分配
+              - 基于SMF+APN/DNN分配地址
+              - 基于SMF分配地址
+              - 基于RADIUS下发地址池名称分配地址
+              - 基于APN/DNN分配地址
+          - GWFD-023101 基于位置的地址分配
+            - 激活基于位置的地址分配
+              - 基于位置分配地址
+              - 基于APN/DNN+位置分配地址
+          - GWFD-020804 地址分配方式
+            - 激活地址分配方式
+          - GWFD-020808 用户面地址自动检测
+            - 激活用户面地址自动检测
+          - GWFD-020901 接入控制
+            - 激活接入控制
+        - 组网功能
+          - GWFD-023002 L2TP VPN
+            - 激活L2TP VPN
+              - 本地配置方式激活L2TP VPN
+              - AAA下发L2TP属性方式激活L2TP VPN
+        - Service Fabric特性（裸机）
+          - Service Fabric可靠性
+            - SFFD-010030 分布式集群防脑裂
+              - 激活业务节点故障状态管理增强功能
+            - SFFD-010008 通信亚健康自愈
+              - Fabric平面亚健康检测
+              - Pod间Base平面亚健康检测
+        - 5G LAN基本功能
+          - 可选功能
+            - 漫游场景5G LAN终端互访控制
+              - 漫游场景5G LAN终端互访控制配置
+            - GWFD-030703 支持IGMP Snooping
+              - 激活IGMP Snooping
+            - GWFD-030707 支持5G LAN终端互访
+              - 配置N19接口
+            - GWFD-030705 支持层二静态组播
+              - 配置层二静态组播功能
+            - GWFD-031103 支持FRER双发选收
+              - 配置FRER双发选收
+            - 5G LAN用户本地签约配置（风筝L）
+              - 本地调整用户所属的5G LAN组
+                - 本地调整用户所属的5G LAN组（通过WebPortal）
+                - 本地调整用户所属的5G LAN组（通过MML）
+              - 查询5G LAN用户是否已在UDM上完成5G LAN组签约
+              - 开启5G LAN用户本地签约功能开关
+            - GWFD-031104 5G LAN层二环路消除
+              - 配置5G LAN层二环路消除
+          - 基本功能
+            - 配置5G LAN基本功能
+        - 安全管理功能
+          - GWFD-030502 IPSec
+            - 特性配置
+              - 激活IPsec功能（指定本端接口建立IPsec隧道）
+              - 上传IPsec证书
+              - 上传国密IPsec证书
+              - 激活IPsec功能（IPv4 IPsec主备隧道）
+              - 激活IPsec功能（多Sequence的IPsec策略）
+              - 激活国密IPsec支持IKEv1功能（普通IPv4 IPsec隧道）
+              - 激活国密IPsec支持IKEv1功能（指定本端接口建立IPsec隧道）
+              - 激活国密IPsec支持IKEv1功能（多Sequence的IPsec策略）
+              - 激活国密IPsec支持IKEv1功能（GRE over IPsec）
+              - 激活国密IPsec支持IKEv1功能（普通IPv6 IPsec隧道）
+              - 激活IPsec功能（普通IPv6 IPsec隧道）
+              - 激活IPsec功能（GRE over IPsec）
+              - 激活IPsec功能（普通IPv4 IPsec隧道）
+          - GWFD-030501 终端二次鉴权
+            - 激活终端二次鉴权
+          - GWFD-021403 防DDoS功能
+            - 调整DDoS Check数据
+              - 修改DDoS流控阈值
+              - 修改DDoS Check是否使能
+            - 激活防DDoS功能
+        - 智能运维功能
+          - GWFD-023801 端到端用户跟踪
+            - 激活端到端用户跟踪
+              - 激活端到端用户跟踪（4G）
+              - 激活端到端用户跟踪（5G）
+            - 激活端到端用户跟踪
+        - OT-UPF
+          - GWFD-031102 确定性时延转发
+            - 确定性时延转发特性激活
+        - 网关能力增强
+          - GWFD-030601 GRE跨域转发
+            - 激活GRE跨域转发（OSPFv2）
+            - 激活GRE跨域转发（OSPFv3）
+        - 分布式网络功能
+          - GWFD-021701 CU Full Mesh组网
+            - SMF&UPF容灾方案
+              - 新建部署
+                - 激活CU Full Mesh组网（适用于SMF）
+                  - 激活CU Full Mesh组网（SMF）
+                - 激活CU Full Mesh组网（适用于UPF）
+                  - 激活CU Full Mesh组网（UPF）
+          - GWFD-021604 用户面负载信息上报
+            - 激活用户面负载信息上报
+        - 支持专用DNN/APN园区终端互访控制
+          - 激活支持专用DNN/APN园区终端互访控制
+        - QoS功能
+          - GWFD-021202 支持Reflective QoS
+            - 激活支持Reflective QoS
+          - GWFD-021201 QoS与流量管理
+            - 配置QoS与流量管理
+          - GWFD-022301 会话类QoS保证
+            - 激活会话类QoS保证（PGW-U）
+        - 物联网功能
+          - NB-IoT
+            - GWFD-026101 NB-IoT终端标准接入
+              - 激活NB-IoT终端标准接入
+        - 语音功能
+          - GWFD-025701 VoNR基础语音业务
+            - 激活VoNR基础语音业务
+          - GWFD-025401 VoLTE基础语音业务
+            - 配置VoLTE基础语音业务
+          - GWFD-025702 EPS Fallback
+            - 激活EPS Fallback
+          - GWFD-025501 P-CSCF故障时IMS业务恢复
+            - 激活P-CSCF故障时IMS业务恢复
+        - 智能策略控制功能
+          - GWFD-022307 业务触发的QoS保证
+            - 激活业务触发的QoS保证
+              - 配置三四层业务触发的QoS保证（PGW-U、UPF）
+              - 配置七层业务触发的QOS保证（PGW-U、UPF）
+          - GWFD-022201 PCC基本功能
+            - 激活PCC基本功能
+              - 配置动态PCC功能
+              - 配置本地PCC功能
+          - GWFD-022701 基于业务感知的带宽控制
+            - 激活基于业务感知的带宽控制
+              - 针对HTTP应用基于用户的带宽控制
+              - 基于用户TOS的带宽控制
+              - 基于PCC预定义规则的带宽控制
+              - 基于时间段的带宽控制
+              - 基于用户组TOS的带宽控制
+              - 基于用户/用户组/整机三级的带宽控制
+              - 基于用户组的分级带宽管理控制
+        - 本地分流功能
+          - GWFD-030203 业务访问控制
+            - 配置业务访问控制
+          - GWFD-030202 业务体验保障
+            - 激活业务体验保障
+          - GWFD-030205 通用DNN漫游分流
+            - 激活通用DNN漫游分流
+          - GWFD-023601 基于域名的本地分流
+            - 激活基于域名的本地分流（DNS重定向）
+            - 激活基于域名的本地分流（DNS域名分流）
+          - GWFD-023602 基于IP地址的本地分流
+            - 激活基于IP地址的本地分流
+        - APP集成管理功能（适用于虚机场景）
+          - GWFD-023502 支持能力开放框架
+            - GWFD-023502 支持能力开放框架（适用于MPF）
+              - 激活支持能力开放框架
+            - GWFD-023502 支持能力开放框架（适用于PGW-U/UPF）
+              - 激活支持能力开放框架
+          - GWFD-023504 支持APP认证鉴权
+            - GWFD-023504 支持APP认证鉴权（MPF）
+              - 激活支持APP认证鉴权
+            - GWFD-023504 支持APP认证鉴权（UPF）
+              - 激活支持APP认证鉴权
+          - GWFD-023508 支持轻量化DNS功能
+            - 激活支持轻量化DNS功能
+        - IP基本特性
+          - IPFD-020400 IP可靠性
+            - IPFD-020401 QoS
+              - 特性配置
+                - 简单流分类配置（VNRS_VNFC）
+                  - 激活DSCP到VLAN优先级的映射（VNRS_VNFC）
+                  - 去激活QoS简单流分类（VNRS_VNFC）
+                  - 激活QoS简单流分类特性（VNRS_VNFC）
+                  - 去激活DSCP到VLAN优先级的映射（VNRS_VNFC）
+                - 复杂流分类配置（VNRS_VNFC）
+                  - 去激活QoS复杂流分类功能（VNRS_VNFC）
+                  - 删除VPN组（VNRS_VNFC）
+                  - 创建VPN组（VNRS_VNFC）
+                  - 激活QoS复杂流分类功能（VNRS_VNFC）
+            - IPFD-020402 ACL
+              - 特性配置
+                - 去激活支持ACL
+                - 激活支持ACL
+                - 去激活支持ACL6
+                - 激活支持ACL6
+          - IPFD-020600 VPN功能
+            - IPFD-020602 GRE
+              - 特性配置
+                - 激活支持GRE
+                - 去激活支持GRE
+        - 计费功能
+          - GWFD-022102 内容计费基本功能
+            - 部署UPF
+          - GWFD-022101 在线计费
+            - 配置Gy接口在线计费
+          - GWFD-021002 融合计费
+            - 部署UPF
+          - GWFD-021001 离线计费
+            - 配置Ga接口离线计费
+        - 网管特性
+          - NPFD-020100 操作维护功能
+            - NPFD-020113 支持NTP功能（虚机容器）
+              - 激活支持NTP功能
+        - RedCap基本功能
+          - GWFD-026202 5G eDRX模式
+            - 激活5G eDRX模式（UPF）
+        - IPv6功能
+          - GWFD-022901 IPv6承载上下文
+            - 激活IPv6承载上下文
+          - GWFD-022906 IPv6 Prefix Delegation
+            - 激活外部网元地址分配的IPv6 Prefix Delegation功能
+            - 激活本地地址池分配的IPv6 Prefix Delegation功能
+              - 基于SMF分配地址
+              - 基于SMF+APN/DNN分配地址
+              - 基于位置分配地址
+              - 基于APN/DNN分配地址
+          - GWFD-022902 N6/Gi/SGi接口IPv6组网
+            - 激活N6/Gi/SGi接口IPv6组网
+          - GWFD-022903 IPv4v6双栈接入
+            - 激活IPv4v6双栈接入
+      - UNC特性指南
+        - WSFD-108002 基于预定义规则的分流策略控制
+          - 配置SMF和“UL CL UPF+辅锚点UPF”对接
+          - 激活基于预定义规则的分流策略控制
+        - WSFD-108004 MEC冗余模式故障保护
+          - 配置“主锚点UPF双主负荷分担部署模式”
+          - 配置“ULCL UPF+辅锚点UPF双主负荷分担模式”
+          - 配置“园区内UPF和园区外UPF冗余模式”
+        - WSFD-108005 MEC单点模式故障保护
+          - 激活MEC单点模式故障保护
+    - MEC NAT功能专题（风筝S）
+      - 数据配置与调测
+        - 数据配置
+          - 配置NAT基本功能
+            - 激活NAT-ALG
+            - 激活源地址的NAT64转换
+            - 激活个人应用防护
+            - 激活目的地址的NAT44转换
+            - 激活端口预分配和增量分配
+            - 配置NAT基本功能License开关
+            - 激活源地址的NAT44转换
+          - 配置NAT溯源日志
+            - 激活溯源日志上报
+            - 激活溯源日志携带用户标志
+          - 配置内置NAT支持安全域路由
+          - 配置UDG的NAT业务功能
+    - UEG容灾方案介绍（风筝S）
+      - 风筝S容灾方案
+        - 热备容灾部署与调测
+          - 去使能热备容灾功能
+          - 使能热备容灾功能
+  - 风筝M
+    - MEC 特性指南（风筝M）
+      - UEG特性指南
+        - Service Fabric特性
+          - Service Fabric可靠性
+            - SFFD-010030 分布式集群防脑裂
+              - 激活业务节点故障状态管理增强功能
+            - SFFD-010008 通信亚健康自愈
+              - Fabric平面亚健康检测
+              - Pod间Base平面亚健康检测
+        - 可选特性
+          - GWFD-030601 GRE跨域转发
+            - 激活GRE跨域转发（OSPFv3）
+            - 激活GRE跨域转发（OSPFv2）
+      - UNC特性指南
+        - WSFD-217001 用户面业务通道保活
+          - 配置SMF惯性运行数据
+          - 配置AMF惯性运行数据
+      - UDM特性指南
+        - WHFD-800031 UDM与UEG用户数据协同高可用
+          - 配置UDM惯性运行数据
+    - UEG容灾方案介绍（风筝M）
+      - 负荷分担容灾
+        - 容灾部署与调测
+          - 配置容灾模式（负荷分担）
+          - 去使能容灾模式（负荷分担）
+          - 配置USCDB和USCDB对接数据
+      - GW-U/UPF热备容灾
+        - 热备容灾部署与调测
+          - 去使能热备容灾功能
+          - 使能热备容灾功能
+  - 公共业务
+    - MEC APP业务访问控制（公共）
+      - 动态分流（MPF/UPF）
+        - 配置动态分流
+          - 激活动态分流规则下发（MPF）
+            - 激活动态分流规则下发
+            - 激活Mp2接口链路探测
+            - 激活动态分流规则状态
+          - 激活动态分流规则安装（UPF）
+          - 激活动态分流规则匹配（UPF）
+      - 分流后带宽控制（MPF）
+        - 激活支持APP带宽管理
+          - 配置动态带宽管理规则
+          - 配置静态带宽管理规则
+      - 分流后负载均衡控制（MPF）
+        - 激活支持APP负载均衡
+      - 数据转发（UPF）
+        - 配置VXLAN隧道及分流规则
+    - MEC ULCL专题（公共）
+      - 分流业务部署
+        - 基于PCF静态签约的分流
+          - 功能部署
+            - 部署基于PCF静态签约的分流（UPF）
+              - 激活基于IP地址的本地分流
+              - 激活基于域名的本地分流（DNS域名分流）
+              - 激活基于域名的本地分流（DNS重定向）
+            - 部署基于PCF静态签约的分流（SMF）
+        - 基于SMF本地规则的分流
+          - 功能部署
+            - 部署基于SMF本地规则的分流（UPF）
+              - 激活基于域名的本地分流（DNS重定向）
+              - 激活基于域名的本地分流（DNS域名分流）
+              - 激活基于IP地址的本地分流
+            - 部署基于SMF本地规则的分流（SMF）
+    - MEC用户IP地址管理（公共）
+      - UPF分配IP地址
+        - 激活UPF分配IP地址功能
+          - 基于SMF分配IP地址
+          - 基于APN/DNN分配IP地址
+          - 基于位置区分配IP地址
+      - 大网SMF分配IP地址
+        - 激活大网SMF分配IP地址功能
+          - 基于位置区分配IP地址
+          - 基于UPF分配IP地址
+          - 基于APN分配IP地址
+      - DHCP分配IP地址
+        - 激活DHCP分配IP地址功能
+          - 激活DHCP地址分配
+      - DHCPv6分配IP地址
+        - 激活DHCPv6分配IP地址功能
+          - 激活DHCPv6地址分配
+      - RADIUS分配IP地址
+        - 激活RADIUS分配IP地址功能
+      - UDM分配IP地址
+        - 激活UDM分配IP地址功能

@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD TALST",
+  "command_name_zh": "增加跟踪区列表",
+  "command_name_full": "增加跟踪区列表(ADD TALST)",
+  "command_function": "**适用网元：MME**\n\n该命令用于增加跟踪区列表，包括：\n\n1. 若输入的TA List标号不存在，表示新建一个跟踪区列表，并且同时为该跟踪区列表新增一个TAI。\n2. 若输入的TA List标号已经存在，表示为该跟踪区列表新增一个TAI。\n3. 若系统未配置包含UE当前活动的TAI的TA list，ATTACH流程和TAU流程中MME会自动新建包含当前TAI的TA list并在TAU accept消息/Attach accept消息中携带下发给UE。\n4. 为了减少用户频繁进行TAU，系统会在符合以下场景的TAU流程中下发包含上次活动的TAI的TA list。\n\n   - 非联合的Intra TAU流程（不包含Inter Handover后的Intra TAU），SGW无改变，TAU Request消息携带“Last visited TAI”并且**SET MMFUNC**命令“LAST TA”配置为“YES”。\n   - 联合的Intra TAU流程（不包含Inter Handover后的Intra TAU），SGW无改变，TAU Request消息携带“Last visited TAI”，**SET MMFUNC**命令“LAST TA”配置为“YES”并且VLR无改变。\n\n该命令在附着或TAU流程中给UE下发跟踪区列表，UE在此跟踪区列表中包含的所有TA区中移动时，不再需要发起TAU（Tracking area update）流程，从而减少了跟踪区更新流程的执行。\n\n在配置移动性管理或MME pool等场景中，需要执行此命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.5",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.2.3.3.5.3",
+        "parentPosition": "2.2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322681",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management000.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.2.3.3.5.3.5",
+        "parentPosition": "2.2.3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320133",
+        "topicUrl": "MML/LinkedDoc/unc_n_ta_list_management000.html",
+        "name": "TA List管理",
+        "parentTopicId": "TOPIC_0234322681",
+        "position": "2.2.3.3.5.3.5.21",
+        "parentPosition": "2.2.3.3.5.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001126305388",
+        "topicUrl": "MML/Document/add_talst.html",
+        "name": "增加跟踪区列表(ADD TALST)",
+        "parentTopicId": "TOPIC_0234320133",
+        "position": "2.2.3.3.5.3.5.21.1",
+        "parentPosition": "2.2.3.3.5.3.5.21",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

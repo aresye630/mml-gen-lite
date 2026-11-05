@@ -1,0 +1,341 @@
+{
+  "command_name": "LST LBUPGSTAGE",
+  "command_name_zh": "查询LB灰度升级阶段",
+  "command_name_full": "查询LB灰度升级阶段（LST LBUPGSTAGE）",
+  "command_function": "该命令用于查询CSLB灰度升级阶段。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001266739438",
+        "topicUrl": "toctopics/zh-cn_topic_0000001266739438.html",
+        "name": "Service Fabric机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.1",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0273996569_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_cloud_session_loadbalance_management.html",
+        "name": "CSLB功能管理",
+        "parentTopicId": "TOPIC_0000001266739438",
+        "position": "2.3.3.1.5",
+        "parentPosition": "2.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001242493621_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0273996569_3",
+        "position": "2.3.3.1.5.1",
+        "parentPosition": "2.3.3.1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001197173770_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_upgrade_management.html",
+        "name": "升级管理",
+        "parentTopicId": "TOPIC_0000001242493621_3",
+        "position": "2.3.3.1.5.1.1",
+        "parentPosition": "2.3.3.1.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001240515387_3",
+        "topicUrl": "INNER/Document/lst_lbupgstage.html",
+        "name": "查询LB灰度升级阶段（LST LBUPGSTAGE）",
+        "parentTopicId": "TOPIC_0000001197173770_3",
+        "position": "2.3.3.1.5.1.1.2",
+        "parentPosition": "2.3.3.1.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0273996569_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_cloud_session_loadbalance_management.html",
+        "name": "CSLB功能管理",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.25",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001242493621_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0273996569_3",
+        "position": "4.25.1",
+        "parentPosition": "4.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001197173770_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_upgrade_management.html",
+        "name": "升级管理",
+        "parentTopicId": "TOPIC_0000001242493621_3",
+        "position": "4.25.1.1",
+        "parentPosition": "4.25.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001240515387_3",
+        "topicUrl": "INNER/Document/lst_lbupgstage.html",
+        "name": "查询LB灰度升级阶段（LST LBUPGSTAGE）",
+        "parentTopicId": "TOPIC_0000001197173770_3",
+        "position": "4.25.1.1.2",
+        "parentPosition": "4.25.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0273996569_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_cloud_session_loadbalance_management.html",
+        "name": "CSLB功能管理",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.25",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001242493621_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0273996569_3",
+        "position": "4.25.1",
+        "parentPosition": "4.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001197173770_3",
+        "topicUrl": "INNER/LinkedDoc/cslb_vnfc_n_upgrade_management.html",
+        "name": "升级管理",
+        "parentTopicId": "TOPIC_0000001242493621_3",
+        "position": "4.25.1.1",
+        "parentPosition": "4.25.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001240515387_3",
+        "topicUrl": "INNER/Document/lst_lbupgstage.html",
+        "name": "查询LB灰度升级阶段（LST LBUPGSTAGE）",
+        "parentTopicId": "TOPIC_0000001197173770_3",
+        "position": "4.25.1.1.2",
+        "parentPosition": "4.25.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

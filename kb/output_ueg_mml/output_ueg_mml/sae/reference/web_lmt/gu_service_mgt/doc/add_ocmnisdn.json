@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD OCMNISDN",
+  "command_name_zh": "增加一卡多号ISDN和IMSI映射关系",
+  "command_name_full": "增加一卡多号ISDN和IMSI映射关系(ADD OCMNISDN)",
+  "command_function": "该命令用于增加虚拟HLR上的MSISDN号码前缀和IMSI号码前缀的映射关系。\n\n该映射定义了短消息流程中消息携带的MSISDN和IMSI之间的关系，其中，MSISDN为MAP Server发送给UDM的SRI-SM消息中携带的信元，IMSI为UDM返回给MAP Server的响应消息中携带的信元。\n\n当特殊一卡多号业务用户漫游出归属网络后，通过辅MSISDN号码发送短消息时，MAP Server会触发一次SRI-SM消息给UDM，该消息中包含如下数据：\n\n- msisdn：该号码是一卡多号用户的辅MSISDN号码。\n- serviceCentreAddress：MAP Server地址，该地址是通过**SET SELIST**命令的“PLMN自定义补充业务”参数取值为“OCMN\\_MAP\\_SERVER”时配置的地址号码。\n\nUDM接收到这个消息后，会返回SRI-SM Ack响应消息给MAP Server，会携带如下数据：\n\n- networkNode-Number：MAP Server地址，即SRI-SM消息中携带的“serviceCentreAddress”信元值。\n- imsi：虚拟IMSI号码，该号码由IMSI前缀（通过该命令定义）+去掉国家码的主MSISDN号码组成。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802944_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ocmnisdn.html",
+        "name": "一卡多号ISDN和IMSI映射关系管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.48",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803573_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_ocmnisdn.html",
+        "name": "增加一卡多号ISDN和IMSI映射关系(ADD OCMNISDN)",
+        "parentTopicId": "CONCEPT_0190802944_2",
+        "position": "4.2.3.2.48.1",
+        "parentPosition": "4.2.3.2.48",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

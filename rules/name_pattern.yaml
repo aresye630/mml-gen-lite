@@ -1,0 +1,62 @@
+meta:
+  purpose: 值模式判别：同命令集特性按锚点参数值前缀归属（UEG 逻辑接口命名规范）
+  semantics: 判定：锚点值前缀命中 → 特性归属命中；命令集命中但前缀不匹配 → 值模式不符（不判已配置）
+  norm: 前缀归一：小写、取第一段、去尾数字、去分隔符（Saif1/1/0→saif，S11-uif1/1/0→s11uif）
+  generated_by: gen_name_pattern.py（数据驱动，待专家/LLD 补全缺失前缀）
+interface_name_patterns:
+- fid: F001
+  title: 配置Sa/N3/S1-U接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - saif
+  doc: cu_ugw_010016_13.md
+  source: doc_sample
+- fid: F002
+  title: 配置Sc/N9c/S5-S/S8-S接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - scif
+  doc: cu_ugw_010016_14.md
+  source: doc_sample
+- fid: F003
+  title: 配置Pa(N9a/S5-P/S8-P/S2b)接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - paif
+  doc: cu_ugw_010016_15.md
+  source: doc_sample
+- fid: F004
+  title: 配置N4(N4/Sxa/Sxb)接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - n4if
+  doc: cu_ugw_010016_19.md
+  source: doc_sample
+- fid: F005
+  title: 配置S11-U接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - s11uif
+  doc: cu_ugw_010017_s11u.md
+  source: doc_sample
+- fid: F400
+  title: 配置Nxua接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - nxuaif
+  doc: cu_ugw_010016_19_nxua.md
+  source: doc_sample
+- fid: F401
+  title: 配置Nxuc接口数据
+  cmd: ADD LOGICINF
+  param: NAME
+  prefixes:
+  - nxucif
+  doc: cu_ugw_010016_19_nxuc.md
+  source: doc_sample

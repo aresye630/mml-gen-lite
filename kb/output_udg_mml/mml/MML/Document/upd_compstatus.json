@@ -1,0 +1,131 @@
+{
+  "command_name": "UPD COMPSTATUS",
+  "command_name_zh": "收集并推送RU的组件状态",
+  "command_name_full": "收集并推送RU的组件状态（UPD COMPSTATUS）",
+  "command_function": "**须知** \n\n本命令属于高危命令，该命令收集并推送所有RU的组件状态时，可能导致CPU使用率瞬时增加，请避免在业务高峰期使用并联系华为技术支持协助操作。\n\n该命令用于收集并推送RU的组件状态。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355786",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595566",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103355786",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116108",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202103595566",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555025",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_process_and_component.html",
+        "name": "进程和组件信息",
+        "parentTopicId": "CONCEPT_0000202103116108",
+        "position": "4.2.1.2.3",
+        "parentPosition": "4.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001239786878",
+        "topicUrl": "MML/Document/upd_compstatus.html",
+        "name": "收集并推送RU的组件状态（UPD COMPSTATUS）",
+        "parentTopicId": "CONCEPT_0000202289555025",
+        "position": "4.2.1.2.3.1",
+        "parentPosition": "4.2.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

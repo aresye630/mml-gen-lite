@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD TOKENEXP",
+  "command_name_zh": "增加Token有效期",
+  "command_name_full": "增加Token有效期（ADD TOKENEXP）",
+  "command_function": "**适用NF：NRF**\n\n该命令用于增加NF的Token有效期。当运营商希望新增对应NF类型/NF实例的Token有效期时长时可以使用此命令。\n\n安全层面考虑，NF请求提供某种服务时需要获取授权，以预防和降低权限提升风险。5GC网络的NF间的服务化接口采用Oauth2.0动态Token授权以保证安全，Token可以理解为NF请求访问某服务使用的短期令牌，当且仅当手持令牌时，才能获取所需服务。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.8",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320262",
+        "topicUrl": "MML/LinkedDoc/unc_n_authorization_management.html",
+        "name": "授权管理",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.8.3",
+        "parentPosition": "2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320005",
+        "topicUrl": "MML/LinkedDoc/unc_n_token_management.html",
+        "name": "Token管理",
+        "parentTopicId": "TOPIC_0234320262",
+        "position": "2.8.3.3",
+        "parentPosition": "2.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320709",
+        "topicUrl": "MML/LinkedDoc/unc_n_token_validity_period_management.html",
+        "name": "Token有效期管理",
+        "parentTopicId": "TOPIC_0234320005",
+        "position": "2.8.3.3.1",
+        "parentPosition": "2.8.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209654165",
+        "topicUrl": "MML/Document/add_tokenexp.html",
+        "name": "增加Token有效期（ADD TOKENEXP）",
+        "parentTopicId": "TOPIC_0234320709",
+        "position": "2.8.3.3.1.1",
+        "parentPosition": "2.8.3.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

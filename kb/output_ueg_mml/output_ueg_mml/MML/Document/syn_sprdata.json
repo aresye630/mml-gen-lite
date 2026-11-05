@@ -1,0 +1,143 @@
+{
+  "command_name": "SYN SPRDATA",
+  "command_name_zh": "同步外置SPR数据",
+  "command_name_full": "同步外置SPR数据(SYN SPRDATA)",
+  "command_function": "该命令用于同步外置SPR的用户数据到UPCF。系统通过该命令可以触发查询和更新外置SPR数据，提升UPCF产品可维护能力。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173218603",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_maintain_management.html",
+        "name": "维护管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.1",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0312772164",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_external_spr_data_management.html",
+        "name": "外置SPR数据管理",
+        "parentTopicId": "CONCEPT_0173218603",
+        "position": "2.2.3.5.11.1.14",
+        "parentPosition": "2.2.3.5.11.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0312772185",
+        "topicUrl": "MML/Document/syn_sprdata.html",
+        "name": "同步外置SPR数据(SYN SPRDATA)",
+        "parentTopicId": "CONCEPT_0312772164",
+        "position": "2.2.3.5.11.1.14.1",
+        "parentPosition": "2.2.3.5.11.1.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

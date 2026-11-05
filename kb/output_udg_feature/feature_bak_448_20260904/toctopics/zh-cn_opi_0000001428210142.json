@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活入不转板功能",
+  "feature_description": "- 中心云场景非SDN组网，若专有硬件+第三方底层平台场景下业务单板转发性能低（交换带宽不足），则可通过配置入不转板功能，减少东西流量，从而提升性能。\n- 华为SDN组网，若业务单板交换带宽不足，则可通过配置入不转板功能，减少东西流量，从而提升性能。\n\n请参考本页面配置入不转板功能。\n\n**说明** \n\nISU POD部署模式和APU POD部署模式都支持入不转板功能。为简化描述，如下以ISU POD描述为例。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001198720530",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198720530.html",
+        "name": "性能优化",
+        "parentTopicId": "",
+        "position": "25",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001428369926",
+        "topicUrl": "toctopics/zh-cn_topic_0000001428369926.html",
+        "name": "GWFD-020482 入不转板功能",
+        "parentTopicId": "TOPIC_0000001198720530",
+        "position": "25.2",
+        "parentPosition": "25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001428210142",
+        "topicUrl": "toctopics/zh-cn_opi_0000001428210142.html",
+        "name": "激活入不转板功能",
+        "parentTopicId": "TOPIC_0000001428369926",
+        "position": "25.2.2",
+        "parentPosition": "25.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

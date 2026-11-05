@@ -1,0 +1,105 @@
+{
+  "feature_name": "NRF解决方案安全配置实例（NF访问授权&NF认证）",
+  "feature_description": "- FQDN为“huawei1.com.apn.epc.mnc456.mcc123.3gppnetwork.org”的SMF通过在NRF上设置访问授权，设定只允许AMF访问。\n- AMF与NRF之间使用TLS证书认证，保证传输层安全。\n- AMF向NRF申请Token，NF间认证，保证应用层安全。NRF支持NF的Access Token申请，NF申请后使用Token进行NF认证。NF服务提供者对NF服务消费者进行认证，利用公钥来校验Access Token中的签名是否正确（NRF上使用私钥，NF上使用公钥）。为保证安全，NRF上使用的私钥是加密保存的。NRF上Access Token的签名算法和NRF上Access Token签名的私钥以及对应的NF侧密钥需要配置。\n\n  **说明** \n\n  需要提前规划用于Token签名的公私钥对，NRF侧的私钥与此处NF侧配置的公钥配对。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVE38493D5E5D04CF5B8C84462D873F375",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229279861",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NRF解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "NRF解决方案##网络自治##NRF",
+          "pid_shortdesc": "介绍5G core端到端网络自治解决方案的详细原理，具体部署及网络自治问题处理。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303319",
+        "topicUrl": "toctopics/zh-cn_topic_0166303319.html",
+        "name": "NRF功能部署",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303320",
+        "topicUrl": "toctopics/zh-cn_topic_0166303320.html",
+        "name": "5G独立部署",
+        "parentTopicId": "TOPIC_0166303319",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0284982032",
+        "topicUrl": "toctopics/zh-cn_topic_0284982032.html",
+        "name": "NRF单层非容灾组网",
+        "parentTopicId": "TOPIC_0166303320",
+        "position": "3.1.2",
+        "parentPosition": "3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "OPI_0296411390",
+        "topicUrl": "toctopics/zh-cn_opi_0296411390.html",
+        "name": "NRF解决方案安全配置实例（NF访问授权&NF认证）",
+        "parentTopicId": "TOPIC_0284982032",
+        "position": "3.1.2.3",
+        "parentPosition": "3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

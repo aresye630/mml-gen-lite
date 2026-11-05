@@ -1,0 +1,150 @@
+{
+  "command_name": "SET PREFIXLIMIT",
+  "command_name_zh": "设置前缀限制",
+  "command_name_full": "设置前缀限制（SET PREFIXLIMIT）",
+  "command_function": "该命令用于配置前缀限制，缺省情况下，不限制IPv4（IPv6）的最大路由前缀数。\n\n设备引入较多的路由会占用较多的系统资源，在系统业务繁忙时，这就有可能影响设备的正常运行。\n\n为提高系统的安全性和可靠性，可以配置前缀限制对设备上指定的VPN实例的IPv4（IPv6）路由前缀数量进行限制。\n\n配置前缀限制后，当路由前缀数超过预先设定的值时，系统会输出告警信息，从而提醒用户检查IPv4（IPv6）路由前缀的有效性。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414752",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.3",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414880",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "TOPIC_0000002385414752",
+        "position": "1.20.3.10",
+        "parentPosition": "1.20.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414932",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_routing_basics.html",
+        "name": "路由基础",
+        "parentTopicId": "TOPIC_0000002385414880",
+        "position": "1.20.3.10.2",
+        "parentPosition": "1.20.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419174025",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_route_control_function_list.html",
+        "name": "路由管控功能列表",
+        "parentTopicId": "TOPIC_0000002385414932",
+        "position": "1.20.3.10.2.5",
+        "parentPosition": "1.20.3.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001549801446",
+        "topicUrl": "MML/Document/set_prefixlimit.html",
+        "name": "设置前缀限制（SET PREFIXLIMIT）",
+        "parentTopicId": "TOPIC_0000002419174025",
+        "position": "1.20.3.10.2.5.1",
+        "parentPosition": "1.20.3.10.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

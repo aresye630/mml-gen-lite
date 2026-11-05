@@ -1,0 +1,309 @@
+---
+id: ''
+name: 海量告警优化管理
+ne_type: UNC
+type: feature
+description: 适用于AMF、SMF、NRF、NSSF、SMSF。  短时间内产生海量链路故障告警，会对OM Portal和U2020/MAE的告警处理及界面产生冲击，也不利于维护人员对告警的查看。因此针对这些海量告警的场景，UNC提供了优化手段，在UNC内部新增OMP进程作为业务域OM网元的集中控制点，用于集中处理与业务逻辑强耦合的、需要跨微服务的OM。对于短时间内产生大量单条告警的场景，业务在自己的OMP进程中对告警进行合并，每种告警合并为一个批量告警，再上报批量告警到网管系统，从而减少了故障场景下UNC产生的告警数量，提高服务体验和定位效率。具体的优化策略如下：  业务进程将业务产生的告警（包括上报告警和恢复告警）缓存起来，按照一定的频率平滑地向告警汇聚中心（UNC OMP）发送。汇聚中心（UNC OMP）收到业务侧发送过来的单条告警，根据批量告警功能开关来决策是否需要对告警进行汇聚。如果需要汇聚，在OMP汇总一个周期后，判断汇总的告警是否达到当达到设定的条件（包括统计门限、统计周期、恢复门限），如果达到条件则上报批量告警，同时则将详细的单条告警信息（活动告警和历史告警）保存在文件中，并备份到备OMU。如果条件不满足，则仍按照单条告警上报。针对海量告警的优化可以提高用户体验，同时生成的文件通过工具进行解析、分析，方便问题的处理。  上报告警和恢复告警介绍：  * 上报告警：告警的一种类型，当业务发生故障时，会产生此告警。 * 恢复告警：告警的一种类型，当业务恢复到指定条件时，会产生此告警。  单条告警和批量告警介绍：  * 单条告警：即单次故障记录。 * 批量告警：将某一类单条告警的故障信息进行汇聚，生成一条批量告警，其中包含故障个数和详细信息保存路径。  升级兼容性：批量告警功能开关，默认开启，即从老版本升级上来或者新安装的场景，默认开启批量告警上报功能。  当进入到海量告警场景后，之前已经上报的告警仍然以单条告警的形式在告警台上存在，海量告警包含的单条告警会保存到告警文件并备份到备OMU上。备OMU升主时，从文件中恢复出海量告警，但是在批量告警产生之前上报的单条告警无法被上报。  本操作提供了N2海量告警维护优化的操作手段，用于指导用户根据现网的实际需要，对N2海量告警上报进行配置，提升维护体验。UNC OMP收到业务侧发送过来的单条告警消息，根据告警类型查询配置（**SET NGALMRPTMODE**）中的“批量告警上报开关”是否开启，决策该类告警是否需要汇聚。如果需要汇聚，则UNC OMP上报批量告警，并将单条告警存储在文件中，并备份到备OMU。批量告警功能介绍如表1。  **表1** 批量告警功能介绍  | 批量告警功能关闭 | 批量告警功能开启 | | --- | --- | | 批量告警功能关闭时，业务侧直接上报单条告警。 | 批量告警功能开启时，业务侧将告警转发给汇聚中心，汇聚中心根据上报门限等条件上报批量告警。监控周期和批量统计门限可以通过执行（**SET NGALMRPTMODE**）命令来对参数“批量统计周期(s)”和“批量统计门限”进行调整。 | | 单条告警如下：   * **ALM-100058 NG-RAN 链路故障**   + 告警触发机制：当出现偶联故障时，上报该告警，即到一个NG-RAN节点的多条偶联中，出现了一条偶联故障，则上报该告警。   + 告警恢复机制：当NGAP上报故障的偶联的状态恢复正常，本告警自行恢复。注意在多偶联场景下，偶联故障后，重新建立的偶联可能出现和原偶联不是同一条偶联的场景（即两条偶联的六元组不同），该场景下原偶联故障不可恢复。 * **ALM-100059 NG-RAN 节点不可达**   + 告警触发机制：在多偶联情况下，如果出现一条偶联故障，则记录故障偶联同时查看其它偶联状态，如果发现所有偶联均故障了则上报该告警。   + 告警恢复机制：多偶联情况下，只要有一条是正常的，则该告警就恢复，或者多偶联删除链路变为单偶联时，如果这条单偶联正常，则该告警就恢复。 * **ALM-100155 HTTP链路故障**   + 告警触发机制：当HTTP链路状态由Normal状态变化为Fault时，系统产生该告警。   + 告警恢复机制：当HTTP链路状态由Fault状态变化为Normal时，则该告警恢复。 * **ALM-100056 PFCP链路故障**   + 告警触发机制：当出现偶联链路故障时，上报该告警，即到一个UPF节点的多条偶联链路中，每出现一条偶联链路故障，则上报一条该告警。   + 告警恢复机制：当UPF上报故障的偶联链路的状态恢复正常，本告警自行恢复。 * **ALM-100050 PFCP对端节点不可达**   + 告警触发机制：当系统中SMF到UPF节点的偶联链路只有一条时，只要出现一条偶联链路故障或链路状态未知，则上报该告警。当系统中SMF到UPF节点的偶联链路存在多条时，如果出现一条偶联链路状态故障或未知，记录故障偶联链路同时查看其它偶联链路状态，如果仅一条偶联链路故障或未知，不上报该告警，如果发现所有偶联链路均故障了则上报该告警。   + 告警恢复机制：当出现偶联故障恢复时，查看是否上报过该告警，如果该告警上报过，则恢复该告警，即到一个UPF节点的一条或多条偶联链路中，只要有一条是正常的，则该告警就恢复。 * **ALM-80610 GTPC路径故障**   + 告警触发机制：GTPC模块的路径管理功能检测到GTPC隧道路径中断时产生该告警。   + 告警恢复机制 ：当检测到GTPC隧道路径通信恢复正常或者GTPC路径被删除时，会自动恢复本告警。 | 批量告警如下：   * **ALM-100309 批量NG-RAN链路故障**：系统对NG-RAN链路状态进行监控，如果在监控周期内（默认1分钟）产生的NG-RAN链路故障总个数达到批量统计门限（默认值100），则上报本告警，提醒客户NG-RAN相关业务受损严重，需尽快处理。 * **ALM-100310 批量NG-RAN节点不可达**：系统对NG-RAN节点状态进行监控，如果在监控周期内（默认1分钟）产生的NG-RAN节点不可达总个数达到批量统计门限（默认值100），则上报本告警，提醒客户NG-RAN相关业务受损严重，需尽快处理。 * **ALM-100311 批量HTTP链路故障**：系统对HTTP链路状态进行监控，如果在监控周期内（默认1分钟）产生的HTTP链路故障总个数达到批量统计门限（默认值100），则上报本告警，提醒客户HTTP相关业务受损严重，需尽快处理。 * **ALM-100452 批量PFCP链路故障**：系统对PFCP链路故障告警进行监控，如果在监控周期内（默认1分钟）产生的PFCP链路故障告警总个数达到批量统计门限（默认值100），则上报本告警，提醒客户N4相关业务受损严重，需尽快处理。 * **ALM-100453 批量PFCP对端节点不可达**：系统对PFCP对端节点不可达告警进行监控，如果在监控周期内（默认1分钟）产生的PFCP对端节点不可达告警总个数达到批量统计门限（默认值100），则上报本告警，提醒客户N4相关业务受损严重，需尽快处理。 * **ALM-100590 批量GTPC路径故障**：系统对GTPC路径故障告警进行监控，如果在监控周期内（默认1分钟）产生的GTPC路径故障告警总个数达到批量统计门限（默认值100），则上报本告警，提醒客户GTP相关业务受损严重，需尽快处理。 | | 例如：批量告警功能关闭时，NG-RAN链路故障通过**ALM-100058 NG-RAN 链路故障**告警进行上报。开启后，NG-RAN链路故障通过**ALM-100309 批量NG-RAN链路故障**告警进行上报。 |  |  海量告警上报模式支持原始模式和优化模式，批量告警功能关闭时为原始模式，批量告警功能开启时为优化模式，每种模式下支持的功能如表2所示。  **表2** 海量告警上报模式  | 模式 | 模式说明 | 优点 | 缺点  | | | | | | | | | | | | --- | --- | --- | ---  | | | | | | | | | | | | 原始模式 | 原始模式，即批量告警功能关闭。  将业务产生的告警缓存起来，按照一定的频率上报，不经过UNC OMP汇总。用户可在告警台查看到所有的告警，且能够在U2020/MAE的北向接口获取到所有的告警。 | 可以在告警台查看到所有的告警信息，少量告警情况下，便于故障定位。 | 发生告警风暴时，系统会产生大量的告警：  * 对系统的性能和告警台产生冲击。 * 大量告警产生会导致其他告警被淹没，不利于维护和问题定位。  | | | | | | | | | | | | 优化模式 | 优化模式是指海量告警优化管理功能开启时的一种模式，即批量告警功能开启，单条告警上报关闭。   * **告警上报：**大量告警上报时，UNC OMP缓存上报的单条告警。一个“批量统计周期”内，当单条告警数量达到“统计门限”，则UNC OMP上报批量告警。告警数量未达到门限，则仍上报单条告警。 UNC OMP缓存上报的单条告警时，需要记录两个列表：活动列表和恢复列表，活动列表中保存当前故障的单条告警，恢复列表中保存故障后又恢复的单条告警。在触发上报批量告警后，这两个列表会定期记录到OMU硬盘的文件中，分别为活动告警文件和历史告警文件，并备份到备OMU，问题定位时，可直接获取文件进行分析。 **图1** 优化模式的告警上报  说明：  UNC OMP 的Pod容灾方式为1+1主备，当UNC OMP的 POD从备升主，从备份文件中重新上报批量告警，如果批量上报功能配置开关为开，UNC OMP判断是否满足告警上报条件，如果满足则上报批量告警，如果不满足则上报单条告警，删除批量告警文件。但是在批量告警产生之前上报的单条告警无法被上报。
+  * **告警恢复：**一个“批量统计周期”内，UNC OMP收到的恢复告警如果是列表中存在的告警，则清除缓存和文件中的告警，并将历史告警保存在文件中，并备份到备OMU。如果不存在，则需要上报该恢复告警。 如果恢复告警数量达到“恢复门限”，则清除批量告警，并上报未恢复的单条告警。 **图2** 优化模式的告警恢复  说明：  1. 批量告警里会记录故障个数和详细信息保存路径。   2. 一个周期内，故障又恢复的告警不计入故障数量，连续多次上报的同一个故障信息（根据告警关键参数判断是否是同一个故障信息）只记录一次故障。   3. 一种类型的批量告警只会上报一条，而故障链路个数可能一直在变化，系统以“批量统计周期(s)”去识别故障链路个数，当发现数量发生变化时，会先恢复之前的批量告警，再上报一条新批量告警，同时在新告警中更新故障链路的数量。 * **信息采集：**可通过ssh登录到uncomp-pod所在主机进行信息采集，将uncomp-pod保存的活动告警和历史告警信息下载到本地。 操作步骤说明：  1. 安装ssh访问工具。并获取如下信息：  FusionStage后台管理节点的IP地址、系统维护用户mtuser的密码（用于ssh登录）、操作系统root用户的密码。  UNC网元所在部署域的主机后台登录用户mtuser的密码（用于ssh登录）、操作系统root用户的密码。  网元项目名称，即为VNFD模板Plans文件夹内的yaml文件中参数CaaS\_Project\_Name的取值。  2. 使用mtuser用户登录到FusionStage后台管理节点，再执行su切换到root用户。  获得omu-super-pod所在主机的IP地址，方法为执行如下命令（命令中的<CaaS\_Project\_Name>请替换为网元项目名称）：  kubectl get node -owide | grep -w $(kubectl get pod -n $<CaaS\_Project\_Name> | grep omu-super-pod | grep Run | head -n 1 | awk '{print $1}')-$ns | awk '{print $6}'  3. 使用mtuser用户登录到omu-super-pod所在主机，再执行su切换到root用户。  然后，执行如下命令（命令中的<CaaS\_Project\_Name>请替换为网元项目名称），生成海量告警压缩文件：  ns=<CaaS\_Project\_Name>  cd /home/mtuser  rm -rf AlarmDetailRecord\*  uid=`crictl pods -v --namespace ${ns} --name omb-pod | grep UID | awk '{print $2}'`  podDir=`ls -ld /opt/varlib/kubelet/pods/${uid}/volume-subpaths/\* | grep "pvc-" | awk '{print $9}'`  find ${podDir} -name AlarmDetailRecord -exec cp -r {} . \;  zip AlarmDetailRecord\_`date +%Y%m%d\_%H%M%S`.zip AlarmDetailRecord  chown -R mtuser:mtuser AlarmDetailRecord\*  4. 从FustionStage后台管理节点，执行scp执行拷贝omu-super-pod所在主机上的海量告警压缩文件。再拷贝到PC机本地址硬盘。  5. 分别ssh登录到FustionStage后台管理节点、omu-super-pod所在主机，执行如下命令删除临时文件和目录：  rm -rf /home/mtuser/AlarmDetailRecord\* * **告警核查：**核查有两种类型，一种是由汇聚中心（UNC OMP）向业务进程核查，当汇聚中心已上报告警，且故障已恢复，但告警未恢复时，可能会导致恢复告警丢失，需要进行此项核查；另一种是由业务进程向汇聚中心（UNC OMP）核查，当业务进程向汇聚中心发送告警上报，但消息被丢弃导致告警未上报，需要进行此项核查。 告警核查包括自动核查和手动核查两种方式。可通过**DSP NGALMCHECK**对告警核查状态进行查询。   + 自动核查：汇聚中心（UNC OMP）启动定时器，定时检测告警产生的时间。每半小时进行一次核查任务，只核查故障时间大于30分钟的告警。如果告警已经恢复，则清除该告警。如果新的核查任务启动时还有未结束的核查任务，则等待当前的核查任务结束，再进行下一次核查。   + 手动核查：通过**STR NGALMCHECK**启动手动核查。如果启动手动核查时，有其他核查任务正在进行，则返回创建失败。 | 在告警风暴时，系统仅产生**ALM-100309 批量NG-RAN链路故障**、**ALM-100310 批量NG-RAN节点不可达**、**ALM-100311 批量HTTP链路故障**、**ALM-100452 批量PFCP链路故障**、**ALM-100453 批量PFCP对端节点不可达**、**ALM-100590 批量GTPC路径故障**批量告警来提示系统故障，将故障告警记录到OMU硬盘，系统性能和北向接口不受冲击。 | 优化模式下，北向接口上报的数据与优化模式开启前不一致。 |
+risk_level: ''
+doc_source: ["网络运维","日常维护","UNC基础运维操作","海量告警优化管理"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+适用于AMF、SMF、NRF、NSSF、SMSF。短时间内产生海量链路故障告警，会对OM Portal和U2020/MAE的告警处理及界面产生冲击，也不利于维护人员对告警的查看。因此针对这些海量告警的场景，UNC提供了优化手段，在UNC内部新增OMP进程作为业务域OM网元的集中控制点，用于集中处理与业务逻辑强耦合的、需要跨微服务的OM。对于短时间内产生大量单条告警的场景，业务在自己的OMP进程中对告警进行合并，每种告警合并为一个批量告警，再上报批量告警到网管系统，从而减少了故障场景下UNC产生的告警数量，提高服务体验和定位效率。具体的优化策略如下：业务进程将业务产生的告警（包括上报告警和恢复告警）缓存起来，按照一定的频率平滑地向告警汇聚中心（UNC OMP）发送。汇聚中心（UNC OMP）收到业务侧发送过来的单条告警，根据批量告警功能开关来决策是否需要对告警进行汇聚。如果需要汇聚，在OMP汇总一个周期后，判断汇总的告警是否达到当达到设定的条件（包括统计门限、统计周期、恢复门限），如果达到条件则上报批量告警，同时则将详细的单条告警信息（活动告警和历史告警）保存在文件中，并备份到备OMU。如果条件不满足，则仍按照单条告警上报。针对海量告警的优化可以提高用户体验，同时生成的文件通过工具进行解析、分析，方便问题的处理。上报告警和恢复告警介绍：* 上报告警：告警的一种类型，当业务发生故障时，会产生此告警。* 恢复告警：告警的一种类型，当业务恢复到指定条件时，会产生此告警。单条告警和批量告警介绍：* 单条告警：即单次故障记录。* 批量告警：将某一类单条告警的故障信息进行汇聚，生成一条批量告警，其中包含故障个数和详细信息保存路径。升级兼容性：批量告警功能开关，默认开启，即从老版本升级上来或者新安装的场景，默认开启批量告警上报功能。当进入到海量告警场景后，之前已经上报的告警仍然以单条告警的形式在告警台上存在，海量告警包含的单条告警会保存到告警文件并备份到备OMU上。备OMU升主时，从文件中恢复出海量告警，但是在批量告警产生之前上报的单条告警无法被上报。本操作提供了N2海量告警维护优化的操作手段，用于指导用户根据现网的实际需要，对N2海量告警上报进行配置，提升维护体验。UNC OMP收到业务侧发送过来的单条告警消息，根据告警类型查询配置（**SET NGALMRPTMODE**）中的“批量告警上报开关”是否开启，决策该类告警是否需要汇聚。如果需要汇聚，则UNC OMP上报批量告警，并将单条告警存储在文件中，并备份到备OMU。批量告警功能介绍如表1。**表1** 批量告警功能介绍| 批量告警功能关闭 | 批量告警功能开启 || --- | --- || 批量告警功能关闭时，业务侧直接上报单条告警。 | 批量告警功能开启时，业务侧将告警转发给汇聚中心，汇聚中心根据上报门限等条件上报批量告警。监控周期和批量统计门限可以通过执行（**SET NGALMRPTMODE**）命令来对参数“批量统计周期(s)”和“批量统计门限”进行调整。 || 单条告警如下：   * **ALM-100058 NG-RAN 链路故障**   + 告警触发机制：当出现偶联故障时，上报该告警，即到一个NG-RAN节点的多条偶联中，出现了一条偶联故障，则上报该告警。   + 告警恢复机制：当NGAP上报故障的偶联的状态恢复正常，本告警自行恢复。注意在多偶联场景下，偶联故障后，重新建立的偶联可能出现和原偶联不是同一条偶联的场景（即两条偶联的六元组不同），该场景下原偶联故障不可恢复。 * **ALM-100059 NG-RAN 节点不可达**   + 告警触发机制：在多偶联情况下，如果出现一条偶联故障，则记录故障偶联同时查看其它偶联状态，如果发现所有偶联均故障了则上报该告警。   + 告警恢复机制：多偶联情况下，只要有一条是正常的，则该告警就恢复，或者多偶联删除链路变为单偶联时，如果这条单偶联正常，则该告警就恢复。 * **ALM-100155 HTTP链路故障**   + 告警触发机制：当HTTP链路状态由Normal状态变化为Fault时，系统产生该告警。   + 告警恢复机制：当HTTP链路状态由Fault状态变化为Normal时，则该告警恢复。 * **ALM-100056 PFCP链路故障**   + 告警触发机制：当出现偶联链路故障时，上报该告警，即到一个UPF节点的多条偶联链路中，每出现一条偶联链路故障，则上报一条该告警。   + 告警恢复机制：当UPF上报故障的偶联链路的状态恢复正常，本告警自行恢复。 * **ALM-100050 PFCP对端节点不可达**   + 告警触发机制：当系统中SMF到UPF节点的偶联链路只有一条时，只要出现一条偶联链路故障或链路状态未知，则上报该告警。当系统中SMF到UPF节点的偶联链路存在多条时，如果出现一条偶联链路状态故障或未知，记录故障偶联链路同时查看其它偶联链路状态，如果仅一条偶联链路故障或未知，不上报该告警，如果发现所有偶联链路均故障了则上报该告警。   + 告警恢复机制：当出现偶联故障恢复时，查看是否上报过该告警，如果该告警上报过，则恢复该告警，即到一个UPF节点的一条或多条偶联链路中，只要有一条是正常的，则该告警就恢复。 * **ALM-80610 GTPC路径故障**   + 告警触发机制：GTPC模块的路径管理功能检测到GTPC隧道路径中断时产生该告警。   + 告警恢复机制 ：当检测到GTPC隧道路径通信恢复正常或者GTPC路径被删除时，会自动恢复本告警。 | 批量告警如下：   * **ALM-100309 批量NG-RAN链路故障**：系统对NG-RAN链路状态进行监控，如果在监控周期内（默认1分钟）产生的NG-RAN链路故障总个数达到批量统计门限（默认值100），则上报本告警，提醒客户NG-RAN相关业务受损严重，需尽快处理。 * **ALM-100310 批量NG-RAN节点不可达**：系统对NG-RAN节点状态进行监控，如果在监控周期内（默认1分钟）产生的NG-RAN节点不可达总个数达到批量统计门限（默认值100），则上报本告警，提醒客户NG-RAN相关业务受损严重，需尽快处理。 * **ALM-100311 批量HTTP链路故障**：系统对HTTP链路状态进行监控，如果在监控周期内（默认1分钟）产生的HTTP链路故障总个数达到批量统计门限（默认值100），则上报本告警，提醒客户HTTP相关业务受损严重，需尽快处理。 * **ALM-100452 批量PFCP链路故障**：系统对PFCP链路故障告警进行监控，如果在监控周期内（默认1分钟）产生的PFCP链路故障告警总个数达到批量统计门限（默认值100），则上报本告警，提醒客户N4相关业务受损严重，需尽快处理。 * **ALM-100453 批量PFCP对端节点不可达**：系统对PFCP对端节点不可达告警进行监控，如果在监控周期内（默认1分钟）产生的PFCP对端节点不可达告警总个数达到批量统计门限（默认值100），则上报本告警，提醒客户N4相关业务受损严重，需尽快处理。 * **ALM-100590 批量GTPC路径故障**：系统对GTPC路径故障告警进行监控，如果在监控周期内（默认1分钟）产生的GTPC路径故障告警总个数达到批量统计门限（默认值100），则上报本告警，提醒客户GTP相关业务受损严重，需尽快处理。 || 例如：批量告警功能关闭时，NG-RAN链路故障通过**ALM-100058 NG-RAN 链路故障**告警进行上报。开启后，NG-RAN链路故障通过**ALM-100309 批量NG-RAN链路故障**告警进行上报。 |  |海量告警上报模式支持原始模式和优化模式，批量告警功能关闭时为原始模式，批量告警功能开启时为优化模式，每种模式下支持的功能如表2所示。**表2** 海量告警上报模式| 模式 | 模式说明 | 优点 | 缺点  | | | | | | | | | | || --- | --- | --- | ---  | | | | | | | | | | || 原始模式 | 原始模式，即批量告警功能关闭。  将业务产生的告警缓存起来，按照一定的频率上报，不经过UNC OMP汇总。用户可在告警台查看到所有的告警，且能够在U2020/MAE的北向接口获取到所有的告警。 | 可以在告警台查看到所有的告警信息，少量告警情况下，便于故障定位。 | 发生告警风暴时，系统会产生大量的告警：  * 对系统的性能和告警台产生冲击。 * 大量告警产生会导致其他告警被淹没，不利于维护和问题定位。  | | | | | | | | | | || 优化模式 | 优化模式是指海量告警优化管理功能开启时的一种模式，即批量告警功能开启，单条告警上报关闭。   * **告警上报：**大量告警上报时，UNC OMP缓存上报的单条告警。一个“批量统计周期”内，当单条告警数量达到“统计门限”，则UNC OMP上报批量告警。告警数量未达到门限，则仍上报单条告警。 UNC OMP缓存上报的单条告警时，需要记录两个列表：活动列表和恢复列表，活动列表中保存当前故障的单条告警，恢复列表中保存故障后又恢复的单条告警。在触发上报批量告警后，这两个列表会定期记录到OMU硬盘的文件中，分别为活动告警文件和历史告警文件，并备份到备OMU，问题定位时，可直接获取文件进行分析。 **图1** 优化模式的告警上报  说明：  UNC OMP 的Pod容灾方式为1+1主备，当UNC OMP的 POD从备升主，从备份文件中重新上报批量告警，如果批量上报功能配置开关为开，UNC OMP判断是否满足告警上报条件，如果满足则上报批量告警，如果不满足则上报单条告警，删除批量告警文件。但是在批量告警产生之前上报的单条告警无法被上报。 * **告警恢复：**一个“批量统计周期”内，UNC OMP收到的恢复告警如果是列表中存在的告警，则清除缓存和文件中的告警，并将历史告警保存在文件中，并备份到备OMU。如果不存在，则需要上报该恢复告警。 如果恢复告警数量达到“恢复门限”，则清除批量告警，并上报未恢复的单条告警。 **图2** 优化模式的告警恢复  说明：  1. 批量告警里会记录故障个数和详细信息保存路径。   2. 一个周期内，故障又恢复的告警不计入故障数量，连续多次上报的同一个故障信息（根据告警关键参数判断是否是同一个故障信息）只记录一次故障。   3. 一种类型的批量告警只会上报一条，而故障链路个数可能一直在变化，系统以“批量统计周期(s)”去识别故障链路个数，当发现数量发生变化时，会先恢复之前的批量告警，再上报一条新批量告警，同时在新告警中更新故障链路的数量。 * **信息采集：**可通过ssh登录到uncomp-pod所在主机进行信息采集，将uncomp-pod保存的活动告警和历史告警信息下载到本地。 操作步骤说明：  1. 安装ssh访问工具。并获取如下信息：  FusionStage后台管理节点的IP地址、系统维护用户mtuser的密码（用于ssh登录）、操作系统root用户的密码。  UNC网元所在部署域的主机后台登录用户mtuser的密码（用于ssh登录）、操作系统root用户的密码。  网元项目名称，即为VNFD模板Plans文件夹内的yaml文件中参数CaaS\_Project\_Name的取值。  2. 使用mtuser用户登录到FusionStage后台管理节点，再执行su切换到root用户。  获得omu-super-pod所在主机的IP地址，方法为执行如下命令（命令中的<CaaS\_Project\_Name>请替换为网元项目名称）：  kubectl get node -owide | grep -w $(kubectl get pod -n $<CaaS\_Project\_Name> | grep omu-super-pod | grep Run | head -n 1 | awk '{print $1}')-$ns | awk '{print $6}'  3. 使用mtuser用户登录到omu-super-pod所在主机，再执行su切换到root用户。  然后，执行如下命令（命令中的<CaaS\_Project\_Name>请替换为网元项目名称），生成海量告警压缩文件：  ns=<CaaS\_Project\_Name>  cd /home/mtuser  rm -rf AlarmDetailRecord\*  uid=`crictl pods -v --namespace ${ns} --name omb-pod | grep UID | awk '{print $2}'`  podDir=`ls -ld /opt/varlib/kubelet/pods/${uid}/volume-subpaths/\* | grep "pvc-" | awk '{print $9}'`  find ${podDir} -name AlarmDetailRecord -exec cp -r {} . \;  zip AlarmDetailRecord\_`date +%Y%m%d\_%H%M%S`.zip AlarmDetailRecord  chown -R mtuser:mtuser AlarmDetailRecord\*  4. 从FustionStage后台管理节点，执行scp执行拷贝omu-super-pod所在主机上的海量告警压缩文件。再拷贝到PC机本地址硬盘。  5. 分别ssh登录到FustionStage后台管理节点、omu-super-pod所在主机，执行如下命令删除临时文件和目录：  rm -rf /home/mtuser/AlarmDetailRecord\* * **告警核查：**核查有两种类型，一种是由汇聚中心（UNC OMP）向业务进程核查，当汇聚中心已上报告警，且故障已恢复，但告警未恢复时，可能会导致恢复告警丢失，需要进行此项核查；另一种是由业务进程向汇聚中心（UNC OMP）核查，当业务进程向汇聚中心发送告警上报，但消息被丢弃导致告警未上报，需要进行此项核查。 告警核查包括自动核查和手动核查两种方式。可通过**DSP NGALMCHECK**对告警核查状态进行查询。   + 自动核查：汇聚中心（UNC OMP）启动定时器，定时检测告警产生的时间。每半小时进行一次核查任务，只核查故障时间大于30分钟的告警。如果告警已经恢复，则清除该告警。如果新的核查任务启动时还有未结束的核查任务，则等待当前的核查任务结束，再进行下一次核查。   + 手动核查：通过**STR NGALMCHECK**启动手动核查。如果启动手动核查时，有其他核查任务正在进行，则返回创建失败。 | 在告警风暴时，系统仅产生**ALM-100309 批量NG-RAN链路故障**、**ALM-100310 批量NG-RAN节点不可达**、**ALM-100311 批量HTTP链路故障**、**ALM-100452 批量PFCP链路故障**、**ALM-100453 批量PFCP对端节点不可达**、**ALM-100590 批量GTPC路径故障**批量告警来提示系统故障，将故障告警记录到OMU硬盘，系统性能和北向接口不受冲击。 | 优化模式下，北向接口上报的数据与优化模式开启前不一致。 |
+
+## 必备事项
+前提条件
+
+具有管理员、操作员级别权限的用户才能进行海量告警模式的设置。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties:
+    set_ngalmrptmode_list:
+      type: items
+      properties:
+        ALMTYPE:
+          name: '告警类型'
+          type: string
+          enum:
+          - NGRAN_LINKDOWN
+          - NGRAN_UNREACH
+          - HTTP_LINKDOWN
+          - PFCP_LINKDOWN
+          - PFCP_NODE_UNREACHABLE
+          - GTPC_TUNNEL_PATHBROKEN
+          required: true
+          description: '配置UCF报表本地IP资源池、UCF报表使用的协议类型、UCF报表地址的端口号等信息。'
+          data_source: '本端规划'
+          pattern: ''
+          default: ''
+        BATCHEDALMSW:
+          name: '批量告警上报开关'
+          type: string
+          enum:
+          - OFF
+          - ON
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CLEARTHRESHOLD:
+          name: '批量恢复门限'
+          type: integer
+          minimum: 0
+          maximum: 1000
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CLEARPERCENT:
+          name: '批量恢复百分比(%)'
+          type: integer
+          minimum: 10
+          maximum: 90
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PERIOD:
+          name: '批量统计周期(秒)'
+          type: integer
+          minimum: 60
+          maximum: 300
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        THRESHOLD:
+          name: '批量统计门限'
+          type: integer
+          minimum: 10
+          maximum: 1000
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    set_ngalmrptmode_list_1:
+      type: items
+      properties:
+        ALMTYPE:
+          name: '告警类型'
+          type: string
+          enum:
+          - NGRAN_LINKDOWN
+          - NGRAN_UNREACH
+          - HTTP_LINKDOWN
+          - PFCP_LINKDOWN
+          - PFCP_NODE_UNREACHABLE
+          - GTPC_TUNNEL_PATHBROKEN
+          required: true
+          description: '配置UCF报表本地IP资源池、UCF报表使用的协议类型、UCF报表地址的端口号等信息。'
+          data_source: '本端规划'
+          pattern: ''
+          default: ''
+        BATCHEDALMSW:
+          name: '批量告警上报开关'
+          type: string
+          enum:
+          - OFF
+          - ON
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PERIOD:
+          name: '批量统计周期'
+          type: integer
+          minimum: 60
+          maximum: 300
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        THRESHOLD:
+          name: '批量统计门限'
+          type: integer
+          minimum: 10
+          maximum: 1000
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CLEARTHRESHOLD:
+          name: '批量恢复门限'
+          type: integer
+          minimum: 0
+          maximum: 1000
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CLEARPERCENT:
+          name: '批量恢复百分比(%)'
+          type: integer
+          minimum: 10
+          maximum: 90
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    str_ngalmcheck_list:
+      type: items
+      properties:
+        ALMTYPE:
+          name: '告警类型'
+          type: string
+          enum:
+          - NGRAN_LINKDOWN
+          - NGRAN_UNREACH
+          - SUMMARY
+          - PFCP_LINKDOWN
+          - PFCP_NODE_UNREACHABLE
+          - GTPC_TUNNEL_PATHBROKEN
+          required: false
+          description: '当发现系统存在未恢复的故障告警时，可通过该命令启动告警核查功能，若系统识别出该故障已经恢复，则自动恢复该故障告警。'
+          data_source: '本端规划'
+          pattern: ''
+          default: SUMMARY
+  examples:
+    set_ngalmrptmode_list:
+    - ALMTYPE: NGRAN\_LINKDOWN
+      BATCHEDALMSW: OFF
+      CLEARTHRESHOLD: 20
+      CLEARPERCENT: ''
+      PERIOD: ''
+      THRESHOLD: ''
+    set_ngalmrptmode_list_1:
+    - ALMTYPE: NGRAN\_LINKDOWN
+      BATCHEDALMSW: ON
+      PERIOD: 60
+      THRESHOLD: 100
+      CLEARTHRESHOLD: 20
+      CLEARPERCENT: ''
+    str_ngalmcheck_list:
+    - ALMTYPE: NGRAN\_LINKDOWN
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 在“MML命令行-UNC”窗口上执行：
+
+### 2 针对N2链路的海量告警情况，用户根据实际的需求配置N2链路的告警上报模式。建议配置采用优化模式。
+
+#### 2.1 未启用：**SET NGALMRPTMODE**: ALMTYPE=NGRAN\_LINKDOWN, BATCHEDALMSW=OFF;
+
+```jinja2
+{%- if is_scenario_not_enabled -%}
+    {%- for item in set_ngalmrptmode_list -%}
+        SET NGALMRPTMODE:
+        {#- --- 必选参数 --- -#}
+        ALMTYPE={{item.ALMTYPE}},
+        BATCHEDALMSW={{item.BATCHEDALMSW}},
+        {#- --- 条件可选参数 --- -#}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.CLEARPERCENT is not none -%}
+                CLEARPERCENT={{item.CLEARPERCENT}},
+            {%- endif -%}
+        {%- endif -%}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.CLEARTHRESHOLD is not none -%}
+                CLEARTHRESHOLD={{item.CLEARTHRESHOLD}},
+            {%- endif -%}
+        {%- endif -%}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.PERIOD is not none -%}
+                PERIOD={{item.PERIOD}},
+            {%- endif -%}
+        {%- endif -%}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.THRESHOLD is not none -%}
+                THRESHOLD={{item.THRESHOLD}},
+            {%- endif -%}
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+#### 2.2 优化模式：**SET NGALMRPTMODE**: ALMTYPE=NGRAN\_LINKDOWN, BATCHEDALMSW=ON, PERIOD=60, THRESHOLD=100;;
+
+```jinja2
+{%- if is_scenario_optimized_mode -%}
+    {%- for item in set_ngalmrptmode_list_1 -%}
+        SET NGALMRPTMODE:
+        {#- --- 必选参数 --- -#}
+        ALMTYPE={{item.ALMTYPE}},
+        BATCHEDALMSW={{item.BATCHEDALMSW}},
+        {#- --- 条件可选参数 --- -#}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.PERIOD is not none -%}
+                PERIOD={{item.PERIOD}},
+            {%- endif -%}
+        {%- endif -%}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.THRESHOLD is not none -%}
+                THRESHOLD={{item.THRESHOLD}},
+            {%- endif -%}
+        {%- endif -%}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.CLEARPERCENT is not none -%}
+                CLEARPERCENT={{item.CLEARPERCENT}},
+            {%- endif -%}
+        {%- endif -%}
+        {#- --- 条件可选：BATCHEDALMSW=ON 时可选 --- -#}
+        {%- if item.BATCHEDALMSW == 'ON' -%}
+            {%- if item.CLEARTHRESHOLD is not none -%}
+                CLEARTHRESHOLD={{item.CLEARTHRESHOLD}},
+            {%- endif -%}
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+### 3 优化模式下，查询批量告警包含的详细故障信息。
+
+### 4 优化模式下，手动启动告警核查。
+
+```jinja2
+{%- if is_scenario_optimized_mode -%}
+    {%- for item in str_ngalmcheck_list -%}
+        STR NGALMCHECK:
+        {#- --- 可选参数 --- -#}
+        {%- if item.ALMTYPE is not none -%}
+            ALMTYPE={{item.ALMTYPE}},
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+### 5 查询系统当前的告警核查任务的状态。
+

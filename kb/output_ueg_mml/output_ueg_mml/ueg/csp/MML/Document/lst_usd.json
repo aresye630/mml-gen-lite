@@ -1,0 +1,119 @@
+{
+  "command_name": "LST USD",
+  "command_name_zh": "查询超时数据",
+  "command_name_full": "查询超时数据(LST USD)",
+  "command_function": "本命令用于查询OMU数据库中没有同步设定到主机的数据，这些数据可能是以下两种情况之一：\n\n- 联机设定数据时，设定不成功的数据。\n- 脱机设定数据时，尚未设定的数据。\n\n查询时：\n\n- 若要查询所有设定不成功或尚未设定的数据，请不要输入模块号。\n- 若要查询某个模块中设定不成功或尚未设定的数据，请输入相应的模块号。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854784",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/configuration_management_cgp.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.4",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854437",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/data_transferring.html",
+        "name": "数据发送",
+        "parentTopicId": "CONCEPT_0165854784",
+        "position": "2.2.1.4.3",
+        "parentPosition": "2.2.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854803_2",
+        "topicUrl": "ueg/csp/MML/Document/lst_usd.html",
+        "name": "查询超时数据(LST USD)",
+        "parentTopicId": "CONCEPT_0165854437",
+        "position": "2.2.1.4.3.2",
+        "parentPosition": "2.2.1.4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "command_name": "ACT CFD",
+  "command_name_zh": "激活CFD业务",
+  "command_name_full": "激活CFD业务(ACT CFD)",
+  "command_function": "此操作用来激活CFD业务。激活CFD业务前，该用户必须已经开户，签约CFD业务，并且处于非激活状态。\n\n执行此命令后，若用户在网，且处于可用状态，系统将向VLR下发插入用户数据消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802801",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplimentary_service_management.html",
+        "name": "补充业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.9",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803491",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/cfall_management.html",
+        "name": "呼叫前转类补充业务",
+        "parentTopicId": "MMLREF_0190802801",
+        "position": "4.2.3.9.1",
+        "parentPosition": "4.2.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802653",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/cfd_management.html",
+        "name": "缺省呼叫前转业务",
+        "parentTopicId": "MMLREF_0190803491",
+        "position": "4.2.3.9.1.5",
+        "parentPosition": "4.2.3.9.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802809",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/act_cfd.html",
+        "name": "激活CFD业务(ACT CFD)",
+        "parentTopicId": "MMLREF_0190802653",
+        "position": "4.2.3.9.1.5.2",
+        "parentPosition": "4.2.3.9.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "feature_name": "基于BGP over OSPFv3路由手动部署边缘UDG配置实例（IPv6）",
+  "feature_description": "本任务实例实现以下场景配置：\n\nUDG与对端设备（gNodeB/eNodeB、SGSN、PSA UPF/PGW-U、SMF/PGW-C/SGW-C）通过OSPFv3动态路由绑定动态BFD实现网络互通。\n\n- 网络形态：2/3/4/5G融合网络\n- 网元形态：边缘UDG\n- 路由协议：BGP over OSPFv3动态路由手动部署\n- 组网IP格式：IPv6组网\n- 接入用户：IPv4v6双栈用户\n\n**说明** \n\n- 本地分流场景下边缘UDG一般承担ULCL/BP分流和本地PSA锚点网关，为融合部署形态。\n- 普通场景下边缘UDG可能承担I-UPF/S-GW角色，将用户桥接连接到PSA锚点网关上，为独立网元形态。\n\n  本文以此场景为例说明部署配置脚本。\n- 对于IPv4v6双栈用户接入，则与外部DN网络连接的Gi/SGi/N6接口的vNIC外联口需要规划IPv4v6双栈地址。\n\n  本文场景的边缘UDG不涉及与外部DN网络连接，因此IPv4v6双栈用户接入和其他IP类型用户接入的配置无差异。\n\n实际场景中请根据网络组网确定网元的形态和配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0169093636",
+        "topicUrl": "cdgw/installation/5g_udg_init_comm_001.html",
+        "name": "典型配置实例",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0170196679",
+        "topicUrl": "cdgw/installation/5g_udg_init_comm_005.html",
+        "name": "基于BGP over OSPFv3路由手动部署边缘UDG配置实例（IPv6）",
+        "parentTopicId": "TOPIC_0169093636",
+        "position": "8.4",
+        "parentPosition": "8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

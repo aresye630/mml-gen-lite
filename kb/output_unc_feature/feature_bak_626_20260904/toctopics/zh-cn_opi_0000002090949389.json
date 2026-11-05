@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活IPsec功能（OSPF over IPsec）",
+  "feature_description": "如图1 OSPF over IPsec组网图所示，网络A和网络B之间采用网关对网关组网模式进行资源传输。网络A和网络B分别通过Device A和Device B连接到Internet，要求通过配置IPsec隧道实现PCA与PCB之间可以安全地互访，OSPF协议还能在网络拓扑结构发生变化后实现路由的快速收敛。\n\n该网络需实现以下需求：\n\n- **路由协议的安全性：**OSPF over IPsec结合了OSPF和IPsec，为OSPF邻居之间的通信提供了额外的安全层。这确保了OSPF控制消息和路由信息的安全传输。\n- **加密和认证：**IPsec用于对OSPF邻居之间的通信进行加密和认证，确保OSPF更新、邻居关系建立等消息的机密性和完整性。\n- **完整性保护：** 通过IPsec提供的完整性验证，防止OSPF消息在传输过程中被篡改，确保OSPF数据的准确性。\n- **支持动态的路由协议：**OSPF是一种支持动态路由的协议，它可以适应网络的拓扑结构变化，提供灵活而可伸缩的路由。\n- **适用于中大型网络：**OSPF over IPsec适用于中大型网络，为其提供了安全的动态路由，同时防范了潜在的安全威胁。\n\n**图1** OSPF over IPsec组网图\n\n网络环境描述如下，以IPv4网络为例：\n\n- 网络A属于10.1.1.0/24子网，通过接口interface2与Device A连接。\n- 网络B属于10.1.2.0/24子网，通过接口interface2与Device B连接。\n- Device A和Device B路由可达。假设Device A往Device B方向下一跳地址为192.168.1.2/24，Device B往Device A方向下一跳地址为192.168.2.2/24。\n\n| 设备名称              | 接口             | IP地址                              |\n|:------------------|:---------------|:----------------------------------|\n| Device A VNRS微服务  | Ethernet66/0/5 | 192.168.1.1/24（IPsec报文的本端物理出接口）   |\n| Device A VNRS微服务  | Ethernet66/0/6 | 10.1.1.1/24                       |\n| Device A VNRS微服务  | Tunnel2        | 10.102.101.25/32（需要双配）            |\n| Device A VNRS微服务  | LoopBack1      | 10.102.105.238/32（OSPF的loopback口） |\n| Device B VNRS微服务  | Ethernet66/0/5 | 192.168.2.1/24（IPsec报文的本端物理出接口）   |\n| Device B VNRS微服务  | Ethernet66/0/6 | 10.1.2.1/24                       |\n| Device B VNRS微服务  | Tunnel2        | 10.102.101.21/32（需要双配）            |\n| Device B VNRS微服务  | LoopBack1      | 10.102.105.224/32（OSPF的loopback口） |\n| Device A IPsec微服务 | Tunnel2        | 10.102.101.25/32                  |\n| Device B IPsec微服务 | Tunnel2        | 10.102.101.21/32                  |\n| Device A IPsec微服务 | LoopBack1      | 10.102.105.238/32                 |\n| Device B IPsec微服务 | LoopBack1      | 10.102.105.238/32                 |\n| PCA               | -              | 10.1.1.2/24                       |\n| PCB               | -              | 10.1.2.2/24                       |\n| -                 | Device A侧网关接口  | 192.168.1.2/24                    |\n| -                 | Device B侧网关接口  | 192.168.2.2/24                    |",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450899",
+        "topicUrl": "toctopics/zh-cn_topic_0248450899.html",
+        "name": "IP基本功能",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0251174365",
+        "topicUrl": "toctopics/zh-cn_topic_0251174365.html",
+        "name": "IPFD-016000 IPSec功能",
+        "parentTopicId": "TOPIC_0248450899",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0278996150",
+        "topicUrl": "toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365",
+        "position": "2.10.4",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000002090949389",
+        "topicUrl": "toctopics/zh-cn_opi_0000002090949389.html",
+        "name": "激活IPsec功能（OSPF over IPsec）",
+        "parentTopicId": "TOPIC_0278996150",
+        "position": "2.10.4.7",
+        "parentPosition": "2.10.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

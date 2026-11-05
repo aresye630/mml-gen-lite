@@ -1,0 +1,3431 @@
+# chain_schemas.yaml — 链级判定期望结构（UDG 12 / UNC 12 / UEG 11 链；通用模式，禁止局点实例值）
+#
+# 语义（与 docs/S3分析代码化改造设计.md §4.1 一致）：
+#   chain_presence.anchor_cmds 全缺 → 链 not_present（本局点无此形态，不算缺口）
+#   层 kind:
+#     cmd_set        cmds 逐条查存在性（条目可带 param_filters：存在行中该参数=值）
+#     license_items  items 为 glob（*N4UC01 匹配 LICITEM 尾号），匹配项全 ENABLE→ok、
+#                    全 DISABLE→disabled、无匹配→absent（信息层）
+#   absent_policy: missing(required 层缺=链缺项) | partial(可选增强层，缺了标部分) |
+#                  exempt(形态豁免，缺了不算事)
+#   层状态: ok / missing / partial / exempt / disabled / absent
+#   verdict_rules: 顺序求值，首条 when(层状态断言) 全中 → status+note
+#   equiv_substitutes: 已知等价替代（T4 差异比较器用；文档 A ↔ 现网 B 均满足→非缺口）
+#
+# refs（引用链，T3 扩展）：链内/跨链命令之间的参数引用关系，判定「引用闭环 vs 悬空」。
+#   from: 定义方 {cmd, param}（值来源）；to: 引用方 {cmd, param|params}（值去向）
+#   cmd 可为字符串 'ADD URR' 或 spec {type, filter}（含 param_filters 精准命中）
+#   判定：收集 from 命令全部 param 值=定义集，to 命令 params 值=引用集（统一去 '&' 前缀）
+#         引用集 ⊆ 定义集 → closed（闭环）；否则 dangling（悬空，列出悬空值）
+#   cross_chain: true 仅标注该引用跨链（检测逻辑不变，commands 为全局视图）
+
+#
+# ── 多产品支持说明（2026-09-13 补充）──
+#   本文件为**产品级**配置，顶层键 = 产品名（UDG/UNC/UEG）。
+#   调用链按会话产品动态取键：
+#     backend/app_v1.py  --product s['product']  （--chains 恒指本文件）
+#     exp_analysis_code/p3_chains.py  raw.get(product, [])
+#   → 某产品缺顶层键时 feature_chain_map.py 直接 KeyError，分析任务必失败。
+#
+#   ⚠ UNC / UEG 分组由 tools/build_chain_schemas.py **从各自 features_*.yaml 推导**：
+#     数据源  /opt/expgv/rules/features_unc.yaml（609 特性）/ features_ueg.yaml（1294 特性）
+#     方法    命令 → 名词族 → 按族统计关联特性数 → 组合成业务链；
+#             anchor = 该族中最独特的 ADD 命令；层按出现频次（≥3 特性 = required）
+#     覆盖    UNC 12 链 / 272 特性，UEG 11 链 / 502 特性
+#     验证    离线：真实样本锚点命中 UNC 7/12、UEG 5/11（未命中=样本确实没配该功能，
+#             正确行为）；实测：UNC/UEG 样本分析→匹配→生成全链路跑通，产物形态与 UDG 一致
+#   ⚠ 推导产物，建议人工校核后再作为长期基准。
+# 变更 2026-09-13：新增 UNC/UEG 分组（推导生成，源 features_unc/ueg.yaml）
+#   方法见 tools/build_chain_schemas.py（规则外置 CHAIN_RULES）
+#   覆盖：UNC 334/609 (55%)、UEG 600/1294 (46%)
+
+UDG:
+- chain_id: A
+  name: VRF/接口/路由
+  anchor_cmds:
+  - ADD L3VPNINST
+  anchor_param: VRFNAME
+  layers:
+  - id: INST
+    name: VRF 实例
+    cmds:
+    - ADD L3VPNINST
+    required: true
+  - id: AF
+    name: 地址族
+    cmds:
+    - ADD VPNINSTAF
+    - MOD VPNINSTAF
+    required: true
+  - id: RD
+    name: 路由区分符
+    cmds:
+    - MOD L3VPNINST
+    required: true
+  - id: BIND
+    name: 接口绑定
+    cmds:
+    - ADD IPBINDVPN
+    required: true
+  - id: IFADDR
+    name: 接口地址
+    cmds:
+    - ADD IFIPV4ADDRESS
+    - ADD IFIPV6ADDRESS
+    required: true
+  - id: HOSTRT
+    name: 主机路由
+    cmds:
+    - ADD SRROUTE
+    required: true
+  - id: BFD
+    name: BFD 探测
+    cmds:
+    - ADD BFDSESSION
+    required: true
+  - id: HOSTRT6
+    name: IPv6 主机路由
+    cmds:
+    - ADD SRROUTE6
+    required: false
+    absent_policy: partial
+  - id: IMPORT
+    name: 路由引入
+    cmds:
+    - ADD IMPORTROUTE
+    required: false
+    absent_policy: partial
+  - id: AGGRT
+    name: 聚合路由
+    cmds:
+    - ADD AGGREGATEROUTE
+    required: false
+    absent_policy: partial
+  - id: BGP
+    name: BGP 邻居/地址族
+    cmds:
+    - ADD BGPVRF
+    - ADD BGPPEER
+    - ADD BGPVRFAF
+    - MOD BGPVRFAF
+    - MOD BGPPEERAF
+    required: false
+    absent_policy: partial
+  - id: VPNINST
+    name: VPN 实例
+    cmds:
+    - ADD VPNINST
+    required: false
+    absent_policy: partial
+  - id: EPRP
+    name: EPRP 路由策略
+    cmds:
+    - ADD EPRPSTA
+    - ADD EPRPDYNIP
+    - ADD EPRPDYN
+    required: false
+    absent_policy: partial
+  - id: SCALE
+    name: 弹性伸缩
+    cmds:
+    - ADD AUTOSCALINGSERVICE
+    - ADD AUTOSCALINGSRROUTE
+    - ADD AUTOSCALINGBFD
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      INST: ok
+      AF: ok
+      RD: ok
+      BIND: ok
+      IFADDR: ok
+      HOSTRT: ok
+      BFD: ok
+    status: ok
+    note: VRF/接口/路由链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs:
+  - name: VRF→接口绑定
+    from:
+      cmd: ADD L3VPNINST
+      param: VRFNAME
+    to:
+      cmd: ADD IPBINDVPN
+      param: VRFNAME
+  - name: VRF→主机路由
+    from:
+      cmd: ADD L3VPNINST
+      param: VRFNAME
+    to:
+      cmd: ADD SRROUTE
+      param: VRFNAME
+  - name: VRF→IPv6主机路由
+    from:
+      cmd: ADD L3VPNINST
+      param: VRFNAME
+    to:
+      cmd: ADD SRROUTE6
+      param: VRFNAME
+  - name: VRF→路由引入
+    from:
+      cmd: ADD L3VPNINST
+      param: VRFNAME
+    to:
+      cmd: ADD IMPORTROUTE
+      param: VRFNAME
+  - name: VRF→BGP地址族
+    from:
+      cmd: ADD L3VPNINST
+      param: VRFNAME
+    to:
+      cmd: ADD BGPVRFAF
+      param: VRFNAME
+- chain_id: B
+  name: APN×位置×SMF 本地地址池
+  anchor_cmds:
+  - ADD POOL
+  anchor_param: POOLNAME
+  layers:
+  - id: L1
+    name: 池与地址段
+    cmds:
+    - ADD POOL
+    - ADD SECTION
+    required: true
+  - id: L2
+    name: 组与绑定
+    cmds:
+    - ADD POOLGROUP
+    - ADD POOLBINDGROUP
+    required: true
+  - id: L3
+    name: 位置区 TAC
+    cmds:
+    - ADD TACGROUP
+    - ADD N2TACID
+    - ADD S1TACID
+    required: true
+  - id: L4
+    name: APN 定义
+    cmds:
+    - ADD APN
+    required: true
+  - id: L5
+    name: APN×位置映射
+    cmds:
+    - ADD POOLGRPMAP
+    required: true
+  - id: L6
+    name: 分配规则与开关
+    cmds:
+    - SET IPALLOCRULE
+    - SET APNIPALLOCRULE
+    - SET IPALLOCBYLOCGLBSW
+    - SET IPALLOCBYLOCSW
+    - SET IPALLOCBYSMFSW
+    required: true
+  - id: L7
+    name: APN 地址属性
+    cmds:
+    - SET APNADDRESSATTR
+    - SET APNIMSATTR
+    - SET APNQOSATTR
+    required: false
+    absent_policy: partial
+  - id: L8
+    name: APN 附属开关
+    cmds:
+    - SET APNAFFUNC
+    - SET APNUEMUTACC
+    - SET APNDDNFLOWCTRL
+    - SET APNCFFUNC
+    - SET APNTETHERFUNC
+    - SET APNSRVSTATFUNC
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      L1: ok
+      L2: ok
+      L3: ok
+      L4: ok
+      L5: ok
+      L6: ok
+    status: ok
+    note: 文档步骤全落地
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes:
+  - doc_cmds:
+    - ADD OSPFAREA
+    - ADD OSPFIMPORTROUTE
+    exp_cmds:
+    - ADD SRROUTE
+    - ADD BFDSESSION
+    note: 下行路由部署选型差异（静态+BFD vs OSPF），非缺口
+  refs:
+  - name: POOL→地址段
+    from:
+      cmd: ADD POOL
+      param: POOLNAME
+    to:
+      cmd: ADD SECTION
+      param: POOLNAME
+  - name: POOL→绑定组
+    from:
+      cmd: ADD POOL
+      param: POOLNAME
+    to:
+      cmd: ADD POOLBINDGROUP
+      param: POOLNAME
+  - name: POOLGROUP→绑定组
+    from:
+      cmd: ADD POOLGROUP
+      param: POOLGRPNAME
+    to:
+      cmd: ADD POOLBINDGROUP
+      param: POOLGROUPNAME
+  - name: POOLGROUP→APN映射
+    from:
+      cmd: ADD POOLGROUP
+      param: POOLGRPNAME
+    to:
+      cmd: ADD POOLGRPMAP
+      param: POOLGROUPNAME
+  - name: APN→APN映射
+    from:
+      cmd: ADD APN
+      param: APN
+    to:
+      cmd: ADD POOLGRPMAP
+      param: APN
+  - name: APN→VRF实例
+    from:
+      cmd: ADD L3VPNINST
+      param: VRFNAME
+    to:
+      cmd: ADD APN
+      params:
+      - VPNINSTANCE
+      - VPNINSTANCEIPV6
+    cross_chain: true
+- chain_id: C
+  name: 数据面过滤（L34/L7）
+  anchor_cmds:
+  - ADD FILTER
+  - ADD FLOWFILTER
+  anchor_param: FLOWFILTERNAME
+  layers:
+  - id: L34
+    name: L3/L4 规则
+    cmds:
+    - ADD FILTER
+    - ADD FILTERIPV6
+    required: true
+  - id: FLOW
+    name: 流过滤器
+    cmds:
+    - ADD FLOWFILTER
+    required: true
+  - id: BRIDGE
+    name: 显式桥接绑定
+    cmds:
+    - ADD FLTBINDFLOWF
+    required: true
+  - id: DOMAIN
+    name: 域名/HOST 解析层
+    cmds:
+    - ADD HOST
+    - ADD L7FILTER
+    required: false
+    absent_policy: partial
+  - id: PROTO
+    name: 协议绑定层
+    cmds:
+    - ADD PROTBINDFLOWF
+    required: false
+    absent_policy: partial
+  - id: REFRESH
+    name: 生效刷新
+    cmds:
+    - SET REFRESHSRV
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      L34: ok
+      FLOW: ok
+      BRIDGE: ok
+    status: ok
+    note: L34→FLOWFILTER→桥接完整
+  - when: {}
+    status: missing
+    note: 核心过滤层缺项
+  equiv_substitutes: []
+  refs:
+  - name: FLOWFILTER→桥接绑定
+    from:
+      cmd: ADD FLOWFILTER
+      param: FLOWFILTERNAME
+    to:
+      cmd: ADD FLTBINDFLOWF
+      param: FLOWFILTERNAME
+  - name: FILTER→桥接绑定
+    from:
+      cmd:
+      - ADD FILTER
+      - ADD FILTERIPV6
+      param: FILTERNAME
+    to:
+      cmd: ADD FLTBINDFLOWF
+      param: FILTERNAME
+  - name: FLOWFILTER→协议绑定
+    from:
+      cmd: ADD FLOWFILTER
+      param: FLOWFILTERNAME
+    to:
+      cmd: ADD PROTBINDFLOWF
+      param: FLOWFILTERNAME
+  - name: L7FILTER→协议绑定
+    from:
+      cmd: ADD L7FILTER
+      param: L7FILTERNAME
+    to:
+      cmd: ADD PROTBINDFLOWF
+      param: L7FILTERNAME
+- chain_id: D
+  name: PCC 计费策略
+  anchor_cmds:
+  - ADD URRGROUP
+  - ADD URR
+  anchor_param: URRGROUPNAME
+  anchor_param_exclude_prefix: '&'
+  layers:
+  - id: URR
+    name: 计量记录
+    cmds:
+    - ADD URR
+    required: true
+  - id: GRP
+    name: 计费组
+    cmds:
+    - ADD URRGROUP
+    required: true
+  - id: PCC
+    name: 策略组
+    cmds:
+    - ADD PCCPOLICYGRP
+    required: true
+  - id: RULE
+    name: 规则
+    cmds:
+    - ADD RULE
+    required: true
+  - id: BIND
+    name: 规则绑定用户模板
+    cmds:
+    - ADD RULEBINDING
+    - ADD USERPROFILE
+    required: true
+  - id: GBIND
+    name: 缺省组绑定
+    cmds:
+    - SET URRGRPBINDING
+    required: true
+  - id: SPEC
+    name: 专组清单
+    cmds:
+    - ADD SPECURRGRPLIST
+    required: false
+    absent_policy: partial
+  - id: ACT
+    name: 动作/失效处理
+    cmds:
+    - ADD PCCACTIONPROP
+    - SET URRFAILACTION
+    - SET SPECTRAFURRGRP
+    - SET UPURRCTRL
+    - SET PCCRULECTRL
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      URR: ok
+      GRP: ok
+      PCC: ok
+      RULE: ok
+      BIND: ok
+      GBIND: ok
+    status: ok
+    note: PCC 链完整
+  - when: {}
+    status: missing
+    note: PCC 链缺项
+  equiv_substitutes:
+  - doc_params:
+    - cmd: ADD PCCPOLICYGRP
+      param: SIGURRGRPNAME
+    exp_cmds:
+    - SET URRGRPBINDING
+    note: 信令组由 URRGRPBINDING 缺省承担，结构等价替代非缺口
+  refs:
+  - name: URR→计费组
+    from:
+      cmd: ADD URR
+      param: URRNAME
+    to:
+      cmd: ADD URRGROUP
+      params:
+      - UPURRNAME1
+      - DOWNURRNAME1
+      - UPURRNAME2
+      - DOWNURRNAME2
+  - name: 计费组→策略组
+    from:
+      cmd: ADD URRGROUP
+      param: URRGROUPNAME
+    to:
+      cmd: ADD PCCPOLICYGRP
+      param: URRGROUPNAME
+  - name: 策略组→规则
+    from:
+      cmd: ADD PCCPOLICYGRP
+      param: PCCPOLICYGRPNM
+    to:
+      cmd:
+        type: ADD RULE
+        filter:
+          POLICYTYPE: PCC
+      param: POLICYNAME
+  - name: 规则→规则绑定
+    from:
+      cmd:
+        type: ADD RULE
+        filter:
+          POLICYTYPE: PCC
+      param: RULENAME
+    to:
+      cmd:
+        type: ADD RULEBINDING
+        filter:
+          POLICYTYPE: PCC
+      param: RULENAME
+  - name: 计费组→缺省组绑定
+    from:
+      cmd: ADD URRGROUP
+      param: URRGROUPNAME
+    to:
+      cmd: SET URRGRPBINDING
+      params:
+      - DFTURRGRPNAME
+      - DFTSIGURRGNAME
+- chain_id: E
+  name: SuperE5 QOS 直播加速
+  anchor_cmds:
+  - type: ADD URR
+    filter:
+      USAGERPTMODE: QOS
+  anchor_param: URRNAME
+  anchor_param_require_prefix: supere5_
+  layers:
+  - id: FLOW
+    name: 直播流过滤器
+    cmds:
+    - ADD FLOWFILTER
+    required: true
+  - id: PROTO
+    name: 直播协议绑定
+    cmds:
+    - ADD PROTBINDFLOWF
+    required: true
+  - id: URRQ
+    name: QOS 计量
+    cmds:
+    - type: ADD URR
+      filter:
+        USAGERPTMODE: QOS
+    required: true
+  - id: QPROP
+    name: QOS 属性
+    cmds:
+    - ADD QOSPROP
+    required: true
+  - id: RULEQ
+    name: QOS 规则
+    cmds:
+    - type: ADD RULE
+      filter:
+        POLICYTYPE: QOS
+    required: true
+  - id: BINDQ
+    name: QOS 绑定
+    cmds:
+    - type: ADD RULEBINDING
+      filter:
+        POLICYTYPE: QOS
+    required: true
+  verdict_rules:
+  - when:
+      FLOW: ok
+      PROTO: ok
+      URRQ: ok
+      QPROP: ok
+      RULEQ: ok
+      BINDQ: ok
+    status: ok
+    note: QOS 链完整
+  - when: {}
+    status: partial
+    note: QOS 链部分落地（见层明细）
+  equiv_substitutes: []
+  refs:
+  - name: URR→QOS属性
+    from:
+      cmd: ADD URR
+      param: URRNAME
+    to:
+      cmd: ADD QOSPROP
+      param: QOSURRNAME
+  - name: QOS属性→规则
+    from:
+      cmd: ADD QOSPROP
+      param: QOSPROPNAME
+    to:
+      cmd:
+        type: ADD RULE
+        filter:
+          POLICYTYPE: QOS
+      param: POLICYNAME
+  - name: 规则→规则绑定
+    from:
+      cmd:
+        type: ADD RULE
+        filter:
+          POLICYTYPE: QOS
+      param: RULENAME
+    to:
+      cmd:
+        type: ADD RULEBINDING
+        filter:
+          POLICYTYPE: QOS
+      param: RULENAME
+- chain_id: F
+  name: SSU/QoE 智能保障
+  anchor_cmds:
+  - ADD SSUPROTCOLGROUP
+  anchor_param: POLICYCNDNAME
+  layers:
+  - id: COND
+    name: 策略条件
+    cmds:
+    - ADD POLICYCONDITION
+    required: true
+  - id: PROTGRP
+    name: 协议组
+    cmds:
+    - ADD SSUPROTCOLGROUP
+    required: true
+  - id: APPCTRL
+    name: 应用策略控制
+    cmds:
+    - ADD APPPOLICYCTRL
+    required: true
+  - id: SWITCH
+    name: 推理开关
+    cmds:
+    - SET QOEBASICFUNC
+    - SET VVIPBASICFUNC
+    required: true
+    param_observations:
+    - cmds:
+      - SET QOEBASICFUNC
+      params:
+      - QOESWITCH
+      why: QoE 推理开关（QOESWITCH=DISABLE 时对象已建但推理未启；开启需许可与 CoreMind/IISA 服务就绪）
+  - id: CATEGORY
+    name: 内容分类
+    cmds:
+    - ADD CATEGORYPROP
+    required: false
+    absent_policy: partial
+  - id: IISA
+    name: IISA 模型
+    cmds:
+    - SET IISABASICFUNC
+    - SET IISAMODELMONIT
+    - SET MODELGLBFUNC
+    required: false
+    absent_policy: partial
+  - id: PERF
+    name: 应用性能统计
+    cmds:
+    - ADD APPPERFSTAT
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      COND: ok
+      PROTGRP: ok
+      APPCTRL: ok
+      SWITCH: ok
+    status: ok
+    note: QoE 对象面完整
+  - when: {}
+    status: partial
+    note: QoE 对象面部分（见层明细）
+  equiv_substitutes: []
+  refs:
+  - name: 策略条件→协议组
+    from:
+      cmd: ADD POLICYCONDITION
+      param: POLICYCNDNAME
+    to:
+      cmd: ADD SSUPROTCOLGROUP
+      param: POLICYCNDNAME
+  - name: 协议组→应用策略
+    from:
+      cmd: ADD SSUPROTCOLGROUP
+      param: DEFPRTGRPNAME
+    to:
+      cmd: ADD APPPOLICYCTRL
+      param: DEFPRTGRPNAME
+- chain_id: G
+  name: N4/N6 路径管理/故障联动
+  anchor_cmds:
+  - SET UPPFCPPATH
+  - SET UPN4UPATH
+  - SET UPGTPPATH
+  layers:
+  - id: L4
+    name: 许可授权
+    kind: license_items
+    items:
+    - LKV3G5N4UC01
+    - LKV3G5N6FL01
+    - LKV3G5N3FL01
+    required: false
+    absent_policy: exempt
+  - id: L3
+    name: 协议层（Echo/心跳+去活）
+    cmds:
+    - SET UPPFCPPATH
+    - SET UPN4UPATH
+    - SET UPGTPPATH
+    required: true
+    param_observations:
+    - cmds:
+      - SET UPGTPPATH
+      params:
+      - V1DATAECHOSW
+      - V0ECHOSW
+      - T3RESPONSE
+      why: Echo/T3 现网值偏激进且依赖对端探测（参考常见 V1DATAECHOSW=ENABLE）；需与对端(R)AN/SMF 确认 N3/N6 GTP-U 保活
+    - cmds:
+      - SET UPGTPPATH
+      - SET UPN4UPATH
+      - SET UPPFCPPATH
+      params:
+      - DEACTIVEFLAG
+      why: DEACTIVEFLAG=ENABLE 时路径断后去活路径上全部上下文（业务闪断级）；三层全 ENABLE 属激进策略需与 SMF 联动确认
+  - id: L2
+    name: APN 级自定义探测
+    cmds:
+    - ADD LOGICINF
+    - ADD DETECTPATH
+    - ADD APNBINDPATH
+    - SET APNTNLSTATUSRPT
+    required: false
+    absent_policy: partial
+  - id: L1
+    name: GRE 隧道形态
+    cmds:
+    - ADD GRETUNNEL
+    required: false
+    absent_policy: exempt
+  verdict_rules:
+  - when:
+      L3: missing
+    status: missing
+    note: 协议层缺项
+  - when:
+      L3: ok
+      L2: partial
+    status: partial
+    note: L3 协议层完整/L2 APN 级探测未启用
+  - when:
+      L3: ok
+    status: ok
+    note: 路径管理层完整
+  equiv_substitutes: []
+- chain_id: H
+  name: 保护/杂项（ACL/IPFARM/头增强）
+  anchor_cmds:
+  - ADD IPFARM
+  anchor_param: IPFARMNAME
+  layers:
+  - id: ACL
+    name: ACL 保护
+    cmds:
+    - ADD ACL
+    - ADD ACLBINDAPN
+    - ADD ACLNODE
+    - ADD ACLNODEBINDACL
+    required: true
+  - id: IPFARM
+    name: 业务保护实例
+    cmds:
+    - ADD IPFARM
+    - ADD IPFARMSERVER
+    required: true
+  - id: HEADEN
+    name: 头增强
+    cmds:
+    - ADD HEADEN
+    - ADD TLSHEADEN
+    - SET HTTPFIXEDFCMSG
+    - ADD HTTPLE
+    - ADD HTTPLEGRP
+    - MOD HTTPHTRMS
+    - SET HTTPFCCONF
+    - SET HTTPCCACONF
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      ACL: ok
+      IPFARM: ok
+    status: ok
+    note: 保护面完整
+  - when: {}
+    status: partial
+    note: 保护面部分（见层明细）
+  equiv_substitutes: []
+  refs:
+  - name: IPFARM→服务器
+    from:
+      cmd: ADD IPFARM
+      param: IPFARMNAME
+    to:
+      cmd: ADD IPFARMSERVER
+      param: IPFARMNAME
+  - name: ACL→APN绑定
+    from:
+      cmd: ADD ACL
+      param: ACLNAME
+    to:
+      cmd: ADD ACLBINDAPN
+      param: ACLNAME
+  - name: APN→ACL绑定
+    from:
+      cmd: ADD APN
+      param: APN
+    to:
+      cmd: ADD ACLBINDAPN
+      param: APN
+    cross_chain: true
+- chain_id: I
+  name: BWM 带宽管理
+  anchor_cmds:
+  - ADD BWMCONTROLLER
+  anchor_param: BWMCNAME
+  layers:
+  - id: CTRL
+    name: 带宽控制器
+    cmds:
+    - ADD BWMCONTROLLER
+    required: true
+  - id: SVC
+    name: 带宽服务
+    cmds:
+    - ADD BWMSERVICE
+    required: true
+  - id: RULE
+    name: 带宽规则
+    cmds:
+    - ADD BWMRULE
+    required: true
+  - id: USRG
+    name: 用户组
+    cmds:
+    - ADD BWMUSERGROUP
+    required: false
+    absent_policy: partial
+  - id: BIND
+    name: 组绑定模板
+    cmds:
+    - ADD UPBINDBWMUSRG
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CTRL: ok
+      SVC: ok
+      RULE: ok
+    status: ok
+    note: BWM 带宽管理链完整
+  - when: {}
+    status: partial
+    note: BWM 链部分落地（见层明细）
+  equiv_substitutes: []
+  refs:
+  - name: 服务→内容分类
+    from:
+      cmd: ADD CATEGORYPROP
+      param: CATEPROPNAME
+    to:
+      cmd: ADD BWMSERVICE
+      param: CATEPROPNAME
+    cross_chain: true
+  - name: 规则→服务
+    from:
+      cmd: ADD BWMSERVICE
+      param: BWMSERVICENAME
+    to:
+      cmd: ADD BWMRULE
+      param: BWMSERVICENAME
+  - name: 规则→控制器
+    from:
+      cmd: ADD BWMCONTROLLER
+      param: BWMCNAME
+    to:
+      cmd: ADD BWMRULE
+      params:
+      - UPBWMCTRLNAME1
+      - DNBWMCTRLNAME1
+  - name: 组绑定→用户组
+    from:
+      cmd: ADD BWMUSERGROUP
+      param: USERGROUPNAME
+    to:
+      cmd: ADD UPBINDBWMUSRG
+      param: USERGROUPNAME
+- chain_id: J
+  name: 负载均衡
+  anchor_cmds:
+  - SET LBFRAGRSCFG
+  layers:
+  - id: FRAG
+    name: 分片重配
+    cmds:
+    - SET LBFRAGRSCFG
+    required: true
+  - id: LBFC
+    name: 负载均衡功能
+    cmds:
+    - SET LBFC
+    - SET LBFRAGRSCFGSW
+    - SET LBFRSTATCFG
+    - SET LBTNIPINIPSWITCH
+    required: false
+    absent_policy: partial
+  - id: SRVLB
+    name: 服务器负载均衡
+    cmds:
+    - SET HTTPSRVLBSW
+    - SET TLBGLBCONF
+    - SET COLOCATEDLBO
+    - SET DEDICATEDLBO
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      FRAG: ok
+    status: ok
+    note: 负载均衡面完整
+  - when: {}
+    status: partial
+    note: 负载均衡面部分（见层明细）
+  equiv_substitutes: []
+- chain_id: K
+  name: 安全防护（策略CAR/攻击防御/IP选项）
+  anchor_cmds:
+  - SET NPSECPOLICYCAR
+  layers:
+  - id: CAR
+    name: 安全策略 CAR
+    cmds:
+    - SET NPSECPOLICYCAR
+    required: true
+  - id: DEFEND
+    name: 攻击防御
+    cmds:
+    - SET ATTACKDEFEND
+    required: false
+    absent_policy: partial
+  - id: IPOPT
+    name: IP 选项安全
+    cmds:
+    - SET IPOPTSECURITY
+    - SET IPSECURITYSWITCH
+    required: false
+    absent_policy: partial
+  - id: SECPROTO
+    name: 协议安全
+    cmds:
+    - SET SECARP
+    - SET SECICMPREPLY
+    - SET SECND
+    - SET SECALG
+    - SET SECAUTH
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CAR: ok
+    status: ok
+    note: 安全防护面完整
+  - when: {}
+    status: partial
+    note: 安全防护面部分（见层明细）
+  equiv_substitutes: []
+- chain_id: L
+  name: VoLTE/VoNR MOS 语音质量
+  anchor_cmds:
+  - SET VONRMOSFACTOR
+  - SET VOLTEMOSFACTOR
+  layers:
+  - id: VONR
+    name: VoNR MOS 因子
+    cmds:
+    - SET VONRMOSFACTOR
+    required: true
+  - id: VOLTE
+    name: VoLTE MOS 因子
+    cmds:
+    - SET VOLTEMOSFACTOR
+    required: true
+  - id: THD
+    name: 阈值/开关/告警
+    cmds:
+    - SET VONRMOSCLASS
+    - SET VONRABNORMOS
+    - SET VONRSWALBRK
+    - SET VONRONEWAYSIL
+    - SET VONRPERFTDELAY
+    - SET VOLTEMOSCLASS
+    - SET VOLTEMOSEVAL
+    - SET VOLTEMOSALMTHD
+    - SET VOLTEABNORMOS
+    - SET VOLTESWALBRK
+    - SET VOLTEONEWAYSIL
+    - SET VOLTEPERFTDELAY
+    required: false
+    absent_policy: partial
+  - id: APNMO
+    name: APN 级语音监控
+    cmds:
+    - SET APNVONRMONFUNC
+    - SET APNVOLTEMONFUNC
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      VONR: ok
+      VOLTE: ok
+    status: ok
+    note: 语音质量监控面完整
+  - when: {}
+    status: partial
+    note: 语音质量面部分（见层明细）
+  equiv_substitutes: []
+- chain_id: M
+  name: License 授权开关
+  anchor_cmds:
+  - SET LICENSESWITCH
+  anchor_param: null
+  layers:
+  - id: L1
+    name: 授权项（精确匹配）
+    kind: license_items
+    items:
+    - LKV2ASLSR02
+    - LKV2CUFMN01
+    - LKV2FUPSAT01
+    - LKV3EGAGY5G01
+    - LKV3G55GHT01
+    - LKV3G5AMRC01
+    - LKV3G5ANAQ01
+    - LKV3G5ANRC01
+    - LKV3G5CPPT01
+    - LKV3G5CUFM01
+    - LKV3G5DCAS01
+    - LKV3G5DNSO01
+    - LKV3G5DOVN01
+    - LKV3G5DTTL01
+    - LKV3G5E2ET01
+    - LKV3G5EDRX01
+    - LKV3G5EPSF01
+    - LKV3G5EXPQ01
+    - LKV3G5FPBS01
+    - LKV3G5FSHP01
+    - LKV3G5H2PF01
+    - LKV3G5HCAS01
+    - LKV3G5HHAS01
+    - LKV3G5HSAP01
+    - LKV3G5HSBI01
+    - LKV3G5HSHA01
+    - LKV3G5HTHE01
+    - LKV3G5HTSE01
+    - LKV3G5IARG01
+    - LKV3G5IBIC01
+    - LKV3G5IMSR01
+    - LKV3G5IPSM01
+    - LKV3G5L2TP01
+    - LKV3G5LALG01
+    - LKV3G5LBAA01
+    - LKV3G5MDRX01
+    - LKV3G5MSFM01
+    - LKV3G5MVCA01
+    - LKV3G5NDRX01
+    - LKV3G5NPTO01
+    - LKV3G5OBCCS1
+    - LKV3G5OLCH01
+    - LKV3G5P6PD01
+    - LKV3G5PCBT01
+    - LKV3G5PCCB01
+    - LKV3G5PMRC01
+    - LKV3G5PNRC01
+    - LKV3G5RBMS01
+    - LKV3G5RDSC01
+    - LKV3G5RTHE01
+    - LKV3G5RUCF01
+    - LKV3G5SCUD01
+    - LKV3G5SHPR01
+    - LKV3G5SMRB01
+    - LKV3G5SNAC01
+    - LKV3G5SRQS01
+    - LKV3G5STCA01
+    - LKV3G5TCPR01
+    - LKV3G5TCQS01
+    - LKV3G5TCSA01
+    - LKV3G5TWMP01
+    - LKV3G5UFBF01
+    - LKV3G5UPLR01
+    - LKV3G5V6NF01
+    - LKV3G5V6PB01
+    - LKV3G5VDSA01
+    - LKV3G5VONR01
+    - LKV3G5WEBP01
+    - LKV3G5WOCR01
+    - LKV3W9BCC12
+    - LKV3W9DHCP12
+    - LKV3W9PCBT12
+    - LKV3W9RBMS12
+    - LKV4EN4SCY01
+    - LKV4ISCFUN02
+    - LKV4NATBSS01
+    - LKV4NATLOG01
+    - LKV4NATUSR01
+    - LKV4RETAPP01
+    - LKV4SSTAPP02
+    required: true
+    absent_policy: missing
+  verdict_rules:
+  - when:
+      L1: ok
+    status: ok
+    note: 授权项全部在位，功能可用
+  - when:
+      L1: disabled
+    status: disabled
+    note: 部分授权项被关闭 → 对应功能不可用（见层明细）
+  - when:
+      L1: missing
+    status: missing
+    note: 授权项缺失 → 功能不可用（需申请 License）
+  - when: {}
+    status: partial
+    note: 授权状态待审视（见层明细）
+  equiv_substitutes: []
+  refs: []
+  anchor_from_license: true
+  lic_by_feature:
+    F003:
+    - LKV3G5TCQS01
+    F004:
+    - LKV3G5LBAA01
+    F005:
+    - LKV3G5LBAA01
+    F006:
+    - LKV3G5LBAA01
+    F007:
+    - LKV3G5MSFM01
+    F009:
+    - LKV3G5RTHE01
+    F010:
+    - LKV3G5SHPR01
+    F011:
+    - LKV3G5WEBP01
+    F013:
+    - LKV3G5HCAS01
+    F014:
+    - LKV3G5HCAS01
+    F015:
+    - LKV3G5HCAS01
+    F016:
+    - LKV3G5HSHA01
+    F017:
+    - LKV3G5H2PF01
+    F020:
+    - LKV3G5RDSC01
+    F021:
+    - LKV3G5TCSA01
+    F022:
+    - LKV3G5TCSA01
+    F023:
+    - LKV3G5TCSA01
+    F024:
+    - LKV3G5TCSA01
+    F025:
+    - LKV3G5TCSA01
+    F026:
+    - LKV3G5TCSA01
+    F027:
+    - LKV3G5TCSA01
+    F028:
+    - LKV3G5TCSA01
+    F029:
+    - LKV3G5TCSA01
+    F030:
+    - LKV3G5CPPT01
+    F033:
+    - LKV3G5DTTL01
+    F034:
+    - LKV3G5V6PB01
+    F035:
+    - LKV3G5V6NF01
+    F037:
+    - LKV3G5HTHE01
+    F039:
+    - LKV3G5EPSF01
+    F040:
+    - LKV3G5PCCB01
+    F041:
+    - LKV3G5PCCB01
+    F042:
+    - LKV3G5HTSE01
+    F043:
+    - LKV3G5WOCR01
+    F044:
+    - LKV3G5DNSO01
+    F045:
+    - LKV3G5FPBS01
+    F046:
+    - LKV3G5RUCF01
+    F047:
+    - LKV3G5HSAP01
+    F048:
+    - LKV3G5VDSA01
+    F053:
+    - LKV3G5IPSM01
+    F059:
+    - LKV3G5UPLR01
+    F072:
+    - LKV3G5CUFM01
+    F092:
+    - LKV3G5IARG01
+    F104:
+    - LKV3G5L2TP01
+    F105:
+    - LKV3G5L2TP01
+    F107:
+    - LKV3G5RBMS01
+    F156:
+    - LKV3G5TCPR01
+    F160:
+    - LKV2CUFMN01
+    F161:
+    - LKV3G5LBAA01
+    F164:
+    - LKV3G5DCAS01
+    F168:
+    - LKV3G5PCBT01
+    - LKV3W9PCBT12
+    F170:
+    - LKV3G5TWMP01
+    F172:
+    - LKV3G5CUFM01
+    F174:
+    - LKV3G5DCAS01
+    F176:
+    - LKV3G5HHAS01
+    F177:
+    - LKV2FUPSAT01
+    - LKV3G5FPBS01
+    F184:
+    - LKV3G5TWMP01
+    F188:
+    - LKV3G5VONR01
+    F193:
+    - LKV3G5HSBI01
+    F197:
+    - LKV3W9DHCP12
+    F198:
+    - LKV3G5SCUD01
+    F210:
+    - LKV3G5OLCH01
+    F212:
+    - LKV3G5IBIC01
+    F223:
+    - LKV3G5NPTO01
+    F228:
+    - LKV3G5OBCCS1
+    F229:
+    - LKV3G5UFBF01
+    F230:
+    - LKV3G5EDRX01
+    F231:
+    - LKV3G5FSHP01
+    F232:
+    - LKV3G5STCA01
+    F239:
+    - LKV4NATBSS01
+    F276:
+    - LKV3W9BCC12
+    F279:
+    - LKV3W9BCC12
+    F304:
+    - LKV3G55GHT01
+    F321:
+    - LKV3G5SMRB01
+    F337:
+    - LKV3G5SNAC01
+    F338:
+    - LKV3W9RBMS12
+    F345:
+    - LKV3G5ANAQ01
+    F346:
+    - LKV3G5EXPQ01
+    F356:
+    - LKV2ASLSR02
+    F357:
+    - LKV3EGAGY5G01
+    F362:
+    - LKV3G5LALG01
+    - LKV3G5MVCA01
+    F386:
+    - LKV3G5NDRX01
+    F387:
+    - LKV3G5DOVN01
+    F391:
+    - LKV3G5MDRX01
+    F411:
+    - LKV3G5E2ET01
+    F412:
+    - LKV3G5SRQS01
+    F417:
+    - LKV4EN4SCY01
+    F418:
+    - LKV4NATLOG01
+    F419:
+    - LKV4NATUSR01
+    F433:
+    - LKV4ISCFUN02
+    F434:
+    - LKV4RETAPP01
+    F435:
+    - LKV4SSTAPP02
+    F060:
+    - LKV3G5P6PD01
+    F061:
+    - LKV3G5P6PD01
+    F062:
+    - LKV3G5P6PD01
+    F049:
+    - LKV3G5IMSR01
+    F389:
+    - LKV3G5ANRC01
+    F390:
+    - LKV3G5PNRC01
+    F392:
+    - LKV3G5AMRC01
+    F393:
+    - LKV3G5PMRC01
+UNC:
+- chain_id: A
+  name: VRF/接口/路由
+  anchor_cmds:
+  - ADD L3VPNINSTIPSEC
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD IFIPV4ADDRESS
+    - ADD IFIPV4ADDRESSIPSEC
+    - ADD IFIPV6ADDRESS
+    - ADD IFIPV6ADDRESSIPSEC
+    - ADD IMPORTROUTE
+    - ADD INTERFACE
+    - ADD INTERFACEIPSEC
+    - ADD IPBINDVPN
+    - ADD IPBINDVPNIPSEC
+    - ADD L3VPNINST
+    - ADD L3VPNINSTIPSEC
+    - ADD SRROUTE
+    - ADD SRROUTE6
+    - ADD VPNINST
+    - ADD VPNINSTAF
+    - ADD VPNINSTAFIPSEC
+    - MOD INTERFACE
+    - MOD VPNINSTAF
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD BFDSESSION
+    - LST IFIPV4ADDRESS
+    - LST IFIPV6ADDRESS
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: VRF/接口/路由链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: B
+  name: APN/签约/用户档案
+  anchor_cmds:
+  - ADD APNDIAMAAAGRP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD APN
+    - ADD APNCHGMODE
+    - ADD APNDEACTQFPLCY
+    - ADD APNNIGROUP
+    - ADD APNPOLICYMODE
+    - ADD APNUPFINFO
+    - ADD APNUPRECOVER
+    - ADD APNUSRPROFG
+    - ADD PNFPROFILE
+    - ADD PNFSERVICE
+    - ADD PSUB
+    - ADD SUBSCRIBERIDSEGGRP
+    - ADD USERPROFILE
+    - ADD USRPROFGROUP
+    - MOD APN
+    - SET APNADDRESSATTR
+    - SET APNAUTHATTR
+    - SET APNCHARGECTRL
+    - SET APNIDLETIME
+    - SET APNIPALLOCRULE
+    - SET APNPCCFUNC
+    - SET APNQOSATTR
+    - SET APNUPSELPLY
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD APNAMBRCTRL
+    - ADD APNAREA
+    - ADD APNAREABNDN2TAI
+    - ADD APNCHRFUNC
+    - ADD APNDIAMAAAGRP
+    - ADD APNEDRXATTR
+    - ADD APNGA5GREUSEAVP
+    - ADD APNGWPROXYFUNC
+    - ADD APNGY5GREUSEAVP
+    - ADD APNNBNS
+    - ADD APNNI
+    - ADD APNNIDT
+    - ADD APNPTTFUNC
+    - ADD APNQOSBYPASS
+    - ADD APNRDSCLIENTIP
+    - ADD APNRDSSVRGRP
+    - ADD APNSMCOMFUNC
+    - ADD APNTOHCTRL
+    - ADD APNTPL
+    - LCK APN
+    - MOD PSUB
+    - RMV APNGWPROXYFUNC
+    - SET APNACCESSCTRL
+    - SET APNACCESSWAL
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: APN/签约/用户档案链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: C
+  name: 数据面过滤（L34/L7）
+  anchor_cmds:
+  - ADD FLOWFILTERGRP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD FILTER
+    - ADD FILTERIPV6
+    - ADD FLOWFILTER
+    - ADD FLOWFILTERGRP
+    - ADD FLTBINDFLOWF
+    - ADD L7FILTER
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD HOST
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 数据面过滤（L34/L7）链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: D
+  name: PCC 计费策略
+  anchor_cmds:
+  - ADD URRGROUP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD PCCPOLICYGRP
+    - ADD QOSPROP
+    - ADD RULE
+    - ADD RULEBINDING
+    - ADD RULECONDITIONGROUP
+    - ADD RULENGACTION
+    - ADD URR
+    - ADD URRGROUP
+    - SET CHARGECTRL
+    - SET URRGRPBINDING
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD RULEBINDDNAI
+    - MOD PCCPOLICYGRP
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: PCC 计费策略链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: E
+  name: APN 计费控制
+  anchor_cmds:
+  - SET APNCHARGECTRL
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD DCCTEMPLATE
+    - ADD OCS
+    - ADD OCSBINDING
+    - ADD OCSGROUP
+    - MOD DCCTEMPLATE
+    - SET APNCHARGECTRL
+    - SET USRPROFCHARGE
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - SET OCSDOWNACTION
+    - SET OCSINIT
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: APN 计费控制链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: F
+  name: 动态路由（OSPF/BGP）
+  anchor_cmds:
+  - ADD OSPFAREAAUTH
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD BGPPEER
+    - ADD BGPPEERBFD
+    - ADD BGPVRF
+    - ADD BGPVRFAF
+    - ADD IMPORTROUTE
+    - ADD OSPF
+    - ADD OSPFAREA
+    - ADD OSPFIMPORTROUTE
+    - ADD OSPFINTERFACE
+    - ADD OSPFNETWORK
+    - ADD OSPFV3
+    - ADD OSPFV3AREA
+    - ADD OSPFV3IMPORTROUTE
+    - MOD BGPVRF
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD OSPFAREAAUTH
+    - ADD OSPFINTERFACEAUTH
+    - ADD OSPFV3AREAAUTH
+    - ADD OSPFV3INTERFACE
+    - ADD OSPFV3INTERFACEAUTH
+    - MOD BGPPEER
+    - MOD BGPPEERAF
+    - MOD OSPFINTERFACEAUTH
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 动态路由（OSPF/BGP）链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: G
+  name: ULCL/分流
+  anchor_cmds:
+  - ADD ULCLPROP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD DNNQOSTPL
+    - ADD FLOWFILTER
+    - ADD FLOWFILTERGRP
+    - ADD RULE
+    - ADD RULEBINDING
+    - ADD RULECONDITIONGROUP
+    - ADD RULENGACTION
+    - ADD SERVICEIP
+    - ADD ULCLPROP
+    - ADD USERPROFILE
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD DNNGRP
+    - ADD DNNGRPMEM
+    - ADD RULEBINDDNAI
+    - ADD SERVICEIPMCR
+    - ADD ULCLAPNDPMODE
+    - ADD ULCLAREADPMODE
+    - ADD ULCLDNAIDPMODE
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: ULCL/分流链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: H
+  name: 地址池/地址分配
+  anchor_cmds:
+  - ADD POOLBINDAPN
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD ADDRPOOL
+    - ADD ADDRPOOLGRP
+    - ADD POOL
+    - ADD POOLBINDGROUP
+    - ADD POOLBINDGRP
+    - ADD POOLGROUP
+    - ADD POOLGRPMAP
+    - ADD POOLLA
+    - ADD POOLNRI
+    - ADD SECTION
+    - MOD ADDRPOOL
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD POOLBINDAPN
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 地址池/地址分配链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: I
+  name: 容灾/主备
+  anchor_cmds:
+  - ADD DRINST
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD DRCOMM
+    - ADD DRINST
+    - ADD NRFPARA
+    - ADD PNFNS
+    - DSP DRINFO
+    - MOD NRFPARA
+    - RMV DRCOMM
+    - RMV DRINST
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD NFREGNRF
+    - ADD NFROUTINGIND
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 容灾/主备链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: J
+  name: 接口与逻辑IP
+  anchor_cmds:
+  - ADD LOGICIP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD IFIPV4ADDRESS
+    - ADD IFIPV4ADDRESSIPSEC
+    - ADD INTERFACE
+    - ADD INTERFACEIPSEC
+    - ADD IPBINDVPN
+    - ADD IPBINDVPNIPSEC
+    - ADD LOGICIP
+    - ADD SERVICEIP
+    - MOD INTERFACE
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD SERVICEIPMCR
+    - LST IFIPV4ADDRESS
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 接口与逻辑IP链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: K
+  name: 安全（IPsec/TLS/HTTP）
+  anchor_cmds:
+  - ADD TLSPARA
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD ACLGROUP6IPSEC
+    - ADD ACLGROUPIPSEC
+    - ADD ACLRULEADV4IPSEC
+    - ADD ACLRULEADV6IPSEC
+    - ADD ATTACHIKEPEER
+    - ADD GRETUNNEL
+    - ADD HTTPLE
+    - ADD HTTPLEGRP
+    - ADD IFIPV4ADDRESSIPSEC
+    - ADD IFIPV6ADDRESSIPSEC
+    - ADD IKEPEER
+    - ADD IKEPEER6
+    - ADD IKEPROPOSAL
+    - ADD INTERFACEIPSEC
+    - ADD IPBINDVPNIPSEC
+    - ADD IPSECINTFCFG
+    - ADD IPSECINTFCFGIPSEC
+    - ADD IPSECPOLICY
+    - ADD IPSECPOLICY6
+    - ADD IPSECPOLICYTM
+    - ADD IPSECPROPOSALIPSEC
+    - ADD TLSPARA
+    - SET FWSOFTPARA
+    - SET IFIPV6ENABLE
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD ACLGROUP
+    - ADD ACLGROUP6
+    - ADD ACLRULEADV4
+    - ADD ACLRULEADV6
+    - ADD CERTSCENE
+    - MOD GRETUNNEL
+    - RMV ACLGROUP
+    - RMV ACLGROUP6
+    - RMV ACLRULEADV4
+    - RMV ACLRULEADV6
+    - RMV GRETUNNEL
+    - SET FWSOFTPARABITS
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 安全（IPsec/TLS/HTTP）链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: L
+  name: 带宽控制/QoS
+  anchor_cmds:
+  - ADD QOSCAPWHITEAPNS
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD QOSCAPBY5QI
+    - ADD QOSCAPWHITEAPNS
+    - ADD QOSPROP
+    required: true
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 带宽控制/QoS链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: M
+  name: License 授权开关
+  anchor_cmds:
+  - SET LICENSESWITCH
+  anchor_param: null
+  anchor_from_license: true
+  lic_by_feature:
+    F012:
+    - LKV3W9V6PD11
+    F014:
+    - LKV3W9RBMS12
+    F015:
+    - LKV3W9SBWL11
+    F016:
+    - LKV2AMFPL01
+    F017:
+    - LKV2SMAP01
+    F018:
+    - LKV2SUPFS01
+    F035:
+    - LKV2NFBAM01
+    - LKV2NRLSAM01
+    F050:
+    - LKV2NRBL5
+    F060:
+    - LKV2NFANR01
+    - LKV2NFBNR01
+    F061:
+    - LKV2NFANS01
+    F063:
+    - LKV2NFANS01
+    F069:
+    - LKV2GSINTF02
+    F070:
+    - LKV2GSINTF02
+    F088:
+    - LKV2NFBSM01
+    F090:
+    - LKV2NFBSM01
+    - LKV2NRLSSM01
+    F107:
+    - LKV3W9EBCS12
+    F109:
+    - LKV2CSFB03
+    F110:
+    - LKV2HD16M02
+    F111:
+    - LKV2HSPAUL02
+    F113:
+    - LKV2PFC02
+    F114:
+    - LKV2HUNN01
+    F115:
+    - LKV3WNPUNN11
+    F117:
+    - LKV2CHR04
+    F122:
+    - LKV2NFACV01
+    F123:
+    - LKV2CUFMN01
+    F124:
+    - LKV2DMECFP01
+    F125:
+    - LKV3G5LBAA01
+    F126:
+    - LKV2DMECFP01
+    F129:
+    - LKV2NFAAM01
+    - LKV2NFANR01
+    - LKV2NFBAM01
+    F131:
+    - LKV2VCHSM01
+    F133:
+    - LKV2PYCTRL1
+    F136:
+    - LKV3G5PCBT01
+    - LKV3W9PCBT12
+    F139:
+    - LKV2EIR02
+    F140:
+    - LKV2DLNSSR01
+    F141:
+    - LKV2ASNSSR01
+    F145:
+    - LKV3W9GPSP11
+    F146:
+    - LKV3W9SACT11
+    F147:
+    - LKV21NIMEI01
+    F153:
+    - LKV2PCLBO01
+    F154:
+    - LKV2PCLBO01
+    F156:
+    - LKV2EIR02
+    F158:
+    - LKV2EIR02
+    F159:
+    - LKV3G5CUFM01
+    F170:
+    - LKV2FUPSAT01
+    - LKV3G5FPBS01
+    F172:
+    - LKV2FUPSAT01
+    F177:
+    - LKV2NFBAM01
+    F178:
+    - LKV2NFANS01
+    F179:
+    - LKV3W9WOCR11
+    F183:
+    - LKV3W9GPSP11
+    F192:
+    - LKV2AES02
+    F193:
+    - LKV21NIMEI01
+    F200:
+    - LKV2UDMBPMM01
+    - LKV2UDMBPSM01
+    F210:
+    - LKV3W9DHCP12
+    F213:
+    - LKV2HSSBP01
+    F217:
+    - LKV3WNPLTE11
+    F224:
+    - LKV2QCBISM01
+    F225:
+    - LKV2DIFFSEC01
+    F231:
+    - LKV2USRF01
+    F232:
+    - LKV2VONRECMM01
+    - LKV2VONRECSM01
+    F236:
+    - LKV2SON02
+    F238:
+    - LKV2DPNB01
+    F247:
+    - LKV2SHFCUNC01
+    F251:
+    - LKV2RCEDRXSM01
+    F252:
+    - LKV2SALANSM01
+    F257:
+    - LKV2ASNRR01
+    F258:
+    - LKV2ASNRR01
+    F259:
+    - LKV2ASNRR01
+    F260:
+    - LKV2ASNRR01
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NFDAM01
+    - LKV2NFDNR01
+    F269:
+    - LKV2CUFMN01
+    F330:
+    - LKV3W9BCC12
+    F333:
+    - LKV3W9BCC12
+    F357:
+    - LKV2QCBISM01
+    F358:
+    - LKV3G55GHT01
+    F361:
+    - LKV2ARMFUNC01
+    - LKV2MFDFUNC01
+    - LKV2MSFUNC01
+    - LKV2OSDFUNC01
+    F369:
+    - LKV2SGPPG01
+    F372:
+    - LKV2IMRSDRSM01
+    F383:
+    - LKV2MKEDAR01
+    F387:
+    - LKV3G5SNAC01
+    F388:
+    - LKV3W9RBMS12
+    F399:
+    - LKV2ASLSR02
+    F400:
+    - LKV3EGAGY5G01
+    F405:
+    - LKV3G5LALG01
+    - LKV3G5MVCA01
+    F410:
+    - LKV2URSPAM01
+    F411:
+    - LKV2RRR02
+    F414:
+    - LKV2UNCBASE01
+    F422:
+    - LKV2DNNC01
+    F433:
+    - LKV2GEA102
+    F435:
+    - LKV2MOCN03
+    F438:
+    - LKV2NFSRA01
+    F440:
+    - LKV2DIRTUN02
+    F443:
+    - LKV2PCIAL01
+    F445:
+    - LKV2FUPSAT01
+    F448:
+    - LKV2PCLBO01
+    F449:
+    - LKV2DMECFP01
+    F450:
+    - LKV3W9PCBT12
+    F456:
+    - LKV2SMECFP01
+    F458:
+    - LKV3W9SPCC11
+    F459:
+    - LKV3W9SPCC11
+    F478:
+    - LKV2DLNRR01
+    F481:
+    - LKV2RRR02
+    F482:
+    - LKV2SDSC01
+    F483:
+    - LKV2AMFLS01
+    F485:
+    - LKV2ASLSR01
+    - LKV2ASLSR02
+    F486:
+    - LKV2CHR04
+    F489:
+    - LKV2PRPG02
+    F492:
+    - LKV2DLNRR01
+    F493:
+    - LKV2SAUSC01
+    F494:
+    - LKV2SRVHD02
+    F495:
+    - LKV3WPSSBT11
+    F496:
+    - LKV2LTCC01
+    F497:
+    - LKV2HTTPCMPHD01
+    F499:
+    - LKV3W9NUMD02
+    F501:
+    - LKV3GWUISL01
+    F506:
+    - LKV3WMTSBT11
+    F507:
+    - LKV2LTCC02
+    F512:
+    - LKV3WPLBSM11
+    F518:
+    - LKV3W9STQE11
+    F521:
+    - LKV2BADCF01
+    F524:
+    - LKV3W9BCC12
+    F541:
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    F542:
+    - LKV2NFDAM01
+    - LKV2NFDNR01
+    - LKV2NFDSM01
+    F543:
+    - LKV2NFAAM01
+    - LKV2NFANR01
+    - LKV2NFBAM01
+    F544:
+    - LKV2NFAAM01
+    - LKV2NFANR01
+    - LKV2NFBAM01
+    F545:
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NRLNF01
+    F546:
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NRLNF01
+    F547:
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NRLNF01
+    F548:
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NRLNF01
+    F549:
+    - LKV2DLNRR01
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NFDAM01
+    - LKV2NFDNR01
+    F550:
+    - LKV2DLNRR01
+    F551:
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    F554:
+    - LKV3W9BCC12
+    F555:
+    - LKV3W9ASNR11
+    F557:
+    - LKV2LCR01
+    - LKV2PYCTRL1
+    F563:
+    - LKV2NFDAM01
+    - LKV2NFDNR01
+    F566:
+    - LKV2FUPSAT01
+    F568:
+    - LKV2QPPT02
+    F569:
+    - LKV2UNCQCI1
+    F579:
+    - LKV2FUPSAT01
+    F593:
+    - LKV2IUFLEX02
+    F597:
+    - LKV2IUFLEX02
+    F603:
+    - LKV2MMEMG02
+    F606:
+    - LKV2AUGL02
+    F580:
+    - LKV3G5ADCF01
+    - LKV3G5PCCB01
+  layers:
+  - id: L1
+    name: 授权项（精确匹配）
+    kind: license_items
+    items:
+    - LKV21NIMEI01
+    - LKV2AES02
+    - LKV2AMFLS01
+    - LKV2AMFPL01
+    - LKV2ARMFUNC01
+    - LKV2ASLSR01
+    - LKV2ASLSR02
+    - LKV2ASNRR01
+    - LKV2ASNSSR01
+    - LKV2AUGL02
+    - LKV2BADCF01
+    - LKV2CHR04
+    - LKV2CSFB03
+    - LKV2CUFMN01
+    - LKV2DIFFSEC01
+    - LKV2DIRTUN02
+    - LKV2DLNRR01
+    - LKV2DLNSSR01
+    - LKV2DMECFP01
+    - LKV2DNNC01
+    - LKV2DPNB01
+    - LKV2EIR02
+    - LKV2FUPSAT01
+    - LKV2GEA102
+    - LKV2GSINTF02
+    - LKV2HD16M02
+    - LKV2HSPAUL02
+    - LKV2HSSBP01
+    - LKV2HTTPCMPHD01
+    - LKV2HUNN01
+    - LKV2IMRSDRSM01
+    - LKV2IUFLEX02
+    - LKV2LCR01
+    - LKV2LTCC01
+    - LKV2LTCC02
+    - LKV2MFDFUNC01
+    - LKV2MKEDAR01
+    - LKV2MMEMG02
+    - LKV2MOCN03
+    - LKV2MSFUNC01
+    - LKV2NFAAM01
+    - LKV2NFACV01
+    - LKV2NFANR01
+    - LKV2NFANS01
+    - LKV2NFBAM01
+    - LKV2NFBNR01
+    - LKV2NFBSM01
+    - LKV2NFDAM01
+    - LKV2NFDNR01
+    - LKV2NFDSM01
+    - LKV2NFSRA01
+    - LKV2NRBL5
+    - LKV2NRLNF01
+    - LKV2NRLSAM01
+    - LKV2NRLSSM01
+    - LKV2OSDFUNC01
+    - LKV2PCIAL01
+    - LKV2PCLBO01
+    - LKV2PFC02
+    - LKV2PRPG02
+    - LKV2PYCTRL1
+    - LKV2QCBISM01
+    - LKV2QPPT02
+    - LKV2RCEDRXSM01
+    - LKV2RRR02
+    - LKV2SALANSM01
+    - LKV2SAUSC01
+    - LKV2SDSC01
+    - LKV2SGPPG01
+    - LKV2SHFCUNC01
+    - LKV2SMAP01
+    - LKV2SMECFP01
+    - LKV2SON02
+    - LKV2SRVHD02
+    - LKV2SUPFS01
+    - LKV2UDMBPMM01
+    - LKV2UDMBPSM01
+    - LKV2UNCBASE01
+    - LKV2UNCQCI1
+    - LKV2URSPAM01
+    - LKV2USRF01
+    - LKV2VCHSM01
+    - LKV2VONRECMM01
+    - LKV2VONRECSM01
+    - LKV3EGAGY5G01
+    - LKV3G55GHT01
+    - LKV3G5ADCF01
+    - LKV3G5CUFM01
+    - LKV3G5FPBS01
+    - LKV3G5LALG01
+    - LKV3G5LBAA01
+    - LKV3G5MVCA01
+    - LKV3G5PCBT01
+    - LKV3G5PCCB01
+    - LKV3G5SNAC01
+    - LKV3GWUISL01
+    - LKV3W9ASNR11
+    - LKV3W9BCC12
+    - LKV3W9DHCP12
+    - LKV3W9EBCS12
+    - LKV3W9GPSP11
+    - LKV3W9NUMD02
+    - LKV3W9PCBT12
+    - LKV3W9RBMS12
+    - LKV3W9SACT11
+    - LKV3W9SBWL11
+    - LKV3W9SPCC11
+    - LKV3W9STQE11
+    - LKV3W9V6PD11
+    - LKV3W9WOCR11
+    - LKV3WMTSBT11
+    - LKV3WNPLTE11
+    - LKV3WNPUNN11
+    - LKV3WPLBSM11
+    - LKV3WPSSBT11
+    required: true
+    absent_policy: missing
+  verdict_rules:
+  - when:
+      L1: ok
+    status: ok
+    note: 授权项全部在位，功能可用
+  - when:
+      L1: disabled
+    status: disabled
+    note: 部分授权项被关闭 → 对应功能不可用（见层明细）
+  - when:
+      L1: missing
+    status: missing
+    note: 授权项缺失 → 功能不可用（需申请 License）
+  - when: {}
+    status: partial
+    note: 授权状态待审视（见层明细）
+  verdict_rules_note: 授权类链：锚定用授权项命中（anchor_from_license）
+  equiv_substitutes: []
+  refs: []
+UEG:
+- chain_id: A
+  name: VRF/接口/路由
+  anchor_cmds:
+  - ADD L3VPNINSTIPSEC
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD BFDSESSION
+    - ADD IFIPV4ADDRESS
+    - ADD IFIPV4ADDRESSIPSEC
+    - ADD IFIPV6ADDRESS
+    - ADD IFIPV6ADDRESSIPSEC
+    - ADD INTERFACE
+    - ADD INTERFACEIPSEC
+    - ADD IPBINDVPN
+    - ADD IPBINDVPNIPSEC
+    - ADD L3VPNINST
+    - ADD L3VPNINSTIPSEC
+    - ADD SRROUTE
+    - ADD SRROUTE6
+    - ADD VPNINST
+    - ADD VPNINSTAF
+    - ADD VPNINSTAFIPSEC
+    - LST IFIPV4ADDRESS
+    - LST IFIPV6ADDRESS
+    - LST INTERFACE
+    - MOD INTERFACE
+    - MOD VPNINSTAF
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - RMV VPNINST
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: VRF/接口/路由链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: B
+  name: 动态路由（OSPF/BGP）
+  anchor_cmds:
+  - ADD OSPFAREAAUTH
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD BGPPEER
+    - ADD BGPPEERAF
+    - ADD BGPPEERBFD
+    - ADD BGPVRFAF
+    - ADD IMPORTROUTE
+    - ADD OSPF
+    - ADD OSPFAREA
+    - ADD OSPFAREAAUTH
+    - ADD OSPFDEFAULTROUTE
+    - ADD OSPFIMPORTROUTE
+    - ADD OSPFINTERFACE
+    - ADD OSPFINTERFACEAUTH
+    - ADD OSPFNETWORK
+    - ADD OSPFV3
+    - ADD OSPFV3AREA
+    - ADD OSPFV3AREAAUTH
+    - ADD OSPFV3DEFAULTROUTE
+    - ADD OSPFV3IMPORTROUTE
+    - ADD OSPFV3INTERFACE
+    - ADD OSPFV3INTERFACEAUTH
+    - ADD SRROUTE
+    - ADD SRROUTE6
+    - MOD BGPPEERAF
+    - MOD BGPVRF
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - MOD BGPPEER
+    - MOD IMPORTROUTE
+    - MOD OSPF
+    - MOD OSPFAREA
+    - MOD OSPFINTERFACEAUTH
+    - MOD OSPFV3
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 动态路由（OSPF/BGP）链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: C
+  name: 数据面过滤（L34/L7）
+  anchor_cmds:
+  - ADD FLOWFILTERGRP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD FILTER
+    - ADD FILTERIPV6
+    - ADD FLOWFILTER
+    - ADD FLOWFILTERGRP
+    - ADD FLTBINDFLOWF
+    - ADD HOST
+    - ADD L7FILTER
+    required: true
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 数据面过滤（L34/L7）链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: D
+  name: PCC/QoS 策略
+  anchor_cmds:
+  - ADD URRGROUP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD PCCPOLICYGRP
+    - ADD QOSPROP
+    - ADD RULE
+    - ADD RULEBINDING
+    - ADD RULECONDITIONGROUP
+    - ADD RULENGACTION
+    - ADD URR
+    - ADD URRGROUP
+    - SET URRGRPBINDING
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ACT RULESYN
+    - ADD RULEACTIONGROUP
+    - SET URRFAILACTION
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: PCC/QoS 策略链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: E
+  name: APN/DNN 配置
+  anchor_cmds:
+  - ADD APNACTNUM
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD APN
+    - ADD APNBINDBWMUSRG
+    - ADD APNIMSSIGFLTR
+    - ADD APNRDSCLIENTIP
+    - ADD APNRDSSVRGRP
+    - ADD APNTPL
+    - ADD APNUPRECOVER
+    - ADD APNUSRPROFG
+    - ADD DNNQOSTPL
+    - ADD PNFPROFILE
+    - ADD USERPROFILE
+    - SET APNADDRESSATTR
+    - SET APNAUTHATTR
+    - SET APNCHARGECTRL
+    - SET APNDLBUFTIME
+    - SET APNDLLTBUFFER
+    - SET APNIMSATTR
+    - SET APNIPALLOCRULE
+    - SET APNL2TPATTR
+    - SET APNNONIPFUNC
+    - SET APNPCCFUNC
+    - SET APNPPPACCESS
+    - SET APNQOSATTR
+    - SET APNRADIUSATTR
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD APNACTNUM
+    - ADD APNBINDPATH
+    - ADD APNCHGMODE
+    - ADD APNCHRFUNC
+    - ADD APNEDRXATTR
+    - ADD APNNIGROUP
+    - ADD APNOITPL
+    - ADD APNPAGINGPLCY
+    - ADD APNPOLICYMODE
+    - ADD APNPTTFUNC
+    - ADD APNQOSBYPASS
+    - ADD APNSMCOMFUNC
+    - ADD APPLYNEXTHOP
+    - ADD DNNGRP
+    - ADD DNNGRPMEM
+    - LCK APN
+    - MOD USERPROFILE
+    - SET APNACCESSWAL
+    - SET APNAPPPARA
+    - SET APNFLOWMAXNUM
+    - SET APNIDLETIME
+    - SET APNL2TPCTRL
+    - SET APNRDSACCTCTRL
+    - SET APNREPORTATTR
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: APN/DNN 配置链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: F
+  name: APN 计费控制
+  anchor_cmds:
+  - SET APNCHARGECTRL
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - SET APNCHARGECTRL
+    - SET USRPROFCHARGE
+    required: true
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: APN 计费控制链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: G
+  name: 地址池/地址分配
+  anchor_cmds:
+  - ADD POOLBINDAPN
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD POOL
+    - ADD POOLBINDAPN
+    - ADD POOLBINDGROUP
+    - ADD POOLBINDGRP
+    - ADD POOLGROUP
+    - ADD POOLGRPMAP
+    - ADD SECTION
+    - MOD POOL
+    required: true
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 地址池/地址分配链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: H
+  name: 分流/ULCL
+  anchor_cmds:
+  - ADD ULCLPROP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD DNNQOSTPL
+    - ADD FLOWFILTER
+    - ADD FLOWFILTERGRP
+    - ADD SERVICEIP
+    - ADD ULCLPROP
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD DNNGRP
+    - ADD DNNGRPMEM
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 分流/ULCL链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: I
+  name: 接口与逻辑IP
+  anchor_cmds:
+  - ADD LOGICIP
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD INTERFACE
+    - ADD INTERFACEIPSEC
+    - ADD LOGICIP
+    - ADD SERVICEIP
+    - LST INTERFACE
+    - MOD INTERFACE
+    required: true
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 接口与逻辑IP链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: J
+  name: 安全（IPsec/TLS）
+  anchor_cmds:
+  - ADD TLSPARA
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD ACLGROUP
+    - ADD ACLGROUP6IPSEC
+    - ADD ACLGROUPIPSEC
+    - ADD ACLRULEADV4
+    - ADD ACLRULEADV4IPSEC
+    - ADD ACLRULEADV6IPSEC
+    - ADD ATTACHIKEPEER
+    - ADD CERTSCENE
+    - ADD GRETUNNEL
+    - ADD HTTPLE
+    - ADD HTTPLEGRP
+    - ADD IFIPV4ADDRESSIPSEC
+    - ADD IFIPV6ADDRESSIPSEC
+    - ADD IKEPEER
+    - ADD IKEPEER6
+    - ADD IKEPROPOSAL
+    - ADD INTERFACEIPSEC
+    - ADD IPBINDVPNIPSEC
+    - ADD IPSECINTFCFG
+    - ADD IPSECINTFCFGIPSEC
+    - ADD IPSECPOLICY
+    - ADD IPSECPOLICY6
+    - ADD IPSECPROPOSALIPSEC
+    - LST FWSOFTPARA
+    required: true
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD ACLGROUP6
+    - ADD ACLRULEADV6
+    - ADD IPSECPROPOSAL
+    - ADD TLSPARA
+    - RMV ACLGROUP
+    - RMV ACLGROUP6
+    - RMV ACLRULEADV4
+    - RMV ACLRULEADV6
+    - RMV GRETUNNEL
+    - SET FWSOFTPARABITS
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 安全（IPsec/TLS）链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: K
+  name: 带宽控制
+  anchor_cmds:
+  - ADD BWMCONTROLLER
+  anchor_param: null
+  layers:
+  - id: CORE
+    name: 核心命令
+    cmds:
+    - ADD BWMCONTROLLER
+    - ADD BWMRULE
+    - ADD BWMRULEGLOBAL
+    - ADD BWMSERVICE
+    - ADD BWMUSERGROUP
+    required: true
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 带宽控制链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: L
+  name: 容灾/主备
+  anchor_cmds:
+  - ADD NFSERVICEVER
+  anchor_param: null
+  layers:
+  - id: EXT
+    name: 扩展命令
+    cmds:
+    - ADD NFSERVICEVER
+    required: false
+    absent_policy: partial
+  verdict_rules:
+  - when:
+      CORE: ok
+    status: ok
+    note: 容灾/主备链完整
+  - when: {}
+    status: partial
+    note: 部分落地（见层明细）
+  equiv_substitutes: []
+  refs: []
+- chain_id: M
+  name: License 授权开关
+  anchor_cmds:
+  - SET LICENSESWITCH
+  anchor_param: null
+  anchor_from_license: true
+  lic_by_feature:
+    F023:
+    - LKV3G5TCSA01
+    F024:
+    - LKV3G5TCSA01
+    F025:
+    - LKV3G5TCSA01
+    F026:
+    - LKV3G5TCSA01
+    F027:
+    - LKV3G5TCSA01
+    F028:
+    - LKV3G5TCSA01
+    F030:
+    - LKV3G5EPSF01
+    F031:
+    - LKV3W9SPCC11
+    F032:
+    - LKV3W9SPCC11
+    F033:
+    - LKV3G5PCCB01
+    F034:
+    - LKV3G5PCCB01
+    F035:
+    - LKV3G5PCCB01
+    F036:
+    - LKV3G5PCCB01
+    F075:
+    - LKV3W9ECAL11
+    F150:
+    - LKV3W9SPCC11
+    F152:
+    - LKV3W9IMSA12
+    F154:
+    - LKV2VOLTE01
+    F155:
+    - LKV3G5EPSF01
+    F156:
+    - LKV2FRPH02
+    F157:
+    - LKV2VLEC01
+    F159:
+    - LKV2EMPS01
+    F240:
+    - LKV3G5TCQS01
+    F241:
+    - LKV3G5LBAA01
+    F242:
+    - LKV3G5LBAA01
+    F243:
+    - LKV3G5LBAA01
+    F244:
+    - LKV3G5TCSA01
+    F245:
+    - LKV3G5TCSA01
+    F246:
+    - LKV3G5TCSA01
+    F247:
+    - LKV3G5TCSA01
+    F248:
+    - LKV3G5TCSA01
+    F249:
+    - LKV3G5TCSA01
+    F250:
+    - LKV3G5TCSA01
+    F253:
+    - LKV3G5V6PB01
+    F254:
+    - LKV3G5V6NF01
+    F257:
+    - LKV3G5EPSF01
+    F258:
+    - LKV3W9SPCC11
+    F259:
+    - LKV3G5PCCB01
+    F260:
+    - LKV3G5PCCB01
+    F261:
+    - LKV3G5VDSA01
+    F268:
+    - LKV3G5UPLR01
+    F312:
+    - LKV3W9ECAL11
+    F313:
+    - LKV3W9V6PD11
+    F315:
+    - LKV3W9RBMS12
+    F317:
+    - LKV2DECOR02
+    F318:
+    - LKV2AMFPL01
+    F320:
+    - LKV3G5STQE01
+    F321:
+    - LKV3G5STQE01
+    F323:
+    - LKV3G5L2TP01
+    F324:
+    - LKV3G5L2TP01
+    F326:
+    - LKV3G5RBMS01
+    F368:
+    - LKV3W9SPCC11
+    F369:
+    - LKV3G5PCCB01
+    F370:
+    - LKV3G5PCCB01
+    F387:
+    - LKV2IPV6AM01
+    F388:
+    - LKV2MOCN04
+    F389:
+    - LKV2IPDSAM01
+    F392:
+    - LKV2PCCBF01
+    F393:
+    - LKV3W9TCQS11
+    F394:
+    - LKV2DECOR00
+    F395:
+    - LKV2VOLTE01
+    F396:
+    - LKV3W9IMSA12
+    F398:
+    - LKV3G5EPSF01
+    F401:
+    - LKV3W9TCQS11
+    F405:
+    - LKV2FLEXAUTH02
+    F406:
+    - LKV2FRPH02
+    F407:
+    - LKV2DUSA02
+    F408:
+    - LKV2IPDSSM01
+    F409:
+    - LKV2IPV601
+    F410:
+    - LKV2IPV6SM01
+    F411:
+    - LKV2PRPG02
+    F412:
+    - LKV2LUSC01
+    F413:
+    - LKV3W9LQOS12
+    F418:
+    - LKV2RRR02
+    F419:
+    - LKV2RINCOR02
+    F421:
+    - LKV2NOISDN02
+    F423:
+    - LKV2VLEC01
+    F424:
+    - LKV2EMPS01
+    F427:
+    - LKV2HARQ01
+    F428:
+    - LKV3WSNBAC21
+    F429:
+    - LKV2DNAS01
+    F430:
+    - LKV3WPSDTO11
+    F431:
+    - LKV2UPTH01
+    F432:
+    - LKV2EDRX01
+    F433:
+    - LKV3WNBDRX11
+    F434:
+    - LKV2NOIP01
+    F435:
+    - LKV3WNBNIP11
+    F436:
+    - LKV2M2MS01
+    F437:
+    - LKV2M2MS02
+    F438:
+    - LKV2EDRX02
+    F439:
+    - LKV3WMTDRX11
+    F440:
+    - LKV2CELP02
+    F441:
+    - LKV2CELP01
+    - LKV2PRPG02
+    F479:
+    - LKV2CHR04
+    F481:
+    - LKV3G5PCCB01
+    F482:
+    - LKV2CUFMN01
+    F487:
+    - LKV3G5CUFM01
+    F496:
+    - LKV3G5CUFM01
+    F499:
+    - LKV3G5APIG01
+    F501:
+    - LKV3G5PCCB01
+    F503:
+    - LKV3G5LANB01
+    - LKV3G5LGL301
+    - LKV3G5RBMS01
+    - LKV3W9RBMS12
+    F519:
+    - LKV3G5IOIF01
+    F521:
+    - LKV2MHAM01
+    F526:
+    - LKV2UDMBPMM01
+    - LKV2UDMBPSM01
+    F532:
+    - LKV3WPNBPS11
+    F534:
+    - LKV2HPLMN02
+    F535:
+    - LKV2MHSM01
+    F538:
+    - LKV2HSSBP01
+    F542:
+    - LKV2SAIRA01
+    F543:
+    - LKV2ESTAM01
+    F544:
+    - LKV3WNPLTE11
+    F545:
+    - LKV2ESTAM01
+    F546:
+    - LKV3W9SPCC11
+    F553:
+    - LKV2SON02
+    F576:
+    - LKV3G5DLAF01
+    F577:
+    - LKV2AREARERT
+    F578:
+    - LKV3G5LADFSR
+    F586:
+    - LKV3G5L2SMUL
+    F590:
+    - LKV3G5LAN2LE
+    F597:
+    - LKV2RCEDRXSM01
+    F598:
+    - LKV3W9STQE11
+    F600:
+    - LKV3G5APIG01
+    F602:
+    - LKV2PRPG02
+    F604:
+    - LKV2LAYER2SM01
+    F605:
+    - LKV2PPTF01
+    F606:
+    - LKV2QPPT01
+    F607:
+    - LKV2RINCOR02
+    F609:
+    - LKV2SRGF01
+    F613:
+    - LKV2MOCN03
+    F616:
+    - LKV3G5IMSR01
+    F627:
+    - LKV2RRR02
+    F628:
+    - LKV2CHR04
+    F635:
+    - LKV3G5NDRX01
+    F636:
+    - LKV3G5DOVN01
+    F638:
+    - LKV3G5MDRX01
+    F639:
+    - LKV2SAUSC01
+    F642:
+    - LKV3W9NUMD02
+    F643:
+    - LKV2NBFQ01
+    - LKV2NBFQ02
+    - LKV2NBPS01
+    F654:
+    - LKV3G5E2ET01
+    F658:
+    - LKV3G5SRQS01
+    F662:
+    - LKV2QPPT02
+    F726:
+    - LKV3G5PCCB01
+    F728:
+    - LKV3G5PCCB01
+    F729:
+    - LKV3G5PCCB01
+    F730:
+    - LKV3G5PCCB01
+    F765:
+    - LKV3G5TCQS01
+    F766:
+    - LKV3G5LBAA01
+    F767:
+    - LKV3G5LBAA01
+    F768:
+    - LKV3G5TCSA01
+    F769:
+    - LKV3G5TCSA01
+    F770:
+    - LKV3G5TCSA01
+    F771:
+    - LKV3G5TCSA01
+    F772:
+    - LKV3G5TCSA01
+    F773:
+    - LKV3G5TCSA01
+    F774:
+    - LKV3G5TCSA01
+    F778:
+    - LKV3G5PCCB01
+    F779:
+    - LKV3G5PCCB01
+    F797:
+    - LKV3G5APIG01
+    F811:
+    - LKV3G5L2TP01
+    F812:
+    - LKV3G5L2TP01
+    F815:
+    - LKV3G5RBMS01
+    F831:
+    - LKV3G5APIG01
+    F832:
+    - LKV3G5PCCB01
+    F833:
+    - LKV3G5PCCB01
+    F835:
+    - LKV2DMECFP01
+    F836:
+    - LKV3G5LBAA01
+    F837:
+    - LKV2DMECFP01
+    F840:
+    - LKV3G5DNSSRV
+    F842:
+    - LKV3G5APIG01
+    F843:
+    - LKV3G5PCCB01
+    F845:
+    - LKV3G5PCCB01
+    F846:
+    - LKV2PCLBO01
+    F847:
+    - LKV2PCLBO01
+    F848:
+    - LKV3G5PCCB01
+    F857:
+    - LKV3G5PCCB01
+    F866:
+    - LKV3W9DHCP12
+    F875:
+    - LKV3G5PCCB01
+    F876:
+    - LKV3G5PCCB01
+    F877:
+    - LKV3G5PCCB01
+    F882:
+    - LKV3G5OLCH01
+    F884:
+    - LKV3G5N6FL01
+    F892:
+    - LKV3G5EDRX01
+    F893:
+    - LKV3G5MVCA01
+    F899:
+    - LKV4NATBSS01
+    F906:
+    - LKV2PCLBO01
+    F907:
+    - LKV2DMECFP01
+    F908:
+    - LKV2SMECFP01
+    F910:
+    - LKV3G5NDRX01
+    F911:
+    - LKV3G5DOVN01
+    F922:
+    - LKV4EN4SCY01
+    F923:
+    - LKV4NATLOG01
+    F924:
+    - LKV4NATUSR01
+    F930:
+    - LKV2DECOR00
+    F938:
+    - LKV3G5APIG01
+    F948:
+    - LKV3G5PCCB01
+    F970:
+    - LKV3G5APIG01
+    F983:
+    - LKV3G5CUFM01
+    F984:
+    - LKV3G5PCCB01
+    F988:
+    - LKV2AES02
+    F1032:
+    - LKV3G5CUFM01
+    F1040:
+    - LKV3G5PCCB01
+    F1067:
+    - LKV3G5L2SMUL
+    - LKV3G5LADFSR
+    - LKV3G5LAN2LE
+    - LKV3G5LANB01
+    F1076:
+    - LKV3G5PCCB01
+    F1088:
+    - LKV3G5PCCB01
+    F1097:
+    - LKV3G5L2SMUL
+    - LKV3G5LADFSR
+    - LKV3G5LAN2LE
+    - LKV3G5LANB01
+    F1099:
+    - LKV3G5L2SMUL
+    - LKV3G5LADFSR
+    - LKV3G5LAN2LE
+    - LKV3G5LANB01
+    F1129:
+    - LKV3G5LADFSR
+    F1143:
+    - LKV2RRR02
+    F1144:
+    - LKV2RRR02
+    F1182:
+    - LKV3G5PCCB01
+    F1183:
+    - LKV3G5RED001
+    F1184:
+    - LKV3G5APIG01
+    F1185:
+    - LKV3G5PCCB01
+    F1197:
+    - LKV3G5L2SMUL
+    F1202:
+    - LKV3G5LAN2LE
+    F1207:
+    - LKV3G5PCCB01
+    F1208:
+    - LKV3G5PCCB01
+    F1212:
+    - LKV3G5CUFM01
+    F1227:
+    - LKV3G5SAFT01
+    F1233:
+    - LKV3G5APIG01
+    F1240:
+    - LKV3G5CUFM01
+    F1246:
+    - LKV2UNCCOA1
+    F1248:
+    - LKV3G5PCCB01
+    F1249:
+    - LKV3G5CUFM01
+    F1253:
+    - LKV3G5PCCB01
+    F1259:
+    - LKV3G5CUFM01
+    - LKV3G5LANB01
+    F1261:
+    - LKV3G5LAN2LE
+    F1266:
+    - LKV3G5BWMF01
+    F1268:
+    - LKV3G5LBAN02
+    F094:
+    - LKV2NRBL5
+    F269:
+    - LKV3G5P6PD01
+    F270:
+    - LKV3G5P6PD01
+    F271:
+    - LKV3G5P6PD01
+    F339:
+    - LKV2NRBL5
+    F520:
+    - LKV3G5VONR01
+    F786:
+    - LKV3G5P6PD01
+    F787:
+    - LKV3G5P6PD01
+    F788:
+    - LKV3G5P6PD01
+    F813:
+    - LKV3G5APIG01
+    F1012:
+    - LKV3G5LAN2LE
+    - LKV3G5LANB01
+    F1198:
+    - LKV3G5LAN2LE
+    - LKV3G5LANB01
+  layers:
+  - id: L1
+    name: 授权项（精确匹配）
+    kind: license_items
+    items:
+    - LKV2AES02
+    - LKV2AMFPL01
+    - LKV2AREARERT
+    - LKV2CELP01
+    - LKV2CELP02
+    - LKV2CHR04
+    - LKV2CUFMN01
+    - LKV2DECOR00
+    - LKV2DECOR02
+    - LKV2DMECFP01
+    - LKV2DNAS01
+    - LKV2DUSA02
+    - LKV2EDRX01
+    - LKV2EDRX02
+    - LKV2EMPS01
+    - LKV2ESTAM01
+    - LKV2FLEXAUTH02
+    - LKV2FRPH02
+    - LKV2HARQ01
+    - LKV2HPLMN02
+    - LKV2HSSBP01
+    - LKV2IPDSAM01
+    - LKV2IPDSSM01
+    - LKV2IPV601
+    - LKV2IPV6AM01
+    - LKV2IPV6SM01
+    - LKV2LAYER2SM01
+    - LKV2LUSC01
+    - LKV2M2MS01
+    - LKV2M2MS02
+    - LKV2MHAM01
+    - LKV2MHSM01
+    - LKV2MOCN03
+    - LKV2MOCN04
+    - LKV2NBFQ01
+    - LKV2NBFQ02
+    - LKV2NBPS01
+    - LKV2NOIP01
+    - LKV2NOISDN02
+    - LKV2NRBL5
+    - LKV2PCCBF01
+    - LKV2PCLBO01
+    - LKV2PPTF01
+    - LKV2PRPG02
+    - LKV2QPPT01
+    - LKV2QPPT02
+    - LKV2RCEDRXSM01
+    - LKV2RINCOR02
+    - LKV2RRR02
+    - LKV2SAIRA01
+    - LKV2SAUSC01
+    - LKV2SMECFP01
+    - LKV2SON02
+    - LKV2SRGF01
+    - LKV2UDMBPMM01
+    - LKV2UDMBPSM01
+    - LKV2UNCCOA1
+    - LKV2UPTH01
+    - LKV2VLEC01
+    - LKV2VOLTE01
+    - LKV3G5APIG01
+    - LKV3G5BWMF01
+    - LKV3G5CUFM01
+    - LKV3G5DLAF01
+    - LKV3G5DNSSRV
+    - LKV3G5DOVN01
+    - LKV3G5E2ET01
+    - LKV3G5EDRX01
+    - LKV3G5EPSF01
+    - LKV3G5IMSR01
+    - LKV3G5IOIF01
+    - LKV3G5L2SMUL
+    - LKV3G5L2TP01
+    - LKV3G5LADFSR
+    - LKV3G5LAN2LE
+    - LKV3G5LANB01
+    - LKV3G5LBAA01
+    - LKV3G5LBAN02
+    - LKV3G5LGL301
+    - LKV3G5MDRX01
+    - LKV3G5MVCA01
+    - LKV3G5N6FL01
+    - LKV3G5NDRX01
+    - LKV3G5OLCH01
+    - LKV3G5P6PD01
+    - LKV3G5PCCB01
+    - LKV3G5RBMS01
+    - LKV3G5RED001
+    - LKV3G5SAFT01
+    - LKV3G5SRQS01
+    - LKV3G5STQE01
+    - LKV3G5TCQS01
+    - LKV3G5TCSA01
+    - LKV3G5UPLR01
+    - LKV3G5V6NF01
+    - LKV3G5V6PB01
+    - LKV3G5VDSA01
+    - LKV3G5VONR01
+    - LKV3W9DHCP12
+    - LKV3W9ECAL11
+    - LKV3W9IMSA12
+    - LKV3W9LQOS12
+    - LKV3W9NUMD02
+    - LKV3W9RBMS12
+    - LKV3W9SPCC11
+    - LKV3W9STQE11
+    - LKV3W9TCQS11
+    - LKV3W9V6PD11
+    - LKV3WMTDRX11
+    - LKV3WNBDRX11
+    - LKV3WNBNIP11
+    - LKV3WNPLTE11
+    - LKV3WPNBPS11
+    - LKV3WPSDTO11
+    - LKV3WSNBAC21
+    - LKV4EN4SCY01
+    - LKV4NATBSS01
+    - LKV4NATLOG01
+    - LKV4NATUSR01
+    required: true
+    absent_policy: missing
+  verdict_rules:
+  - when:
+      L1: ok
+    status: ok
+    note: 授权项全部在位，功能可用
+  - when:
+      L1: disabled
+    status: disabled
+    note: 部分授权项被关闭 → 对应功能不可用（见层明细）
+  - when:
+      L1: missing
+    status: missing
+    note: 授权项缺失 → 功能不可用（需申请 License）
+  - when: {}
+    status: partial
+    note: 授权状态待审视（见层明细）
+  verdict_rules_note: 授权类链：锚定用授权项命中（anchor_from_license）
+  equiv_substitutes: []
+  refs: []

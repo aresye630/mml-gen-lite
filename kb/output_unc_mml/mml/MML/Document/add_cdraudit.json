@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD CDRAUDIT",
+  "command_name_zh": "增加话单稽核",
+  "command_name_full": "增加话单稽核（ADD CDRAUDIT）",
+  "command_function": "**适用NF：NCG**\n\n该命令用于配置第二份最终话单的稽核任务。\n\n每天生成的稽核文件对前一天的第二份最终话单文件信息进行统计，如果调整了系统时间使某一天产生了两个稽核文件（其中一个文件的后缀为\\_old），这时需要将两个文件同时取走才能得到那天的完整统计信息。\n\nCG支持定制稽核文件名，通过配置可以在话单稽核文件名中体现各类信息。例如：\n\n- 加入时间信息\n\n  当计费中心（本文档中又称BS（Billing System））要求在稽核文件名中体现稽核话单的生成时间时，可以在稽核文件名中加入时间信息。\n- 加入局点信息\n\n  当采用大本地网配置时，通常要将各个归属地的稽核文件派发到不同的计费中心。这时可以在稽核文件名中加入局点信息，方便管理。\n- 加入接入点信息\n\n  当多对CGRU上的稽核话单送往同一计费中心的同一文件夹下时，需要在稽核文件名上加入AP模块信息。用于区分不同对RU上的稽核文件，避免稽核文件被覆盖。\n- 增加序列号\n\n  序列号能清晰的体现每个话单稽核文件产生的先后顺序。\n\n稽核文件名定制配置项有：\n\n- %Y%m%d%H%M%S或%y%m%d%H%M%S或%Y%m%d%I%M%S或%y%m%d%I%M%S\n- %c或%C\n- %0xL\n\n**说明** \n\n- 稽核文件名的默认配置为“%Y%m%d.log”。\n- 用户自行配置文件名时，必须配置表1中列出的“增加时间信息”。\n- 统一序列号打开后不支持稽核。\n\n| 项目          | 配置项                     | 配置项.1                   | 描述                                                                                                                                                          | 举例                                                                                                                                                                                               |\n|:------------|:------------------------|:------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 增加时间信息      | %Y%m%d%H%M%S（4位年份24小时制） | %Y%m%d%H%M%S（4位年份24小时制） | 表示在稽核文件名中增加时间信息（某年某月某日某时某分某秒），可根据实际需求选择四种配置项中的一种。 配置项中各参数的解释如下：%Y为4位年份，%y位两位年份%m两位月份%d两位日期%H为24小时制，%I为12小时制%M为分钟%S为秒                                        | 【配置示例】 %Y%m%d%H%M%S.log 【结果】20110811231021.log 【说明】该稽核文件名中的20110811231021表示2011年08月11日23时10分21秒。                                                                                                 |\n| 增加时间信息      | %y%m%d%H%M%S（2位年份24小时制） | %y%m%d%H%M%S（2位年份24小时制） | 表示在稽核文件名中增加时间信息（某年某月某日某时某分某秒），可根据实际需求选择四种配置项中的一种。 配置项中各参数的解释如下：%Y为4位年份，%y位两位年份%m两位月份%d两位日期%H为24小时制，%I为12小时制%M为分钟%S为秒                                        | 【配置示例】 %y%m%d%H%M%S.log 【结果】 110811231021.log 【说明】该稽核文件名中的110811231021表示11年08月11日23时10分21秒。                                                                                                      |\n| 增加时间信息      | %Y%m%d%I%M%S（4位年份12小时制） | %Y%m%d%I%M%S（4位年份12小时制） | 表示在稽核文件名中增加时间信息（某年某月某日某时某分某秒），可根据实际需求选择四种配置项中的一种。 配置项中各参数的解释如下：%Y为4位年份，%y位两位年份%m两位月份%d两位日期%H为24小时制，%I为12小时制%M为分钟%S为秒                                        | 【配置示例】 %Y%m%d%I%M%S.log 【结果】20110811111021.log 【说明】该稽核文件名中的20110811111021表示2011年08月11日23时10分21秒。                                                                                                 |\n| 增加时间信息      | %y%m%d%I%M%S（2位年份12小时制） | %y%m%d%I%M%S（2位年份12小时制） | 表示在稽核文件名中增加时间信息（某年某月某日某时某分某秒），可根据实际需求选择四种配置项中的一种。 配置项中各参数的解释如下：%Y为4位年份，%y位两位年份%m两位月份%d两位日期%H为24小时制，%I为12小时制%M为分钟%S为秒                                        | 【配置示例】 %y%m%d%I%M%S.log 【结果】 110811111021.log 【说明】该稽核文件名中的110811111021表示11年08月11日23时10分21秒。                                                                                                      |\n| 增加通道名信息     | %c或%C                   | %c或%C                   | 增加通道名，表明该稽核文件归属于哪个通道。如果增加的通道名为二级通道，则该二级通道名之间的路径分割符转换为“#”符号。                                                                                                 | 【配置示例】 配置为%C%Y%m%d.log。 【结果】如果通道为scdr，则结果为：scdr20110811.log。如果通道为二级通道scdr/mmr，则结果为：scdr#mmr20110811.log。                                                                                         |\n| 增加局点信息或其他信息 | 固定字符配置                  | 固定字符配置                  | 固定字符的配置可以出现在文件名的任何地方，固定字符前面如果有%号，则不显示。如：想在文件名前加上ABC，则直接配置ABC即可。  说明： 文件名中不容许配置“%%”。                                                                         | 【配置示例】加入局点名ABC，则配置为ABC%Y%m%d.log。 【结果】ABC20110811.log。                                                                                                                                           |\n| 加入接入点信息     | 固定字符配置                  | 固定字符配置                  | 在稽核文件名中用当前AP的模块名体现话单属于某AP。                                                                                                                                  | 【配置示例】CG两对RU上各配置了一个AP模块，且AP模块下的稽核文件都分发到同一BS的同一路径下。为避免话单覆盖，务必在稽核文件名中加入AP模块名。假设针对AP1配置为AP1_%Y%m%d.log，针对AP2配置为AP2_%Y%m%d.log。 【结果】AP1模块下的稽核文件的命名：AP1_20110811.log。AP2模块下的稽核文件的命名：AP2_20110811.log。 |\n| 增加序列号信息     | %0xL                    | %0xL                    | 表示在话单稽核文件名中增加序列号。其中0为填充标识，表示当前序列号位数不足，则以0填充，x表示序列号的位数，取值范围为1～9。配置6位序列号时，序列号范围为000000～999999，超出这一范围时，又从000000开始递增。  说明： 序列号配置项只能增加一次，并且序列号配置项需要和时间信息配置项一起使用。 | 【配置示例】 %Y%m%d%06L.log 【结果】20110811000010.log                                                                                                                                                     |",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0245490879",
+        "topicUrl": "MML/LinkedDoc/unc_n_ncg_service_and_policy_management.html",
+        "name": "NCG业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.11",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174227",
+        "topicUrl": "MML/LinkedDoc/unc_n_cloudcg_management.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0245490879",
+        "position": "2.11.5",
+        "parentPosition": "2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174228",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_configuration_management.html",
+        "name": "业务配置管理",
+        "parentTopicId": "CONCEPT_0251174227",
+        "position": "2.11.5.1",
+        "parentPosition": "2.11.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174238",
+        "topicUrl": "MML/LinkedDoc/unc_n_cdr_audit.html",
+        "name": "话单稽核",
+        "parentTopicId": "CONCEPT_0251174228",
+        "position": "2.11.5.1.2",
+        "parentPosition": "2.11.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174239",
+        "topicUrl": "MML/Document/add_cdraudit.html",
+        "name": "增加话单稽核（ADD CDRAUDIT）",
+        "parentTopicId": "CONCEPT_0251174238",
+        "position": "2.11.5.1.2.1",
+        "parentPosition": "2.11.5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

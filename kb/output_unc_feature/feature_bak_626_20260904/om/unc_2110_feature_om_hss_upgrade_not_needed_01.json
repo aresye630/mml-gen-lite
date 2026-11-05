@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活HSS免升级",
+  "feature_description": "本操作指导介绍在运行网络中激活HSS免升级的操作过程。\n\n在HSS未升级不支持NB-IoT终端接入、无法进行Non-IP数据传输的情况下，通过配置使MME发送给HSS可以识别的消息和信元，建立Non-IP的PDN上下文，保证NB-IoT终端成功接入网络，采用Non-IP Data Over NAS进行数据传输。\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0279152267",
+        "topicUrl": "toctopics/zh-cn_topic_0279152267.html",
+        "name": "NB-IOT业务功能",
+        "parentTopicId": "",
+        "position": "33",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0275808644",
+        "topicUrl": "desc/unc_2110_feature_desc_hss_upgrade_not_needed.html",
+        "name": "WSFD-215301 HSS免升级",
+        "parentTopicId": "TOPIC_0279152267",
+        "position": "33.18",
+        "parentPosition": "33",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0276026861",
+        "topicUrl": "om/unc_2110_feature_om_hss_upgrade_not_needed_01.html",
+        "name": "激活HSS免升级",
+        "parentTopicId": "TOPIC_0275808644",
+        "position": "33.18.2",
+        "parentPosition": "33.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

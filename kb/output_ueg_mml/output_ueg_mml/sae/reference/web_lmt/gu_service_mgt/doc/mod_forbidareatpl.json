@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD FORBIDAREATPL",
+  "command_name_zh": "修改5G禁止区域模板管理",
+  "command_name_full": "修改5G禁止区域模板管理（MOD FORBIDAREATPL）",
+  "command_function": "**须知** \n\n该命令属于高危命令，修改5G禁止区域模板会使引用此模板的用户5G禁止区域数据被同步修改。因此执行该命令前，请仔细评估当前操作的风险，确认对业务没有影响后方可执行。如有疑问请与华为技术支持联系制定操作的实施方案、测试方案和应急措施后才可以实施。\n\n该命令用于对一条5G禁止区域模板数据记录的某些参数进行修改或调整，在该命令中，系统通过以下关键参数的组合来唯一标识一个5G禁止区域模板信息数据：\n\n- “HLR序列号”\n- “模板ID”",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0166151292",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/forbidareatpl_template_management.html",
+        "name": "5G禁止区域模板管理",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.36",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0166193835_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_forbidareatpl.html",
+        "name": "修改5G禁止区域模板管理（MOD FORBIDAREATPL）",
+        "parentTopicId": "TOPIC_0166151292",
+        "position": "4.2.3.6.36.3",
+        "parentPosition": "4.2.3.6.36",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

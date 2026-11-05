@@ -1,0 +1,126 @@
+{
+  "command_name": "SET TOKENALLOCWT",
+  "command_name_zh": "设置服务类型分配权重的管理策略",
+  "command_name_full": "设置服务类型分配权重的管理策略（SET TOKENALLOCWT）",
+  "command_function": "**须知** \n\n该命令会调整不同Pod间的会话资源，调整过程中会导致容器短暂的内存升高和少量呼损。忙时操作会造成内存持续过载甚至流控，务必谨慎使用。配置该命令时，请联系华为技术支持。\n\n**适用NF：SGW-C、PGW-C、SMF、GGSN、AMF**\n\n该命令用于设置服务类型的负载均衡方式。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001196938422",
+        "topicUrl": "MML/LinkedDoc/unc_n_weight_distribution_management.html",
+        "name": "权重分配管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.10",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001241658327",
+        "topicUrl": "MML/LinkedDoc/unc_n_weight_distribution_policy.html",
+        "name": "权重分配策略",
+        "parentTopicId": "TOPIC_0000001196938422",
+        "position": "2.10.10.1",
+        "parentPosition": "2.10.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001923736568",
+        "topicUrl": "MML/Document/set_tokenallocwt.html",
+        "name": "设置服务类型分配权重的管理策略（SET TOKENALLOCWT）",
+        "parentTopicId": "TOPIC_0000001241658327",
+        "position": "2.10.10.1.1",
+        "parentPosition": "2.10.10.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

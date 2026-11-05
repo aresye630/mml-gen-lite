@@ -1,0 +1,143 @@
+{
+  "command_name": "SET UPUSRPROFCHG",
+  "command_name_zh": "设置User Profile的计费配置",
+  "command_name_full": "设置User Profile的计费配置（SET UPUSRPROFCHG）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，修改默认配额使能开关会影响用户业务访问时延。\n\n该命令用于设置指定用户模板的用户在进行在线计费业务时，是否使用默认配额。主要应用场景是，当支持使用默认配额时，新业务请求的首个报文，在向SMF申请配额时，UPF不缓存这个报文，允许其通过；非新业务场景申请配额期间的报文，UPF不丢包，允许其通过。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315825_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.5",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103116414_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_charging_control.html",
+        "name": "计费控制",
+        "parentTopicId": "CONCEPT_0000202289315825_3",
+        "position": "2.2.3.2.5.6",
+        "parentPosition": "2.2.3.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000204766552934_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_userprofile_charging_control.html",
+        "name": "UserProfile计费控制",
+        "parentTopicId": "CONCEPT_0000202103116414_3",
+        "position": "2.2.3.2.5.6.16",
+        "parentPosition": "2.2.3.2.5.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000205035339021_3",
+        "topicUrl": "MML/Document/set_upusrprofchg.html",
+        "name": "设置User Profile的计费配置（SET UPUSRPROFCHG）",
+        "parentTopicId": "CONCEPT_0000204766552934_3",
+        "position": "2.2.3.2.5.6.16.1",
+        "parentPosition": "2.2.3.2.5.6.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

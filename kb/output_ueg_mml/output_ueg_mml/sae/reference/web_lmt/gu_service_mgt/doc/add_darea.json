@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD DAREA",
+  "command_name_zh": "增加国内长途区号",
+  "command_name_full": "增加国内长途区号(ADD DAREA)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在HLR中增加一条国内长途区号数据记录。\n\n在开局配置本局数据时需要将每个“HLR序列号”管辖的所有国内长途区号全部添加到配置数据库，通常配置一个国家内允许前转的所有区号，用于在业务处理过程中对号码进行分析并按相应的逻辑流程进行处理。例如，当手机登记前转业务时，系统会对登记的前转号码进行号码规整，在号码规整过程中系统会在配置数据库中查找国内长途区号数据记录，如果查找不到相应的数据记录，登记将会失败。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803040",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/national_toll_area_code.html",
+        "name": "国内长途区号",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.2",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803426_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_darea.html",
+        "name": "增加国内长途区号(ADD DAREA)",
+        "parentTopicId": "CONCEPT_0190803040",
+        "position": "4.2.3.2.2.1",
+        "parentPosition": "4.2.3.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

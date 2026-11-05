@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置Pa(N9a/S5-P/S8-P/S2b)接口数据",
+  "feature_description": "运营商在部署5G或4G/5G互操作的分组交换网时新增PSA UPF/PGW-U中的任一独立设备或融合设备，在完成配置UEG到ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG的路由数据后，可在UEG上配置Pa（N9a/S5-P/S8-P/S2b）接口数据使UEG与ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG建立逻辑连接。\n\n**说明** \n\n- 考虑到4G/5G互操作和平滑演进，5GC需要支持4G/5G融合接入和互操作，因此协议规定了三类网元需要原生融合部署。\n  - 用户数据：HSS+UDM融合，保证用户数据一致性。\n  - 策略数据：PCRF+PCF融合，保证策略一致性、连续性。\n  - 会话管理锚点：SMF+PGW-C融合，UPF+PGW-U融合，锚点不变保证数据连续性。从简化网络拓扑，优化转发路径考虑，一般建议EPC侧SGW-C融合到SMF+PGW-C、SGW-U融合到UPF+PGW-U。\n\n  因此部署4G/5G互操作的网络时，PSA UPF、PGW-U需要融合部署在同一VNF上。\n- 考虑到4G/5G互操作时数据锚点不变，PSA UPF+PGW-U融合部署时N9a、S5-P/S8-P的接口地址必须相同，因此UEG上只支持使用合一抽象接口配置Paif，不支持独立配置N9a、S5-P/S8-P接口。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001188715123_2",
+        "topicUrl": "kitem_ulclupf_conf.html",
+        "name": "配置UL CL UPF + 辅锚点UPF",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.10",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001142835170_2",
+        "topicUrl": "cdgw/installation/cu_ugw_010016_15_c1_pri2.html",
+        "name": "配置Pa(N9a/S5-P/S8-P/S2b)接口数据",
+        "parentTopicId": "TOPIC_0000001188715123_2",
+        "position": "4.5.10.3",
+        "parentPosition": "4.5.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

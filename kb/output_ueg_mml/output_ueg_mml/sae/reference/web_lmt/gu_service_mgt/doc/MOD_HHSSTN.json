@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD HHSSTN",
+  "command_name_zh": "一键式改号",
+  "command_name_full": "一键式改号(MOD HHSSTN)",
+  "command_function": "该命令用于在HSS的业务数据库中修改已存在用户的“MSISDN”、“IMPU”和“IMPU2”。\n\n当用户希望换号不换卡时，可以使用该命令进行一键式改号。改号后，系统将向VLR/SGSN下发新的MSISDN号码。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732488",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Subscriber_Data_Management.html",
+        "name": "用户数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.3",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732624",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/MSISDN_Management.html",
+        "name": "MSISDN数据管理",
+        "parentTopicId": "MMLREF_0191732488",
+        "position": "4.2.4.3.8",
+        "parentPosition": "4.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732469",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/MOD_HHSSTN.html",
+        "name": "一键式改号(MOD HHSSTN)",
+        "parentTopicId": "MMLREF_0191732624",
+        "position": "4.2.4.3.8.4",
+        "parentPosition": "4.2.4.3.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

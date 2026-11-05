@@ -1,0 +1,112 @@
+{
+  "feature_name": "Pod间Base平面亚健康检测",
+  "feature_description": "Pod间Base平面亚健康检测是基于Pod间的点到点探测结果，进行的网络亚健康诊断。\n\n操作员可以开启网络亚健康检查开关，并设置检查参数和相关告警上报参数，使系统根据设置参数检查网络亚健康状态并上报相关告警。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0175445969",
+        "topicUrl": "toctopics/zh-cn_topic_0175445969.html",
+        "name": "Service Fabric特性",
+        "parentTopicId": "",
+        "position": "37",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0170877000",
+        "topicUrl": "toctopics/zh-cn_topic_0170877000.html",
+        "name": "Service Fabric可靠性",
+        "parentTopicId": "TOPIC_0175445969",
+        "position": "37.2",
+        "parentPosition": "37",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0170877028",
+        "topicUrl": "toctopics/zh-cn_topic_0170877028.html",
+        "name": "SFFD-010008 通信亚健康自愈",
+        "parentTopicId": "TOPIC_0170877000",
+        "position": "37.2.1",
+        "parentPosition": "37.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0239621508",
+        "topicUrl": "toctopics/zh-cn_opi_0239621508.html",
+        "name": "Pod间Base平面亚健康检测",
+        "parentTopicId": "TOPIC_0170877028",
+        "position": "37.2.1.1",
+        "parentPosition": "37.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

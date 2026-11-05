@@ -1,0 +1,98 @@
+{
+  "feature_name": "配置静态路由+BFD组网（IPv4）",
+  "feature_description": "VNF与对端设备可通过静态路由绑定静态BFD探测的方式进行组网连接。\n\n在网络拓扑结构比较简单时，通常使用静态路由方式组网，合理的静态路由可以改进网络性能，并为业务保证带宽。同时，利用BFD双向/单臂Echo转发检测机制为链路提供双向/单向、轻负荷且持续时间短的快速检测功能，提高链路可靠性。\n\n如图1和图2所示为VNF与周边网元的静态路由互通组网示意图。VNF与网关侧运行静态路由协议而接入运营商网络（IP骨干网），网关使用运营商的PE（Provider Edge）交换机，也可以是DC-GW。如下描述以PE做网关为例。PE的路由配置请参考运营商的网络规划配置，DC-GW的配置请参考对应型号设备的产品文档。\n\n**图1** 静态路由+BFD组网（Eth-trunk子接口组网）\n\n**图2** 静态路由+BFD组网（Ethernet子接口组网）",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0175096802",
+        "topicUrl": "installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0252117668",
+        "topicUrl": "toctopics/zh-cn_topic_0252117668.html",
+        "name": "配置VNF侧IP路由数据（NP卡直连PE）",
+        "parentTopicId": "TOPIC_0175096802",
+        "position": "5.3",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0254211731",
+        "topicUrl": "installation/cn_20_1_3a23_uegnp.html",
+        "name": "配置静态路由+BFD组网（IPv4）",
+        "parentTopicId": "TOPIC_0252117668",
+        "position": "5.3.3",
+        "parentPosition": "5.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "feature_name": "配置计费方式",
+  "feature_description": "本指导用于描述UNC同时支持融合计费 、离线计费和在线计费的操作过程。\n\n**GGSN-C/PGW-C/SMF**\n\n对于SMF，计费方式的选择有PCF下发和本地配置，PCF下发的优先级高于本地配置。对于GGSN-C/PGW-C，计费方式的选择有PCRF下发、RADIUS Server下发和本地配置，优先级从高到低依次为：PCRF下发>RADIUS Server下发>本地配置。\n\nGGSN-C/PGW-C/SMF本地配置计费方式开关有三种粒度：User Profile、DNN和计费属性，优先级依次降低。\n\n根据用户归属属性（本地用户，漫游用户和拜访用户）配置的开关**SET CHARGECTRL**是控制GGSN-C/PGW-C/SMF本地配置的计费开关是否有效的总开关，当总开关使能了某种计费，其他开关的配置才能生效。默认情况下，总开关同时使能在线/离线/融合计费。\n\n**SGW-C**\n\n对于SGW-C，计费方式要通过本地进行配置。SGW-C本地配置计费开关有三种粒度：IMSI/MSISDN号段组、APN和计费属性，优先级依次降低。根据用户归属属性（本地用户，漫游用户和拜访用户）配置的开关**SET SGWCHARGECFG**是控制SGW-C本地配置的计费开关是否有效的总开关，当总开关使能了离线计费，其他开关的配置才能生效。默认情况下，漫游用户和拜访用户使能离线计费，本地用户不使能离线计费。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVFA8996DD884B4F1A8C2DE9A506A462BD",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229234053",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案##计费",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679693",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679693.html",
+        "name": "方案五：部署NCG且融合接口计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.5",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040352",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040352.html",
+        "name": "SMF配置",
+        "parentTopicId": "TOPIC_0000001990679693",
+        "position": "1.3.5.2",
+        "parentPosition": "1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679697",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679697.html",
+        "name": "公共配置",
+        "parentTopicId": "TOPIC_0000001955040352",
+        "position": "1.3.5.2.1",
+        "parentPosition": "1.3.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "OPI_0000001955040356",
+        "topicUrl": "toctopics/zh-cn_opi_0000001955040356.html",
+        "name": "配置计费方式",
+        "parentTopicId": "TOPIC_0000001990679697",
+        "position": "1.3.5.2.1.2",
+        "parentPosition": "1.3.5.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

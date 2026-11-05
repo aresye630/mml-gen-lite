@@ -1,0 +1,124 @@
+{
+  "feature_name": "配置异常场景数据",
+  "feature_description": "GGSN/PGW-C与PCRF交互时，常见的异常场景如下：\n\n- 基于号段选择PCRF分组失败\n\n  特定号段的用户激活时选择不到号段绑定的PCRF分组。该种情况通常是由于GGSN/PGW-C上未基于号段绑定PCRF分组。\n- 等待PCRF响应超时\n\n  GGSN/PGW-C向PCRF发送CCR-I/U/T消息后，在Tx timer超时前，没有收到CCA响应消息。该种情况下可能是PCRF由于拥塞导致CCA回复失败，或者PCRF应用层故障导致无法正常回复CCA。DRA场景下还有可能是DRA的原因导致CCA消息丢失。\n- Gx接口链路故障\n\n  GGSN/PGW-C和PCRF/DRA之间无法建立连接，包括传输层TCP链路或者Diameter链路，导致网元间无法正常交互。该种情况下可能是物理链路故障，也可能是对端PCRF/DRA的链路层故障导致Diameter心跳消息DWR/DWA无法正常维护。\n- CCA消息中携带异常返回码\n\n  PCRF给GGSN/PGW-C回复的CCA-I/U/T响应消息中，如果Result-Code AVP或Experimental-Result-Code AVP携带了DIAMETER\\_SUCCESS(2001)和DIAMETER\\_LIMITED\\_SUCCESS(2002)以外的异常返回码，比如3XXX，4XXX，5XXX，表明业务层存在问题，可根据返回码的标准定义排查异常。\n- CCA-I消息中下发的PCC规则全部安装失败\n\n  按照协议要求，PCC用户成功激活的必要条件是必须安装有效的PCC规则。该场景中，PCRF成功响应CCA-I消息，也下发了PCC规则，但是PCC规则因未通过有效性检查而全部安装失败，例如PCRF下发的预定义规则未在网关上配置等。该种情况下通常是由于PCRF侧签约错误导致，此时GGSN/PGW-C会将该用户去活。\n- CCA-I消息中未下发PCC规则\n\n  该场景中，PCRF成功响应CCA-I消息，但未下发PCC规则。该种情况下通常是由于用户开户但未签约业务导致。\n- Gx failover\n\n  详细内容请参见Gx Failover功能。\n\n**说明** \n\n适用于GGSN、PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450967",
+        "topicUrl": "toctopics/zh-cn_topic_0248450967.html",
+        "name": "智能PCC解决方案",
+        "parentTopicId": "",
+        "position": "30",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0160374767",
+        "topicUrl": "desc/unc_2000_feature_desc_Basic_PCC_Function.html",
+        "name": "WSFD-109101 PCC基本功能",
+        "parentTopicId": "TOPIC_0248450967",
+        "position": "30.1",
+        "parentPosition": "30",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0229056156",
+        "topicUrl": "toctopics/zh-cn_topic_0229056156.html",
+        "name": "PCC基本功能（2G/3G/4G，基于Gx接口）",
+        "parentTopicId": "CONCEPT_0160374767",
+        "position": "30.1.2",
+        "parentPosition": "30.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0229056159",
+        "topicUrl": "toctopics/zh-cn_opi_0229056159.html",
+        "name": "激活PCC基本功能",
+        "parentTopicId": "TOPIC_0229056156",
+        "position": "30.1.2.3",
+        "parentPosition": "30.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0231422947",
+        "topicUrl": "toctopics/zh-cn_opi_0231422947.html",
+        "name": "配置异常场景数据",
+        "parentTopicId": "OPI_0229056159",
+        "position": "30.1.2.3.4",
+        "parentPosition": "30.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

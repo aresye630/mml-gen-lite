@@ -1,0 +1,150 @@
+{
+  "command_name": "DSP HARESULT",
+  "command_name_zh": "显示HA选举结果",
+  "command_name_full": "显示HA选举结果(DSP HARESULT)",
+  "command_function": "**适用网元：SGSN、MME**\n\n该命令用于显示参与HA选举的关键功能模块的主控信息。\n\nHA选举是用于从多个同类进程中选举出主进程和备进程的一套选举机制。\n\n系统管理支持两种控制模式：分布控制模式和全局控制模式。分布控制是指系统内各个进程的资源独立管理，多个进程间松耦合。全局控制是指系统中部署主控模块，同类进程的资源在主控模块中统一管理。\n\n全局控制模式中会将主控模块部署在HA选举的主进程和备进程中，正常运行时只有主进程中的主控模块参与全局管理，备进程作为主进程的备份不参与全局管理。当主进程故障时，备进程中的主控模块接替主进程中的主控模块参与全局管理。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320476",
+        "topicUrl": "MML/LinkedDoc/unc_n_extended_debugging.html",
+        "name": "扩展调测",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.8",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321369",
+        "topicUrl": "MML/LinkedDoc/unc_n_platform_debugging.html",
+        "name": "平台调测",
+        "parentTopicId": "TOPIC_0234320476",
+        "position": "2.5.3.8.3",
+        "parentPosition": "2.5.3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320202",
+        "topicUrl": "MML/LinkedDoc/unc_n_ha_election_management.html",
+        "name": "HA选举管理",
+        "parentTopicId": "TOPIC_0234321369",
+        "position": "2.5.3.8.3.5",
+        "parentPosition": "2.5.3.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345473",
+        "topicUrl": "MML/Document/dsp_haresult.html",
+        "name": "显示HA选举结果(DSP HARESULT)",
+        "parentTopicId": "TOPIC_0234320202",
+        "position": "2.5.3.8.3.5.1",
+        "parentPosition": "2.5.3.8.3.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

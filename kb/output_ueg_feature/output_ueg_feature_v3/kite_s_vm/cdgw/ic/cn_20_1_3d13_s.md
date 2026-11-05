@@ -1,0 +1,127 @@
+# 基于用户TOS的带宽控制
+
+* 操作场景
+* 必备事项
+* 操作步骤
+* 任务示例
+
+## 操作场景
+
+保护带宽资源不被P2P/VoIP流量吞噬，确保应用公平分享带宽资源。
+
+对于一个用户组下的每个用户的基于TOS作为区分业务的条件，即UEG可以不进行业务的识别和解析，只是根据报文的DSCP就可以确定是否对其进行流量监管。
+
+适用于PGW-U、UPF。
+
+## 必备事项
+
+前提条件
+
+* 请仔细阅读GWFD-022701 基于业务感知的带宽控制。
+* UEG与网络实体之间的网络环境已经构建完成。
+
+数据
+
+| 类别 | 参数名称 | 取值样例 | 获取方法 | 说明 |
+| --- | --- | --- | --- | --- |
+| **ADD BWMSERVICE** | 带宽控制业务名称（BWMSERVICENAME） | bs\_test | 本端规划 | - |
+|  | 业务类型（BWMSERVICETYPE） | TOS | 本端规划 |  |
+|  | Tos配置类型（TOSCFGTYPE） | CLASS | 本端规划 |  |
+|  | Tos分类类型（TOSCLASSTYPE） | BE | 本端规划 |  |
+| **ADD BWMCONTROLLER** | 带宽管理控制器名称（BWMCNAME） | bc-up  bc-down | 本端规划 | 推荐配置：  * CIR = 0.5 \* PIR （最大带宽建议为保证带宽的2倍） * CBS >= CIR \* 1.5 \* 1000 / 8 （保证1.5秒数据的队列缓存能力） * PBS >= PIR \* 1.5 \* 1000 / 8 （保证1.5秒数据的队列缓存能力） |
+|  | 带宽管理控制类型（CTRLTYPE） | CAR | 本端规划 |  |
+|  | 承诺信息速率（千比特/秒）（CIR） | 300 | 本端规划 |  |
+|  | 承诺突发能缓存信息的数量（字节）（CBS） | 10000 | 本端规划 |  |
+|  | 峰值信息速率（千比特/秒）（PIR） | 500 | 本端规划 |  |
+|  | 峰值突发能缓存信息的数量（字节）（PBS） | 12000 | 本端规划 |  |
+|  | 绿色（GREEN） | PASS | 本端规划 |  |
+|  | 黄色（YELLOW） | PASS | 本端规划 |  |
+|  | 红色（RED） | DISCARD | 本端规划 |  |
+|  | BWM CAR优先级是否敏感（PRIORITYISAWARE） | DISABLE | 本端规划 |  |
+| **ADD BWMUSERGROUP** | 用户组类型（USERGROUPTYPE） | SPECIFIC\_GROUP | 本端规划 | - |
+|  | 用户组名称（USERGROUPNAME） | ug\_test | 本端规划 |  |
+|  | 用户组优先级（USERGROUPPRI） | 1 | 本端规划 |  |
+|  | 用户级业务类型（USERLEVSRVTYPE） | TOS | 本端规划 |  |
+| **ADD BWMRULE** | 用户组类型（USERGROUPTYPE） | SPECIFIC\_GROUP | 本端规划 | BwmService已通过**ADD BWMSERVICE**命令配置；  BwmController已通过  **ADD BWMCONTROLLER**命令配置。 |
+|  | 用户组名称（USERGROUPNAME） | ug\_test | 本端规划 |  |
+|  | 带宽管理规则类型（BWMRULETYPE） | SUBSCRIBER\_SPECIFIC | 本端规划 |  |
+|  | 带宽管理规则名称（BWMRULENAME） | br\_test | 本端规划 |  |
+|  | 带宽控制业务名称（BWMSERVICENAME） | bs\_test | 已配置数据中获取 |  |
+|  | 上行带宽管理控制器名称一（UPBWMCTRLNAME1） | bc-up | 已配置数据中获取 |  |
+|  | 下行带宽管理控制器名称一（DNBWMCTRLNAME1） | bc-down | 已配置数据中获取 |  |
+|  | 带宽管理规则优先级（BWMRULEPRI） | 1 | 本端规划 |  |
+| **ADD APNBINDBWMUSRG** | 用户组名称（USERGROUPNAME） | ug\_test | 本端规划 | - |
+|  | APN名称（APN） | apn-test | 本端规划 | 通过**ADD APN**命令配置，可以使用**LST APN**命令进行查询。 |
+
+## 操作步骤
+
+1. 打开本特性的License配置开关。
+
+   **SET LICENSESWITCH**
+2. 配置BWM业务。
+   1. 用TOS定义BWM业务。
+
+      **ADD BWMSERVICE**
+   2. 配置两个BWM控制器，设置CAR参数并配置带宽控制算法。
+
+      **ADD BWMCONTROLLER**
+
+      进行用户级/用户组级/整机级带宽控制时，如果要优先保证用户组内标识为绿色的用户流量，则需要配置**ADD BWMCONTROLLER**“COLORISAWARE”为“ENABLE”。
+
+      进行用户级/用户组级/整机级带宽控制时，如果要对不同业务区分优先级时，则需要配置**ADD BWMCONTROLLER**“PRIORITYISAWARE”为“ENABLE”，且通过**ADD BWMRULE**命令参数“BWMRULEPRI”为不同的业务配置不同的优先级。
+3. 配置带宽管理用户组。
+   1. 定义带宽管理用户组，配置优先级和业务类型。
+
+      **ADD BWMUSERGROUP**
+   2. 配置用户级带宽控制规则。
+
+      **ADD BWMRULE**
+   3. 将APN下的用户包含到该用户组。
+
+      **ADD APNBINDBWMUSRG**
+
+## 任务示例
+
+任务描述
+
+本实例中，操作员在UEG上进行数据配置实现以下要求：
+
+UEG对一个用户组下的每个用户的指定IP TOS等级的上行、下行用户面数据流量进行流量监管。
+
+脚本
+
+//打开本特性的License配置开关。
+
+```
+SET LICENSESWITCH:LICITEM="LKV3G5TCSA01",SWITCH=ENABLE;
+```
+
+//配置BWM业务。
+
+```
+ADD BWMSERVICE:BWMSERVICENAME="bs_test",BWMSERVICETYPE=TOS,TOSCFGTYPE=CLASS,TOSCLASSTYPE=BE;
+```
+
+```
+ADD BWMCONTROLLER:BWMCNAME="bc-up",CTRLTYPE=CAR,CIR=300,CBS=10000,PIR=500,PBS=12000,GREEN=PASS,YELLOW=PASS,RED=DISCARD,PRIORITYISAWARE=DISABLE;
+```
+
+```
+ADD BWMCONTROLLER:BWMCNAME="bc-down",CTRLTYPE=CAR,CIR=300,CBS=10000,PIR=500,PBS=12000,GREEN=PASS,YELLOW=PASS,RED=DISCARD,PRIORITYISAWARE=DISABLE;
+```
+
+//配置带宽管理用户组。
+
+```
+ADD BWMUSERGROUP:USERGROUPTYPE=SPECIFIC_GROUP,USERGROUPNAME="ug_test",USERGROUPPRI=1,USERLEVSRVTYPE=TOS;
+```
+
+```
+ADD BWMRULE:USERGROUPTYPE=SPECIFIC_GROUP,USERGROUPNAME="ug_test",BWMRULETYPE=SUBSCRIBER_SPECIFIC,BWMRULENAME="br_test",BWMSERVICENAME="bs_test",UPBWMCTRLNAME1="bc-up",DNBWMCTRLNAME1="bc-down",BWMRULEPRI=1,SERVICELEVEL=1;
+```
+
+```
+ADD APNBINDBWMUSRG:USERGROUPNAME="ug_test",APN="apn-test";
+```
+
+版权所有 © 华为技术有限公司

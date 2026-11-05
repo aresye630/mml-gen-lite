@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD LTEAUTOFORBIDIMSIPRE",
+  "command_name_zh": "增加或删除（Vo）LTE自动开户IMSI前缀限制",
+  "command_name_full": "增加或删除（Vo）LTE自动开户IMSI前缀限制(MOD LTEAUTOFORBIDIMSIPRE)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会影响用户自动开户业务，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于增加或删除需要进行自动开户控制的用户IMSI号码前缀信息。\n\n当系统需要对自动开户的用户按IMSI号码前缀进行控制时配置。\n\n- 使用本命令增加了IMSI号码前缀后，会按照对应参数的取值规则进行控制。增加该控制的优先级高于全局参数（通过**SET MAPCONF**命令的参数“是否启用LTE/VoLTE自动开户特性”和**SET MAPSERV**命令的参数“SWx接口是否支持LTE用户自动开通VoWiFi功能”设置）的设置。\n- 使用本命令删除了IMSI号码前缀后，需要查询与该IMSI号码用户的IMEI号码前缀是否匹配到IMEI限制自动开户：\n  - 是，按照**MOD LTEAUTOFORBIDIMEIPRE**命令中“是否限制LTE/VoLTE自动开户特性”取值规则进行控制。\n  - 否，按照全局参数的设置（通过**SET MAPCONF**命令的参数“是否启用LTE/VoLTE自动开户特性”和**SET MAPSERV**命令的参数“SWx接口是否支持LTE用户自动开通VoWiFi功能”设置）进行自动开户。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802631",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/lteautoforbidimsipre.html",
+        "name": "（Vo）LTE自动开户限制",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.60",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803100_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_lteautoforbidimsipre.html",
+        "name": "增加或删除（Vo）LTE自动开户IMSI前缀限制(MOD LTEAUTOFORBIDIMSIPRE)",
+        "parentTopicId": "CONCEPT_0190802631",
+        "position": "4.2.3.2.60.1",
+        "parentPosition": "4.2.3.2.60",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

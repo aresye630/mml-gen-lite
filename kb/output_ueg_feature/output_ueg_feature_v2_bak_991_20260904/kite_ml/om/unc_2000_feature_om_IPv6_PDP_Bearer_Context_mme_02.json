@@ -1,0 +1,128 @@
+{
+  "feature_name": "激活IPv6承载上下文特性（适用于PGW-C）",
+  "feature_description": "本操作指导介绍在运行网络中激活IPv6承载上下文的操作过程。\n\n**说明** \n\n适用于PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287590",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287590.html",
+        "name": "GWFD-022900 IPV6基本功能",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.15",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0248043347_1",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_IPv6_PDP_Bearer_Context_04.html",
+        "name": "GWFD-022901 IPv6承载上下文",
+        "parentTopicId": "TOPIC_0000001184287590",
+        "position": "6.15.1",
+        "parentPosition": "6.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0248043391",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_IPv6_PDP_Bearer_Context_mme.html",
+        "name": "GWFD-022901 IPv6承载上下文（MME、SGW-C/PGW-C）",
+        "parentTopicId": "CONCEPT_0248043347_1",
+        "position": "6.15.1.1",
+        "parentPosition": "6.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0248043350",
+        "topicUrl": "kite_ml/om/unc_2000_feature_om_IPv6_PDP_Bearer_Context_mme_02.html",
+        "name": "激活IPv6承载上下文特性（适用于PGW-C）",
+        "parentTopicId": "CONCEPT_0248043391",
+        "position": "6.15.1.1.3",
+        "parentPosition": "6.15.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

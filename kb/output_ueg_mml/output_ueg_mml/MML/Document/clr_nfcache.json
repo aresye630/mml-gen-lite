@@ -1,0 +1,131 @@
+{
+  "command_name": "CLR NFCACHE",
+  "command_name_zh": "清除网元缓存",
+  "command_name_full": "清除网元缓存（CLR NFCACHE）",
+  "command_function": "**须知** \n\n- 此命令是高危命令，如果执行不当会影响业务处理，需联系华为技术支持确认后再执行。\n- 该操作为系统高危操作，需要第二个具有二次授权权限的用户授权后才能执行该操作。请输入授权用户名和密码。\n\n该命令用于清除UPCF网元的缓存信息。\n\n在NRF服务注册、发现流程中，NCS服务需要将**ADD DISCNFPROFILE**命令对应的配置信息发送给PES服务保存，在NCS服务重启时，NCS服务从PES服务获取的NF缓存对应的配置信息，并使用该配置信息重新做服务发现。因此，在遇到对端BSF/CHF/AMF/SCP/UDR/NWDAF/PCF网元业务异常问题处理时，可先通过**DSP NFCACHE**命令查询对应的异常网元缓存信息，再通过**CLR NFCACHE**命令进行清除对应的网元缓存信息，以保证业务消息正常处理。\n\n- **对端BSF/CHF/AMF/SCP/UDR/NWDAF/PCF网元业务异常问题处理思路1**：当定位为对端BSF/CHF/AMF/SCP/UDR/NWDAF/PCF网元出现下线等情况导致业务异常时，此时可确定PES服务必定还存在缓存信息，导致UPCF业务消息仍继续发送给已下线对端网元处理，因此可以通过**DSP NFCACHE**命令先查询PES服务缓存信息，并执行**CLR NFCACHE**命令清除缓存信息，观察业务是否恢复正常？如未恢复正常，则说明NCS服务也存在缓存信息，继续执行**DSP NFCACHE**命令查询NCS服务缓存信息，再执行**CLR NFCACHE**命令清除缓存信息。\n- **对端BSF/CHF/AMF/SCP/UDR/NWDAF/PCF网元业务异常问题具体处理思路2**：当定位为对端BSF/CHF/AMF/SCP/UDR/NWDAF/PCF网元出现下线等情况导致业务异常时，可直接通过**DSP NFCACHE**命令先查询NCS服务缓存信息，并执行**CLR NFCACHE**命令清除缓存信息。如**DSP NFCACHE**命令查询系统中不存在NCS服务缓存信息，则说明仅PES服务存在缓存信息，继续执行**DSP NFCACHE**命令查询PES服务缓存信息，再执行**CLR NFCACHE**命令清除缓存信息即可。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0175053740",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_ncs_management.html",
+        "name": "NCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.9",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0295928932",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_cache_management.html",
+        "name": "网元缓存管理",
+        "parentTopicId": "TOPIC_0175053740",
+        "position": "2.2.3.5.9.8",
+        "parentPosition": "2.2.3.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0295928933_2",
+        "topicUrl": "MML/Document/clr_nfcache.html",
+        "name": "清除网元缓存（CLR NFCACHE）",
+        "parentTopicId": "CONCEPT_0295928932",
+        "position": "2.2.3.5.9.8.2",
+        "parentPosition": "2.2.3.5.9.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

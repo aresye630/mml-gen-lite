@@ -1,0 +1,138 @@
+{
+  "command_name": "SET HTTPSRVLBSW",
+  "command_name_zh": "设置HTTP服务端负载重均衡功能",
+  "command_name_full": "设置HTTP服务端负载重均衡功能（SET HTTPSRVLBSW）",
+  "command_function": "**须知** \n\n系统触发负载重均衡处理过程中会在服务端主动发起链路释放，客户端在感知到链路释放以后会触发链路重建，链路重建过程中会有业务抖动。\n\n该命令用于设置HTTP服务端负载重均衡功能开关以及监控参数和门限，当开关打开时会基于系统的采样周期和采样次数定时采样各个HTTP进程的负载，并基于多次采样的结果监控各个HTTP进程的负载，在监控到需要重均衡时系统自动发起负载重均衡处理。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001183867166",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.12",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001953482898",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_management.html",
+        "name": "HTTP管理",
+        "parentTopicId": "TOPIC_0000001183867166",
+        "position": "1.12.2",
+        "parentPosition": "1.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001953482918",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_server_load_management.html",
+        "name": "HTTP服务端负载管理",
+        "parentTopicId": "TOPIC_0000001953482898",
+        "position": "1.12.2.9",
+        "parentPosition": "1.12.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001987762353",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_intra_pod_load_management.html",
+        "name": "POD内负载管理",
+        "parentTopicId": "TOPIC_0000001953482918",
+        "position": "1.12.2.9.1",
+        "parentPosition": "1.12.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001229291779",
+        "topicUrl": "MML/Document/set_httpsrvlbsw.html",
+        "name": "设置HTTP服务端负载重均衡功能（SET HTTPSRVLBSW）",
+        "parentTopicId": "TOPIC_0000001987762353",
+        "position": "1.12.2.9.1.1",
+        "parentPosition": "1.12.2.9.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

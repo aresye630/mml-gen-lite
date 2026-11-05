@@ -1,0 +1,79 @@
+{
+  "feature_name": "激活支持专用DNN/APN园区终端互访控制",
+  "feature_description": "对于UPF下沉到园区的场景，仅在不出园区的情况下允许终端互访，出园区后禁止终端互访时，需要激活本功能。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0000001913058194",
+        "topicUrl": "toctopics/zh-cn_concept_0000001913058194.html",
+        "name": "支持专用DNN/APN园区终端互访控制",
+        "parentTopicId": "",
+        "position": "28",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001913315418",
+        "topicUrl": "toctopics/zh-cn_opi_0000001913315418.html",
+        "name": "激活支持专用DNN/APN园区终端互访控制",
+        "parentTopicId": "CONCEPT_0000001913058194",
+        "position": "28.2",
+        "parentPosition": "28",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

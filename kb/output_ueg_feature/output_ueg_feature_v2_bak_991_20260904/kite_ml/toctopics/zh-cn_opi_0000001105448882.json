@@ -1,0 +1,298 @@
+{
+  "feature_name": "激活CU Full Mesh组网（SMF）",
+  "feature_description": "- 新建CU FullMesh组网。\n- 已有网络新改造成CU FullMesh组网。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0239304522",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0239304522.html",
+        "name": "分布式网络功能",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.13",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "CONCEPT_0172866255",
+        "topicUrl": "kite_s_vm/cdgw/desc/cn_81_0_1103611.html",
+        "name": "GWFD-021701 CU Full Mesh组网",
+        "parentTopicId": "TOPIC_0239304522",
+        "position": "3.13.4",
+        "parentPosition": "3.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001101470590_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001101470590.html",
+        "name": "SMF&UPF容灾方案",
+        "parentTopicId": "CONCEPT_0172866255",
+        "position": "3.13.4.3",
+        "parentPosition": "3.13.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001101470586_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001101470586.html",
+        "name": "新建部署",
+        "parentTopicId": "TOPIC_0000001101470590_2",
+        "position": "3.13.4.3.3",
+        "parentPosition": "3.13.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001105129076_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001105129076.html",
+        "name": "激活CU Full Mesh组网（适用于SMF）",
+        "parentTopicId": "TOPIC_0000001101470586_2",
+        "position": "3.13.4.3.3.3",
+        "parentPosition": "3.13.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0000001105448882_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001105448882.html",
+        "name": "激活CU Full Mesh组网（SMF）",
+        "parentTopicId": "TOPIC_0000001105129076_2",
+        "position": "3.13.4.3.3.3.1",
+        "parentPosition": "3.13.4.3.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324040462",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324040462.html",
+        "name": "GW-U&UPF特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001229887305",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001229887305.html",
+        "name": "GWFD-021700 容灾功能",
+        "parentTopicId": "TOPIC_0000001324040462",
+        "position": "3.10",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0000001185163000_2",
+        "topicUrl": "kite_ml/cdgw/desc/cn_81_0_1103611.html",
+        "name": "GWFD-021701 CU Full Mesh组网",
+        "parentTopicId": "TOPIC_0000001229887305",
+        "position": "3.10.1",
+        "parentPosition": "3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001101470590_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001101470590.html",
+        "name": "SMF&UPF容灾方案",
+        "parentTopicId": "CONCEPT_0000001185163000_2",
+        "position": "3.10.1.2",
+        "parentPosition": "3.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001101470586_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001101470586.html",
+        "name": "新建部署",
+        "parentTopicId": "TOPIC_0000001101470590_2",
+        "position": "3.10.1.2.3",
+        "parentPosition": "3.10.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001105129076_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001105129076.html",
+        "name": "激活CU Full Mesh组网（适用于SMF）",
+        "parentTopicId": "TOPIC_0000001101470586_2",
+        "position": "3.10.1.2.3.3",
+        "parentPosition": "3.10.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001105448882_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001105448882.html",
+        "name": "激活CU Full Mesh组网（SMF）",
+        "parentTopicId": "TOPIC_0000001105129076_2",
+        "position": "3.10.1.2.3.3.1",
+        "parentPosition": "3.10.1.2.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "command_name": "DSP SNDCP",
+  "command_name_zh": "显示SNDCP参数状态",
+  "command_name_full": "显示SNDCP参数状态(DSP SNDCP)",
+  "command_function": "**适用网元：SGSN**\n\n该命令用于查询当前SNDCP层系统参数状态。系统初始化时会加载数据配置表中的SNDCP层参数配置数据，当使用SET SNDCP修改数据库中的配置后，新修改的数据并不会即时生效，所以此时数据配置表中的配置与当前节点使用的配置不一致，需要重启GBP进程使之生效。该命令的功能为查询进程当前使用的配置。关于数据表中的配置数据，请使用**LST SNDCP**命令查询。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321027",
+        "topicUrl": "MML/LinkedDoc/unc_n_gb_interface_management.html",
+        "name": "Gb接口管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.11",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322481",
+        "topicUrl": "MML/LinkedDoc/unc_n_sndcp_parameter.html",
+        "name": "SNDCP参数",
+        "parentTopicId": "TOPIC_0234321027",
+        "position": "2.5.3.11.12",
+        "parentPosition": "2.5.3.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001126305836",
+        "topicUrl": "MML/Document/dsp_sndcp.html",
+        "name": "显示SNDCP参数状态(DSP SNDCP)",
+        "parentTopicId": "TOPIC_0234322481",
+        "position": "2.5.3.11.12.3",
+        "parentPosition": "2.5.3.11.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

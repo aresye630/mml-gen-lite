@@ -1,0 +1,131 @@
+{
+  "command_name": "CLB ACSPATCH",
+  "command_name_zh": "校正补丁包",
+  "command_name_full": "校正补丁包（CLB ACSPATCH）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会影响系统的正常运行，请谨慎使用并联系华为支持协助操作。\n\n该命令用于校正补丁包，默认恢复会将补丁恢复到最近一次操作的状态，如果指定补丁版本号，则恢复到指定版本补丁。当补丁删除失败有残留，或者系统存在补丁相关告警时，可以尝试使用该命令进行恢复。\n\n本命令只适用于ACS服务，其他微服务请使用CLB PATCH命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103355786_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.2",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595566_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103355786_2",
+        "position": "3.2.2.1",
+        "parentPosition": "3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116108_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/common_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202103595566_2",
+        "position": "3.2.2.1.2",
+        "parentPosition": "3.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116112_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/common_vnfc_n_upgrade_maintenance.html",
+        "name": "升级维护",
+        "parentTopicId": "CONCEPT_0000202103116108_2",
+        "position": "3.2.2.1.2.11",
+        "parentPosition": "3.2.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0231115871_2",
+        "topicUrl": "kite_s_bm/MML/Document/clb_acspatch.html",
+        "name": "校正补丁包（CLB ACSPATCH）",
+        "parentTopicId": "CONCEPT_0000202103116112_2",
+        "position": "3.2.2.1.2.11.15",
+        "parentPosition": "3.2.2.1.2.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

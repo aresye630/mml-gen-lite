@@ -1,0 +1,131 @@
+{
+  "command_name": "SET UPGTPPATH",
+  "command_name_zh": "设置GTP路径相关属性",
+  "command_name_full": "设置GTP路径相关属性（SET UPGTPPATH）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，配置UPF主动向对端网元发送GTP请求消息的重发时间间隔和最大尝试发送次数，如果配置不合理，可能导致用户激活失败或资源残留。\n\n该命令用来设置GTP协议配置属性。包括当前系统是否开启GTP路径管理黑白名单功能、系统支持的GTP路径管理名单属性（可配置为黑名单或白名单），主动发送GTP心跳消息的开关属性与发送间隔、主动向对端网元（gNodeB、eNodeB、UPF、S-GW、P-GW或可信非3GPP接入网关）发送GTP请求消息的重发时间间隔和最大尝试发送次数（请求消息包括Echo Request等消息）、路径断告警产生后去激活上下文的开关属性，当去激活上下文的开关打开时，配置心跳检测消息的发送次数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876476",
+        "topicUrl": "MML/LinkedDoc/udg_n_path_management.html",
+        "name": "路径管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.3",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356050",
+        "topicUrl": "MML/LinkedDoc/udg_n_gtp_path_management.html",
+        "name": "GTP路径管理",
+        "parentTopicId": "CONCEPT_0000202102876476",
+        "position": "5.3.1",
+        "parentPosition": "5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595834",
+        "topicUrl": "MML/LinkedDoc/udg_n_gtp_protocol_parameter_management.html",
+        "name": "GTP协议参数管理",
+        "parentTopicId": "CONCEPT_0000202103356050",
+        "position": "5.3.1.1",
+        "parentPosition": "5.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555283",
+        "topicUrl": "MML/LinkedDoc/udg_n_gtp_path_global_parameters.html",
+        "name": "GTP路径全局参数",
+        "parentTopicId": "CONCEPT_0000202103595834",
+        "position": "5.3.1.1.4",
+        "parentPosition": "5.3.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837227",
+        "topicUrl": "MML/Document/set_upgtppath.html",
+        "name": "设置GTP路径相关属性（SET UPGTPPATH）",
+        "parentTopicId": "CONCEPT_0000202289555283",
+        "position": "5.3.1.1.4.1",
+        "parentPosition": "5.3.1.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

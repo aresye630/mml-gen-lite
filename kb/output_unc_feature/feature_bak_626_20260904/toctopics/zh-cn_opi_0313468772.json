@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置SMSF容灾功能",
+  "feature_description": "本操作指导介绍部署SMSF 1+1互备组网的操作过程。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC54A726B5F7946E1AFEDC2D90E4DD82D",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193952334",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core SMSF解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468810",
+        "topicUrl": "toctopics/zh-cn_topic_0313468810.html",
+        "name": "SMSF功能部署",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468793",
+        "topicUrl": "toctopics/zh-cn_topic_0313468793.html",
+        "name": "部署容灾网络",
+        "parentTopicId": "TOPIC_0313468810",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "OPI_0313468772",
+        "topicUrl": "toctopics/zh-cn_opi_0313468772.html",
+        "name": "配置SMSF容灾功能",
+        "parentTopicId": "TOPIC_0313468793",
+        "position": "2.5.2",
+        "parentPosition": "2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

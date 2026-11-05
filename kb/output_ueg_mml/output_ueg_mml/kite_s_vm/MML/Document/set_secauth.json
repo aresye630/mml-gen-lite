@@ -1,0 +1,119 @@
+{
+  "command_name": "SET SECAUTH",
+  "command_name_zh": "设置二次授权功能状态",
+  "command_name_full": "设置二次授权功能状态（SET SECAUTH）",
+  "command_function": "**须知** \n\n- 执行本命令将开启或关闭二次授权功能，需要创建二次授权用户，对高危操作进行二次授权认证。\n- 打开免二次授权时间段开关后，支持从开始日期到结束日期内，每天的开始时间和结束时间范围内免二次授权。\n\n打开或关闭二次授权功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315563_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.6",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103355822_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "CONCEPT_0000202289315563_1",
+        "position": "1.2.6.11",
+        "parentPosition": "1.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315567_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_second_authorization_status_management.html",
+        "name": "二次授权状态管理",
+        "parentTopicId": "CONCEPT_0000202103355822_1",
+        "position": "1.2.6.11.3",
+        "parentPosition": "1.2.6.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0188029947_1",
+        "topicUrl": "kite_s_vm/MML/Document/set_secauth.html",
+        "name": "设置二次授权功能状态（SET SECAUTH）",
+        "parentTopicId": "CONCEPT_0000202289315567_1",
+        "position": "1.2.6.11.3.2",
+        "parentPosition": "1.2.6.11.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

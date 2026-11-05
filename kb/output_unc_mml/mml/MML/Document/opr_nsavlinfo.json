@@ -1,0 +1,138 @@
+{
+  "command_name": "OPR NSAVLINFO",
+  "command_name_zh": "操作网络切片可用性信息",
+  "command_name_full": "操作网络切片可用性信息（OPR NSAVLINFO）",
+  "command_function": "**适用NF：AMF**\n\n该命令用于在AMF上操作与NSSF之间的网络切片可用性信息。\n\nNSSF集中管理了运营商的网络切片可用性信息，包括了网络中的跟踪区（TA）列表以及每个跟踪区支持的和限制使用的网络切片。NSSF上的网络切片可用性信息可能来自配置，也可能部分来自AMF的上报。操作员可通过本命令向NSSF上报或者删除网络切片可用性信息。\n\n如果NSSF上的网络切片可用性信息只来自配置，在执行本命令前要确保NSSF的本地配置更新到最新。\n\n此外，为了能及时感知NSSF侧的网络切片信息变化，AMF需要向NSSF提供其所服务的跟踪区列表（通过ADD NFTAI配置）以订阅这些跟踪区的网络切片信息。操作员可通过本命令触发订阅或者去订阅。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320576",
+        "topicUrl": "MML/LinkedDoc/unc_n_network_slice_selection_management.html",
+        "name": "网络切片选择管理",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.3.2.10",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320783",
+        "topicUrl": "MML/LinkedDoc/unc_n_network_slice_availability_information_management.html",
+        "name": "网络切片可用性信息管理",
+        "parentTopicId": "TOPIC_0234320576",
+        "position": "2.3.2.10.2",
+        "parentPosition": "2.3.2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209652145",
+        "topicUrl": "MML/Document/opr_nsavlinfo.html",
+        "name": "操作网络切片可用性信息（OPR NSAVLINFO）",
+        "parentTopicId": "TOPIC_0234320783",
+        "position": "2.3.2.10.2.1",
+        "parentPosition": "2.3.2.10.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "command_name": "SET TCPGLOBALCFG",
+  "command_name_zh": "设置TCP全局配置",
+  "command_name_full": "设置TCP全局配置（SET TCPGLOBALCFG）",
+  "command_function": "该命令用来设置TCP相关的全局配置。\n\n以下参数说明IPv4和IPv6共用：\n\n设置TCP FIN-Wait超时时间：当TCP的连接状态由FIN\\_WAIT\\_1变为FIN\\_WAIT\\_2时启动FIN-Wait定时器。若FIN-Wait定时器超时前仍未收到FIN报文，则TCP连接被终止。\n\n设置TCP SYN-Wait超时时间：当发送SYN报文时，TCP启动SYN-Wait定时器，若SYN-Wait超时前未收到回应报文，则TCP连接将被终止。\n\n设置TCP连接的MSS最大值大小：TCP在建立连接时，会协商MSS值(Maximum Segment Size)，它表示本端所能接收报文（TCP报文的静荷，不包含TCP头）的最大长度。\n\n设置面向连接Socket的窗口值：该配置会变更TCP默认缓冲区窗口大小，当TCP连接建立时会使用这个设置的缓冲区值协商建立TCP会话。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.12",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595642_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156_2",
+        "position": "3.2.12.4",
+        "parentPosition": "3.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289154983_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_ip_stack.html",
+        "name": "IP协议栈",
+        "parentTopicId": "CONCEPT_0000202103595642_2",
+        "position": "3.2.12.4.6",
+        "parentPosition": "3.2.12.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103355882_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_tcp_global_configuration.html",
+        "name": "TCP全局配置",
+        "parentTopicId": "CONCEPT_0000202289154983_2",
+        "position": "3.2.12.4.6.2",
+        "parentPosition": "3.2.12.4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001600440885_3",
+        "topicUrl": "kite_s_bm/MML/Document/set_tcpglobalcfg.html",
+        "name": "设置TCP全局配置（SET TCPGLOBALCFG）",
+        "parentTopicId": "CONCEPT_0000202103355882_2",
+        "position": "3.2.12.4.6.2.1",
+        "parentPosition": "3.2.12.4.6.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

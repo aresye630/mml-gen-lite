@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置和SMSC对接（通过STP对接）",
+  "feature_description": "SMSF通过STP与SMSC对接，整个配置过程和SMSF与SMSC直接对接一样，只不过M3UA链路对端实体（例如信令点码和IP地址）为STP即可。本章节为SMSF通过一对STP与SMSC对接的配置指导。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782467896",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782467896.html",
+        "name": "配置SMSF",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000002418531281",
+        "topicUrl": "toctopics/zh-cn_topic_0000002418531281.html",
+        "name": "配置和SMSC对接",
+        "parentTopicId": "TOPIC_0000001782467896",
+        "position": "8.5.5",
+        "parentPosition": "8.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000002385011938",
+        "topicUrl": "toctopics/zh-cn_opi_0000002385011938.html",
+        "name": "配置和SMSC对接（通过STP对接）",
+        "parentTopicId": "TOPIC_0000002418531281",
+        "position": "8.5.5.2",
+        "parentPosition": "8.5.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

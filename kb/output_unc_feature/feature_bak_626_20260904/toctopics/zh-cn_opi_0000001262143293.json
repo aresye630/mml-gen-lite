@@ -1,0 +1,85 @@
+{
+  "feature_name": "激活DHCP地址分配",
+  "feature_description": "DHCP属于网络层协议，它采用Client/Server模式。DHCP Server负责客户端IP地址的管理和分配，SMF作为Client端，代替UE向DHCP Server申请和租用IP地址。\n\n**说明** \n\n适用于GGSN、PGW-C、SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVBDE573AB7BF04F09936457AFD382F46F",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229233453",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 用户IP地址管理解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "TOPIC_0000001262063337",
+        "topicUrl": "toctopics/zh-cn_topic_0000001262063337.html",
+        "name": "DHCP分配IP地址",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "OPI_0000001217463432",
+        "topicUrl": "toctopics/zh-cn_opi_0000001217463432.html",
+        "name": "激活DHCP分配IP地址功能",
+        "parentTopicId": "TOPIC_0000001262063337",
+        "position": "7.2",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "OPI_0000001262143293",
+        "topicUrl": "toctopics/zh-cn_opi_0000001262143293.html",
+        "name": "激活DHCP地址分配",
+        "parentTopicId": "OPI_0000001217463432",
+        "position": "7.2.1",
+        "parentPosition": "7.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

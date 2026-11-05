@@ -1,0 +1,269 @@
+{
+  "command_name": "SET EXTPLCYCHKOPT",
+  "command_name_zh": "设置外部策略广播核查开关",
+  "command_name_full": "设置外部策略广播核查开关（SET EXTPLCYCHKOPT）",
+  "command_function": "该命令用于设置外部策略广播核查开关。将开关设置为关闭状态，SDRC停止用于对所有APP核查外部策略的定时广播。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001266739438",
+        "topicUrl": "toctopics/zh-cn_topic_0000001266739438.html",
+        "name": "Service Fabric机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.1",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0283060049_3",
+        "topicUrl": "INNER/LinkedDoc/sdrctrl_n_sdr_policy_verification_switch.html",
+        "name": "SDR策略核查开关",
+        "parentTopicId": "TOPIC_0000001266739438",
+        "position": "2.3.3.1.6",
+        "parentPosition": "2.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0294730504_3",
+        "topicUrl": "INNER/Document/set_extplcychkopt.html",
+        "name": "设置外部策略广播核查开关（SET EXTPLCYCHKOPT）",
+        "parentTopicId": "TOPIC_0283060049_3",
+        "position": "2.3.3.1.6.1",
+        "parentPosition": "2.3.3.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0283060049_3",
+        "topicUrl": "INNER/LinkedDoc/sdrctrl_n_sdr_policy_verification_switch.html",
+        "name": "SDR策略核查开关",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.26",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0294730504_3",
+        "topicUrl": "INNER/Document/set_extplcychkopt.html",
+        "name": "设置外部策略广播核查开关（SET EXTPLCYCHKOPT）",
+        "parentTopicId": "TOPIC_0283060049_3",
+        "position": "4.26.1",
+        "parentPosition": "4.26",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0283060049_3",
+        "topicUrl": "INNER/LinkedDoc/sdrctrl_n_sdr_policy_verification_switch.html",
+        "name": "SDR策略核查开关",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.26",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0294730504_3",
+        "topicUrl": "INNER/Document/set_extplcychkopt.html",
+        "name": "设置外部策略广播核查开关（SET EXTPLCYCHKOPT）",
+        "parentTopicId": "TOPIC_0283060049_3",
+        "position": "4.26.1",
+        "parentPosition": "4.26",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

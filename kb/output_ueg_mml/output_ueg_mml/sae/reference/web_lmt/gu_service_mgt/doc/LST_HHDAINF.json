@@ -1,0 +1,119 @@
+{
+  "command_name": "LST HHDAINF",
+  "command_name_zh": "查询IMPI的HTTP Digest鉴权信息",
+  "command_name_full": "查询IMPI的HTTP Digest鉴权信息(LST HHDAINF)",
+  "command_function": "该操作用于从HSS的业务数据库中查询指定IMPI或用户名称的HTTP Digest鉴权信息，需要输入唯一标识该数据记录的关键参数IMPI或HUSERNAME参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732551",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Authentication_Data_Management.html",
+        "name": "鉴权数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.2",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732776",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/HTTP_Digest_Authentication_Data_Management.html",
+        "name": "HTTP Digest鉴权数据管理",
+        "parentTopicId": "MMLREF_0191732551",
+        "position": "4.2.4.2.7",
+        "parentPosition": "4.2.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732595",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/LST_HHDAINF.html",
+        "name": "查询IMPI的HTTP Digest鉴权信息(LST HHDAINF)",
+        "parentTopicId": "MMLREF_0191732776",
+        "position": "4.2.4.2.7.4",
+        "parentPosition": "4.2.4.2.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

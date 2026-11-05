@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD HTTPLINKOBJ",
+  "command_name_zh": "添加HTTP链路测量对象",
+  "command_name_full": "添加HTTP链路测量对象(ADD HTTPLINKOBJ)",
+  "command_function": "本命令用于增加一条HTTP链路测量对象记录。\n\n该命令的使用场景：当需要统计某条HTTP链路接收、发送消息数的性能指标时，可使用本命令增加对应HTTP链路的测量对象，系统会创建性能测量“基于链路的HTTP链路性能测量”。\n\n- 对于HTTP服务端链路：先执行**DSP HLBPEERL**命令查询服务端链路信息，然后执行本命令增加对应HTTP服务端链路的测量对象。\n- 对于HTTP客户端链路：先执行**LST PEERNF**命令查询对端信息，然后执行**DSP HLBHTTPCLINK**命令查询对应对端的HTTP客户端链路信息，再执行本命令增加对应HTTP客户端链路的测量对象。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167444231",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_hlb_management.html",
+        "name": "HLB管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.5",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001177211136",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_http_k_measurement_object_management.html",
+        "name": "HTTP链路测量对象管理",
+        "parentTopicId": "CONCEPT_0167444231",
+        "position": "2.2.3.5.5.18",
+        "parentPosition": "2.2.3.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001222692447",
+        "topicUrl": "MML/Document/add_httplinkobj.html",
+        "name": "添加HTTP链路测量对象(ADD HTTPLINKOBJ)",
+        "parentTopicId": "CONCEPT_0000001177211136",
+        "position": "2.2.3.5.5.18.1",
+        "parentPosition": "2.2.3.5.5.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

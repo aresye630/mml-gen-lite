@@ -1,0 +1,131 @@
+{
+  "command_name": "MOD NFSUBSCRDATA",
+  "command_name_zh": "修改网元订阅信息",
+  "command_name_full": "修改网元订阅信息(MOD NFSUBSCRDATA)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致系统异常，影响业务处理，需联系华为技术支持确认后再执行。\n\n该命令用于修改订阅信息。在该命令中，系统通过“订阅名称”关键参数来唯一标识一条订阅信息。\n\n- 如果修改“订阅状态”为“UNSUBSCRIBED”并且当前订阅状态为已订阅时，NCS向NRF发送去订阅请求。\n- 如果修改参数“有效时间”并且当前订阅状态为已订阅时，NCS向NRF发送更新订阅信息请求，最终订阅有效时间取决于NRF返回的订阅有效期。\n- 如果修改“订阅状态”为“SUBSCRIBED”并且当前订阅状态为未订阅时，则NCS向NRF发送订阅请求，最终订阅有效时间取决于NRF返回的订阅有效期。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0175053740",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_ncs_management.html",
+        "name": "NCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.9",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0187811427",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_subscription_information_configuration.html",
+        "name": "网元订阅信息配置",
+        "parentTopicId": "TOPIC_0175053740",
+        "position": "2.2.3.5.9.3",
+        "parentPosition": "2.2.3.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0187811430_2",
+        "topicUrl": "MML/Document/mod_nfsubscrdata.html",
+        "name": "修改网元订阅信息(MOD NFSUBSCRDATA)",
+        "parentTopicId": "CONCEPT_0187811427",
+        "position": "2.2.3.5.9.3.3",
+        "parentPosition": "2.2.3.5.9.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

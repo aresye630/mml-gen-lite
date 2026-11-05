@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD AMDATA",
+  "command_name_zh": "签约AMF数据",
+  "command_name_full": "签约AMF数据(MOD AMDATA)",
+  "command_function": "该命令用于签约、修改和删除用户的接入和移动管理数据。通过本命令给用户签约5G业务，可以触发自动将用户从ATCA BE迁移至UDR中。\n\n在混合组网场景，执行该命令会触发用户迁移到新的分区。用户数据仅支持迁移，不支持5G相关业务。\n\n- 对于增强GROUPSIM用户（通过**SET MAPCONF**命令设置“是否支持GROUPSIM增强业务”参数为“TRUE”），执行该命令时可以将组内所有成员一同迁移到新的分区。对于普通的GROUPSIM用户（通过**SET MAPCONF**命令设置“是否支持GROUPSIM增强业务”参数为“FALSE”），执行该命令时无法将组内所有成员一同迁移到新的分区，会造成普通GROUPSIM的主卡、辅卡不在同一个归属分区的场景。各业务流程已实现成员跨分区业务无影响。\n- 迁移过程中License统计结果不更新，依赖License周期性校验校正。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0163185913",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/5GC_service_management.html",
+        "name": "5GC业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.43",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0163185878",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/accessandmobility_management_data.html",
+        "name": "签约接入和移动管理数据",
+        "parentTopicId": "MMLREF_0163185913",
+        "position": "4.2.3.43.3",
+        "parentPosition": "4.2.3.43",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0163185884",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_amdata.html",
+        "name": "签约AMF数据(MOD AMDATA)",
+        "parentTopicId": "CONCEPT_0163185878",
+        "position": "4.2.3.43.3.1",
+        "parentPosition": "4.2.3.43.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

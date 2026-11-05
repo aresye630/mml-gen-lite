@@ -1,0 +1,97 @@
+{
+  "feature_name": "激活鉴权功能（适用于2G&3G）",
+  "feature_description": "本操作指导介绍在运行网络中激活鉴权功能的操作过程。\n\n鉴权功能是指SGSN通过对用户的身份识别和鉴权，以及对用户业务请求有效性的判断，使合法的用户能使用网络提供的业务。\n\n**说明** \n\n适用于SGSN。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVA7BE1C5944E4460EB0C4BEAE46395950",
+        "parentNaviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "pidId": "pid_bookmap_0000002193794102",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC安全配置",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095683976",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095683976.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001141923835",
+        "topicUrl": "toctopics/zh-cn_topic_0000001141923835.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001095683976",
+        "position": "2.1",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095723766",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095723766.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001141923835",
+        "position": "2.1.5",
+        "parentPosition": "2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "OPI_0000001196463665",
+        "topicUrl": "toctopics/zh-cn_opi_0000001196463665.html",
+        "name": "激活鉴权功能（适用于2G&3G）",
+        "parentTopicId": "TOPIC_0000001095723766",
+        "position": "2.1.5.1",
+        "parentPosition": "2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "feature_name": "公共参数配置",
+  "feature_description": "本页面涉及的公共参数均有默认值，请根据网设LLD规划的值进行调整。\n\n网设LLD中未描述的参数，一般情况下是使用系统初始值。如有疑问，请联系华为技术支持工程师。对于使用系统初始值的参数，为了避免被误修改，建议参考本页面重新配置。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339532552",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339532552.html",
+        "name": "初始配置与调测（MPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390052521",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390052521.html",
+        "name": "初始配置与调测（MPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339532552",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188659569",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188659569.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001390052521",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143079022",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143079022.html",
+        "name": "基础数据配置",
+        "parentTopicId": "TOPIC_0000001188659569",
+        "position": "4.3.2.3.4",
+        "parentPosition": "4.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001146705738",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001146705738.html",
+        "name": "公共参数配置",
+        "parentTopicId": "TOPIC_0000001143079022",
+        "position": "4.3.2.3.4.4",
+        "parentPosition": "4.3.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339532552",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339532552.html",
+        "name": "初始配置与调测（MPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390052521",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390052521.html",
+        "name": "初始配置与调测（MPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339532552",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188659569",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188659569.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001390052521",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143079022",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143079022.html",
+        "name": "基础数据配置",
+        "parentTopicId": "TOPIC_0000001188659569",
+        "position": "4.3.2.3.4",
+        "parentPosition": "4.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001146705738",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001146705738.html",
+        "name": "公共参数配置",
+        "parentTopicId": "TOPIC_0000001143079022",
+        "position": "4.3.2.3.4.4",
+        "parentPosition": "4.3.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

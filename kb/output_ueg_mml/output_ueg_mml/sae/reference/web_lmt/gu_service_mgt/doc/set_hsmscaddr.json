@@ -1,0 +1,119 @@
+{
+  "command_name": "SET HSMSCADDR",
+  "command_name_zh": "设置短消息中心地址",
+  "command_name_full": "设置短消息中心地址(SET HSMSCADDR)",
+  "command_function": "该命令用于在IMS-HSS中为用户设置短消息中心地址信息。\n\n在GSM/UMTS/EPS/IMS融合网络场景下，由于运营商现网号段多，如果为用户完全配置短消息中心地址信息会带来复杂的维护问题，为避免运营商基于号段为用户设置短消息中心地址，通过执行该命令即可为用户设置短消息中心地址。设置完成后，IMS-HSS在下发UDA（User Data Answer）消息中携带该地址信息，从而降低AS（Application Server）设置、维护的复杂度，节省额外成本，提高产品竞争力。\n\n当AS从IMS-HSS获取用户签约短消息中心数据时，发送UDR（User Data Request）请求获取用户签约的短消息中心地址信息，IMS-HSS查询用户签约的短消息中心地址成功后，在UDA（User Data Answer）消息中携带短消息中心地址信息并下发给AS，完成短消息业务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732466",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Service_Data_Management.html",
+        "name": "业务数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.4",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732418",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/smsc_address_management.html",
+        "name": "短消息中心地址管理",
+        "parentTopicId": "MMLREF_0191732466",
+        "position": "4.2.4.4.31",
+        "parentPosition": "4.2.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732425",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_hsmscaddr.html",
+        "name": "设置短消息中心地址(SET HSMSCADDR)",
+        "parentTopicId": "CONCEPT_0191732418",
+        "position": "4.2.4.4.31.1",
+        "parentPosition": "4.2.4.4.31",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

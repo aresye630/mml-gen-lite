@@ -1,0 +1,42 @@
+# 参数格式优先级（V3 线 2 / A1）
+
+# 背景（2026-10-30 实测 SOFTPARAOFBIT）：
+#   UDG 文档写：DT2=BYTE / BYTENUM / BYTEPOSITION / BYTEVALUE
+#   设备实际用：DT=DWORD_EX / PARANUM / POSITION / VALUE
+#   照文档配出来的命令设备不认。
+#
+# 判据：文档参数名 与 EXP 同族命令的参数名 **交集为空**
+#       → 文档格式可能过时，产物标注「参数格式与现网不一致，待核实」
+#
+# 取值优先级：
+#   1. exp_instance   EXP 有同族实例 → 以实例的参数名/格式为准（现网在跑，最可信）
+#   2. cmd_doc        EXP 无实例 → 用命令文档
+#   3. placeholder    文档也没有 / 格式可疑 → 占位符 + 标注待核实
+
+priority:
+  1: exp_instance
+  2: cmd_doc
+  3: placeholder
+
+# 已知「文档格式与设备不符」的命令族（人工确认过，直接标告警）
+# 新增条目格式：
+#   - fam: 命令族
+#     doc_params: 文档里的参数名
+#     exp_params: 现网实际参数名
+#     note: 说明
+known_mismatch:
+  - fam: SET SOFTPARAOFBIT
+    doc_params: [DT2, BYTENUM, BYTEPOSITION, BYTEVALUE, DWORDNUM, DWORDPOSITION, DWORDVALUE]
+    exp_params: [DT, PARANUM, POSITION, VALUE]
+    note: |
+      UDG 文档是旧版本（DT2=BYTE/DWORD 分两个参数），
+      设备实际用 DT=DWORD_EX 统一 + PARANUM/POSITION/VALUE。
+      实测：UDG 文档里 PARANUM、DWORD_EX 各出现 0 次。
+      处理：产物里注释标注「参数格式需按现网核实」，不静默按文档生成。
+
+# 判定阈值
+mismatch_rule:
+  # 交集为空即判「格式不符」
+  min_intersection: 1
+  # 至少要有这么多 EXP 实例才敢下结论（1 个可能是特例）
+  min_exp_samples: 1

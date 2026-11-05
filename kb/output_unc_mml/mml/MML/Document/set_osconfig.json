@@ -1,0 +1,114 @@
+{
+  "command_name": "SET OSCONFIG",
+  "command_name_zh": "设置OS配置",
+  "command_name_full": "设置OS配置 (SET OSCONFIG)",
+  "command_function": "**须知** \n\n该命令为高危命令，执行此命令将修改节点配置，会造成部分业务暂时不可用，请务必在华为技术支持人员的指导下使用该命令。\n\n1. 如果执行该命令，当命令的“操作类型”选择“MULTICAST（组播）”时，节点会在OS启动30分钟内自动同步网卡组播开关配置。\n2. 如果执行该命令，当命令的“操作类型”选择“MEMSWAP（内存压缩）”时，节点会在OS启动5分钟内自动同步内存压缩开关配置，并需要等待一段时间才能完成内存压缩。多次打开内存压缩开关，由于内存压缩率不同，内存使用存在少量波动。仅当所设置的VDUTYPE的VNFD模板开启过内存压缩时，内存压缩开关生效。\n3. 如果执行该命令，当命令的“操作类型”选择“DHEALGORITHM（DHE算法）”时，节点会在OS启动10分钟内自动同步DHE密钥长度配置。\n\n该命令用于设置OS配置。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320742",
+        "topicUrl": "MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.10",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0269569587",
+        "topicUrl": "MML/LinkedDoc/csp_n_os_management.html",
+        "name": "OS管理",
+        "parentTopicId": "TOPIC_0234320742",
+        "position": "1.10.5",
+        "parentPosition": "1.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001723147326",
+        "topicUrl": "MML/Document/set_osconfig.html",
+        "name": "设置OS配置 (SET OSCONFIG)",
+        "parentTopicId": "TOPIC_0269569587",
+        "position": "1.10.5.3",
+        "parentPosition": "1.10.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

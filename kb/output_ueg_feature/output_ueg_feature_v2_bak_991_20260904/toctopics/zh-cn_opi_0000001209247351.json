@@ -1,0 +1,291 @@
+{
+  "feature_name": "公共参数配置（UPF）",
+  "feature_description": "本页面涉及的公共参数均有默认值，请根据网设LLD规划的值进行调整。\n\n网设LLD中未描述的参数，一般情况下是使用系统初始值。如有疑问，请联系华为技术支持工程师。对于使用系统初始值的参数，为了避免被误修改，建议参考本页面重新配置。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001570801497",
+        "topicUrl": "kitem_bas_conf_bm.html",
+        "name": "配置基础数据（裸机容器）",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.6",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001209247351",
+        "topicUrl": "toctopics/zh-cn_opi_0000001209247351.html",
+        "name": "公共参数配置（UPF）",
+        "parentTopicId": "TOPIC_0000001570801497",
+        "position": "4.5.6.7",
+        "parentPosition": "4.5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001570801497",
+        "topicUrl": "kitem_bas_conf_bm.html",
+        "name": "配置基础数据（裸机容器）",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.6",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001209247351",
+        "topicUrl": "toctopics/zh-cn_opi_0000001209247351.html",
+        "name": "公共参数配置（UPF）",
+        "parentTopicId": "TOPIC_0000001570801497",
+        "position": "4.5.6.7",
+        "parentPosition": "4.5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002305896652",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305896652.html",
+        "name": "初始配置与调测",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001142675370",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002305896652",
+        "position": "3.3.4.4",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001570801497",
+        "topicUrl": "kitem_bas_conf_bm.html",
+        "name": "配置基础数据（裸机容器）",
+        "parentTopicId": "TOPIC_0000001142675370",
+        "position": "3.3.4.4.4",
+        "parentPosition": "3.3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001209247351",
+        "topicUrl": "toctopics/zh-cn_opi_0000001209247351.html",
+        "name": "公共参数配置（UPF）",
+        "parentTopicId": "TOPIC_0000001570801497",
+        "position": "3.3.4.4.4.7",
+        "parentPosition": "3.3.4.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

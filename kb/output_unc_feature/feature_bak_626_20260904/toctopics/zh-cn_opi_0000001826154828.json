@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置5G服务区域",
+  "feature_description": "指定UPF支持的服务范围时需要以服务区域为粒度进行分配，因此需增加UPF服务区域，以及UPF服务区名称绑定的5G TAI范围，最后规划对端UPF实例支持的为SMF提供服务区域的信息，将对应的跟踪区添加到UPF的服务区中，使得SMF可以正确选择UPF。若SMF不配置UPF服务区，则不会将对应的跟踪区绑定到UPF，最终导致SMF没有可用UPF资源，附着失败。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829339433",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829339433.html",
+        "name": "配置SMF&PGW-C&SGW-C&GGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.2",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829301205",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829301205.html",
+        "name": "配置SMF",
+        "parentTopicId": "TOPIC_0000001829339433",
+        "position": "8.2.2",
+        "parentPosition": "8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001826154828",
+        "topicUrl": "toctopics/zh-cn_opi_0000001826154828.html",
+        "name": "配置5G服务区域",
+        "parentTopicId": "TOPIC_0000001829301205",
+        "position": "8.2.2.6",
+        "parentPosition": "8.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

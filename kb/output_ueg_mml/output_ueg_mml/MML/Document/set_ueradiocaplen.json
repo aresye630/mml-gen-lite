@@ -1,0 +1,143 @@
+{
+  "command_name": "SET UERADIOCAPLEN",
+  "command_name_zh": "设置UE Radio Capability信元信息",
+  "command_name_full": "设置UE Radio Capability信元信息（SET UERADIOCAPLEN）",
+  "command_function": "**须知** \n\n如果设置UE Radio Capability信元长度上限过小，AMF无法存储UE Radio Capability信元内容，反之，AMF的内存有增大的风险。执行此命令前，请通过DSP UERADIOCAPLEN获取UE Radio Capability信元长度信息并联系华为技术支持协助配置。\n\n**适用NF：AMF**\n\n该命令用于设置AMF上存储UE Radio Capability到数据库的信元长度上限和不同IMEI设备型号核准号码的最大个数，设置存储UE Radio Capability到内存的开关及参数信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.3",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.2.3.3.3.2",
+        "parentPosition": "2.2.3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001198947481",
+        "topicUrl": "MML/LinkedDoc/unc_n_ue_radio_capability_control_policy.html",
+        "name": "UE无线能力控制策略",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.2.3.3.3.2.20",
+        "parentPosition": "2.2.3.3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001124956656_2",
+        "topicUrl": "MML/Document/set_ueradiocaplen.html",
+        "name": "设置UE Radio Capability信元信息（SET UERADIOCAPLEN）",
+        "parentTopicId": "TOPIC_0000001198947481",
+        "position": "2.2.3.3.3.2.20.1",
+        "parentPosition": "2.2.3.3.3.2.20",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

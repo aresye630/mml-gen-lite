@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活公私网协同访问（含共享UPF选择）",
+  "feature_description": "本操作指导介绍部署公私网协同访问特性的操作过程。\n\n如果在初始配置中已经规划SMF是与主锚点、辅锚点和UL CL UPF合一部署的UPF对接，如下准备数据和配置步骤可能在初始配置中就已完成，此时无需重复配置。本章节通过以下准备数据和配置步骤与任务示例说明与该合一UPF对接的配置逻辑。\n\nSMF支持用户通过同一个DNN（Data Network Name）访问公网和私网业务，同时私网之间业务隔离。SMF将为用户优先选择主锚点、辅锚点和UL CL UPF合一部署的UPF，分别建立到主锚点和辅锚点UPF的N4会话，同时访问公网和私网业务。SMF针对不同用户策略配置不同DNAI（Data Network Access Identifier），UPF根据SMF下发的DNAI和本地规划的VPN的绑定关系来识别不同的辅锚点N4会话，实现私网之间业务隔离。\n\n**说明** \n\n适用于SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450965",
+        "topicUrl": "toctopics/zh-cn_topic_0248450965.html",
+        "name": "分布式网络功能",
+        "parentTopicId": "",
+        "position": "27",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0315100006",
+        "topicUrl": "desc/unc_2000_feature_desc_coaccess.html",
+        "name": "WSFD-223002 公私网协同访问（含共享UPF选择）",
+        "parentTopicId": "TOPIC_0248450965",
+        "position": "27.4",
+        "parentPosition": "27",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0315100009",
+        "topicUrl": "desc/unc_2000_feature_om_coaccess01.html",
+        "name": "激活公私网协同访问（含共享UPF选择）",
+        "parentTopicId": "TOPIC_0315100006",
+        "position": "27.4.2",
+        "parentPosition": "27.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,52 @@
+# 修改PCRF对端PCEF类别(MOD PPCEFCAT)
+
+- 命令功能
+- 注意事项
+- 参数说明
+- 使用实例
+
+## 命令功能
+
+**须知** 
+
+此命令是高危命令，如果执行不当会导致链路中断，影响业务处理，需联系华为技术支持确认后再执行。
+
+用于在配置数据库中修改一条PCRF对端PCEF类别的数据记录。在该命令中，系统通过“PCRF标识”和“对端PCEF类别标识”这两个参数来唯一标识一条PCRF对端PCEF类别数据记录。对端PCEF类别标识和对端PCEF类别是一一对应的。
+
+## 注意事项
+
+- 修改后“对端PCEF类别标识”和“对端PCEF类别”都不允许重复。
+- 增加、删除和修改对端PCEF的“APN标识”对在线会话不生效。
+
+## 参数说明
+
+| 参数标识            | 参数名称          | 参数说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|:----------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PCRFID          | PCRF标识        | 用于标识PCRF实体，该参数必须先由ADD PCRF命令定义，然后才能在此处索引。 取值范围： 1 默认值： 无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| PCEFCATID       | 对端PCEF类别标识    | 用于识别对端PCEF、BBERF或TDF类别的标识。 取值范围： 1～16 默认值： 无。  说明： 当前UPCF不支持配置BBERF对端，该参数配置BBERF类别的标识后不生效。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| PCEFCAT         | 对端PCEF类别      | 用于指定要修改的对端PCEF、BBERF或TDF类别，Gxx接口对端必须配置为BBERF类别。 取值范围：在字符_、a-z、A-Z、0－9范围内长度不超过16字节的字符串 默认值： 无。  说明： 当前UPCF不支持配置BBERF对端，该参数配置BBERF对端的类别后不生效。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| TIMEOUTPROCESS  | 会话超时后处理方式     | 会话超时后的处理方式，当PCRF向PCEF或TDF下发RAR，而PCEF或TDF返回响应超时。此时，系统根据该参数的值分别采取不同的超时处理方式。 取值范围：ReleaseSingleSession：表示释放自身会话，系统只向当前处理会话的PCEF或TDF发送ASR（RAR）。ReleaseAllSession：表示释放所有绑定会话，系统会向所有绑定会话的PCEF或TDF发送ASR（RAR）。 默认值： 无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| TERMINALPROCESS | CCR_T会话释放处理方式 | 对端下线的处理方式，当PCEF或TDF发起CCR下线请求时，系统根据该参数的值分别采取不同的处理方式。 取值范围：ReleaseSingleSession：表示释放该PCEF或TDF对应的会话的同时，系统会按照配置释放其他会话。ReleaseAllSession：表示释放该PCEF或TDF绑定的会话的同时，系统会向所有绑定会话的PCEF或TDF发送ASR（RAR），通知其他PCEF或TDF也释放会话。 默认值： 无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| TSAFAILDPROCESS | TSA返回失败后处理方式  | 用于标识TSA返回错误后的处理方式，如果不填写则表示不修改该参数。 取值范围： ReleaseSingleSession：表示释放自身会话。ReleaseAllSession：表示既释放自身会话，也释放绑定的Gx会话。 默认值：无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| TRIGGERABILITY1 | 触发器能力集1       | Gx接口下发的EventTrigger能力集合1。 取值说明： 全部选中（打开所有触发器能力）全部清空（关闭所有触发器能力）全部灰化（不设置所有触发器能力）SGSN_CHANGEQOS_CHANGERAT_CHANGETFT_CHANGEPLMN_CHANGELOSS_OF_BEARERRECOVERY_OF_BEARERIP-CAN_CHANGEGW_PCEF_MALFUNCTIONRESOURCES_LIMITATIONMAX_NR_BEARERS_REACHEDQOS_CHANGE_EXCEEDING_AUTHORIZATIONRAI_CHANGEUSER_LOCATION_CHANGENO_EVENT_TRIGGERSOUT_OF_CREDITREALLOCATION_OF_CREDITREVALIDATION_TIMEOUTDEFAULT_EPS_BEARER_QOS_CHANGEAN_GW_CHANGESUCCESSFUL_RESOURCE_ALLOCATIONUE_TIME_ZONE_CHANGEUSAGE_REPORTTAI_CHANGEECGI_CHANGECHARGING_CORRELATION_EXCHANGEAPPLICATION_STARTAPPLICATION_STOPCS_TO_PS_HANDOVERACCESS_NETWORK_INFO_REPORT  说明： 命令不携带该参数时，默认支持所有触发器能力。 在执行MOD PPCEFCAT命令时被灰化掉的触发器能力表示不被修改。 默认值：无。 |
+| TRIGGERABILITY2 | 触发器能力集2       | Gx接口下发的EventTrigger能力集合2。 取值说明： 全部选中（打开所有触发器能力）全部清空（关闭所有触发器能力）全部灰化（不设置所有触发器能力）DEFAULT_QOS_CHANGEREDIRECTIONTETHERING_REPORTTFT_DELETEDUSAGE_THRESHOLD_REACHEDSERVICE_FLOW_DETECTIONCELL_CONGESTEDCELL_CLEARSUBNET_CHANGEUE_LOCAL_IP_ADDRESS_CHANGE  说明： 命令不携带该参数时，默认支持所有触发器能力。 在执行MOD PPCEFCAT命令时被灰化掉的触发器能力表示不被修改。 默认值：无。                                                                                                                                                                                                                                                                                                                                                                       |
+| ISAPN           | 设置APN         | 是否设置APN。 取值说明：YES（是）NO（否） 默认值： 无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| APNID           | APN标识         | 当“ISAPN”取值为“YES”时，此参数有效。表示该“对端PCEF类别”对应的APNID。 取值说明：由ADD APN命令定义，且“APNTYPE”为“Multi-PCEF-APN”的APN。 取值范围：0～319 默认值：无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+## 使用实例
+
+1. 修改PCRF对端PCEF类别。PCRF实体标识为1，对端PCEF类别标识为1，对端PCEF类别为GGSN。
+
+   ```
+   MOD PPCEFCAT: PCRFID=1, PCEFCATID=1, PCEFCAT="GGSN";
+   ```
+2. 修改PCRF对端PCEF类别。PCRF实体标识为1，对端PCEF类别标识为1，会话超时后的处理方式为ReleaseSingleSession。
+
+   ```
+   MOD PPCEFCAT: PCRFID=1, PCEFCATID=1, TIMEOUTPROCESS=ReleaseSingleSession;
+   ```
+3. 修改PCRF对端PCEF类别。PCRF实体标识为1，对端PCEF类别标识为1，对端PCEF类别为GGSN，会话超时后的处理方式为ReleaseAllSession，CCR\_T会话释放处理方式为ReleaseAllSession。
+
+   ```
+   MOD PPCEFCAT: PCRFID=1, PCEFCATID=1, PCEFCAT="GGSN", TIMEOUTPROCESS=ReleaseAllSession, TERMINALPROCESS=ReleaseAllSession;
+   ```

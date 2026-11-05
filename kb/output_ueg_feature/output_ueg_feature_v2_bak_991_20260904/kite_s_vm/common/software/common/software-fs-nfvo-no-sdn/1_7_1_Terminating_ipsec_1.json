@@ -1,0 +1,117 @@
+{
+  "feature_name": "卸载IPsec服务（UPF）",
+  "feature_description": "当运营商不需要IPsec服务或IPsec服务动态上线失败时，可以单独卸载IPsec pod，从而下线IPsec服务。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105078612",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105078612.html",
+        "name": "UEG软件安装（风筝S）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001310331628",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001310331628.html",
+        "name": "安装UPF（独立部署）",
+        "parentTopicId": "TOPIC_0000001105078612",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001099758986",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001099758986.html",
+        "name": "基于中心NFVO (Orchestrator)安装（UPF）",
+        "parentTopicId": "TOPIC_0000001310331628",
+        "position": "3.1.5",
+        "parentPosition": "3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001099279972",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001099279972.html",
+        "name": "NFVO安装UEG（非SDN场景）",
+        "parentTopicId": "TOPIC_0000001099758986",
+        "position": "3.1.5.3",
+        "parentPosition": "3.1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001244069359",
+        "topicUrl": "kite_s_vm/common/software/common/software-fs-nfvo-no-sdn/1_4_Uninstalling_VNF_1.html",
+        "name": "卸载UEG",
+        "parentTopicId": "TOPIC_0000001099279972",
+        "position": "3.1.5.3.9",
+        "parentPosition": "3.1.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001199469460",
+        "topicUrl": "kite_s_vm/common/software/common/software-fs-nfvo-no-sdn/1_7_1_Terminating_ipsec_1.html",
+        "name": "卸载IPsec服务（UPF）",
+        "parentTopicId": "OPI_0000001244069359",
+        "position": "3.1.5.3.9.1",
+        "parentPosition": "3.1.5.3.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

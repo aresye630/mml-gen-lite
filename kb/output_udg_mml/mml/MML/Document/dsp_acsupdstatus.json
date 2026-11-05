@@ -1,0 +1,131 @@
+{
+  "command_name": "DSP ACSUPDSTATUS",
+  "command_name_zh": "显示升级状态",
+  "command_name_full": "显示升级状态（DSP ACSUPDSTATUS）",
+  "command_function": "该命令用于显示RU升级状态。\n\n本命令只适用于ACS服务，其他微服务请使用DSP UPDSTATUS命令。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355786",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595566",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103355786",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116108",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202103595566",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116112",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_upgrade_maintenance.html",
+        "name": "升级维护",
+        "parentTopicId": "CONCEPT_0000202103116108",
+        "position": "4.2.1.2.11",
+        "parentPosition": "4.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000001189080530",
+        "topicUrl": "MML/Document/dsp_acsupdstatus.html",
+        "name": "显示升级状态（DSP ACSUPDSTATUS）",
+        "parentTopicId": "CONCEPT_0000202103116112",
+        "position": "4.2.1.2.11.19",
+        "parentPosition": "4.2.1.2.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

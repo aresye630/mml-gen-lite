@@ -1,0 +1,155 @@
+{
+  "command_name": "DSP VNFC",
+  "command_name_zh": "显示VNFC",
+  "command_name_full": "显示VNFC（DSP VNFC）",
+  "command_function": "该命令用于查看VNFC信息，比如VNFC的ID、名称、类型、状态，以及启动时间等信息，通过这些信息可以了解启动的VNFC是否正确，及当故障发生时，依据查询到的信息进行故障诊断。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0231883279",
+        "topicUrl": "USCDB/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.1",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767898009_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/vnfp_n_legacy_monolithic_service_platform_management.html",
+        "name": "单体服务平台功能管理",
+        "parentTopicId": "TOPIC_0231883279",
+        "position": "2.2.4.1.6",
+        "parentPosition": "2.2.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720417462_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/vnfp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001767898009_2",
+        "position": "2.2.4.1.6.1",
+        "parentPosition": "2.2.4.1.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001768057289_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/vnfp_n_configuration_management.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001720417462_2",
+        "position": "2.2.4.1.6.1.1",
+        "parentPosition": "2.2.4.1.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720258066_2",
+        "topicUrl": "USCDB/MML/LinkedDoc/vnfp_n_vnfc_information.html",
+        "name": "VNFC信息",
+        "parentTopicId": "TOPIC_0000001768057289_2",
+        "position": "2.2.4.1.6.1.1.1",
+        "parentPosition": "2.2.4.1.6.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0259036773_5",
+        "topicUrl": "USCDB/MML/Document/dsp_vnfc.html",
+        "name": "显示VNFC（DSP VNFC）",
+        "parentTopicId": "TOPIC_0000001720258066_2",
+        "position": "2.2.4.1.6.1.1.1.1",
+        "parentPosition": "2.2.4.1.6.1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "command_name": "LST SAAITRAINPARA",
+  "command_name_zh": "查询基于SA的Intelligence训练参数",
+  "command_name_full": "查询基于SA的Intelligence训练参数（LST SAAITRAINPARA）",
+  "command_function": "**适用NF：UPF**\n\n该命令用于查询基于SA的intelligence训练参数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000207746505335",
+        "topicUrl": "MML/LinkedDoc/aiperfopt_n_sapo_service_management.html",
+        "name": "SAPO服务管理",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000207746742199",
+        "topicUrl": "MML/LinkedDoc/aiperfopt_n_sapo_training_parameters.html",
+        "name": "SAPO训练参数",
+        "parentTopicId": "CONCEPT_0000207746505335",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201969640518",
+        "topicUrl": "MML/Document/lst_saaitrainpara.html",
+        "name": "查询基于SA的Intelligence训练参数（LST SAAITRAINPARA）",
+        "parentTopicId": "CONCEPT_0000207746742199",
+        "position": "3.1.2",
+        "parentPosition": "3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

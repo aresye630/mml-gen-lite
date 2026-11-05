@@ -1,0 +1,143 @@
+{
+  "command_name": "SET MSSDEBUGSWITCH",
+  "command_name_zh": "设置维测信息统计开关",
+  "command_name_full": "设置维测信息统计开关（SET MSSDEBUGSWITCH）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会导致性能下降，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于设置MSS维测统计信息开关。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555071",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.2",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876260",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202289555071",
+        "position": "4.14.2.1",
+        "parentPosition": "4.14.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116176",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_mss.html",
+        "name": "MSS",
+        "parentTopicId": "CONCEPT_0000202102876260",
+        "position": "4.14.2.1.26",
+        "parentPosition": "4.14.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315601",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_debug.html",
+        "name": "维测开关统计查询",
+        "parentTopicId": "CONCEPT_0000202103116176",
+        "position": "4.14.2.1.26.7",
+        "parentPosition": "4.14.2.1.26",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001600441413",
+        "topicUrl": "MML/Document/set_mssdebugswitch.html",
+        "name": "设置维测信息统计开关（SET MSSDEBUGSWITCH）",
+        "parentTopicId": "CONCEPT_0000202289315601",
+        "position": "4.14.2.1.26.7.1",
+        "parentPosition": "4.14.2.1.26.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

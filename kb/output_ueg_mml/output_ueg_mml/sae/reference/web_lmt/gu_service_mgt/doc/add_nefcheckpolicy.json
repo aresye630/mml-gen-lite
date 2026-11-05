@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD NEFCHKPOLICY",
+  "command_name_zh": "增加NEF检查策略配置",
+  "command_name_full": "增加NEF检查策略配置(ADD NEFCHKPOLICY)",
+  "command_function": "该命令用于增加系统对NEF网元合法性检查的配置策略。UDM收到NEF订阅、去订阅消息时，系统通过该命令配置白名单校验对端NEF的合法性。\n\n**说明** \n\n- NEF合法性检查功能需要优先执行**SET UDMSERV**命令将参数“CLOSENEFCHECKURL”设置为“OPEN”，打开安全检查功能，校验NEF的合法性。\n- 对于现网已经使用该功能场景，工程改造过程中在保证环境安全可信的情况下，为避免影响用户订阅业务，需要先执行**SET UDMSERV**命令将参数“CLOSENEFCHECKURL”设置为“CLOSE”，关闭安全检查功能放通消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0282059147",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/NEF_subscription_event_management.html",
+        "name": "NEF订阅事件管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.46",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001454716168",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_nefcheckpolicy.html",
+        "name": "增加NEF检查策略配置(ADD NEFCHKPOLICY)",
+        "parentTopicId": "CONCEPT_0282059147",
+        "position": "4.2.3.46.6",
+        "parentPosition": "4.2.3.46",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

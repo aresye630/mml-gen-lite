@@ -1,0 +1,105 @@
+{
+  "feature_name": "激活基于VoLTE的优先语音服务（适用于MME）",
+  "feature_description": "本操作指导介绍在运行网络中激活基于VoLTE的优先语音服务业务特性的操作过程，包括两种方案，配置MPS业务功能和配置语音寻呼优先业务功能。\n\n| 方案           | 是否需要用户签约   | 应用业务场景            | 部署建议                                        |\n|:-------------|:-----------|:------------------|:--------------------------------------------|\n| 语音寻呼优先业务（推荐） | 否          | 仅针对VoLTE/CSFB被叫业务 | VoLTE组网场景下推荐部署本方案，以提升被叫寻呼成功率，提升用户语音业务体验。    |\n| MPS业务        | 是          | 针对所有业务            | MPS业务的优先级高于语音寻呼优先业务，该方案可提升特定签约用户享用网络资源的优先级。 |\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001308864973",
+        "topicUrl": "toctopics/zh-cn_topic_0000001308864973.html",
+        "name": "语音功能配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001261145046",
+        "topicUrl": "toctopics/zh-cn_topic_0000001261145046.html",
+        "name": "MME&AMF&GW-C&SMF配置",
+        "parentTopicId": "TOPIC_0000001308864973",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001264133540",
+        "topicUrl": "toctopics/zh-cn_topic_0000001264133540.html",
+        "name": "VoLTE基本功能",
+        "parentTopicId": "TOPIC_0000001261145046",
+        "position": "5.2.2.1",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001263973612",
+        "topicUrl": "kite_ml/kite_l_service_Conf/om/unc_2000_feature_om_VoLTE_Extended_Package_uegl.html",
+        "name": "激活基于VoLTE的优先语音服务（适用于MME）",
+        "parentTopicId": "TOPIC_0000001264133540",
+        "position": "5.2.2.1.4",
+        "parentPosition": "5.2.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

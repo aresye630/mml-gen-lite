@@ -1,0 +1,110 @@
+{
+  "feature_name": "激活防DDoS功能",
+  "feature_description": "为了防止PDN侧网络设备遭受移动用户的DDoS攻击，运营商可以启用UDG的防范DDoS攻击功能。在UDG上配置报文连接最大速率，当UE向PDN侧网络设备发起TCP连接，如果UE发送的SYN报文连接速率超过配置值，UDG将丢弃报文，以保护PDN侧的网络设备。\n\n**说明** \n\n- 适用于SGW-U、PGW-U、UPF。\n- 当运营商需要通过UDG保护PDN侧指定范围服务器时开启此功能，典型场景下“DDos防护阈值”可使用系统初始值。功能开启后应密切观察KPI指标和DDoS攻击监测指标，例如“1914308686 用户平面上行丢弃报文数(DDoS攻击)”、“1914308724 用户平面上行丢弃IPv6报文数(DDoS攻击)”等性能指标的变化情况，确保网元正常功能不受影响。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVC3FF3F5E20874B47B52929C1F1C33140",
+        "parentNaviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "pidId": "pid_bookmap_0000002187138142",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG安全配置",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8003",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8003"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001144684195",
+        "topicUrl": "toctopics/zh-cn_topic_0000001144684195.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091631538",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091631538.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001144684195",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091791208",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091791208.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001091631538",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "OPI_0000001144460101",
+        "topicUrl": "secu_conf/udg_2020_secu_conf_009.html",
+        "name": "激活防DDoS功能",
+        "parentTopicId": "TOPIC_0000001091791208",
+        "position": "2.2.5.6",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

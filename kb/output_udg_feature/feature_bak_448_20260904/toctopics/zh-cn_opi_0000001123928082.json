@@ -1,0 +1,86 @@
+{
+  "feature_name": "配置会话级累计流量策略控制",
+  "feature_description": "为了保证用户公平使用流量，配置基于会话级的累计流量的策略控制。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV732C22E994424987BEEBFEC23567F7E8",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002187138930",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core FUP解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_a190f19f-6d8c-435c-ba9b-cd04556d19c5",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_a190f19f-6d8c-435c-ba9b-cd04556d19c5"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "pid_shortdesc": "介绍FUP功能相关特性、基本原理及配置。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138930",
+        "topicId": "TOPIC_0000001170607721",
+        "topicUrl": "toctopics/zh-cn_topic_0000001170607721.html",
+        "name": "会话级累计流量策略控制",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138930",
+        "topicId": "OPI_0000001123928082",
+        "topicUrl": "toctopics/zh-cn_opi_0000001123928082.html",
+        "name": "配置会话级累计流量策略控制",
+        "parentTopicId": "TOPIC_0000001170607721",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

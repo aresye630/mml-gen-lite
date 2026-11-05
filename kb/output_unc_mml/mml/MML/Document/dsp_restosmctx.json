@@ -1,0 +1,138 @@
+{
+  "command_name": "DSP RESTOSMCTX",
+  "command_name_zh": "显示容灾用户SM上下文信息",
+  "command_name_full": "显示容灾用户SM上下文信息（DSP RESTOSMCTX）",
+  "command_function": "**适用网元：MME**\n\n- 本命令用于查询系统内容灾用户的SM上下文信息。\n- 输出结果分为SM User上下文、SM PDN上下文、SM PDP上下文等报表。\n- 当某一字段显示“NULL”时，表示该字段没有备份。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0259979753",
+        "topicUrl": "MML/LinkedDoc/unc_n_mme_chain_redundancy_management.html",
+        "name": "MME链式备份管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.4",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0259979759",
+        "topicUrl": "MML/LinkedDoc/unc_n_mme_redundancy_management000.html",
+        "name": "MME容灾管理",
+        "parentTopicId": "TOPIC_0259979753",
+        "position": "2.5.4.2",
+        "parentPosition": "2.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0259979760",
+        "topicUrl": "MML/LinkedDoc/unc_n_redundancy_function_commissioning000.html",
+        "name": "容灾功能调测",
+        "parentTopicId": "TOPIC_0259979759",
+        "position": "2.5.4.2.1",
+        "parentPosition": "2.5.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001126307108",
+        "topicUrl": "MML/Document/dsp_restosmctx.html",
+        "name": "显示容灾用户SM上下文信息（DSP RESTOSMCTX）",
+        "parentTopicId": "TOPIC_0259979760",
+        "position": "2.5.4.2.1.2",
+        "parentPosition": "2.5.4.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

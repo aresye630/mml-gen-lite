@@ -1,0 +1,88 @@
+{
+  "feature_name": "基于位置信息优选的UPF容灾",
+  "feature_description": "图1中，中心和两个地市各部署一个UPF，正常情况下地市1的用户按照位置区优先选择UPF1，地市2用户同理选择UPF2，图中LOCALITY1和LOCALITY2分别对应地市1和地市2的位置信息。UPF1或UPF2故障场景下的容灾方式如下：\n\n- 当UPF1故障时，地市1的用户选择UPF2进行业务，当UPF2故障时，地市2的用户同理选择UPF1进行业务。\n- 当UPF1和UPF2都故障后，两个地市的用户可以选择中心侧的UPF3进行业务。\n\n该方案中上述UPF需要配置和地市1、地市2相关联的位置信息，SMF在用户会话激活过程中根据位置信息优选UPF。\n\n**图1** 容灾组网示意",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450965",
+        "topicUrl": "toctopics/zh-cn_topic_0248450965.html",
+        "name": "分布式网络功能",
+        "parentTopicId": "",
+        "position": "27",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0282273078",
+        "topicUrl": "toctopics/zh-cn_opi_0282273078.html",
+        "name": "基于位置信息优选的UPF容灾",
+        "parentTopicId": "TOPIC_0248450965",
+        "position": "27.8",
+        "parentPosition": "27",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

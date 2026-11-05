@@ -1,0 +1,576 @@
+{
+  "feature_name": "修改网元基本信息",
+  "feature_description": "软件安装阶段，已完成网元名称和浮动IP地址的配置。在生产预安装场景或者现网使用时，如果需要修改，可参考本页面调整登录网元OM Portal的网元名称和浮动IP地址。\n\n**说明** \n\n- 网元名称、浮动IP地址需要与网管上配置的名称和IP地址属性一致，如果本端修改了网元名称和浮动IP地址，需要在网管上同步修改该网元的名称和IP地址属性。\n- 修改浮动IP时，请参考网元的改造OM网络方案改造OM网络。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001199500858_2",
+        "topicUrl": "kitem_bas_conf_vm.html",
+        "name": "配置基础数据（虚机容器）",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.5",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000002262350333_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0000001199500858_2",
+        "position": "4.5.5.1",
+        "parentPosition": "4.5.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199500858_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199500858.html",
+        "name": "配置基础数据（虚机容器）",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.5",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000002262350333_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0000001199500858_1",
+        "position": "4.5.5.1",
+        "parentPosition": "4.5.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389892933",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389892933.html",
+        "name": "初始配置与调测（共享式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.1",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339212992",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339212992.html",
+        "name": "初始配置与调测（共享式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001389892933",
+        "position": "4.1.2",
+        "parentPosition": "4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188591741_2",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188591741.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001339212992",
+        "position": "4.1.2.3",
+        "parentPosition": "4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0233049494_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0233049494.html",
+        "name": "基础数据配置",
+        "parentTopicId": "TOPIC_0000001188591741_2",
+        "position": "4.1.2.3.4",
+        "parentPosition": "4.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000002262350333_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0233049494_1",
+        "position": "4.1.2.3.4.1",
+        "parentPosition": "4.1.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389892933",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389892933.html",
+        "name": "初始配置与调测（共享式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.1",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339212992",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339212992.html",
+        "name": "初始配置与调测（共享式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001389892933",
+        "position": "4.1.2",
+        "parentPosition": "4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188591741_2",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188591741.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001339212992",
+        "position": "4.1.2.3",
+        "parentPosition": "4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0233049494_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0233049494.html",
+        "name": "基础数据配置",
+        "parentTopicId": "TOPIC_0000001188591741_2",
+        "position": "4.1.2.3.4",
+        "parentPosition": "4.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000002262350333_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0233049494_1",
+        "position": "4.1.2.3.4.1",
+        "parentPosition": "4.1.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146420245",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146420245.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001188591741_1",
+        "topicUrl": "kite_s_vm/vm_shared_ref_nonsdn.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001146420245",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0233049494_4",
+        "topicUrl": "kite_s_vm/vm_shared_bas_nonsdn.html",
+        "name": "基础数据配置",
+        "parentTopicId": "TOPIC_0000001188591741_1",
+        "position": "4.3.4",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0000002262350333_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0233049494_4",
+        "position": "4.3.4.1",
+        "parentPosition": "4.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001341564366",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001341564366.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001627081458",
+        "topicUrl": "kite_ml/kitem_conf_ref_cloud.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001341564366",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001675441229",
+        "topicUrl": "kite_ml/kitem_bas_conf_vm_cloud.html",
+        "name": "配置基础数据（虚机容器）",
+        "parentTopicId": "TOPIC_0000001627081458",
+        "position": "4.3.3",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000002262350333_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0000001675441229",
+        "position": "4.3.3.1",
+        "parentPosition": "4.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

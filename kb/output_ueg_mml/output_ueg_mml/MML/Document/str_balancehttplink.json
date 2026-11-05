@@ -1,0 +1,143 @@
+{
+  "command_name": "STR BALANCEHTTPLINK",
+  "command_name_zh": "均衡HTTP链路",
+  "command_name_full": "均衡HTTP链路(STR BALANCEHTTPLINK)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成业务呼损或系统严重过载甚至崩溃，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于启动HLB的链路均衡操作。\n\n执行该命令后DCS广播查询HLB相关负载信息，HLB在响应消息中上报24小时内的“平均CPU”、“实例平均 TPS”、“平均链路数” ，DCS接收到所有HLB响应或等待10秒超时后，对同时满足以下两个条件的HLB发送链路均衡请求：\n\n- 该HLB的“平均CPU”大于由**MOD UDMSOFTPARA**命令设置的“服务端链路均衡CPU门限”\n- 该HLB的“与所有实例平均CPU比例”达到由**MOD UDMSOFTPARA**命令设置的“服务端链路均衡CPU比例”\n\nHLB收到请求后， 根据链路的消息数峰值从大到小排序，对消息数大的链路进行删除操作，删除链路的比例为**MOD UDMSOFTPARA**命令设置的“服务端链路均衡百分比”。\n\n系统除了支持通过该命令进行手动均衡之外，还可以通过命令**MOD UDMSOFTPARA**控制软参“服务端链路定时均衡开关”来设置定时链路均衡操作，定时操作的时间是每日凌晨02时08分。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001457502861",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_http_signaling_links_management.html",
+        "name": "Http信令链路管理",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.2",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001406983018",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_link_maintenance.html",
+        "name": "链路维护",
+        "parentTopicId": "CONCEPT_0000001457502861",
+        "position": "2.2.3.4.1.2.3",
+        "parentPosition": "2.2.3.4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000202874051935",
+        "topicUrl": "MML/Document/str_balancehttplink.html",
+        "name": "均衡HTTP链路(STR BALANCEHTTPLINK)",
+        "parentTopicId": "CONCEPT_0000001406983018",
+        "position": "2.2.3.4.1.2.3.3",
+        "parentPosition": "2.2.3.4.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

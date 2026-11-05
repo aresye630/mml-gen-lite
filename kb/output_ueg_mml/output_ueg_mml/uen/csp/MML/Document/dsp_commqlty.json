@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP COMMQLTY",
+  "command_name_zh": "查询通信质量信息",
+  "command_name_full": "查询通信质量信息(DSP COMMQLTY)",
+  "command_function": "本命令用于Pod通信质量问题的跨层定界诊断和质量数据的统计呈现。\n\n本命令的使用场景为：\n\n- 系统上报“ALM-1010 管理平面丢包错包”、“ALM-1011 控制平面丢包错包”、“ALM-1012 控制平面通讯故障”、“ALM-1013 控制平面单平面通讯故障”、“ALM-9607 媒体平面通信故障”、“ALM-9608 媒体平面单平面通讯故障”、“ALM-9609 媒体平面丢包错包”、“ALM-6430 通信平面异常”、“ALM-8503 OMU双机连接故障”等通讯亚健康类告警时，执行此命令可诊断和查询DC内通信质量。\n- 系统上报大量“ALM-1003 模块故障”告警时，执行此命令可诊断和查询DC内环境通信是否存在中断。\n- 该命令支持两种诊断方式：一种为传统诊断方式，查询类型对应“DIAGNOSIS\\_INFO(诊断信息)”和“COMMQLTY\\_DATA(通信质量数据)”，另一种为模糊诊断方式，查询类型对应“FUZZY\\_DIAGNOSIS\\_INFO(模糊诊断信息)”和“FUZZY\\_DIAGNOSIS\\_DATA(模糊诊断数据)”。建议优选使用诊断能力更广的模糊诊断方式进行跨层定界诊断；传统诊断方式不支持内部通信完全中断下的诊断，但亚健康场景诊断精度可细化到Pod网口vNIC级别。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234706",
+        "topicUrl": "uen/csp/MML/LinkedDoc/communication_management.html",
+        "name": "通信管理",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.3",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234740",
+        "topicUrl": "uen/csp/MML/LinkedDoc/communication_link.html",
+        "name": "通讯连接",
+        "parentTopicId": "CONCEPT_0243234706",
+        "position": "2.2.2.3.1",
+        "parentPosition": "2.2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0243234733",
+        "topicUrl": "uen/csp/MML/Document/dsp_commqlty.html",
+        "name": "查询通信质量信息(DSP COMMQLTY)",
+        "parentTopicId": "CONCEPT_0243234740",
+        "position": "2.2.2.3.1.1",
+        "parentPosition": "2.2.2.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "SND SSCR",
+  "command_name_zh": "发送用户下线请求",
+  "command_name_full": "发送用户下线请求(SND SSCR)",
+  "command_function": "**须知** \n\n- 此命令是高危命令，如果执行不当会使在线用户下线，需联系华为技术支持确认后再执行。\n- 该操作为系统高危操作，需要第二个具有二次授权权限的用户授权后才能执行该操作。请输入授权用户名和密码。\n\n该命令用于UPCF主动发起用户下线请求。为了达到对全网或指定对端的用户实现管控的目的，UPCF支持通过MML接口发送用户下线请求消息，使全网或指定对端的用户下线。当执行该命令后，全网或指定对端的当前在线的用户会全部下线。\n\n- 该命令执行后，会导致短时间内存在大量信令消息。各接口对应的消息类型如下：\n  - Gx接口：RAR(ASR)、CCR\n  - Rx接口：RAR(ASR)、STR\n  - N5接口：Npcf\\_PolicyAuthorization\\_Notify Request（/terminate）、Npcf\\_PolicyAuthorization\\_Delete\n  - N7接口：Npcf\\_SMPolicyControl\\_UpdateNotify Request（/terminate）、Npcf\\_SMPolicyControl\\_Delete Request\n  - N15接口：Npcf\\_AMPolicyControl\\_UpdateNotify Request（/terminate）、Npcf\\_AMPolicyControl\\_Delete Request、Npcf\\_UEPolicyControl\\_UpdateNotify Request（/terminate）、Npcf\\_UEPolicyControl\\_Delete Request\n  - N23接口：Nnwdaf\\_EventsSubscription\\_UnSubscribe Request\n  - N24接口：Npcf\\_AMPolicyControl\\_UpdateNotify Request（/terminate）、Npcf\\_AMPolicyControl\\_Delete Request\n  - N28接口：Nchf\\_SpendingLimitControl\\_Unsubscribe Request\n- 该命令执行后，可以通过**DSP SSCSTATUS**命令查询用户下线状态信息。\n- 该命令执行后，可以通过**STP SSCR**命令停止强制用户下线任务。\n\n**说明** \n\n- UPCF不支持同时处理多个强制用户下线的任务，不论是全网强制用户下线任务或者向指定对端强制用户下线任务。执行该命令前请先执行查询命令**DSP SSCSTATUS**，如果已经有任务正在执行中，请等正在执行的任务完成后再执行，否则正在执行任务的服务会忽略对新任务的处理。\n- **SND SSCR**命令执行返回结果后，在强制用户下线的过程中，新上线的会话不受影响。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173218603",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_maintain_management.html",
+        "name": "维护管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.1",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167449401",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_session_cancellation_management.html",
+        "name": "用户下线管理",
+        "parentTopicId": "CONCEPT_0173218603",
+        "position": "2.2.3.5.11.1.6",
+        "parentPosition": "2.2.3.5.11.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167449071_2",
+        "topicUrl": "MML/Document/snd_sscr.html",
+        "name": "发送用户下线请求(SND SSCR)",
+        "parentTopicId": "CONCEPT_0167449401",
+        "position": "2.2.3.5.11.1.6.3",
+        "parentPosition": "2.2.3.5.11.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

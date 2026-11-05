@@ -1,0 +1,138 @@
+{
+  "command_name": "LST IPEN7SESSFUNC",
+  "command_name_zh": "查询智能双N7会话特性是否使能",
+  "command_name_full": "查询智能双N7会话特性是否使能（LST IPEN7SESSFUNC）",
+  "command_function": "**适用NF：SMF、PGW-C**\n\n该命令用于查询智能双N7会话特性是否使能。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320065",
+        "topicUrl": "MML/LinkedDoc/unc_n_pcc_management.html",
+        "name": "PCC管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.5",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322650",
+        "topicUrl": "MML/LinkedDoc/unc_n_basic_functions.html",
+        "name": "基本功能",
+        "parentTopicId": "TOPIC_0234320065",
+        "position": "2.7.5.1",
+        "parentPosition": "2.7.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002100846550",
+        "topicUrl": "MML/LinkedDoc/unc_n_intelligent_dual_n7_session.html",
+        "name": "智能双N7会话",
+        "parentTopicId": "TOPIC_0234322650",
+        "position": "2.7.5.1.16",
+        "parentPosition": "2.7.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000002080872788",
+        "topicUrl": "MML/Document/lst_ipen7sessfunc.html",
+        "name": "查询智能双N7会话特性是否使能（LST IPEN7SESSFUNC）",
+        "parentTopicId": "TOPIC_0000002100846550",
+        "position": "2.7.5.1.16.2",
+        "parentPosition": "2.7.5.1.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

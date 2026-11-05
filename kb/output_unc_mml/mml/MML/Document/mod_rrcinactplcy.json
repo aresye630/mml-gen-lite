@@ -1,0 +1,138 @@
+{
+  "command_name": "MOD RRCINACTPLCY",
+  "command_name_zh": "修改RRC Inactive策略",
+  "command_name_full": "修改RRC Inactive策略（MOD RRCINACTPLCY）",
+  "command_function": "**适用NF：AMF**\n\n该命令用于修改RRC Inactive功能的开启策略，通过此命令修改支持RRC Inactive功能的用户范围和TAI区域。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001725608193",
+        "topicUrl": "MML/LinkedDoc/unc_n_rrc_inactive_service_management.html",
+        "name": "RRC Inactive业务管理",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.3.2.33",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001677529052",
+        "topicUrl": "MML/LinkedDoc/unc_n_rrc_inactive_policy.html",
+        "name": "RRC Inactive策略",
+        "parentTopicId": "TOPIC_0000001725608193",
+        "position": "2.3.2.33.1",
+        "parentPosition": "2.3.2.33",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001870462585",
+        "topicUrl": "MML/Document/mod_rrcinactplcy.html",
+        "name": "修改RRC Inactive策略（MOD RRCINACTPLCY）",
+        "parentTopicId": "TOPIC_0000001677529052",
+        "position": "2.3.2.33.1.3",
+        "parentPosition": "2.3.2.33.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

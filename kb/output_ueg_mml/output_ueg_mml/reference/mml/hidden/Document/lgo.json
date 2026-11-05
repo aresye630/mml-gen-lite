@@ -1,0 +1,107 @@
+{
+  "command_name": "LGO",
+  "command_name_zh": "操作员注销",
+  "command_name_full": "操作员注销（LGO）",
+  "command_function": "此命令用于操作员注销登录，不能直接在PGW客户端界面输入。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123473",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123473.html",
+        "name": "PGW机机接口命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0316030481",
+        "topicUrl": "toctopics/zh-cn_topic_0316030481.html",
+        "name": "UDM PGW 机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123473",
+        "position": "4.3.1",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0170302447",
+        "topicUrl": "reference/mml/hidden/LinkedDoc/sysmanage.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0316030481",
+        "position": "4.3.1.1",
+        "parentPosition": "4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170302465",
+        "topicUrl": "reference/mml/hidden/Document/lgo.html",
+        "name": "操作员注销（LGO）",
+        "parentTopicId": "CONCEPT_0170302447",
+        "position": "4.3.1.1.2",
+        "parentPosition": "4.3.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

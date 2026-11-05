@@ -1,0 +1,266 @@
+{
+  "command_name": "SET SAUPGSTATUS",
+  "command_name_zh": "设置灰度升级状态",
+  "command_name_full": "设置灰度升级状态（SET SAUPGSTATUS）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会导致业务异常变更，请谨慎使用并联系华为技术支持协助处理，非必要请勿手动触发。\n\n该命令用于灰度升级过程中自动设置灰度升级状态。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001266739438",
+        "topicUrl": "toctopics/zh-cn_topic_0000001266739438.html",
+        "name": "Service Fabric机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.1",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001462020021_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_legacy_monolithic_service_maintain_management.html",
+        "name": "单体服务维护功能管理",
+        "parentTopicId": "TOPIC_0000001266739438",
+        "position": "2.3.3.1.9",
+        "parentPosition": "2.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001462179661_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001462020021_2",
+        "position": "2.3.3.1.9.1",
+        "parentPosition": "2.3.3.1.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001461979665_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_configuration_management.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001462179661_2",
+        "position": "2.3.3.1.9.1.1",
+        "parentPosition": "2.3.3.1.9.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001411979932_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_grayscale_update_status_management.html",
+        "name": "灰度升级状态管理",
+        "parentTopicId": "TOPIC_0000001461979665_2",
+        "position": "2.3.3.1.9.1.1.1",
+        "parentPosition": "2.3.3.1.9.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001452772609_2",
+        "topicUrl": "INNER/Document/set_saupgstatus.html",
+        "name": "设置灰度升级状态（SET SAUPGSTATUS）",
+        "parentTopicId": "TOPIC_0000001411979932_2",
+        "position": "2.3.3.1.9.1.1.1.2",
+        "parentPosition": "2.3.3.1.9.1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070084",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070084.html",
+        "name": "UEG机机接口命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001462020021_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_legacy_monolithic_service_maintain_management.html",
+        "name": "单体服务维护功能管理",
+        "parentTopicId": "TOPIC_0000001122070084",
+        "position": "2.27",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001462179661_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001462020021_2",
+        "position": "2.27.1",
+        "parentPosition": "2.27",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001461979665_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_configuration_management.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001462179661_2",
+        "position": "2.27.1.1",
+        "parentPosition": "2.27.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001411979932_2",
+        "topicUrl": "INNER/LinkedDoc/mbp_n_grayscale_update_status_management.html",
+        "name": "灰度升级状态管理",
+        "parentTopicId": "TOPIC_0000001461979665_2",
+        "position": "2.27.1.1.1",
+        "parentPosition": "2.27.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001452772609_2",
+        "topicUrl": "INNER/Document/set_saupgstatus.html",
+        "name": "设置灰度升级状态（SET SAUPGSTATUS）",
+        "parentTopicId": "TOPIC_0000001411979932_2",
+        "position": "2.27.1.1.1.2",
+        "parentPosition": "2.27.1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

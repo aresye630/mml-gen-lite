@@ -1,0 +1,162 @@
+{
+  "command_name": "SET IUSMPROCTRL",
+  "command_name_zh": "设置Iu模式SM流程控制参数",
+  "command_name_full": "设置Iu模式SM流程控制参数（SET IUSMPROCTRL）",
+  "command_function": "**须知** \n\n下发不合适的原因值可能导致UE无法进行业务。\n\n**适用网元：SGSN**\n\n该命令用于设置Iu模式SM流程控制参数。在用户接入Iu模式时，UNC可通过该命令控制SM流程进行特殊处理以及特殊场景下指定的原因值下发，以满足运营商实现对现网设备兼容性特殊控制的需求。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320652",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_security_management.html",
+        "name": "业务安全管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.6",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321242",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "TOPIC_0234320652",
+        "position": "2.5.3.6.3",
+        "parentPosition": "2.5.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319656",
+        "topicUrl": "MML/LinkedDoc/unc_n_sm_process_management.html",
+        "name": "SM流程管理",
+        "parentTopicId": "TOPIC_0234321242",
+        "position": "2.5.3.6.3.16",
+        "parentPosition": "2.5.3.6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320398",
+        "topicUrl": "MML/LinkedDoc/unc_n_sm_procedure_control_parameter_in_iu_mode.html",
+        "name": "Iu模式SM流程控制参数",
+        "parentTopicId": "TOPIC_0234319656",
+        "position": "2.5.3.6.3.16.2",
+        "parentPosition": "2.5.3.6.3.16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345289",
+        "topicUrl": "MML/Document/set_iusmproctrl.html",
+        "name": "设置Iu模式SM流程控制参数（SET IUSMPROCTRL）",
+        "parentTopicId": "TOPIC_0234320398",
+        "position": "2.5.3.6.3.16.2.1",
+        "parentPosition": "2.5.3.6.3.16.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

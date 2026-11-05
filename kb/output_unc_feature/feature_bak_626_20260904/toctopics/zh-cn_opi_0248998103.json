@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活本地PDU会话重建特性",
+  "feature_description": "本操作指导介绍在运行网络中激活本地PDU会话重建操作过程。AMF和SMF上分别实现了本地PDU会话重建功能，AMF和SMF上完成一种配置即可实现此特性的激活任务，如果AMF上和SMF上都进行了配置，系统默认使用SMF的实现。\n\n**说明** \n\n适用于AMF、SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450960",
+        "topicUrl": "toctopics/zh-cn_topic_0248450960.html",
+        "name": "网关选择功能",
+        "parentTopicId": "",
+        "position": "23",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0248998100",
+        "topicUrl": "toctopics/zh-cn_concept_0248998100.html",
+        "name": "WSFD-205011 本地PDU会话重建",
+        "parentTopicId": "TOPIC_0248450960",
+        "position": "23.11",
+        "parentPosition": "23",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0248998103",
+        "topicUrl": "toctopics/zh-cn_opi_0248998103.html",
+        "name": "激活本地PDU会话重建特性",
+        "parentTopicId": "CONCEPT_0248998100",
+        "position": "23.11.3",
+        "parentPosition": "23.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

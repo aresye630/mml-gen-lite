@@ -1,0 +1,131 @@
+{
+  "command_name": "STR OFFLOADUDM",
+  "command_name_zh": "启动UDM注册上下文的迁移",
+  "command_name_full": "启动UDM注册上下文的迁移（STR OFFLOADUDM）",
+  "command_function": "**须知** \n\n执行该命令，如果参数设置不合理可能影响UDM间的用户数不均衡。\n\n**适用NF：AMF、SMF**\n\n该命令用于触发AMF或SMF在UDM的注册上下文的迁移流程，比如在特定的UDM发生故障或升级等场景下，AMF或SMF通过本命令触发将原本注册在该UDM上的上下文迁移到其它UDM。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0296235057",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_network_management.html",
+        "name": "5G网络管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.15",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0296235058",
+        "topicUrl": "MML/LinkedDoc/unc_n_udm_registration_context_migration_management.html",
+        "name": "UDM注册上下文迁移管理",
+        "parentTopicId": "TOPIC_0296235057",
+        "position": "2.2.3.3.15.1",
+        "parentPosition": "2.2.3.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0296243244_2",
+        "topicUrl": "MML/Document/str_offloadudm.html",
+        "name": "启动UDM注册上下文的迁移（STR OFFLOADUDM）",
+        "parentTopicId": "TOPIC_0296235058",
+        "position": "2.2.3.3.15.1.1",
+        "parentPosition": "2.2.3.3.15.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

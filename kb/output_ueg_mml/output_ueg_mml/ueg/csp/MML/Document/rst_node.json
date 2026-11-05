@@ -1,0 +1,131 @@
+{
+  "command_name": "RST NODE",
+  "command_name_zh": "节点复位",
+  "command_name_full": "节点复位（RST NODE）",
+  "command_function": "**须知** \n\n- 执行该命令会影响所有运行在该节点上的业务，请慎重使用该命令。\n- 在存储故障期间，执行该命令复位节点后，该节点以及节点中的容器和进程，在存储恢复前都无法启动。\n- 硬复位可能导致文件系统损坏，强烈建议优先使用软复位。\n- 本地盘形态下在主机异常时（如故障或下电）不建议下发此操作。\n- 如果需要复位CSP多节点（风筝M或L）或OMU多节点（风筝S），在复位一个节点后需要等待节点重启成功且服务正常后再执行重启下一个节点的命令。\n\n本命令用于复位指定网元ID下指定名称的节点。复位方式分为软复位和硬复位，软复位操作方式是由操作系统执行的安全复位，硬复位操作方式为强制下电复位。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421818",
+        "topicUrl": "toctopics/zh-cn_topic_0225421818.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.8",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0225421817",
+        "topicUrl": "toctopics/zh-cn_concept_0225421817.html",
+        "name": "设备管理",
+        "parentTopicId": "TOPIC_0225421818",
+        "position": "2.2.1.8.4",
+        "parentPosition": "2.2.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0193385811",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/node_om.html",
+        "name": "节点管理",
+        "parentTopicId": "CONCEPT_0225421817",
+        "position": "2.2.1.8.4.1",
+        "parentPosition": "2.2.1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0171765322_3",
+        "topicUrl": "ueg/csp/MML/Document/rst_node.html",
+        "name": "节点复位（RST NODE）",
+        "parentTopicId": "TOPIC_0193385811",
+        "position": "2.2.1.8.4.1.2",
+        "parentPosition": "2.2.1.8.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

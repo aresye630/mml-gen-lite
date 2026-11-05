@@ -1,0 +1,109 @@
+{
+  "feature_name": "上传国密IPsec证书",
+  "feature_description": "在IPsec VPN中，对等体间可以通过证书进行身份认证。对等体事先向证书颁发机构申请证书，在建立VPN连接之前，先验证对方证书是否合法。认证通过后，才能与对方建立连接，从而有效防止中间人攻击。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVA7BE1C5944E4460EB0C4BEAE46395950",
+        "parentNaviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "pidId": "pid_bookmap_0000002193794102",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC安全配置",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095683976",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095683976.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095363946",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095363946.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001095683976",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0317758837",
+        "topicUrl": "toctopics/zh-cn_topic_0317758837.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001095363946",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001759125856",
+        "topicUrl": "toctopics/zh-cn_topic_0000001759125856.html",
+        "name": "配置IPSec功能",
+        "parentTopicId": "TOPIC_0317758837",
+        "position": "2.2.2.6",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "OPI_0000001759125900",
+        "topicUrl": "toctopics/zh-cn_opi_0000001759125900.html",
+        "name": "上传国密IPsec证书",
+        "parentTopicId": "TOPIC_0000001759125856",
+        "position": "2.2.2.6.8",
+        "parentPosition": "2.2.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "command_name": "SET NGALMRPTMODE",
+  "command_name_zh": "设置5G告警上报模式",
+  "command_name_full": "设置5G告警上报模式（SET NGALMRPTMODE）",
+  "command_function": "**须知** \n\n若配置告警类型为NG-RAN 链路故障、NG-RAN 节点不可达、批量PFCP链路故障或批量PFCP对端节点不可达，且修改批量告警上报开关时，可能会影响已有的告警，配置该命令时，请联系华为技术支持。\n\n将开关由开修改为关时，已有的批量告警会转为单条告警上报。如果当时存在大量告警，会对系统产生冲击。\n\n将开关由关修改为开时，已有的告警可能会残留。\n\n**适用NF：AMF、SMF**\n\n该命令用于设置5G告警的上报模式。如果系统内某一个告警大量产生时，会对系统的性能和告警台产生冲击，此时可以根据实际的需求，配置告警的上报模式，可以有效降低大量告警对系统的影响。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319924",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_and_maintenance000.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.15",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320139",
+        "topicUrl": "MML/LinkedDoc/unc_n_alarm_management.html",
+        "name": "告警管理",
+        "parentTopicId": "TOPIC_0234319924",
+        "position": "2.5.3.15.4",
+        "parentPosition": "2.5.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322091",
+        "topicUrl": "MML/LinkedDoc/unc_n_alarm_report_mode.html",
+        "name": "告警上报模式",
+        "parentTopicId": "TOPIC_0234320139",
+        "position": "2.5.3.15.4.1",
+        "parentPosition": "2.5.3.15.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0319478936",
+        "topicUrl": "MML/Document/set_ngalmrptmode.html",
+        "name": "设置5G告警上报模式（SET NGALMRPTMODE）",
+        "parentTopicId": "TOPIC_0234322091",
+        "position": "2.5.3.15.4.1.4",
+        "parentPosition": "2.5.3.15.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

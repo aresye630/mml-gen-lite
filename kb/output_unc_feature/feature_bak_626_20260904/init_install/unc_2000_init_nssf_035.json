@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置网络切片信息",
+  "feature_description": "在基于切片部署组网内，需要配置切片选择数据，以保证5GC当初始AMF无法判断或者判断自己无法为UE提供切片服务，需要向NSSF进行查询获取切片配置信息，详细请参考配置切片选择数据。\n\n可以配置候选AMF信息，如果当前AMF故障或其他不能提供服务的异常场景下，NSSF将切片信息返回至规划的候选AMF，保证业务正常，详细请参考配置候选AMF信息。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829347273",
+        "topicUrl": "init_install/unc_2000_init_nssf_03.html",
+        "name": "配置NSSF",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.4",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001829307313",
+        "topicUrl": "init_install/unc_2000_init_nssf_035.html",
+        "name": "配置网络切片信息",
+        "parentTopicId": "TOPIC_0000001829347273",
+        "position": "8.4.4",
+        "parentPosition": "8.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

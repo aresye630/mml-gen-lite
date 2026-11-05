@@ -1,0 +1,119 @@
+{
+  "command_name": "RST VNFC",
+  "command_name_zh": "重启系统",
+  "command_name_full": "重启系统（RST VNFC）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会导致业务故障，如果是强制重启，可能会导致正在操作的配置丢失。请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于重启系统。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355786",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595574",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202103355786",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289154899",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_reset_system.html",
+        "name": "复位系统",
+        "parentTopicId": "CONCEPT_0000202103595574",
+        "position": "4.2.2.1",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0259103634",
+        "topicUrl": "MML/Document/rst_vnfc.html",
+        "name": "重启系统（RST VNFC）",
+        "parentTopicId": "CONCEPT_0000202289154899",
+        "position": "4.2.2.1.1",
+        "parentPosition": "4.2.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

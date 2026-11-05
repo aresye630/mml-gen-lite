@@ -1,0 +1,143 @@
+{
+  "command_name": "SET MSSRULE",
+  "command_name_zh": "设置匹配规则",
+  "command_name_full": "设置匹配规则（SET MSSRULE）",
+  "command_function": "该命令用于设置匹配规则。\n\n用户只有设置规则后，才能绑定该规则对消息或者报文进行匹配，匹配规则是从消息、报文的偏移类型对应的位置加上偏移大小开始，比较“规则内容&规则掩码”和“报文内容&规则掩码”是否一致。\n\n当前通信模块可通过DSP MSSCOMMSTAT命令查询匹配统计个数。\n\n输入的规则内容和掩码应为字符串形式，只能是英文字母、数字的组合，英文字母只能是a～f，且不区分大小写，且字符个数只能是偶数个，输入不符合规范的字符串有错误信息“规则无效。”。\n\n当规则ID被使用时无法删除或者修改，有错误信息“规则正在使用。”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.11",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555071_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103116156_1",
+        "position": "1.2.11.2",
+        "parentPosition": "1.2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876260_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202289555071_1",
+        "position": "1.2.11.2.1",
+        "parentPosition": "1.2.11.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116176_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_mss.html",
+        "name": "MSS",
+        "parentTopicId": "CONCEPT_0000202102876260_1",
+        "position": "1.2.11.2.1.26",
+        "parentPosition": "1.2.11.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315601_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_debug.html",
+        "name": "维测开关统计查询",
+        "parentTopicId": "CONCEPT_0000202103116176_1",
+        "position": "1.2.11.2.1.26.7",
+        "parentPosition": "1.2.11.2.1.26",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001600865565_1",
+        "topicUrl": "kite_s_vm/MML/Document/set_mssrule.html",
+        "name": "设置匹配规则（SET MSSRULE）",
+        "parentTopicId": "CONCEPT_0000202289315601_1",
+        "position": "1.2.11.2.1.26.7.3",
+        "parentPosition": "1.2.11.2.1.26.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

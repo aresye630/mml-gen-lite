@@ -1,0 +1,73 @@
+{
+  "feature_name": "激活UDM分配IP地址功能",
+  "feature_description": "可以在本地配置静态IP地址网段与UPF的绑定关系，当用户接入网络时，对静态IP地址用户、Radius分配IP地址用户可以基于配置的网段绑定关系为用户选择指定的UPF。\n\n**说明** \n\n适用于GGSN、PGW-C、SMF、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVBDE573AB7BF04F09936457AFD382F46F",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229233453",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 用户IP地址管理解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "TOPIC_0000001167295997",
+        "topicUrl": "toctopics/zh-cn_topic_0000001167295997.html",
+        "name": "UDM分配IP地址",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "OPI_0000001156993735",
+        "topicUrl": "toctopics/zh-cn_opi_0000001156993735.html",
+        "name": "激活UDM分配IP地址功能",
+        "parentTopicId": "TOPIC_0000001167295997",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

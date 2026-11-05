@@ -1,0 +1,81 @@
+{
+  "feature_name": "配置UDM/HSS",
+  "feature_description": "园区部署UDM/HSS时，UEG上需要配置UDM/HSS实体功能。以保证用户能够正常开展业务。\n\n**说明** \n\n使用中心网络的UDM/HSS时，不需要配置该页面。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001241729473",
+        "topicUrl": "toctopics/zh-cn_topic_0000001241729473.html",
+        "name": "配置实例（裸机容器）",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.4",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001244090399",
+        "topicUrl": "toctopics/zh-cn_opi_0000001244090399.html",
+        "name": "配置UDM/HSS",
+        "parentTopicId": "TOPIC_0000001241729473",
+        "position": "4.4.5",
+        "parentPosition": "4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

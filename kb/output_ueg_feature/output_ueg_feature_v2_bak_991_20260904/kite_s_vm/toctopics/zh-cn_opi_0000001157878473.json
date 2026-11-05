@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置基于七层解析的内容计费",
+  "feature_description": "UEG通过对用户七层数据报文进行分析和检测，对于匹配到规则的业务采取相应的计费策略。\n\n此配置实例以离线计费为例，进行七层业务的内容计费配置。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001462442398",
+        "topicUrl": "toctopics/zh-cn_topic_0000001462442398.html",
+        "name": "虚机容器模式",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001149797871",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001149797871.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "TOPIC_0000001462442398",
+        "position": "1.4",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001146198189_1",
+        "topicUrl": "kite_s_vm/charging_on_pre_vm.html",
+        "name": "计费功能",
+        "parentTopicId": "TOPIC_0000001149797871",
+        "position": "1.4.2",
+        "parentPosition": "1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001157878473_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001157878473.html",
+        "name": "配置基于七层解析的内容计费",
+        "parentTopicId": "TOPIC_0000001146198189_1",
+        "position": "1.4.2.2",
+        "parentPosition": "1.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

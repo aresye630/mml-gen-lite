@@ -1,0 +1,204 @@
+{
+  "feature_name": "强制下线",
+  "feature_description": "上线可选VNFC失败和加载补丁失败时，需要强制下线可选VNFC并清理相关残留数据，请务必在研发人员指导下参考本章节进行操作。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105078612",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105078612.html",
+        "name": "UEG软件安装（风筝S）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001363131053",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001363131053.html",
+        "name": "安装MPF（独立部署）",
+        "parentTopicId": "TOPIC_0000001105078612",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390088417",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390088417.html",
+        "name": "基于VNF LCM安装MPF",
+        "parentTopicId": "TOPIC_0000001363131053",
+        "position": "3.2.3",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001159475344_2",
+        "topicUrl": "kite_ml/kitem_mpf/common/software/common/software-fs/1_7_0_Reference_MPF.html",
+        "name": "参考及FAQ",
+        "parentTopicId": "TOPIC_0000001390088417",
+        "position": "3.2.3.10",
+        "parentPosition": "3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001714699725_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001714699725.html",
+        "name": "强制下线",
+        "parentTopicId": "TOPIC_0000001159475344_2",
+        "position": "3.2.3.10.4",
+        "parentPosition": "3.2.3.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391684333",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391684333.html",
+        "name": "UEG软件安装（风筝M）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001341564362",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001341564362.html",
+        "name": "安装MPF（独立部署）",
+        "parentTopicId": "TOPIC_0000001391684333",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001376211818",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001376211818.html",
+        "name": "基于VNF LCM安装MPF",
+        "parentTopicId": "TOPIC_0000001341564362",
+        "position": "3.2.3",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001159475344_2",
+        "topicUrl": "kite_ml/kitem_mpf/common/software/common/software-fs/1_7_0_Reference_MPF.html",
+        "name": "参考及FAQ",
+        "parentTopicId": "TOPIC_0000001376211818",
+        "position": "3.2.3.10",
+        "parentPosition": "3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001714699725_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001714699725.html",
+        "name": "强制下线",
+        "parentTopicId": "TOPIC_0000001159475344_2",
+        "position": "3.2.3.10.4",
+        "parentPosition": "3.2.3.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

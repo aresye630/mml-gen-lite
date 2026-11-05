@@ -1,0 +1,107 @@
+{
+  "command_name": "RMV AFDNSCHECKTYPE",
+  "command_name_zh": "删除需要进行防欺诈检查的DNS报文类型",
+  "command_name_full": "删除需要进行防欺诈检查的DNS报文类型（RMV AFDNSCHECKTYPE）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，删除AfDnsCheckType可能会影响用户的业务，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于删除进行DNS防欺诈检查的DNS报文类型值。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876540",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_anti_fraud.html",
+        "name": "业务防欺诈",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.8",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915825",
+        "topicUrl": "MML/LinkedDoc/udg_n_anti_dns_spoofing_check_by_type.html",
+        "name": "根据报文类型进行的DNS防欺诈检测",
+        "parentTopicId": "CONCEPT_0000202102876540",
+        "position": "5.8.6",
+        "parentPosition": "5.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837804",
+        "topicUrl": "MML/Document/rmv_afdnschecktype.html",
+        "name": "删除需要进行防欺诈检查的DNS报文类型（RMV AFDNSCHECKTYPE）",
+        "parentTopicId": "CONCEPT_0000202288915825",
+        "position": "5.8.6.2",
+        "parentPosition": "5.8.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "RBK ROUTETRANS",
+  "command_name_zh": "回退路由数据迁移任务",
+  "command_name_full": "回退路由数据迁移任务(RBK ROUTETRANS)",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作将回退路由数据，操作不当会导致扩容失败、业务严重呼损。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n由于扩容或缩容路由数据迁移过程中，迁出cluster的路由数据在新Channel数据生效后是一直有效的。因此路由数据的回退只需要回退Channel配置即可。\n\n回退操作只能在路由数据迁移失败或路由数据迁移但未删除路由或回滚失败的状态下执行。\n\n该命令用于在运行**STR ROUTETRANS**命令成功迁移路由数据后，如果想放弃此次迁移操作时，进行路由数据回退操作。\n\n该命令的使用场景：在扩容场景下，扩容失败时，或其他人工确认需要回退路由数据场景。\n\n**说明** \n\n新Channel数据生效后，**FIN ROUTETRANS**执行前，迁入cluster会一直记录增量数据并同步给对应的迁出路由DRU，此时如果发现业务有异常，可以执行回退。如果执行**FIN ROUTETRANS**命令后，迁出cluster不再记录增量数据，因此不能执行回退。\n\n该命令用于回退路由数据，回退路由数据处理流程如图1所示。\n\n**图1** 回退路由数据处理流程",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774583",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/data_service_management.html",
+        "name": "数据服务管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.1",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774461_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/routing_data_migration_management.html",
+        "name": "路由数据迁移管理",
+        "parentTopicId": "MMLREF_0172774583",
+        "position": "2.2.4.3.3.1.8",
+        "parentPosition": "2.2.4.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774182_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/rbk_routetrans.html",
+        "name": "回退路由数据迁移任务(RBK ROUTETRANS)",
+        "parentTopicId": "CONCEPT_0172774461_2",
+        "position": "2.2.4.3.3.1.8.3",
+        "parentPosition": "2.2.4.3.3.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

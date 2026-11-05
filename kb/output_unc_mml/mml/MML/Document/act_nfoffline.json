@@ -1,0 +1,138 @@
+{
+  "command_name": "ACT NFOFFLINE",
+  "command_name_zh": "激活NF下线",
+  "command_name_full": "激活NF下线（ACT NFOFFLINE）",
+  "command_function": "**须知** \n\n该命令用于激活NF下线，该命令执行以后，服务端场景下会触发NF向NRF的去注册处理，删除在NRF的注册，造成服务消费者无法发现该NF服务，导致该NF无法向外提供服务，请谨慎操作。\n\n**适用NF：AMF、SMF、NRF、NSSF、NCG、SMSF、CBC、CBCF**\n\n该命令用来激活NF向NRF去注册。在NF进行升级、重装或重大网络调整等情况下，如果希望暂时不被其他NF发现，可以通过本命令触发NF到NRF的去注册。去注册会导致其他NF无法发现该NF，可能导致业务异常，请谨慎操作。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320040",
+        "topicUrl": "MML/LinkedDoc/unc_n_sbi_management.html",
+        "name": "服务化接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.1",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321170",
+        "topicUrl": "MML/LinkedDoc/unc_n_registration_and_service_discovery.html",
+        "name": "注册与服务发现",
+        "parentTopicId": "TOPIC_0234320040",
+        "position": "2.10.1.1",
+        "parentPosition": "2.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320299",
+        "topicUrl": "MML/LinkedDoc/unc_n_nf_status_management.html",
+        "name": "NF 状态管理",
+        "parentTopicId": "TOPIC_0234321170",
+        "position": "2.10.1.1.5",
+        "parentPosition": "2.10.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209652524",
+        "topicUrl": "MML/Document/act_nfoffline.html",
+        "name": "激活NF下线（ACT NFOFFLINE）",
+        "parentTopicId": "TOPIC_0234320299",
+        "position": "2.10.1.1.5.2",
+        "parentPosition": "2.10.1.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

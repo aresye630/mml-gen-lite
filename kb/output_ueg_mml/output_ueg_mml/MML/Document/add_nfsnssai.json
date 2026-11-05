@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD NFSNSSAI",
+  "command_name_zh": "增加网元S-Nssai信息",
+  "command_name_full": "增加网元S-Nssai信息(ADD NFSNSSAI)",
+  "command_function": "该命令用于增加本端网元的S-Nssai（单网络切片选择支撑信息）信息。该命令用于指定服务注册的NFProfile中sNssais、allowedNssais，以及NFService中的allowedNssais。系统向NRF发起服务注册时使用配置的数据。\n\n该命令的参数索引关系如图1所示。\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0175053740",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_ncs_management.html",
+        "name": "NCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.9",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0187811386",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_information_management.html",
+        "name": "网元信息管理",
+        "parentTopicId": "TOPIC_0175053740",
+        "position": "2.2.3.5.9.2",
+        "parentPosition": "2.2.3.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0187811411",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_s_nssai_information_configuration.html",
+        "name": "网元切片信息配置",
+        "parentTopicId": "CONCEPT_0187811386",
+        "position": "2.2.3.5.9.2.6",
+        "parentPosition": "2.2.3.5.9.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0187811412_2",
+        "topicUrl": "MML/Document/add_nfsnssai.html",
+        "name": "增加网元S-Nssai信息(ADD NFSNSSAI)",
+        "parentTopicId": "CONCEPT_0187811411",
+        "position": "2.2.3.5.9.2.6.1",
+        "parentPosition": "2.2.3.5.9.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

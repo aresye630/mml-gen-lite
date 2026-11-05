@@ -1,0 +1,116 @@
+{
+  "feature_name": "配置静态地址黑名单",
+  "feature_description": "可以在本地配置静态地址黑名单，判断用户携带地址的合法性，若用户地址出现于黑名单中，标明地址非法，不允许接入。\n\n**说明** \n\n适用于PGW-C、SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184606110",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184606110.html",
+        "name": "GWFD-020800 基本业务",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.3",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0175618923",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0175618923.html",
+        "name": "GWFD-020804 地址分配方式",
+        "parentTopicId": "TOPIC_0000001184606110",
+        "position": "6.3.3",
+        "parentPosition": "6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0248452479",
+        "topicUrl": "kite_ml/om/unc_2000_feature_om_Address_Assignment_03.html",
+        "name": "配置静态地址黑名单",
+        "parentTopicId": "TOPIC_0175618923",
+        "position": "6.3.3.3",
+        "parentPosition": "6.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "command_name": "DEA AMFMBSSESSION",
+  "command_name_zh": "去激活AMF组播广播会话",
+  "command_name_full": "去激活AMF组播广播会话（DEA AMFMBSSESSION）",
+  "command_function": "**须知** \n\n执行该命令，AMF会通知广播区域下所有基站释放广播会话，且删除本地广播上下文。\n\n该操作可能会导致AMF和MB-SMF上广播会话状态不一致，同时AMF和基站、MB-SMF间交互消息量增大，待会话删除完成后，系统会恢复正常。\n\n**适用NF：AMF**\n\n该命令用于去激活AMF组播广播会话。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001391285856",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_multicast_broadcast_management.html",
+        "name": "5G组播广播管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.16",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001441725101",
+        "topicUrl": "MML/LinkedDoc/unc_n_amf_multicast_broadcast_management.html",
+        "name": "AMF组播广播管理",
+        "parentTopicId": "TOPIC_0000001391285856",
+        "position": "2.16.1",
+        "parentPosition": "2.16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001391605404",
+        "topicUrl": "MML/LinkedDoc/unc_n_deactive_amf_multicast_broadcast_sessions.html",
+        "name": "去活AMF组播广播会话",
+        "parentTopicId": "TOPIC_0000001441725101",
+        "position": "2.16.1.4",
+        "parentPosition": "2.16.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001387947654",
+        "topicUrl": "MML/Document/dea_amfmbssession.html",
+        "name": "去激活AMF组播广播会话（DEA AMFMBSSESSION）",
+        "parentTopicId": "TOPIC_0000001391605404",
+        "position": "2.16.1.4.1",
+        "parentPosition": "2.16.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

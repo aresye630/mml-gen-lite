@@ -1,0 +1,131 @@
+{
+  "command_name": "RMV OFI",
+  "command_name_zh": "删除本局信令点",
+  "command_name_full": "删除本局信令点 (RMV OFI)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成本局与其它网元的链路不通，局点业务异常甚至中断，因此执行该命令前，请详细阅读本命令的联机帮助和注意事项，并评估规划数据的正确性，商用局点禁止执行该命令。操作前必须由华为工程师提交RFC至华为机关审核操作实施方案、测试方案和回退方案后才可以实施。如有疑问请联系华为公司处理。\n\n该命令为配置类命令，当本局配置有多信令点时，用于从配置数据库中删除一组已配置的本局信令点编码。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206457038221",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_local_office_information.html",
+        "name": "本局信息",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.5",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284723_2",
+        "topicUrl": "reference/mml/ueg/Document/rmv_ofi.html",
+        "name": "删除本局信令点 (RMV OFI)",
+        "parentTopicId": "CONCEPT_0000206457038221",
+        "position": "2.2.3.4.1.5.2",
+        "parentPosition": "2.2.3.4.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

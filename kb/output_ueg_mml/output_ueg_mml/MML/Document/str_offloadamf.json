@@ -1,0 +1,143 @@
+{
+  "command_name": "STR OFFLOADAMF",
+  "command_name_zh": "启动AMF迁移任务",
+  "command_name_full": "启动AMF迁移任务（STR OFFLOADAMF）",
+  "command_function": "**须知** \n\n启动AMF的用户迁移任务，如果迁移速率设置不合理，可能导致本系统过载及对周边网元造成冲击。\n\n**适用NF：AMF**\n\n此命令用于启动AMF的用户迁移任务。\n\n当AMF Pool中的某个AMF出现过载、AMF需要进行迁移或升级、网络负载出现不均衡的情况下，可以启动用户迁移任务，能够及时调整网络运行状况，实现资源合理利用，并有效减少用户接入损耗和业务中断。\n\n此命令执行后，任务状态变为“迁移中”或“已结束”，迁移类型为“迁移全部用户”、“迁移百分比用户”、“迁移部分用户”的迁移任务可执行“DSP OFFLOADAMF”命令查询AMF迁移任务状态及待迁移用户数和已迁移用户数等进度信息，执行“STP OFFLOADAMF”命令停止AMF迁移任务，迁移任务状态变为“已停止”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.3",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.2.3.3.3.2",
+        "parentPosition": "2.2.3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320406",
+        "topicUrl": "MML/LinkedDoc/unc_n_amf_pool_offload.html",
+        "name": "AMF Pool 迁移控制",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.2.3.3.3.2.9",
+        "parentPosition": "2.2.3.3.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0209653235_2",
+        "topicUrl": "MML/Document/str_offloadamf.html",
+        "name": "启动AMF迁移任务（STR OFFLOADAMF）",
+        "parentTopicId": "TOPIC_0234320406",
+        "position": "2.2.3.3.3.2.9.1",
+        "parentPosition": "2.2.3.3.3.2.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

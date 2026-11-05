@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活UDM全故障业务保活特性",
+  "feature_description": "为提升UDM全故障场景下的业务连续性，可以激活本特性。UDM全故障业务保活特性需要在AMF和SMF侧分别开启UDM全故障业务保活特性。\n\n**说明** \n\n适用于AMF、SMF",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375200269",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375200269.html",
+        "name": "AMF特性指南",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184446462",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184446462.html",
+        "name": "GWFD-021400 可靠性功能",
+        "parentTopicId": "TOPIC_0000001375200269",
+        "position": "5.8",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001189646388",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001189646388.html",
+        "name": "GWFD-021408 UDM全故障业务保活",
+        "parentTopicId": "TOPIC_0000001184446462",
+        "position": "5.8.4",
+        "parentPosition": "5.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001236886325",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001236886325.html",
+        "name": "激活UDM全故障业务保活特性",
+        "parentTopicId": "TOPIC_0000001189646388",
+        "position": "5.8.4.3",
+        "parentPosition": "5.8.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

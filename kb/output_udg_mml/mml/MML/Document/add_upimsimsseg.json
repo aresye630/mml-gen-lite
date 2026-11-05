@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD UPIMSIMSSEG",
+  "command_name_zh": "增加IMSI和MSISDN号段",
+  "command_name_full": "增加IMSI和MSISDN号段（ADD UPIMSIMSSEG）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于配置IMSI/MSISDN号码段。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356062",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315817",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_common_configuration.html",
+        "name": "业务匹配公共配置",
+        "parentTopicId": "CONCEPT_0000202103356062",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356078",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_common_parameter_management.html",
+        "name": "业务公共参数管理",
+        "parentTopicId": "CONCEPT_0000202289315817",
+        "position": "5.4.2.3",
+        "parentPosition": "5.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202975729221",
+        "topicUrl": "MML/LinkedDoc/udg_n_imsi_msisdn_segment.html",
+        "name": "IMSI MSISDN号段",
+        "parentTopicId": "CONCEPT_0000202103356078",
+        "position": "5.4.2.3.9",
+        "parentPosition": "5.4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202786322306",
+        "topicUrl": "MML/Document/add_upimsimsseg.html",
+        "name": "增加IMSI和MSISDN号段（ADD UPIMSIMSSEG）",
+        "parentTopicId": "CONCEPT_0000202975729221",
+        "position": "5.4.2.3.9.1",
+        "parentPosition": "5.4.2.3.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

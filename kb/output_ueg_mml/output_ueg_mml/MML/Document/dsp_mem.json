@@ -1,0 +1,155 @@
+{
+  "command_name": "DSP MEM",
+  "command_name_zh": "显示资源内存信息",
+  "command_name_full": "显示资源内存信息（DSP MEM）",
+  "command_function": "该命令用于显示资源的内存使用率信息，包括总内存、已使用的内存、剩余的内存及内存使用率。\n\n在日常的维护活动中，可使用本命令查看系统当前的内存信息，以确认内存使用是否处于合理的区间。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767898009_1",
+        "topicUrl": "MML/LinkedDoc/vnfp_n_legacy_monolithic_service_platform_management.html",
+        "name": "单体服务平台功能管理",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.20",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767898029_1",
+        "topicUrl": "MML/LinkedDoc/vnfp_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0000001767898009_1",
+        "position": "2.2.3.1.20.2",
+        "parentPosition": "2.2.3.1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720417482_1",
+        "topicUrl": "MML/LinkedDoc/vnfp_n_resource_management.html",
+        "name": "资源管理",
+        "parentTopicId": "TOPIC_0000001767898029_1",
+        "position": "2.2.3.1.20.2.1",
+        "parentPosition": "2.2.3.1.20.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001768057309_1",
+        "topicUrl": "MML/LinkedDoc/vnfp_n_vm_management.html",
+        "name": "VM管理",
+        "parentTopicId": "TOPIC_0000001720417482_1",
+        "position": "2.2.3.1.20.2.1.1",
+        "parentPosition": "2.2.3.1.20.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0259036642_3",
+        "topicUrl": "MML/Document/dsp_mem.html",
+        "name": "显示资源内存信息（DSP MEM）",
+        "parentTopicId": "TOPIC_0000001768057309_1",
+        "position": "2.2.3.1.20.2.1.1.2",
+        "parentPosition": "2.2.3.1.20.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

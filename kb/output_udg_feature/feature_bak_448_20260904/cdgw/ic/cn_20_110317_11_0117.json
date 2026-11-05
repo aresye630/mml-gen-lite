@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置防欺诈业务规则数据库功能",
+  "feature_description": "**说明** \n\n适用于PGW-U、UPF。\n\n当运营商规划检测利用计费漏洞进行欺诈的用户行为时，需要配置防欺诈业务规则数据库功能，进而对欺诈行为进行评估和策略控制。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVB89C6AC3CD3C4C5FA9DC2D27CA3F022F",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002186980862",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG防欺诈功能专题",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_4b1a70c9-d16e-4041-8d39-dd92a40c6e36",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_4b1a70c9-d16e-4041-8d39-dd92a40c6e36"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "pid_shortdesc": "介绍防欺诈功能产生背景、应用场景、计费防欺诈方式及配置调测。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "TOPIC_0000001158001661",
+        "topicUrl": "toctopics/zh-cn_topic_0000001158001661.html",
+        "name": "HTTP计费防欺诈",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "OPI_0000001115528732",
+        "topicUrl": "cdgw/ic/cn_20_110317_11_0111.html",
+        "name": "激活HTTP计费防欺诈",
+        "parentTopicId": "TOPIC_0000001158001661",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "OPI_0000001161928511",
+        "topicUrl": "cdgw/ic/cn_20_110317_11_0117.html",
+        "name": "配置防欺诈业务规则数据库功能",
+        "parentTopicId": "OPI_0000001115528732",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

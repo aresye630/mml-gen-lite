@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD VMCC",
+  "command_name_zh": "修改VMCC业务",
+  "command_name_full": "修改VMCC业务(MOD VMCC)",
+  "command_function": "该命令用于修改用户的VMCC（Voice Mail Call Completion）业务数据。\n\n当用户签约了VMCC业务后，在位置更新、独立插入用户数据（登记/激活/去激活条件前转）、恢复用户数据流程中，若同时满足下面条件时，触发的ISD（Insert Subscriber Data）消息中不下发用户登记的前转号码，包括CFD（Call Forwarding Default）等的号码给VLR，否则正常下发前转号码到VLR。\n\n- 用户处于国际漫游状态（当前漫游VLR为国际跨网或者国际本网）。\n- 用户通过该命令签约了VMCC业务。\n- 用户已登记了一个CCF（Conditional Call Forwarding）前转号码，且该规整后的前转号码最大匹配上**SET RESSPECFTN**配置的前转限制名单。\n\n  **说明** \n\n  - 如果前转号码是CFB/CFNRy/CFNRc，当前转号码在限制名单中，用户还未签约VMCC，并在当前国际漫游的VLR上正常下发过签约的前转号码，后面再签约VMCC时，则下发ISD消息且携带的CCF状态为提供态。\n  - 如果前转号码是CFD，用户在当前国际漫游的VLR上正常下发过签约的前转号码，再签约VMCC时：\n    - 用户所签的“基本业务组”不相同，则下发的ISD消息中携带的CCF状态互不干扰。例如，用户签约的CFB在TS1X上是登记态（未被限制），CFD替代的CFB在TS6X上是激活态，则下发的ISD消息且携带的CCF状态在TS6X上是提供态 。\n    - 用户所签的“基本业务组”相同，用户签约的CCF是登记态（未被限制），CFD替代的CCF是激活态，则下发用户签约的ISD消息中携带的CCF状态。例如，用户签约了CFB为登记态（未被限制），CFD替代CFB为激活态，则下发ISD消息且携带的CCF状态为登记态。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803670",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/feature_service_management.html",
+        "name": "特色业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.33",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802745",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/vmcc_management.html",
+        "name": "VMCC业务管理",
+        "parentTopicId": "CONCEPT_0190803670",
+        "position": "4.2.3.33.39",
+        "parentPosition": "4.2.3.33",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803063",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_vmcc.html",
+        "name": "修改VMCC业务(MOD VMCC)",
+        "parentTopicId": "CONCEPT_0190802745",
+        "position": "4.2.3.33.39.1",
+        "parentPosition": "4.2.3.33.39",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

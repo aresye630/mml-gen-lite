@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活通用DNN漫游分流",
+  "feature_description": "在UDG上部署通用DNN漫游分流功能，需要开启通用DNN漫游分流功能开关。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001237141589",
+        "topicUrl": "toctopics/zh-cn_topic_0000001237141589.html",
+        "name": "超级互联功能",
+        "parentTopicId": "",
+        "position": "26",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001557247580",
+        "topicUrl": "toctopics/zh-cn_topic_0000001557247580.html",
+        "name": "GWFD-020531 通用DNN漫游分流",
+        "parentTopicId": "TOPIC_0000001237141589",
+        "position": "26.4",
+        "parentPosition": "26",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001607687889",
+        "topicUrl": "toctopics/zh-cn_opi_0000001607687889.html",
+        "name": "激活通用DNN漫游分流",
+        "parentTopicId": "TOPIC_0000001557247580",
+        "position": "26.4.3",
+        "parentPosition": "26.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

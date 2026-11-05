@@ -1,0 +1,138 @@
+{
+  "command_name": "CLR BACKUPAMFCACHE",
+  "command_name_zh": "清除备用AMF缓存信息",
+  "command_name_full": "清除备用AMF缓存信息（CLR BACKUPAMFCACHE）",
+  "command_function": "**适用NF：AMF**\n\n该命令用于清除AMF本地缓存的备用AMF信息，清除的方式为设置老化标记位。设置老化标记位后，在下一次移动性流程中AMF会强制重新发现备用AMF信息，未服务发现之前AMF会惯性继续使用老化状态缓存的备用AMF信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319650",
+        "topicUrl": "MML/LinkedDoc/unc_n_nf_discovery_and_selection_management.html",
+        "name": "NF发现和选择管理",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.3.2.6",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002165898817",
+        "topicUrl": "MML/LinkedDoc/unc_n_cache_policy_management_on_a_backup_amf.html",
+        "name": "备用AMF缓存策略管理",
+        "parentTopicId": "TOPIC_0234319650",
+        "position": "2.3.2.6.11",
+        "parentPosition": "2.3.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001582661413",
+        "topicUrl": "MML/Document/clr_backupamfcache.html",
+        "name": "清除备用AMF缓存信息（CLR BACKUPAMFCACHE）",
+        "parentTopicId": "TOPIC_0000002165898817",
+        "position": "2.3.2.6.11.2",
+        "parentPosition": "2.3.2.6.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

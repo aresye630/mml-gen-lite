@@ -1,0 +1,105 @@
+{
+  "feature_name": "配置EPS Fallback基本呼叫与紧急呼叫",
+  "feature_description": "UPCF支持EPS Fallback方案，用于部署IMS应用，为基本呼叫业务提供保障的带宽，确保用户享用优质语音和高清视频。还可以为紧急呼叫业务提供可靠的质量保证，保证用户在各种紧急的情况下，能够顺利拨打紧急呼叫号码。当用户使用语音呼叫业务时，针对业务是否为紧急呼叫，享有不同的资源分配优先级，并实行不同的计费策略，在5G网络无线环境较差时，可以通过EPS Fallback方案，将5G紧急呼叫业务回落到4G VoLTE紧急呼叫。\n\n本章节以EPS Fallback基本呼叫与紧急呼叫合一部署场景进行介绍。\n\n**说明** \n\n5G呼叫业务回落到4G网络后，策略接口采用N7或Gx上报会话请求消息，由对端设备的配置决定，本流程介绍以N7接口为例。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001308864973",
+        "topicUrl": "toctopics/zh-cn_topic_0000001308864973.html",
+        "name": "语音功能配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001309024917",
+        "topicUrl": "toctopics/zh-cn_topic_0000001309024917.html",
+        "name": "PCRF&PCF配置",
+        "parentTopicId": "TOPIC_0000001308864973",
+        "position": "5.2.4",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001263973608",
+        "topicUrl": "toctopics/zh-cn_topic_0000001263973608.html",
+        "name": "Rx接口（使用Diameter协议）EPS Fallback策略控制",
+        "parentTopicId": "TOPIC_0000001309024917",
+        "position": "5.2.4.3",
+        "parentPosition": "5.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001263653812",
+        "topicUrl": "kite_ml/kite_l_service_Conf/upcc/description/feature_desc/cn_90_02_606003_09_uegl.html",
+        "name": "配置EPS Fallback基本呼叫与紧急呼叫",
+        "parentTopicId": "TOPIC_0000001263973608",
+        "position": "5.2.4.3.3",
+        "parentPosition": "5.2.4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

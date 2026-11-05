@@ -1,0 +1,107 @@
+{
+  "command_name": "SND HPNR",
+  "command_name_zh": "发送模拟PNR消息",
+  "command_name_full": "发送模拟PNR消息(SND HPNR)",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行不当会造成用户的业务异常。请仔细评估待通知的数据为用户的正确业务数据，确认待通知的数据的正确性后方可执行。并且该命令不能和**LST LOG**、**LST HLOG**命令同时执行。如有疑问请与华为技术支持联系制定操作的实施方案、测试方案和应急措施后才可以实施。\n\n该命令用于将IMS-HSS中IMS用户或PSI用户的数据通过PNR消息发送给AS对端。\n\n该命令应用的场景为：IMS-HSS的数据正确，AS对端的数据错误时，为了AS对端的数据与IMS-HSS的保持一致，则将空口日志中透明数据变更的用户所对应的IMS-HSS中最新数据通过Sh接口的PNR消息发送给AS对端。\n\n如果设置时间段参数（“开始时间”、“结束时间”和“速率”）或输入参数为指定“IMPU”+时间段参数（“开始时间”、“结束时间”和“速率”）时，并且批操作完成后，以文本格式（文件名格式：SND\\_HPNR\\_yyyy-mm-dd-hh-mm-ss.txt）保存在PGW中，系统自动统计时间段方式发送模拟PNR消息操作成功的次数，操作结果可以通过PGW Web LMT上的“文件管理器”下载到本地。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732463",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Network_Maintenance.html",
+        "name": "网络维护管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.12",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732689_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/SND_HPNR.html",
+        "name": "发送模拟PNR消息(SND HPNR)",
+        "parentTopicId": "CONCEPT_0191732463",
+        "position": "4.2.4.12.3",
+        "parentPosition": "4.2.4.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

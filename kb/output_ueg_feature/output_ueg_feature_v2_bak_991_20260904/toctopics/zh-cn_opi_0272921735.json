@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置动态带宽管理规则",
+  "feature_description": "当APP通过Mp1接口/管理面MEPM通过Mm5接口下发动态带宽管理规则，用于管理访问APP的上下行带宽时，需要配置本页面，将动态带宽管理规则激活生效。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "公共业务",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDB5AD83D6FAE4A4995945FC2C4999F99",
+        "parentNaviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "pidId": "pid_bookmap_0000002222267905",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC APP业务访问控制（公共）",
+        "nameIdList": [
+          "release",
+          "application_type",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "application_type_6655",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_6655"
+          ],
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "动态分流",
+          "pid_shortdesc": "介绍APP业务在本产品中如何进行动态分流、数据转发以及带宽控制的。"
+        }
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "TOPIC_0000001099100236",
+        "topicUrl": "toctopics/zh-cn_topic_0000001099100236.html",
+        "name": "分流后带宽控制（MPF）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "OPI_0000001141856555_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001141856555.html",
+        "name": "激活支持APP带宽管理",
+        "parentTopicId": "TOPIC_0000001099100236",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "OPI_0272921735_2",
+        "topicUrl": "toctopics/zh-cn_opi_0272921735.html",
+        "name": "配置动态带宽管理规则",
+        "parentTopicId": "OPI_0000001141856555_2",
+        "position": "6.2.1",
+        "parentPosition": "6.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

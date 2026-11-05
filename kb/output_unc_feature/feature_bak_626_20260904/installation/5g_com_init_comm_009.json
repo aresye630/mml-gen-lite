@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置BGP over OSPF/静态路由+BFD（IPv4）",
+  "feature_description": "BGP（Border Gateway Protocol）边界网关协议是一种用于AS(Autonomous System)之间的动态路由协议，与OSPF、静态路由等内部网关协议（IGP）不同，其自身不能发现和计算路由，主要用于在自治系统AS间控制路由的传播和选择最佳路由。\n\n当拓扑结构复杂且无法规划在同一自治区域内时，可以采用BGP over OSPF/静态路由+BFD实现VNF与对端设备的网络层互通。\n\n**说明** \n\n- BGP协议自身没有自动部署功能，本文主要是在OSPF、静态路由等内部网关协议的自动部署基础上，通过BGP协议将其引入并传播。\n- 采用DC-GW作网关时，采用BGP over静态路由+BFD；采用PE作网关时，采用BGP over静态路由+BFD（推荐）或BGP over OSPF+BFD。\n\n- 图1为VNF与周边网元的BGP over OSPF/静态路由+BFD互通组网示意图。VNF与网关侧运行BGP over OSPF/静态路由+BFD路由协议而接入运营商网络（IP骨干网），网关推荐使用DC-GW，也可以使用运营商的PE（Provider Edge）交换机，或者EOR（End of Row）交换机。无论哪种方式，VNF的配置相同，没有差异。PE的路由配置请参考运营商的网络规划配置，DC-GW/EOR的配置请参考对应型号设备的产品文档。\n- 图2为VNF与周边网元的BGP over静态路由互通组网示意图。VNF与网关侧运行BGP over静态路由协议而接入运营商网络（IP骨干网），DC-GW作为网关设备。VNF和DC-GW之间采用单臂BFD探测。DC-GW的配置请参考对应型号设备的产品文档。\n\n**图1** BGP over OSPF/静态路由+BFD组网（DC-GW/EOR做L3GW）\n\n**图2** BGP over静态路由+BFD组网（DC-GW做L3GW+L2GW）",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001824779181",
+        "topicUrl": "toctopics/zh-cn_topic_0000001824779181.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0175096860",
+        "topicUrl": "installation/cu_com_010016_07.html",
+        "name": "配置VNF侧IP路由数据（非SDN）",
+        "parentTopicId": "TOPIC_0000001824779181",
+        "position": "7.1",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0175096773",
+        "topicUrl": "installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0175096860",
+        "position": "7.1.2",
+        "parentPosition": "7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0175096835",
+        "topicUrl": "installation/5g_com_init_comm_009.html",
+        "name": "配置BGP over OSPF/静态路由+BFD（IPv4）",
+        "parentTopicId": "TOPIC_0175096773",
+        "position": "7.1.2.3",
+        "parentPosition": "7.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

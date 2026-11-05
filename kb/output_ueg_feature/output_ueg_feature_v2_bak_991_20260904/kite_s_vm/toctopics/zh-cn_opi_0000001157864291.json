@@ -1,0 +1,93 @@
+{
+  "feature_name": "激活支持能力开放框架",
+  "feature_description": "当MPF通过API GW对APP开放网络能力，APP通过调用API接口访问MPF内部服务时，需要配置本页面相关功能。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001157865041",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001157865041.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001157864291",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001157864291.html",
+        "name": "激活支持能力开放框架",
+        "parentTopicId": "TOPIC_0000001157865041",
+        "position": "5.4.2.1",
+        "parentPosition": "5.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

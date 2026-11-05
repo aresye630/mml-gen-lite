@@ -1,0 +1,138 @@
+{
+  "command_name": "SET ACSELECTSERVICE",
+  "command_name_zh": "设置仲裁服务配置",
+  "command_name_full": "设置仲裁服务配置（SET ACSELECTSERVICE）",
+  "command_function": "**须知** \n\n本命令属于高危命令，可以关闭仲裁服务，当仲裁服务关闭时，系统有发生脑裂的风险，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于设置ETCD仲裁服务的客户端相关配置，包括ETCD仲裁的开关和ETCD灯塔特性的开关。\n\n本命令只适用于ACS服务，其他微服务请使用SET ELECTSERVICE命令。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001767897957",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001768057269",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0000001767897957",
+        "position": "1.2.2",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001767897997",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_system_maintenance.html",
+        "name": "系统维护",
+        "parentTopicId": "TOPIC_0000001768057269",
+        "position": "1.2.2.3",
+        "parentPosition": "1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001768057277",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_elect_service_configuration.html",
+        "name": "仲裁服务配置",
+        "parentTopicId": "TOPIC_0000001767897997",
+        "position": "1.2.2.3.2",
+        "parentPosition": "1.2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0244102825",
+        "topicUrl": "MML/Document/set_acselectservice.html",
+        "name": "设置仲裁服务配置（SET ACSELECTSERVICE）",
+        "parentTopicId": "TOPIC_0000001768057277",
+        "position": "1.2.2.3.2.2",
+        "parentPosition": "1.2.2.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

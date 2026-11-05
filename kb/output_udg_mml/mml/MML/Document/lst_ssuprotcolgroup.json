@@ -1,0 +1,107 @@
+{
+  "command_name": "LST SSUPROTCOLGROUP",
+  "command_name_zh": "显示基于协议的质差检测策略",
+  "command_name_full": "显示基于协议的质差检测策略（LST SSUPROTCOLGROUP）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n此命令用于查询SSUPROTCOLGROUP，支持批量查询。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203928566467",
+        "topicUrl": "MML/LinkedDoc/udg_n_ssu_management.html",
+        "name": "智能板管理",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203928441315",
+        "topicUrl": "MML/LinkedDoc/udg_n_vvip.html",
+        "name": "vvip",
+        "parentTopicId": "CONCEPT_0000203928566467",
+        "position": "9.1",
+        "parentPosition": "9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000205005782591",
+        "topicUrl": "MML/LinkedDoc/udg_n_protocol_based_poor_qoe_detection_policy.html",
+        "name": "基于协议的质差策略",
+        "parentTopicId": "CONCEPT_0000203928441315",
+        "position": "9.1.4",
+        "parentPosition": "9.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204915501061",
+        "topicUrl": "MML/Document/lst_ssuprotcolgroup.html",
+        "name": "显示基于协议的质差检测策略（LST SSUPROTCOLGROUP）",
+        "parentTopicId": "CONCEPT_0000205005782591",
+        "position": "9.1.4.4",
+        "parentPosition": "9.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

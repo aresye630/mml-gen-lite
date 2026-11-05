@@ -1,0 +1,19991 @@
+# UEG 命令参考（风筝M&L，虚机&裸机容器）
+
+## 目录内容
+
+- UEG 命令参考（风筝M&L，虚机&裸机容器）
+  - PGW Web LMT
+    - PGW Web LMT命令
+      - UPCF业务管理
+        - 用户数据命令组
+          - 业务管理
+            - 用户签约（ADD PSRV）
+            - 查询用户签约（LST PSRV）
+            - 用户签约营帐业务（ADD PPROVSRV）
+            - 删除签约信息增强（RMV PSRVEX）
+            - 删除签约信息（RMV PSRV）
+            - 修改签约信息（MOD PSRV）
+            - 替换签约信息（SWP PSRV）
+            - 修改签约状态（MOD PSRVSTATUS）
+          - 组成员管理
+            - 查询组成员列表（LST PGRPMBRLIST）
+            - 删除组成员（RMV PGRPMBR）
+            - 查询组成员（LST PGRPMBR）
+            - 增加组成员（ADD PGRPMBR）
+            - 修改组成员（MOD PGRPMBR）
+          - 阈值管理
+            - 查询用户自定义阈值（LST PCTLEVEL）
+            - 修改用户自定义阈值（MOD PCTLEVEL）
+          - 位置管理
+            - 查询用户位置信息（LST PSUBLOC）
+            - 修改用户位置信息（MOD PSUBLOC）
+            - 删除用户位置信息（RMV PSUBLOC）
+            - 添加用户位置信息（ADD PSUBLOC）
+            - 查询用户小区信息（LST PSUBLOCFLITER）
+          - 帐户管理
+            - 清除帐户信息（CLR PACCOUNT）
+            - 复位帐户信息（RST PACCOUNT）
+            - 修改帐户信息（MOD PACCOUNT）
+            - 修改帐户权限（CHG PACCOUNT）
+            - 查询帐户信息（LST PACCOUNT）
+          - 用户管理
+            - 查询用户多卡用户列表（LST PSUBMAPLIST）
+            - 查询用户通知日志（LST PNTFLOG）
+            - 修改用户信息（MOD PSUB）
+            - 查询测试用户信息（LST PTESTSUB）
+            - 清除用户数据（CLR PSUBDATA）
+            - 同步OCS用户数据（SYN POCSUSRDATA）
+            - 设置PCM用户通知（SET PCMNOTIFY）
+            - 开户（ADD PSUB）
+            - 查询用户TransactionID信息（LST PSUBTRANSIDINFO）
+            - 设置用户结账日（SET PBILLCYCLE）
+            - 查询关联从用户信息（LST PSLVSUB）
+            - 查询用户动态信息（LST PDYNINFO）
+            - 查询用户基础信息（LST PSUBINFO）
+            - 查询用户历史签约（LST PHISTORYSVCS）
+            - 设置自定义用户属性（SET PSUB）
+            - 去激活用户会话（DEA PSESSION）
+            - 校验用户数据（CHK PSUBDATA）
+            - 设置用户迁移（SET PSUBMIGRATE）
+            - 查询多卡用户所属用户（LST PSUBMAP）
+            - 销户（RMV PSUB）
+            - 删除多卡用户关联关系（RMV PSUBMAP）
+            - 查询用户信息（LST PSUB）
+            - 添加多卡用户关联关系（ADD PSUBMAP）
+          - 配额管理
+            - 清除配额信息（CLR PQUOTA）
+            - 查询Sy配额信息（LST PSYQUOTA）
+            - 营帐配额重置（RST PPROVQTA）
+            - 配额充值（RECHRG PQUOTA）
+            - 复位用户所有配额（RST PSUBALLQUOTA）
+            - 设置共享配额（SET PSHQUOTA）
+            - 转移配额信息（TSF PQUOTA）
+            - 修改配额实例（MOD PQUOTAINSTANCE）
+            - 删除配额实例（RMV PQUOTAINSTANCE）
+            - 查询配额信息（LST PQUOTA）
+            - 复位配额信息（RST PQUOTA）
+            - 删除转移配额信息（RMV PTSFQUOTA）
+            - 业务充值（RECHRG PSRV）
+            - 查询转移配额信息（LST PTSFQUOTA）
+            - 修改配额信息（MOD PQUOTA）
+          - 别名管理
+            - 添加别名（ADD PALIAS）
+            - 修改别名（MOD PALIAS）
+            - 删除别名（RMV PALIAS）
+            - 查询别名（LST PALIAS）
+          - 会话管理
+            - 查询会话数据用户标识（LST PSESSIONDATA）
+            - IPv6地址查询会话信息（LST PSESSIONINFOBYIPV6）
+            - 用户标识查询会话信息（LST PSESSIONINFOBYMSISDN）
+          - 累计项管理
+            - 签约累计项（ADD PACCUM）
+            - 查询累计项（LST PACCUM）
+            - 清除累计项值（CLR PACCUM）
+            - 去签约累计项（RMV PACCUM）
+          - 套餐管理
+            - 删除签约套餐信息（RMV PSRVPKG）
+            - 修改签约套餐信息（MOD PSRVPKG）
+            - 用户签约套餐（ADD PSRVPKG）
+            - 查询用户签约套餐（LST PSRVPKG）
+          - M2M用户管理
+            - 查询M2M用户列表（LST PM2MUSERLIST）
+            - 设置M2M虚拟配额（SET PM2MSHQUOTA）
+            - 修改组用户为M2M用户（MOD PGRPTOM2MUSER）
+          - 组用户管理
+            - 设置组用户虚拟配额（SET PGRPSUBVIRTUALQUOTA）
+            - 解散企业组（RMV PGROUP）
+        - 全局数据命令组
+          - 系统管理
+            - 查询操作日志（LST PLOG）
+            - 删除营帐虚拟运营商号段（RMV PMVNONSP）
+            - 查询号段配置信息（LST NSPREFIX）
+            - 添加号段配置信息（ADD NSPREFIX）
+            - 批量删除签约记录（CON PBATRMVSRV）
+            - 查询营帐虚拟运营商号段（LST PMVNONSP）
+            - 修改用户签约数据（MOD PSUBVER）
+            - 查询用户数据（LST PSUBDATA）
+            - 查询历史通知记录数（LST PNTFINFO）
+            - 删除号段配置信息（RMV NSPREFIX）
+            - 添加营帐虚拟运营商号段（ADD PMVNONSP）
+          - 系统参数管理
+            - 查询系统参数（LST PSYSPARA）
+            - 设置系统参数（SET PSYSPARA）
+      - UDM业务管理
+        - 模板管理
+          - 优化GPRS/EPS模板
+            - 查询优化GPRS/EPS模板(LST OPTGPRSTPL)
+            - 增加优化GPRS/EPS模板(ADD OPTGPRSTPL)
+            - 修改优化GPRS/EPS模板(MOD OPTGPRSTPL)
+            - 删除优化GPRS/EPS模板(RMV OPTGPRSTPL)
+          - 5G共享数据模板管理
+            - 增加5G共享数据模板(ADD SHRDATATPL)
+            - 查询5G共享数据模板(LST SHRDATATPL)
+            - 修改5G共享数据模板(MOD SHRDATATPL)
+            - 删除5G共享数据模板(RMV SHRDATATPL)
+          - CAMEL漫游协议模板
+            - 删除CAMEL漫游模板(RMV CAMELROAMTPL)
+            - 查询CAMEL漫游模板(LST CAMELROAMTPL)
+            - 修改CAMEL漫游模板(MOD CAMELROAMTPL)
+            - 增加CAMEL漫游模板(ADD CAMELROAMTPL)
+          - EPS模板
+            - 删除EPSAPNQOS模板(RMV EPSAPNQOSTPL)
+            - 查询EPSAPNQOS模板(LST EPSAPNQOSTPL)
+            - 修改EPSAPNQOS模板(MOD EPSAPNQOSTPL)
+            - 增加EPSAPNQOS模板(ADD EPSAPNQOSTPL)
+          - 5G禁止区域模板管理
+            - 查询5G禁止区域模板管理（LST FORBIDAREATPL）
+            - 修改5G禁止区域模板管理（MOD FORBIDAREATPL）
+            - 增加5G禁止区域模板管理（ADD FORBIDAREATPL）
+            - 删除5G禁止区域模板管理（RMV FORBIDAREATPL）
+          - CAMEL模板
+            - NT-U-CSI模板
+              - 增加NT-U-CSI模板(ADD NTUCSITPL)
+              - 修改NT-U-CSI模板(MOD NTUCSITPL)
+              - 删除NT-U-CSI模板(RMV NTUCSITPL)
+              - 查询NT-U-CSI模板(LST NTUCSITPL)
+            - U-CSI模板
+              - 查询U-CSI模板(LST UCSITPL)
+              - 删除U-CSI模板(RMV UCSITPL)
+              - 增加U-CSI模板(ADD UCSITPL)
+              - 修改U-CSI模板(MOD UCSITPL)
+            - M-CSI模板
+              - 增加M-CSI模板(ADD MCSITPL)
+              - 修改M-CSI模板(MOD MCSITPL)
+              - 查询M-CSI模板(LST MCSITPL)
+              - 删除M-CSI模板(RMV MCSITPL)
+            - O-CSI模板
+              - 查询O-CSI模板(LST OCSITPL)
+              - 增加O-CSI模板(ADD OCSITPL)
+              - 删除O-CSI模板(RMV OCSITPL)
+              - 修改O-CSI模板(MOD OCSITPL)
+            - GPRS-CSI模板
+              - 增加GPRS-CSI模板(ADD GPRSCSITPL)
+              - 查询GPRS-CSI模板(LST GPRSCSITPL)
+              - 删除GPRS-CSI模板(RMV GPRSCSITPL)
+              - 修改GPRS-CSI模板(MOD GPRSCSITPL)
+            - LU-CSI模板
+              - 查询LU-CSI模板(LST LUCSITPL)
+              - 删除LU-CSI模板(RMV LUCSITPL)
+              - 修改LU-CSI模板(MOD LUCSITPL)
+              - 增加LU-CSI模板(ADD LUCSITPL)
+            - VT-CSI模板
+              - 修改VT-CSI模板(MOD VTCSITPL)
+              - 查询VT-CSI模板(LST VTCSITPL)
+              - 删除VT-CSI模板(RMV VTCSITPL)
+              - 增加VT-CSI模板(ADD VTCSITPL)
+            - T-CSI模板
+              - 删除T-CSI模板(RMV TCSITPL)
+              - 增加T-CSI模板(ADD TCSITPL)
+              - 修改T-CSI模板(MOD TCSITPL)
+              - 查询T-CSI模板(LST TCSITPL)
+            - SS-CSI模板
+              - 增加SS-CSI模板(ADD SSCSITPL)
+              - 修改SS-CSI模板(MOD SSCSITPL)
+              - 查询SS-CSI模板(LST SSCSITPL)
+              - 删除SS-CSI模板(RMV SSCSITPL)
+            - D-CSI模板
+              - 删除D-CSI模板(RMV DCSITPL)
+              - 查询D-CSI模板(LST DCSITPL)
+              - 增加D-CSI模板(ADD DCSITPL)
+              - 修改D-CSI模板(MOD DCSITPL)
+            - SMS-CSI模板
+              - 删除SMS-CSI模板(RMV SMSCSITPL)
+              - 修改SMS-CSI模板(MOD SMSCSITPL)
+              - 增加SMS-CSI模板(ADD SMSCSITPL)
+              - 查询SMS-CSI模板(LST SMSCSITPL)
+          - Diameter漫游限制模板
+            - 查询Diameter漫游限制模板(LST DIAMRRTPL)
+            - 增加Diameter漫游限制模板(ADD DIAMRRTPL)
+            - 修改Diameter漫游限制模板(MOD DIAMRRTPL)
+            - 设置Diameter漫游限制模板的缺省漫游限制状态(SET DEFDIAMRRRULE)
+            - 删除Diameter漫游限制模板(RMV DIAMRRTPL)
+          - APN模板
+            - 修改APN模板(MOD APNTPL)
+            - 查询APN模板(LST APNTPL)
+            - 删除APN模板(RMV APNTPL)
+            - 增加APN模板(ADD APNTPL)
+          - CAMEL限制业务键模板
+            - 删除CAMEL限制业务键模板(RMV CAMELRESSKTPL)
+            - 修改CAMEL限制业务键模板(MOD CAMELRESSKTPL)
+            - 增加CAMEL限制业务键模板(ADD CAMELRESSKTPL)
+            - 查询CAMEL限制业务键模板(LST CAMELRESSKTPL)
+          - VLR/SGSN漫游限制模板
+            - 删除VLR/SGSN漫游限制模板(RMV VSLIST)
+            - 设置VLR/SGSN漫游限制模板的缺省漫游限制状态(SET DEFVSLIST)
+            - 修改VLR/SGSN漫游限制模板(MOD VSLIST)
+            - 查询VLR/SGSN漫游限制模板(LST VSLIST)
+            - 增加VLR/SGSN漫游限制模板(ADD VSLIST)
+          - PS模板
+            - 删除PSAPNQOS模板(RMV PSAPNQOSTPL)
+            - 增加PSAPNQOS模板(ADD PSAPNQOSTPL)
+            - 修改PSAPNQOS模板(MOD PSAPNQOSTPL)
+            - 查询PSAPNQOS模板(LST PSAPNQOSTPL)
+          - LCS模板
+            - 增加LCS模板(ADD LCSTPL)
+            - 查询LCS模板(LST LCSTPL)
+            - 修改LCS模板(MOD LCSTPL)
+            - 删除LCS模板(RMV LCSTPL)
+          - EPS QoS模板
+            - 查询EPS QoS模板(LST EPSQOSTPL)
+            - 增加EPS QoS模板(ADD EPSQOSTPL)
+            - 修改EPS QoS模板(MOD EPSQOSTPL)
+            - 删除EPS QoS模板(RMV EPSQOSTPL)
+          - MAP消息地址过滤业务模板
+            - 查询MAP消息地址过滤模板(LST MAPADDRRESTPL)
+            - 修改MAP消息地址过滤模板(MOD MAPADDRRESTPL)
+            - 增加MAP消息地址过滤模板(ADD MAPADDRRESTPL)
+            - 删除MAP消息地址过滤模板(RMV MAPADDRRESTPL)
+          - CAMEL查询协议模板
+            - 增加CAMEL查询模板(ADD CAMELINTERTPL)
+            - 删除CAMEL查询模板(RMV CAMELINTERTPL)
+            - 查询CAMEL查询模板(LST CAMELINTERTPL)
+            - 修改CAMEL查询模板(MOD CAMELINTERTPL)
+          - DNN替换规则模板
+            - 删除DNN替换规则模板(RMV DNNREPRULETPL)
+            - 增加DNN替换规则模板(ADD DNNREPRULETPL)
+            - 修改DNN替换规则模板(MOD DNNREPRULETPL)
+            - 查询DNN替换规则模板(LST DNNREPRULETPL)
+          - 5GS DNN QoS模板管理
+            - 删除5GS DNN QoS模板(RMV DNNQOSTPL)
+            - 查询5GS DNN QoS模板(LST DNNQOSTPL)
+            - 增加5GS DNN QoS模板(ADD DNNQOSTPL)
+            - 修改5GS DNN QoS模板(MOD DNNQOSTPL)
+          - 5G业务区域信息模板管理
+            - 删除5G业务区域信息模板(RMV SERAREATPL)
+            - 增加5G业务区域信息模板(ADD SERAREATPL)
+            - 修改5G业务区域信息模板(MOD SERAREATPL)
+            - 查询5G业务区域信息模板(LST SERAREATPL)
+          - NCC模板
+            - 增加NCC模板(ADD NCCTPL)
+            - 查询5G NCC模板(LST NGSNCCTPL)
+            - 删除5G NCC模板(RMV NGSNCCTPL)
+            - 查询NCC模板(LST NCCTPL)
+            - 修改5G NCC模板(MOD NGSNCCTPL)
+            - 修改NCC模板(MOD NCCTPL)
+            - 增加5G NCC模板(ADD NGSNCCTPL)
+            - 删除NCC模板(RMV NCCTPL)
+          - EPS用户模板管理
+            - 查询EPS用户模板（LST EPSUSERTPL）
+            - 删除EPS用户模板（RMV EPSUSERTPL）
+            - 增加EPS用户模板（ADD EPSUSERTPL）
+            - 修改EPS用户模板（MOD EPSUSERTPL）
+          - 5G业务限制模板管理
+            - 删除5G业务限制模板(RMV NGCSERRESTTPL)
+            - 增加5G业务限制模板(ADD NGCSERRESTTPL)
+            - 修改5G业务限制模板(MOD NGCSERRESTTPL)
+            - 查询5G业务限制模板(LST NGCSERRESTTPL)
+          - 业务区域限制模板
+            - 删除业务区域限制模板(RMV OKSCTPL)
+            - 查询业务区域限制模板(LST OKSCTPL)
+            - 修改业务区域限制模板(MOD OKSCTPL)
+            - 增加业务区域限制模板(ADD OKSCTPL)
+          - CAMEL能力模板
+            - 增加CAMEL能力模板(ADD CAMELCAPTPL)
+            - 修改CAMEL能力模板(MOD CAMELCAPTPL)
+            - 查询CAMEL能力模板(LST CAMELCAPTPL)
+            - 删除CAMEL能力模板(RMV CAMELCAPTPL)
+          - 组ID模板
+            - 查询组ID模板(LST GROUPIDTPL)
+            - 修改组ID模板(MOD GROUPIDTPL)
+            - 删除组ID模板(RMV GROUPIDTPL)
+            - 增加组ID模板(ADD GROUPIDTPL)
+          - APN运营商标识符模板
+            - 修改APN运营商标识符模板(MOD APNOITPL)
+            - 删除APN运营商标识符模板(RMV APNOITPL)
+            - 增加APN运营商标识符模板(ADD APNOITPL)
+            - 查询APN运营商标识符模板(LST APNOITPL)
+          - 防欺诈模板
+            - 查询防欺诈模板(LST FRAUDTPL)
+            - 增加防欺诈模板(ADD FRAUDTPL)
+            - 删除防欺诈模板(RMV FRAUDTPL)
+            - 修改防欺诈模板(MOD FRAUDTPL)
+          - CSI替代模板
+            - 查询CSI替代模板(LST CSIREPTPL)
+            - 设置CSI替代模板(SET CSIREPTPL)
+          - QoS模板
+            - 查询QoS模板(LST QOSTPL)
+            - 增加QoS模板(ADD QOSTPL)
+            - 删除QoS模板(RMV QOSTPL)
+            - 修改QoS模板(MOD QOSTPL)
+          - 5G SMDATA模板管理
+            - 删除5G SMDATA模板(RMV SMDATATPL)
+            - 查询5G SMDATA模板(LST SMDATATPL)
+            - 修改5G SMDATA模板(MOD SMDATATPL)
+            - 增加5G SMDATA模板(ADD SMDATATPL)
+          - 区域漫游模板
+            - 删除RR模板(RMV RRTPL)
+            - 修改RR模板(MOD RRTPL)
+            - 查询RR模板(LST RRTPL)
+            - 设置RR模板(ADD RRTPL)
+          - 业务下发模板
+            - 查询业务下发模板(LST RSITPL)
+            - 增加业务下发模板(ADD RSITPL)
+            - 删除业务下发模板(RMV RSITPL)
+            - 修改业务下发模板(MOD RSITPL)
+          - PS用户模板管理
+            - 查询PS用户模板(LST PSUSERTPL)
+            - 删除PS用户模板(RMV PSUSERTPL)
+            - 增加PS用户模板(ADD PSUSERTPL)
+            - 修改PS用户模板(MOD PSUSERTPL)
+          - PLMN模板
+            - 删除PLMN区域漫游模板(RMV PLMNTPL)
+            - 增加PLMN区域漫游模板(ADD PLMNTPL)
+            - 修改PLMN区域漫游模板(MOD PLMNTPL)
+            - 查询PLMN区域漫游模板(LST PLMNTPL)
+          - 业务限制模板
+            - 查询业务限制模板(LST SERRESTTPL)
+            - 删除业务限制模板(RMV SERRESTTPL)
+            - 增加业务限制模板(ADD SERRESTTPL)
+            - 修改业务限制模板(MOD SERRESTTPL)
+          - VLR/SGSN漫游区域模板
+            - 查询VLR/SGSN漫游区域模板(LST VSAREALIST)
+            - 增加VLR/SGSN漫游区域模板(ADD VSAREALIST)
+            - 删除VLR/SGSN漫游区域模板(RMV VSAREALIST)
+            - 修改VLR/SGSN漫游区域模板(MOD VSAREALIST)
+          - ETCSI转换模板
+            - 设置ETCSI转换模板(SET ETCSICONVERTPL)
+            - 查询ETCSI转换模板(LST ETCSICONVERTPL)
+          - NGC漫游限制模板管理
+            - 增加NGC漫游限制模板操作(ADD NGCRRNODETPL)
+            - 修改NGC漫游限制模板操作(MOD NGCRRNODETPL)
+            - 删除NGC漫游限制模板操作(RMV NGCRRNODETPL)
+            - 设置NGC漫游限制模板的缺省漫游限制状态(SET DEFNGCRRRULE)
+            - 查询NGC漫游限制模板操作(LST NGCRRNODETPL)
+          - 开户模板
+            - 修改开户模板(MOD SUBTPL)
+            - 查询开户模板(LST SUBTPL)
+            - 删除开户模板(RMV SUBTPL)
+            - 增加开户模板(ADD SUBTPL)
+          - 5G QoS模板管理
+            - 增加5G QoS模板(ADD NGCQOSTPL)
+            - 修改5G QoS模板(MOD NGCQOSTPL)
+            - 删除5G QoS模板(RMV NGCQOSTPL)
+            - 查询5G QoS模板(LST NGCQOSTPL)
+          - SCP地址模板
+            - 修改SCP地址模板(MOD SCPTPL)
+            - 查询SCP地址模板(LST SCPTPL)
+            - 增加SCP地址模板(ADD SCPTPL)
+            - 删除SCP地址模板(RMV SCPTPL)
+          - 5G业务下发模板
+            - 增加5G业务下发模板(ADD NGCRSITPL)
+            - 修改5G业务下发模板(MOD NGCRSITPL)
+            - 删除5G业务下发模板(RMV NGCRSITPL)
+            - 查询5G业务下发模板(LST NGCRSITPL)
+          - NGC漫游限制区域模板管理
+            - 查询NGC漫游限制区域模板(LST NGCRRAREATPL)
+            - 增加NGC漫游限制区域模板(ADD NGCRRAREATPL)
+            - 修改NGC漫游限制区域模板(MOD NGCRRAREATPL)
+            - 删除NGC漫游限制区域模板(RMV NGCRRAREATPL)
+          - SMS-Route模板
+            - 修改SMS-Route模板(MOD SMSROUTETPL)
+            - 查询SMS-Route模板(LST SMSROUTETPL)
+            - 增加SMS-Route模板(ADD SMSROUTETPL)
+            - 删除SMS-Route模板(RMV SMSROUTETPL)
+          - 5GS用户模板管理
+            - 删除5GS用户模板(RMV NGSUSERTPL)
+            - 增加5GS用户模板(ADD NGSUSERTPL)
+            - 查询5GS用户模板(LST NGSUSERTPL)
+            - 修改5GS用户模板(MOD NGSUSERTPL)
+          - GPRS模板
+            - 增加GPRS模板(ADD GPRSTPL)
+            - 修改GPRS模板(MOD GPRSTPL)
+            - 删除GPRS模板(RMV GPRSTPL)
+            - 查询GPRS模板(LST GPRSTPL)
+          - ISDNPRE/GT号码模板
+            - 删除ISDNPRE/GT号码模板(RMV ISDNPREGT)
+            - 修改ISDNPRE/GT号码模板(MOD ISDNPREGT)
+            - 增加ISDNPRE/GT号码模板(ADD ISDNPREGT)
+            - 查询ISDNPRE/GT号码模板(LST ISDNPREGT)
+          - OFA模板
+            - 查询OFA模板(LST OFATPL)
+            - 增加OFA模板(ADD OFATPL)
+            - 修改OFA模板(MOD OFATPL)
+            - 删除OFA模板(RMV OFATPL)
+        - 用户管理
+          - 用户PID管理
+            - 查询用户的归属分区(LST USERPID)
+            - 修改用户的归属分区(MOD USERPID)
+          - 用户统计
+            - 查询用户数据(LST SUBDATA)
+            - 批量查询用户数据(LST CONSUBDATA)
+          - 多样性命令
+            - 查询格式1用户数据(LST SUBBYFORMAT1)
+          - 改号
+            - 删除改号表数据(RMV CHANGEDISDN)
+            - 改号（MOD ISDN）
+          - 用户数据查询
+            - 查询用户动态数据(LST DYNSUB)
+            - 查询CMCC用户静态数据(LST CMCCSUB)
+            - 查询用户静态数据(LST SUB)
+            - 查询终端状态及位置信息(GET TERMSTATE)
+            - 查询用户开户时间(LST CREATETIME)
+          - IMSI用户路由配置
+            - 增加IMSI用户路由数据(ADD IMSIRTSUB)
+            - 修改IMSI用户路由数据(MOD IMSIRTSUB)
+            - 查询IMSI用户路由数据(LST IMSIRTSUB)
+            - 删除IMSI用户路由数据(RMV IMSIRTSUB)
+          - IMSI/MSISDN管理
+            - 查询MSISDN（LST ISDN）
+            - 查询IMSI(LST IMSI)
+          - 锁管理
+            - 修改用户申请锁(MOD SABLCK)
+            - 查询用户申请锁(LST SABLCK)
+            - 修改GPRS锁(MOD GPRSLCK)
+            - 查询LCK锁(LST LCK)
+            - 修改LCK锁(MOD LCK)
+            - 查询GPRS锁(LST GPRSLCK)
+          - 开户
+            - 开户(ADD SUB)
+            - 多MSISDN用户开户(SET MULTISDN)
+            - 统一模板开户(ADD TPLUSCSUB)
+            - 增加VoWIFI/VoLTE辅卡（ADD SCARD）
+            - CSPS开户(ADD CSPSSUB)
+            - 模板开户(ADD TPLSUB)
+            - CSPS模板开户(ADD TPLCSPSSUB)
+          - 5G签约自动迁移PID管理
+            - 查询4升5迁移指令PID规则(LST SINGLEUSERMOVEPIDS)
+            - 删除4升5迁移指令PID规则(RMV SINGLEUSERMOVEPIDS)
+            - 增加4升5迁移指令PID规则(ADD SINGLEUSERMOVEPIDS)
+          - 销户
+            - 统一销户(RMV USCSUB)
+            - 销户(RMV SUB)
+            - CSPS销户(RMV CSPSSUB)
+          - 短消息下发路径
+            - 查询短消息下发路径(LST SMDP)
+            - 修改短消息下发路径(MOD SMDP)
+          - 用户类型
+            - 查询用户类型(LST CATEGORY)
+            - 修改用户类型(MOD CATEGORY)
+          - APN信息管理
+            - 新增或修改APN信息(SET APNLIST)
+            - 查询APN信息(LST APNLIST)
+          - VLR号码
+            - 修改VLR号码(MOD VLRNUM)
+            - 查询VLR号码(LST VLRNUM)
+          - 用户全局计费特性管理
+            - 查询用户全局计费特性(LST CCGLOBAL)
+            - 修改用户全局计费特性(MOD CCGLOBAL)
+          - 网络接入模式
+            - 查询网络接入模式(LST NAM)
+            - 修改网络接入模式(MOD NAM)
+          - MME地址管理
+            - 修改MME地址信息(MOD MMEINFO)
+            - 查询MME地址信息(LST MMEINFO)
+          - 补卡
+            - 补卡(MOD IMSI)
+          - S4SGSN地址管理
+            - 查询S4SGSN地址信息(LST S4SGSNINFO)
+            - 修改S4SGSN地址信息(MOD S4SGSNINFO)
+          - SID管理
+            - 查询SID与IMSI对应关系(LST SIDIMSI)
+            - 设置新SID(SET NEWSID)
+          - 用户数据修改管理
+            - 模板修改用户数据（MOD TPLSUB）
+          - SGSN号码
+            - 修改SGSN号码(MOD SGSNNUM)
+            - 查询SGSN号码(LST SGSNNUM)
+          - MSC号码
+            - 查询MSC号码(LST MSCNUM)
+            - 修改MSC号码(MOD MSCNUM)
+        - 全局数据管理
+          - 5G虚拟网络组管理
+            - 创建5G虚拟网络组 (ADD VNGROUP)
+            - 删除5G虚拟网络组 (RMV VNGROUP)
+            - 修改5G虚拟网络组 (MOD VNGROUP)
+            - 查询5G虚拟网络组 (LST VNGROUP)
+          - 增强VLR/SGSN漫游限制
+            - 查询增强VLR/SGSN漫游限制(LST ERR)
+            - 设置增强VLR/SGSN漫游限制(MOD ERR)
+            - 删除增强VLR/SGSN漫游限制(RMV ERR)
+          - SGSN类型
+            - 删除SGSN类型数据(RMV SGSNTYP)
+            - 增加SGSN类型数据(ADD SGSNTYP)
+            - 查询SGSN类型数据(LST SGSNTYP)
+            - 修改SGSN类型数据(MOD SGSNTYP)
+          - IMSI与ADD业务数据配置
+            - 查询IMSI与ADD业务数据(LST IMSIADD)
+            - 设置IMSI与ADD业务数据(SET IMSIADD)
+          - MSISDN全局路由配置
+            - 删除MSISDN全局路由数据(RMV ISDNRTINFO)
+            - 查询MSISDN全局路由数据(LST ISDNRTINFO)
+            - 增加MSISDN全局路由数据(ADD ISDNRTINFO)
+            - 修改MSISDN全局路由数据(MOD ISDNRTINFO)
+          - EPS黑名单用户列表管理
+            - 查询EPS黑名单用户列表(LST BEPSLIST)
+            - 设置EPS黑名单用户列表(SET BEPSLIST)
+          - QoS模板替代配置
+            - 增加QoS模板替代配置(ADD REPQOSID)
+            - 查询QoS模板替代配置(LST REPQOSID)
+            - 删除QoS模板替代配置(RMV REPQOSID)
+            - 修改QoS模板替代配置(MOD REPQOSID)
+          - SOAP报文格式配置
+            - 设置SOAP报文格式(SET SOAPFORMAT)
+            - 查询SOAP报文格式(LST SOAPFORMAT)
+            - 删除SOAP报文格式(RMV SOAPFORMAT)
+          - 补充业务限制号段
+            - 查询补充业务限制号段(LST ODBSSRANGE)
+            - 设置补充业务限制号段(SET ODBSSRANGE)
+          - 短消息Short-Code类型
+            - 增加短消息Short-Code类型(ADD SCTYPE)
+            - 修改短消息Short-Code类型(MOD SCTYPE)
+            - 查询短消息Short-Code类型(LST SCTYPE)
+            - 删除短消息Short-Code类型(RMV SCTYPE)
+          - MSISDN与云分区数据配置
+            - 查询MSISDN与云分区数据(LST ISDNPID)
+            - 删除MSISDN与云分区数据(RMV ISDNPID)
+            - 增加MSISDN与云分区数据(ADD ISDNPID)
+          - IMSI全局路由配置
+            - 删除IMSI全局路由数据(RMV IMSIRTINFO)
+            - 修改IMSI全局路由数据(MOD IMSIRTINFO)
+            - 查询IMSI全局路由数据(LST IMSIRTINFO)
+            - 增加IMSI全局路由数据(ADD IMSIRTINFO)
+          - 主叫号码黑名单管理
+            - 增加主叫号码黑名单（ADD ANUMBLST）
+            - 查询主叫号码黑名单（LST ANUMBLST）
+            - 清理主叫号码黑名单（CLR ANUMBLST）
+            - 删除主叫号码黑名单（RMV ANUMBLST）
+          - 号码前缀和国家码数据管理
+            - 增加号码前缀和国家码数据(ADD NUMBERCCODE)
+            - 删除号码前缀和国家码数据(RMV NUMBERCCODE)
+            - 修改号码前缀和国家码数据(MOD NUMBERCCODE)
+            - 查询号码前缀和国家码数据(LST NUMBERCCODE)
+          - MSISDN与区号数据
+            - 修改MSISDN与区号数据(MOD ISDNARC)
+            - 查询MSISDN与区号数据(LST ISDNARC)
+            - 增加MSISDN与区号数据(ADD ISDNARC)
+            - 删除MSISDN与区号数据(RMV ISDNARC)
+          - 特殊MNC配置管理
+            - 增加特殊MNC配置(ADD SPECMNC)
+            - 查询特殊MNC配置(LST SPECMNC)
+            - 修改特殊MNC配置(MOD SPECMNC)
+            - 删除特殊MNC配置(RMV SPECMNC)
+          - IMEI变化轨迹异常用户检测条件管理
+            - 设置检测条件(SET DETECTCONDITION)
+            - 查询检测条件(LST DETECTCONDITION)
+          - EPS QoS模板替代配置
+            - 修改EPS QoS模板替代配置(MOD REPEPSQOSID)
+            - 增加EPS QoS模板替代配置(ADD REPEPSQOSID)
+            - 查询EPS QoS模板替代配置(LST REPEPSQOSID)
+            - 删除EPS QoS模板替代配置(RMV REPEPSQOSID)
+          - 地址限制
+            - 设置地址限制（SET BWADDR）
+            - 查询地址限制（LST BWADDR）
+          - 国家及地区代码
+            - 查询国家/地区码(LST CNTRCD)
+            - 删除国家/地区码(RMV CNTRCD)
+            - 修改国家/地区码(MOD CNTRCD)
+            - 增加国家/地区码(ADD CNTRCD)
+          - 5G自动开户黑白名单管理
+            - 查询5G自动开户黑白名单（LST NGCAUTOIMSIPRE）
+            - 修改5G自动开户黑白名单（MOD NGCAUTOIMSIPRE）
+          - 前转号码属性
+            - 增加前转号码数据(ADD FTNNCS)
+            - 查询前转号码数据(LST FTNNCS)
+            - 修改前转号码数据(MOD FTNNCS)
+            - 删除前转号码数据(RMV FTNNCS)
+          - PLMN区域漫游限制配置
+            - 设置全局PLMN区域漫游限制(MOD GLOBALPLMNRSZI)
+            - 查询全局PLMN区域漫游限制(LST GLOBALPLMNRSZI)
+            - 设置全局PLMN区域缺省漫游限制(SET DEFGLOBALPLMNRSZI)
+          - 缺省的NCC模板
+            - 查询缺省的NCC模板(LST DEFNCC)
+            - 设置缺省的NCC模板(SET DEFNCC)
+          - （Vo）LTE自动开户限制
+            - 查询（Vo）LTE自动开户IMEI前缀限制(LST LTEAUTOFORBIDIMEIPRE)
+            - 查询（Vo）LTE自动开户IMSI前缀限制(LST LTEAUTOFORBIDIMSIPRE)
+            - 增加或删除（Vo）LTE自动开户IMSI前缀限制(MOD LTEAUTOFORBIDIMSIPRE)
+            - 增加或删除（Vo）LTE自动开户IMEI前缀限制(MOD LTEAUTOFORBIDIMEIPRE)
+          - 可测试性增强
+            - 查询测试用户（LST TESTUSERLIST）
+            - 新增测试用户（ADD TESTUSERLIST）
+            - 删除测试号码（RMV TESTUSERLIST）
+          - 禁止前转号码
+            - 增加禁止前转号码(ADD FRFWDNO)
+            - 查询禁止前转号码(LST FRFWDNO)
+            - 删除禁止前转号码(RMV FRFWDNO)
+          - UDM业务参数
+            - 设置UDM业务(SET UDMSERV)
+            - 查询UDM业务(LST UDMSERV)
+          - VLR类型
+            - 删除VLR类型数据(RMV VLRTYP)
+            - 增加VLR类型数据(ADD VLRTYP)
+            - 查询VLR类型数据(LST VLRTYP)
+            - 修改VLR类型数据(MOD VLRTYP)
+          - MAP功能流程配置参数
+            - 设置MAP功能流程数据(SET MAPCONF)
+            - 查询MAP功能流程数据(LST MAPCONF)
+          - IWF IMSI号段属性配置
+            - 增加IMSI号段属性(ADD IWFIMSI)
+            - 删除IMSI号段属性(RMV IWFIMSI)
+            - 查询IMSI号段属性(LST IWFIMSI)
+            - 修改IMSI号段属性(MOD IWFIMSI)
+          - 被叫号码分析数据
+            - 增加被叫号码分析数据(ADD CALLEDNA)
+            - 删除被叫号码分析数据(RMV CALLEDNA)
+            - 修改被叫号码分析数据(MOD CALLEDNA)
+            - 查询被叫号码分析数据(LST CALLEDNA)
+          - Diameter业务实体管理
+            - 设置Diameter业务实体(SET DIAMSELIST)
+            - 查询Diameter业务实体(LST DIAMSELIST)
+          - TAI与ZC映射数据配置
+            - 删除TAI与ZC映射关系(RMV TAIZCLIST)
+            - 查询TAI与ZC映射关系(LST TAIZCLIST)
+            - 增加TAI与ZC映射关系(ADD TAIZCLIST)
+            - 修改TAI与ZC映射关系(MOD TAIZCLIST)
+          - ETCSI限制模板管理
+            - 查询ETCSI限制模板（LST ETCSIRESTTPL）
+            - 修改ETCSI限制模板（MOD ETCSIRESTTPL）
+            - 增加ETCSI限制模板（ADD ETCSIRESTTPL）
+            - 删除ETCSI限制模板（RMV ETCSIRESTTPL）
+          - USSD响应内容
+            - 修改USSD响应内容(MOD USSDSTR)
+            - 查询USSD响应内容(LST USSDSTR)
+          - 相邻TAI数据配置
+            - 删除相邻TAI关系(RMV TAILIST)
+            - 查询相邻TAI关系(LST TAILIST)
+            - 增加相邻TAI关系(ADD TAILIST)
+            - 修改相邻TAI关系(MOD TAILIST)
+          - 全局软参管理
+            - 设置全局软参(SET FUNCCONF)
+            - 查询全局软参(LST FUNCCONF)
+          - IMSI与云分区数据配置
+            - 查询IMSI与云分区数据(LST IMSIPID)
+            - 增加IMSI与云分区数据(ADD IMSIPID)
+            - 删除IMSI与云分区数据(RMV IMSIPID)
+          - 强制允许SK列表管理
+            - 查询强制允许SK列表(LST SKALLOWLIST)
+            - 配置强制允许SK列表(SET SKALLOWLIST)
+          - 主叫号码智能业务策略管理
+            - 删除主叫号码智能业务策略(RMV CALLINGCAMEL)
+            - 修改主叫号码智能业务策略(MOD CALLINGCAMEL)
+            - 增加主叫号码智能业务策略(ADD CALLINGCAMEL)
+            - 查询主叫号码智能业务策略(LST CALLINGCAMEL)
+          - PS的APN和EPS数据的对应关系配置
+            - 修改PS的APN和EPS数据对应关系(MOD PSAPNEPS)
+            - 删除PS的APN和EPS数据对应关系(RMV PSAPNEPS)
+            - 查询PS的APN和EPS数据对应关系(LST PSAPNEPS)
+            - 增加PS的APN和EPS数据对应关系(ADD PSAPNEPS)
+          - CSI限制列表
+            - 修改CSI限制列表(MOD CSIR)
+            - 查询CSI限制列表(LST CSIR)
+          - USSD控制数据
+            - 增加USSD控制数据(ADD USSDDAT)
+            - 修改USSD控制数据(MOD USSDDAT)
+            - 查询USSD控制数据(LST USSDDAT)
+            - 删除USSD控制数据(RMV USSDDAT)
+          - 外置AUC接口格式管理
+            - 查询与AUC接口格式(LST AUCFORMAT)
+            - 配置与AUC接口格式(SET AUCFORMAT)
+          - 云分区路由数据配置
+            - 查询云分区路由数据(LST SPRTINFO)
+            - 增加云分区路由数据(ADD SPRTINFO)
+            - 删除云分区路由数据(RMV SPRTINFO)
+            - 修改云分区路由数据(MOD SPRTINFO)
+          - 用户漫游限制
+            - 删除用户漫游限制(RMV HLRRR)
+            - 设置用户漫游限制(MOD HLRRR)
+            - 设置用户缺省漫游限制(SET DEFHLRRR)
+            - 查询用户漫游限制(LST HLRRR)
+          - Diameter对端类型管理
+            - 修改Diameter对端类型(MOD DPETYPE)
+            - 增加Diameter对端类型(ADD DPETYPE)
+            - 删除Diameter对端类型(RMV DPETYPE)
+            - 查询Diameter对端类型(LST DPETYPE)
+          - MAP业务参数
+            - 设置MAP业务(SET MAPSERV)
+            - 查询MAP业务(LST MAPSERV)
+          - ADSU鉴权算法配置
+            - 删除ADSU鉴权算法配置(RMV ALGTAG)
+            - 增加ADSU鉴权算法配置(ADD ALGTAG)
+            - 查询ADSU鉴权算法配置(LST ALGTAG)
+          - 短消息转发平台地址管理
+            - 删除短消息转发平台地址(RMV SMFWDPLT)
+            - 修改短消息转发平台地址(MOD SMFWDPLT)
+            - 增加短消息转发平台地址(ADD SMFWDPLT)
+            - 查询短消息转发平台地址(LST SMFWDPLT)
+          - NGS对端类型管理
+            - 修改NGS对端类型（MOD NGSPETYPE）
+            - 查询NGS对端类型（LST NGSPETYPE）
+            - 删除NGS对端类型（RMV NGSPETYPE）
+            - 增加NGS对端类型（ADD NGSPETYPE）
+          - APN限制模板管理
+            - 查询APN限制模板(LST APNRESTTPL)
+            - 删除APN限制模板(RMV APNRESTTPL)
+            - 增加APN限制模板(ADD APNRESTTPL)
+            - 修改APN限制模板(MOD APNRESTTPL)
+          - 缺省EPS QoS模板替代配置
+            - 设置缺省EPS QoS模板替代配置(SET DEFREPEPSQOSID)
+            - 查询缺省EPS QoS模板替代配置(LST DEFREPEPSQOSID)
+          - 透明数据同步规则管理
+            - 删除透明数据同步规则(RMV REPSYNCRULE)
+            - 查询透明数据同步规则(LST  REPSYNCRULE)
+            - 增加透明数据同步规则(ADD REPSYNCRULE)
+          - 服务号码管理
+            - 查询服务号码(LST OSNNUM)
+            - 删除服务号码(RMV OSNNUM)
+            - 增加服务号码(ADD OSNNUM)
+            - 修改服务号码(MOD OSNNUM)
+          - 操作员号段权限管理
+            - 增加操作员号段权限(ADD OPRANGE)
+            - 修改操作员号段权限(MOD OPRANGE)
+            - 查询操作员号段权限(LST OPRANGE)
+            - 删除操作员号段权限(RMV OPRANGE)
+          - CS退网配置管理
+            - 查询退网区域（LST DETACHREGION）
+            - 删除退网区域（RMV DETACHREGION）
+            - 新增退网区域（ADD DETACHREGION）
+          - 国内长途区号
+            - 删除国内长途区号(RMV DAREA)
+            - 查询国内长途区号(LST DAREA)
+            - 修改国内长途区号(MOD DAREA)
+            - 增加国内长途区号(ADD DAREA)
+          - 外置AUC错误码映射管理
+            - 新增外置AUC错误码映射(ADD AUCERRORCODE)
+            - 查询外置AUC错误码映射(LST AUCERRORCODE)
+            - 删除外置AUC错误码映射(RMV AUCERRORCODE)
+          - 支持一卡多号的VLR信息管理
+            - 查询支持一卡多号的VLR信息(LST OCMNVLR)
+            - 增加支持一卡多号的VLR信息(ADD OCMNVLR)
+            - 删除支持一卡多号的VLR信息(RMV OCMNVLR)
+          - 号段组管理
+            - 修改号段组(MOD NUMGROUP)
+            - 删除号段组(RMV NUMGROUP)
+            - 增加号段组(ADD NUMGROUP)
+            - 查询号段组(LST NUMGROUP)
+          - CSI号码前缀匹配
+            - 查询CSI前缀号码匹配(LST CSIPREFIX)
+            - 修改CSI前缀号码匹配(MOD CSIPREFIX)
+          - 计费特性和EPS数据对应关系配置
+            - 增加计费特性和EPS数据对应关系(ADD CCEPS)
+            - 查询计费特性和EPS数据对应关系(LST CCEPS)
+            - 修改计费特性和EPS数据对应关系(MOD CCEPS)
+            - 删除计费特性和EPS数据对应关系(RMV CCEPS)
+          - 前转号段限制
+            - 设置前转号段限制(SET BWFTN)
+            - 查询前转号段限制(LST BWFTN)
+            - 校验前转号段限制(CHK BWFTN)
+          - IMSI与区号数据
+            - 查询IMSI与区号数据(LST IMSIARC)
+            - 增加IMSI与区号数据(ADD IMSIARC)
+            - 删除IMSI与区号数据(RMV IMSIARC)
+            - 修改IMSI与区号数据(MOD IMSIARC)
+          - 私有业务的业务码配置
+            - 设置私有业务的业务码（SET ESERCODE）
+            - 查询私有业务的业务码（LST ESERCODE）
+          - 本局信息
+            - 设置本局数据(SET INTROFF)
+            - 查询本局数据(LST INTROFF)
+          - Service Partition虚拟HLR最大用户数管理
+            - 查询Service Partition虚拟HLR最大用户数(LST SPHLRUSERNUM)
+            - 修改Service Partition虚拟HLR最大用户数(MOD SPHLRUSERNUM)
+          - ADSU平台地址配置
+            - 查询平台地址配置(LST ADSUADDR)
+            - 修改平台地址配置(MOD ADSUADDR)
+            - 删除平台地址配置(RMV ADSUADDR)
+          - COR数据
+            - 修改COR数据(MOD COR)
+            - 查询COR数据(LST COR)
+          - 数据变更通知分发管理
+            - 删除数据变更通知分发的规则(RMV NOTIFYRULE)
+            - 增加数据变更通知分发的规则(ADD NOTIFYRULE)
+            - 查询数据变更通知分发的规则(LST NOTIFYRULE)
+          - 智能业务类型
+            - 修改SKTYPE(MOD SKTYPE)
+            - 查询SKTYPE(LST SKTYPE)
+            - 删除SKTYPE(RMV SKTYPE)
+            - 增加SKTYPE(ADD SKTYPE)
+          - 高价值业务配置
+            - 查询高价值业务（LST GJZCONF）
+            - 设置高价值业务（SET GJZCONF）
+          - HLRSN与云分区数据配置
+            - 增加HLRSN与云分区数据(ADD HLRSNPID)
+            - 查询HLRSN与云分区数据(LST HLRSNPID)
+            - 删除HLRSN与云分区数据(RMV HLRSNPID)
+          - 特殊前转号码限制
+            - 查询特殊前转号码限制（LST RESSPECFTN）
+            - 设置特殊前转号码限制（SET RESSPECFTN）
+          - 系统不支持业务的替代功能
+            - 设置系统不支持业务的替代功能(SET NONSUPHND)
+            - 查询系统不支持业务的替代功能(LST NONSUPHND)
+          - Service Partition本局信息
+            - 查询Service Partition本局数据(LST SPINTROFF)
+            - 设置Service Partition本局数据(SET SPINTROFF)
+          - 前转号码变换
+            - 查询前转号码变换(LST FTNTRANS)
+            - 设置前转号码变换(SET FTNTRANS)
+          - 割接策略模板配置
+            - 查询割接策略模板(LST MIGPOLICYCFG)
+            - 删除割接策略模板(RMV MIGPOLICYCFG)
+            - 修改割接策略模板(MOD MIGPOLICYCFG)
+            - 增加割接策略模板(ADD MIGPOLICYCFG)
+          - 前转号码规整增强
+            - 设置短号码变换(SET SHORTNUM)
+            - 查询短号码变换(LST SHORTNUM)
+          - 容灾探测数据配置
+            - 设置容灾探测配置数据(SET DETECTCFG)
+            - 查询容灾探测配置数据(LST DETECTCFG)
+          - Diameter漫游限制配置
+            - 设置全局Diameter缺省漫游限制(SET DEFGLOBALDIAMRRS)
+            - 查询全局Diameter漫游限制(LST GLOBALDIAMRRS)
+            - 设置全局Diameter漫游限制(MOD GLOBALDIAMRRS)
+          - 业务实体
+            - 查询业务实体(LST SELIST)
+            - 设置业务实体(SET SELIST)
+          - 一卡多号ISDN和IMSI映射关系管理
+            - 查询一卡多号ISDN和IMSI映射关系(LST OCMNISDN)
+            - 增加一卡多号ISDN和IMSI映射关系(ADD OCMNISDN)
+            - 删除一卡多号ISDN和IMSI映射关系(RMV OCMNISDN)
+          - 缺省前转通知主叫用户属性
+            - 查询缺省前转通知主叫方属性(LST DEFNCS)
+            - 设置缺省前转通知主叫方属性(SET DEFNCS)
+          - 增强智能配置
+            - 查询增强智能业务(LST EINCFG)
+            - 设置增强智能业务(SET EINCFG)
+        - 特色业务管理
+          - 呼叫重定向业务
+            - 查询CR业务(LST CR)
+            - 修改CR业务(MOD CR)
+          - 业务区域限制
+            - 修改业务区域限制(MOD OKSC)
+            - 查询业务区域限制签约数据(LST OKSC)
+          - CAPL业务管理
+            - 修改CAPL业务(MOD CAPL)
+            - 查询CAPL业务(LST CAPL)
+          - 本国回铃音业务
+            - 查询NRBT业务(LST NRBT)
+            - 修改NRBT业务(MOD NRBT)
+          - DND业务管理
+            - 查询DND业务(LST DND)
+            - 修改DND业务(MOD DND)
+          - 匿名呼叫拒绝业务
+            - 修改ACR业务(MOD ACR)
+            - 查询ACR业务(LST ACR)
+            - 激活ACR业务(ACT ACR)
+            - 去激活ACR业务(DEA ACR)
+          - ELCS业务管理
+            - 修改ELCS业务(MOD ELCS)
+            - 查询ELCS业务(LST ELCS)
+          - CPP业务
+            - 查询CPP业务(LST CPP)
+            - 修改CPP业务(MOD CPP)
+          - 修改用户的组属性
+            - 修改用户的组属性(MOD GRPUSERATTR)
+            - 修改GROUPSIM用户组成员(MOD GROUPUSER)
+            - 修改GROUPSIM用户组(MOD GROUPSIM)
+            - 查询GROUPSIM用户组(LST GROUPSIM)
+          - 短消息前转业务
+            - 修改短消息前转业务(MOD SMSCF)
+            - 查询短消息前转签约数据(LST SMSCF)
+            - 激活短消息前转业务(ACT SMSCF)
+          - 多SIM业务
+            - 修改多SIM业务(MOD MSIM)
+            - 查询多SIM业务(LST MSIM)
+          - SCPBWADDR业务管理
+            - 修改SCPBWADDR业务(MOD SCPBWADDR)
+            - 查询SCPBWADDR业务(LST SCPBWADDR)
+          - UUS业务
+            - 修改UUS业务(MOD UUS)
+            - 查询UUS业务(LST UUS)
+          - VMCC业务管理
+            - 修改VMCC业务(MOD VMCC)
+            - 查询VMCC业务(LST VMCC)
+          - 高价值用户业务
+            - 修改高价值业务标志（MOD GJZ）
+            - 查询高价值业务标志（LST GJZ）
+          - 功能号码寻址业务
+            - 查询FM业务数据(LST FM)
+            - 查询授权用户数据(LST AUTHUSER)
+            - 修改远端用户数据(MOD RMPY)
+            - 查询授权号段信息(LST AUTHRANGE)
+            - 修改授权用户数据(MOD AUTHUSER)
+            - 修改授权号段数据(MOD AUTHRANGE)
+            - 修改FM业务数据(MOD FM)
+            - 查询远端用户数据(LST RMPY)
+            - 修改FM登记数据(MOD FMREG)
+          - 多号码用户群组业务管理
+            - 修改多号码用户群组业务(MOD MNUG)
+            - 查询多号码用户群组业务(LST MNUG)
+          - 短消息闭锁
+            - 查询闭锁短消息业务(LST PREMSMS)
+            - 修改闭锁短消息业务(MOD PREMSMS)
+          - 计费区域业务管理
+            - 查询计费区域业务(LST CA)
+            - 修改计费区域业务(MOD CA)
+          - 默认OFA业务
+            - 修改默认OFA业务(MOD DEFAULTOFA)
+            - 查询默认OFA业务(LST DEFAULTOFA)
+          - COMISDN业务
+            - 查询用户的OWNISDN(LST OWNISDN)
+            - 查询COMISDN业务(LST COMISDN)
+            - 修改COMISDN业务(MOD COMISDN)
+          - 动态区域码绑定业务
+            - 查询小区锁定业务(LST ZCLOCK)
+            - 修改小区锁定业务(MOD ZCLOCK)
+            - 重置动态绑定的ZC信息(RESET BINDEDTAI)
+            - 查询动态绑定的ZC信息(LST DYNZC)
+          - 激活辅号码业务
+            - 激活辅号码业务(ACT ISDN)
+          - ICI业务
+            - 查询ICI业务(LST ICI)
+            - 修改ICI业务(MOD ICI)
+          - 个性化回铃音业务
+            - 查询RBT业务(LST RBT)
+            - 修改RBT业务(MOD RBT)
+          - 话音和可视双号码业务
+            - 查询VVDN业务(LST VVDN)
+            - 修改VVDN业务(MOD VVDN)
+          - 私有短信业务
+            - 修改用户签约私有短信业务(MOD NSMSIN)
+            - 查询用户签约的私有短信业务(LST NSMSIN)
+          - 平等接入业务
+            - 修改NAEA业务(MOD NAEA)
+            - 查询NAEA业务(LST NAEA)
+          - NIR业务
+            - 修改NIR业务(MOD NIR)
+            - 查询NIR业务(LST NIR)
+          - ALS业务管理
+            - 修改ALS号码补充业务(MOD ALSSUPP)
+            - 修改ALS ODB业务(MOD ALSODB)
+          - 双线路可选业务
+            - 修改ALS业务(MOD ALS)
+            - 查询ALS业务(LST ALS)
+          - 防欺诈业务管理
+            - 查询防欺诈业务(LST FRAUD)
+            - 修改防欺诈业务(MOD FRAUD)
+          - 短消息重定向业务
+            - 修改用户签约的SMS-Route模板ID(MOD SMSROUTE)
+            - 查询用户签约的SMS-Route模板ID(LST SMSROUTE)
+          - 增强路由业务
+            - 修改增强路由(MOD ROUTECATEGORY)
+            - 查询增强路由(LST ROUTECATEGORY)
+          - SPN业务管理
+            - 查询SPN业务（LST SPN）
+            - 修改SPN业务(MOD SPN)
+          - STE业务
+            - 查询STE业务(LST STE)
+            - 修改STE业务(MOD STE)
+          - PNP业务
+            - 查询PNP业务(LST NPNS)
+            - 修改PNP业务(MOD NPNS)
+          - Home Zone业务
+            - 修改Home Zone业务(MOD HZ)
+            - 查询Home Zone业务(LST HZ)
+          - MAP消息地址过滤业务
+            - 用户签约去签约MAP消息地址过滤模板（MOD MAPADDRRES）
+            - 查询用户签约的MAP消息地址过滤模板（LST MAPADDRRES）
+          - DNN/APN替换业务
+            - 查询DNN/APN替换业务(LST SXZW)
+            - 修改DNN/APN替换业务(MOD SXZW)
+          - 扩展增强路由业务
+            - 修改扩展增强路由(MOD EXEXROUTECATEGORY)
+            - 查询扩展增强路由(LST EXEXROUTECATEGORY)
+        - 系统管理
+          - 随机密钥管理
+            - 设置随机密钥功能(SET RANDOMKEY)
+            - 查询默认K2(LST DEFAULTK2SNO)
+            - 查询随机密钥功能(LST RANDOMKEY)
+            - 更新加密方式(UPG KEY)
+            - 设置默认K2(SET DEFAULTK2SNO)
+            - 设置全局存储密钥(SET GK2)
+            - 查询全局存储密钥(LST GK2)
+          - 业务条件批操作管理
+            - 查询业务条件批操作状态(CHK CONBATSTAT)
+            - 终止业务条件批操作(ABT CONBAT)
+            - 业务条件批操作（CONBAT）
+          - 自动批操作文件名称管理
+            - 修改自动批操作文件名称(MOD BATFILENAME)
+            - 添加自动批操作文件名称(ADD BATFILENAME)
+            - 删除自动批操作文件名称(RMV BATFILENAME)
+            - 查询自动批操作文件名称(LST BATFILENAME)
+          - 批操作管理
+            - 查询批操作状态(CHK BATSTAT)
+            - 终止批操作(ABT BAT)
+            - 批操作(BAT)
+        - 鉴权数据管理
+          - K7
+            - 删除K7(RMV K7)
+            - 查询K7(LST K7)
+            - 修改K7(MOD K7)
+            - 增加K7(ADD K7)
+            - 校验K7(CHK K7)
+          - AMF
+            - 查询AMF(LST AMF)
+            - 删除AMF(RMV AMF)
+            - 校验AMF配置中的C1~C5和R1~R5参数(CHK AMFCR)
+            - 增加AMF(ADD AMF)
+            - 修改AMF(MOD AMF)
+          - 私有密钥
+            - 删除私有密钥(RMV PRVTKEY)
+            - 查询私有密钥(LST PRVTKEY)
+            - 增加私有密钥(ADD PRVTKEY)
+            - 修改私有密钥(MOD PRVTKEY)
+          - OP
+            - 修改OP(MOD OP)
+            - 删除OP(RMV OP)
+            - 查询OP(LST OP)
+            - 增加OP(ADD OP)
+            - 校验OP(CHK OP)
+          - KI
+            - 校验KI(CHK KI)
+            - 异地加载KI(ADD CKI)
+            - 查询KI(LST KI)
+            - 查询鉴权数据校验值(LST AUCSUM)
+            - 删除KI(RMV KI)
+            - 加载KI(ADD KI)
+          - SM2密钥管理
+            - 删除SM2密钥（RMV SM2KEY）
+            - 查询SM2密钥（LST SM2KEY）
+            - 生成SM2密钥（GEN SM2KEY）
+          - K2
+            - 删除K2(RMV K2)
+            - 校验K2(CHK K2)
+            - 修改K2(MOD K2)
+            - 查询K2(LST K2)
+            - 增加K2(ADD K2)
+          - K4
+            - 查询K4(LST K4)
+            - 修改K4(MOD K4)
+            - 校验K4(CHK K4)
+            - 增加K4(ADD K4)
+            - 删除K4(RMV K4)
+          - SM2公钥管理
+            - 修改SM2公钥（MOD SM2PUBKEY）
+            - 查询SM2公钥（LST SM2PUBKEY）
+            - 增加SM2公钥（ADD SM2PUBKEY）
+            - 删除SM2公钥（RMV SM2PUBKEY）
+          - SQNINDINFO
+            - 删除SQN的IND分域配置(RMV SQNINDINFO)
+            - 修改SQN的IND分域配置(MOD SQNINDINFO)
+            - 查询SQN的IND分域配置(LST SQNINDINFO)
+            - 增加SQN的IND分域配置(ADD SQNINDINFO)
+          - 修改卡参数(MOD CARDPARA)
+          - 鉴权状态管理
+            - 查询AUC状态(LST AUCSTATUS)
+        - EPS数据管理
+          - UE级别EPS用户AMBR管理
+            - 查询UE级别EPS用户AMBR数据(LST EPSAMBR)
+            - 修改UE级别EPS用户AMBR数据(MOD EPSAMBR)
+          - UE应用类型数据管理
+            - 查询用户UE应用类型(LST UEUSAGETYPE)
+            - 修改用户UE应用类型(MOD UEUSAGETYPE)
+          - STNSR地址管理
+            - 查询用户STNSR地址(LST STNSR)
+            - 修改用户STNSR地址(MOD STNSR)
+          - NON-3GPP用户属性管理
+            - 修改NON-3GPP用户属性(MOD NONSUB)
+            - 查询NON-3GPP用户属性(LST NONSUB)
+          - 无线频率选择优先级管理
+            - 查询无线频率选择优先级(LST RFPRID)
+            - 修改无线频率选择优先级(MOD RFPRID)
+          - EPSODBPOS业务管理
+            - 查询EPS用户的ODBPOS业务(LST EPSODB)
+            - 修改EPS用户的ODBPOS业务(MOD EPSODB)
+          - UE级别APN运营商标识管理
+            - 查询UE级别APN运营商标识(LST EPSAPNOI)
+            - 修改UE级别APN运营商标识(MOD EPSAPNOI)
+        - EPS用户EGR业务管理
+          - 查询EPS用户EGR业务(LST EGR)
+          - EPS用户提供/撤销EGR业务(MOD EGR)
+        - 漫游限制业务管理
+          - Diameter漫游限制业务管理
+            - 修改Diameter漫游限制业务(MOD DIAMRRS)
+            - 查询Diameter漫游限制业务(LST DIAMRRS)
+          - VLR/SGSN漫游限制业务
+            - 查询VLR/SGSN漫游限制业务(LST VSRR)
+            - 修改VLR/SGSN漫游限制业务(MOD VSRR)
+          - 优选漫游限制业务
+            - 查询某个优选模板下对应网络漫游用户数（LST TPLROAMNUM）
+            - 修改优选漫游业务（MOD TPLROAMPER）
+            - 查询运营商的VLR/SGSN号码前缀(LST ROAMPREFIX)
+            - 删除PLMN信息（RMV PLMN）
+            - 查询优选漫游模板（LST ROAMPERTPL）
+            - 查询国家分组和运营商信息(LST ROAMPER)
+            - 查询优选漫游业务（LST TPLROAMPER）
+            - 查询PLMN信息（LST PLMN）
+            - 查询运营商的PLMN标识(LST ROAMPLMN)
+            - 查询对应网络漫游用户数(LST ROAMNUM)
+            - 配置运营商的PLMN标识(SET ROAMPLMN)
+            - 配置运营商的VLR/SGSN号码前缀(SET ROAMPREFIX)
+            - 设置国家分组中运营商的漫游比例(SET ROAMPER)
+            - 设置优选漫游模板（SET ROAMPERTPL）
+            - 修改PLMN信息（MOD PLMN）
+            - 增加PLMN信息（ADD PLMN）
+          - PLMN区域漫游业务管理
+            - 修改PLMN区域漫游业务(MOD PLMNRSZI)
+            - 查询PLMN区域漫游业务(LST PLMNRSZI)
+          - 区域漫游限制业务
+            - 修改区域漫游限制业务(MOD RSZI)
+            - 查询区域漫游限制业务(LST RSZI)
+          - RZONE业务
+            - 查询RZONE业务(LST RZONE)
+            - 修改RZONE业务(MOD RZONE)
+        - 网络维护管理
+          - 发送模拟Reset消息（SND RESET）
+          - 清除短消息地址列表（CLR SUBMWD）
+          - 发送模拟Update Location消息（SND UPL）
+          - 修改AAA动态信息（MOD AAAINFO）
+          - 发送模拟Reset Update Location消息（RST UPL）
+          - 校验用户数据一致性（CHK CONSY）
+          - 发送模拟Cancel Location消息(SND CANCELC)
+          - 发送模拟USSD Notify操作（SND FMNOTIFY）
+          - 获取Reset消息数据（GET RESETDATA）
+          - 指定Service Partition发送模拟Cancel Location消息（SND SPCANCEL）
+        - 容灾/虚拟HLR管理
+          - 增加HLR序列号(ADD HLRSN)
+          - 删除HLR序列号(RMV HLRSN)
+          - 修改HLR序列号(MOD HLRSN)
+          - 查询HLR序列号(LST HLRSN)
+        - 电信业务管理
+          - 短信息业务
+            - 修改SMSMO业务(MOD SMSMO)
+            - 修改SMSMT业务(MOD SMSMT)
+          - 传真业务
+            - 修改自动3类传真业务(MOD TS62)
+            - 修改语音与3类传真自动交替业务(MOD TS61)
+          - 语音业务
+            - 修改语音业务(MOD TELE)
+          - 查询电信业务(LST TS)
+          - 修改电信业务(MOD TS)
+        - EPS用户的AS订阅数据管理
+          - 查询用户的AS订阅数据信息(LST ASSUBDATA)
+        - CAMEL业务管理
+          - 修改SS-CSI业务(MOD SSCSI)
+          - 修改VT-CSI业务(MOD VTCSI)
+          - 修改O-CSI业务(MOD OCSI)
+          - 查询非模板CSI业务(LST NTCSI)
+          - 修改TIF-CSI业务(MOD TIFCSI)
+          - 修改非模板CSI业务(MOD NTCSI)
+          - 修改SMS-CSI业务(MOD SMSCSI)
+          - 修改M-CSI业务(MOD MCSI)
+          - 修改O-IM-CSI业务(MOD IMOCSI)
+          - 修改T-CSI业务(MOD TCSI)
+          - 查询CSI业务(LST CSI)
+          - 修改CSI-STATE业务(MOD CSISTATE)
+          - 修改NT-U-CSI业务(MOD NTUCSI)
+          - 修改VT-IM-CSI业务(MOD IMVTCSI)
+          - 修改U-CSI业务(MOD UCSI)
+          - 查询NT-U-CSI业务(LST NTUCSI)
+          - 修改D-CSI业务(MOD DCSI)
+          - 修改GPRS-CSI业务(MOD GPRSCSI)
+          - 修改CAMEL业务(MOD CAMEL)
+        - VBS业务管理
+          - 查询VBS业务(LST VBS)
+          - 模板修改VBS业务(MOD TPLVBS)
+          - 修改VBS业务(MOD VBS)
+        - PS业务管理
+          - 使用PSUSERTPL模板签约PS业务(MOD TPLPSSER)
+          - 查询PS业务(LST PSSER)
+          - 修改PS业务(MOD PSSER)
+        - 补充业务管理
+          - 其他补充业务
+            - 查询其他补充业务(LST OSS)
+            - 修改其他补充业务(MOD OSS)
+            - 实时计费通知业务
+              - 修改AOCC业务(MOD AOCC)
+              - 查询AOCC业务(LST AOCC)
+            - 显式呼叫转移业务
+              - 修改ECT业务(MOD ECT)
+              - 查询ECT业务(LST ECT)
+            - 多方通话业务
+              - 查询MPTY业务(LST MPTY)
+              - 修改MPTY业务(MOD MPTY)
+            - 呼叫等待业务
+              - 激活CW业务(ACT CWAIT)
+              - 查询CW业务(LST CWAIT)
+              - 修改CW业务(MOD CWAIT)
+              - 去激活CW业务(DEA CWAIT)
+            - 完成遇忙用户呼叫补充业务
+              - 查询CCBS业务（LST CCBS）
+              - 修改CCBS业务(MOD CCBS)
+            - 计费信息通知业务
+              - 查询AOCI业务(LST AOCI)
+              - 修改AOCI业务(MOD AOCI)
+            - 呼叫保持业务
+              - 查询HOLD业务(LST HOLD)
+              - 修改HOLD业务(MOD HOLD)
+            - 多呼业务
+              - 修改MC业务(MOD MC)
+              - 查询MC业务(LST MC)
+          - 号码识别类补充业务
+            - 主叫号码识别限制业务
+              - 查询CLIR业务(LST CLIR)
+              - 修改CLIR业务(MOD CLIR)
+            - 被叫号码识别限制业务
+              - 修改COLR业务(MOD COLR)
+              - 查询COLR业务(LST COLR)
+            - 主叫号码识别显示业务
+              - 修改CLIP业务(MOD CLIP)
+              - 查询CLIP业务(LST CLIP)
+            - 被叫号码识别显示业务
+              - 修改COLP业务(MOD COLP)
+              - 查询COLP业务(LST COLP)
+            - 查询显示/限制属性(LST PRERES)
+            - 修改号码识别业务(MOD PRERES)
+          - 呼叫前转类补充业务
+            - 修改前转业务(MOD CF)
+            - 无条件呼叫前转业务
+              - 修改CFU业务(MOD CFU)
+              - 去登记CFU业务(ERA CFU)
+              - 登记CFU业务(REG CFU)
+            - 不可及前转业务
+              - 去登记CFNRc业务(ERA CFNRC)
+              - 修改CFNRc业务(MOD CFNRC)
+              - 登记CFNRc业务(REG CFNRC)
+            - 缺省呼叫前转业务
+              - 激活CFD业务(ACT CFD)
+              - 去激活CFD业务(DEA CFD)
+              - 修改CFD业务(MOD CFD)
+            - 遇忙呼叫前转业务
+              - 去登记CFB业务(ERA CFB)
+              - 修改CFB业务(MOD CFB)
+              - 登记CFB业务(REG CFB)
+            - 无应答呼叫前转业务
+              - 修改CFNRy业务(MOD CFNRY)
+              - 去登记CFNRy业务(ERA CFNRY)
+              - 登记CFNRy业务(REG CFNRY)
+            - 查询CFALL业务(LST CFALL)
+          - 呼叫闭锁类补充业务
+            - 修改闭锁业务(MOD CB)
+            - 闭锁所有国际呼出业务
+              - 去激活BOIC业务(DEA BOIC)
+              - 激活BOIC业务(ACT BOIC)
+              - 修改BOIC业务(MOD BOIC)
+            - 闭锁所有呼入业务
+              - 去激活BAIC业务(DEA BAIC)
+              - 修改BAIC业务(MOD BAIC)
+              - 激活BAIC业务(ACT BAIC)
+            - 闭锁所有除归属PLMN国家的国际呼出业务
+              - 修改BOICEXHC业务(MOD BOICEXHC)
+              - 激活BOICEXHC业务(ACT BOICEXHC)
+              - 去激活BOICEXHC业务(DEA BOICEXHC)
+            - 漫游出国后闭锁所有呼出业务
+              - 修改BORO业务(MOD BORO)
+              - 激活BORO业务(ACT BORO)
+              - 去激活BORO业务(DEA BORO)
+            - 当漫游出归属PLMN国家时闭锁所有呼入业务
+              - 激活BICROAM业务(ACT BICROM)
+              - 修改BICROAM业务(MOD BICROM)
+              - 去激活BICROAM业务(DEA BICROM)
+            - 闭锁所有呼出业务
+              - 激活BAOC业务(ACT BAOC)
+              - 修改BAOC业务(MOD BAOC)
+              - 去激活BAOC业务(DEA BAOC)
+            - 查询闭锁类业务(LST CBAR)
+            - 闭锁业务属性
+              - 修改闭锁业务密码(MOD BARPWD)
+              - 修改闭锁业务控制属性(MOD CBCOU)
+              - 校验CBPWD(CHK CBPWD)
+          - 闭合用户群
+            - 查询CUG业务(LST CUG)
+            - 修改CUG特征数据(MOD CUGFTR)
+            - 修改CUG业务(MOD CUGSUB)
+          - 名片识别类补充业务
+            - 查询CNAP业务(LST CNAP)
+            - 修改CNAP业务(MOD CNAP)
+          - PLMN自定义补充业务
+            - 修改PLMN自定义补充业务(MOD PLMNSS)
+          - 查询SS业务(LST SS)
+        - 5GC业务管理
+          - AMF 3GPP注册信息数据管理
+            - 修改AMF 3GPP注册信息数据（MOD AMF3GPPREGINFO）
+            - 删除AMF 3GPP注册信息数据（RMV AMF3GPPREGINFO）
+            - 查询AMF 3GPP注册信息数据（LST AMF3GPPREGINFO）
+          - 签约CAG管理数据
+            - 查询CAG管理数据(LST CAGDATA)
+            - 签约CAG管理数据(ADD CAGDATA)
+            - 删除CAG管理数据(RMV CAGDATA)
+            - 修改CAG管理数据(MOD CAGDATA)
+          - 签约会话管理数据
+            - 签约SMF数据(ADD SMDATA)
+            - 查询SMF数据(LST SMDATA)
+            - 修改SMF数据(MOD SMDATA)
+            - 删除SMF数据(RMV SMDATA)
+            - 修改DNN列表(MOD DNNLIST)
+          - 订阅信息管理
+            - 查询订阅信息(LST NGCSUBNOTIFY)
+            - 删除订阅信息(RMV NGCSUBNOTIFY)
+          - SMF注册信息管理
+            - 查询SMF注册信息数据(LST SMFREGINFO)
+            - 删除SMF注册信息数据(RMV SMFREGINFO)
+          - 查询5G用户签约数据
+            - 查询用户签约数据(LST CTSUB)
+            - 查询5G用户签约数据(LST NGS)
+          - 模板方式签约共享数据管理
+            - 模板方式修改共享数据(MOD SHRDATA)
+            - 模板方式查询共享数据(LST SHRDATA)
+          - SMS over NAS的签约数据管理
+            - 删除SMSF数据（RMV SMSFINFO）
+            - 签约SMSF数据（MOD SMSFINFO）
+            - 查询SMSF数据（LST SMSFINFO）
+          - 签约切片管理数据
+            - 签约切片管理数据（ADD SNSSAI）
+            - 查询切片管理数据（LST SNSSAI）
+            - 删除切片管理数据（RMV SNSSAI）
+            - 修改切片管理数据（MOD SNSSAI）
+          - 模板方式管理5G数据
+            - 模板方式修改5G数据（MOD TPLNGS）
+            - 模板方式添加5G数据（ADD TPLNGS）
+          - 签约接入和移动管理数据
+            - 查询AMF数据(LST AMDATA)
+            - 签约AMF数据(MOD AMDATA)
+          - 5GS漫游限制业务管理
+            - 查询5GS漫游限制业务(LST NGSRRS)
+            - 修改5GS漫游限制业务(MOD NGSRRS)
+          - 智家随行家庭网关管理
+            - 查询智家随行家庭网关(LST GRPMEMBER)
+            - 修改智家随行家庭网关(MOD GRPMEMBER)
+            - 删除智家随行家庭网关(RMV GRPMEMBER)
+            - 增加智家随行家庭网关(ADD GRPMEMBER)
+          - 鉴权事件信息管理
+            - 删除NGC鉴权事件信息(RMV NGCAUTHEVENT)
+            - 查询NGC鉴权事件信息(LST NGCAUTHEVENT)
+          - 备份AMF管理
+            - 删除备份AMF信息(RMV BACKUPAMF)
+            - 查询备份AMF信息(LST BACKUPAMF)
+            - 增加备份AMF信息(ADD BACKUPAMF)
+          - 全网跟踪数据管理
+            - 删除全网跟踪数据(RMV TRACEDATA)
+            - 查询全网跟踪数据(LST TRACEDATA)
+          - 无线接入类型限制管理数据
+            - 修改无线接入类型限制(MOD RATRESTRICT)
+            - 查询无线接入类型限制(LST RATRESTRICT)
+        - 特殊场景使用命令
+          - 用户数据维护
+            - 清除VOLTE用户IMS域动态信息(CLR VOLTEIMSSTATE)
+            - 查询用户静态数据(LST STATICSUB)
+            - 清除垃圾数据(CLR SUBDATA)
+            - 更新携入用户的HLRSN(UPG NPHLRSN)
+            - 修改APN数据存储信息(MOD APNSTORAGE)
+            - 短信中心号码扩展(MOD SCISDN)
+            - 数据迁移和整改 (SET TRANSDATA)
+            - 清除APN动态数据(CLR APNDYNDATA)
+            - 查询APN数据存储信息(LST APNSTORAGE)
+            - 清除CCBS动态数据(CLR CCBSDATA)
+            - 查询动态用户数(LST DYNSUBDATA)
+            - 用户FTN扩展(MOD FTN)
+            - 清除GPRS数据(CLR GPRSDATA)
+          - 转换HSMKI(CVT HSMKI)
+          - 适配命令
+            - 以格式2查询ODB数据(LST NODBDAT)
+            - 以格式1查询用户数据(LST ESUB)
+            - 以格式2查询用户EPS数据(LST NEPS)
+            - 以格式2查询GPRS数据(LST NGPRS)
+            - 以格式1查询用户CAMEL信息(LST ECSI)
+            - 以格式2查询用户数据(LST NSUB)
+            - 以格式2查询EPS用户GPRS数据(LST NEPSGPRS)
+            - 以格式2查询ALS用户的ODB数据(LST NALSODB)
+            - 以格式2查询CAMEL CA数据(LST NCMCA)
+            - 以格式2查询TS和BS数据(LST NZMBO)
+            - 以格式1查询用户GPRS优化选项(LST EGPRS)
+            - 以格式2查询所有补充业务信息(LST NSS)
+            - 以格式2查询用户鉴权数据(LST NZMAO)
+            - 以格式2查询CAMEL IN数据(LST NCMIN)
+            - 以格式2查询用户GROUPSIM数据(LST NGROUPSIM)
+            - 以格式2修改CAMEL数据(MOD NCAMEL)
+          - 割接策略配置
+            - 查询割接策略配置(LST MIGPOLICY)
+            - 查询IMS用户割接策略配置(LST IMSMIGPOLICY)
+            - 修改割接策略配置(MOD MIGPOLICY)
+            - 修改IMS用户割接策略配置(MOD IMSMIGPOLICY)
+          - 转换K4(CVT K4)
+        - GPRS业务管理
+          - 模板修改GPRS业务(MOD TPLGPRS)
+          - 撤销GPRS业务(RMV GPRS)
+          - 修改GPRS业务(MOD GPRS)
+          - 查询GPRS业务(LST GPRS)
+        - ODB业务管理
+          - 修改ODB-PB4业务(MOD ODBPB4)
+          - 修改ODB-ENTE业务(MOD ODBENTE)
+          - 修改ODB-BIC业务(MOD ODBIC)
+          - 修改ODB-INFO业务(MOD ODBINFO)
+          - 修改ODB-POS业务(MOD ODBPOS)
+          - 修改ODB-ROAM业务(MOD ODBROAM)
+          - 修改ODB-BOC业务(MOD ODBOC)
+          - 修改ODB-PB2业务(MOD ODBPB2)
+          - 修改ODB-PB1业务(MOD ODBPB1)
+          - 修改ODB-SS业务(MOD ODBSS)
+          - 修改呼叫ODB业务(MOD ODB)
+          - 查询ODB数据(LST ODBDAT)
+          - 修改ODB-PB3业务(MOD ODBPB3)
+          - 修改ODB-RCF业务(MOD ODBRCF)
+          - 修改ODB-ECT业务(MOD ODBECT)
+        - 多IMSI业务管理
+          - 修改IMSI和ISDN绑定关系(MOD IMSIISDN)
+          - 查询IMSI和ISDN绑定关系(LST IMSIISDN)
+          - 修改MIMSI(MOD MIMSI)
+          - 查询语音邮箱(LST MIMSIVM)
+          - 查询MIMSI(LST MIMSI)
+          - 修改语音邮箱(MOD MIMSIVM)
+        - VGCS业务管理
+          - 模板修改VGCS业务(MOD TPLVGCS)
+          - 查询VGCS业务(LST VGCS)
+          - 修改VGCS业务(MOD VGCS)
+        - 电路域数据业务管理
+          - GSM承载业务
+            - 用户自定义承载能力
+              - 查询用户自定义承载能力(LST ISDNBCALIAS)
+              - 设置用户自定义承载能力(SET ISDNBCALIAS)
+            - 语音数据交替业务
+              - 修改承载业务BS61（MOD BS61）
+            - PAD接入CA业务
+              - 修改承载业务BS45(MOD BS45)
+              - 修改承载业务BS46(MOD BS46)
+              - 修改承载业务BS42(MOD BS42)
+              - 修改承载业务BS43(MOD BS43)
+              - 修改承载业务BS41(MOD BS41)
+              - 修改承载业务BS44(MOD BS44)
+            - 数据CDS业务
+              - 修改承载业务BS32(MOD BS32)
+              - 修改承载业务BS34(MOD BS34)
+              - 修改承载业务BS31(MOD BS31)
+              - 修改承载业务BS33(MOD BS33)
+            - 承载能力别名
+              - 删除承载能力别名(RMV BCALIAS)
+              - 增加承载能力别名(ADD BCALIAS)
+              - 查询承载能力别名(LST BCALIAS)
+              - 查询数据业务承载能力别名(LST DSBCALIAS)
+              - 修改承载能力别名(MOD BCALIAS)
+            - 数据CDA业务
+              - 修改承载业务BS26(MOD BS26)
+              - 修改承载业务BS23(MOD BS23)
+              - 修改承载业务BS25(MOD BS25)
+              - 修改承载业务BS22(MOD BS22)
+              - 修改承载业务BS21(MOD BS21)
+              - 修改承载业务BS24(MOD BS24)
+            - 语音数据业务
+              - 修改承载业务BS81（MOD BS81）
+            - 数据PDS业务
+              - 修改承载业务BS52（MOD BS52）
+              - 修改承载业务BS51（MOD BS51）
+              - 修改承载业务BS53（MOD BS53）
+          - 查询承载业务(LST BS)
+          - 修改承载业务(MOD BS)
+          - UMTS承载业务
+            - 修改承载业务BS30(MOD BS30)
+            - 修改承载业务BS20(MOD BS20)
+        - NEF订阅事件管理
+          - 删除NEF订阅事件记录(RMV EESUBSCRIPTION)
+          - 删除NEF全局订阅信息(RMV NEFANYUEINFO)
+          - 查询NEF检查策略配置(LST NEFCHKPOLICY)
+          - 查询NEF订阅事件记录(LST EESUBSCRIPTION)
+          - NEF漫游状态事件通知PLMN黑白名单管理
+            - 修改NEF漫游状态事件通知PLMN黑白名单(MOD NEFROAMNTFPLMNWBLIST)
+            - 删除NEF漫游状态事件通知PLMN黑白名单(RMV NEFROAMNTFPLMNWBLIST)
+            - 查询NEF漫游状态事件通知PLMN黑白名单(LST NEFROAMNTFPLMNWBLIST)
+            - 增加NEF漫游状态事件通知PLMN黑白名单(ADD NEFROAMNTFPLMNWBLIST)
+          - 增加NEF检查策略配置(ADD NEFCHKPOLICY)
+          - 删除NEF检查策略配置(RMV NEFCHKPOLICY)
+          - 查询NEF全局订阅信息(LST NEFANYUEINFO)
+        - NSA数据管理
+          - 查询UE级别NSA用户AMBR数据(LST NSAAMBR)
+          - 修改UE级别NSA用户AMBR数据(MOD NSAAMBR)
+        - VOLTE数据管理
+          - 锚定AS地址和IMRN前缀配置
+            - 删除锚定AS配置(RMV ANCHORMGCF)
+            - 增加锚定AS配置(ADD ANCHORMGCF)
+            - 修改锚定AS配置(MOD ANCHORMGCF)
+            - 查询锚定AS配置(LST ANCHORMGCF)
+          - ANCHOR管理
+            - 查询用户ANCHOR(LST ANCHOR)
+            - 修改用户ANCHOR(MOD ANCHOR)
+            - 查询锚定T-CSI业务(LST ANCHORTCSI)
+            - 修改锚定T-CSI业务(MOD ANCHORTCSI)
+          - VoLTE用户标志管理
+            - 修改VoLTE用户标志(MOD VOLTETAG)
+            - 查询VoLTE用户标志(LST VOLTETAG)
+          - ICSIND管理
+            - 查询用户ICSIND(LST ICSIND)
+            - 修改用户ICSIND(MOD ICSIND)
+        - ECATEGORY业务管理
+          - 修改增强用户类别(MOD ECATEGORY)
+          - 查询增强用户类别(LST ECATEGORY)
+        - IST业务管理
+          - 修改IST业务(MOD IST)
+          - 发送立即业务终止命令(SND ISTCMD)
+          - 查询IST业务(LST IST)
+        - MNP业务管理
+          - 本网携出用户数据管理
+            - 增加本网携出用户(ADD NPDONORSUB)
+            - 修改本网携出用户(MOD NPDONORSUB)
+            - 查询本网携出用户(LST NPDONORSUB)
+            - 删除本网携出用户(RMV NPDONORSUB)
+          - 广播指示
+            - 生效取消广播指示(CLC BRDCASTIND)
+            - 生效广播指示(ACT BRDCASTIND)
+            - 审计恢复指示(SND AUDITREPIND)
+            - 注销广播指示(DEA BRDCASTIND)
+          - 它网携转用户数据管理
+            - 增加它网携转用户数据(ADD NPOTHERRPT)
+            - 修改它网携转用户数据(MOD NPOTHERRPT)
+            - 查询它网携转用户数据(LST NPOTHERRPT)
+            - 删除它网携转用户数据(RMV NPOTHERRPT)
+          - 非携转用户号段管理
+            - 增加非携转全局数据(ADD NPPREFIXRN)
+            - 修改非携转全局数据(MOD NPPREFIXRN)
+            - 查询非携转全局数据(LST NPPREFIXRN)
+            - 删除非携转全局数据(RMV NPPREFIXRN)
+        - 增强智能业务管理
+          - 修改EIN业务(MOD EIN)
+          - 查询EIN业务(LST EIN)
+          - 修改EMMIN业务(MOD EMMIN)
+          - 查询EMMIN业务(LST EMMIN)
+        - PS域UE级别的APN运营商标识符管理
+          - 查询PS域UE级别的APN运营商标识符(LST PSAPNOI)
+          - 修改PS域UE级别的APN运营商标识符(MOD PSAPNOI)
+        - 获取HSS订阅数据(GET HSSVIEWDATA)
+        - 5G用户管理
+          - 取消5G融合用户的5G业务（RMV NGSSUB）
+          - 5G虚拟网络组成员管理
+            - 添加5G虚拟网络组成员 (ADD GROUPID)
+            - 查询虚拟网络组成员所属组 (LST GROUPID)
+            - 删除5G虚拟网络组成员 (RMV GROUPID)
+          - 开户管理
+            - 查询5G自动开户用户粒度黑白名单(LST NGCAUTOIMSI)
+            - 查询5G自动开户用户粒度黑白名单数量(LST COUNTNGCAUTOIMSI)
+            - 修改5G自动开户用户粒度黑白名单(MOD NGCAUTOIMSI)
+        - CARP业务管理
+          - 查询CARP业务(LST CARP)
+          - 修改CARP业务(MOD CARP)
+        - M2M业务管理
+          - 查询M2M绑定业务(LST IMEIBIND)
+          - 查询状态主动上报M2M业务(LST M2MNOTIFY)
+          - 修改状态主动上报M2M业务(MOD M2MNOTIFY)
+          - 修改M2MCISDN业务(MOD M2MCISDN)
+          - 修改用户类别(MOD USERCATEGORY)
+          - 修改M2M绑定业务(MOD IMEIBIND)
+          - 查询M2MCISDN业务(LST M2MCISDN)
+          - 查询用户类别(LST USERCATEGORY)
+        - GPRS/EPS业务优化管理
+          - 查询优化GPRS/EPS业务(LST OPTGPRS)
+          - 模板修改优化GPRS/EPS业务(MOD TPLOPTGPRS)
+          - 修改优化GPRS/EPS业务(MOD OPTGPRS)
+        - 核心网类型限制管理数据
+          - 修改核心网接入类型限制(MOD CNRESTRICT)
+          - 查询核心网接入类型限制(LST CNRESTRICT)
+        - 园区管理
+          - 配置管理
+            - 增加园区配置(ADD CAMPUSCFG)
+            - 删除园区配置(RMV CAMPUSCFG)
+            - 增加园区数据过滤条件(ADD CAMPUSDATAFILTER)
+            - 查询园区配置(LST CAMPUSCFG)
+            - 查询园区数据过滤条件(LST CAMPUSDATAFILTER)
+            - 修改园区配置(MOD CAMPUSCFG)
+            - 删除园区数据过滤条件(RMV CAMPUSDATAFILTER)
+        - EPS业务管理
+          - 修改EPS业务（MOD EPSSER）
+          - 查询EPS业务（LST EPSSER）
+          - 使用EPSUSERTPL模板签约EPS业务（MOD TPLEPS）
+          - 使用EPSUSERTPL模板修改EPS业务（MOD TPLEPSSER）
+        - IWF用户管理
+          - 删除IWF用户数据（RMV IWFSUB）
+          - 查询IWF用户数据（LST IWFSUB）
+        - eMLPP业务管理
+          - 修改eMLPP业务(MOD EMLPP)
+          - 查询eMLPP业务(LST EMLPP)
+        - 以格式2查询用户开户模板(LST CTSUBTPL)
+        - LU-CSI业务管理
+          - 修改LU-CSI业务(MOD LUCSI)
+          - 查询LU-CSI业务(LST LUCSI)
+        - 以格式2查询用户优化APN模板(LST CTUSERAPNTPL)
+        - LCS业务管理
+          - 查询LCS业务(LST LCS)
+          - 修改LCS业务(MOD LCS)
+        - 增强个性化回铃音业务管理
+          - 查询MERBT业务(LST MERBT)
+          - 修改MERBT业务(MOD MERBT)
+        - 以格式2查询EPS漫游模板(LST CTDIAMRRTPL)
+        - DIC业务管理
+          - 查询DIC业务(LST DIC)
+          - 修改DIC业务(MOD DIC)
+        - 以格式2查询EPS QoS模板(LST CTEPSQOSTPL)
+        - CSPS批量模板开户(BAT ADDTPLCSPSSUB)
+        - EPS用户数据管理
+          - 查询用户的EPS数据(LST EPS)
+          - 修改用户的EPS数据(MOD EPS)
+        - ARD业务管理
+          - 修改ARD业务(MOD ARD)
+          - 查询ARD业务(LST ARD)
+        - 批量模板开户(BAT ADDTPLSUB)
+        - 查询XML格式的用户信息(LST XSUB)
+      - IMS-HSS业务管理
+        - 全局数据管理
+          - IMPU全局路由配置
+            - 查询IMPU全局路由数据(LST IMPURTINFO)
+            - 删除IMPU全局路由数据(RMV IMPURTINFO)
+            - 增加IMPU全局路由数据(ADD IMPURTINFO)
+            - 修改IMPU全局路由数据(MOD IMPURTINFO)
+          - AS主机名管理
+            - 查询AS主机名(LST HASHOST)
+            - 增加AS主机名(ADD HASHOST)
+            - 删除AS主机名(RMV HASHOST)
+          - 密码强度检查策略管理
+            - 查询密码强度检查策略(LST HSECPOLICY)
+            - 设置密码强度检查策略(SET HSECPOLICY)
+          - 补充业务的SIP格式前转号码后缀管理
+            - 设置补充业务SIP格式前转号码后缀(SET HCFFTNPOSTFIX)
+            - 查询补充业务SIP格式前转号码后缀(LST HCFFTNPOSTFIX)
+          - IMPI全局路由配置
+            - 查询IMPI全局路由数据(LST IMPIRTINFO)
+            - 修改IMPI全局路由数据(MOD IMPIRTINFO)
+            - 增加IMPI全局路由数据(ADD IMPIRTINFO)
+            - 删除IMPI全局路由数据(RMV IMPIRTINFO)
+        - 鉴权数据管理
+          - Early IMS鉴权数据管理
+            - 设置Early IMS鉴权模式(SET HEIA)
+            - 查询Early IMS鉴权模式(LST HEIA)
+          - KI数据操作
+            - 修改KI(MOD HKI)
+            - 查询KI(LST HKI)
+            - 增加KI(ADD HKI)
+            - 删除KI(RMV HKI)
+            - 校验KI(CHK HKI)
+          - K4数据操作
+            - 增加K4(ADD HK4)
+            - 查询K4(LST HK4)
+            - 修改K4(MOD HK4)
+            - 校验K4(CHK HK4)
+            - 删除K4(RMV HK4)
+          - NASS Bundled鉴权数据管理
+            - 删除IMPI的NASS Bundled鉴权信息(RMV HNBAINF)
+            - 增加IMPI的NASS Bundled鉴权信息(ADD HNBAINF)
+            - 查询IMPI的NASS Bundled鉴权信息(LST HNBAINF)
+          - CAVE AKA鉴权数据管理
+            - 设置CAVEAKA鉴权能力(SET HCAA)
+            - 查询CAVEAKA鉴权能力(LST HCAA)
+          - K2数据操作
+            - 增加K2(ADD HK2)
+            - 校验K2(CHK HK2)
+            - 删除K2(RMV HK2)
+            - 查询K2(LST HK2)
+            - 修改K2(MOD HK2)
+          - OP数据操作
+            - 增加OP(ADD HOP)
+            - 删除OP(RMV HOP)
+            - 校验OP(CHK HOP)
+            - 修改OP(MOD HOP)
+            - 查询OP(LST HOP)
+          - HTTP Digest鉴权数据管理
+            - 删除IMPI的HTTP Digest鉴权信息(RMV HHDAINF)
+            - 查询IMPI的HTTP Digest鉴权信息(LST HHDAINF)
+            - 修改IMPI的HTTP Digest鉴权信息(MOD HHDAINF)
+            - 校验IMPI的HTTP Digest鉴权信息(CHK HHDAPWD)
+            - 增加IMPI的HTTP Digest鉴权信息(ADD HHDAINF)
+          - SIP Digest鉴权数据管理
+            - 增加IMPI的SIP Digest鉴权信息(ADD HSDAINF)
+            - 查询IMPI的SIP Digest鉴权信息(LST HSDAINF)
+            - 删除IMPI的SIP Digest鉴权信息(RMV HSDAINF)
+            - 校验IMPI的SIP Digest鉴权信息(CHK HSDAPWD)
+            - 修改IMPI的SIP Digest鉴权信息(MOD HSDAINF)
+          - AMF数据操作
+            - 增加AMF(ADD HAMF)
+            - 删除AMF(RMV HAMF)
+            - 校验AMF(CHK HAMF)
+            - 修改AMF(MOD HAMF)
+            - 查询AMF(LST HAMF)
+          - OPC数据操作
+            - 校验OPC(CHK HOPC)
+          - Early AKA鉴权数据管理
+            - 设置Early AKA鉴权模式(SET HEAA)
+            - 查询Early AKA鉴权模式(LST HEAA)
+          - 查看鉴权信息
+            - 校验IMPI的HA1信息(CHK HHA1)
+            - 查询IMPI支持的鉴权模式(LST HAUTHINF)
+          - Trusted Access鉴权数据管理
+            - 设置指定IMPI的TAA鉴权模式(SET HTAA)
+            - 查询指定的IMPI对TAA鉴权模式的支持情况(LST HTAA)
+        - 业务数据管理
+          - 闭锁状态管理
+            - 查询IMPU或PUSI的闭锁状态(LST HBAR)
+            - 设置IMPU或PUSI的闭锁状态(SET HBAR)
+          - 共享Service Profile管理
+            - 设置业务签约信息共享(SET HSPSHARE)
+            - 取消业务签约信息共享(RMV HSPSHARE)
+            - 查询业务签约信息共享(LST HSPSHARE)
+          - 扩展业务数据操作
+            - 删除扩展业务数据(RMV HPREPDATA)
+            - 查询扩展业务数据(LST HPREPDATA)
+            - 增加扩展业务数据(ADD HPREPDATA)
+            - 修改扩展业务数据(MOD HPREPDATA)
+          - 游牧控制功能标识管理
+            - 设置IMPU的游牧控制标志(SET HNNCFLAG)
+            - 查询IMPU的游牧控制标志(LST HNNCFLAG)
+          - iFC数据管理
+            - 通过AS地址删除指定IMPU的一组IFC(RMV HASIFC)
+            - 删除iFC(RMV HIFC)
+            - 查询iFC(LST HIFC)
+            - 修改iFC(MOD HIFC)
+            - 增加iFC(ADD HIFC)
+            - 删除所有iFC(RMV HALLIFC)
+          - 用户显示名称管理
+            - 查询用户显示名称(LST HCNAP)
+            - 设置用户显示名称(SET HCNAP)
+          - 参考位置信息管理
+            - 增加IMPU的参考位置信息(ADD HNNRLI)
+            - 修改IMPU的参考位置信息(MOD HNNRLI)
+            - 删除IMPU的参考位置信息(RMV HNNRLI)
+            - 查询IMPU的参考位置信息(LST HNNRLI)
+          - RCS业务数据管理
+            - 查询RCS业务(LST HRCSSERVICE)
+            - 修改RCS业务状态(MOD HRCSSTATUS)
+            - 增加RCS业务(ADD HRCSSERVICE)
+            - 删除RCS业务(RMV HRCSSERVICE)
+          - AS ServiceProfileId管理
+            - 增加IMPU或PUSI对应的AS-ServiceProfileId(ADD HASSPID)
+            - 查询IMPU或PUSI对应的AS-ServiceProfileId(LST HASSPID)
+            - 删除IMPU或PUSI对应的AS-ServiceProfileId(RMV HASSPID)
+          - 注册权限管理
+            - 设置IMPU的注册权限(SET HREGAUTH)
+            - 查询IMPU的注册权限(LST HREGAUTH)
+          - 能力集管理
+            - 查询必选或可选能力(LST HMOCAP)
+            - 查询业务能力(LST CAP)
+            - 修改业务能力(MOD CAP)
+            - 设置必选或可选能力(SET HMOCAP)
+          - 漫游数据管理
+            - 设置IMPU的拜访网络模板ID(SET HVNTPLID)
+            - 查询IMPU的拜访网络模板ID(LST HVNTPLID)
+          - 计费地址管理
+            - 查询IMPI或PISI的计费地址ID(LST HCHARGID)
+            - 设置IMPI或PISI的计费地址ID(SET HCHARGID)
+          - 用户松路由管理
+            - 查询IMPU或PUSI的松路由标志(LST HLRI)
+            - 设置IMPU或PUSI的松路由标志(SET HLRI)
+          - 游牧数据管理
+            - 查询IMPU的游牧模板(LST HNATPLID)
+            - 设置IMPU的游牧模板(SET HNATPLID)
+          - 维护操作管理
+            - 注销用户(DRG HUSER)
+            - 模拟发送UDR消息获取IMS用户的普通（别名）透明数据（SND HUDR）
+          - GUSS数据管理
+            - 增加GUSS数据(ADD HGUSS)
+            - 修改GUSS数据(MOD HGUSS)
+            - 删除GUSS数据(RMV HGUSS)
+            - 查询GUSS数据(LST HGUSS)
+          - 短消息中心地址管理
+            - 查询短消息中心地址(LST HSMSCADDR)
+            - 设置短消息中心地址(SET HSMSCADDR)
+            - 删除短消息中心地址(RMV HSMSCADDR)
+          - 用户优先级管理
+            - 设置IMPU或PUSI的标准优先级(SET HSTDPRIOR)
+            - 查询IMPU或PUSI的优先级(LST HUSRPRIOR)
+            - 查询IMPU或PUSI的标准优先级(LST HSTDPRIOR)
+            - 设置IMPU或PUSI的优先级(SET HUSRPRIOR)
+          - 用户动态数据管理
+            - 查询IMS用户的3GPP标准S-CSCF容灾数据(LST HRESTOREDATA)
+            - 查询IMPU的动态位置信息(LST HDALI)
+            - 查询PSI用户的动态数据(LST HPSIDYND)
+            - 查询用户的AS订阅数据信息(LST HASSUBDATA)
+            - 查询IMS用户的动态数据(LST HDYNDATA)
+          - OneKey数据管理
+            - 增加指定IMPU的ONEKEY数据(ADD HONEKEY)
+            - 删除指定IMPU的ONEKEY数据(RMV HONEKEY)
+            - 修改指定IMPU的ONEKEY数据(MOD HONEKEY)
+            - 查询指定IMPU的ONEKEY数据(LST HONEKEY)
+          - 紧急服务路由号码管理
+            - 设置紧急服务路由号码(SET HESRN)
+            - 查询紧急服务路由号码(LST HESRN)
+          - S-CSCF服务地址管理
+            - 增加S-CSCF名称(ADD HCAPSCSCF)
+            - 删除S-CSCF名称(RMV HCAPSCSCF)
+            - 查询S-CSCF名称(LST HCAPSCSCF)
+          - 用户的服务提供商标识管理
+            - 增加用户的Service provider ID(服务提供商标识)(ADD HSERPRV)
+            - 查询用户的Service provider ID(服务提供商标识)(LST HSERPRV)
+            - 删除用户的Service provider ID(服务提供商标识)(RMV HSERPRV)
+            - 修改用户的Service provider ID(服务提供商标识)(MOD HSERPRV)
+          - 用户CAMEL签约数据管理
+            - 查询用户CAMEL签约数据(LST HCSI)
+            - 设置用户CAMEL签约数据(SET HCSI)
+          - 媒体ID管理
+            - 设置业务签约信息的签约媒体ID(SET HMEDIAID)
+            - 查询业务签约信息的签约媒体ID(LST HMEDIAID)
+          - 拜访网络检查标识管理
+            - 设置指定IMPU的IMS漫游权限检查标志(SET HVNCFLAG)
+            - 查询指定IMPU的IMS漫游权限检查标志(LST HVNCFLAG)
+          - 查询透明数据的ServiceIndication
+            - 查询ServiceIndication对应的透明数据(LST HSRVIND)
+          - 透明数据管理
+            - 设置透明数据(SET HREPDATA)
+            - 查询透明数据(LST HREPDATA)
+          - IMPU别名组数据管理
+            - 设置别名组ID(SET HALIASPU)
+          - 共享iFC数据管理
+            - 查询共享iFC(LST HSIFC)
+            - 修改共享iFC(MOD HSIFC)
+            - 删除共享iFC(RMV HSIFC)
+            - 增加共享iFC(ADD HSIFC)
+          - AS数据管理
+            - 设置指定PUSI的AS地址(SET HAS)
+            - 查询指定PUSI的AS地址(LST HAS)
+        - 网络维护管理
+          - 查询PUR更新的透明数据(LST HPURREPDATA)
+          - 设置PUR更新的透明数据(SET HPURREPDATA)
+          - 增加记录空口日志的透明数据黑名单(ADD HBLKLIST)
+          - 查询记录空口日志的透明数据黑名单(LST HBLKLIST)
+          - 删除记录空口日志的透明数据黑名单(RMV HBLKLIST)
+          - 发送模拟PNR消息(SND HPNR)
+        - 批操作管理
+          - 批处理系统命令管理
+            - 中止批操作(ABT BAT)
+            - 文件批操作(BAT)
+            - 查询批操作(CHK BATSTAT)
+          - 批处理业务命令管理
+            - 批量销户(RMV HSUBBAT)
+            - 批量删除IMPI的SIP Digest鉴权信息(RMV HSDABAT)
+            - 批量设置紧急服务路由号码(SET HESRNBAT)
+            - 批量修改共享iFC(MOD HSIFCBAT)
+        - 系统数据模板管理
+          - T-CSI模板管理
+            - 修改T-CSI数据模板(MOD HTCSITPL)
+            - 查询T-CSI数据模板(LST HTCSITPL)
+            - 删除T-CSI数据模板(RMV HTCSITPL)
+            - 增加T-CSI数据模板(ADD HTCSITPL)
+          - 计费地址模板数据管理
+            - 查询计费地址模板(LST HCHGTPL)
+            - 删除计费地址模板(RMV HCHGTPL)
+            - 修改计费地址模板(MOD HCHGTPL)
+            - 增加计费地址模板(ADD HCHGTPL)
+          - 拜访网络模板数据管理
+            - 修改拜访网络模板(MOD HVNTPL)
+            - 增加拜访网络模板(ADD HVNTPL)
+            - 查询拜访网络模板(LST HVNTPL)
+            - 删除拜访网络模板(RMV HVNTPL)
+          - 共享iFC模板管理
+            - 修改共享iFC模板(MOD HSIFCTPL)
+            - 查询共享iFC模板(LST HSIFCTPL)
+            - 增加共享iFC模板(ADD HSIFCTPL)
+            - 删除共享iFC模板(RMV HSIFCTPL)
+          - 游牧模板数据管理
+            - 增加游牧模板(ADD HNATPL)
+            - 删除游牧模板(RMV HNATPL)
+            - 修改游牧模板(MOD HNATPL)
+            - 查询游牧模板(LST HNATPL)
+          - 拜访网络地址数据管理
+            - 增加拜访网络地址(ADD HVNTPLADDR)
+            - 查询拜访网络地址(LST HVNTPLADDR)
+            - 删除拜访网络地址(RMV HVNTPLADDR)
+          - O-CSI模板管理
+            - 删除O-CSI数据模板(RMV HOCSITPL)
+            - 修改O-CSI数据模板(MOD HOCSITPL)
+            - 查询O-CSI数据模板(LST HOCSITPL)
+            - 增加O-CSI数据模板(ADD HOCSITPL)
+          - 共享iFC模板信息管理
+            - 查询共享iFC模板信息(LST HSIFCINF)
+            - 修改共享iFC模板信息(MOD HSIFCINF)
+            - 删除共享iFC模板信息(RMV HSIFCINF)
+            - 增加共享iFC模板信息(ADD HSIFCINF)
+          - 游牧地址数据管理
+            - 查询游牧地址(LST HNATPLADDR)
+            - 增加游牧地址(ADD HNATPLADDR)
+            - 删除游牧地址(RMV HNATPLADDR)
+        - 业务数据模板管理
+          - IMPU模板管理
+            - 查询IMPU基本信息模板(LST HIMPUTPL)
+            - 删除IMPU基本信息模板(RMV HIMPUTPL)
+            - 增加IMPU基本信息模板(ADD HIMPUTPL)
+            - 修改IMPU基本信息模板(MOD HIMPUTPL)
+          - PUSI模板管理
+            - 删除PUSI基本信息模板(RMV HPUSITPL)
+            - 查询PUSI基本信息模板(LST HPUSITPL)
+            - 增加PUSI基本信息模板(ADD HPUSITPL)
+            - 修改PUSI基本信息模板(MOD HPUSITPL)
+          - iFC模板管理
+            - 查询iFC信息模板(LST HIFCTPL)
+            - 删除iFC信息模板(RMV HIFCTPL)
+            - 修改iFC信息模板(MOD HIFCTPL)
+            - 增加iFC信息模板(ADD HIFCTPL)
+          - Service Profile模板管理
+            - 删除Service Profile信息模板(RMV HSPTPL)
+            - 修改Service Profile信息模板(MOD HSPTPL)
+            - 查询Service Profile信息模板(LST HSPTPL)
+            - 增加Service Profile信息模板(ADD HSPTPL)
+          - 能力集模板管理
+            - 查询能力集信息模板(LST HCAPTPL)
+            - 增加能力集信息模板(ADD HCAPTPL)
+            - 删除能力集信息模板(RMV HCAPTPL)
+            - 修改能力集信息模板(MOD HCAPTPL)
+          - AKA鉴权模板管理
+            - 修改AKA鉴权信息模板(MOD HAKATPL)
+            - 删除AKA鉴权信息模板(RMV HAKATPL)
+            - 查询AKA鉴权信息模板(LST HAKATPL)
+            - 增加AKA鉴权信息模板(ADD HAKATPL)
+          - 查看模板信息
+            - 查询模板信息(LST HTPLINF)
+          - IMS用户模板管理
+            - 修改IMS用户模板(MOD IMSTPL)
+            - 查询IMS用户模板(LST IMSTPL)
+            - 删除IMS用户模板(RMV IMSTPL)
+            - 增加IMS用户模板(ADD IMSTPL)
+        - 用户数据管理
+          - IMSI数据管理
+            - 修改IMSI号码(MOD HIMSI)
+            - 删除IMSI号码(RMV HIMSI)
+            - 增加IMSI号码(ADD HIMSI)
+            - 一键式改卡(MOD HHSSIMSI)
+          - IMS用户管理
+            - 销户(RMV HSUB)
+            - 修改IMS签约ID(MOD HSUBID)
+            - 增加IMS用户(ADD IMSSUB)
+            - 查询IMS签约信息(LST HSUB)
+            - 设置IMS用户描述(SET HSUBINFO)
+            - 开户(ADD HSUB)
+            - 设置IMS PBX标识(SET HPBXU)
+            - 一键式查询IMS签约信息(LST HSUBDATA)
+            - 一键式查询CMCC IMS签约信息(LST CMCCHSUBDATA)
+            - 一键式销户(RMV HHSSSUB)
+            - 查询IMS PBX标识(LST HPBXU)
+            - 查询用户数据一致性标识(LST HCONSFLG)
+            - 一键式开户(ADD HHSSSUB)
+            - 设置用户数据一致性标识(SET HCONSFLG)
+            - 查询IMS用户信息(LST IMSSUB)
+            - 查询IMS用户描述(LST HSUBINFO)
+          - VoLTE多SIM业务
+            - 修改VoLTE多SIM业务（MOD HMSIM）
+            - 查询VoLTE多SIM业务(LST HMSIM)
+          - IMPI管理
+            - 一键式修改IMPI(MOD HHSSIMPI)
+            - 删除IMPI(RMV HIMPI)
+            - 修改IMPI(MOD HIMPI)
+            - 增加IMPI(ADD HIMPI)
+          - IMPU管理
+            - 增加IMPU(ADD HIMPU)
+            - 校验IMPU(CHK HIMPU)
+            - 删除IMPU(RMV HIMPU)
+            - 修改IMPU(MOD HIMPU)
+          - IMPI与IMSI关联关系管理
+            - 查询IMPI和IMSI的关联关系(LST HASSOC)
+            - 删除IMPI和IMSI的关联关系(RMV HASSOC)
+            - 增加IMPI和IMSI的关联关系(ADD HASSOC)
+          - 查询IMSI与MSISDN关联关系
+            - 查询IMPI关联的IMSI数据(LST HMSID)
+          - MSISDN数据管理
+            - 修改MSISDN号码(MOD HISDN)
+            - 一键式改号(MOD HHSSTN)
+            - 删除MSISDN号码(RMV HISDN)
+            - 增加MSISDN号码(ADD HISDN)
+          - PSI用户管理
+            - 增加PSI用户(ADD HPSI)
+            - 删除PSI用户(RMV HPSI)
+            - 查询PSI用户(LST HPSI)
+          - 共享IMPU管理
+            - 设置IMPU的共享属性(SET HIMPUSHARE)
+          - 批量查询
+            - 批量查询SUB签约信息(LST HSUBBAT)
+          - 隐式注册集管理
+            - 设置IRS(SET HIRS)
+            - 设置IRS的默认IMPU(SET HDEFIMPU)
+        - 系统参数管理
+          - MVNO用户号段管理
+            - 删除IMS用户标识的号段前缀信息(RMV IMSMVNORANGE)
+            - 查询IMS用户标识的号段前缀信息(LST IMSMVNORANGE)
+            - 添加IMS用户标识的号段前缀信息(ADD IMSMVNORANGE)
+          - 系统参数操作
+            - 设置系统参数的值(SET HSYSTEMPARA)
+            - 查询系统参数的值(LST HSYSTEMPARA)
+        - 系统优化管理
+          - 数据优化管理
+            - 数据优化(OPT HDATA)
+        - 模板开户数据管理
+          - 利用模板管理用户IMS数据
+            - 利用模板增加用户IMS数据(ADD TPLIMSSUB)
+            - 利用模板修改用户IMS数据(MOD TPLIMSSUB)
+          - 利用模板增加IMPU
+            - 根据模板信息新增IMPU用户数据(ADD HTPLIMPU)
+          - 利用模板增加PUSI
+            - 根据模板信息新增PUSI用户数据(ADD HTPLPUSI)
+          - 利用模板增加PSI用户
+            - 根据模板信息新增PSI用户数据(ADD HTPLPSI)
+          - 利用模板增加IMS用户
+            - 根据模板信息新增IMS用户数据(ADD HTPLSUB)
+          - 利用模板增加AKA鉴权信息
+            - 根据模板新增AKA鉴权信息(ADD HTPLKI)
+          - 利用模板增加IMPI
+            - 根据模板信息新增IMPI用户数据(ADD HTPLIMPI)
+          - 利用模板增加iFC
+            - 根据模板新增iFC信息(ADD HTPLIFC)
+        - 以格式2查询IMS漫游模板(LST CTHVNTPL)
+        - 以格式2查询IMS计费模板(LST CTHCHGTPL)
+        - 日志管理
+          - 查询操作日志(LST HLOG)
+      - 系统管理（MVNO）
+        - 批操作管理
+          - 查询文件信息（LST FILEINFO）
+          - 批操作（BAT）
+          - 查询未处理的批操作文件（LST BATFILE）
+          - 查询批操作状态（CHK BATSTAT）
+          - 删除未处理的批操作文件（RMV BATFILE）
+          - 终止批操作（ABT BAT）
+        - 指定命令白名单参数管理
+          - 删除指定命令的白名单参数(RMV SOAPRPTPARA)
+          - 添加指定命令的白名单参数(ADD SOAPRPTPARA)
+          - 查询指定命令的白名单参数(LST SOAPRPTPARA)
+        - 内存数据库管理
+          - 查询数据比对分析任务（DSP CMPDB）
+          - 启动数据比对分析任务（STR CMPDB）
+          - 停止内存数据库任务（STP OML）
+          - 停止数据比对分析任务（STP CMPDB）
+          - 操作内存数据库（EXC OML）
+          - 查询内存数据库任务（DSP OML）
+          - 更新加密数据（UPD CRPTDATA）
+        - 跨分区用户迁移管理
+          - 显示跨分区用户迁移任务（DSP MIGRATION）
+          - 启动跨分区用户迁移任务（STR MIGRATION）
+          - 清理跨分区用户迁移文件（CLR MIGRATION）
+          - 启动跨分区用户迁移回退任务（RBK MIGRATION）
+          - 获取跨分区用户迁移文件（GET MIGRATION）
+          - 停止跨分区用户迁移任务（STP MIGRATION）
+        - 操作员管理
+          - 增加操作员（ADD OPR）
+          - 删除操作员（RMV OPR）
+          - 查询操作员（LST OPR）
+          - 修改操作员（MOD OPR）
+          - 修改操作员密码（MOD PWD）
+        - 操作员组管理
+          - 修改操作员组（MOD OPRGROUP）
+          - 查询操作员组（LST OPRGROUP）
+          - 增加操作员组（ADD OPRGROUP）
+          - 删除操作员组（RMV OPRGROUP）
+        - 导出任务管理
+          - 修改导出任务(MOD EXPTASK)
+          - 添加导出任务(ADD EXPTASK)
+          - 停止导出任务(STP EXPTASK)
+          - 显示导出任务(DSP EXPTASK)
+          - 删除导出任务(RMV EXPTASK)
+        - 周期性任务管理
+          - 查询周期性任务（LST PERIODTASK）
+          - 添加周期性任务（ADD PERIODTASK）
+          - 删除周期性任务（RMV PERIODTASK）
+        - 命令组管理
+          - 删除命令组（RMV CCG）
+          - 查询命令组名（LST CCGN）
+          - 修改命令组（MOD CCG）
+          - 查看命令组（LST CCG）
+          - 设置命令组名（SET CCGN）
+          - 添加命令组（ADD CCG）
+        - 业务条件批操作管理
+          - 终止业务条件批操作（ABT CONBAT）
+          - 查询业务条件批操作状态（CHK CONBATSTAT）
+        - 虚拟运营商号段管理
+          - 添加虚拟运营商号段（ADD MVNORANGE）
+          - 删除虚拟运营商号段（RMV MVNORANGE）
+          - 查询当前操作员号段（LST OPRRANGE）
+          - 查询虚拟运营商号段（LST MVNORANGE）
+        - 在线连接管理
+          - 查询在线连接信息（LST LINKSTATE）
+          - 强制下线操作员 (KIK ONLINEOPR)
+        - 导出日志任务管理
+          - 删除导出日志任务(RMV EXPLOGTASK)
+          - 查询导出日志任务(LST EXPLOGTASK)
+          - 添加导出日志任务(ADD EXPLOGTASK)
+          - 显示导出日志任务(DSP EXPLOGTASK)
+        - 系统序列号管理
+          - 删除系统序列号（RMV SYSNO）
+          - 修改系统序列号（MOD SYSNO）
+          - 添加系统序列号（ADD SYSNO）
+          - 查询系统序列号（LST SYSNO）
+        - 安全管理
+          - 查询超级管理员信息（LST SUINFO）
+          - 查询系统安全策略（LST SECPOLICY）
+          - 修改超级管理员信息（MOD SUINFO）
+          - 手动解锁用户（SET UNLCK）
+          - 设置系统安全策略（SET SECPOLICY）
+        - 操作员虚拟运营商管理
+          - 增加操作员虚拟运营商（ADD OPRMVNO）
+          - 删除操作员虚拟运营商（RMV OPRMVNO）
+          - 查询操作员虚拟运营商（LST OPRMVNO）
+        - 备份恢复管理
+          - 停止内存库整局批量备份(STP BKPDB)
+          - 查询备份恢复状态(DSP DB)
+          - 停止内存库数据在线恢复(STP RCVDB)
+          - 内存库数据在线恢复(RCV DB)
+          - 内存库整局批量备份(BKP DB)
+        - 虚拟运营商管理
+          - 查询虚拟运营商（LST MVNO）
+          - 添加虚拟运营商（ADD MVNO）
+          - 修改虚拟运营商（MOD MVNO）
+          - 删除虚拟运营商（RMV MVNO）
+        - 日志管理
+          - 查询日志用户号码（LST LOGUSER）
+          - 查询操作日志（LST LOG）
+        - 用户数据导入管理
+          - 导入批操作（BAT IMP）
+      - 系统管理（HLR）
+        - 批操作管理
+          - 查询文件信息（LST FILEINFO）
+          - 批操作（BAT）
+          - 查询未处理的批操作文件（LST BATFILE）
+          - 查询批操作状态（CHK BATSTAT）
+          - 删除未处理的批操作文件（RMV BATFILE）
+          - 终止批操作（ABT BAT）
+        - 指定命令白名单参数管理
+          - 删除指定命令的白名单参数(RMV SOAPRPTPARA)
+          - 添加指定命令的白名单参数(ADD SOAPRPTPARA)
+          - 查询指定命令的白名单参数(LST SOAPRPTPARA)
+        - 系统HLR管理
+          - 删除系统HLR（RMV SYSHLRSN）
+          - 添加系统HLR（ADD SYSHLRSN）
+          - 修改系统HLR（MOD SYSHLRSN）
+          - 查询系统HLR（LST SYSHLRSN）
+        - 虚拟HLR管理
+          - 修改虚拟HLR（MOD VHLRSN）
+          - 查询虚拟HLR（LST VHLRSN）
+          - 添加虚拟HLR（ADD VHLRSN）
+          - 删除虚拟HLR（RMV VHLRSN）
+        - 内存数据库管理
+          - 查询数据比对分析任务（DSP CMPDB）
+          - 启动数据比对分析任务（STR CMPDB）
+          - 停止内存数据库任务（STP OML）
+          - 停止数据比对分析任务（STP CMPDB）
+          - 操作内存数据库（EXC OML）
+          - 查询内存数据库任务（DSP OML）
+          - 更新加密数据（UPD CRPTDATA）
+        - 跨分区用户迁移管理
+          - 显示跨分区用户迁移任务（DSP MIGRATION）
+          - 启动跨分区用户迁移任务（STR MIGRATION）
+          - 清理跨分区用户迁移文件（CLR MIGRATION）
+          - 启动跨分区用户迁移回退任务（RBK MIGRATION）
+          - 获取跨分区用户迁移文件（GET MIGRATION）
+          - 停止跨分区用户迁移任务（STP MIGRATION）
+        - 操作员管理
+          - 增加操作员（ADD OPR）
+          - 删除操作员（RMV OPR）
+          - 查询操作员（LST OPR）
+          - 修改操作员（MOD OPR）
+          - 修改操作员密码（MOD PWD）
+        - 操作员组管理
+          - 修改操作员组（MOD OPRGROUP）
+          - 查询操作员组（LST OPRGROUP）
+          - 增加操作员组（ADD OPRGROUP）
+          - 删除操作员组（RMV OPRGROUP）
+        - 导出任务管理
+          - 修改导出任务(MOD EXPTASK)
+          - 添加导出任务(ADD EXPTASK)
+          - 停止导出任务(STP EXPTASK)
+          - 显示导出任务(DSP EXPTASK)
+          - 删除导出任务(RMV EXPTASK)
+        - 周期性任务管理
+          - 查询周期性任务（LST PERIODTASK）
+          - 添加周期性任务（ADD PERIODTASK）
+          - 删除周期性任务（RMV PERIODTASK）
+        - 操作员虚拟HLR管理
+          - 删除操作员虚拟HLR（RMV OPRHLRSN）
+          - 增加操作员虚拟HLR（ADD OPRHLRSN）
+          - 查询操作员虚拟HLR（LST OPRHLRSN）
+        - 命令组管理
+          - 删除命令组（RMV CCG）
+          - 查询命令组名（LST CCGN）
+          - 修改命令组（MOD CCG）
+          - 查看命令组（LST CCG）
+          - 设置命令组名（SET CCGN）
+          - 添加命令组（ADD CCG）
+        - 业务条件批操作管理
+          - 终止业务条件批操作（ABT CONBAT）
+          - 查询业务条件批操作状态（CHK CONBATSTAT）
+        - 在线连接管理
+          - 查询在线连接信息（LST LINKSTATE）
+          - 强制下线操作员 (KIK ONLINEOPR)
+        - 导出日志任务管理
+          - 删除导出日志任务(RMV EXPLOGTASK)
+          - 查询导出日志任务(LST EXPLOGTASK)
+          - 添加导出日志任务(ADD EXPLOGTASK)
+          - 显示导出日志任务(DSP EXPLOGTASK)
+        - 虚拟HLR号段管理
+          - 删除虚拟HLR号段（RMV VHLRRANGE）
+          - 查询当前操作员号段（LST OPRRANGE）
+          - 添加虚拟HLR号段（ADD VHLRRANGE）
+          - 查询虚拟HLR号段（LST VHLRRANGE）
+        - 安全管理
+          - 查询超级管理员信息（LST SUINFO）
+          - 查询系统安全策略（LST SECPOLICY）
+          - 修改超级管理员信息（MOD SUINFO）
+          - 手动解锁用户（SET UNLCK）
+          - 设置系统安全策略（SET SECPOLICY）
+        - 备份恢复管理
+          - 停止内存库整局批量备份(STP BKPDB)
+          - 查询备份恢复状态(DSP DB)
+          - 停止内存库数据在线恢复(STP RCVDB)
+          - 内存库数据在线恢复(RCV DB)
+          - 内存库整局批量备份(BKP DB)
+        - 日志管理
+          - 查询日志用户号码（LST LOGUSER）
+          - 查询操作日志（LST LOG）
+        - 用户数据导入管理
+          - 导入批操作（BAT IMP）
+    - PGW机机接口命令
+      - MCI通知管理
+        - 用户数据更新通知(NTY PSPAINTLFSUB)
+      - UDM PGW 机机接口命令
+        - 系统管理
+          - 操作员登录（LGI）
+          - 操作员注销（LGO）
+        - UIM PGW Web LMT命令
+          - 批处理IP地址
+            - 批处理添加IP地址段(ADD UIPBATCH)
+            - 批处理删除IP地址段(RMV UIPBATCH)
+            - 批处理查询IP地址段(LST UIPBATCH)
+            - 批处理回收IP地址段(RECYCLE UIPBATCH)
+      - USCDB PGW机机接口命令
+        - 灵活导出模板管理
+          - 删除灵活导出模板(RMV FLEXPTPL)
+          - 查询灵活导出模板(LST FLEXPTPL)
+          - 添加灵活导出模板(ADD FLEXPTPL)
+          - 修改灵活导出模板(MOD FLEXPTPL)
+        - 用户管理
+          - 操作员登录(LGI)
+          - 操作员登出(LGO)
+          - 操作员退出(EXIT)
+        - 维护管理
+          - 查询参数信息(LST CMDPARAM)
+          - 保存MAP操作日志(SAV OPRLOG)
+          - 查询用户超时时间(LST OPRTIMEOUT)
+          - 导出全局数据(EXP GLOBALDATA)
+          - 修改用户超时时间(MOD OPRTIMEOUT)
+        - 从账号额外信息管理
+          - 删除从账号额外信息（RMV OPREXTINFO）
+          - 添加从账号额外信息（ADD OPREXTINFO）
+          - 查询从账号额外信息（LST OPREXTINFO）
+          - 修改从账号额外信息（MOD OPREXTINFO）
+        - 安全管理
+          - 查询是否必须修改密码的状态信息(LST MUSTMODPWD)
+  - CSP OM Portal
+    - UEG机机接口命令
+      - CSP机机接口命令（裸机容器）
+        - 网管认证管理
+          - 修改当前用户密码(MOD USRPWD)
+          - 强制注销网管在线用户(KIK OP)
+          - 网管用户认证结果通知(ACK LGI)
+        - 修改SNMP用户(MOD SNMPUSER)
+        - 时区夏令时管理
+          - 网元时区夏令时查询（LST EMSTZ）
+        - 话统管理
+          - 校验任务文件(VRF DEFMEAS)
+          - 查询任务文件(LST DEFMEAS)
+          - 取消订阅通知(UNSRB NTF)
+          - 查询测量对象(LST MEASOBJ)
+          - 订阅通知(SRB NTF)
+          - 上传测量描述文件（ULD MEASDEF）
+          - 激活备用任务文件(ACT SDEFMEAS)
+          - 上传任务文件(ULD DEFMEAS)
+          - MRF文件版本协商(CHK MRFVER)
+          - 测量结果文件上传(ULD MEASRST)
+          - 删除测量对象(RMV MEASOBJ)
+          - 增加测量对象(ADD MEASOBJ)
+          - 查询测量结果文件(LST MEASRST)
+          - 下载任务文件(DLD DEFMEAS)
+          - 查询订阅(DSP SRB)
+        - MML维护
+          - 任务管理
+            - 任务管理（IMP STATUS）
+          - 配置导入
+            - 导入MML文件（IMP MML）
+          - 连接管理
+            - 修改MML连接信息（MOD MMLLINKINFO）
+        - MML登录管理
+          - 认证登出（LGO）
+          - 发送密文密码给网元（SND CRG）
+          - 登录认证（LGI）
+          - 握手命令（SHK HAND）
+          - 请求操作员身份验证（RVI OP）
+        - Soap长连接管理
+          - Soap握手命令(SHK HAND)
+          - Soap建立长连接命令(CRT CONNECT)
+        - 配置电子保单信息
+          - 配置电子保单信息（SET DIGIW）
+        - 日志管理
+          - 获取审计日志文件（GET LOGFILE）
+        - 主动通知消息
+          - 对象通知订阅(SRB OBJNTF)
+          - 对象通知标签查询(LST LABEL)
+          - 对象通知订阅查询(LST MOCNTF)
+          - 取消对象通知订阅(USB OBJNTF)
+        - 配置同步管理
+          - 对象通知标签查询（LST LABEL）
+          - 网管配置同步（GET CFGFILE）
+        - Soap用户登录认证和退出
+          - Soap退出命令(LGO SOAP)
+          - Soap登录命令(LGI SOAP)
+        - 数据收集
+          - 获取硬件数据（GET HARDWAREDATA）
+        - 通用命令处理
+          - 查询网元版本和信息(LST ME)
+        - 获取服务信息
+          - 获取服务信息（GET SERVICE）
+        - 系统调测
+          - 软件管理
+            - 工作区管理
+              - 结束升级观察期(FIN UPGWATCH)
+              - 查询升级观察期(LST UPGWATCH)
+            - 平面管理
+              - 同步更新网元版本(SYN MEVER)
+            - 版本补丁管理
+              - 校验静默补丁(CHK SPATCH)
+        - 软件管理
+          - 监控任务管理
+            - 设置告警统计功能开关 (SET ALMMSGSTAT)
+            - 查询告警统计结果 (LST ALMMSGSTAT)
+            - 查询告警日志(LST ALMLOG)
+            - 手工清除告警(RMV ALMFLT)
+          - 模块管理
+            - 模块
+              - 查询进程模式(LST PROMODE)
+              - 修改进程模式(MOD PROMODE)
+          - 网元管理
+            - 查询网元信息(GET ME)
+            - 改变网元(USE ME)
+            - 查询网元配置信息(DSP ME)
+            - 锁定网元(LCK ME)
+            - 修改网元信息(MOD ME)
+            - 增加网元(ADD ME)
+            - 升级网元实例(UPG ME)
+            - 删除网元(RMV ME)
+            - 解锁网元(ULK ME)
+          - 平面管理
+            - 平面激活(ACT PLANE)
+            - 划分平面(DEF PLANECFG)
+            - 平面定义(DEF PLANE)
+            - 升级预处理(STR CBK)
+            - 查询平面定义(LST PLANE)
+            - 平面切换(SWP PLANE)
+          - 备份管理
+            - 快速导出网元数据(FEXP MES)
+            - 显示EXP MES的执行状态(DSP MESSTAT)
+            - 备份系统(BKP SYS)
+          - 命令统计
+            - 设置维护命令统计开关(SET MMSWITCH)
+            - 查询命令执行时间(LST CMDEXECTIME)
+            - 查询对象联想参数(LST MOCASS)
+            - 设置配置命令统计开关(SET CMDSTAT)
+            - 查询对象配置标签(LST MOCLABEL)
+            - 设置时区和夏令时(SET LITETZ)
+          - 备份状态管理
+            - 备份进度检查(CHK BKSTATS)
+          - 加载进度管理
+            - 查询在线加载进度(DSP ONLINELOAD)
+            - 查询初始加载进度(DSP INITIALLOAD)
+          - 版本信息管理
+            - 查询补丁回退版本(LST PTHRBKVER)
+            - 查询目标版本(LST DSTVER)
+            - 查询补丁网元(LST PTHME)
+            - 删除补丁记录(RMV PTHHSYRCD)
+            - 数据同步(LOD VER)
+          - 性能测量管理
+            - 导出性能测量结果(DMP TRFRST)
+            - 设置网元的性能管理数据(SET PMMEDATA)
+          - 升级状态管理
+            - 开始进入升级观察期(STR UPGWATCH)
+            - 磁盘空间检查(CHK UPGDISK)
+          - 批命令管理
+            - 删除MML批处理任务(RMV MMLTSK)
+            - 增加MML批处理任务(ADD MMLTSK)
+          - 节点管理
+            - 查询CGPLite容器信息(LST OMU)
+          - 包管理
+            - 向指定的ftp下载指定的介质包到omu(PUS PKG)
+          - 平台管理
+            - 平台网元升级(UPG PLATFORM)
+        - 配置管理
+          - 配置同步
+            - 网管配置同步（GET LITECFGFILE）
+            - 对象通知标签查询（LST LABEL）
+          - 跨网元命令管理
+            - 查询跨网元命令的操作记录(LST MCDLOG)
+          - 数据格式化
+            - 刷新数据字典(FRSH FMT)
+          - 配置导出管理
+            - 导出MML文件(EXP LITEMML)
+        - 系统日志管理
+          - 查询日志统计结果(LST LOGMSGSTAT)
+          - 设置日志统计功能开关(SET LOGMSGSTAT)
+        - CSP双机
+          - CSP管理
+            - 设置CGPLite倒换状态(SET SWAPSTATE)
+        - 资源管理
+          - 脱机模式管理
+            - 结束脱机模式(FIN LOFMODE)
+            - 数据加载开关（SET DATASWITCH）
+          - Pod管理
+            - 修改Pod信息(MOD PODINFO)
+            - 增加Pod信息(ADD PODINFO)
+            - 删除Pod信息(RMV PODINFO)
+        - 安全管理
+          - 安全传输管理
+            - 查询TLS/SSL支持能力(LST SSLCPB)
+            - 一般文件下载 (DLD GENFILE)
+        - 设备档案
+          - 导出设备档案(EXP DEVFILE)
+          - 上传设备档案(ULD DEVFILE)
+      - USCDB 机机接口命令
+        - USCDB机机接口命令
+          - 隔离状态管理
+            - 修改Pod隔离状态（MOD SEGSTATEBYPOD）
+          - 升级相关命令
+            - 重启平面内的节点（RST PLGPLANE）
+            - 检查内存库升级约束（CHK IMDBUPGCONS）
+            - 备份平面（BKP UPGPLANE）
+            - 检查升级节点状态（CHK UPGNODE）
+            - 激活或去激活指定平面的pgw模块（SET PGWMODSTAT）
+            - 清理Pod上的升级相关目录（CLR UPGDIR）
+            - 设置升级参数（SET UPGINSP）
+            - 设置模块状态（SET MODULESTATUS）
+            - 显示模块状态（DSP MODULESTAT）
+            - 设置版本信息（SET VERSIONINFO）
+            - 校验各模块的平面信息是否正确（CHK PLGPLANE）
+            - 对指定应用类型划分平面（DEF PLGPLANE）
+            - 删除平面信息（DEL PLGPLANE）
+            - 恢复升级参数（RST UPGINSP）
+            - 显示DSG模块的状态（DSP DSGNODE）
+            - 激活或去激活指定平面的dsg模块（SET PLGMODSTAT）
+          - Pod管理
+            - 添加VDU模块（ADD VDUMODULE）
+            - 增加Pod信息(ADD PODINFO)
+            - 删除VDU模块（RMV VDUMODULE）
+            - 修改Pod信息(MOD PODINFO)
+            - 删除Pod信息(RMV PODINFO)
+            - 定义扩容相关模块（DEF EXPREFMDU）
+            - 设置插件包模式（SET PLUGMODE）
+          - 节点管理
+            - 节点均衡(BAL NODE)
+          - 系统调测
+            - 刷新LDAP链路(FLU LDAPLINK)
+          - 数据格式化
+            - 刷新内存中的缓存的数据字典(FRSH FMT)
+          - 维护平面内的节点
+            - 设置平面内的节点为master（SET PLANENODE）
+            - 去激活指定平面内的节点（DEA PLANENODE）
+            - 激活指定平面内的节点（ACT PLANENODE）
+          - 设备档案
+            - 导出存量文件(EXP LITEDEVFILE)
+          - 配置对象属性管理
+            - 查询对象配置标签(LST MOCLABEL)
+          - DCI错误码话统测量对象信息
+            - 查询DCI错误码测量对象（LST DCIERRCODEOBJ）
+          - 维护内存数据库
+            - 升级内存数据库（UPG IMDB）
+            - 回退内存数据库（RBK IMDB）
+          - 云部署营帐测量对象信息
+            - 查询云部署营帐测量对象信息（LST CPROVSTATOBJ）
+          - 系统信息
+            - 启动信息收集工具（STR INFOCLT）
+            - 查看FE号码类型配置信息（LST FENUMTYPE）
+          - 传送命令信息管理
+            - 执行PGW MML命令(EXC PGWCMD)
+          - 维护FE插件
+            - 加载插件包补丁（LOD FEPLUGPATCH）
+            - 升级FE插件（UPG FEPLUG）
+            - 回退FE插件（RBK FEPLUG）
+          - 弹性伸缩管理
+            - 获取弹性伸缩资源信息（DSP SCALEINFO）
+            - 获取弹性伸缩KPI指标值（DSP SCALEKPINE）
+          - 维护冷补丁平面
+            - 去激活冷补丁平面（DEA CPATCHPLANE）
+            - 校验冷补丁平面状态（CHK CPATCHPLANE）
+            - 设置冷补丁平面（DEF CPATCHPLANE）
+          - 云部署测量对象信息
+            - 查询云部署测量对象信息（LST CLOUDOBJ）
+          - 维护DSG模块内存数据库
+            - 回退DSG模块的内存数据库（RBK MTNIMDB）
+          - 参数联想
+            - 查询对象联想参数(LST MOCASS)
+      - UEG机机接口命令
+        - USM_UAM机机接口命令
+          - CHR流控功能通信
+            - CHR流控功能通信(STR LICTOTALRES)
+          - 设置灰度升级配置管理(SET UPDABTEST)
+          - 日志文件管理
+            - 启动一键式网络拓扑采集任务(STR TOPOTASK)
+            - 收集日志文件(COL LOGFILE)
+          - 跟踪参数校验
+            - 开始跟踪参数检查(STR TRCPARACHK)
+        - 用户面机机接口命令
+          - 集中配置
+            - 公共配置核查是否需要导出MML判定(GET PUBCFGUPDATEFLAG)
+            - 获取摘要(GET PUBCFGDIGEST)
+          - 机机接口命令
+            - 用户面功能管理
+              - 系统调测管理
+                - 升级操作管理
+                  - 升级阶段管理
+                    - 查询升级启动阶段（LST UPGSTAGE）
+                    - 设置升级启动阶段（SET UPGSTAGE）
+                  - 升级服务申请
+                    - 查询升级服务申请状态（DSP UPGSRVREQSTATUS）
+                    - 下发升级服务申请（ACT UPGSRVREQ）
+              - 集中配置管理
+                - 配置摘要信息
+                  - 公共配置核查是否需要导出MML判定(GET PUBCFGUPDATEFLAG)
+                  - 获取摘要(GET PUBCFGDIGEST)
+          - License控制管理
+            - 设置License开关（SET DFTLICSWITCH）
+        - PCF机机接口命令
+          - UPCF机机接口MML命令
+            - 设备档案
+              - 导出设备档案文件(EXP DEVFILE)
+              - 上传设备档案文件(ULD DEVFILE)
+            - PCRF SCTP链路管理
+              - 查询SCTP链路信息(LST PSCTPL)
+            - CCDB机机接口命令
+              - 配置文件管理
+                - 清除配置文件（CLR CCDBCFGFILE）
+              - 插件配置
+                - 升级插件配置(UPG PLUGINCFG)
+        - UDM机机接口命令
+          - 参数联想
+            - 查询对象联想参数(LST MOCASS)
+          - Pod管理命令
+            - Pod管理
+              - 修改Pod信息(MOD PODINFO)
+              - 增加Pod信息(ADD PODINFO)
+              - 删除Pod信息(RMV PODINFO)
+            - POD模块配置
+              - 刷新POD模块配置（FLU PODMDU）
+              - 增加POD模块配置(ADD PODMDU)
+              - 修改POD模块配置(MOD PODMDU)
+              - 删除POD模块配置(RMV PODMDU)
+          - 配置对象属性管理
+            - 查询对象配置标签(LST MOCLABEL)
+          - 链路话统对象实例配置
+            - 增加HLB链路话统对象实例(ADD UDMHTTPLNKMOI)
+          - 微服务进程测量对象配置
+            - 增加UDM微服务进程测量对象(ADD UDMMSMOI)
+          - License信息
+            - 删除ESN特征信息(RMV MSESNFEATURE)
+            - 添加ESN特征信息(ADD MSESNFEATURE)
+            - 删除License话务高峰信息(RMV LICPEAK)
+            - 添加License话务高峰信息(ADD LICPEAK)
+            - 修改ESN特征信息(MOD MSESNFEATURE)
+            - 查询License统计对象(LST LICOBJ)
+            - 修改License话务高峰信息(MOD LICPEAK)
+          - 平面相关命令
+            - 定义FE平面(DEF FEPLANE)
+            - 设置模块状态（SET LDAPSTATUS）
+            - 定义冷补丁平面(DEF CPATCHPLANE)
+            - 设置模块状态（SET MODULESTATUS）
+          - Diameter平面链路
+            - 去激活DIAMETER平面链路(DEA PLANELNK)
+            - 激活DIAMETER平面链路(ACT PLANELNK)
+          - SCTP配置
+            - 修改SCTP四元组的配置(MOD SCTPCFG)
+          - HTTP端口分配信息
+            - 添加HTTP端口分配信息(ADD HTTPPORTINFO)
+            - 删除HTTP端口分配信息(RMV HTTPPORTINFO)
+          - 全网跟踪任务
+            - 增加联合用户跟踪任务（ADD IMSUTRC）
+          - 刷新内存中的缓存的数据字典(FRSH FMT)
+          - AppID信息
+            - 增加AppID信息(ADD APPIDINFO)
+          - 设置DSG自动回切（SET AUTOSWITCH）
+        - Service Fabric机机接口命令
+          - 单体服务公共功能管理
+            - 操作维护
+              - 系统调测
+                - 升级维护
+                  - 执行DB翻译（OPR DBTRANSLATE）
+                  - 显示升级操作执行结果（DSP ACSUPDACTIONRESULT）
+                  - 一键式运行补丁（OPR PATCHRUN）
+                  - 显示升级操作执行结果（DSP UPDACTIONRESULT）
+                  - 删除DB文件（RMV UPDDBFILES）
+                  - 查询DB文件（DSP UPDDBFILE）
+                  - 上传DB文件（ULD UPDDBFILE）
+              - 配置管理
+                - 网元升级文件管理
+                  - 下载升级数据文件（DLD UPGRADEFILE）
+                  - 上传升级数据文件（ULD UPGRADEFILE）
+                  - 备份升级数据文件（BKP UPGRADEFILE）
+                  - 恢复升级数据文件（RTR UPGRADEFILE）
+                  - 显示升级数据文件列表信息（DSP UPGRADEFILE）
+          - VNRS功能管理
+            - 操作维护
+              - 系统调测
+                - 灰度升级维护
+                  - 升级操作
+                    - 执行灰度升级规划、配置迁移、配置回退及配置资源清理（MOD UPDCFG）
+                  - 查询升级模式
+                    - 查询升级模式（DSP UPDMODE）
+                  - 查询升级状态
+                    - 查询升级状态（DSP MIGUPDCFGSTAT）
+            - 系统管理
+              - NP升级管理
+                - NP工作模式管理
+                  - 查询NP工作模式（DSP NPMODE）
+          - 编排管理
+            - NFVI分批升级管理
+              - 查询原子对象记录（LST DIYFLOWHIST）
+              - 增加原子对象记录（ADD DIYFLOWHIST）
+              - 删除原子对象记录（RMV DIYFLOWHIST）
+          - CSLB功能管理
+            - 系统管理
+              - 升级管理
+                - 设置LB灰度升级阶段（SET LBUPGSTAGE）
+                - 查询LB灰度升级阶段（LST LBUPGSTAGE）
+            - 操作维护
+              - 系统调测
+                - 公共调测
+                  - CSLB拓扑参数管理
+                    - 设置LB拓扑推送状态（SET LBTOPOPUSH）
+          - IPSEC功能管理
+            - IP服务
+              - IP安全管理
+                - 互联网密钥交换
+                  - IPsec灰度升级
+                    - 查询升级状态表（LST UPGCFG）
+                    - 处理升级请求（OPR UPG）
+                    - 设置升级状态（SET UPGCFG）
+          - HTTP功能管理
+            - HTTP平台管理
+              - 设置HTTP灰度升级状态（SET HTTPUPGSTAGE）
+          - SDR策略核查开关
+            - 设置外部策略广播核查开关（SET EXTPLCYCHKOPT）
+          - 单体服务平台功能管理
+            - 系统管理
+              - 资源管理
+                - 资源实例管理
+                  - 删除VNFC内的资源配置信息（RMV VNFCRES）
+          - 单体服务维护功能管理
+            - 操作维护
+              - 配置管理
+                - 灰度升级状态管理
+                  - 查询灰度升级状态（LST SAUPGSTATUS）
+                  - 设置灰度升级状态（SET SAUPGSTATUS）
+      - CSP机机接口命令（虚机容器）
+        - 系统调测
+          - 软件管理
+            - 工作区管理
+              - 结束升级观察期(FIN UPGWATCH)
+              - 查询升级观察期(LST UPGWATCH)
+            - 平面管理
+              - 同步更新网元版本(SYN MEVER)
+            - 版本补丁管理
+              - 校验静默补丁(CHK SPATCH)
+        - 软件管理
+          - 监控任务管理
+            - 设置告警统计功能开关 (SET ALMMSGSTAT)
+            - 查询告警统计结果 (LST ALMMSGSTAT)
+            - 查询告警日志(LST ALMLOG)
+            - 手工清除告警(RMV ALMFLT)
+          - 模块管理
+            - 模块
+              - 查询进程模式(LST PROMODE)
+              - 修改进程模式(MOD PROMODE)
+          - 网元管理
+            - 查询网元信息(GET ME)
+            - 改变网元(USE ME)
+            - 查询网元配置信息(DSP ME)
+            - 锁定网元(LCK ME)
+            - 修改网元信息(MOD ME)
+            - 增加网元(ADD ME)
+            - 升级网元实例(UPG ME)
+            - 删除网元(RMV ME)
+            - 解锁网元(ULK ME)
+          - 平面管理
+            - 平面激活(ACT PLANE)
+            - 划分平面(DEF PLANECFG)
+            - 平面定义(DEF PLANE)
+            - 升级预处理(STR CBK)
+            - 查询平面定义(LST PLANE)
+            - 平面切换(SWP PLANE)
+          - 备份管理
+            - 快速导出网元数据(FEXP MES)
+            - 显示EXP MES的执行状态(DSP MESSTAT)
+            - 备份系统(BKP SYS)
+          - 命令统计
+            - 设置维护命令统计开关(SET MMSWITCH)
+            - 查询命令执行时间(LST CMDEXECTIME)
+            - 查询对象联想参数(LST MOCASS)
+            - 设置配置命令统计开关(SET CMDSTAT)
+            - 查询对象配置标签(LST MOCLABEL)
+            - 设置时区和夏令时(SET LITETZ)
+          - 备份状态管理
+            - 备份进度检查(CHK BKSTATS)
+          - 加载进度管理
+            - 查询在线加载进度(DSP ONLINELOAD)
+            - 查询初始加载进度(DSP INITIALLOAD)
+          - 版本信息管理
+            - 查询补丁回退版本(LST PTHRBKVER)
+            - 查询目标版本(LST DSTVER)
+            - 查询补丁网元(LST PTHME)
+            - 删除补丁记录(RMV PTHHSYRCD)
+            - 数据同步(LOD VER)
+          - 性能测量管理
+            - 导出性能测量结果(DMP TRFRST)
+            - 设置网元的性能管理数据(SET PMMEDATA)
+          - 升级状态管理
+            - 开始进入升级观察期(STR UPGWATCH)
+            - 磁盘空间检查(CHK UPGDISK)
+          - 批命令管理
+            - 删除MML批处理任务(RMV MMLTSK)
+            - 增加MML批处理任务(ADD MMLTSK)
+          - 节点管理
+            - 查询CGPLite容器信息(LST OMU)
+          - 包管理
+            - 向指定的ftp下载指定的介质包到omu(PUS PKG)
+          - 平台管理
+            - 平台网元升级(UPG PLATFORM)
+        - 配置管理
+          - 配置同步
+            - 网管配置同步（GET LITECFGFILE）
+            - 对象通知标签查询（LST LABEL）
+          - 跨网元命令管理
+            - 查询跨网元命令的操作记录(LST MCDLOG)
+          - 数据格式化
+            - 刷新数据字典(FRSH FMT)
+          - 配置导出管理
+            - 导出MML文件(EXP LITEMML)
+        - 系统日志管理
+          - 查询日志统计结果(LST LOGMSGSTAT)
+          - 设置日志统计功能开关(SET LOGMSGSTAT)
+        - CSP双机
+          - CSP管理
+            - 设置CGPLite倒换状态(SET SWAPSTATE)
+        - 资源管理
+          - 脱机模式管理
+            - 结束脱机模式(FIN LOFMODE)
+            - 数据加载开关（SET DATASWITCH）
+          - Pod管理
+            - 修改Pod信息(MOD PODINFO)
+            - 增加Pod信息(ADD PODINFO)
+            - 删除Pod信息(RMV PODINFO)
+        - 安全管理
+          - 安全传输管理
+            - 查询TLS/SSL支持能力(LST SSLCPB)
+            - 一般文件下载 (DLD GENFILE)
+    - UEG工程命令
+      - 显示DCS打点统计信息（DSP DCSSTATS）
+      - 显示HAFG相关信息（DSP DBGHAFG）
+      - 执行FEI调试命令（OPR FEIDBGCMD）
+      - 显示HAFD调试命令结果（DSP DBGHAFD）
+      - 通过命令代理执行命令行调试命令（OPR DBGCLICMDPRXY）
+      - SGSN/MME工程命令
+        - 查询所有MSISDN用户群成员（LST MSISDNSUBGPMEMALL）
+    - UEG MML命令
+      - USCDB操作维护命令
+        - 平台服务管理
+          - 单体服务公共功能管理
+            - 系统管理
+              - 系统维护
+                - 仲裁服务配置
+                  - 查询仲裁服务配置（LST ACSELECTSERVICE）
+                  - 设置仲裁服务配置（SET ELECTSERVICE）
+                  - 查询仲裁服务配置（LST ELECTSERVICE）
+                  - 设置仲裁服务配置（SET ACSELECTSERVICE）
+                - 调试命令
+                  - 通过命令代理执行命令行调试命令（OPR DBGCLICMDPRXY）
+                  - 显示通过命令代理可执行命令行调试命令的白名单（DSP DBGCLICMDPRXYREG）
+                - 倒换主备资源单元
+                  - 资源单元组主备倒换（SWP RUGROUP）
+                  - 显示资源单元组成员信息（DSP RUGROUP）
+                  - 显示资源单元组主备倒换状态信息（DSP RUGROUPSWP）
+                  - 显示主备操作维护单元信息（DSP OMU）
+                  - 倒换主备操作维护单元（SWP OMU）
+                - 仲裁服务状态
+                  - 查询仲裁服务状态（DSP ACSELECTSERVICE）
+                  - 查询仲裁服务状态（DSP ELECTSERVICE）
+                - 扩展包管理
+                  - 查询扩展包详细信息（DSP PLGPKGDETAILINFO）
+                  - 加载扩展包（LOD PLGPKG）
+                  - 显示扩展包版本信息（DSP PLGPKG）
+                  - 删除扩展包（RMV PLGPKG）
+                  - 查询加载的扩展包（LST PLGPKG）
+                  - 激活扩展包（ACT PLGPKG）
+                - 补丁管理
+                  - 显示系统当前补丁信息（DSP ACSPATCHINFO）
+                  - 显示补丁信息（DSP PATCHDETAILINFO）
+                  - 显示系统当前补丁信息（DSP PATCHINFO）
+                  - 显示补丁信息（DSP ACSPATCHDETAILINFO）
+                - 主密钥管理
+                  - 查询主密钥信息（DSP MKINFO）
+                  - 更新主密钥（MOD MK）
+                  - 查询主密钥未同步的对象（DSP MKUNSYNCTARGET）
+              - EOX管理
+                - 转换NOS异构模式(CVT NOSHETEROMODE)
+                - 查询NOS异构模式(DSP NOSHETEROMODE)
+              - 资源管理
+                - RU管理
+                  - 显示故障策略信息（LST FAULTDETECT）
+                  - 设置进程故障告警上报模式（SET PROCFAULTALM）
+                  - 设置故障策略配置（SET FAULTDETECT）
+                  - 显示资源单元复位信息（DSP RESETINFO）
+                  - 查询系统HA状态（DSP HASTAT）
+                  - 显示RU的磁盘分区信息（DSP PARTITIONINFO）
+                  - 查询进程故障告警上报模式（LST PROCFAULTALM）
+                  - 配置base链路亚健康信息（SET BASESUBHEALTH）
+                  - 显示仲裁成员列表信息（DSP SLEMEMBER）
+                  - 设置RU资源过载和去过载阈值（SET RURESTHRESHOLD）
+                  - 显示base链路亚健康信息（DSP BASESUBHEALTH）
+                  - 查询资源实例类型（LST RESINSTANCETYPE）
+                  - 显示内存错误信息（DSP MEMERRORINFO）
+                  - 查询RU资源过载和去过载阈值（LST RURESTHRESHOLD）
+                  - 显示资源单元信息（DSP RU）
+                  - 设置资源单元故障容忍时间（SET RUFAULTTOLERANCE）
+                  - 显示仲裁成员详细信息（DSP SLEMEMBERDETAIL）
+                  - 重启资源单元（RST RU）
+                  - 查询base链路亚健康信息（LST BASESUBHEALTH）
+                  - 查询RU磁盘过载配置（LST RUDISKPARTITION）
+                  - 设置RU磁盘过载配置（SET RUDISKPARTITION）
+                  - 查询资源单元故障容忍时间（LST RUFAULTTOLERANCE）
+                - 加速器管理
+                  - 显示加速器信息（DSP ACC）
+                - 端口管理
+                  - 显示端口信息（DSP PORT）
+              - 版本信息
+                - 设置软件包检查间隔（SET CHKPKGINTERVAL）
+                - 显示系统软件信息（DSP ACSPACKAGE）
+                - 查询软件包检查间隔（LST CHKPKGINTERVAL）
+                - 显示系统版本信息（DSP ACSVERSION）
+                - 显示系统版本信息（DSP VERSION）
+                - 显示系统软件信息（DSP PACKAGE）
+                - 显示系统内部部件版本信息（DSP INNERCOMPVERSION）
+              - 复位系统
+                - 重启系统（RST VNFC）
+              - 基础参数
+                - 查询节点信息
+                  - 查询节点信息（LST NODEINFO）
+            - 操作维护
+              - 系统调测
+                - 网络配置协议客户端
+                  - 查询设备所支持的NETCONFC协议能力集（DSP NCCCAPABILITY）
+                  - 显示NETCONFC与其他组件的消息交互信息（DSP NCCDIAGLOG）
+                  - 查询NETCONFC的配置同步信息（DSP NCCSYNCINFO）
+                  - 显示NETCONFC会话信息（DSP NCCSESSION）
+                  - 显示NETCONFC管理的远端设备的信息（DSP NCCPEERLIST）
+                - 进程和组件信息
+                  - 显示进程文件句柄使用信息（DSP PROCFILEHDLSTAT）
+                  - 显示组件信息（DSP COMPONENT）
+                  - 收集并推送RU的组件状态（UPD COMPSTATUS）
+                  - 显示进程消息分区信息（DSP PROCMSGAREA）
+                  - 显示组件订阅信息（DSP COMPONENTSUB）
+                  - 显示系统进程内存信息（DSP OSPROCMEMSTATIS）
+                  - 显示定时器信息（DSP TIMER）
+                  - 显示组件状态通知记录（DSP COMPSTATNOTIFY）
+                  - 显示线程调用栈信息（DSP THREADCALLSTACK）
+                  - 显示进程消息队列信息（DSP PROCMSGQUEUE）
+                  - 显示当前组件的状态记录信息（DSP COMPSTATTRACE）
+                  - 显示组件和容器关系信息（DSP COMCONTAINER）
+                  - 显示进程定时器计数信息（DSP PROCTIMERSTAT）
+                  - 显示进程信息（DSP PROCESSINFO）
+                  - 显示所有进程的协商状态信息（DSP NEGOSTATE）
+                  - 显示进程内存分区信息（DSP PROCMEMPT）
+                  - 显示dopra相关内存信息（DSP MEMORYINSPECT）
+                  - 查询逻辑链路统计信息（DSP PROCCHANNALSTC）
+                  - 查询逻辑链路事件（DSP PROCCHANNALEVENT）
+                  - 显示进程内线程信息（DSP PROCTHREAD）
+                - 配置维护
+                  - APP配置检查
+                    - 检查APP配置数据（CHK APPDATA）
+                    - 查询APP与OMU配置数据差异信息（DSP APPDATADIFF）
+                    - 同步APP配置数据（SYN APPDATA）
+                  - 配置数据
+                    - 显示指定DB表数据（DSP CFGCERTAINDB）
+                    - 修改MML导入导出密钥（MOD EXPCFGPARA）
+                    - 显示APPDB表数据（DSP APPDATA）
+                    - 显示CFG表索引信息和字段信息（DSP CFGTABLEINDEX）
+                    - 显示满足条件的CFG表数据（DSP CFGTABLEDATA）
+                    - 显示CFG诊断日志（DSP CFGDEBUG）
+                    - 显示APP内存信息（DSP MEMINFO）
+                    - 显示CFG表信息和内存信息（DSP CFGTABLEINFO）
+                  - 启动文件
+                    - 显示本次和下次启动文件（DSP STARTUP）
+                  - 配置恢复失败命令
+                    - 显示CFG方式配置恢复的失败信息（DSP CFGERRCMD）
+                  - 配置恢复结果
+                    - 显示系统配置恢复结果（DSP CFGRECOVERRESULT）
+                - 升级维护
+                  - 校正补丁包（CLB PATCH）
+                  - 校正补丁包（CLB ACSPATCH）
+                  - 显示RU版本信息（DSP ACSUPDRUVER）
+                  - 显示升级可回退版本信息（DSP ACSRBKVER）
+                  - 加载软件包（LOD PACKAGE）
+                  - 删除补丁（RMV ACSPATCH）
+                  - 回退升级操作（RBK PACKAGE）
+                  - 显示升级可回退版本信息（DSP RBKVER）
+                  - 激活软件包（ACT PACKAGE）
+                  - 显示升级状态（DSP UPDSTATUS）
+                  - 升级前检查（OPR ACSUPDPRECHK）
+                  - 显示当前版本信息（DSP UPDVER）
+                  - 显示RU版本信息（DSP UPDRUVER）
+                  - 回退升级操作（RBK ACSPACKAGE）
+                  - 删除补丁（RMV PATCH）
+                  - 设置升级状态（SET UPDSTATUS）
+                  - 显示升级状态（DSP ACSUPDSTATUS）
+                  - 删除软件包（RMV PACKAGE）
+                  - 设置升级状态（SET ACSUPDSTATUS）
+                  - 升级前检查（OPR UPDPRECHK）
+                  - 激活软件包（ACT ACSPACKAGE）
+                  - 删除软件包（RMV ACSPACKAGE）
+                  - 加载软件包（LOD ACSPACKAGE）
+                - 跟踪管理调测
+                  - 显示跟踪文件可维护性信息（DSP TRCFILEDIAG）
+                  - 查询跟踪中心消息统计信息（DSP TRCSMSGTOTALSTC）
+                  - 显示流控通知相关信息（DSP TRCFLOWCTRL）
+                  - 查询跟踪中心任务消息统计信息（DSP TRCSTASKMSGSTC）
+                  - 显示最后订阅Session信息（DSP TRCLASTSUBSESSION）
+                  - 显示跟踪任务相关跟踪消息的统计信息（DSP TRCTASKSTC）
+                  - 显示跟踪任务Session信息（DSP TRCTASKSESSION）
+                  - 显示跟踪代理侧跟踪任务信息（DSP TRCAGENTTASK）
+                - 异常信息
+                  - 显示RU断言信息（DSP ASSERTINFO）
+                  - 显示RU组件上报的故障信息（DSP REPORTFAILUREINFO）
+                  - 清除异常信息记录（RMV DEBUGRECORD）
+                  - 显示RU死循环信息（DSP DEADLOOPINFO）
+                  - 显示长时间未被调度的组件消息（DSP STARVATIONINFO）
+                  - 显示RU异常信息（DSP EXCEPTIONINFO）
+                - 基础网络调测
+                  - 查询NOS Base平面网络的报文统计信息（DSP NOSBASEIFSTAT）
+                  - 查询NOS Base平面网络的网口状态信息（DSP NOSBASEIFSTATUS）
+                  - 查询NOS Base平面网络的邻居信息（DSP NOSBASENEIGH）
+                  - 查询NOS Base平面网络的Socket信息（DSP NOSBASESOCKET）
+                  - 查询NOS Base平面网络的路由信息（DSP NOSBASEROUTE）
+                  - NOS Base平面网络Ping功能（ACT NOSBASEPING）
+                - 网络配置协议
+                  - 显示全量同步操作的诊断信息（DSP NCSSYNCFULL）
+                  - 显示所有订阅通知事件信息（DSP NCSNTFSUB）
+                  - 显示NETCONF会话信息（DSP NCSSESSION）
+                  - 显示会话中NETCONF和其它组件的消息交互信息（DSP NCSDIAGLOG）
+                  - 显示NETCONF会话的统计信息（DSP NCSSESSIONSTC）
+                  - 显示应用模型间模型映射关联关系（DSP NCSSCHEMAMAP）
+                  - 查询设备所支持的NETCONF协议能力集（DSP NCSCAPABILITY）
+                  - 显示NETCONF通知会话的统计信息（DSP NCSNTFSTC）
+                  - 显示XSM模块与其他模块的组件间交互消息（DSP XSMINNERDATA）
+                  - 请求生成一个全量同步通知（REQ GENSYNCALLCFGNTF）
+                  - 显示最近的RPC和错误RPC响应报文信息（DSP NCSRPCERROR）
+                  - 显示全量同步操作期间的统计信息（DSP NCSSYNCFULLSTC）
+                  - 显示设备当前已加载的NETCONF数据模型（DSP NCSDATAMODEL）
+                  - 显示通知消息发送失败信息（DSP NCSNTFFAIL）
+                  - 清除NETCONF会话统计信息（RTR NCARSTSSNSTATS）
+                  - 显示操作失败信息（DSP NCSFAILOPER）
+                - 收集日志
+                  - 收集日志信息（COL LOG）
+                  - 显示日志收集执行结果（DSP COLLECTLOGRESULT）
+                - 告警管理调测
+                  - 查询告警模块错误信息（DSP ALMERRORINFO）
+                - 设备管理
+                  - 显示属性订阅信息（DSP DEVATTRSUB）
+                  - 显示属性变更通知消息记录（DSP DEVATTRNOTIFY）
+                  - 显示接收VNFC配置的属性信息（DSP DEVATTRREV）
+                  - 显示组件状态机信息（DSP DEVCOMPFSM）
+                  - 清除资源单元复位信息（CLR RESETINFO）
+                  - 显示对象状态机信息（DSP DEVOBJFSM）
+                  - 显示设备管理诊断信息（DSP DEVDIAGINFO）
+                  - 显示NETCONF请求信息（DSP DEVNETCONFREQ）
+                  - 显示属性值信息（DSP DEVATTRCACHE）
+                  - 显示BOOTP服务端的注册信息（DSP DEVBOOTPREG）
+                  - 触发设备对账（ACT DEVVERIFICATION）
+                  - 显示设备属性信息（DSP DEVATTRTBL）
+                  - 显示模块状态机信息（DSP DEVMODFSM）
+                  - 显示VNFC同步到VNFP的属性信息（DSP DEVATTRSND）
+                  - 显示BOOTP服务器本地资源信息（DSP DEVBOOTPRES）
+                - 日志管理调测
+                  - 显示日志存储信息（DSP LOGFILESTORAGE）
+                  - 查询日志模块错误信息（DSP LOGERRORINFO）
+                  - 显示日志代理性能统计信息（DSP LOGAPFM）
+                  - 显示事件日志信息（DSP LOGEVENT）
+                  - 显示日志中心性能统计信息（DSP LOGSPFM）
+                  - 显示日志丢弃统计信息（DSP LOGSERVERDROPSTC）
+                - SSH调测
+                  - 显示SSH服务器的消息数据（DSP SSHSMSGDATA）
+                  - 显示SSH客户端的错误日志（DSP SSHCERRORLOG）
+                  - 显示SSH客户端的消息数据（DSP SSHCMSGDATA）
+                  - 显示SSH服务器的错误日志（DSP SSHSERRORLOG）
+                - 账号维护
+                  - 修改内部FTPS账号密码（MOD INNERFTPPWD）
+              - 文件传输管理
+                - 文件传输（FTR FILE）
+                - 文件传输（FTR ACSFILE）
+              - 日志管理
+                - 清除日志代理丢弃的日志信息（RTR LOGAGENTSTC）
+                - 查询日志代理丢弃的日志信息（DSP LOGAGENTSTC）
+                - 查询日志中心5分钟内消息统计信息（DSP LOGSERVERSTC）
+                - 查询日志发送的信息（DSP LOGMESSAGESEND）
+                - 保存黑匣子的数据到日志文件中（SAV LOGFILE）
+                - 查询日志模型信息（LST LOGDIC）
+                - 显示Logbuffer中的数据（DSP LOGBUFFER）
+              - 配置管理
+                - 配置文件管理
+                  - 锁定配置（LCK CONFIG）
+                  - 加载Lua脚本（LOD LUASCRIPT）
+                  - 保存运行配置数据（SAV RUNNINGCONFIG）
+                  - 设置调试配置信息（SET CFGDEBUG）
+                - 配置检查
+                  - 查询APP配置数据检查功能（LST DATACHKPOLICY）
+                  - 设置APP配置数据检查功能（SET DATACHKPOLICY）
+              - 告警管理
+                - 告警震荡
+                  - 查询告警震荡信息（LST ALMFLAPINFO）
+                  - 显示告警震荡抑制信息（DSP ALMFLAPSURPINFO）
+                - 告警接收
+                  - 查询告警接收的信息（DSP ALMMESSAGERECV）
+                - 告警对象实例
+                  - 查询告警信息（LST ALARMINFO）
+                - 活动告警
+                  - 显示活动告警（DSP ACTALM）
+                - 告警发送
+                  - 查询告警发送的信息（DSP ALMMESSAGESEND）
+              - 跟踪管理
+                - 显示跟踪任务（DSP TRCTASK）
+                - 显示跟踪文件（DSP TRCFILE）
+              - 基础软件参数管理
+                - 查询基础软件参数配置（LST BASESOFTPARA）
+                - 设置基础软件参数配置（SET BASESOFTPARA）
+          - 系统管理
+            - 资源管理
+              - 设置POD CPU告警阈值（SET PODCPUTHD）
+              - 查询VNF部署模式（DSP VNFMODE）
+              - 显示PAE开关信息（DSP PAESWITCH）
+              - 查询进程CPU信息（DSP MPROCCPUSTAT）
+              - 显示节点磁盘部署规格（DSP DISKINFO）
+              - 查询容器CPU阈值（LST CNTCPUTHD）
+              - 修改POD资源告警阈值（MOD PODALMTH）
+              - 查询Node的CPU信息（DSP NODECPUSTAT）
+              - 设置POD内存告警阈值（SET PODMEMTHD）
+              - 设置PAE隔离核统计状态（SET PAESWITCH）
+              - 查询进程资源数量（DSP MPROCRESSTAT）
+              - 设置容器CPU告警阈值（SET CNTCPUTHD）
+              - 查询POD CPU阈值（LST PODCPUTHD）
+              - 查询容器CPU信息（DSP CNTCPUSTAT）
+              - 删除POD资源告警阈值（RMV PODALMTH）
+              - 查询Node的内存信息（DSP NODEMEMSTAT）
+              - 查询容器内存阈值（LST CNTMEMTHD）
+              - 查询pod内存信息（DSP PODMEMSTAT）
+              - 查询容器内存信息（DSP CNTMEMSTAT）
+              - 设置容器内存告警阈值（SET CNTMEMTHD）
+              - 增加POD资源告警阈值（ADD PODALMTH）
+              - 查询POD内存阈值（LST PODMEMTHD）
+              - 查询进程内存信息（DSP MPROCMEMSTAT）
+              - 查询POD资源告警阈值（LST PODALMTH）
+              - 查询pod CPU信息（DSP PODCPUSTAT）
+          - 单体服务平台功能管理
+            - 系统管理
+              - 资源管理
+                - 资源实例管理
+                  - 设置资源过载和过载恢复阈值（SET RESTHRESHOLD）
+                  - 查询资源磁盘分区过载配置（LST DISKPARTITION）
+                  - 显示资源的磁盘分区信息（DSP RESPARTITIONINFO）
+                  - 设置资源磁盘分区过载配置（SET DISKPARTITION）
+                  - 查询NOS Base平面网络信息（DSP RESNOSBASENETWORK）
+                  - 查询系统HA状态（DSP RESHASTAT）
+                  - 显示资源信息（DSP RES）
+                  - 查询资源过载和过载恢复阈值（LST RESTHRESHOLD）
+                  - 查询资源配置信息（LST RES）
+                  - 查询VNFC内的资源配置信息（LST VNFCRES）
+                - 虚端口管理
+                  - 显示虚拟端口信息（DSP VPORT）
+                - VM管理
+                  - 显示资源CPU使用信息（DSP CPU）
+                  - 显示资源内存信息（DSP MEM）
+                  - 显示内存错误信息（DSP RESMEMERRORINFO）
+              - 应用编排管理
+                - 显示虚拟节点启动时间信息（DSP VNODESTARTTIME）
+                - 重启虚拟节点（RST VNODE）
+                - 查询虚拟节点信息（LST VNODE）
+              - 系统维护
+                - 软件仓软件
+                  - 显示软件仓软件（DSP SOFTWARE）
+                  - 下载软件仓软件（DLD SOFTWARE）
+                  - 删除软件仓软件（RMV SOFTWARE）
+                - 倒换主备操作维护单元
+                  - 倒换主备操作维护单元（SWP RESOMU）
+            - 操作维护
+              - 系统调测
+                - 基础网络调测
+                  - 查询NOS Base平面网络的路由信息（DSP RESNOSBASEROUTE）
+                  - 查询NOS Base平面网络的报文统计信息（DSP RESNOSBASEIFSTAT）
+                  - 查询NOS Base平面网络的邻居信息（DSP RESNOSBASENEIGH）
+                  - 查询NOS Base平面网络的Socket信息（DSP RESNOSBASESOCKET）
+                  - 查询NOS Base平面网络的网口状态信息（DSP RESNOSBASEIFSTATUS）
+                  - NOS Base平面网络Ping功能（ACT RESNOSBASEPING）
+                - 异常信息
+                  - 显示组件上报的故障信息（DSP RESREPORTFAILUREINFO）
+                  - 显示异常信息（DSP RESEXCEPTIONINFO）
+                  - 显示死循环信息（DSP RESDEADLOOPINFO）
+                  - 显示断言信息（DSP RESASSERTINFO）
+                - 进程和组件信息
+                  - 显示进程内存分区信息（DSP RESPROCMEMPT）
+                  - 显示进程定时器计数信息（DSP RESPROCTIMERSTAT）
+                  - 显示组件信息（DSP RESCOMPONENT）
+                  - 显示进程文件句柄使用信息（DSP RESPROCFILEHDLSTAT）
+                  - 显示进程消息分区信息（DSP RESPROCMSGAREA）
+                  - 显示进程信息（DSP RESPROCESSINFO）
+                - 设备管理
+                  - 显示设备驱动信息（DSP DEVDRIINFO）
+                - 网络配置协议
+                  - 显示NETCONF代理转发策略（DSP NCSPROXYFWD）
+                  - 显示所有NETCONF代理VNFC会话信息（DSP NCSPROXYSESSION）
+                  - 显示NETCONF代理操作失败信息（DSP NCSPROXYFAILOPER）
+                - 升级维护
+                  - 下载软件包（DLD PACKAGE）
+              - 用户管理
+                - 密码黑名单
+                  - 增加密码禁用词（ADD PWDBLACKLIST）
+                  - 删除密码禁用词（RMV PWDBLACKLIST）
+                  - 查询密码禁用词（LST PWDBLACKLIST）
+                - 用户
+                  - 修改本地用户属性（MOD OP）
+                  - 查询本地用户（LST OP）
+                - 登录告警阈值
+                  - 设置登录告警策略（SET LOGINALM）
+                - 修改自身密码
+                  - 修改在线用户自身密码（MOD PWD）
+              - 配置管理
+                - VNFC信息
+                  - 显示VNFC（DSP VNFC）
+                  - 查询VNFC（LST VNFC）
+                - 复位网元信息
+                  - 复位VNFC（RST RESVNFC）
+              - 接入配置管理
+                - 密钥配置
+                  - 本地密钥
+                    - 查询本地公钥（LST LOCALKEYPAIR）
+          - 操作维护
+            - 日志管理
+              - 查询日志级别（DSP CSLOGLEVEL）
+              - 查询日志输出级别（LST CSLOGLEVEL）
+              - 查询日志流控开关（LST CSLOGFC）
+              - 更新日志输出级别（STR CSLOGLEVEL）
+              - 设置日志流控开关（SET CSLOGFC）
+              - 设置日志输出级别（SET CSLOGLEVEL）
+            - TLS模式管理
+              - 查询TLS模式（LST INNERTLSMODE）
+              - 设置TLS模式（SET INNERTLSMODE）
+            - 升级补丁管理
+              - 升级补丁参数管理
+                - 查询升级补丁定时器（LST UPGPATTIMER）
+                - 修改升级补丁定时器（SET UPGPATTIMER）
+            - 软参配置管理
+              - 设置ServiceFabric软参（SET FWSOFTPARA）
+              - 查询ServiceFabric软参比特位（LST FWSOFTPARABITS）
+              - 查询ServiceFabric软参（LST FWSOFTPARA）
+              - 设置软件参数比特位（SET FWSOFTPARABITS）
+          - 服务通信管理
+            - 亚健康检测
+              - 显示base平面亚健康链路历史信息（DSP SUBHEALTHRECORD）
+          - 系统调测
+            - 工程调测
+              - 5G工程命令
+                - 调试信息（OPR DBGDATA）
+        - LAS管理
+          - LAS关键资源管理
+            - 设置LAS关键资源告警配置（SET LASESSRESALMCFG）
+            - 查询LAS关键资源告警配置（LST LASESSRESALMCFG）
+          - LAS INSP管理
+            - 修改LAS软件参数的配置信息（MOD LASINSP）
+            - 查询LAS软件参数的配置信息(LST LASINSP)
+          - LDAP客户端IP地址管理
+            - 删除LDAP客户端IP地址(RMV LDAPIP)
+            - 增加LDAP客户端IP地址(ADD LDAPIP)
+            - 查询LDAP客户端IP地址(LST LDAPIP)
+          - LAS TLS协议配置管理
+            - 设置LAS TLS协议配置（SET LASTLSCFG）
+            - 查询LAS TLS协议配置（LST LASTLSCFG）
+          - LAS IP管理
+            - 增加LAS IP地址（ADD LASIPADDR）
+            - 查询LAS IP地址(LST LASIPADDR)
+            - 删除LAS IP地址（RMV LASIPADDR）
+          - LAS流控参数管理
+            - 查询流控参数（LST LASFLOWCTRL）
+            - 修改流控参数（MOD LASFLOWCTRL）
+          - LAS LDAP应用视图管理
+            - 显示LDAP视图(DSP LDAPVIEW)
+          - LAS信息管理
+            - 显示LAS信息（DSP LASINFO）
+        - USCDB管理
+          - 系统管理
+            - License管理
+              - 激活License(ACT LICENSE)
+              - 查询License(LST LICENSE)
+              - 查询ESN(DSP ESN)
+              - 比较License(CMP LICENSE)
+              - 失效License(RVK LICENSE)
+              - 显示License(DSP LICENSE)
+              - 启动紧急License(ACT LICCTL)
+              - 显示License失效信息(DSP RVKLICINFO)
+              - 停止紧急License(DEA LICCTL)
+              - 查询紧急License状态信息(DSP LICCTL)
+              - 查询License资源数目和使用率(DSP LICRATE)
+              - 固化ESN材料（CFM ESNINFO）
+              - 设置产品名称(SET PRODUNAME)
+              - 显示License统计校验任务状态(DSP LICCHECK)
+              - 启动License统计校验任务(STR LICCHECK)
+              - 查询TPS使用信息（DSP TPSINFO）
+              - 设置License兼容模式(SET LICMODE)
+            - 系统调测
+              - 查询平台软件参数的配置信息(LST PLTSP)
+              - 修改平台软件参数(MOD PLTSP)
+              - 查询NF信息(LST NFPROFILE)
+              - 设置NF信息(SET NFPROFILE)
+              - 合并平面信息(CON PLGUPG)
+              - 清除升级内存数据库备份文件(CLR IMDB)
+              - 查询FE插件和USCDB的升级信息(DSP UPGINFO)
+              - 软件调试开关(STR SFTDEBUG)
+              - 修改内存库密码(MOD IMDBPWD)
+              - 设置日志跟踪(SET LOGTRACE)
+              - 显示日志跟踪信息(DSP LOGTRACE)
+            - 流量策略管理
+              - 增加流量策略(ADD TRAFFICPOLICY)
+              - 删除流量策略(RMV TRAFFICPOLICY)
+              - 查询流量策略(LST TRAFFICPOLICY)
+              - 修改流量策略(MOD TRAFFICPOLICY)
+            - 关键资源管理
+              - 查询各模块关键资源的占用（DSP RESINFO）
+              - 设置关键资源告警配置（SET ESSRESALMCFG）
+              - 查询关键资源告警配置（LST ESSRESALMCFG）
+              - 查询各模块系统流控状态相关信息（DSP FLOWCTRLSTATUS）
+            - 平台资源监控管理
+              - 修改资源监控配置信息(MOD MONITOR)
+              - 查询资源监控配置信息(LST MONITOR)
+            - 配置数据管理
+              - 数据校验
+                - 整表校验(STR CRC)
+                - 启动软参CRC校验(STR SPCRC)
+                - 发送CRC校验失败的数据(SND CRCERR)
+                - 删除CRC错误数据(RMV CRCERR)
+                - 记录校验(CHK DATA)
+                - 查询CRC校验失败的数据(LST CRCERR)
+                - 设置是否停止最近一次自动CRC校验(SET AUTOCRC)
+              - 数据发送
+                - 查询超时数据(LST USD)
+                - 发送超时数据(SND USD)
+                - 设置是否显示成功记录(MOD SETRST)
+              - 事务模式
+                - 停止事务(STP TRAN)
+                - 回退事务(RBK TRAN)
+                - 开始事务(BGN TRAN)
+                - 提交事务(CMT TRAN)
+              - 通配符信息
+                - 查询通配符值(LST WILDCARD)
+              - 试运行模式
+                - 取消试运行(CNL TST)
+                - 确认试运行(CFM TST)
+                - 修改自动确认时间(MOD CMTTM)
+                - 查询自动确认时间(LST CMTTM)
+                - 回退试运行(RBK TST)
+                - 停止试运行(STP TST)
+              - 开关控制
+                - 设置格式化开关(SET FMT)
+                - 查询配置开关状态(LST CMSTS)
+                - 设置联机状态(LON)
+                - 设置脱机状态(LOF)
+              - 数据格式化
+                - 格式化数据(FMT)
+            - SSH客户端key管理
+              - 清除SSH Key配置（CLR SSHKEY）
+              - 查询SSH Key配置（LST SSHKEY）
+              - 生成SSH Key配置（GEN SSHKEY）
+              - 导出SSH Key配置（EXP SSHKEY）
+            - 密钥信息管理
+              - 更新密钥信息(UPD KEYINFO)
+              - 查询密钥信息(LST KEYINFO)
+            - HTTPS认证管理
+              - 清除证书文件(CLR VERIF)
+              - 加载证书文件(LOD VERIF)
+              - 查询证书信息(DSP VERIF)
+              - 查询证书文件(LST VERIF)
+            - 承载网质量管理
+              - 查询承载网质量(LST IPQOS)
+            - 性能管理
+              - 查询测量单元描述的配置信息(LST MSUNIT)
+              - 查询第三方网管参数（LST NMDCONN）
+              - 设置第三方网管参数（SET NMDCONN）
+            - 信息收集
+              - 增加日志手动控制(ADD LOGCTRL)
+              - 获取节点信息(GET NODEINFO)
+              - 清空日志手动控制(CLR LOGCTRL)
+            - SSH服务器公钥管理
+              - 加载SSH公钥(LOD SSHPUBKEY)
+              - 查询SSH公钥(LST SSHPUBKEY)
+              - 清除SSH公钥(CLR SSHPUBKEY)
+            - 异构模型映射关系管理
+              - 异构模型
+                - 添加异构模型映射关系（ADD SCHEMAMAP）
+                - 查询异构模型映射关系（LST SCHEMAMAP）
+                - 删除异构模型映射关系（RMV SCHEMAMAP）
+            - 弱口令管理
+              - 增加弱口令（ADD WEAKPWD）
+              - 查询弱口令信息（LST WEAKPWD）
+              - 删除弱口令（RMV WEAKPWD）
+            - 流控软参管理
+              - 查询流控参数(LST FLOWCTRL)
+              - 修改流控参数(MOD FLOWCTRL)
+            - 应用优先级管理
+              - 设置应用优先级(SET APPPRIORITY)
+              - 查询应用优先级（LST APPPRIORITY）
+            - 软件参数管理
+              - 修改动网操作软参(MOD OPERATIONINSP)
+              - 查询软件参数的配置信息(LST INSP)
+              - 修改软件参数的配置信息(MOD INSP)
+              - 查询动网操作软参(LST OPERATIONINSP)
+            - 备份文件密钥管理
+              - 设置文件备份加密信息(SET FILEBKPENC)
+              - 查询文件备份加密信息(LST FILEBKPENC)
+            - Pod管理
+              - Pod信息
+                - 查询Pod信息(LST PODINFO)
+          - 业务管理
+            - 业务发放网关管理
+              - 远端Provisioning站点参数过滤规则管理
+                - 删除PSITE参数过滤规则配置(RMV PSITECMDRULE)
+                - 添加PSITE参数过滤规则配置(ADD PSITECMDRULE)
+                - 查询PSITE参数过滤规则配置(LST PSITECMDRULE)
+                - 修改PSITE参数过滤规则配置(MOD PSITECMDRULE)
+              - 业务发放系统客户端接入控制管理
+                - 修改业务发放系统IP地址(MOD PROVISIONIP)
+                - 删除业务发放系统IP地址(RMV PROVISIONIP)
+                - 添加业务发放系统IP地址(ADD PROVISIONIP)
+                - 查询业务发放系统IP地址（LST PROVISIONIP）
+              - 触发器模板管理
+                - 删除触发器模板(RMV TRIGGERTPL)
+                - 查询触发器模板(LST TRIGGERTPL)
+                - 修改触发器模板(MOD TRIGGERTPL)
+                - 增加触发器模板(ADD TRIGGERTPL)
+              - PGW SSH用户管理
+                - 删除PGW SSH用户(RMV PGWSSHUSER)
+                - 查询PGW SSH用户(LST PGWSSHUSER)
+                - 增加PGW SSH用户(ADD PGWSSHUSER)
+                - 修改PGW SSH用户(MOD PGWSSHUSER)
+              - TCP链路管理
+                - 添加TCP链路(ADD TCPLNK)
+                - 修改TCP链路(MOD TCPLNK)
+                - 查询TCP链路（LST TCPLNK）
+                - 删除TCP链路(RMV TCPLNK)
+              - 营帐设备登录类型管理
+                - 添加营帐设备登录类型(ADD PROVLGITYPE)
+                - 查询营帐设备登录类型(LST PROVLGITYPE)
+                - 删除营帐设备登录类型(RMV PROVLGITYPE)
+                - 修改营帐设备登录类型（MOD PROVLGITYPE）
+              - 业务发放统计规则管理
+                - 删除业务发放统计规则(RMV PROVSTATRULE)
+                - 修改业务发放统计规则(MOD PROVSTATRULE)
+                - 增加业务发放统计规则(ADD PROVSTATRULE)
+                - 查询业务发放统计规则(LST PROVSTATRULE)
+              - TLS协议配置管理
+                - 查询TLS协议配置（LST TLSCFG）
+                - 设置TLS协议配置(SET TLSCFG)
+              - HTTP链路管理
+                - 修改HTTP链路(MOD HTTPLNK)
+                - 删除HTTP链路（RMV HTTPLNK）
+                - 查询HTTP链路（LST HTTPLNK）
+                - 增加HTTP链路(ADD HTTPLNK)
+              - 系统序列号管理
+                - 设置系统序列号(SET SYSNO)
+                - 查询系统序列号(LST SYSNO)
+              - 适配测量对象管理
+                - 查询适配测量对象(LST ADPSTATOBJ)
+                - 修改适配测量对象(MOD ADPSTATOBJ)
+                - 删除适配测量对象(RMV ADPSTATOBJ)
+                - 添加适配测量对象(ADD ADPSTATOBJ)
+              - PGW全局数据管理
+                - 同步PGW全局数据(SYN PGWGLOBALDATA)
+              - PGW订阅通知配置管理
+                - 添加PGW订阅通知配置(ADD NOTIFYCFG)
+                - 查询PGW订阅通知配置（LST NOTIFYCFG）
+                - 删除PGW订阅通知配置(RMV NOTIFYCFG)
+              - 适配测量操作员规则管理
+                - 查询适配测量操作员规则对象(LST ADPSTATOPRULE)
+                - 添加适配测量操作员规则对象(ADD ADPSTATOPRULE)
+                - 删除适配测量操作员规则对象(RMV ADPSTATOPRULE)
+              - IP限制开关管理
+                - 设置IP限制开关(SET GRANTIPSWITCH)
+                - 查询IP限制开关(LST GRANTIPSWITCH)
+              - SOAP链路管理
+                - 增加SOAP链路(ADD SOAPLNK)
+                - 查询SOAP链路(LST SOAPLNK)
+                - 删除SOAP链路(RMV SOAPLNK)
+                - 修改SOAP链路(MOD SOAPLNK)
+              - 自动设备检测配置管理
+                - 添加ADD服务器配置(ADD ADDCONFIG)
+                - 查询ADD服务器配置(LST ADDCONFIG)
+                - 删除ADD服务器配置(RMV ADDCONFIG)
+              - PGW端口配置管理
+                - 修改PGW业务消息侦听端口(MOD PORT)
+                - 查询PGW业务消息侦听端口(LST PORT)
+                - 删除PGW业务消息侦听端口(RMV PORT)
+                - 添加PGW业务消息侦听端口(ADD PORT)
+              - 远端Provisioning站点规则管理
+                - 添加号段配置(ADD PSITERULE)
+                - 修改号段配置(MOD PSITERULE)
+                - 查询号段配置(LST PSITERULE)
+                - 删除号段配置(RMV PSITERULE)
+              - PGW动态流控配置管理
+                - 查询PGW流控参数(LST PGWFLOWCTRL)
+                - 修改PGW流控参数(MOD PGWFLOWCTRL)
+              - SSO链路管理
+                - 修改SSO链路（MOD SSOLNK）
+                - 删除SSO链路（RMV SSOLNK）
+                - 添加SSO链路（ADD SSOLNK）
+                - 查询SSO链路（LST SSOLNK）
+              - 触发器管理
+                - 修改触发器(MOD TRIGGER)
+                - 删除触发器(RMV TRIGGER)
+                - 查询触发器(LST TRIGGER)
+                - 增加触发器(ADD TRIGGER)
+              - 局内FTP用户管理
+                - 查询局内FTP用户(LST INNERUSER)
+                - 修改局内FTP用户密码(MOD INNERUSER)
+              - 订阅组管理
+                - 查询通知失败同步配置(LST NTFFAILEDSYNC)
+                - 查询订阅组（LST SUBSCRIBERGRP）
+                - 设置通知失败同步配置(SET NTFFAILEDSYNC)
+                - 删除订阅组(RMV SUBSCRIBERGRP)
+                - 增加订阅组(ADD SUBSCRIBERGRP)
+                - 修改订阅组(MOD SUBSCRIBERGRP)
+              - 远端Provisioning站点参数替换规则管理
+                - 修改PSITE参数替换规则配置(MOD PSITEPARARULE)
+                - 添加PSITE参数替换规则配置(ADD PSITEPARARULE)
+                - 查询PSITE参数替换规则配置(LST PSITEPARARULE)
+                - 删除PSITE参数替换规则配置(RMV PSITEPARARULE)
+              - 数据订阅配置管理
+                - 增加订阅配置信息(ADD SUBSCRIPTION)
+                - 删除订阅配置信息(RMV SUBSCRIPTION)
+                - 查询订阅配置信息(LST SUBSCRIPTION)
+              - PGW TPS管理
+                - 修改TIPS控制配置(SET PGWTPSCTRL)
+                - 查询TIPS控制配置（LST PGWTPSCTRL）
+              - 业务发放统计对象管理
+                - 增加业务发放统计对象(ADD PROVSTATOBJ)
+                - 修改业务发放统计对象(MOD PROVSTATOBJ)
+                - 删除业务发放统计对象(RMV PROVSTATOBJ)
+                - 查询业务发放统计对象(LST PROVSTATOBJ)
+              - MCI链路管理
+                - 修改MCI链路（MOD MCILNK）
+                - 查询MCI链路（LST MCILNK）
+                - 删除MCI链路（RMV MCILNK）
+                - 增加MCI链路（ADD MCILNK）
+              - PGW静态流控控制管理
+                - 修改静态流控参数(MOD STCFLOWCTRL)
+                - 查询静态流控参数(LST STCFLOWCTRL)
+              - 订阅者管理
+                - 增加订阅者(ADD SUBSCRIBER)
+                - 删除订阅者(RMV SUBSCRIBER)
+                - 修改订阅者(MOD SUBSCRIBER)
+                - 查询订阅者(LST SUBSCRIBER)
+              - 增量营帐日志操作管理
+                - 启动增量营帐日志操作任务(STR INCREASEPROREC)
+                - 显示增量营帐日志操作任务状态(DSP INCREASEPROREC)
+              - DH配置管理
+                - 查询DH配置(LST DHCFG)
+                - 设置DH配置(SET DHCFG)
+              - 远端Provisioning站点管理
+                - 删除远端营帐配置(RMV PSITE)
+                - 修改远端营帐配置(MOD PSITE)
+                - 查询远端营帐配置(LST PSITE)
+                - 添加远端营帐配置(ADD PSITE)
+              - 文件传输服务管理
+                - 激活FTP服务(ACT FTPSERVICE)
+              - 订阅通知服务名称管理
+                - 查询订阅通知服务的服务名称（LST NTFSRVNAME）
+            - 数据服务管理
+              - Cluster管理
+                - 增加Cluster信息(ADD CLUSTER)
+                - 修改Cluster信息(MOD CLUSTER)
+                - 删除Cluster信息(RMV CLUSTER)
+                - 查询Cluster的状态(DSP CLUSTER)
+                - 清除会话数据(CLR CLUSTER)
+                - 查询Cluster的配置信息(LST CLUSTER)
+              - 用户数据统计对象管理
+                - 修改用户数据统计对象(MOD STRNGEX)
+                - 查询用户数据统计对象(LST STRNGEX)
+                - 删除用户数据统计对象(RMV STRNGEX)
+                - 增加用户数据统计对象(ADD STRNGEX)
+              - 服务状态管理
+                - 修改系统的运行模式(MOD SYSRM)
+                - 查询系统的运行模式配置信息(LST SYSRM)
+              - 指定目录恢复管理
+                - 检查恢复目录(CHK RESTOREDIR)
+                - 检查迁移用户恢复状态(CHK RESTRANSDATA)
+                - 查询恢复目录(LST RESTOREDIR)
+                - 删除恢复目录(CLR RESTOREDIR)
+                - 设置迁移用户恢复状态(SET RESTRANSDATA)
+                - 设置恢复目录(SET RESTOREDIR)
+              - 全局数据记录数超限阈值管理
+                - 修改全局数据记录数超限阈值（MOD GDATANUMTHD）
+                - 查询全局数据记录数超限阈值（LST GDATANUMTHD）
+                - 添加全局数据记录数超限阈值（ADD GDATANUMTHD）
+                - 删除全局数据记录数超限阈值（RMV GDATANUMTHD）
+              - SSO元数据管理
+                - 查询SSO元数据(LST SSOMETADATA)
+                - 清除SSO元数据(CLR SSOMETADATA)
+                - 获取SSO元数据(GET SSOMETADATA)
+                - 加载SSO元数据(LOD SSOMETADATA)
+              - 接管标记管理
+                - 设置接管标记（SET TAKEOVERFLAG）
+                - 查询接管标记（LST TAKEOVERFLAG）
+              - 接管状态管理
+                - 显示接管状态信息(DSP TAKEOVER)
+                - 启动容灾接管(STR TAKEOVER)
+                - 停止接管状态(STP TAKEOVER)
+              - 节点管理
+                - 查看节点的主表记录数(DSP NODECOUNT)
+                - 删除节点信息(RMV NODE)
+                - 查询节点加载的信息(DSP LOADINFO)
+                - 查看节点状态(DSP NODE)
+                - 去激活节点(DEA NODE)
+                - 设置节点状态(SET NODE)
+                - 重启节点(RST NODE)
+                - 增加节点信息(ADD NODE)
+                - 加载节点数据(LOD NODE)
+                - 激活节点(ACT NODE)
+                - 查询节点的配置信息(LST NODE)
+                - 备份节点数据(BKP NODE)
+              - 路由数据迁移管理
+                - 结束路由数据迁移任务(FIN ROUTETRANS)
+                - 查询路由数据迁移状态(DSP ROUTETRANS)
+                - 启动路由数据迁移任务(STR ROUTETRANS)
+                - 回退路由数据迁移任务(RBK ROUTETRANS)
+              - 复制队列管理
+                - 显示路由队列信息(DSP ROUTELOG)
+                - 显示复制队列信息(DSP REPLOG)
+              - 应急加载管理
+                - 设置应急加载开关(SET EMERGENCYSWITCH)
+              - 数据校验管理
+                - 局间数据一致性检查（CHK LOCATIONCONS）
+                - 显示清除垃圾路由数据的结果(DSP JUNKROUTE)
+                - 启动Channel数据CRC检查(STR CHANNELCRC)
+                - 重置内存库校验(RST MDBVERIFY)
+                - 删除垃圾路由数据(CLR JUNKROUTE)
+                - 启动局间全局数据校验(STR GLBDATAVFY)
+                - 显示内存库校验结果(DSP MDBVERIFY)
+              - Channel数据管理
+                - 备份DSG模块的内存数据库(BKP MTNIMDB)
+                - 查询路由前缀长度(LST PREFIXCFG)
+                - 设置路由前缀长度(SET PREFIXCFG)
+              - 定时加载配置
+                - 删除定时加载配置(RMV DATALODTIMETASK)
+                - 修改定时加载配置(MOD DATALODTIMETASK)
+                - 查询定时加载配置(LST DATALODTIMETASK)
+                - 添加定时加载配置(ADD DATALODTIMETASK)
+              - 数据版本信息管理
+                - 查询数据版本信息(DSP DATAVER)
+              - 指定时间恢复管理
+                - 设置恢复时间(SET RESTORETIME)
+                - 查询恢复时间(LST RESTORETIME)
+              - 数据初始化管理
+                - 启动初始化数据(STR INITDATA)
+              - 用户归属Cluster管理
+                - 查询用户号码归属ClusterID(DSP CLUSTERID)
+              - 内存数据库使用率告警阈值配置
+                - 设置内存数据库使用率告警阈值配置(SET IMDBUSAGEALMTHD)
+                - 查询内存数据库使用率告警阈值配置(LST IMDBUSAGEALMTHD)
+              - 用户数据迁移管理
+                - 启动用户数据迁移任务(STR USERTRANS)
+                - 停止用户数据迁移任务(STP USERTRANS)
+                - 查询用户数据迁移状态(DSP USERTRANS)
+              - 远端加载配置
+                - 查询远端加载开关(LST RLOADCFG)
+                - 设置远端加载开关(SET RLOADCFG)
+              - 内存数据库管理
+                - 操作内存数据库（EXC OML）
+            - 云部署管理
+              - 云部署组网管理
+                - Partition模式管理
+                  - 查询Partition模式(LST PARTITIONMODE)
+                  - 设置Partition模式(SET PARTITIONMODE)
+                - 远端Partition管理
+                  - 增加远端Partition信息(ADD RPARTITION)
+                  - 查询远端Partition信息(LST RPARTITION)
+                  - 修改远端Partition信息(MOD RPARTITION)
+                  - 删除远端Partition信息(RMV RPARTITION)
+                - Partition参数管理
+                  - 查询Partition的配置信息(LST PARTITIONPARA)
+                  - 设置Partition的配置信息(SET PARTITIONPARA)
+                - 远端Partition数据恢复管理
+                  - 停止恢复远端Partition的数据(STP RPRESTORE)
+                  - 启动恢复远端Partition的数据(STR RPRESTORE)
+                - Partition营帐管理
+                  - 增加限制Partition营帐操作配置(ADD PROVRESTRICTED)
+                  - 查询限制Partition营帐操作配置(LST PROVRESTRICTED)
+                  - 删除限制Partition营帐操作配置(RMV PROVRESTRICTED)
+                - Partition管理
+                  - 删除Partition信息(RMV PARTITION)
+                  - 设置Partition信息(SET PARTITION)
+                  - 查询Partition信息(LST PARTITION)
+                - 远端Partition参数管理
+                  - 查询远端Partition的配置信息(LST RPARTITIONPARA)
+                  - 设置远端Partition的配置信息(SET RPARTITIONPARA)
+            - 数据存储管理
+              - 物理数据库管理
+                - 升级物理数据库(UPG DB)
+                - 恢复Pod数据库(RBD DB)
+                - 修改物理库配置(MOD DBCONFIG)
+                - 更新物理数据库密码(SET DB)
+                - 物理数据库环境安装(STR INSTENV)
+                - 恢复物理数据库(RST DB)
+                - 重启物理数据库（RST PHYDB）
+                - 查询物理数据库用户名(LST DB)
+                - 显示数据库转换任务（DSP DBTRANSTASK）
+                - 执行PHYDB SQL命令（EXC PHYDB）
+                - 回退物理数据库(RBK DB)
+                - 查询物理库配置(LST DBCONFIG)
+                - 停止物理数据库（STP PHYDB）
+                - 查看PHYDB状态（DSP PHYDB）
+                - 启动物理数据库（STR PHYDB）
+                - 备份物理数据库(BKP DB)
+              - 备份恢复管理
+                - 修改备份配置信息(MOD BACKUP)
+                - 查询备份列表(DSP BKPLIST)
+                - 查询备份配置信息(LST BACKUP)
+            - 数据传输管理
+              - 远端SFTP服务器管理
+                - 删除远端SFTP服务器(RMV RSFTPSERVER)
+                - 查询远端SFTP服务器(LST RSFTPSERVER)
+                - 添加远端SFTP服务器(ADD RSFTPSERVER)
+              - SFTP路径配置管理
+                - 查询SFTP配置信息(LST SFTPPATHCFG)
+              - SFTP用户管理
+                - 修改SFTP用户(MOD SFTPUSER)
+                - 查询SFTP用户(LST SFTPUSER)
+                - 删除SFTP用户(RMV SFTPUSER)
+                - 添加SFTP用户(ADD SFTPUSER)
+              - 定制导出配置
+                - 查询定制导出配置(LST CUSEXPCFG)
+                - 添加定制导出配置(ADD CUSEXPCFG)
+                - 修改定制导出配置(MOD CUSEXPCFG)
+                - 删除定制导出配置(RMV CUSEXPCFG)
+              - FTP用户管理
+                - 删除FTP用户(RMV FTPUSER)
+                - 修改FTP用户(MOD FTPUSER)
+                - 查询FTP用户(LST FTPUSER)
+                - 添加FTP用户(ADD FTPUSER)
+              - 远端FTP服务器管理
+                - 查询远端FTP服务器(LST RFTPSERVER)
+                - 添加远端FTP服务器(ADD RFTPSERVER)
+                - 删除远端FTP服务器(RMV RFTPSERVER)
+              - FTP服务器管理
+                - 删除FTP服务器(RMV FTPSERVER)
+                - 查询FTP服务器(LST FTPSERVER)
+                - 添加FTP服务器(ADD FTPSERVER)
+              - SFTP客户端本地路径配置管理
+                - 查询SFTP工作目录(LST SFTPWORKDIR)
+              - FTP客户端本地路径配置管理
+                - 查询FTP工作目录(LST FTPWORKDIR)
+              - FTP路径配置管理
+                - 查询FTP配置信息(LST FTPPATHCFG)
+            - DSG管理
+              - Virtual Remote Location管理
+                - 查询虚拟远端Location信息(LST VRLOCATION)
+                - 删除虚拟远端Location信息(RMV VRLOCATION)
+                - 增加虚拟远端Location信息(ADD VRLOCATION)
+              - DSG链路中心管理
+                - 修改DSG链路中心(MOD DSGLINKCTRL)
+                - 查询DSG链路中心(LST DSGLINKCTRL)
+                - 删除DSG链路中心(RMV DSGLINKCTRL)
+                - 增加DSG链路中心(ADD DSGLINKCTRL)
+              - DSG SCTP协议维护管理
+                - 清除SCTP所有偶联的统计信息(CLR DSGSCTPBS)
+                - 显示DSG SCTP偶联配置(DSP SCTPASSOC)
+                - 查看DSG链路信息(DSP DSGSCTPLINK)
+                - 查看SCTP偶联统计信息(DSP DSGSCTPAS)
+                - 查看SCTP偶联运行信息(DSP DSGSCTPAR)
+                - 查询DSG链路条数(LST LINKNUM)
+                - 查看DSG模块SCTP组件版本(DSP DSGSCTPVER)
+                - 查看SCTP所有偶联的统计信息(DSP DSGSCTPBS)
+                - 查看SCTP负荷信息(DSP DSGSCTPLOD)
+                - 查询DSG模块SCTP参数配置信息(LST DSGSCTPPARA)
+                - 启动DSG链路探测(STR DSGLINKDETECT)
+                - 查看DSG链路状态信息(DSP DSGSCTP)
+                - 检查建链模式(CHK DSGSCTPLINKMODE)
+                - 设置DSG链路条数(SET LINKNUM)
+                - 设置DSG模块SCTP参数配置信息(SET DSGSCTPPARA)
+                - 发送DSG链路配置(SND DSGLINKCFG)
+                - 查看SCTP偶联管理信息(DSP DSGSCTPAM)
+                - 查询DSG SCTP偶联配置(LST SCTPASSOC)
+                - 去激活SCTP链路(DEA DSGSCTP)
+                - 激活SCTP链路(ACT DSGSCTP)
+              - Remote Location管理
+                - 修改远端Location信息(MOD RLOCATION)
+                - 增加远端Location信息(ADD RLOCATION)
+                - 查询远端Location信息(LST RLOCATION)
+                - 删除远端Location信息(RMV RLOCATION)
+              - Remote DPU IP管理
+                - 删除远端网元IP地址(RMV RIPADDR)
+                - 增加远端网元IP地址(ADD RIPADDR)
+                - 查询远端网元IP地址(LST RIPADDR)
+                - 加载远端IP信息(LOD RIPADDR)
+                - 同步远端IP信息到本端(SYN RIPADDR)
+                - 修改远端网元IP地址(MOD RIPADDR)
+              - 远端DSG链路中心管理
+                - 修改远端DSG链路中心(MOD RDSGLINKCTRL)
+                - 查询远端DSG链路中心(LST RDSGLINKCTRL)
+                - 增加远端DSG链路中心(ADD RDSGLINKCTRL)
+                - 删除远端DSG链路中心(RMV RDSGLINKCTRL)
+              - IP Dispatch管理
+                - 设置DSG五元组分发类型（SET DSGTUPDISPTYP）
+                - 查询DSG五元组分发类型（LST DSGTUPDISPTYP）
+                - 激活IP链路(ACT IPDISP)
+              - Remote DSG Module管理
+                - 删除远端DSG(RMV RDSG)
+                - 查询远端DSG(LST RDSG)
+                - 增加远端DSG(ADD RDSG)
+                - 加载远端DSG模块信息(LOD RDSG)
+                - 同步远端DSG模块信息到本端(SYN RDSG)
+              - DTLS协议配置管理
+                - 设置DTLS协议配置(SET DTLSCFG)
+                - 查询DTLS协议配置(LST DTLSCFG)
+              - Location管理
+                - 设置Location信息(SET LOCATION)
+                - 查询Location信息(LST LOCATION)
+            - 业务类型分组管理
+              - 查询业务类型分组（LST SERVICEGROUP）
+              - 设置分组开关（SET GROUPSWITCH）
+              - 查询分组开关（LST GROUPSWITCH）
+          - 设备管理
+            - IP管理
+              - 删除网元业务IP地址(RMV SRVIPADDR)
+              - 增加网元业务IP地址(ADD SRVIPADDR)
+              - 查询网元业务IP地址(LST SRVIPADDR)
+            - 设备档案管理
+              - 查询号段范围(LST NUMRANGE)
+              - 查询北向关联配置(LST NORTHFUNC)
+              - 设置业务配置信息(SET FUNCCFG)
+              - 删除号段范围(RMV NUMRANGE)
+              - 修改号段范围(MOD NUMRANGE)
+              - 增加号段范围(ADD NUMRANGE)
+              - 设置北向关联配置(SET NORTHFUNC)
+              - 查询业务配置信息(DSP FUNCCFG)
+            - 模块管理
+              - 修改模块(MOD MODULE)
+              - 增加模块(ADD MODULE)
+              - 倒换模块(SWP MODULE)
+              - 激活模块(ACT MODULE)
+              - 删除模块(RMV MODULE)
+              - 复位模块(RST MODULE)
+              - 停止模块(STP MODULE)
+              - 启动模块(STR MODULE)
+              - 查询模块(LST MODULE)
+              - 去激活模块(DEA MODULE)
+            - 隔离状态管理
+              - 修改隔离状态(MOD SEGSTATE)
+              - 查询隔离状态(LST SEGSTATE)
+            - FE插件管理
+              - 启用指定的FE插件(ACT FEPLUG)
+              - 添加FE插件(LOD FEPLUG)
+              - 查询FE插件包信息(LST FEPLUG)
+              - 查看FE插件列表和状态(DSP FEPLUG)
+              - 删除FE插件(CLR FEPLUG)
+              - 加载MML插件(LOD MMLPLUG)
+            - 适配插件管理
+              - 添加适配插件(LOD ADPPLUG)
+              - 查看适配插件包加载状态(DSP ADPPLUG)
+              - 删除适配插件(CLR ADPPLUG)
+            - 适配包管理
+              - 加载适配包(LOD ADPPKG)
+              - 查询适配包(LST ADPPKG)
+              - 显示适配包(DSP ADPPKG)
+              - 删除适配包(CLR ADPPKG)
+            - LDAP服务端端口管理
+              - 设置LDAP端口号(SET LDAPPORT)
+              - 查询LDAP端口号(LST LDAPPORT)
+            - LDAP客户端用户管理
+              - 查询LDAP客户端用户名及其对应的描述(LST LDAPUSER)
+              - 修改LDAP客户端用户名和密码（MOD LDAPUSER）
+              - 增加LDAP客户端用户名和密码（ADD LDAPUSER）
+              - 删除LDAP客户端用户(RMV LDAPUSER)
+            - LDAP应用视图管理
+              - 加载LDAP视图（LOD LDAPVIEW）
+              - 删除LDAP视图(CLR LDAPVIEW)
+            - LDAP连接数阈值管理
+              - 查询LDAP连接数阈值(LST LDAPCONNTHD)
+              - 设置LDAP连接数阈值(SET LDAPCONNTHD)
+      - UEG MML命令
+        - 平台服务管理
+          - VNRS功能管理
+            - IP服务
+              - IP协议栈
+                - IP协议统计
+                  - 主机报文统计
+                    - 统计功能配置
+                      - 删除接口协议报文统计配置（RMV HOSTSTCIF）
+                      - 设置全局协议报文统计配置（SET HOSTSTCGLB）
+                      - 查询全局协议报文统计配置（LST HOSTSTCGLB）
+                      - 查询接口协议报文统计配置（LST HOSTSTCIF）
+                      - 增加接口协议报文统计配置（ADD HOSTSTCIF）
+                    - 发送报文统计
+                      - 清除发送方向协议报文统计计数（RTR HOSTSNDSTC）
+                      - 查询发送方向协议报文统计计数（DSP HOSTSNDSTC）
+                    - 接收报文统计
+                      - 清除接收方向协议报文统计计数（RTR HOSTRCVSTC）
+                      - 查询接收方向协议报文统计计数（DSP HOSTRCVSTC）
+                  - ICMP报文统计
+                    - 查询ICMP报文统计（DSP ICMPSTATISTIC）
+                  - UDP报文统计
+                    - 查询UDP报文统计（DSP UDPSTATISTIC）
+                    - 清除UDP报文统计（RTR UDPSTATISTIC）
+                  - RawIP报文统计
+                    - 清除RawIP报文统计（RTR RAWIPSTATISTIC）
+                    - 查询RawIP报文统计（DSP RAWIPSTATISTIC）
+                  - Raw-link报文统计
+                    - 清除Raw-link报文统计（RTR RAWLINKSTATISTIC）
+                    - 查询Raw-link报文统计（DSP RAWLINKSTATISTIC）
+                  - TCP报文统计
+                    - 查询TCP报文统计（DSP TCPSTATISTIC）
+                    - 清除TCP报文统计（RTR TCPSTATISTIC）
+                  - IP报文统计
+                    - 查询IP报文统计（DSP IPSTATISTIC）
+                    - 清除IP报文统计（RTR IPSTATISTIC）
+                - IPv6管理
+                  - IPv6 Path MTU
+                    - 清除IPv6 Path MTU配置（RTR IPV6PATHMTU）
+                    - 显示IPv6 Path MTU配置（DSP IPV6PATHMTU）
+                    - 修改IPv6 Path MTU配置（MOD IPV6PATHMTU）
+                    - 查询IPv6 Path MTU配置（LST IPV6PATHMTU）
+                    - 添加IPv6 Path MTU配置（ADD IPV6PATHMTU）
+                    - 删除IPv6 Path MTU配置（RMV IPV6PATHMTU）
+                  - IPv6 ND安全
+                    - 查询ND安全时间戳（DSP NDSECURITYTIMESTAMP）
+                    - 清除ND安全随机数（RTR NDSECURITYNONCE）
+                    - 清除ND安全统计（RTR NDSECURITYSTATISTICS）
+                    - 查询ND安全统计（DSP NDSECURITYSTATISTICS）
+                    - 清除ND安全时间戳（RTR NDSECURITYTIMESTAMP）
+                    - 查询ND安全随机数（DSP NDSECURITYNONCE）
+                  - 接口下IPv6安全配置
+                    - 删除接口下安全配置（RMV IPV6IFICMPSECURITY）
+                    - 修改接口下安全配置（MOD IPV6IFICMPSECURITY）
+                    - 添加接口下安全配置（ADD IPV6IFICMPSECURITY）
+                    - 查询接口下安全配置（LST IPV6IFICMPSECURITY）
+                  - IPv6 ND表项
+                    - 查询静态ND邻居表项（LST NDNEIGHBOR）
+                    - 删除静态ND邻居表项（RMV NDNEIGHBOR）
+                    - 显示IPv6 ND邻居表项（DSP NDNEIGHBOR）
+                    - 清除IPv6 ND邻居表项（RTR NDNEIGHBOR）
+                    - 增加静态ND邻居表项（ADD NDNEIGHBOR）
+                    - 修改静态ND邻居表项（MOD NDNEIGHBOR）
+                  - IPv6 ND全局配置
+                    - 设置IPv6 ND系统配置（SET NDGLOBALCONFIG）
+                    - 查询IPv6 ND系统配置（LST NDGLOBALCONFIG）
+                  - IPv6安全配置
+                    - 添加IPv6安全配置（ADD IPV6ICMPSECURITY）
+                    - 删除IPv6安全配置（RMV IPV6ICMPSECURITY）
+                    - 查询IPv6安全配置（LST IPV6ICMPSECURITY）
+                    - 修改IPv6安全配置（MOD IPV6ICMPSECURITY）
+                  - IPv6统计计数
+                    - 查询IPv6统计计数（DSP IPV6STAT）
+                    - 清除IPv6统计计数（RTR IPV6STAT）
+                  - ICMP6统计
+                    - 查询ICMP6统计（DSP ICMP6STAT）
+                  - IPv6 ND RA路由信息
+                    - 增加接口上ND RA路由配置信息（ADD NDIFRAROUTE）
+                    - 查询接口上ND RA路由配置信息（LST NDIFRAROUTE）
+                    - 删除接口上ND RA路由配置信息（RMV NDIFRAROUTE）
+                    - 修改接口上ND RA路由配置信息（MOD NDIFRAROUTE）
+                  - IPv6 ND接口配置
+                    - 设置IPv6 ND接口配置（SET NDIFCONFIG）
+                    - 查询IPv6 ND接口配置（LST NDIFCONFIG）
+                  - IPv6扩展头选项安全配置
+                    - 删除IPv6扩展头选项安全配置（RMV IPV6EXTHSECALL）
+                    - 修改IPv6扩展头选项安全配置（MOD IPV6EXTHSECALL）
+                    - 添加IPv6扩展头选项安全配置（ADD IPV6EXTHSECALL）
+                    - 查询IPv6扩展头选项安全配置（LST IPV6EXTHSECALL）
+                  - IPv6全局配置
+                    - 查询IPv6全局配置（LST IPV6GLOBALCONFIG）
+                    - 设置IPv6全局配置（SET IPV6GLOBALCONFIG）
+                - IPv4管理
+                  - 接口下ICMP安全配置
+                    - 删除接口下ICMP安全配置（RMV IFICMPSECURITY）
+                    - 查询接口下ICMP安全配置（LST IFICMPSECURITY）
+                    - 修改接口下ICMP安全配置（MOD IFICMPSECURITY）
+                    - 新增接口下ICMP安全配置（ADD IFICMPSECURITY）
+                  - IP选项全局安全配置
+                    - 修改IP全局选项安全配置（MOD IPOPTSECALL）
+                    - 查询IP全局选项安全配置（LST IPOPTSECALL）
+                    - 删除IP全局选项安全配置（RMV IPOPTSECALL）
+                    - 添加IP全局选项安全配置（ADD IPOPTSECALL）
+                  - ICMP安全配置
+                    - 删除ICMP安全配置（RMV ICMPSECURITY）
+                    - 修改ICMP安全配置（MOD ICMPSECURITY）
+                    - 查询ICMP安全配置（LST ICMPSECURITY）
+                    - 新增ICMP安全配置（ADD ICMPSECURITY）
+                  - ICMP选项安全配置
+                    - 增加ICMP选项安全配置（ADD ICMPOPTSECURITY）
+                    - 删除ICMP选项安全配置（RMV ICMPOPTSECURITY）
+                    - 查询ICMP选项安全配置（LST ICMPOPTSECURITY）
+                  - IPv4报文重组超时配置
+                    - 设置IPv4报文重组超时配置（SET REASTIMEOUT）
+                    - 查询IPv4报文重组超时配置（LST REASTIMEOUT）
+                  - IP选项安全配置
+                    - 查询IP选项安全配置（LST IPOPTSECURITY）
+                    - 设置IP选项安全配置（SET IPOPTSECURITY）
+                  - 接口下IP选项安全配置
+                    - 修改接口IP选项安全配置（MOD IPOPTSECURITYIF）
+                    - 查询接口IP选项安全配置（LST IPOPTSECURITYIF）
+                    - 删除接口IP选项安全配置（RMV IPOPTSECURITYIF）
+                    - 增加接口IP选项安全配置（ADD IPOPTSECURITYIF）
+                  - IP协议全局配置
+                    - 设置主机收发全局属性（SET HOSTGLBCONFIG）
+                    - 查询主机收发全局属性（LST HOSTGLBCONFIG）
+                - TCP全局配置
+                  - 设置TCP全局配置（SET TCPGLOBALCFG）
+                  - 查询TCP全局配置（LST TCPGLOBALCFG）
+              - 接口管理
+                - 端口组
+                  - 删除端口组成员（RMV PORTGROUPMEMBER）
+                  - 删除端口组（RMV PORTGROUP）
+                  - 增加端口组成员（ADD PORTGROUPMEMBER）
+                  - 增加端口组（ADD PORTGROUP）
+                  - 查询端口组成员配置（LST PORTGROUPMEMBER）
+                  - 查询端口组配置（LST PORTGROUP）
+                - IPv4地址
+                  - 增加接口IPv4地址（ADD IFIPV4ADDRESS）
+                  - 修改接口IPv4地址（MOD IFIPV4ADDRESS）
+                  - 删除接口IPv4地址（RMV IFIPV4ADDRESS）
+                  - 查询接口IPv4地址（LST IFIPV4ADDRESS）
+                - 接口全局配置
+                  - 查询接口全局配置（LST IFGLOBALCONFIG）
+                  - 设置接口全局配置（SET IFGLOBALCONFIG）
+                - 流模式配置
+                  - 查询主接口二层透传模式（LST IFL2FLOWMODE）
+                  - 删除主接口二层透传模式（RMV IFL2FLOWMODE）
+                  - 配置主接口二层透传模式（ADD IFL2FLOWMODE）
+                - IPv6地址
+                  - 删除接口IPv6地址（RMV IFIPV6ADDRESS）
+                  - 修改接口IPv6地址（MOD IFIPV6ADDRESS）
+                  - 增加接口IPv6地址（ADD IFIPV6ADDRESS）
+                  - 显示IPv6地址信息（DSP IFIPV6ADDRESS）
+                  - 查询接口IPv6地址（LST IFIPV6ADDRESS）
+                - IPv6 CGA地址配置
+                  - 显示IPv6 CGA地址信息（DSP IFIPV6CGA）
+                  - 修改IPv6 CGA地址信息（MOD IFIPV6CGA）
+                  - 添加IPv6 CGA地址信息（ADD IFIPV6CGA）
+                  - 查询IPv6 CGA地址信息（LST IFIPV6CGA）
+                  - 删除IPv6 CGA地址信息（RMV IFIPV6CGA）
+                - IPv4借用地址
+                  - 删除接口IPv4借用地址（RMV IFIPV4UNNUM）
+                  - 修改接口IPv4借用地址（MOD IFIPV4UNNUM）
+                  - 增加接口IPv4借用地址（ADD IFIPV4UNNUM）
+                  - 查询接口IPv4借用地址（LST IFIPV4UNNUM）
+                - 接口状态信息
+                  - 查询接口状态信息（DSP IFSTATUS）
+                - IPv6地址前缀通告
+                  - 添加IPv6 RA通告前缀（ADD IFIPV6NDRAPREFIX）
+                  - 查询IPv6 RA通告前缀（LST IFIPV6NDRAPREFIX）
+                  - 修改IPv6 RA通告前缀（MOD IFIPV6NDRAPREFIX）
+                  - 删除IPv6 RA通告前缀（RMV IFIPV6NDRAPREFIX）
+                - 接口批量操作
+                  - 批量删除接口下IP地址（RMV ALLIFIPADDRESS）
+                - IPv6地址策略
+                  - 修改IPv6地址策略（MOD IFIPV6ADDRPOLICY）
+                  - 查询IPv6地址策略（LST IFIPV6ADDRPOLICY）
+                  - 添加IPv6地址策略（ADD IFIPV6ADDRPOLICY）
+                  - 删除IPv6地址策略（RMV IFIPV6ADDRPOLICY）
+                - IPv6使能
+                  - 查询接口IPv6使能（LST IFIPV6ENABLE）
+                  - 修改接口IPv6使能（SET IFIPV6ENABLE）
+                - 接口带宽利用率告警阈值
+                  - 设置接口带宽利用率告警阈值（SET IFFLOWALMTHD）
+                  - 查询接口带宽利用率告警阈值（LST IFFLOWALMTHD）
+                - Trunk成员接口配置
+                  - 增加Trunk成员接口（ADD TRUNKMEMBER）
+                  - 切换Trunk激活口（SWP TRUNKACTPORT）
+                  - 查询Trunk成员接口信息（LST TRUNKMEMBER）
+                  - 删除Trunk成员接口（RMV TRUNKMEMBER）
+                  - 显示Trunk成员接口信息（DSP TRUNKMEMBER）
+                - Trunk接口配置
+                  - 修改Trunk工作模式配置（MOD TRUNKIF）
+                  - 查询Trunk工作模式配置（LST TRUNKIF）
+                - IP绑定VPN
+                  - 修改接口绑定VPN（MOD IPBINDVPN）
+                  - 增加接口绑定VPN（ADD IPBINDVPN）
+                  - 删除接口绑定VPN（RMV IPBINDVPN）
+                  - 查询接口绑定VPN（LST IPBINDVPN）
+                - 接口震荡抑制
+                  - 删除接口震荡抑制（RMV IFCONTROLFLAP）
+                  - 清除接口震荡抑制信息（RTR IFCONTROLFLAP）
+                  - 添加接口震荡抑制（ADD IFCONTROLFLAP）
+                  - 查询接口震荡抑制（LST IFCONTROLFLAP）
+                  - 显示接口震荡抑制动态信息（DSP IFCONTROLFLAP）
+                - 接口统计信息
+                  - 清除接口统计信息（RTR IFCOUNTERS）
+                  - 查询接口统计信息（DSP IFCOUNTERS）
+                - 接口配置
+                  - 增加接口（ADD INTERFACE）
+                  - 修改接口（MOD INTERFACE）
+                  - 查询接口（LST INTERFACE）
+                  - 删除接口（RMV INTERFACE）
+              - MPLS管理
+                - LDP管理
+                  - LDP全局配置
+                    - 查询LDP全局配置（LST LDPGLOBAL）
+                    - 设置LDP全局配置（SET LDPGLOBAL）
+                  - LDP FEC
+                    - 显示LDP FEC（DSP LDPFEC）
+                  - LDP会话
+                    - 显示LDP会话（DSP LDPSESSION）
+                  - LDP认证组管理
+                    - 修改LDP认证组（MOD LDPAUTHGROUP）
+                    - 查询LDP认证组配置（LST LDPAUTHGROUP）
+                    - 删除LDP认证组（RMV LDPAUTHGROUP）
+                    - 添加LDP认证组（ADD LDPAUTHGROUP）
+                  - LDP FEC列表
+                    - 查询FEC列表配置（LST LDPFECLIST）
+                    - 添加FEC列表（ADD LDPFECLIST）
+                    - 删除FEC列表（RMV LDPFECLIST）
+                  - LDP接口管理
+                    - 显示LDP接口状态（DSP LDPIF）
+                    - 删除LDP接口（RMV LDPIF）
+                    - 修改LDP接口（MOD LDPIF）
+                    - 添加LDP接口（ADD LDPIF）
+                    - 查询LDP接口配置（LST LDPIF）
+                  - LDP BFD管理
+                    - 设置LDP BFD配置（SET LDPBFD）
+                    - 查询LDP BFD配置（LST LDPBFD）
+                  - 重启LDP会话
+                    - 重启LDP会话（RBL LDPSESSION）
+                    - 重启所有LDP会话（RBL ALLLDPSESSIONS）
+                  - LDP邻居策略
+                    - 查询LDP邻居策略配置（LST LDPPEERPOLICY）
+                    - 删除LDP邻居策略（RMV LDPPEERPOLICY）
+                    - 修改LDP邻居策略（MOD LDPPEERPOLICY）
+                    - 添加LDP邻居策略（ADD LDPPEERPOLICY）
+                  - LDP远端邻居管理
+                    - 显示LDP远端邻居状态（DSP LDPREMOTEPEER）
+                    - 删除LDP远端邻居（RMV LDPREMOTEPEER）
+                    - 添加LDP远端邻居（ADD LDPREMOTEPEER）
+                    - 修改LDP远端邻居（MOD LDPREMOTEPEER）
+                    - 查询LDP远端邻居配置（LST LDPREMOTEPEER）
+                  - LDP FEC节点
+                    - 删除FEC节点（RMV LDPFECNODE）
+                    - 添加FEC节点（ADD LDPFECNODE）
+                    - 查询FEC节点配置（LST LDPFECNODE）
+                  - LDP LSP
+                    - 显示LDP LSP（DSP LDPLSP）
+                  - BFD For LDP Tunnel的BFD会话
+                    - 显示BFD For LDP Tunnel的BFD会话（DSP LDPBFDTNNLSESSION）
+                  - LDP实例
+                    - 查询LDP实例配置（LST LDPINSTANCE）
+                    - 修改LDP实例（MOD LDPINSTANCE）
+                  - LDP邻居管理
+                    - 显示LDP邻居（DSP LDPPEER）
+                - MPLS基础
+                  - MPLS接口
+                    - 显示MPLS接口信息（DSP MPLSIF）
+                    - 删除MPLS接口（RMV MPLSIF）
+                    - 修改MPLS接口（MOD MPLSIF）
+                    - 查询MPLS接口配置（LST MPLSIF）
+                    - 添加MPLS接口（ADD MPLSIF）
+                  - MPLS LSP统计
+                    - 查询MPLS LSP统计信息（DSP MPLSLSPSTC）
+                  - MPLS全局配置
+                    - 设置MPLS全局配置（SET MPLSSITE）
+                    - 查询MPLS全局配置（LST MPLSSITE）
+              - 路由管理
+                - OSPFv3管理
+                  - 查询OSPFv3 BFD状态
+                    - 查询OSPFv3 BFD状态（DSP OSPFV3BFD）
+                  - OSPFv3接口安全联盟配置
+                    - 查询OSPFv3 接口的安全联盟SA配置（LST OSPFV3IFIPSECSA）
+                    - 删除OSPFv3 接口的安全联盟SA（RMV OSPFV3IFIPSECSA）
+                    - 创建OSPFv3 接口的安全联盟SA（ADD OSPFV3IFIPSECSA）
+                  - OSPFv3接口认证配置
+                    - 查询OSPFv3接口认证配置（LST OSPFV3INTERFACEAUTH）
+                    - 修改OSPFv3接口认证配置（MOD OSPFV3INTERFACEAUTH）
+                    - 创建OSPFv3接口认证配置（ADD OSPFV3INTERFACEAUTH）
+                    - 删除OSPFv3接口认证配置（RMV OSPFV3INTERFACEAUTH）
+                  - OSPFv3引入路由配置
+                    - 删除OSPFv3引入路由配置（RMV OSPFV3IMPORTROUTE）
+                    - 查询OSPFv3引入路由配置（LST OSPFV3IMPORTROUTE）
+                    - 修改OSPFv3引入路由配置（MOD OSPFV3IMPORTROUTE）
+                    - 创建OSPFv3引入路由配置（ADD OSPFV3IMPORTROUTE）
+                  - OSPFv3引入路由聚合配置
+                    - 删除OSPFv3引入路由聚合配置（RMV OSPFV3ASBRSUMMARY）
+                    - 创建OSPFv3引入路由聚合配置（ADD OSPFV3ASBRSUMMARY）
+                    - 显示OSPFv3引入路由聚合配置（LST OSPFV3ASBRSUMMARY）
+                    - 修改OSPFv3引入路由聚合配置（MOD OSPFV3ASBRSUMMARY）
+                  - OSPFv3 GTSM功能配置
+                    - 删除OSPFv3 GTSM配置（RMV OSPFV3GTSM）
+                    - 创建OSPFv3 GTSM配置（ADD OSPFV3GTSM）
+                    - 查询OSPFv3 GTSM配置（LST OSPFV3GTSM）
+                    - 修改OSPFv3 GTSM配置（MOD OSPFV3GTSM）
+                  - OSPFv3认证配置
+                    - 创建OSPFv3认证配置（ADD OSPFV3AUTH）
+                    - 查询OSPFv3进程认证配置（LST OSPFV3AUTH）
+                    - 修改OSPFv3认证配置（MOD OSPFV3AUTH）
+                    - 删除OSPFv3认证配置（RMV OSPFV3AUTH）
+                  - OSPFv3接口配置
+                    - 删除OSPFv3接口配置（RMV OSPFV3INTERFACE）
+                    - 修改OSPFv3接口配置（MOD OSPFV3INTERFACE）
+                    - 创建OSPFv3接口配置（ADD OSPFV3INTERFACE）
+                    - 查询OSPFv3接口配置（LST OSPFV3INTERFACE）
+                  - OSPFv3区域配置
+                    - 创建OSPFv3区域配置（ADD OSPFV3AREA）
+                    - 查询OSPFv3区域配置（LST OSPFV3AREA）
+                    - 修改OSPFv3区域配置（MOD OSPFV3AREA）
+                    - 删除OSPFv3区域配置（RMV OSPFV3AREA）
+                  - OSPFv3进程配置
+                    - 修改OSPFv3进程配置（MOD OSPFV3）
+                    - 查询OSPFv3进程配置（LST OSPFV3）
+                    - 删除OSPFv3进程配置（RMV OSPFV3）
+                    - 创建OSPFv3进程配置（ADD OSPFV3）
+                  - 显示OSPFv3接口信息
+                    - 显示OSPFv3接口信息（DSP OSPFV3INTERFACE）
+                  - OSPFv3区域认证配置
+                    - 修改OSPFv3区域认证配置（MOD OSPFV3AREAAUTH）
+                    - 查询OSPFv3区域认证配置（LST OSPFV3AREAAUTH）
+                    - 删除OSPFv3区域认证配置（RMV OSPFV3AREAAUTH）
+                    - 创建OSPFv3区域认证配置（ADD OSPFV3AREAAUTH）
+                  - OSPFv3路由优先级配置
+                    - 查询OSPFv3路由优先级配置（LST OSPFV3PREFERENCE）
+                    - 修改OSPFv3路由优先级配置（MOD OSPFV3PREFERENCE）
+                  - OSPFv3主机名配置
+                    - 查询OSPFv3主机名配置（LST OSPFV3HOSTNAME）
+                    - 创建OSPFv3主机名配置（ADD OSPFV3HOSTNAME）
+                    - 修改OSPFv3主机名配置（MOD OSPFV3HOSTNAME）
+                    - 删除OSPFv3主机名配置（RMV OSPFV3HOSTNAME）
+                  - 查询OSPFv3 LSDB的状态信息
+                    - 查询OSPFv3 LSDB的状态信息（DSP OSPFV3LSDBSTATEINFO）
+                  - OSPFv3区域过滤LSA配置
+                    - 创建OSPFv3区域过滤LSA配置（ADD OSPFV3AREAFILTER）
+                    - 删除OSPFv3区域过滤LSA配置（RMV OSPFV3AREAFILTER）
+                    - 查询OSPFv3区域过滤LSA配置（LST OSPFV3AREAFILTER）
+                    - 修改OSPFv3区域过滤LSA配置（MOD OSPFV3AREAFILTER）
+                  - OSPFv3区域内路由聚合配置
+                    - 创建OSPFv3区域内路由聚合配置（ADD OSPFV3ABRSUMMARY）
+                    - 显示OSPFv3区域内路由聚合配置（LST OSPFV3ABRSUMMARY）
+                    - 删除OSPFv3区域内路由聚合配置（RMV OSPFV3ABRSUMMARY）
+                    - 修改OSPFv3区域内路由聚合配置（MOD OSPFV3ABRSUMMARY）
+                  - 查询OSPFv3邻居信息
+                    - 查询OSPFv3邻居信息（DSP OSPFV3PEER）
+                  - 查询OSPFv3Down的邻居信息
+                    - 查询OSPFv3上次Down的邻居（DSP OSPFV3LASTDOWNNBR）
+                  - OSPFv3默认路由宣告配置
+                    - 创建OSPFv3默认路由宣告配置（ADD OSPFV3DEFAULTROUTE）
+                    - 删除OSPFv3默认路由宣告配置（RMV OSPFV3DEFAULTROUTE）
+                    - 修改OSPFv3默认路由宣告配置（MOD OSPFV3DEFAULTROUTE）
+                    - 查询OSPFv3默认路由宣告配置（LST OSPFV3DEFAULTROUTE）
+                  - OSPFv3过滤策略配置
+                    - 修改OSPFv3过滤策略配置（MOD OSPFV3FILTERPOLICY）
+                    - 创建OSPFv3过滤策略配置（ADD OSPFV3FILTERPOLICY）
+                    - 删除OSPFv3过滤策略配置（RMV OSPFV3FILTERPOLICY）
+                    - 查询OSPFv3过滤策略配置（LST OSPFV3FILTERPOLICY）
+                  - OSPFv3域标识符配置
+                    - 创建OSPFv3域标识符配置（ADD OSPFV3DOMAINID）
+                    - 查询OSPFv3域标识符配置（LST OSPFV3DOMAINID）
+                    - 删除OSPFv3域标识符配置（RMV OSPFV3DOMAINID）
+                  - OSPFv3 FRR配置
+                    - 删除OSPFv3 IP FRR配置（RMV OSPFV3FRR）
+                    - 修改OSPFv3 IP FRR配置（MOD OSPFV3FRR）
+                    - 创建OSPFv3 IP FRR配置（ADD OSPFV3FRR）
+                    - 查询OSPFv3 IP FRR配置（LST OSPFV3FRR）
+                  - OSPFv3引入路由默认配置
+                    - 设置OSPFv3引入路由默认配置（SET OSPFV3DEFIMPROUTCFG）
+                    - 显示OSPFv3引入路由默认配置（LST OSPFV3DEFIMPROUTCFG）
+                  - OSPFv3路由收敛优先级配置
+                    - 修改OSPFv3路由收敛优先级配置（MOD OSPFV3PRIFIXPRIORITY）
+                    - 查询OSPFv3路由收敛优先级配置（LST OSPFV3PRIFIXPRIORITY）
+                    - 删除OSPFv3路由收敛优先级配置（RMV OSPFV3PRIFIXPRIORITY）
+                    - 创建OSPFv3路由收敛优先级配置（ADD OSPFV3PRIFIXPRIORITY）
+                  - 查询OSPFv3的FRR拓扑信息
+                    - 查询OSPFv3的FRR拓扑信息（DSP OSPFV3FRRTOPOLOGY）
+                  - 查询OSPFv3链接状态数据库
+                    - 查询OSPFv3链接状态数据库（DSP OSPFV3LSDB）
+                  - 重置OSPFv3进程
+                    - 重置OSPFv3进程（RST OSPFV3）
+                  - 查询OSPFv3路由信息
+                    - 查询OSPFv3路由信息（DSP OSPFV3ROUTING）
+                  - 查询OSPFv3统计信息
+                    - 查询OSPFv3统计信息（DSP OSPFV3CUMULATIVE）
+                - BGP管理
+                  - 查询BGP AS号消息统计
+                    - 查询BGP AS查询统计（DSP BGPASSTATS）
+                  - BGP VPN地址族
+                    - 删除BGP VPN地址族（RMV BGPVRFAF）
+                    - 修改BGP VPN地址族（MOD BGPVRFAF）
+                    - 查询BGP VPN地址族（LST BGPVRFAF）
+                    - 增加BGP VPN地址族（ADD BGPVRFAF）
+                  - 振荡抑制路由
+                    - 删除振荡抑制路由（RMV DAMPROUTE）
+                    - 修改振荡抑制路由（MOD DAMPROUTE）
+                    - 查询振荡抑制路由（LST DAMPROUTE）
+                    - 增加振荡抑制路由（ADD DAMPROUTE）
+                  - 查询BGP IPv6路由数据结构信息
+                    - 查询BGP IPv6路由数据结构信息（DSP BGPRT6DATA）
+                  - 设置BGP
+                    - 设置BGP（SET BGP）
+                    - 查询BGP（LST BGP）
+                  - BGP聚合路由
+                    - 增加BGP聚合路由（ADD AGGREGATEROUTE）
+                    - 查询BGP聚合路由（LST AGGREGATEROUTE）
+                    - 删除BGP聚合路由（RMV AGGREGATEROUTE）
+                    - 修改BGP聚合路由（MOD AGGREGATEROUTE）
+                  - BGP对等体BFD检测
+                    - 增加BGP对等体BFD检测（ADD BGPPEERBFD）
+                    - 修改BGP对等体BFD检测（MOD BGPPEERBFD）
+                    - 删除BGP对等体BFD检测（RMV BGPPEERBFD）
+                    - 查询BGP对等体BFD检测（LST BGPPEERBFD）
+                  - 入口路由
+                    - 修改指定协议中的入口路由配置（MOD IMPORTROUTE）
+                    - 删除指定协议中的入口路由配置（RMV IMPORTROUTE）
+                    - 查询指定协议中的入口路由配置（LST IMPORTROUTE）
+                    - 增加指定协议中的入口路由配置（ADD IMPORTROUTE）
+                  - 路由过滤策略
+                    - 增加路由过滤策略（ADD FILTERPOLICY）
+                    - 删除路由过滤策略（RMV FILTERPOLICY）
+                    - 查询路由过滤策略（LST FILTERPOLICY）
+                    - 修改路由过滤策略（MOD FILTERPOLICY）
+                  - BGP VPN实例
+                    - 查询BGP VPN实例（LST BGPVRF）
+                    - 修改BGP VPN实例（MOD BGPVRF）
+                    - 增加BGP VPN实例（ADD BGPVRF）
+                    - 删除BGP VPN实例（RMV BGPVRF）
+                  - BGP对等体地址族
+                    - 修改BGP对等体地址族（MOD BGPPEERAF）
+                    - 增加BGP对等体地址族（ADD BGPPEERAF）
+                    - 删除BGP对等体地址族（RMV BGPPEERAF）
+                    - 查询BGP对等体地址族（LST BGPPEERAF）
+                  - 查询BGP路由数据结构信息
+                    - 查询BGP路由数据结构信息（DSP BGPRTDATA）
+                  - BGP对等体组
+                    - 修改BGP对等体组（MOD BGPPEERGROUP）
+                    - 查询BGP对等体组（LST BGPPEERGROUP）
+                    - 删除BGP对等体组（RMV BGPPEERGROUP）
+                    - 增加BGP对等体组（ADD BGPPEERGROUP）
+                  - BGP对等体组地址族
+                    - 修改BGP对等体组地址族（MOD BGPPEERGROUPAF）
+                    - 增加BGP对等体组地址族（ADD BGPPEERGROUPAF）
+                    - 查询BGP对等体组地址族（LST BGPPEERGROUPAF）
+                    - 删除BGP对等体组地址族（RMV BGPPEERGROUPAF）
+                  - 复位BGP VPN实例
+                    - 复位BGP VPN实例（RBL BGPVRF）
+                  - 刷新对等体组
+                    - 刷新对等体组（SYN BGPPEERGROUP）
+                  - 刷新BGP对等体
+                    - 刷新BGP对等体（SYN BGPPEER）
+                  - 查询BGP对等体信息
+                    - 查询BGP对等体信息（DSP BGPPEERINFO）
+                  - BGP多源对等体地址族
+                    - 修改BGP多源对等体地址族（MOD BGPMULTIPEERAF）
+                    - 查询BGP多源对等体地址族（LST BGPMULTIPEERAF）
+                  - 复位BGP IPv6对等体
+                    - 复位BGP IPv6邻居（RBL BGPIPV6PEER）
+                  - 联盟中自治系统
+                    - 查询联盟中自治系统（LST BGPCONFED）
+                    - 增加联盟中自治系统（ADD BGPCONFED）
+                    - 删除联盟中自治系统（RMV BGPCONFED）
+                  - BGP对等体
+                    - 增加BGP对等体（ADD BGPPEER）
+                    - 删除BGP对等体（RMV BGPPEER）
+                    - 查询BGP对等体（LST BGPPEER）
+                    - 修改BGP对等体（MOD BGPPEER）
+                  - 引入路由指定前缀和掩码长度
+                    - 查询引入路由指定前缀和掩码长度（LST NETWORKROUTE）
+                    - 删除引入路由指定前缀和掩码长度（RMV NETWORKROUTE）
+                    - 修改引入路由指定前缀和掩码长度（MOD NETWORKROUTE）
+                    - 增加引入路由指定前缀和掩码长度（ADD NETWORKROUTE）
+                  - BGP多源对等体
+                    - 查询BGP多源对等体（LST BGPMULTIPEER）
+                    - 修改BGP多源对等体（MOD BGPMULTIPEER）
+                    - 删除BGP多源对等体（RMV BGPMULTIPEER）
+                    - 增加BGP多源对等体（ADD BGPMULTIPEER）
+                  - 查询BGP流控信息
+                    - 查询BGP流控信息（DSP BGPCONGESTATISTICS）
+                  - 查询BGP建立的BFD会话信息
+                    - 查询BGP建立的BFD会话信息（DSP BGPBFDSESSION）
+                  - BGP对等体组BFD检测
+                    - 删除BGP对等体组BFD检测（RMV BGPPEERGROUPBFD）
+                    - 修改BGP对等体组BFD检测（MOD BGPPEERGROUPBFD）
+                    - 查询BGP对等体组BFD检测（LST BGPPEERGROUPBFD）
+                    - 增加BGP对等体组BFD检测（ADD BGPPEERGROUPBFD）
+                  - 查询BGP数据结构信息
+                    - 查询BGP数据结构信息（DSP BGPDATA）
+                  - BGP对等体组条件路由匹配前缀
+                    - 删除BGP对等体组条件路由匹配前缀（RMV BGPPEERGROUPAFPRE）
+                    - 增加BGP对等体组条件路由匹配前缀（ADD BGPPEERGROUPAFPRE）
+                    - 查询BGP对等体组条件路由匹配前缀（LST BGPPEERGROUPAFPRE）
+                  - 查询BGP HA状态信息
+                    - 查询BGP HA状态信息（DSP BGPHASTATE）
+                  - 升级的BGP对等体分组
+                    - 添加BGP对等体分组（ADD UPDBGPPEERGROUP）
+                    - 删除BGP对等体分组（RMV UPDBGPPEERGROUP）
+                    - 查询BGP对等体分组（LST UPDBGPPEERGROUP）
+                  - 查询BGP的错误信息
+                    - 查询BGP的错误信息（DSP BGPERRORDISCARD）
+                  - 刷新BGP全部信息
+                    - 刷新BGP全部信息（SYN BGPALL）
+                  - 查询BGP VPN路由表命令
+                    - 查询BGP VPN路由表（DSP BGPVRFROUTING）
+                  - 查询BGP对等体日志信息
+                    - 查询BGP对等体日志信息（DSP BGPPEERLOG）
+                  - 查询BGP路由统计信息
+                    - 查询BGP路由统计信息（DSP BGPRTSTATISTICS）
+                  - BGP对等体条件路由匹配前缀
+                    - 删除BGP对等体条件路由匹配前缀（RMV BGPPEERAFPRE）
+                    - 查询BGP对等体条件路由匹配前缀（LST BGPPEERAFPRE）
+                    - 增加BGP对等体条件路由匹配前缀（ADD BGPPEERAFPRE）
+                  - 复位BGP对等体组
+                    - 复位BGP对等体组（RBL BGPPEERGROUP）
+                  - 查询BGP对等体路由统计信息
+                    - 查询BGP对等体统计信息（DSP BGPPEERSTATISTICSINFO）
+                  - 查询BGP对等体状态信息
+                    - 查询BGP对等体状态信息（DSP BGPPEERSTATE）
+                  - 查询BGP AS号消息
+                    - 查询BGP AS查询消息（DSP BGPASMSG）
+                  - 查询BGP所有VPN对等体详细信息
+                    - 查询BGP所有VPN对等体详细信息（DSP BGPPEERALLVERBOSE）
+                  - 查询BGP VPN IPv6路由表
+                    - 查询BGP VPN IPv6路由表（DSP BGPVRFROUTING6）
+                  - 查询BGP LSP信息
+                    - 查询BGP LSP信息（DSP BGPLSP）
+                  - 查询BGP对等体详细信息
+                    - 查询BGP对等体详细信息（DSP BGPPEERVERBOSE）
+                  - 刷新对等体类型
+                    - 刷新对等体类型（SYN BGPPEERTYPE）
+                  - 查询BGP下一跳信息
+                    - 查询BGP下一跳信息（DSP BGPNEXTHOP）
+                  - 查询BGP VPN简要信息
+                    - 查询BGP VPN简要信息（DSP BGPVRF）
+                  - 复位BGP对等体
+                    - 复位BGP邻居（RBL BGPPEER）
+                  - 刷新BGP IPv6对等体
+                    - 刷新BGP IPv6对等体（SYN BGPIPV6PEER）
+                - OSPF管理
+                  - 查询OSPF路由信息
+                    - 查询OSPF路由信息（DSP OSPFROUTING）
+                  - 引入外部路由配置
+                    - 创建OSPF引入路由配置（ADD OSPFIMPORTROUTE）
+                    - 查询OSPF引入路由配置（LST OSPFIMPORTROUTE）
+                    - 删除OSPF引入路由配置（RMV OSPFIMPORTROUTE）
+                    - 修改OSPF引入路由配置（MOD OSPFIMPORTROUTE）
+                  - OSPF域标识配置
+                    - 创建OSPF域标识配置（ADD OSPFDOMAINID）
+                    - 查询OSPF域标识配置（LST OSPFDOMAINID）
+                    - 删除OSPF域标识配置（RMV OSPFDOMAINID）
+                  - OSPF的NBMA网络邻居路由器配置
+                    - 删除OSPF的NBMA网络邻居路由器配置（RMV OSPFPEER）
+                    - 查询OSPF的NBMA网络邻居路由器配置（LST OSPFPEER）
+                    - 修改OSPF的NBMA网络邻居路由器配置（MOD OSPFPEER）
+                    - 创建OSPF的NBMA网络邻居路由器配置（ADD OSPFPEER）
+                  - OSPF默认宣告路由配置
+                    - 修改OSPF默认宣告路由配置（MOD OSPFDEFAULTROUTE）
+                    - 创建OSPF默认宣告路由配置（ADD OSPFDEFAULTROUTE）
+                    - 查询OSPF默认宣告路由配置（LST OSPFDEFAULTROUTE）
+                    - 删除OSPF默认宣告路由配置（RMV OSPFDEFAULTROUTE）
+                  - OSPF过滤策略配置
+                    - 删除OSPF过滤策略配置（RMV OSPFFILTERPOLICY）
+                    - 查询OSPF过滤策略配置（LST OSPFFILTERPOLICY）
+                    - 创建OSPF过滤策略配置（ADD OSPFFILTERPOLICY）
+                    - 修改OSPF过滤策略配置（MOD OSPFFILTERPOLICY）
+                  - OSPF区域配置
+                    - 删除OSPF区域配置（RMV OSPFAREA）
+                    - 查询OSPF区域配置（LST OSPFAREA）
+                    - 创建OSPF区域配置（ADD OSPFAREA）
+                    - 修改OSPF区域配置（MOD OSPFAREA）
+                  - OSPF区域内路由聚合配置
+                    - 删除区域内路由聚合配置（RMV OSPFABRSUMMARY）
+                    - 创建区域内路由聚合配置（ADD OSPFABRSUMMARY）
+                    - 修改区域内路由聚合配置（MOD OSPFABRSUMMARY）
+                    - 查询区域内路由聚合配置（LST OSPFABRSUMMARY）
+                  - OSPF路由的收敛优先级配置
+                    - 删除OSPF路由的收敛优先级配置（RMV OSPFPROUTPRIORITY）
+                    - 创建OSPF路由的收敛优先级配置（ADD OSPFPROUTPRIORITY）
+                    - 查询OSPF路由的收敛优先级配置（LST OSPFPROUTPRIORITY）
+                    - 修改OSPF路由的收敛优先级配置（MOD OSPFPROUTPRIORITY）
+                  - 查询OSPF LDP联动状态信息
+                    - 查询OSPF LDP联动状态信息（DSP OSPFLDPSYNCSTATE）
+                  - OSPF协议路由的优先级配置
+                    - 创建OSPF协议路由的优先级配置（ADD OSPFPREFERENCE）
+                    - 修改OSPF协议路由的优先级配置（MOD OSPFPREFERENCE）
+                    - 删除OSPF协议路由的优先级配置（RMV OSPFPREFERENCE）
+                    - 查询OSPF协议路由的优先级配置（LST OSPFPREFERENCE）
+                  - OSPF区域认证配置
+                    - 删除OSPF区域认证配置（RMV OSPFAREAAUTH）
+                    - 修改OSPF区域认证配置（MOD OSPFAREAAUTH）
+                    - 查询OSPF区域认证配置（LST OSPFAREAAUTH）
+                    - 创建OSPF区域认证配置（ADD OSPFAREAAUTH）
+                  - OSPF的Gtsm功能配置
+                    - 删除OSPF的GTSM配置（RMV OSPFGTSM）
+                    - 创建OSPF的GTSM配置（ADD OSPFGTSM）
+                    - 查询OSPF的GTSM配置（LST OSPFGTSM）
+                    - 修改OSPF的GTSM配置（MOD OSPFGTSM）
+                  - OSPF等价路由优先级配置
+                    - 修改OSPF等价路由优先级配置（MOD OSPFNEXTHOP）
+                    - 创建OSPF等价路由优先级配置（ADD OSPFNEXTHOP）
+                    - 查询OSPF等价路由优先级配置（LST OSPFNEXTHOP）
+                    - 删除OSPF等价路由优先级配置（RMV OSPFNEXTHOP）
+                  - OSPF DN比特位配置
+                    - 创建DN比特位配置（ADD OSPFDNBITSET）
+                    - 查询DN比特位配置（LST OSPFDNBITSET）
+                    - 删除DN比特位配置（RMV OSPFDNBITSET）
+                    - 修改DN比特位配置（MOD OSPFDNBITSET）
+                  - 查询OSPF LSDB的状态信息
+                    - 查询OSPF LSDB详细信息（DSP OSPFLSDBSTATEVERBOSE）
+                    - 查询OSPF LSDB的状态信息（DSP OSPFLSDBSTATEINFO）
+                  - 查询Router LSA生成流程的信息
+                    - 查询Router LSA生成流程的信息（DSP OSPFORIGINATELSA）
+                  - OSPF接口认证配置
+                    - 删除OSPF接口认证配置（RMV OSPFINTERFACEAUTH）
+                    - 查询OSPF接口认证配置（LST OSPFINTERFACEAUTH）
+                    - 创建OSPF接口认证配置（ADD OSPFINTERFACEAUTH）
+                    - 修改OSPF接口认证配置（MOD OSPFINTERFACEAUTH）
+                  - OSPF的平滑重启配置
+                    - 设置OSPF的平滑重启（SET OSPFGR）
+                    - 查询OSPF的平滑重启配置（LST OSPFGR）
+                  - OSPF进程配置
+                    - 修改OSPF进程配置（MOD OSPF）
+                    - 删除OSPF进程配置（RMV OSPF）
+                    - 查询OSPF进程配置（LST OSPF）
+                    - 创建OSPF进程配置（ADD OSPF）
+                  - OSPF接口配置
+                    - 创建OSPF接口配置（ADD OSPFINTERFACE）
+                    - 修改OSPF接口配置（MOD OSPFINTERFACE）
+                    - 查询OSPF接口配置（LST OSPFINTERFACE）
+                    - 删除OSPF接口配置（RMV OSPFINTERFACE）
+                  - OSPF错误LSA信息
+                    - 查询OSPF错误LSA的信息（DSP OSPFERRORLSA）
+                  - OSPF区域过滤策略配置
+                    - 创建区域过滤策略配置（ADD OSPFAREAFILTER）
+                    - 删除区域过滤策略配置（RMV OSPFAREAFILTER）
+                    - 修改区域过滤策略配置（MOD OSPFAREAFILTER）
+                    - 查询区域过滤策略配置（LST OSPFAREAFILTER）
+                  - OSPF的FRR配置
+                    - 删除OSPF IP FRR配置（RMV OSPFFRR）
+                    - 查询OSPF IP FRR配置（LST OSPFFRR）
+                    - 修改OSPF IP FRR配置（MOD OSPFFRR）
+                    - 创建OSPF IP FRR配置（ADD OSPFFRR）
+                  - 查询OSPF与Socket的交互信息
+                    - 查询OSPF与Socket的交互信息（DSP OSPFSOCKETINFO）
+                  - OSPF主机名配置
+                    - 查询OSPF主机名配置（LST OSPFHOSTNAME）
+                    - 删除OSPF主机名配置（RMV OSPFHOSTNAME）
+                    - 修改OSPF主机名配置（MOD OSPFHOSTNAME）
+                    - 创建OSPF主机名配置（ADD OSPFHOSTNAME）
+                  - 查询OSPF邻居状态
+                    - 查询OSPF邻居状态（DSP OSPFPEER）
+                  - OSPF特定路由器禁止检查Summary-LSA的DN比特位配置
+                    - 查询特定路由器禁止检查Summary-LSA的DN比特位配置（LST OSPFDNSUMRTID）
+                    - 创建特定路由器禁止检查Summary-LSA的DN比特位配置（ADD OSPFDNSUMRTID）
+                    - 删除特定路由器禁止检查Summary-LSA的DN比特位配置（RMV OSPFDNSUMRTID）
+                  - 查询OSPF Down的邻居信息
+                    - 查询OSPF上次Down的邻居（DSP OSPFLASTDOWNNBR）
+                  - OSPF引入路由聚合配置
+                    - 修改引入路由聚合配置（MOD OSPFASBRSUMMARY）
+                    - 查询引入路由聚合配置（LST OSPFASBRSUMMARY）
+                    - 删除引入路由聚合配置（RMV OSPFASBRSUMMARY）
+                    - 创建引入路由聚合配置（ADD OSPFASBRSUMMARY）
+                  - 指定OSPF运行的接口及所属区域
+                    - 修改OSPF运行的接口及所属区域（MOD OSPFNETWORK）
+                    - 指定OSPF运行的接口及所属区域（ADD OSPFNETWORK）
+                    - 删除OSPF运行的接口及所属区域（RMV OSPFNETWORK）
+                    - 查询OSPF运行的接口及所属区域（LST OSPFNETWORK）
+                  - 查询OSPF链接状态数据库
+                    - 查询OSPF链接状态数据库（DSP OSPFLSDB）
+                  - 查询OSPF的FRR拓扑信息
+                    - 查询OSPF的FRR拓扑信息（DSP OSPFFRRTOPOLOGY）
+                  - 设置OSPF引入路由默认配置
+                    - 设置OSPF引入路由默认配置（SET OSPFDEFIMPROUTCFG）
+                    - 查询OSPF引入路由默认配置（LST OSPFDEFIMPROUTCFG）
+                  - OSPF拓扑统计信息
+                    - 查询OSPF拓扑的统计信息（DSP OSPFTOPOSTC）
+                  - 查询OSPF统计信息
+                    - 查询OSPF统计信息（DSP OSPFCUMULATIVE）
+                  - 查询OSPF MaxAge LSA的信息
+                    - 查询OSPF MaxAge LSA信息（DSP OSPFMAXAGELSA）
+                  - 显示OSPF接口配置
+                    - 显示OSPF接口信息（DSP OSPFINTERFACE）
+                  - OSPF更新LSA信息
+                    - 查询OSPF接收的LSA的更新信息（DSP OSPFUPDATELSA）
+                  - 查询OSPF拓扑信息
+                    - 查询OSPF拓扑信息（DSP OSPFTOPOLOGY）
+                  - 重置OSPF进程
+                    - 重置OSPF进程（RST OSPF）
+                  - 查询OSPF动态主机名的信息
+                    - 查询OSPF动态主机名的信息（DSP OSPFHOSTTABLE）
+                  - 查询OSPF BFD状态
+                    - 查询OSPF BFD状态（DSP OSPFBFD）
+                  - OSPF错误报文信息
+                    - 查询OSPF错误报文的信息（DSP OSPFERRORPACKET）
+                  - 查询OSPF进程的错误信息
+                    - 查询OSPF进程的错误信息（DSP OSPFERRORDATA）
+                - 路由策略管理
+                  - 匹配RD过滤器
+                    - 增加匹配RD过滤器（ADD MATCHRDFILTER）
+                    - 删除匹配RD过滤器（RMV MATCHRDFILTER）
+                    - 修改匹配RD过滤器（MOD MATCHRDFILTER）
+                    - 查询匹配RD过滤器（LST MATCHRDFILTER）
+                  - 高级团体属性过滤器节点
+                    - 删除高级团体属性过滤器节点（RMV ADVANCEDCOMMUNITYNODE）
+                    - 增加高级团体属性过滤器节点（ADD ADVANCEDCOMMUNITYNODE）
+                    - 修改高级团体属性过滤器节点（MOD ADVANCEDCOMMUNITYNODE）
+                    - 查询高级团体属性过滤器节点（LST ADVANCEDCOMMUNITYNODE）
+                  - 匹配路由协议
+                    - 增加路由协议匹配路由策略（ADD MATCHPROTOCOL）
+                    - 查询路由协议匹配路由策略（LST MATCHPROTOCOL）
+                    - 删除路由协议匹配路由策略（RMV MATCHPROTOCOL）
+                  - 扩展团体属性过滤器
+                    - 查询扩展团体属性过滤器（LST EXTENDCOMMUNITYFILTER）
+                    - 删除扩展团体属性过滤器（RMV EXTENDCOMMUNITYFILTER）
+                    - 增加扩展团体属性过滤器（ADD EXTENDCOMMUNITYFILTER）
+                  - 匹配路由源IP前缀
+                    - 修改匹配路由源IP前缀（MOD MATCHRTSRCPREFIXFILTER）
+                    - 查询匹配路由源IP前缀（LST MATCHRTSRCPREFIXFILTER）
+                    - 删除匹配路由源IP前缀（RMV MATCHRTSRCPREFIXFILTER）
+                    - 增加匹配路由源IP前缀（ADD MATCHRTSRCPREFIXFILTER）
+                  - 路由策略
+                    - 删除路由策略（RMV ROUTEPOLICY）
+                    - 增加路由策略（ADD ROUTEPOLICY）
+                    - 查询路由策略（LST ROUTEPOLICY）
+                  - IP前缀列表
+                    - 删除IPv4地址前缀列表过滤器节点（RMV PREFIXFILTERNODE）
+                    - 查询IPv4地址前缀列表过滤器节点（LST PREFIXFILTERNODE）
+                    - 增加IPv4地址前缀列表过滤器节点（ADD PREFIXFILTERNODE）
+                    - 修改IPv4地址前缀列表过滤器节点（MOD PREFIXFILTERNODE）
+                  - 基础团体属性过滤器节点
+                    - 修改基础团体属性过滤器节点（MOD BASICCOMMUNITYNODE）
+                    - 删除基础团体属性过滤器节点（RMV BASICCOMMUNITYNODE）
+                    - 查询基础团体属性过滤器节点（LST BASICCOMMUNITYNODE）
+                    - 增加基础团体属性过滤器节点（ADD BASICCOMMUNITYNODE）
+                  - 应用BGP本地优先级
+                    - 查询路由BGP本地优先级设置（LST APPLYLOCALPREFERENCE）
+                    - 删除路由BGP本地优先级设置（RMV APPLYLOCALPREFERENCE）
+                    - 增加路由BGP本地优先级设置（ADD APPLYLOCALPREFERENCE）
+                    - 修改路由BGP本地优先级设置（MOD APPLYLOCALPREFERENCE）
+                  - 匹配IPv6下一跳地址ACL
+                    - 增加匹配IPv6下一跳地址ACL（ADD MATCHNEXTHOPACL6）
+                    - 查询匹配IPv6下一跳地址ACL（LST MATCHNEXTHOPACL6）
+                    - 修改匹配IPv6下一跳地址ACL（MOD MATCHNEXTHOPACL6）
+                    - 删除匹配IPv6下一跳地址ACL（RMV MATCHNEXTHOPACL6）
+                  - IPv6前缀过滤器节点
+                    - 增加IPv6前缀过滤器节点（ADD IPV6PREFIXFILTERNODE）
+                    - 查询IPv6前缀过滤器节点（LST IPV6PREFIXFILTERNODE）
+                    - 修改IPv6前缀过滤器节点（MOD IPV6PREFIXFILTERNODE）
+                    - 删除IPv6前缀过滤器节点（RMV IPV6PREFIXFILTERNODE）
+                  - RD路由过滤节点
+                    - 修改RD路由过滤节点（MOD RDFILTERNODE）
+                    - 查询RD路由过滤节点（LST RDFILTERNODE）
+                    - 增加RD路由过滤节点（ADD RDFILTERNODE）
+                    - 删除RD路由过滤节点（RMV RDFILTERNODE）
+                  - 应用下一跳
+                    - 查询下一跳设置（LST APPLYNEXTHOP）
+                    - 增加下一跳设置（ADD APPLYNEXTHOP）
+                    - 修改下一跳设置（MOD APPLYNEXTHOP）
+                    - 删除下一跳设置（RMV APPLYNEXTHOP）
+                  - 匹配源路由基础ACL
+                    - 查询源路由基础ACL匹配路由策略（LST MATCHRTSRCACL）
+                    - 修改源路由基础ACL匹配路由策略（MOD MATCHRTSRCACL）
+                    - 增加源路由基础ACL匹配路由策略（ADD MATCHRTSRCACL）
+                    - 删除源路由基础ACL匹配路由策略（RMV MATCHRTSRCACL）
+                  - 下一跳基础ACL匹配路由策略
+                    - 删除下一跳基础ACL匹配路由策略（RMV MATCHNEXTHOPACL）
+                    - 查询下一跳基础ACL匹配路由策略（LST MATCHNEXTHOPACL）
+                    - 修改下一跳基础ACL匹配路由策略（MOD MATCHNEXTHOPACL）
+                    - 增加下一跳基础ACL匹配路由策略（ADD MATCHNEXTHOPACL）
+                  - 应用替换AS路径
+                    - 修改AS路径设置（MOD APPLYASPATH）
+                    - 查询AS路径设置（LST APPLYASPATH）
+                    - 删除AS路径设置（RMV APPLYASPATH）
+                    - 增加AS路径设置（ADD APPLYASPATH）
+                  - 应用Cost
+                    - 修改路由开销值设置（MOD APPLYCOST）
+                    - 删除设置路由开销值（RMV APPLYCOST）
+                    - 增加路由开销值设置（ADD APPLYCOST）
+                    - 查询路由开销值设置（LST APPLYCOST）
+                  - 应用BGP路由首选值
+                    - 修改BGP路由首选值设置（MOD APPLYPREFVALUE）
+                    - 增加BGP路由首选值设置（ADD APPLYPREFVALUE）
+                    - 查询BGP路由首选值设置（LST APPLYPREFVALUE）
+                    - 删除BGP路由首选值设置（RMV APPLYPREFVALUE）
+                  - 路由类型匹配路由策略
+                    - 删除路由类型匹配路由策略（RMV MATCHROUTETYPE）
+                    - 查询路由类型匹配路由策略（LST MATCHROUTETYPE）
+                    - 增加路由类型匹配路由策略（ADD MATCHROUTETYPE）
+                  - 匹配IPv6源路由地址ACL
+                    - 删除匹配IPv6源路由地址ACL（RMV MATCHRTSRCACL6）
+                    - 查询匹配IPv6源路由地址ACL（LST MATCHRTSRCACL6）
+                    - 修改匹配IPv6源路由地址ACL（MOD MATCHRTSRCACL6）
+                    - 增加匹配IPv6源路由地址ACL（ADD MATCHRTSRCACL6）
+                  - 路由策略节点
+                    - 查询路由策略节点（LST ROUTEPOLICYNODE）
+                    - 删除路由策略节点（RMV ROUTEPOLICYNODE）
+                    - 修改路由策略节点（MOD ROUTEPOLICYNODE）
+                    - 增加路由策略节点（ADD ROUTEPOLICYNODE）
+                  - 匹配IPv6路由源前缀列表
+                    - 增加匹配IPv6路由源前缀列表（ADD MATCHRTSRCPREFIX6FILTER）
+                    - 修改匹配IPv6路由源前缀列表（MOD MATCHRTSRCPREFIX6FILTER）
+                    - 查询匹配IPv6路由源前缀列表（LST MATCHRTSRCPREFIX6FILTER）
+                    - 删除匹配IPv6路由源前缀列表（RMV MATCHRTSRCPREFIX6FILTER）
+                  - 匹配IPv6地址ACL
+                    - 修改匹配IPv6地址ACL（MOD MATCHDESTACL6）
+                    - 查询匹配IPv6地址ACL（LST MATCHDESTACL6）
+                    - 删除匹配IPv6地址ACL（RMV MATCHDESTACL6）
+                    - 增加匹配IPv6地址ACL（ADD MATCHDESTACL6）
+                  - 匹配AS路径过滤器
+                    - 查询匹配AS路径过滤器（LST MATCHASPATHFILTER）
+                    - 增加匹配AS路径过滤器（ADD MATCHASPATHFILTER）
+                    - 删除匹配AS路径过滤器（RMV MATCHASPATHFILTER）
+                  - 应用路由类型
+                    - 查询路由类型设置（LST APPLYROUTETYPE）
+                    - 删除路由类型设置（RMV APPLYROUTETYPE）
+                    - 修改路由类型设置（MOD APPLYROUTETYPE）
+                    - 增加路由类型设置（ADD APPLYROUTETYPE）
+                  - 应用Cost类型
+                    - 增加开销值类型设置（ADD APPLYCOSTTYPE）
+                    - 删除开销值类型设置（RMV APPLYCOSTTYPE）
+                    - 查询开销值类型设置（LST APPLYCOSTTYPE）
+                    - 修改开销值类型设置（MOD APPLYCOSTTYPE）
+                  - 应用删除团体属性过滤器
+                    - 修改删除团体属性过滤器设置（MOD APPLYCOMMUNITYFILTERDELETE）
+                    - 增加删除团体属性过滤器设置（ADD APPLYCOMMUNITYFILTERDELETE）
+                    - 查询删除团体属性过滤器设置（LST APPLYCOMMUNITYFILTERDELETE）
+                    - 撤销删除团体属性过滤器设置（RMV APPLYCOMMUNITYFILTERDELETE）
+                  - 应用Tag
+                    - 查询路由标签值设置（LST APPLYTAG）
+                    - 删除路由标签值设置（RMV APPLYTAG）
+                    - 修改路由标签值设置（MOD APPLYTAG）
+                    - 增加路由标签值设置（ADD APPLYTAG）
+                  - 匹配目的IP地址IP前缀列表
+                    - 查询匹配IPv4地址前缀列表（LST MATCHDESTPREFIXFILTER）
+                    - 增加匹配IPv4地址前缀列表（ADD MATCHDESTPREFIXFILTER）
+                    - 删除匹配IPv4地址前缀列表（RMV MATCHDESTPREFIXFILTER）
+                    - 修改匹配IPv4地址前缀列表（MOD MATCHDESTPREFIXFILTER）
+                  - 匹配目的IPv4地址基础ACL
+                    - 修改目的IP地址基础ACL匹配路由策略（MOD MATCHDESTINATIONACL）
+                    - 增加目的IP地址基础ACL匹配路由策略（ADD MATCHDESTINATIONACL）
+                    - 查询目的IP地址基础ACL匹配路由策略（LST MATCHDESTINATIONACL）
+                    - 删除目的IP地址基础ACL匹配路由策略（RMV MATCHDESTINATIONACL）
+                  - 匹配扩展团体属性过滤器
+                    - 查询匹配扩展团体属性过滤器（LST MATCHEXTCOMMUNITYFILTER）
+                    - 删除匹配扩展团体属性过滤器（RMV MATCHEXTCOMMUNITYFILTER）
+                    - 增加匹配扩展团体属性过滤器（ADD MATCHEXTCOMMUNITYFILTER）
+                  - 替换AS路径值
+                    - 修改替换AS路径值（MOD ASPATHSTRING）
+                    - 删除替换AS路径值（RMV ASPATHSTRING）
+                    - 增加替换AS路径值（ADD ASPATHSTRING）
+                    - 查询替换AS路径值（LST ASPATHSTRING）
+                  - 应用扩展团体属性
+                    - 查询扩展团体属性设置（LST APPLYEXTENDCOMMUNITY）
+                    - 删除扩展团体属性设置（RMV APPLYEXTENDCOMMUNITY）
+                    - 修改扩展团体属性设置（MOD APPLYEXTENDCOMMUNITY）
+                    - 增加扩展团体属性设置（ADD APPLYEXTENDCOMMUNITY）
+                  - 基础扩展团体属性过滤器节点
+                    - 增加基础扩展团体属性过滤器节点（ADD EXTENDCOMMUNITYFILTERNODE）
+                    - 查询基础扩展团体属性过滤器节点（LST EXTENDCOMMUNITYFILTERNODE）
+                    - 删除基础扩展团体属性过滤器节点（RMV EXTENDCOMMUNITYFILTERNODE）
+                  - 应用BGP路由信息的路由源
+                    - 查询BGP路由信息的路由源设置（LST APPLYORIGIN）
+                    - 修改BGP路由信息的路由源设置（MOD APPLYORIGIN）
+                    - 删除BGP路由信息的路由源设置（RMV APPLYORIGIN）
+                    - 增加BGP路由信息的路由源设置（ADD APPLYORIGIN）
+                  - 匹配下一跳前缀
+                    - 查询下一跳前缀匹配路由策略（LST MATCHNEXTHOPPREFIXFILTER）
+                    - 修改下一跳前缀匹配路由策略（MOD MATCHNEXTHOPPREFIXFILTER）
+                    - 增加下一跳前缀匹配路由策略（ADD MATCHNEXTHOPPREFIXFILTER）
+                    - 删除下一跳前缀匹配路由策略（RMV MATCHNEXTHOPPREFIXFILTER）
+                  - 匹配路由标签
+                    - 删除Tag匹配路由策略（RMV MATCHTAG）
+                    - 增加Tag匹配路由策略（ADD MATCHTAG）
+                    - 查询Tag匹配路由策略（LST MATCHTAG）
+                    - 修改Tag匹配路由策略（MOD MATCHTAG）
+                  - 匹配团体属性过滤器
+                    - 删除匹配团体属性过滤器（RMV MATCHCOMMUNITYFILTER）
+                    - 查询匹配团体属性过滤器（LST MATCHCOMMUNITYFILTER）
+                    - 增加匹配团体属性过滤器（ADD MATCHCOMMUNITYFILTER）
+                    - 修改匹配团体属性过滤器（MOD MATCHCOMMUNITYFILTER）
+                  - 应用优先级
+                    - 增加路由优先级设置（ADD APPLYPREFERENCE）
+                    - 修改路由优先级设置（MOD APPLYPREFERENCE）
+                    - 删除路由优先级设置（RMV APPLYPREFERENCE）
+                    - 查询路由优先级设置（LST APPLYPREFERENCE）
+                  - 匹配IPv6地址前缀列表
+                    - 增加匹配IPv6地址前缀列表（ADD MATCHDESTPREFIX6FILTER）
+                    - 修改匹配IPv6地址前缀列表（MOD MATCHDESTPREFIX6FILTER）
+                    - 删除匹配IPv6地址前缀列表（RMV MATCHDESTPREFIX6FILTER）
+                    - 查询匹配IPv6地址前缀列表（LST MATCHDESTPREFIX6FILTER）
+                  - AS路由过滤节点
+                    - 增加AS路径过滤节点（ADD ASPATHFILTERNODE）
+                    - 查询AS路径过滤节点（LST ASPATHFILTERNODE）
+                    - 删除AS路径过滤节点（RMV ASPATHFILTERNODE）
+                    - 修改AS路径过滤节点（MOD ASPATHFILTERNODE）
+                  - 查询路由策略信息
+                    - 显示路由策略信息（DSP ROUTEPOLICYINFO）
+                  - 应用Dampening
+                    - 删除Dampening设置（RMV APPLYDAMPENING）
+                    - 查询Dampening设置（LST APPLYDAMPENING）
+                    - 增加Dampening设置（ADD APPLYDAMPENING）
+                    - 修改Dampening设置（MOD APPLYDAMPENING）
+                  - 出接口匹配
+                    - 查询出接口匹配路由策略（LST MATCHINTERFACE）
+                    - 增加出接口匹配路由策略（ADD MATCHINTERFACE）
+                    - 删除出接口匹配路由策略（RMV MATCHINTERFACE）
+                  - 匹配路由开销
+                    - 修改Cost匹配路由策略（MOD MATCHCOST）
+                    - 增加Cost匹配路由策略（ADD MATCHCOST）
+                    - 删除Cost匹配路由策略（RMV MATCHCOST）
+                    - 查询Cost匹配路由策略（LST MATCHCOST）
+                  - 应用替换IPv6下一跳地址
+                    - 修改IPv6下一跳设置（MOD APPLYIPV6NEXTHOP）
+                    - 查询IPv6下一跳设置（LST APPLYIPV6NEXTHOP）
+                    - 删除IPv6下一跳设置（RMV APPLYIPV6NEXTHOP）
+                    - 增加IPv6下一跳设置（ADD APPLYIPV6NEXTHOP）
+                  - 高级扩展团体属性过滤器节点
+                    - 修改高级扩展团体属性过滤器节点（MOD ADVEXTCOMMUNITYNODE）
+                    - 删除高级扩展团体属性过滤器节点（RMV ADVEXTCOMMUNITYNODE）
+                    - 增加高级扩展团体属性过滤器节点（ADD ADVEXTCOMMUNITYNODE）
+                    - 查询高级扩展团体属性过滤器节点（LST ADVEXTCOMMUNITYNODE）
+                  - 匹配IPv6下一跳前缀列表
+                    - 查询匹配IPv6下一跳前缀列表（LST MATCHNEXTHOPPREFIX6FILTER）
+                    - 修改匹配IPv6下一跳前缀列表（MOD MATCHNEXTHOPPREFIX6FILTER）
+                    - 增加匹配IPv6下一跳前缀列表（ADD MATCHNEXTHOPPREFIX6FILTER）
+                    - 删除匹配IPv6下一跳前缀列表（RMV MATCHNEXTHOPPREFIX6FILTER）
+                  - 显示路由前缀列表信息
+                    - 显示IP前缀列表信息（DSP PREFIXFILTERINFO）
+                  - 团体属性过滤器
+                    - 删除团体属性过滤器（RMV COMMUNITYFILTER）
+                    - 查询团体属性过滤器（LST COMMUNITYFILTER）
+                    - 增加团体属性过滤器（ADD COMMUNITYFILTER）
+                  - 应用团体属性值
+                    - 查询团体属性值设置（LST APPLYCMNTYSTRING）
+                    - 增加团体属性值设置（ADD APPLYCMNTYSTRING）
+                    - 删除团体属性值设置（RMV APPLYCMNTYSTRING）
+                  - 应用团体属性
+                    - 修改团体属性设置（MOD APPLYCOMMUNITY）
+                    - 查询应用团体属性（LST APPLYCOMMUNITY）
+                    - 增加团体属性设置（ADD APPLYCOMMUNITY）
+                    - 删除团体属性设置（RMV APPLYCOMMUNITY）
+                  - 应用扩展团体属性值
+                    - 增加扩展团体属性值设置（ADD APPLYEXTCMNTYSTRING）
+                    - 删除扩展团体属性值设置（RMV APPLYEXTCMNTYSTRING）
+                    - 查询扩展团体属性值设置（LST APPLYEXTCMNTYSTRING）
+                  - RD字符
+                    - 增加RD字符（ADD RDSTRING）
+                    - 删除RD字符（RMV RDSTRING）
+                    - 查询RD字符（LST RDSTRING）
+                - 隧道选择器管理
+                  - 隧道选择器节点
+                    - 删除隧道选择器节点（RMV TUNNELSELECTORNODE）
+                    - 修改隧道选择器节点（MOD TUNNELSELECTORNODE）
+                    - 查询隧道选择器节点（LST TUNNELSELECTORNODE）
+                    - 增加隧道选择器节点（ADD TUNNELSELECTORNODE）
+                  - 应用隧道策略
+                    - 删除应用隧道策略（RMV APPLYTUNNELPOLICY）
+                    - 修改应用隧道策略（MOD APPLYTUNNELPOLICY）
+                    - 查询应用隧道策略（LST APPLYTUNNELPOLICY）
+                    - 增加应用隧道策略（ADD APPLYTUNNELPOLICY）
+                  - 隧道选择器
+                    - 增加隧道选择器（ADD TUNNELSELECTOR）
+                    - 查询隧道选择器（LST TUNNELSELECTOR）
+                    - 删除隧道选择器（RMV TUNNELSELECTOR）
+                - 静态路由管理
+                  - 设置静态路由FRR功能
+                    - 查询静态路由FRR（LST SRROUTEFRR）
+                    - 设置静态路由FRR（SET SRROUTEFRR）
+                  - 配置BFD模板
+                    - 删除BFD模板（RMV SRBFDTEMPLET）
+                    - 查询BFD模板（LST SRBFDTEMPLET）
+                    - 增加BFD模板（ADD SRBFDTEMPLET）
+                    - 修改BFD模板（MOD SRBFDTEMPLET）
+                  - 配置IPv6 BFD模板
+                    - 查询IPv6 BFD模板（LST SRBFDPARA6）
+                    - 删除IPv6 BFD模板（RMV SRBFDPARA6）
+                    - 增加IPv6 BFD模板（ADD SRBFDPARA6）
+                    - 修改IPv6 BFD模板（MOD SRBFDPARA6）
+                  - IPv4静态路由
+                    - 查询IPv4静态路由（LST SRROUTE）
+                    - 修改IPv4静态路由（MOD SRROUTE）
+                    - 删除IPv4静态路由（RMV SRROUTE）
+                    - 增加IPv4静态路由（ADD SRROUTE）
+                  - IPv6静态路由
+                    - 删除IPv6静态路由（RMV SRROUTE6）
+                    - 增加IPv6静态路由（ADD SRROUTE6）
+                    - 查询IPv6静态路由（LST SRROUTE6）
+                    - 修改IPv6静态路由（MOD SRROUTE6）
+                  - IPv4静态路由全局属性管理
+                    - 查询IPv4静态路由全局属性（LST SRIPV4STATICSITE）
+                    - 设置IPv4静态路由全局属性（SET SRIPV4STATICSITE）
+                  - IPv6静态路由全局属性管理
+                    - 查询IPv6静态路由全局属性（LST SRIPV6STATICSITE）
+                    - 设置IPv6静态路由全局属性（SET SRIPV6STATICSITE）
+                  - 设置静态路由迭代隧道功能开关
+                    - 设置静态路由迭代隧道功能开关（SET SRROUTERELAYTUNNEL）
+                    - 查询静态路由迭代隧道功能开关（LST SRROUTERELAYTUNNEL）
+                - 无线路由管理
+                  - 无线路由全局配置
+                    - 查询无线路由全局属性配置（LST WLRSITE）
+                    - 设置无线路由全局属性（SET WLRSITE）
+                  - RU到网关的可达性
+                    - 查询RU到网关的可达性检测配置（LST IPRUREACH）
+                    - 增加RU到网关的可达性检测配置（ADD IPRUREACH）
+                    - 修改RU到网关的可达性检测配置（MOD IPRUREACH）
+                    - 删除RU到网关的可达性检测配置（RMV IPRUREACH）
+                - 路由基础
+                  - 使能路由迭代隧道
+                    - 设置路由迭代隧道功能开关（SET ROUTERELAYTUNNEL）
+                    - 查询路由迭代隧道功能开关（LST ROUTERELAYTUNNEL）
+                  - IPv6阈值
+                    - 查询IPv6阈值（LST IPV6THRESHOLD）
+                    - 设置IPv6阈值（SET IPV6THRESHOLD）
+                  - 路由管控功能列表
+                    - 设置前缀限制（SET PREFIXLIMIT）
+                    - 查询前缀限制（LST PREFIXLIMIT）
+                    - 设置IP FRR（SET IPFRR）
+                    - 查询IP FRR（LST IPFRR）
+                  - IPv4阈值
+                    - 查询IPv4阈值（LST IPV4THRESHOLD）
+                    - 设置IPv4阈值（SET IPV4THRESHOLD）
+                  - IPv4路由表
+                    - 显示IPv4路由表（DSP ROUTE）
+                  - IPv6路由表
+                    - 查询IPv6路由表（DSP ROUTE6）
+                  - IP路由表统计
+                    - 显示IP路由统计（DSP RMSTATISTICS）
+              - 安全管理
+                - QoS管理
+                  - 流行为CAR
+                    - 删除流行为CAR配置（RMV SQOSCAR）
+                    - 增加流行为CAR配置（ADD SQOSCAR）
+                    - 修改流行为CAR配置（MOD SQOSCAR）
+                    - 查询流行为CAR配置（LST SQOSCAR）
+                  - 重定向VPN组
+                    - 增加QoS重定向VPN组（ADD SQOSRDRVPNGROUP）
+                    - 删除QoS重定向VPN组（RMV SQOSRDRVPNGROUP）
+                    - 查询QoS重定向VPN组（LST SQOSRDRVPNGROUP）
+                  - QoS IF PHB
+                    - 添加禁止QoS优先级映射的类型（ADD QOSIFPHB）
+                    - 删除禁止QoS优先级映射的类型（RMV QOSIFPHB）
+                    - 查询禁止QoS优先级映射的类型（LST QOSIFPHB）
+                  - 流量策略
+                    - 增加流策略（ADD QOSAPPLICATION）
+                    - 删除流策略（RMV QOSAPPLICATION）
+                    - 查询流策略（LST QOSAPPLICATION）
+                  - PHB映射关系
+                    - 查询QoS PHB（LST QOSPHB）
+                    - 设置QoS PHB（SET QOSPHB）
+                  - 级联流策略动作
+                    - 增加流行为下级联流策略（ADD QOSACTRDRPOLICY）
+                    - 删除流行为下级联流策略（RMV QOSACTRDRPOLICY）
+                    - 查询流行为下级联流策略（LST QOSACTRDRPOLICY）
+                  - 接口信任信息
+                    - 增加QoS接口信任（ADD QOSIFTRUST）
+                    - 删除QoS接口信任（RMV QOSIFTRUST）
+                    - 修改QoS接口信任（MOD QOSIFTRUST）
+                    - 查询QoS接口信任（LST QOSIFTRUST）
+                  - 流行为安全URPF
+                    - 增加流行为安全URPF（ADD SQOSURPF）
+                    - 修改流行为安全URPF（MOD SQOSURPF）
+                    - 删除流行为安全URPF（RMV SQOSURPF）
+                    - 查询流行为安全URPF（LST SQOSURPF）
+                  - 端口统计
+                    - 清除端口流量策略报文统计（RTR SQOSPOLICYSTC）
+                    - 查看端口流量策略报文统计（DSP SQOSPOLICYSTC）
+                  - VPN组
+                    - 查询VPN组（LST SQOSVPNGROUP）
+                    - 删除VPN组（RMV SQOSVPNGROUP）
+                    - 增加VPN组（ADD SQOSVPNGROUP）
+                  - DS域配置
+                    - 删除DS域（RMV QOSDIFFERSERV）
+                    - 增加DS域（ADD QOSDIFFERSERV）
+                    - 查询DS域（LST QOSDIFFERSERV）
+                  - 重定向VPN
+                    - 修改QoS重定向VPN（MOD QOSRDRVPN）
+                    - 查询QoS重定向VPN（LST QOSRDRVPN）
+                    - 删除QoS重定向VPN（RMV QOSRDRVPN）
+                    - 增加QoS重定向VPN（ADD QOSRDRVPN）
+                  - 重标记
+                    - 查询重标记配置（LST SQOSREMARK）
+                    - 增加重标记配置（ADD SQOSREMARK）
+                    - 删除重标记配置（RMV SQOSREMARK）
+                    - 修改重标记配置（MOD SQOSREMARK）
+                  - DSCP映射VLAN优先级
+                    - 查询DSCP值到VLAN优先级的映射（LST DSCPMAP）
+                    - 修改DSCP值到VLAN优先级的映射（MOD DSCPMAP）
+                    - 删除DSCP值到VLAN优先级的映射（RMV DSCPMAP）
+                    - 添加DSCP值到VLAN优先级的映射（ADD DSCPMAP）
+                  - ACL规则
+                    - 流分类下删除ACL规则组（RMV QOSRULEACL）
+                    - 流分类下增加ACL规则组（ADD QOSRULEACL）
+                    - 流分类下查询ACL规则组（LST QOSRULEACL）
+                  - VPN组成员
+                    - 删除VPN组成员（RMV SQOSVPNGROUPMEM）
+                    - 增加VPN组成员（ADD SQOSVPNGROUPMEM）
+                  - 重定向WLR业务流
+                    - 删除WLR引流重定向（RMV QOSRDRWLRFLOW）
+                    - 增加WLR引流重定向（ADD QOSRDRWLRFLOW）
+                    - 查询WLR引流重定向（LST QOSRDRWLRFLOW）
+                  - 重定向下一跳信息
+                    - 查询QoS重定向下一跳信息（LST QOSACTRDRNHP）
+                    - 增加QoS重定向下一跳信息（ADD QOSACTRDRNHP）
+                    - 删除QoS重定向下一跳信息（RMV QOSACTRDRNHP）
+                  - 流行为规则
+                    - 设置流行为规则（SET QOSACTFILTER）
+                    - 查询流行为规则（LST QOSACTFILTER）
+                  - BA映射关系
+                    - 设置QoS BA（SET QOSBA）
+                    - 查询QoS BA（LST QOSBA）
+                - 主机防攻击
+                  - 安全策略总报文
+                    - 设置上送报文总体速率等级（SET SECPOLICYALLPKTLEVEL）
+                    - 显示安全总报文表项（DSP SECTOTALPKTTAB）
+                    - 设置上送报文总体速率值（SET SECPOLICYALLPKTVALUE）
+                    - 查询上送报文总体速率（LST SECPOLICYALLPKT）
+                  - 安全策略CAR
+                    - 修改安全防攻击CAR规则（MOD SECPOLICYCAR）
+                    - 显示安全CAR表项（DSP SECCARTAB）
+                    - 查询安全防攻击CAR规则（LST SECPOLICYCAR）
+                    - 增加安全防攻击CAR规则（ADD SECPOLICYCAR）
+                    - 删除安全防攻击CAR规则（RMV SECPOLICYCAR）
+                  - 安全策略接口URPF
+                    - 查询安全接口URPF（LST INTFURPF）
+                    - 增加安全接口URPF（ADD INTFURPF）
+                    - 修改安全接口URPF（MOD INTFURPF）
+                    - 删除安全接口URPF（RMV INTFURPF）
+                  - 安全策略告警
+                    - 增加安全策略告警配置（ADD SECPOLICYALARM）
+                    - 删除安全策略告警配置（RMV SECPOLICYALARM）
+                    - 查询安全策略告警配置（LST SECPOLICYALARM）
+                    - 修改安全策略告警配置（MOD SECPOLICYALARM）
+                  - 安全策略优先级
+                    - 设置报文上送优先级（SET SECPOLICYPRIO）
+                    - 查询报文上送优先级（LST SECPOLICYPRIO）
+                  - 安全策略配置
+                    - 查询应用防攻击策略（LST SECPOLICYCFG）
+                    - 删除应用防攻击策略（RMV SECPOLICYCFG）
+                    - 增加应用防攻击策略（ADD SECPOLICYCFG）
+                  - ARP双向分离
+                    - 查询ARP双向分离（LST SECARPSAFEGUARD）
+                    - 清除ARP双相分离报文统计（RTR SECARPSGPKTSTC）
+                    - 设置ARP双向分离（SET SECARPSAFEGUARD）
+                    - 显示ARP双向分离报文统计（DSP SECARPSGPKTSTC）
+                  - 安全策略匹配顺序
+                    - 修改安全策略匹配顺序（MOD SECPOLICYPROSEQ）
+                    - 删除安全策略匹配顺序（RMV SECPOLICYPROSEQ）
+                    - 查询安全策略匹配顺序（LST SECPOLICYPROSEQ）
+                    - 增加安全策略匹配顺序（ADD SECPOLICYPROSEQ）
+                  - 安全策略设备URPF
+                    - 设置设备URPF（SET SECDEVURPF）
+                    - 查询设备URPF（LST SECDEVURPF）
+                  - CAR统计
+                    - 清除承诺访问速率具体信息（RTR SECCARSTAT）
+                    - 显示安全CAR功能丢弃上送CPU报文的详细信息（DSP SECCARSTAT）
+                  - 安全策略开关
+                    - 查询TCPIP报文以及应用层、黑名单、白名单防御机制使能状态（LST SECPOLICYSWITCH）
+                    - 设置TCPIP报文以及应用层、黑名单、白名单防御机制使能（SET SECPOLICYSWITCH）
+                  - URPF统计
+                    - 显示URPF丢弃报文计数信息（DSP SECIPURPFSTAT）
+                    - 清除URPF丢包信息（RTR SECIPURPFSTAT）
+                  - 安全策略免费ARP
+                    - 设置免费ARP过滤（SET SECARPGRAT）
+                    - 查询免费ARP过滤（LST SECARPGRAT）
+                  - 安全策略ICMP
+                    - 查询ICMP快回（LST SECICMPREPLY）
+                    - 设置ICMP快回配置（SET SECICMPREPLY）
+                  - 安全策略
+                    - 查询防攻击策略（LST SECPOLICY）
+                    - 删除防攻击策略（RMV SECPOLICY）
+                    - 增加防攻击策略（ADD SECPOLICY）
+                  - CAR信息
+                    - 显示当前安全CAR信息（DSP SECCARINFO）
+                  - 安全策略ND
+                    - 设置ND快回配置（SET SECND）
+                    - 查询ND快回（LST SECND）
+                  - 安全策略ACL
+                    - 增加安全策略ACL规则（ADD SECPOLICYACL）
+                    - 修改安全策略ACL规则（MOD SECPOLICYACL）
+                    - 显示安全ACL6表项（DSP SECACL6TAB）
+                    - 查询安全策略ACL规则（LST SECPOLICYACL）
+                    - 显示安全ACL表项（DSP SECACLTAB）
+                    - 删除安全策略ACL规则（RMV SECPOLICYACL）
+                  - 安全策略总报文统计
+                    - 显示安全总的报文计数情况（DSP SECTOTALPKTSTAT）
+                  - 安全策略ARP
+                    - 设置ARP快回配置（SET SECARP）
+                    - 查询ARP快回（LST SECARP）
+                  - 安全策略应用层联动默认动作
+                    - 设置应用联动默认动作（SET SECPOLICYAPPLNK）
+                    - 显示应用联动默认动作（DSP SECPOLICYAPPLNK）
+                - MQC
+                  - 分类策略节点
+                    - 删除流策略节点（RMV MQCPOLICYNODE）
+                    - 修改流策略节点（MOD MQCPOLICYNODE）
+                    - 增加流策略节点（ADD MQCPOLICYNODE）
+                    - 查询流策略节点（LST MQCPOLICYNODE）
+                  - 流分类
+                    - 增加流分类（ADD MQCCLASSIFIER）
+                    - 查询流分类（LST MQCCLASSIFIER）
+                    - 删除流分类（RMV MQCCLASSIFIER）
+                  - 分类策略
+                    - 修改流策略配置（MOD MQCPOLICY）
+                    - 查询流策略（LST MQCPOLICY）
+                    - 增加流策略（ADD MQCPOLICY）
+                    - 删除流策略（RMV MQCPOLICY）
+                  - 分类行为
+                    - 删除流行为（RMV MQCBEHAVIOR）
+                    - 查询流行为（LST MQCBEHAVIOR）
+                    - 增加流行为（ADD MQCBEHAVIOR）
+              - 自动部署
+                - 以太网隧道多虚拟网卡自动化配置
+                  - 修改以太网隧道自动化多虚拟网卡配置模板（MOD AUTOSCALINGETHTRUNK）
+                  - 增加以太网隧道自动化多虚拟网卡配置模板（ADD AUTOSCALINGETHTRUNK）
+                  - 删除以太网隧道自动化多虚拟网卡配置模板（RMV AUTOSCALINGETHTRUNK）
+                  - 查询以太网隧道自动化多虚拟网卡配置模板（LST AUTOSCALINGETHTRUNK）
+                - 地址池信息
+                  - 显示自动化配置地址池信息（DSP AUTOSCALINGIPPOOL）
+                - 静态路由的动态BFD自动化配置
+                  - 查询静态路由的动态BFD自动化配置模板（LST AUTOSCALINGSRBFD）
+                  - 删除静态路由的动态BFD自动化配置模板（RMV AUTOSCALINGSRBFD）
+                  - 增加静态路由的动态BFD自动化配置模板（ADD AUTOSCALINGSRBFD）
+                  - 修改静态路由的动态BFD自动化配置模板（MOD AUTOSCALINGSRBFD）
+                - 静态路由自动化配置
+                  - 查询静态路由自动化配置模板（LST AUTOSCALINGSRROUTE）
+                  - 增加静态路由自动化配置模板（ADD AUTOSCALINGSRROUTE）
+                  - 删除静态路由自动化配置模板（RMV AUTOSCALINGSRROUTE）
+                  - 修改静态路由自动化配置模板（MOD AUTOSCALINGSRROUTE）
+                - BGP入不转板自动化配置
+                  - 查询BGP入不转板自动化配置模板（LST AUTOSCALINGBGPLF）
+                  - 增加BGP入不转板自动化配置模板（ADD AUTOSCALINGBGPLF）
+                  - 修改BGP入不转板自动化配置模板（MOD AUTOSCALINGBGPLF）
+                  - 删除BGP入不转板自动化配置模板（RMV AUTOSCALINGBGPLF）
+                - BFD会话自动化配置
+                  - 查询BFD会话自动化配置模板（LST AUTOSCALINGBFD）
+                  - 修改BFD会话自动化配置模板（MOD AUTOSCALINGBFD）
+                  - 增加BFD会话自动化配置模板（ADD AUTOSCALINGBFD）
+                  - 删除BFD会话自动化配置模板（RMV AUTOSCALINGBFD）
+                - 服务信息
+                  - 查询自动化配置参数（LST AUTOSCALINGSERVICE）
+                  - 增加自动化配置参数（ADD AUTOSCALINGSERVICE）
+                  - 删除自动化配置参数（RMV AUTOSCALINGSERVICE）
+                  - 修改自动化配置参数（MOD AUTOSCALINGSERVICE）
+                - 自动化配置RU黑名单
+                  - 查询自动部署RU黑名单（LST AUTOSCALINGRUBLACKLIST）
+                  - 增加自动部署RU黑名单（ADD AUTOSCALINGRUBLACKLIST）
+                  - 删除自动部署RU黑名单（RMV AUTOSCALINGRUBLACKLIST）
+                - MPLS自动化配置
+                  - 删除MPLS自动化配置模板（RMV AUTOSCALINGMPLS）
+                  - 增加MPLS自动化配置模板（ADD AUTOSCALINGMPLS）
+                  - 查询MPLS自动化配置模板（LST AUTOSCALINGMPLS）
+                  - 修改MPLS自动化配置模板（MOD AUTOSCALINGMPLS）
+                - BGP多源peer自动化配置
+                  - 增加BGP自动化多源邻居配置模板（ADD AUTOSCALINGBGPMSPEER）
+                  - 查询BGP自动化多源邻居配置模板（LST AUTOSCALINGBGPMSPEER）
+                  - 删除BGP自动化多源邻居配置模板（RMV AUTOSCALINGBGPMSPEER）
+                - RU可达性检测自动化配置
+                  - 增加IP可达性检测自动化配置模板（ADD AUTOSCALINGIPREACH）
+                  - 查询IP可达性检测自动化配置模板（LST AUTOSCALINGIPREACH）
+                  - 删除IP可达性检测自动化配置模板（RMV AUTOSCALINGIPREACH）
+                  - 修改IP可达性检测自动化配置模板（MOD AUTOSCALINGIPREACH）
+                - OSPF入不转板自动化配置
+                  - 删除OSPF进程组自动化配置模板（RMV AUTOSCALINGOSPFPROCGRP）
+                  - 增加OSPF进程组自动化配置模板（ADD AUTOSCALINGOSPFPROCGRP）
+                  - 修改OSPF进程组自动化配置模板（MOD AUTOSCALINGOSPFPROCGRP）
+                  - 查询OSPF进程组自动化配置模板（LST AUTOSCALINGOSPFPROCGRP）
+                - 自动配置开关
+                  - 设置自动配置开关（SET AUTOCONFIG）
+                  - 查询自动配置开关（LST AUTOCONFIG）
+              - IP安全管理
+                - IPsec
+                  - IPsec安全联盟
+                    - 显示IPsec安全联盟（DSP IPSECSA）
+                    - 删除IPsec安全联盟（RMV IPSECSA）
+                    - 创建IPsec安全联盟（ADD IPSECSA）
+                    - 修改IPsec安全联盟（MOD IPSECSA）
+                    - 查询IPsec安全联盟（LST IPSECSA）
+                  - IPsec提议
+                    - 创建IPsec提议（ADD IPSECPROPOSAL）
+                    - 修改IPsec提议（MOD IPSECPROPOSAL）
+                    - 查询IPsec提议（LST IPSECPROPOSAL）
+                    - 删除IPsec提议（RMV IPSECPROPOSAL）
+                - 攻击防范
+                  - 显示攻击防范统计信息（DSP ATTACKDEFENDSTC）
+                  - 清除攻击防范统计信息（RTR ATTACKDEFENDSTC）
+                  - 设置攻击防范参数（SET ATTACKDEFEND）
+                  - 查询攻击防范参数（LST ATTACKDEFEND）
+                - MPAC
+                  - IPv6策略规则
+                    - 修改IPv6 MPAC策略规则（MOD MPACIPV6RULE）
+                    - 增加IPv6 MPAC策略规则（ADD MPACIPV6RULE）
+                    - 删除IPv6 MPAC策略规则（RMV MPACIPV6RULE）
+                    - 查询IPv6 MPAC策略规则（LST MPACIPV6RULE）
+                  - IPv4策略规则
+                    - 修改IPv4 MPAC策略规则（MOD MPACIPV4RULE）
+                    - 删除IPv4 MPAC策略规则（RMV MPACIPV4RULE）
+                    - 增加IPv4 MPAC策略规则（ADD MPACIPV4RULE）
+                    - 查询IPv4 MPAC策略规则（LST MPACIPV4RULE）
+                  - 管理平面接入控制IPv6策略
+                    - 增加IPv6 MPAC策略（ADD MPACV6POLICY）
+                    - 修改IPv6 MPAC策略（MOD MPACV6POLICY）
+                    - 查询IPv6 MPAC策略（LST MPACV6POLICY）
+                    - 删除IPv6 MPAC策略（RMV MPACV6POLICY）
+                  - IPv6规则匹配统计
+                    - 清除IPv6 MPAC策略匹配统计计数（RTR MPACCOUNTERV6）
+                    - 查询IPv6 MPAC策略匹配统计（DSP MPACV6RULESTAT）
+                  - 管理平面接入控制IPv4策略
+                    - 增加IPv4 MPAC策略（ADD MPACV4POLICY）
+                    - 查询IPv4 MPAC策略（LST MPACV4POLICY）
+                    - 修改IPv4 MPAC策略（MOD MPACV4POLICY）
+                    - 删除IPv4 MPAC策略（RMV MPACV4POLICY）
+                  - 全局策略配置
+                    - 查询MPAC全局策略（LST MPACBINDGBL）
+                    - 删除MPAC全局策略（RMV MPACBINDGBL）
+                    - 增加MPAC全局策略（ADD MPACBINDGBL）
+                  - 接口策略配置
+                    - 查询MPAC接口策略（LST MPACBINDIF）
+                    - 删除MPAC接口策略（RMV MPACBINDIF）
+                    - 增加MPAC接口策略（ADD MPACBINDIF）
+                  - IPv4规则匹配统计
+                    - 查询IPv4 MPAC策略匹配统计（DSP MPACV4RULESTAT）
+                    - 清除IPv4 MPAC策略匹配统计计数（RTR MPACCOUNTERV4）
+                - 互联网密钥交换
+                  - IPsec接口配置
+                    - 创建IPsec隧道接口（ADD IPSECINTFCFG）
+                    - 查询IPsec隧道接口（LST IPSECINTFCFG）
+                    - 删除IPsec隧道接口（RMV IPSECINTFCFG）
+                - Keychain
+                  - Keychain Key ID配置
+                    - 查询Keychain Key ID的配置（LST KEYCHAINKEYID）
+                    - 修改Keychain Key ID的配置（MOD KEYCHAINKEYID）
+                    - 删除Keychain Key ID的配置（RMV KEYCHAINKEYID）
+                    - 增加Keychain Key ID的配置（ADD KEYCHAINKEYID）
+                  - Keychain配置
+                    - 增加Keychain的配置（ADD KEYCHAIN）
+                    - 查询Keychain的配置（LST KEYCHAIN）
+                    - 删除Keychain的配置（RMV KEYCHAIN）
+                    - 修改Keychain的配置（MOD KEYCHAIN）
+                - GTSM
+                  - 设置GTSM全局配置属性（SET GTSM）
+                  - 显示GTSM统计（DSP GTSMSTATISTICS）
+                  - 清除GTSM统计（RTR GTSMSTATISTICS）
+                  - 查询GTSM全局配置属性（LST GTSM）
+              - IP组播
+                - MGMD
+                  - IGMP报文统计计数
+                    - 清除IGMP报文统计计数（RTR MGMDCTLMSG）
+                    - 查询IGMP报文统计计数（DSP MGMDCTRLCNT）
+                  - IGMP静态组播组配置
+                    - 显示IGMP静态加入信息（DSP MGMDSTATICGROUP）
+                    - 添加IGMP静态组配置（ADD MGMDSTATICGROUP）
+                    - 修改IGMP静态组配置（MOD MGMDSTATICGROUP）
+                    - 删除IGMP静态组配置（RMV MGMDSTATICGROUP）
+                    - 查询IGMP静态组配置（LST MGMDSTATICGROUP）
+                  - IGMP SSM映射策略
+                    - 添加IGMP SSM映射配置（ADD MGMDSSMAP）
+                    - 显示IGMP SSM映射加入信息（DSP MGMDSSMAP）
+                    - 查询IGMP SSM映射配置（LST MGMDSSMAP）
+                    - 删除IGMP SSM映射配置（RMV MGMDSSMAP）
+                  - IGMP组播组信息
+                    - 查询IGMP加入组信息（DSP MGMDGROUP）
+                    - 清除IGMP加入组信息（RTR MGMDGROUP）
+                    - 查询IGMP加入源信息（DSP MGMDSOURCE）
+                  - IGMP接口配置
+                    - 修改IGMP接口配置（MOD MGMDIF）
+                    - 显示IGMP接口信息（DSP MGMDIF）
+                    - 添加IGMP接口配置（ADD MGMDIF）
+                    - 查询IGMP接口配置（LST MGMDIF）
+                    - 删除IGMP接口配置（RMV MGMDIF）
+                  - IGMP全局配置
+                    - 删除IGMP全局配置（RMV MGMDSITE）
+                    - 添加IGMP全局配置（ADD MGMDSITE）
+                    - 查询IGMP全局配置（LST MGMDSITE）
+                    - 修改IGMP全局配置（MOD MGMDSITE）
+                  - 组播使能配置
+                    - 删除组播使能配置（RMV MCASTENABLE）
+                    - 添加组播使能（ADD MCASTENABLE）
+                    - 查询组播使能开关配置（LST MCASTENABLE）
+                - MRM
+                  - 组播负载分担配置
+                    - 查询组播负载分担配置（LST MCASTLOADSPLIT）
+                    - 修改组播负载分担配置（MOD MCASTLOADSPLIT）
+                    - 删除组播负载分担配置（RMV MCASTLOADSPLIT）
+                    - 添加组播负载分担配置（ADD MCASTLOADSPLIT）
+                  - 组播定时器信息
+                    - 查询组播定时器信息（DSP MCASTTIMER）
+                  - 组播引流表项叶子表信息
+                    - 查询组播引流表项叶子信息（DSP MCASTPAEELB）
+                  - 组播组引流信息
+                    - 查询组播组引流信息（DSP MCASTPAEGROUP）
+                    - 查询组播源引流信息（DSP MCASTPAESOURCE）
+                    - 清除组播组引流信息表项（RTR MCASTPAEGROUP）
+                  - 组播报文重定向策略配置
+                    - 删除组播报文重定向策略（RMV MCRDRNHP）
+                    - 修改组播报文重定向策略（MOD MCRDRNHP）
+                    - 查询组播报文重定向策略（LST MCRDRNHP）
+                    - 增加组播报文重定向策略（ADD MCRDRNHP）
+                  - 组播引流表项信息
+                    - 查询组播引流表项信息（DSP MCASTPAEROUTE）
+                  - 组播Socket信息
+                    - 查询组播Socket信息（DSP MCASTSOCKSTATE）
+                - PIM配置
+                  - PIM接口的非法报文计数
+                    - 查询PIM接口无效报文统计（DSP PIMINVPKTCNTIF）
+                  - PIM静态RP
+                    - 添加PIM静态RP配置（ADD PIMSTATICRP）
+                    - 修改PIM静态RP配置（MOD PIMSTATICRP）
+                    - 查询PIM静态RP配置（LST PIMSTATICRP）
+                    - 删除PIM静态RP配置（RMV PIMSTATICRP）
+                  - BSR信息
+                    - 查询CBSR信息（DSP PIMCBSR）
+                    - 查询EBSR信息（DSP PIMEBSR）
+                  - PIM路由表信息
+                    - 查询PIM表项下游信息（DSP PIMROUTEDW）
+                    - 查询PIM表项上游信息（DSP PIMROUTEUP）
+                    - 清除PIM协议表项（RTR PIMROUTE）
+                  - PIM实例的非法报文计数
+                    - 查询PIM实例无效报文统计（DSP PIMINVPKTCNTVRF）
+                  - PIM邻居信息
+                    - 查询PIM邻居信息（DSP PIMNBR）
+                  - PIM的RPF路由信息
+                    - 查询PIM RPF路由信息（DSP PIMRPF）
+                  - PIM报文统计计数
+                    - 清除PIM接口报文统计计数（RTR PIMIFCTLMSG）
+                    - 清除PIM实例报文统计计数（RTR PIMCTLMSG）
+                    - 查询PIM接口报文统计计数（DSP PIMCTLMSGCNTIF）
+                    - 查询PIM实例报文统计计数（DSP PIMCTLMSGCNTVRF）
+                  - RP信息
+                    - 查询RP信息（DSP PIMRP）
+                  - PIM全局参数
+                    - 查询PIM全局配置（LST PIMSITE）
+                    - 添加PIM全局配置（ADD PIMSITE）
+                    - 修改PIM全局配置（MOD PIMSITE）
+                    - 删除PIM全局配置（RMV PIMSITE）
+                  - PIM接口配置
+                    - 显示PIM接口信息（DSP PIMIF）
+                    - 修改PIM接口配置（MOD PIMIF）
+                    - 删除PIM接口配置（RMV PIMIF）
+                    - 查询PIM接口配置（LST PIMIF）
+                    - 添加PIM接口配置（ADD PIMIF）
+                  - Auto-RP侦听
+                    - 查询Auto-RP配置（LST AUTORP）
+                    - 删除Auto-RP配置（RMV AUTORP）
+                    - 添加Auto-RP配置（ADD AUTORP）
+                  - Claim路由信息
+                    - 查询PIM使用的路由信息（DSP PIMCLAIMUP）
+                  - 收到的PIM非法报文内容
+                    - 查询PIM无效报文（DSP PIMINVPKT）
+                  - 组播组对应的RP信息
+                    - 查询组播组对应的RP信息（DSP PIMRPGROUP）
+              - IP性能配置
+                - IP转发负载分担hash模式配置
+                  - 查询IP转发负载分担hash计算模式（LST SFELBHASH）
+                  - 删除IP转发负载分担hash计算模式（RMV SFELBHASH）
+                  - 增加IP转发负载分担hash计算模式（ADD SFELBHASH）
+                - IP转发过载告警参数配置
+                  - 删除转发过载告警参数（RMV SFELOADALARM）
+                  - 设置转发过载告警参数（ADD SFELOADALARM）
+                  - 查询转发过载告警参数（LST SFELOADALARM）
+                  - 修改转发过载告警参数（MOD SFELOADALARM）
+                - 分片方式配置
+                  - 设置分片方式（SET IFMTUFRAGMODE）
+                  - 查询分片方式（LST IFMTUFRAGMODE）
+                - SFE收包模式配置
+                  - 配置SFE收包模式（SET SFEPKTRCVMODE）
+                  - 查询SFE当前收包模式（LST SFEPKTRCVMODE）
+                - IP转发过载告警参数信息
+                  - 查询组件侧转发过载告警参数（DSP SFELOADALARM）
+              - ACL管理
+                - 接口ACL规则
+                  - 删除接口ACL规则（RMV ACLRULEIF）
+                  - 修改接口ACL规则（MOD ACLRULEIF）
+                  - 显示接口ACL规则（DSP ACLRULEIF）
+                  - 查询接口ACL规则配置（LST ACLRULEIF）
+                  - 增加接口ACL规则（ADD ACLRULEIF）
+                - 基本ACL规则
+                  - 查询基本ACL规则配置（LST ACLRULEBAS4）
+                  - 删除基本ACL规则（RMV ACLRULEBAS4）
+                  - 显示基本ACL规则（DSP ACLRULEBAS4）
+                  - 增加基本ACL规则（ADD ACLRULEBAS4）
+                  - 修改基本ACL规则（MOD ACLRULEBAS4）
+                - 高级IPv6 ACL规则
+                  - 删除高级IPv6 ACL规则（RMV ACLRULEADV6）
+                  - 修改高级IPv6 ACL规则（MOD ACLRULEADV6）
+                  - 显示高级IPv6 ACL规则（DSP ACLRULEADV6）
+                  - 增加高级IPv6 ACL规则（ADD ACLRULEADV6）
+                  - 查询高级IPv6 ACL规则配置（LST ACLRULEADV6）
+                - ACL规则组
+                  - 修改ACL规则组（MOD ACLGROUP）
+                  - 增加ACL规则组（ADD ACLGROUP）
+                  - 查询ACL规则组配置（LST ACLGROUP）
+                  - 删除ACL规则组（RMV ACLGROUP）
+                - IPv6 ACL规则匹配计数
+                  - 显示基本IPv6 ACL规则匹配计数（DSP ACLBASIC6RULECNT）
+                  - 显示高级IPv6 ACL规则匹配计数（DSP ACLADV6RULECNT）
+                  - 清除IPv6 ACL规则匹配计数（RTR ACLGROUP6）
+                - 基本IPv6 ACL规则
+                  - 删除基本IPv6 ACL规则（RMV ACLRULEBAS6）
+                  - 显示基本IPv6 ACL规则（DSP ACLRULEBAS6）
+                  - 修改基本IPv6 ACL规则（MOD ACLRULEBAS6）
+                  - 增加基本IPv6 ACL规则（ADD ACLRULEBAS6）
+                  - 查询基本IPv6 ACL规则配置（LST ACLRULEBAS6）
+                - 以太ACL规则
+                  - 删除以太ACL规则（RMV ACLRULEETH）
+                  - 查询以太ACL规则配置（LST ACLRULEETH）
+                  - 修改以太ACL规则（MOD ACLRULEETH）
+                  - 显示以太ACL规则（DSP ACLRULEETH）
+                  - 增加以太ACL规则（ADD ACLRULEETH）
+                - IPv6 ACL规则组
+                  - 查询IPv6 ACL规则组配置（LST ACLGROUP6）
+                  - 删除IPv6 ACL规则组（RMV ACLGROUP6）
+                  - 增加IPv6 ACL规则组（ADD ACLGROUP6）
+                  - 修改IPv6 ACL规则组（MOD ACLGROUP6）
+                - 高级ACL规则
+                  - 查询高级ACL规则配置（LST ACLRULEADV4）
+                  - 修改高级ACL规则（MOD ACLRULEADV4）
+                  - 显示高级ACL规则（DSP ACLRULEADV4）
+                  - 增加高级ACL规则（ADD ACLRULEADV4）
+                  - 删除高级ACL规则（RMV ACLRULEADV4）
+                - ACL规则匹配计数
+                  - 清除ACL规则匹配计数（RTR ACLGROUP）
+                  - 显示基本ACL规则匹配计数（DSP ACLBASICRULECNT）
+                  - 显示以太ACL规则匹配计数（DSP ACLETHRULECNT）
+                  - 显示接口ACL规则匹配计数（DSP ACLIFRULECNT）
+                  - 显示高级ACL规则匹配计数（DSP ACLADVRULECNT）
+              - VPN管理
+                - GRE管理
+                  - GRE隧道
+                    - 增加GRE隧道（ADD GRETUNNEL）
+                    - 修改GRE隧道（MOD GRETUNNEL）
+                    - 删除GRE隧道（RMV GRETUNNEL）
+                    - 查询GRE隧道（LST GRETUNNEL）
+                  - GRE隧道KeepAlive报文计数
+                    - 重置GRE隧道KeepAlive报文计数（RTR GREKPLVSTAT）
+                    - 查询GRE隧道KeepAlive报文计数（DSP GREKPLVSTAT）
+                - L3VPN管理
+                  - L3VPN实例
+                    - 删除L3VPN实例（RMV L3VPNINST）
+                    - 查询L3VPN实例（LST L3VPNINST）
+                    - 修改L3VPN实例（MOD L3VPNINST）
+                    - 增加L3VPN实例（ADD L3VPNINST）
+                  - L3VPN实例地址族
+                    - 删除L3VPN实例地址族（RMV VPNINSTAF）
+                    - 查询L3VPN实例地址族（LST VPNINSTAF）
+                    - 增加L3VPN实例地址族（ADD VPNINSTAF）
+                    - 修改L3VPN实例地址族（MOD VPNINSTAF）
+                  - VPN实例接口
+                    - 查询VPN实例接口信息（DSP VPNINSTINTF）
+                  - VPN Target
+                    - 增加VPN Target（ADD VPNTARGET）
+                    - 删除VPN Target（RMV VPNTARGET）
+                    - 查询VPN Target（LST VPNTARGET）
+                - VPN隧道管理
+                  - 隧道信息
+                    - 显示隧道信息（DSP TUNNELINFO）
+                  - 隧道统计信息
+                    - 查询隧道统计信息（DSP TNLSTATISTICS）
+                  - 隧道管理消息计数
+                    - 显示隧道管理消息计数（DSP TNLMMSGSTATICS）
+                  - 隧道策略
+                    - 增加隧道策略（ADD TUNNELPOLICY）
+                    - 修改隧道策略（MOD TUNNELPOLICY）
+                    - 查询隧道策略（LST TUNNELPOLICY）
+                    - 显示隧道策略信息（DSP TUNNELPOLICY）
+                    - 删除隧道策略（RMV TUNNELPOLICY）
+                  - 隧道协议
+                    - 显示隧道协议（DSP TNLPROTOCOL）
+                  - 隧道详细信息
+                    - 显示隧道详细信息（DSP TUNNELINFOVERBOSE）
+              - ARP管理
+                - ARP系统配置
+                  - 删除静态ARP表项（RMV ARPSTATICTABLE）
+                  - 查询速率限制（LST ARPSPEEDLIMIT）
+                  - 修改静态ARP表项（MOD ARPSTATICTABLE）
+                  - 查询静态ARP表项（LST ARPSTATICTABLE）
+                  - 配置速率限制（SET ARPSPEEDLIMIT）
+                  - 配置ARP系统信息（SET ARPSYS）
+                  - 配置静态ARP表项（ADD ARPSTATICTABLE）
+                  - 查询ARP系统信息（LST ARPSYS）
+                - ARP表项统计查询
+                  - 显示ARP统计计数（DSP ARPENTRYSTATISTICS）
+                  - 根据ARP表项类型清除ARP表项（RTR ARPBYTYPE）
+                  - 显示ARP表项（DSP ARPTABLE）
+                  - 根据接口清除ARP动态表项（RTR ARPBYIF）
+                - ARP防欺骗配置
+                  - 查询ARP防欺骗信息（LST ARPANTISPOOFING）
+                  - 查询ARP动态黑名单（DSP ARPDYNBLACKLIST）
+                  - 配置ARP静态黑名单（ADD ARPSTATICBLACKLIST）
+                  - 清除ARP动态黑名单（RTR ARPDYNBLACKLIST）
+                  - 删除ARP静态黑名单（RMV ARPSTATICBLACKLIST）
+                  - 设置ARP防欺骗信息（SET ARPANTISPOOFING）
+                  - 查询ARP静态黑名单（LST ARPSTATICBLACKLIST）
+                - 接口下ARP配置
+                  - 查询ARP表项限制（LST ARPIFLIMIT）
+                  - 配置接口下ARP信息（SET ARPINTERFACE）
+                  - 查询接口下ARP配置信息（LST ARPINTERFACE）
+                  - 配置ARP表项限制（SET ARPIFLIMIT）
+                - ARP探测配置
+                  - 查询备用成员口ARP探测源地址（LST ARPPROBESTANDBYSRCIP）
+                  - 增加ARP探测会话（ADD ARPPROBESESSION）
+                  - 修改ARP探测会话（MOD ARPPROBESESSION）
+                  - 删除ARP探测会话（RMV ARPPROBESESSION）
+                  - 增加备用成员口ARP探测源地址（ADD ARPPROBESTANDBYSRCIP）
+                  - 修改备用成员口ARP探测源地址（MOD ARPPROBESTANDBYSRCIP）
+                  - 删除备用成员口ARP探测源地址（RMV ARPPROBESTANDBYSRCIP）
+                  - 查询ARP探测会话（LST ARPPROBESESSION）
+                - ARP统计查询
+                  - 显示ARP处理信息统计（DSP ARPSTATISTICS）
+                  - 显示ARP错误报文统计（DSP ARPERRPACKET）
+                - ARP探测结果查询
+                  - 查询ARP探测结果（DSP ARPPROBERESULT）
+              - DHCP管理
+                - DHCP客户端配置
+                  - 查询DHCPv4客户端配置（LST DHCPCLIENT）
+                  - 增加DHCPv4客户端（ADD DHCPCLIENT）
+                  - 删除DHCPv4客户端（RMV DHCPCLIENT）
+                  - 修改DHCPv4客户端（MOD DHCPCLIENT）
+                - DHCPv6客户端报文统计
+                  - 清除DHCPv6客户端报文统计（RTR DHCP6CLIENTSTC）
+                  - 查询DHCPv6客户端报文统计（DSP DHCP6CLIENTSTC）
+                - DHCPv6客户端DUID生成模式
+                  - 查询DHCPv6客户端DUID生成方式（LST DHCP6CLIENTDUID）
+                  - 设置DHCPv6客户端DUID生成方式（SET DHCP6CLIENTDUID）
+                - DHCPv6客户端配置
+                  - 修改DHCPv6客户端（MOD DHCP6CLIENT）
+                  - 查询DHCPv6客户端配置（LST DHCP6CLIENT）
+                  - 删除DHCPv6客户端（RMV DHCP6CLIENT）
+                  - 增加DHCPv6客户端（ADD DHCP6CLIENT）
+                - DHCP客户端报文统计
+                  - 清除DHCPv4客户端报文统计（RTR DHCPCLIENTSTC）
+                  - 查询DHCPv4客户端报文统计（DSP DHCPCLIENTSTC）
+                - DHCP客户端状态
+                  - 查询DHCPv4客户端状态信息（DSP DHCPCLIENTSTAT）
+                - DHCPv6客户端状态
+                  - 查询DHCPv6客户端状态信息（DSP DHCP6CLIENTSTAT）
+              - BFD管理
+                - BFD全局配置
+                  - 设置BFD全局属性（SET BFD）
+                  - 查询BFD全局配置信息（LST BFD）
+                - BFD会话
+                  - 查询BFD会话的配置信息（LST BFDSESSION）
+                  - 删除BFD会话（RMV BFDSESSION）
+                  - 修改BFD会话参数（MOD BFDSESSION）
+                  - 查询BFD的会话信息（DSP BFDSESSION）
+                  - 增加BFD会话（ADD BFDSESSION）
+                - BFD会话统计
+                  - 清除BFD会话统计信息（RTR BFDSESSSTAS）
+                  - 查询BFD的会话统计信息（DSP BFDSTATS）
+                - BFD资源
+                  - BFD全局统计信息
+                    - 查询BFD的全局会话统计信息（DSP BFDGLOBALSTATS）
+                  - BFD资源统计信息
+                    - 查询BFD资源统计信息（DSP BFDRESOURCESTC）
+              - VLAN管理
+                - 主接口允许通过的VLAN
+                  - 增加主接口允许通过的VLAN（ADD IFALLOWEDVLAN）
+                  - 删除主接口允许通过的VLAN（RMV IFALLOWEDVLAN）
+                  - 查询主接口允许通过的VLAN（LST IFALLOWEDVLAN）
+                - VLAN子接口
+                  - 删除子接口配置（RMV ETHSUBIF）
+                  - 增加子接口配置（ADD ETHSUBIF）
+                  - 查询子接口配置信息（LST ETHSUBIF）
+              - 域名管理
+                - DNS IPv4动态域名
+                  - 查询DNS IPv4动态域名（DSP DNSDYNAMICIPHOST）
+                - DNS报文统计
+                  - 查询DNS报文统计计数（DSP DNSSTATISTICS）
+                  - 清除DNS报文统计计数（RTR DNSSTATISTICS）
+                - DNS代理服务器IPv6域名
+                  - 查询DNS代理服务器IPv6域名（DSP DNSAGENTIPV6HOST）
+                - DNS代理服务器域名
+                  - 查询DNS代理服务器域名（DSP DNSAGENTIPHOST）
+                - DNS IPv6动态域名
+                  - 查询DNS IPv6动态域名（DSP DNSDYNAMICIPV6HOST）
+            - 操作维护
+              - 系统调测
+                - MSS
+                  - QACL统计查询
+                    - 通过软转发支撑报文关键字查询访问控制列表的结果（DSP MSSACLKEYINFO）
+                    - 查询软转发支撑访问控制列表中表项的内容（DSP MSSACLRULEINFO）
+                    - 查询软转发支撑访问控制列表模块全局信息（DSP MSSACLINFO）
+                    - 查询软转发支撑访问控制列表模块错误信息（DSP MSSACLERRINFO）
+                    - 查询软转发支撑访问控制列表详细信息（DSP MSSACLTBLINFO）
+                  - 调度统计查询
+                    - 查询调度部署详细信息（DSP MSSSCHSUMTAIL）
+                    - 设置Work过滤规则信息（SET MSSWORKFILTER）
+                    - 查询Work过滤规则信息（DSP MSSWORKFILTER）
+                    - 查询MSS线程级调度组的维测信息（DSP MSSSCHTHREADGROUP）
+                    - 查询调度工作类型信息（DSP MSSSCHWORK）
+                    - 查询调度组统计概要信息（DSP MSSSCHGRPHEAD）
+                    - 查询调度线程组信息（DSP MSSSCHTHREADTAIL）
+                    - 查询调度线程轨迹信息（DSP MSSSCHTRACE）
+                    - 查询调度组统计信息（DSP MSSSCHGRPTAIL）
+                    - 查询MSS线程级调度队列的维测信息（DSP MSSSCHTHREADQUEUE）
+                    - 查询调度线程负载信息（DSP MSSSCHTHRDLOAD）
+                    - 查询调度线程概要信息（DSP MSSSCHTHREADHEAD）
+                    - 查询调度组详细统计信息（DSP MSSSCHGRPFIX）
+                    - 查询Work运行时间信息（DSP MSSWORKRUNTIME）
+                    - 查询调度部署概要信息（DSP MSSSCHSUMHEAD）
+                    - 查询调度工作线程信息（DSP MSSSCHTHREADFIX）
+                  - 定时器统计查询
+                    - 查询定时器详细信息（DSP MSSTIMERINFOTAIL）
+                    - 查询定时器精度统计信息（DSP MSSTIMERSTAT）
+                    - 查询定时器全局信息（DSP MSSTIMERINFOHEAD）
+                  - 日志信息查询
+                    - 查询日志详细信息（DSP MSSLOGINFO）
+                    - 查询日志队列详细信息（DSP MSSLOGQUEUE）
+                    - 设置Log过滤或非抑制开关（SET MSSLOGRULE）
+                  - 通信管理统计查询
+                    - 查询指定线程的服务类型信息（DSP MSSCOMMSVCTHRD）
+                    - 查询通信消息池信息（DSP MSSCOMMMSGPOOL）
+                    - 设置通信模块规则匹配开关（SET MSSCOMMMATCH）
+                    - 查询通信实例信息（DSP MSSCOMMINS）
+                    - 查询通信服务信息（DSP MSSCOMMADAPTSERV）
+                    - 查询通信功能块摘要信息（DSP MSSCOMFBSUM）
+                    - 查询通信功能块信息（DSP MSSCOMMFB）
+                    - 查询指定服务号的服务类型信息（DSP MSSCOMMSVCID）
+                    - 查询通信模块规则匹配统计信息（DSP MSSCOMMSTAT）
+                  - 表项管理统计查询
+                    - 通过关键字查询哈希表的结果（DSP MSSTBMHASH）
+                    - 查询MSS表项开关过滤状态（DSP MSSTBMFILTER）
+                    - 通过表号查询表的详细信息（DSP MSSTBMDETINFO）
+                    - 设置MSS表项开关过滤规则（SET MSSTBMFILTER）
+                    - 通过关键字查询第六版因特网协议转发表的结果（DSP MSSTBMFIB6）
+                    - 查询表管理模块全局信息（DSP MSSTBMINFO）
+                    - 通过关键字查询线性表的结果（DSP MSSTBMLINEAR）
+                    - 通过关键字查询第四版互联网协议转发表的结果（DSP MSSTBMFIB4）
+                  - 计数器统计查询
+                    - 查询指定组ID和计数器ID的计数器信息（DSP MSSCOUNTERINFO）
+                    - 查询指定组ID的计数器信息（DSP MSSCNTINFOGRP）
+                    - 查询简要计数器信息（DSP MSSCNTINFOBRI）
+                    - 查询指定计数器ID的计数器信息（DSP MSSCNTINFOCNT）
+                  - 维测开关统计查询
+                    - 查询维测开关状态（DSP MSSDEBUGINFO）
+                    - 设置维测信息统计开关（SET MSSDEBUGSWITCH）
+                    - 设置匹配规则（SET MSSRULE）
+                    - 查询匹配规则（DSP MSSRULE）
+                  - MSS资源管理统计查询
+                    - 查询指定队列详细信息（DSP MSSQUEDETINFO）
+                    - 查询队列总体信息（DSP MSSQUEINFO）
+                  - 适配层统计查询
+                    - 查询适配层物理表详细信息（DSP MSSADAPTDETAILPHYSICAL）
+                    - 查询适配层全局信息（DSP MSSADAPTINFO）
+                    - 查询适配层业务表详细信息（DSP MSSADAPTDETAILSERVICE）
+                  - 保序统计查询
+                    - 查询保序详细统计信息（DSP MSSSCHOETAIL）
+                    - 查询用户注册的保序信息（DSP MSSOEREGISTER）
+                    - 查询保序统计信息（DSP MSSSCHOEHEAD）
+                    - 查询MSS保序队列调度信息（DSP MSSOEPRECISION）
+                - 转发引擎实例FEI
+                  - 设置PST广播开关
+                    - 设置PST广播开关状态（SET FEIPSTSEND）
+                  - FEI消息统计
+                    - FEI报文、进程日志开关（SET SFEFEIDEBUG）
+                    - 查询FEISW消息统计（DSP SFESWMSGSTC）
+                    - 查询FEI消息统计（DSP SFEMSGSTC）
+                    - 清除FEISW Path统计（RTR SFESWPATHSTC）
+                    - 清除FEISW消息统计（RTR SFESWMSGSTC）
+                    - 清除FEI Path统计（RTR SFEPATHSTC）
+                    - 查询FEI通告IFM端口UP事件的时间（DSP FEINOTIFYIFMIFUPTIME）
+                    - 显示FEI组播转发表项统计信息（DSP FEIMCFWDTAB）
+                    - 查询FEISW Path统计（DSP SFESWPATHSTC）
+                    - 查询FEI Path统计（DSP SFEPATHSTC）
+                    - 清除FEI消息统计（RTR SFEMSGSTC）
+                  - FEI健康状态信息
+                    - 显示FEI健康状态（DSP FEIHEALTHSTATE）
+                  - SFE接口统计信息
+                    - 清除SFE接口报文统计（RTR SFEIFPKTSTC）
+                    - 显示SFE接口报文统计（DSP SFEIFPKTSTC）
+                  - SFE表项统计
+                    - 查询SFE ACL表项（DSP SFEACLTABLE）
+                    - 显示ELB表项（DSP SFEELB）
+                    - 显示基于子接口的上行/下行业务属性表（DSP SFECERCIB）
+                    - 显示SFE表项简要信息（DSP SFETABSTAT）
+                    - 显示MFIB4表项（DSP SFEMFIB4）
+                    - 显示SFE表项统计信息（DSP SFETABLESTC）
+                    - SFE报文统计（DSP SFEDBGPKTCNT）
+                    - 显示LOCAL-IP表项（DSP SFELOCALIP）
+                    - 显示转发ARP表项（DSP SFEARP）
+                    - 显示指定的ARP-REPLY表项（DSP SFEARPREPLY）
+                    - 按摘要和详情两种方式显示SFE表项信息（DSP SFETABLEVERBOSE）
+                    - 显示指定端口出/入方向的表项（DSP SFECERPORT）
+                    - 显示指定的线性表记录（DSP SFELINEARTABLE）
+                    - 显示Tunnel表项（DSP SFETUNNEL）
+                  - 软转发报文调测
+                    - 激活报文调测过滤（ACT SFEPKTDBG）
+                    - 设置BFD报文IPID的使能标记（SET SFEBFDPKTIPID）
+                    - 去激活报文调测过滤（DEA SFEPKTDBG）
+                  - 软转发调测报文
+                    - 显示调测捕获报文（DSP SFEDBGPKT）
+                  - 转发对账平滑
+                    - 启动一次FEI与FES之间的对账操作（STR VERIFICATION）
+                    - 启动一次FEI与FES之间的数据平滑（STR FEICOM_SMOOTH）
+                  - SFE跟踪报文统计
+                    - 清除SFE跟踪报文统计（RTR SFETRACESTC）
+                    - 查询SFE跟踪报文统计（DSP SFETRACESTC）
+                  - 资源信息查询
+                    - 显示指定VM上转发使用的所有或指定队列的详细信息（DSP SFE_QUEUE）
+                    - 显示指定资源单元上的SFE的表项信息（DSP SFE_TABLE）
+                    - 显示资源池列表的资源占用情况（DSP FEI_FRM_CST_POOL）
+                    - 显示存储池存储的表项信息（DSP FEICOM_CSTDATA）
+                  - VNRS内部资源不足告警的阈值参数
+                    - 查询VNRS内部资源不足告警的阈值参数（LST SFERESALMTHD）
+                    - 设置VNRS内部资源不足告警的阈值参数（SET SFERESALMTHD）
+                  - 转发报文统计记录
+                    - 查询软转发报文统计记录开关（LST SFEPKTSTAT）
+                    - 设置报文统计记录开关（SET SFEPKTSTAT）
+                  - BFD报文接收表
+                    - 显示BFD-ERECV表（DSP SFEBFDERECV）
+                    - 显示BFD-IRECV表（DSP SFEBFDIRECV）
+                  - 外联口报文调测
+                    - 使能外联口报文调测功能（OPR FEIEXTPORTPKTDEBUG）
+                    - 设置外联口报文调测规则（OPR FEIEXTPORTPKTDEBUGRULE）
+                  - 统计信息
+                    - 显示SFE报文统计信息（DSP SFEPKTSTAT）
+                    - 显示SFE事件统计信息（DSP SFEEVENTSTAT）
+                    - 清除SFE统计信息（RTR SFEPKTSTATS）
+                    - 显示SFE错误统计信息（DSP SFEERRORSTAT）
+                    - 显示SFE隧道报文统计（DSP SFETNLPKTSTAT）
+                  - Ping快回报文统计
+                    - 显示SFE Fast-ping报文统计信息（DSP SFEFASTPINGPKTSTC）
+                    - 清除SFE Fast-ping报文统计计数（RTR SFEFASTPINGPKTSTC）
+                  - 转发IP消息跟踪任务
+                    - 查询SFE IP消息跟踪配置信息（DSP SFETRACEIP）
+                  - 跟踪管理
+                    - 设置VNRS IP消息跟踪的流控使能配置 (SET SFETRACEFCCFG)
+                    - 查询VNRS IP消息跟踪的流控使能配置 (LST SFETRACEFCCFG)
+                    - 查询VNRS IP消息跟踪的CPU流控阈值（LST SFETRACECPUFC）
+                    - 设置VNRS IP消息跟踪的队列流控配置(SET SFETRACEQUEFC)
+                    - 设置VNRS IP消息跟踪的CPU流控阈值（SET SFETRACECPUFC）
+                    - 查询VNRS IP消息跟踪的队列流控配置(LST SFETRACEQUEFC)
+                  - SFE黑匣子
+                    - 显示SFE黑匣子（DSP SFEBLKBOX）
+                  - 调试命令
+                    - 执行FEI调试命令（OPR FEIDBGCMD）
+                  - FIB表项统计
+                    - 显示FIB统计信息（DSP SFEFIBSTAT）
+                    - 查询IPv6指定的VPN路由表项统计（DSP SFEFIB6STC）
+                    - 显示指定IPv4的FIB表（DSP SFECERFIB4）
+                    - 显示FIB所有统计信息（DSP SFEFIBSTATALL）
+                    - 显示FIB表项信息（DSP SFEFIB）
+                    - 显示指定IPv6的FIB表（DSP SFECERFIB6）
+                    - 查询IPv6的FIB表项信息（DSP SFEFIB6）
+                    - 查询IPv6所有的路由表项的统计（DSP SFEFIB6STCALL）
+                  - SFE IPSECACL表项
+                    - 查询软转发SFE IPSEC-ACL表项信息（DSP SFEIPSACLTBL）
+                  - 设置调测日志开关
+                    - 查询调测日志开关（LST FEILOGSWITCH）
+                    - 设置调测日志开关（SET FEILOGSWITCH）
+                  - SFE健康状态信息
+                    - 显示SFE健康状况（DSP SFEHEALTH）
+                  - SFE批量收取报文数量
+                    - 设置SFE批量收取的报文数量（SET SFEPKTBATCHRCV）
+                    - 查询SFE批量收取的报文数量 （LST SFEPKTBATCHRCV）
+                  - SFE透传GRE分片
+                    - 查询SFE透传GRE分片报文使能配置（LST SFEPASSGREFRAG）
+                    - 设置SFE透传GRE分片报文使能配置（SET SFEPASSGREFRAG）
+                  - FEI端口VLAN
+                    - 显示FEI端口VLAN（DSP FEIPORTVLAN）
+                  - FEISW健康状态信息
+                    - 显示FEISW健康状态（DSP FEISWHEALTHSTATE）
+                - BFD维护
+                  - 查询BFD黑匣子信息（DSP BFDBLACKBOX）
+                  - 查询BFD会话的运行信息（DSP BFDSESSIONRUNNING）
+                - Gresm调测
+                  - 显示消费者申请资源的统计信息（DSP GRESMRESSTAT）
+                  - 显示Gresm资源信息（DSP GRESMRESINFO）
+                  - 显示Gresm资源池所有信息（DSP GRESMPOOL）
+                - SOCKET
+                  - 查询UDP状态（DSP UDPSTATUS）
+                  - 查询SOCK诊断信息（DSP SOCKINNERDATA）
+                  - 查询Raw-link状态（DSP RAWLINKSTATUS）
+                  - 查询RawIP状态（DSP RAWIPSTATUS）
+                  - 查询IP Socket状态（DSP IPSOCKET）
+                  - 查询SOCK路径诊断信息（DSP SOCKPATH）
+                  - 查询SOCK会话诊断信息（DSP SOCKSESSION）
+                  - 查询TCP状态（DSP TCPSTATUS）
+                  - 查询SOCK统计诊断信息（DSP SOCKSTATISTICS）
+                  - 查询SOCK黑匣子诊断信息（DSP SOCKBLACKBOX）
+                - LDP维护
+                  - 显示LDP LSP管理组件Outsegment转发表项（DSP LDPLSPMGOUTSEG）
+                  - 显示LDP LSP管理组件的路由信息（DSP LDPLSPMGROUTE）
+                  - 显示LDP的TCP Socket信息（DSP LDPSSMGTCPSOCK）
+                  - 显示LDP LSP Down的信息（DSP LDPLSPDOWN）
+                  - 显示LDP的会话信息（DSP LDPSSMGSSN）
+                  - 显示LDP会话Down的相关信息（DSP LDPSESSIONDOWN）
+                  - 显示LDP的邻居信息（DSP LDPNEMGADJ）
+                  - 显示LDP的邻居地址信息（DSP LDPLSPMGPEERADDR）
+                  - 显示LDP的LSP信息（DSP LDPLSPMGLSP）
+                  - 显示LDP会话管理模块的下游信息（DSP LDPSSMGDSCB）
+                  - 显示LDP的接口信息（DSP LDPNEMGIF）
+                  - 显示LDP的Listen Socket信息（DSP LDPSSMGLSSOCK）
+                  - 显示LDP邻居管理的Socket信息（DSP LDPNEMGSOCKET）
+                  - 显示LDP的下游信息（DSP LDPLSPMGDSSUB）
+                  - 显示LDP记录的黑匣子信息（DSP LDPBLACKBOX）
+                  - 显示LDP LSP管理组件的FEC信息（DSP LDPLSPMGFEC）
+                  - 显示LDP的IID信息（DSP LDPLSPMGIID）
+                - ACL
+                  - 查询基本ACL规则匹配详细计数（DSP ACLBASICRULECNTVERBOSE）
+                  - 查询基本ACL6规则匹配详细计数（DSP ACL6BASICRULECNTVERBOSE）
+                  - 查询高级ACL6规则匹配详细计数（DSP ACL6ADVRULECNTVERBOSE）
+                  - 查询高级ACL规则匹配详细计数（DSP ACLADVRULECNTVERBOSE）
+                  - 查询以太ACL规则匹配详细计数（DSP ACLETHRULECNTVERBOSE）
+                  - 查询接口ACL规则匹配详细计数（DSP ACLIFRULECNTVERBOSE）
+                - 静态路由调测
+                  - 显示IPv6静态路由表（DSP SRROUTE6）
+                  - 显示IPv6静态路由IID信息（DSP SRIPV6IIDINFO）
+                  - 显示静态路由（DSP SRROUTE）
+                  - 显示静态路由IID信息（DSP SRIIDINFO）
+                - SSH调测
+                  - 显示客户端运行状态信息（DSP SSHCSTATUSINFO）
+                  - 显示SSH服务器的会话统计信息（DSP SSHSSESSIONSTC）
+                  - 显示客户端的连接统计信息（DSP SSHCCONNSTC）
+                  - 显示服务器运行状态信息（DSP SSHSSTATUSINFO）
+                  - 显示服务器的连接统计信息（DSP SSHSCONNSTC）
+                  - 显示SSH客户端的会话统计信息（DSP SSHCSESSIONSTC）
+                - 开放可编程系统
+                  - 显示系统助手的当前信息（DSP OPSASSISTSTATE）
+                  - 显示通过OPS运行的应用程序的信息（DSP OPSPROCESSSTATE）
+                  - 显示系统助手的详细信息（DSP OPSASSISTVERB）
+                  - 显示系统助手的历史信息（DSP OPSASSISTHIST）
+                  - 显示开放可编程系统的维护信息（DSP OPSBLACKBOX）
+                - IPV6
+                  - 查询IPv6黑名单统计信息（DSP IPV6BLACKLIST）
+                  - 查询IPv6 Path信息（DSP IPV6PATH）
+                  - 查询IPv6组件与其他组件交互信息（DSP IPV6HASTATE）
+                  - 查询IPv6诊断信息（DSP IPV6INFO）
+                  - 查询IPv6黑匣子信息（DSP IPV6BLACKBOX）
+                - 路由基础调测
+                  - 查询路由管理伙伴信息
+                    - 查询路由管理消费者信息（DSP RMCONSUMERINFO）
+                    - 查询路由管理消费者引入信息（DSP RMCONSUMERIMPORT）
+                    - 查询路由管理消费者订阅信息（DSP RMCONSUMERSUBSCRIBE）
+                    - 查询路由管理生产者详细信息（DSP RMPRODUCERDETAIL）
+                  - 查询路由管理基本信息
+                    - 查询路由管理前缀信息（DSP RMPREFIXINFO）
+                    - 查询路由管理IID信息（DSP RMIID）
+                    - 查询路由管理黑匣子信息（DSP RMBLACKBOX）
+                  - 查询路由管理统计信息
+                    - 查询路由管理消息明细（DSP RMMSGDETAIL）
+                    - 查询路由管理消息统计信息（DSP RMMSGSTC）
+                    - 查询路由管理平滑统计信息（DSP RMSMOOTHSTC）
+                    - 查询路由管理对账统计信息（DSP RMVERIFICATIONSTC）
+                - ARP
+                  - 清除ARP丢弃报文统计（RTR ARPDROPSTC）
+                  - 查询ARP丢弃报文统计（DSP ARPDROPSTC）
+                  - 查询ARP表项变更历史（DSP ARPHISTORY）
+                  - 查询ARP内部信息（DSP ARPINNERDATA）
+                - 无线路由调测
+                  - 显示引流表统计信息
+                    - 查询无线路由地址借用表信息（DSP WLRSRCINTERFACE）
+                    - 查询无线路由IPv4接口引流表信息（DSP WLRIFFLOWRULE）
+                    - 查询无线路由IPv6接口引流表信息（DSP WLRIFFLOWRULE6）
+                    - 查询无线路由订阅的接口信息（DSP WLRSRBIF）
+                    - 查询IPv4引流表信息（DSP WLRFLOWRULE）
+                    - 查询IPv6引流表信息（DSP WLRFLOWRULE6）
+                  - 显示APP订阅信息
+                    - 显示APP订阅信息（DSP WLRSUBINFO）
+                    - 显示系统PAE信息（DSP WLRSYSPAEINFO）
+                    - 显示APP详细订阅信息（DSP WLRSUBINFOVERBOSE）
+                    - 显示APP订阅结果信息（DSP WLRSUBRESULT）
+                  - 显示无线路由统计信息
+                    - 查询PEER有关消息的统计计数（DSP WLRPEERMSGSTAT）
+                    - 显示基于表无线路由平滑统计信息（DSP WLRTBLSMTHINFO）
+                    - 查询无线路由的路由统计信息（DSP WLRROUTESTAT）
+                    - 显示WLR与各Partner的消息统计（DSP WLRMSGSTC）
+                    - 查询基于表无线路由数据信息（DSP WLRTBLSTAT）
+                    - 查询PEER相关数据的统计计数（DSP WLRPEERDATASTAT）
+                  - 无线路由PAE使能状态
+                    - 查询无线路由PAE使能状态（LST WLRPAESTATE）
+                    - 设置无线路由PAE使能状态（SET WLRPAESTATE）
+                  - 显示无线路由相关信息
+                    - 显示无线路由对端状态（DSP WLRPEER）
+                    - 显示无线路由IID信息（DSP WLRIID）
+                    - 显示PAEG信息（DSP WLRPAEG）
+                    - 显示无线路由表（DSP WLRTABLE）
+                  - 显示无线路由属性信息
+                    - 查询无线路由属性信息（DSP WLRATTRINFO）
+                  - 显示无线路由全局信息
+                    - 查询无线路由全局信息（DSP WLRGLOBALINFO）
+                    - 显示无线路由黑匣子信息（DSP WLRBLACKBOX）
+                  - 显示隧道统计信息
+                    - 查询WLR组件与TNLM交互的统计信息（DSP WLRTNLMSTC）
+                  - 显示无线路由平滑状态机信息
+                    - 查询无线路由与对端平滑状态机状态（DSP WLRSMOOTHSTAT）
+                - PP4
+                  - 查询PP4路径信息（DSP IPPATH）
+                  - 查询PP4黑匣子信息（DSP IPBLACKBOX）
+                  - 查询PP4模块内部数据（DSP IPINNERDATA）
+                - 转发引擎服务
+                  - 显示FES诊断信息
+                    - 显示FES诊断信息（DSP FESDIAGINFO）
+                  - 显示FES内存界限信息
+                    - 显示FES内存界限信息（DSP FESMEMLIMIT）
+                  - 模拟搜索FES表项
+                    - 模拟触发FES表项搜索（OPR FESSEARCHTABLE）
+                  - 显示FES平滑状态信息
+                    - 显示FES的平滑状态信息（DSP FESSMOOTHSTAT）
+                  - 清除FES operation统计计数
+                    - 清除FES操作统计信息（RTR FESOPERATIONSTC）
+                  - 显示FES对账信息
+                    - 显示FES对账信息（DSP FESVERIFICATION）
+                  - 设置FES对账
+                    - 触发FES对账（OPR FESVERIFICATION）
+                  - FES表项信息
+                    - 显示FES表项信息（DSP FESTABLE）
+                    - 显示FES表项统计信息（DSP FESTABLESTATICS）
+                - ND
+                  - 查询ND控制块信息（DSP NDINFO）
+                  - 查询ND与其他组件之间交互状态信息（DSP NDHASTATE）
+                  - 查询使能IPv6接口ND控制块内容（DSP NDIFNET）
+                  - 查询邻居表项详细信息（DSP NDNBVERBOSE）
+                  - 查询ND黑匣子信息（DSP NDBLACKBOX）
+                - Diameter管理
+                  - 黑匣子信息
+                    - 显示Diameter黑匣子信息（DSP DMTBLACKBOX）
+                  - 连接信息
+                    - 查询Diameter链路及消息收发统计信息（DSP DMTCONNSTC）
+                  - 消费者状态
+                    - 显示消费者状态信息（DSP CONSSTATE）
+                  - 对端消息统计
+                    - 显示会话消息统计信息（DSP SESSSTATIC）
+                    - 清除Diameter会话消息统计计数（RTR SESSSTATIC）
+                  - 连接Down记录
+                    - 显示连接中断信息（DSP CONNDOWN）
+                  - Diameter基本信息或Peer连接信息
+                    - 显示Diameter基本信息或Peer连接相关信息（DSP DMTCONN）
+                  - 消费者统计
+                    - 清除消费者消息统计计数（RTR CONSSTATIC）
+                    - 显示消费者统计信息（DSP CONSSTATIC）
+                  - Diameter链路组信息
+                    - 显示Diameter链路组信息和链路信息（DSP DMTLINKGROUPSTC）
+                  - 消费者订阅状态
+                    - 显示消费者订阅信息（DSP CONSSUB）
+                - OSPF调测
+                  - 查询OSPF路由源信息（DSP OSPFROUTESOURCE）
+                  - 查询OSPFv3路由源信息（DSP OSPFV3ROUTESOURCE）
+                - IFM
+                  - 查询接口诊断数据（DSP IFDIAGDATA）
+                  - 设置接口维护状态（OPR INTERFACE）
+                  - 查询IFM模块内部数据（DSP IFMINNERDATA）
+                - GRE调测
+                  - 查询GRE消息诊断信息（DSP GREMSGSTATINFO）
+                  - 查询GRE隧道数目（DSP GRETNLSTAT）
+                  - 查询GRE隧道诊断信息（DSP GRETNLINFO）
+                  - 查询GRE隧道信息（DSP GRETNLTAB）
+                  - 查询GRE报文统计（DSP GREPKTSTAT）
+                - CACHEM
+                  - 查询CACHEM黑匣子诊断信息（DSP CACHEMBLACKBOX）
+                  - 查询CACHEM命令信息（DSP CACHEMCMDDATA）
+                  - 查询CACHEM诊断信息（DSP CACHEMINNERDATA）
+                - IPsec调测
+                  - IPsec诊断信息
+                    - IPsec组件信息
+                      - 查询IPsec组件信息（DSP IPSECCOMPONENT）
+                    - IPsec处理报文统计信息
+                      - 清除IPsec统计信息（RTR IPSECSTATISTIC）
+                      - 查询IPsec统计信息（DSP IPSECSTATISTIC）
+                    - IPsec报文统计
+                      - 查询IPsec报文统计信息（DSP IPSECPKTSTC）
+                - Ping和Tracert调测
+                  - 查询SLA调试数据（DSP SLADBGDATA）
+                - LDM
+                  - 查询LLA诊断信息（DSP LLAINNERDATA）
+                  - 查询LDM诊断信息（DSP LDMINNERDATA）
+                - IFMTRUNK
+                  - 查询Trunk内部数据（DSP TRUNKINNERDATA）
+              - 接入配置管理
+                - 密钥配置
+                  - 标签密钥
+                    - 删除DSA/ECC密钥对标签（RMV KEYPAIRLABEL）
+                    - 创建DSA/ECC密钥对标签（ADD KEYPAIRLABEL）
+                    - 创建RSA密钥对标签（ADD RSAKEYPAIRLABEL）
+                    - 查询RSA密钥对标签（LST RSAKEYPAIRLABEL）
+                    - 查询DSA/ECC密钥对标签（LST KEYPAIRLABEL）
+                    - 删除RSA密钥对标签（RMV RSAKEYPAIRLABEL）
+                  - 公钥配置
+                    - 修改对端公钥（MOD PEERPUBLICKEY）
+                    - 创建对端公钥（ADD PEERPUBLICKEY）
+                    - 删除对端公钥（RMV PEERPUBLICKEY）
+                    - 查询对端公钥（LST PEERPUBLICKEY）
+                - TTY
+                  - TTY用户信息
+                    - 释放用户界面（KIK TTYUSER）
+                    - 显示用户信息（DSP TTYUSER）
+                - SSH Server
+                  - 服务端会话信息
+                    - 显示SSH服务端会话信息（DSP SSHSERVERSESSION）
+              - 安全风险
+                - 显示系统风险（DSP RISK）
+            - 系统管理
+              - 系统维护
+                - Ping和Tracert
+                  - Tracert
+                    - IP Tracert（TRACERT）
+                  - LSPV
+                    - 查询LSPV全局属性（LST LSPVGLOBALCFG）
+                    - 清除LSPV报文统计计数（RTR LSPVSTATISTICS）
+                    - 显示LSPV报文统计计数（DSP LSPVSTATISTICS）
+                    - 设置LSPV全局属性（SET LSPVGLOBALCFG）
+                  - Ping
+                    - IP Ping（PING）
+              - NP资源管理
+                - NP资源信息查询
+                  - NP资源池信息
+                    - 显示转发资源池使用信息（DSP NPFRMPOOL）
+                  - NP表项信息
+                    - 查询NP表项简要信息（DSP NPTABSTAT）
+              - 转发引擎实例FEI
+                - 心跳故障复位开关
+                  - 设置FE心跳故障复位功能开关（SET FEHBRESET）
+                  - 查询FE心跳故障复位功能开关（LST FEHBRESET）
+                - 优选本单板TRUNK出接口
+                  - 查询优选本单板TRUNK出接口开关（LST NPECMPLOCALPRE）
+                  - 设置优选本单板TRUNK出接口开关（SET NPECMPLOCALPRE）
+                - 心跳开关
+                  - 查询FE心跳功能开关（LST FEHEARTBEAT）
+                  - 设置FE心跳功能开关（SET FEHEARTBEAT）
+              - NP端口管理
+                - NP端口FEC功能启停
+                  - NP板的FEC功能开关
+                    - 设置NP FEC配置（SET NPFECSWITCH）
+                    - 查询NP FEC状态（DSP NPFECSWITCH）
+                    - 查询NP FEC配置（LST NPFECSWITCH）
+                - NP端口状态查询
+                  - 查询NP端口状态（DSP NPPORT）
+                - NP端口带宽实时利用率
+                  - 查询NP端口带宽实时利用率（DSP NPPORTBANDWIDTHUSAGE）
+                - NP端口检测参数
+                  - 查询NP端口检测的参数（LST NPPORTCHKPARA）
+                  - 设置NP端口检测的参数（SET NPPORTCHKPARA）
+                - NP卡和Pod TB出端口映射信息
+                  - 显示NP卡和Pod TB出端口映射信息（DSP NPPORTPODTBMAP）
+              - NP升级管理
+                - NP平面管理
+                  - 查询NP升级平面（LST NPUPGPLANE）
+                  - 增加NP升级平面（ADD NPUPGPLANE）
+                  - 修改NP升级平面（MOD NPUPGPLANE）
+                  - 删除NP升级平面（RMV NPUPGPLANE）
+                - NP微码补丁状态
+                  - 显示NP微码补丁加载状态（DSP NPMICCODEPATCHSTATUS）
+              - NP Fabric链路管理
+                - NP Fabric OAM统计信息
+                  - 显示NP Fabric统计数据（DSP NPFABRICOAMSTAT）
+                  - 清除NP Fabric统计数据（RTR NPFABRICOAMSTAT）
+                - Fabric-Trunk成员接口管理
+                  - 增加Fabric-Trunk成员接口（ADD FABRICTRUNKMEMBER）
+                  - 查询Fabric-Trunk成员接口（LST FABRICTRUNKMEMBER）
+                  - 删除Fabric-Trunk成员接口（RMV FABRICTRUNKMEMBER）
+                - NP链路状态
+                  - 显示NP OAM链路信息（DSP NPFABRICOAMINFO）
+                - Fabric-Trunk成员接口统计
+                  - 显示Fabric-Trunk成员接口统计（DSP FABRICTRUNKSTATIS）
+                - NP亚健康状态
+                  - 显示NP FABRIC亚健康信息（DSP NPFABRICSUBHEALTHY）
+              - NP安全策略CAR
+                - 设置NP安全防攻击CAR规则(SET NPSECPOLICYCAR)
+                - 查询NP安全防攻击CAR规则(LST NPSECPOLICYCAR)
+              - 资源管理
+                - RU管理
+                  - 迁移热备RU（MIG SLAVERU）
+              - FE表管理
+                - FETM流控
+                  - 查询FETM流控配置（LST FETMFLOW）
+                  - 设置FETM流控配置（SET FETMFLOW）
+              - LACP管理
+                - 查询LACP配置（LST LACPCFG）
+            - FEMF
+              - 设置全局OAM相关配置（SET NPFABRICOAM）
+              - NP状态查询（DSP NPNODE）
+              - 查询FE自愈功能配置（LST FEHEALCTRL）
+              - 查询全局OAM相关配置（LST NPFABRICOAM）
+              - 查询全局亚健康相关配置（LST NPFABRICHEALTHY）
+              - 查询全局NP交换网口检测配置（LST NPLINKCHECK）
+              - 设置喂狗功能配置（SET NPWATCHDOG）
+              - 设置NP交换网口检测配置（SET NPLINKCHECK）
+              - 增加多框级联配置（ADD NPDIRECTCONNECTPORT）
+              - 删除多框级联配置（RMV NPDIRECTCONNECTPORT）
+              - 查询多框级联配置（LST NPDIRECTCONNECTPORT）
+              - 设置全局亚健康相关配置（SET NPFABRICHEALTHY）
+              - 设置FE自愈功能配置（SET FEHEALCTRL）
+              - 显示NP工作模式（DSP NPWORKMODE）
+              - 查询喂狗功能相关配置（LST NPWATCHDOG）
+          - 操作维护
+            - 性能统计管理
+              - SMF性能对象管理
+                - 增加切片地址池性能统计对象（ADD PERFSLCADDRPOOL）
+                - 删除EpRpDyn对象的IP地址（RMV PERFEPRPDYNIP）
+                - 查询TAI组性能统计对象成员（LST PERFTAIGROUPMEM）
+                - 删除用于性能统计的数据网络访问标识信息（RMV PERFDNAI）
+                - 删除切片地址池性能统计对象（RMV PERFSLCADDRPOOL）
+                - 删除区域和APN性能统计对象（RMV PERFREGAPN）
+                - 查询EpRpDyn性能统计对象（LST PERFEPRPDYN）
+                - 删除区域性能统计对象（RMV PERFREGION）
+                - 查询切片地址池性能统计对象（LST PERFNSADDRPOOL）
+                - 增加TAI组性能统计对象（ADD PERFTAIGROUP）
+                - 增加特定SMF功能实例服务名（ADD SMFSERVICELIST）
+                - 删除DNN性能统计对象（RMV PERFDNN）
+                - 查询区域性能统计对象（LST PERFREGION）
+                - 删除切片地址池性能统计对象（RMV PERFNSADDRPOOL）
+                - 删除特定SMF功能实例服务名（RMV SMFSERVICELIST）
+                - 查询SMF功能实例信息（LST SMFFUNCTION）
+                - 增加用于性能统计的数据网络访问标识信息（ADD PERFDNAI）
+                - 删除区域性能统计对象和TAC段的绑定关系（RMV PERFREGTAC）
+                - 增加TAI组性能统计对象成员（ADD PERFTAIGROUPMEM）
+                - 查询TAI组性能统计对象（LST PERFTAIGROUP）
+                - 添加SMF功能实例信息（ADD SMFFUNCTION）
+                - 查询MultiDNN性能统计对象（LST PERFMULTIDNN）
+                - 增加切片地址池性能统计对象（ADD PERFNSADDRPOOL）
+                - 增加区域性能统计对象和TAC段的绑定关系（ADD PERFREGTAC）
+                - 修改SMF功能实例信息（MOD SMFFUNCTION）
+                - 增加EpRpDyn对象的IP地址（ADD PERFEPRPDYNIP）
+                - 删除TAI组性能统计对象（RMV PERFTAIGROUP）
+                - 增加区域和APN性能统计对象（ADD PERFREGAPN）
+                - 删除MultiDNN性能统计对象（RMV PERFMULTIDNN）
+                - 增加MultiDNN性能统计对象（ADD PERFMULTIDNN）
+                - 查询DNN性能统计对象（LST PERFDNN）
+                - 增加DNN性能统计对象（ADD PERFDNN）
+                - 查询区域性能统计对象和TAC段的绑定关系（LST PERFREGTAC）
+                - 增加EpRpDyn性能统计对象（ADD PERFEPRPDYN）
+                - 查询用于性能统计的数据网络访问标识信息（LST PERFDNAI）
+                - 删除SMF功能实例信息（RMV SMFFUNCTION）
+                - 查询区域和APN性能统计对象（LST PERFREGAPN）
+                - 删除TAI组性能统计对象成员（RMV PERFTAIGROUPMEM）
+                - 删除S1TAC段（RMV PERFS1TACSEG）
+                - 查询S1TAC段（LST PERFS1TACSEG）
+                - 查询EpRpDyn对象的IP地址（LST PERFEPRPDYNIP）
+                - 删除EpRpDyn性能统计对象（RMV PERFEPRPDYN）
+                - 增加区域性能统计对象（ADD PERFREGION）
+                - 增加S1TAC段（ADD PERFS1TACSEG）
+                - 查询特定SMF功能实例服务名（LST SMFSERVICELIST）
+                - 查询切片地址池性能统计对象（LST PERFSLCADDRPOOL）
+              - AMF性能对象管理
+                - 增加NG PEI组性能统计对象（ADD PERFNGPEIGRP）
+                - 查询AMF服务列表（LST AMFSERVICELIST）
+                - 查询5G PEI组性能统计对象成员（LST NGPEIGRPMEM）
+                - 查询AMF功能实例信息（LST AMFFUNCTION）
+                - 增加NG PEI组性能统计对象成员（ADD NGPEIGRPMEM）
+                - 增加AMF服务列表（ADD AMFSERVICELIST）
+                - 增加NG TAI组性能统计对象（ADD PERFNGTAIGROUP）
+                - 添加AMF功能实体配置（ADD AMFFUNCTION）
+                - 删除AMF服务列表（RMV AMFSERVICELIST）
+                - 增加5G TAI组性能统计对象成员（ADD NGTAIGRPMEM）
+                - 修改AMF功能实例信息（MOD AMFFUNCTION）
+                - 修改NF局向性能统计对象（MOD PERFPEERNF）
+                - 删除NG PEI组性能统计对象成员（RMV NGPEIGRPMEM）
+                - 增加对端局向连接列表（ADD PEERNFIPLIST）
+                - 增加切片性能统计对象（ADD PERFNS）
+                - 查询NG TAI组性能统计对象（LST PERFNGTAIGROUP）
+                - 查询5G TAI组性能统计对象成员（LST NGTAIGRPMEM）
+                - 查询NF局向性能统计对象（LST PERFPEERNF）
+                - 增加NF局向性能统计对象（ADD PERFPEERNF）
+                - 修改NG TAI组性能统计对象（MOD PERFNGTAIGROUP）
+                - 删除NG TAI组性能统计对象（RMV PERFNGTAIGROUP）
+                - 查询对端局向连接列表（LST PEERNFIPLIST）
+                - 查询切片性能统计对象（LST PERFNS）
+                - 查询NG PEI组性能统计对象（LST PERFNGPEIGRP）
+                - 删除NG PEI组性能统计对象（RMV PERFNGPEIGRP）
+                - 删除AMF功能实体配置（RMV AMFFUNCTION）
+                - 删除切片性能统计对象（RMV PERFNS）
+                - 删除5G TAI组性能统计对象成员（RMV NGTAIGRPMEM）
+                - 删除NF局向性能统计对象（RMV PERFPEERNF）
+                - 删除对端局向连接列表（RMV PEERNFIPLIST）
+              - SMSF性能对象管理
+                - 修改SMSF功能实例信息（MOD SMSFFUNCTION）
+                - 添加SMSF功能实体配置（ADD SMSFFUNCTION）
+                - 查询SMSF功能实例信息（LST SMSFFUNCTION）
+                - 删除SMSF功能实体配置（RMV SMSFFUNCTION）
+              - NSSF性能对象管理
+                - 查看NSSF功能实例服务列表（LST NSSFSERVICELIST）
+                - 添加NSSF功能实例信息（ADD NSSFFUNCTION）
+                - 删除NSSF功能实例信息（RMV NSSFFUNCTION）
+                - 增加NSSF功能实例服务列表（ADD NSSFSERVICELIST）
+                - 删除NSSF功能实例服务（RMV NSSFSERVICELIST）
+                - 查询NSSF功能实例信息（LST NSSFFUNCTION）
+                - 修改NSSF功能实例信息（MOD NSSFFUNCTION）
+              - 北向配置管理
+                - 增加北向NF实例信息（ADD UNCVNFINFO）
+                - 删除UNC接口IP地址（RMV UNCIPRESOUCE）
+                - 查询UNC接口IP地址（LST UNCIPRESOUCE）
+                - 查询北向NF实例信息（LST UNCVNFINFO）
+                - 显示UNC接口名称（DSP UNCINTF）
+                - 删除UNC所有接口的IP地址（RMV UNCIPRESOUCEALL）
+                - 增加UNC接口IP地址(ADD UNCIPRESOUCE)
+                - 删除北向NF实例信息（RMV UNCVNFINFO）
+                - 增加UNC接口名称（ADD UNCINTF）
+                - 删除UNC所有接口名称（RMV UNCINTFALL）
+              - NCG性能对象管理
+                - 增加NCG功能实例信息（ADD NCGFUNCTION）
+                - 删除NCG功能实例信息（RMV NCGFUNCTION）
+                - 修改NCG功能实例信息（MOD NCGFUNCTION）
+                - 查询NCG功能实例信息（LST NCGFUNCTION）
+              - NRF性能对象管理
+                - 添加NRF服务名称（ADD NRFSERVICELIST）
+                - 添加NRF功能实例信息（ADD NRFFUNCTION）
+                - 删除NRF实例服务名称（RMV NRFSERVICELIST）
+                - 删除NRF功能实例信息（RMV NRFFUNCTION）
+                - 查看NRF功能实体服务列表（LST NRFSERVICENAME）
+                - 查询NRF功能实体配置信息（LST NRFFUNCTION）
+                - 修改NRF功能实例信息（MOD NRFFUNCTION）
+            - 软件参数管理
+              - 设置NCG软件参数比特位（SET NCGSOFTPARAOFBIT）
+              - 设置公共软件参数比特位（SET COMMONSOFTPARAOFBIT）
+              - 查询SMF APN软件参数比特位（LST SMFAPNSOFTPARABYBIT）
+              - 查询NSSF软件参数比特位（LST NSSFSOFTPARAOFBIT）
+              - 设置SMF软件参数比特位（SET SMFSOFTPARAOFBIT）
+              - 设置SMF软参（SET SMFSOFTPARA）
+              - 查询AMF软参（LST AMFSOFTPARA）
+              - 查询SMSF软参（LST SMSFSOFTPARA）
+              - 查询NRF软件参数比特位（LST NRFSOFTPARAOFBIT）
+              - 设置AMF软件参数比特位（SET AMFSOFTPARAOFBIT）
+              - 设置SMSF软件参数比特位（SET SMSFSOFTPARAOFBIT）
+              - 设置NRF软参（SET NRFSOFTPARA）
+              - 查询SMSF软件参数比特位（LST SMSFSOFTPARAOFBIT）
+              - 设置NCG软参（SET NCGSOFTPARA）
+              - 设置SMF的APN软参记录（SET SMFAPNSOFTPARA）
+              - 查询公共软参（LST COMMONSOFTPARA）
+              - 查询AMF软件参数比特位（LST AMFSOFTPARAOFBIT）
+              - 设置AMF软参（SET AMFSOFTPARA）
+              - 设置NSSF软参（SET NSSFSOFTPARA）
+              - 设置SMF APN软件参数比特位（SET SMFAPNSOFTPARABYBIT）
+              - 查询NRF软参（LST NRFSOFTPARA）
+              - 查询SMF软件参数比特位（LST SMFSOFTPARAOFBIT）
+              - 设置NRF软件参数比特位（SET NRFSOFTPARAOFBIT）
+              - 查询NCG软件参数比特位（LST NCGSOFTPARAOFBIT）
+              - 查询NCG软参（LST NCGSOFTPARA）
+              - 查询SMF APN软参记录（LST SMFAPNSOFTPARA）
+              - 设置NSSF软件参数比特位（SET NSSFSOFTPARAOFBIT）
+              - 设置公共软参（SET COMMONSOFTPARA）
+              - 查询公共软件参数比特位（LST COMMONSOFTPARAOFBIT）
+              - 查询SMF软参（LST SMFSOFTPARA）
+              - 设置SMSF软参（SET SMSFSOFTPARA）
+              - 查询NSSF软参（LST NSSFSOFTPARA）
+              - 恢复SMF APN软参记录（RTR SMFAPNSOFTPARA）
+            - 扩展调测
+              - 字符串匹配策略
+                - 增加字符串匹配策略（ADD STRMATCHPLCY）
+                - 删除字符串匹配策略（RMV STRMATCHPLCY）
+                - 查询字符串匹配策略（LST STRMATCHPLCY）
+              - 通用调测
+                - 显示调试信息（DSP SYSFCDBG）
+                - 显示SMF相关的调试信息（DSP SMFDBGINFO）
+                - 显示指定CS类型的上下文数量（DSP SMCTXCNTDBG）
+                - 显示调试信息（DSP FRAMEDBG）
+                - 显示调试信息（DSP NGCOMMONDBG）
+                - 显示关键资源信息（DSP KPIRES）
+              - MOC预留
+                - 删除补丁预留MOC1（RMV RESERVEDMOC1）
+                - 删除补丁预留MOC2（RMV RESERVEDMOC2）
+                - 新增补丁预留MOC3（ADD RESERVEDMOC3）
+                - 查询补丁预留MOC3（LST RESERVEDMOC3）
+                - 新增补丁预留MOC1（ADD RESERVEDMOC1）
+                - 删除补丁预留MOC3（RMV RESERVEDMOC3）
+                - 查询补丁预留MOC2（LST RESERVEDMOC2）
+                - 查询补丁预留MOC1（LST RESERVEDMOC1）
+                - 新增补丁预留MOC2（ADD RESERVEDMOC2）
+              - 状态查询
+                - 显示Token状态（DSP TOKENSTATUS）
+                - 显示输入微服务名称下所有实例的具体信息（DSP INSTANCESTATUS）
+                - 查询设备档案信息（LST DEVICEINFO）
+              - OM调测
+                - 修改端到端跟踪任务（MOD E2ETRCTSK）
+                - 删除端到端跟踪任务（RMV E2ETRCTSK）
+                - 查询SMF跟踪控制功能（LST SMFTRCCTRL）
+                - 启动对特定配置的缓存重建（STR CSCFGREBUILD）
+                - 删除跟踪任务（RMV TRCTSK）
+                - 增加业务读取OM缓存数据的配置（ADD CSCFGBYOMCM）
+                - 删除业务读取OM缓存数据的配置（RMV CSCFGBYOMCM）
+                - 增加端到端跟踪任务（ADD E2ETRCTSK）
+                - 查询端到端跟踪任务（LST E2ETRCTSK）
+                - 设置SMF跟踪控制功能（SET SMFTRCCTRL）
+                - 设置通用模块跟踪控制功能（SET COMMTRCCTRL）
+                - 查询通用模块跟踪控制功能（LST COMMTRCCTRL）
+                - 查询业务读取OM缓存数据的配置（LST CSCFGBYOMCM）
+                - 显示本地缓存中配置的记录数（DSP CSCFGCACHE）
+              - 预留配置
+                - 新增补丁预留配置（ADD RESERVEDCMD）
+                - 删除补丁预留配置（RMV RESERVEDCMD）
+                - 查询补丁预留配置（LST RESERVEDCMD）
+            - License管理
+              - 激活License(ACT LICENSE)
+              - 查询License(LST LICENSE)
+              - 设置License容量告警配置（SET LICCTRLALM）
+              - 查询ESN(DSP ESN)
+              - 比较License(CMP LICENSE)
+              - 失效License(RVK LICENSE)
+              - 查询License配置项开关（LST LICENSESWITCH）
+              - 显示License(DSP LICENSE)
+              - 启动紧急License(ACT LICCTL)
+              - 显示License失效信息(DSP RVKLICINFO)
+              - 设置License项的开关（SET LICENSESWITCH）
+              - 查询License容量告警配置（LST LICCTRLALM）
+              - 停止紧急License(DEA LICCTL)
+              - 查询紧急License状态信息(DSP LICCTL)
+              - 显示话务高峰信息（DSP LICENSEPEAK）
+            - VNFC公共功能管理
+              - 操作维护
+                - 扩缩容管理
+                  - 增加自动扩缩容监测的虚机资源（ADD SCALELOADMON）
+                  - 删除自动扩缩容监测的虚机资源（RMV SCALELOADMON）
+                  - 查询自动扩缩容监测的虚机资源（LST SCALELOADMON）
+                - 系统调测
+                  - 进程管理
+                    - 查询LINK进程信息(DSP PROCESSLINK)
+                    - 查询MCR进程信息(DSP PROCESSMCR)
+                    - 查询GB进程信息(DSP PROCESSGB)
+                    - 查询USN进程信息(DSP PROCESSUSN)
+                    - 查询CG进程信息（DSP PROCESSCG）
+            - 日志管理
+              - 查询UNC日志状态（DSP UNCLOGSTAT）
+              - 查询日志级别（DSP CSLOGLEVEL）
+              - 查询日志输出级别（LST CSLOGLEVEL）
+              - 增加UNC日志控制记录（ADD UNCLOGCTRL）
+              - 修改UNC日志控制记录（MOD UNCLOGCTRL）
+              - 查询日志流控开关（LST CSLOGFC）
+              - 更新日志输出级别（STR CSLOGLEVEL）
+              - 删除UNC日志控制记录（RMV UNCLOGCTRL）
+              - 设置日志流控开关（SET CSLOGFC）
+              - 查询UNC日志控制记录（LST UNCLOGCTRL）
+              - 设置日志输出级别（SET CSLOGLEVEL）
+            - Chr管理
+              - Chr文件管理
+                - 设置上传至文件服务器的CHR文件转储方式（SET CHRFILESTGMODE）
+                - 查询上传至文件服务器的CHR文件转储方式（LST CHRFILESTGMODE）
+                - 查询文件存留期设置（LST CHRFILESAVETIME）
+                - 设置文件存留期（SET CHRFILESAVETIME）
+            - 配置服务管理
+              - 对账管理
+                - 查询ACS的配置同步信息(DSP ACSSYNCINFO)
+                - 查询对账文件状态(DSP SYNCFILESTATUS)
+                - 生成对账文件(SAV SYNCFILE)
+                - 启动或停止ACS与远端设备的配置同步(SYN ACSPEERCFG)
+              - 维护管理
+                - ACS客户端调试操作(OPR ACSCLIENTDBG)
+                - 删除配置对象告警阈值(RMV CFGTHRESHOLD)
+                - 设置NCC策略(SET NCCPOLICY)
+                - 修改配置对象告警阈值(MOD CFGTHRESHOLD)
+                - 增加配置对象告警阈值(ADD CFGTHRESHOLD)
+                - 查询配置表信息(DSP ACSCLASSINFO)
+                - 查询配置对象告警阈值(LST CFGTHRESHOLD)
+                - 清除ACS管理服务数据(CLR ACSDATA)
+                - 查询NCC策略(LST NCCPOLICY)
+            - TLS模式管理
+              - 查询TLS模式（LST INNERTLSMODE）
+              - 设置TLS模式（SET INNERTLSMODE）
+            - 指标监控
+              - 显示KPI检测历史数据（DSP KPIMONVALUE）
+              - 显示系统中正在监控的KPI信息（DSP KPIMONSTATE）
+              - 设置KPI异常检测功能开关（SET KPIMONSWITCH）
+              - 增加KPI异常检测规则（ADD KPIMONRULE）
+              - 修改KPI异常检测规则（MOD KPIMONRULE）
+              - 删除KPI异常检测规则（RMV KPIMONRULE）
+              - 查询KPI异常检测规则（LST KPIMONRULE）
+              - 查询KPI异常检测功能开关（LST KPIMONSWITCH）
+            - 升级补丁管理
+              - 升级补丁参数管理
+                - 查询升级补丁定时器（LST UPGPATTIMER）
+                - 修改升级补丁定时器（SET UPGPATTIMER）
+            - 事务管理
+              - 提交配置（CMT MMLTRAN）
+              - 启动事务模式（STR MMLTRAN）
+              - 结束事务模式（STP MMLTRAN）
+              - 取消配置（CNL MMLTRAN）
+            - 极简运维管理
+              - MMLSCS维测
+                - 显示ServiceConfig服务调试信息（DSP MMLSCSDBG）
+            - 内统管理
+              - 查询内统配置参数（LST INNERSTAT）
+              - 设置内统配置参数（SET INNERSTAT）
+            - OMLB维护
+              - 查询SSL协议开关状态 (LST SSLCONFIGSWITCH)
+              - 设置SSL协议开关 (SET SSLCONFIGSWITCH)
+            - 软参配置管理
+              - 设置ServiceFabric软参（SET FWSOFTPARA）
+              - 查询ServiceFabric软参比特位（LST FWSOFTPARABITS）
+              - 查询ServiceFabric软参（LST FWSOFTPARA）
+              - 设置软件参数比特位（SET FWSOFTPARABITS）
+          - IPSEC功能管理
+            - IP服务
+              - 接口管理
+                - 接口配置
+                  - 查询接口（LST INTERFACEIPSEC）
+                  - 删除接口（RMV INTERFACEIPSEC）
+                  - 修改接口（MOD INTERFACEIPSEC）
+                  - 增加接口（ADD INTERFACEIPSEC）
+                - IPv6地址
+                  - 查询接口IPv6地址（LST IFIPV6ADDRESSIPSEC）
+                  - 增加接口IPv6地址（ADD IFIPV6ADDRESSIPSEC）
+                  - 修改接口IPv6地址（MOD IFIPV6ADDRESSIPSEC）
+                  - 删除接口IPv6地址（RMV IFIPV6ADDRESSIPSEC）
+                - IPv4借用地址
+                  - 增加接口IPv4借用地址（ADD IFIPV4UNNUMIPSEC）
+                  - 修改接口IPv4借用地址（MOD IFIPV4UNNUMIPSEC）
+                  - 删除接口IPv4借用地址（RMV IFIPV4UNNUMIPSEC）
+                  - 查询接口IPv4借用地址（LST IFIPV4UNNUMIPSEC）
+                - IPv6Mtu
+                  - 显示IPsec Path MTU（DSP IPSECPATHMTU）
+                  - 复位IPsec Path MTU（RST IPSECPATHMTU）
+                - 绑定VPN
+                  - 删除接口绑定VPN（RMV IPBINDVPNIPSEC）
+                  - 增加接口绑定VPN（ADD IPBINDVPNIPSEC）
+                  - 查询接口绑定VPN（LST IPBINDVPNIPSEC）
+                  - 修改接口绑定VPN（MOD IPBINDVPNIPSEC）
+                - IPv6使能
+                  - 设置接口IPv6使能（SET IFIPV6ENABLEIPSEC）
+                  - 查询接口IPv6使能（LST IFIPV6ENABLEIPSEC）
+                - IPv4地址
+                  - 增加接口IPv4地址（ADD IFIPV4ADDRESSIPSEC）
+                  - 删除接口IPv4地址（RMV IFIPV4ADDRESSIPSEC）
+                  - 查询接口IPv4地址（LST IFIPV4ADDRESSIPSEC）
+                  - 修改接口IPv4地址（MOD IFIPV4ADDRESSIPSEC）
+              - IP安全管理
+                - 互联网密钥交换
+                  - IKE对等体
+                    - 删除IKE对等体（RMV IKEPEER）
+                    - 增加IKE对等体（ADD IKEPEER）
+                    - 修改IKE对等体（MOD IKEPEER）
+                    - 查询IKE对等体（LST IKEPEER）
+                  - IKE安全提议
+                    - 查询IKE提议（LST IKEPROPOSAL）
+                    - 修改IKE提议（MOD IKEPROPOSAL）
+                    - 增加IKE提议（ADD IKEPROPOSAL）
+                    - 删除IKE提议（RMV IKEPROPOSAL）
+                  - IKE IPsec安全联盟
+                    - 恢复IPSEC安全联盟（RTR IKEIPSECSA）
+                    - 显示IKE IPsec安全联盟（DSP IKEIPSECSA）
+                  - IKE安全联盟
+                    - 显示IKE安全联盟（DSP IKESA）
+                    - 恢复IKE安全联盟（RTR IKESA）
+                  - 绑定的IPsec安全提议
+                    - 增加IPsec策略绑定提议（ADD PROPATTACHIPSECPROPOSAL）
+                    - 查询IPsec策略绑定提议（LST PROPATTACHIPSECPROPOSAL）
+                    - 删除IPsec策略绑定提议（RMV PROPATTACHIPSECPROPOSAL）
+                  - IPsec策略
+                    - 修改IPsec策略（MOD IPSECPOLICY）
+                    - 删除IPsec策略（RMV IPSECPOLICY）
+                    - 增加IPsec策略（ADD IPSECPOLICY）
+                    - 查询IPsec策略（LST IPSECPOLICY）
+                  - IPsec策略模板
+                    - 查询IPsec策略模板（LST IPSECPOLICYTM）
+                    - 增加IPsec策略模板（ADD IPSECPOLICYTM）
+                    - 删除IPsec策略模板（RMV IPSECPOLICYTM）
+                    - 修改IPsec策略模板（MOD IPSECPOLICYTM）
+                  - 绑定的IKE对等体
+                    - 删除绑定IKE对等体（RMV ATTACHIKEPEER）
+                    - 查询绑定的IKE对等体（LST ATTACHIKEPEER）
+                    - 增加绑定IKE对等体（ADD ATTACHIKEPEER）
+                  - IPsec接口配置
+                    - 修改IPsec隧道接口（MOD IPSECINTFCFGIPSEC）
+                    - 删除IPsec隧道接口（RMV IPSECINTFCFGIPSEC）
+                    - 查询IPsec隧道接口（LST IPSECINTFCFGIPSEC）
+                    - 增加IPsec隧道接口（ADD IPSECINTFCFGIPSEC）
+                  - IKE对等体IPv6
+                    - 查询IPv6 IKE对等体（LST IKEPEER6）
+                    - 修改IPv6 IKE对等体（MOD IKEPEER6）
+                    - 增加IPv6 IKE对等体（ADD IKEPEER6）
+                    - 删除IPv6 IKE对等体（RMV IKEPEER6）
+                  - IKE全局配置
+                    - 查询IKE全局配置（LST IKEGLOBALCONFIG）
+                    - 设置IKE全局配置（SET IKEGLOBALCONFIG）
+                  - IPsec策略IPv6
+                    - 修改IPsec IPv6策略（MOD IPSECPOLICY6）
+                    - 删除IPsec IPv6策略（RMV IPSECPOLICY6）
+                    - 增加IPsec Ipv6策略（ADD IPSECPOLICY6）
+                    - 查询IPsec IPv6策略（LST IPSECPOLICY6）
+                - IPsec
+                  - IPsec提议
+                    - 查询IPsec提议（LST IPSECPROPOSALIPSEC）
+                    - 增加IPsec提议（ADD IPSECPROPOSALIPSEC）
+                    - 删除IPsec提议（RMV IPSECPROPOSALIPSEC）
+                    - 修改IPsec提议（MOD IPSECPROPOSALIPSEC）
+                - 公钥基础设施
+                  - PKI场景
+                    - 查询证书场景（LST CERTSCENE）
+                    - 修改证书场景描述（MOD CERTSCENE）
+                    - 删除证书场景（RMV CERTSCENE）
+                    - 增加证书场景（ADD CERTSCENE）
+                  - 使能CRL检查
+                    - 设置CRL检查（SET PKICRLCHECK）
+                    - 查询CRL检查（LST PKICRLCHECK）
+                  - 查询证书列表
+                    - 显示证书列表（DSP PKICERTLIST）
+              - ACL管理
+                - 高级IPv6 ACL规则
+                  - 修改高级IPv6 ACL规则（MOD ACLRULEADV6IPSEC）
+                  - 查询高级IPv6 ACL规则配置（LST ACLRULEADV6IPSEC）
+                  - 删除高级IPv6 ACL规则（RMV ACLRULEADV6IPSEC）
+                  - 增加高级IPv6 ACL规则（ADD ACLRULEADV6IPSEC）
+                - ACL规则组
+                  - 修改ACL规则组（MOD ACLGROUPIPSEC）
+                  - 增加ACL规则组（ADD ACLGROUPIPSEC）
+                  - 删除ACL规则组（RMV ACLGROUPIPSEC）
+                  - 查询ACL规则组配置（LST ACLGROUPIPSEC）
+                - 高级ACL规则
+                  - 删除高级ACL规则（RMV ACLRULEADV4IPSEC）
+                  - 增加高级ACL规则（ADD ACLRULEADV4IPSEC）
+                  - 修改高级ACL规则（MOD ACLRULEADV4IPSEC）
+                  - 查询高级ACL规则配置（LST ACLRULEADV4IPSEC）
+                - IPv6 ACL规则组
+                  - 修改IPv6 ACL规则组（MOD ACLGROUP6IPSEC）
+                  - 删除IPv6 ACL规则组（RMV ACLGROUP6IPSEC）
+                  - 查询IPv6 ACL规则组配置（LST ACLGROUP6IPSEC）
+                  - 增加IPv6 ACL规则组（ADD ACLGROUP6IPSEC）
+              - VPN管理
+                - L3VPN管理
+                  - VPN实例地址族配置命令
+                    - 增加L3VPN实例地址族（ADD VPNINSTAFIPSEC）
+                    - 删除L3VPN实例地址族（RMV VPNINSTAFIPSEC）
+                    - 查询L3VPN实例地址族（LST VPNINSTAFIPSEC）
+                  - L3VPN实例配置命令
+                    - 增加L3VPN实例（ADD L3VPNINSTIPSEC）
+                    - 查询L3VPN实例（LST L3VPNINSTIPSEC）
+                    - 删除L3VPN实例（RMV L3VPNINSTIPSEC）
+            - 操作维护
+              - 系统调测
+                - IPsec调测
+                  - IKE统计信息
+                    - 恢复IKE IPsec统计信息（RTR IKEIPSECSTAT）
+                    - 显示全部IKE统计信息（DSP IKEALLSTATISTIC）
+                    - 显示IKE IPsec统计信息（DSP IKEIPSECSTAT）
+                    - 恢复全部IKE统计信息（RTR IKEALLSTATISTIC）
+                  - IPSECSA表
+                    - 显示IPsec SA表信息（DSP IPSECSATABLE）
+                  - 转发统计信息
+                    - 显示IPsec转发统计（DSP IPSECFWDSTAT）
+                  - IKE历史信息
+                    - 恢复IKE历史信息清空状态（RTR IKEERRHISTORY）
+                    - 显示IKE历史信息（DSP IKEERRHISTORY）
+                  - IKE内部策略信息
+                    - 显示IKE内部负载分担策略信息（DSP IKEINNERPOLICY）
+          - 单体服务公共功能管理
+            - 系统管理
+              - 系统维护
+                - 仲裁服务配置
+                  - 查询仲裁服务配置（LST ACSELECTSERVICE）
+                  - 设置仲裁服务配置（SET ELECTSERVICE）
+                  - 查询仲裁服务配置（LST ELECTSERVICE）
+                  - 设置仲裁服务配置（SET ACSELECTSERVICE）
+                - 调试命令
+                  - 通过命令代理执行命令行调试命令（OPR DBGCLICMDPRXY）
+                  - 显示通过命令代理可执行命令行调试命令的白名单（DSP DBGCLICMDPRXYREG）
+                - 倒换主备资源单元
+                  - 资源单元组主备倒换（SWP RUGROUP）
+                  - 显示资源单元组成员信息（DSP RUGROUP）
+                  - 显示资源单元组主备倒换状态信息（DSP RUGROUPSWP）
+                  - 显示主备操作维护单元信息（DSP OMU）
+                  - 倒换主备操作维护单元（SWP OMU）
+                - 仲裁服务状态
+                  - 查询仲裁服务状态（DSP ACSELECTSERVICE）
+                  - 查询仲裁服务状态（DSP ELECTSERVICE）
+                - 扩展包管理
+                  - 查询扩展包详细信息（DSP PLGPKGDETAILINFO）
+                  - 加载扩展包（LOD PLGPKG）
+                  - 显示扩展包版本信息（DSP PLGPKG）
+                  - 删除扩展包（RMV PLGPKG）
+                  - 查询加载的扩展包（LST PLGPKG）
+                  - 激活扩展包（ACT PLGPKG）
+                - 补丁管理
+                  - 显示系统当前补丁信息（DSP ACSPATCHINFO）
+                  - 显示补丁信息（DSP PATCHDETAILINFO）
+                  - 显示系统当前补丁信息（DSP PATCHINFO）
+                  - 显示补丁信息（DSP ACSPATCHDETAILINFO）
+                - 主密钥管理
+                  - 查询主密钥信息（DSP MKINFO）
+                  - 更新主密钥（MOD MK）
+                  - 查询主密钥未同步的对象（DSP MKUNSYNCTARGET）
+              - EOX管理
+                - 转换NOS异构模式(CVT NOSHETEROMODE)
+                - 查询NOS异构模式(DSP NOSHETEROMODE)
+              - 资源管理
+                - RU管理
+                  - 显示故障策略信息（LST FAULTDETECT）
+                  - 设置进程故障告警上报模式（SET PROCFAULTALM）
+                  - 设置故障策略配置（SET FAULTDETECT）
+                  - 显示资源单元复位信息（DSP RESETINFO）
+                  - 查询系统HA状态（DSP HASTAT）
+                  - 显示RU的磁盘分区信息（DSP PARTITIONINFO）
+                  - 查询进程故障告警上报模式（LST PROCFAULTALM）
+                  - 配置base链路亚健康信息（SET BASESUBHEALTH）
+                  - 显示仲裁成员列表信息（DSP SLEMEMBER）
+                  - 设置RU资源过载和去过载阈值（SET RURESTHRESHOLD）
+                  - 显示base链路亚健康信息（DSP BASESUBHEALTH）
+                  - 查询资源实例类型（LST RESINSTANCETYPE）
+                  - 显示内存错误信息（DSP MEMERRORINFO）
+                  - 查询RU资源过载和去过载阈值（LST RURESTHRESHOLD）
+                  - 显示资源单元信息（DSP RU）
+                  - 设置资源单元故障容忍时间（SET RUFAULTTOLERANCE）
+                  - 显示仲裁成员详细信息（DSP SLEMEMBERDETAIL）
+                  - 重启资源单元（RST RU）
+                  - 查询base链路亚健康信息（LST BASESUBHEALTH）
+                  - 查询RU磁盘过载配置（LST RUDISKPARTITION）
+                  - 设置RU磁盘过载配置（SET RUDISKPARTITION）
+                  - 查询资源单元故障容忍时间（LST RUFAULTTOLERANCE）
+                - 加速器管理
+                  - 显示加速器信息（DSP ACC）
+                - 端口管理
+                  - 显示端口信息（DSP PORT）
+              - 版本信息
+                - 设置软件包检查间隔（SET CHKPKGINTERVAL）
+                - 显示系统软件信息（DSP ACSPACKAGE）
+                - 查询软件包检查间隔（LST CHKPKGINTERVAL）
+                - 显示系统版本信息（DSP ACSVERSION）
+                - 显示系统版本信息（DSP VERSION）
+                - 显示系统软件信息（DSP PACKAGE）
+                - 显示系统内部部件版本信息（DSP INNERCOMPVERSION）
+              - 复位系统
+                - 重启系统（RST VNFC）
+              - 基础参数
+                - 查询节点信息
+                  - 查询节点信息（LST NODE）
+            - 操作维护
+              - 系统调测
+                - 网络配置协议客户端
+                  - 查询设备所支持的NETCONFC协议能力集（DSP NCCCAPABILITY）
+                  - 显示NETCONFC与其他组件的消息交互信息（DSP NCCDIAGLOG）
+                  - 查询NETCONFC的配置同步信息（DSP NCCSYNCINFO）
+                  - 显示NETCONFC会话信息（DSP NCCSESSION）
+                  - 显示NETCONFC管理的远端设备的信息（DSP NCCPEERLIST）
+                - 进程和组件信息
+                  - 显示进程文件句柄使用信息（DSP PROCFILEHDLSTAT）
+                  - 显示组件信息（DSP COMPONENT）
+                  - 收集并推送RU的组件状态（UPD COMPSTATUS）
+                  - 显示进程消息分区信息（DSP PROCMSGAREA）
+                  - 显示组件订阅信息（DSP COMPONENTSUB）
+                  - 显示系统进程内存信息（DSP OSPROCMEMSTATIS）
+                  - 显示定时器信息（DSP TIMER）
+                  - 显示组件状态通知记录（DSP COMPSTATNOTIFY）
+                  - 显示线程调用栈信息（DSP THREADCALLSTACK）
+                  - 显示进程消息队列信息（DSP PROCMSGQUEUE）
+                  - 显示当前组件的状态记录信息（DSP COMPSTATTRACE）
+                  - 显示组件和容器关系信息（DSP COMCONTAINER）
+                  - 显示进程定时器计数信息（DSP PROCTIMERSTAT）
+                  - 显示进程信息（DSP PROCESSINFO）
+                  - 显示所有进程的协商状态信息（DSP NEGOSTATE）
+                  - 显示进程内存分区信息（DSP PROCMEMPT）
+                  - 显示dopra相关内存信息（DSP MEMORYINSPECT）
+                  - 查询逻辑链路统计信息（DSP PROCCHANNALSTC）
+                  - 查询逻辑链路事件（DSP PROCCHANNALEVENT）
+                  - 显示进程内线程信息（DSP PROCTHREAD）
+                - 配置维护
+                  - APP配置检查
+                    - 检查APP配置数据（CHK APPDATA）
+                    - 查询APP与OMU配置数据差异信息（DSP APPDATADIFF）
+                    - 同步APP配置数据（SYN APPDATA）
+                  - 配置数据
+                    - 显示指定DB表数据（DSP CFGCERTAINDB）
+                    - 修改MML导入导出密钥（MOD EXPCFGPARA）
+                    - 显示APPDB表数据（DSP APPDATA）
+                    - 显示CFG表索引信息和字段信息（DSP CFGTABLEINDEX）
+                    - 显示满足条件的CFG表数据（DSP CFGTABLEDATA）
+                    - 显示CFG诊断日志（DSP CFGDEBUG）
+                    - 显示APP内存信息（DSP MEMINFO）
+                    - 显示CFG表信息和内存信息（DSP CFGTABLEINFO）
+                  - 启动文件
+                    - 显示本次和下次启动文件（DSP STARTUP）
+                  - 配置恢复失败命令
+                    - 显示CFG方式配置恢复的失败信息（DSP CFGERRCMD）
+                  - 配置恢复结果
+                    - 显示系统配置恢复结果（DSP CFGRECOVERRESULT）
+                - 升级维护
+                  - 校正补丁包（CLB PATCH）
+                  - 校正补丁包（CLB ACSPATCH）
+                  - 显示RU版本信息（DSP ACSUPDRUVER）
+                  - 显示升级可回退版本信息（DSP ACSRBKVER）
+                  - 加载软件包（LOD PACKAGE）
+                  - 删除补丁（RMV ACSPATCH）
+                  - 回退升级操作（RBK PACKAGE）
+                  - 显示升级可回退版本信息（DSP RBKVER）
+                  - 激活软件包（ACT PACKAGE）
+                  - 显示升级状态（DSP UPDSTATUS）
+                  - 升级前检查（OPR ACSUPDPRECHK）
+                  - 显示当前版本信息（DSP UPDVER）
+                  - 显示RU版本信息（DSP UPDRUVER）
+                  - 回退升级操作（RBK ACSPACKAGE）
+                  - 删除补丁（RMV PATCH）
+                  - 设置升级状态（SET UPDSTATUS）
+                  - 显示升级状态（DSP ACSUPDSTATUS）
+                  - 删除软件包（RMV PACKAGE）
+                  - 设置升级状态（SET ACSUPDSTATUS）
+                  - 升级前检查（OPR UPDPRECHK）
+                  - 激活软件包（ACT ACSPACKAGE）
+                  - 删除软件包（RMV ACSPACKAGE）
+                  - 加载软件包（LOD ACSPACKAGE）
+                - 跟踪管理调测
+                  - 显示跟踪文件可维护性信息（DSP TRCFILEDIAG）
+                  - 查询跟踪中心消息统计信息（DSP TRCSMSGTOTALSTC）
+                  - 显示流控通知相关信息（DSP TRCFLOWCTRL）
+                  - 查询跟踪中心任务消息统计信息（DSP TRCSTASKMSGSTC）
+                  - 显示最后订阅Session信息（DSP TRCLASTSUBSESSION）
+                  - 显示跟踪任务相关跟踪消息的统计信息（DSP TRCTASKSTC）
+                  - 显示跟踪任务Session信息（DSP TRCTASKSESSION）
+                  - 显示跟踪代理侧跟踪任务信息（DSP TRCAGENTTASK）
+                - 异常信息
+                  - 显示RU断言信息（DSP ASSERTINFO）
+                  - 显示RU组件上报的故障信息（DSP REPORTFAILUREINFO）
+                  - 清除异常信息记录（RMV DEBUGRECORD）
+                  - 显示RU死循环信息（DSP DEADLOOPINFO）
+                  - 显示长时间未被调度的组件消息（DSP STARVATIONINFO）
+                  - 显示RU异常信息（DSP EXCEPTIONINFO）
+                - 基础网络调测
+                  - 查询NOS Base平面网络的报文统计信息（DSP NOSBASEIFSTAT）
+                  - 查询NOS Base平面网络的网口状态信息（DSP NOSBASEIFSTATUS）
+                  - 查询NOS Base平面网络的邻居信息（DSP NOSBASENEIGH）
+                  - 查询NOS Base平面网络的Socket信息（DSP NOSBASESOCKET）
+                  - 查询NOS Base平面网络的路由信息（DSP NOSBASEROUTE）
+                  - NOS Base平面网络Ping功能（ACT NOSBASEPING）
+                - 网络配置协议
+                  - 显示全量同步操作的诊断信息（DSP NCSSYNCFULL）
+                  - 显示所有订阅通知事件信息（DSP NCSNTFSUB）
+                  - 显示NETCONF会话信息（DSP NCSSESSION）
+                  - 显示会话中NETCONF和其它组件的消息交互信息（DSP NCSDIAGLOG）
+                  - 显示NETCONF会话的统计信息（DSP NCSSESSIONSTC）
+                  - 显示应用模型间模型映射关联关系（DSP NCSSCHEMAMAP）
+                  - 查询设备所支持的NETCONF协议能力集（DSP NCSCAPABILITY）
+                  - 显示NETCONF通知会话的统计信息（DSP NCSNTFSTC）
+                  - 显示XSM模块与其他模块的组件间交互消息（DSP XSMINNERDATA）
+                  - 请求生成一个全量同步通知（REQ GENSYNCALLCFGNTF）
+                  - 显示最近的RPC和错误RPC响应报文信息（DSP NCSRPCERROR）
+                  - 显示全量同步操作期间的统计信息（DSP NCSSYNCFULLSTC）
+                  - 显示设备当前已加载的NETCONF数据模型（DSP NCSDATAMODEL）
+                  - 显示通知消息发送失败信息（DSP NCSNTFFAIL）
+                  - 清除NETCONF会话统计信息（RTR NCARSTSSNSTATS）
+                  - 显示操作失败信息（DSP NCSFAILOPER）
+                - 收集日志
+                  - 收集日志信息（COL LOG）
+                  - 显示日志收集执行结果（DSP COLLECTLOGRESULT）
+                - 告警管理调测
+                  - 查询告警模块错误信息（DSP ALMERRORINFO）
+                - 设备管理
+                  - 显示属性订阅信息（DSP DEVATTRSUB）
+                  - 显示属性变更通知消息记录（DSP DEVATTRNOTIFY）
+                  - 显示接收VNFC配置的属性信息（DSP DEVATTRREV）
+                  - 显示组件状态机信息（DSP DEVCOMPFSM）
+                  - 清除资源单元复位信息（CLR RESETINFO）
+                  - 显示对象状态机信息（DSP DEVOBJFSM）
+                  - 显示设备管理诊断信息（DSP DEVDIAGINFO）
+                  - 显示NETCONF请求信息（DSP DEVNETCONFREQ）
+                  - 显示属性值信息（DSP DEVATTRCACHE）
+                  - 显示BOOTP服务端的注册信息（DSP DEVBOOTPREG）
+                  - 触发设备对账（ACT DEVVERIFICATION）
+                  - 显示设备属性信息（DSP DEVATTRTBL）
+                  - 显示模块状态机信息（DSP DEVMODFSM）
+                  - 显示VNFC同步到VNFP的属性信息（DSP DEVATTRSND）
+                  - 显示BOOTP服务器本地资源信息（DSP DEVBOOTPRES）
+                - 日志管理调测
+                  - 显示日志存储信息（DSP LOGFILESTORAGE）
+                  - 查询日志模块错误信息（DSP LOGERRORINFO）
+                  - 显示日志代理性能统计信息（DSP LOGAPFM）
+                  - 显示事件日志信息（DSP LOGEVENT）
+                  - 显示日志中心性能统计信息（DSP LOGSPFM）
+                  - 显示日志丢弃统计信息（DSP LOGSERVERDROPSTC）
+                - SSH调测
+                  - 显示SSH服务器的消息数据（DSP SSHSMSGDATA）
+                  - 显示SSH客户端的错误日志（DSP SSHCERRORLOG）
+                  - 显示SSH客户端的消息数据（DSP SSHCMSGDATA）
+                  - 显示SSH服务器的错误日志（DSP SSHSERRORLOG）
+                - 账号维护
+                  - 修改内部FTPS账号密码（MOD INNERFTPPWD）
+              - 文件传输管理
+                - 文件传输（FTR FILE）
+                - 文件传输（FTR ACSFILE）
+              - 日志管理
+                - 清除日志代理丢弃的日志信息（RTR LOGAGENTSTC）
+                - 查询日志代理丢弃的日志信息（DSP LOGAGENTSTC）
+                - 查询日志中心5分钟内消息统计信息（DSP LOGSERVERSTC）
+                - 查询日志发送的信息（DSP LOGMESSAGESEND）
+                - 保存黑匣子的数据到日志文件中（SAV LOGFILE）
+                - 查询日志模型信息（LST LOGDIC）
+                - 显示Logbuffer中的数据（DSP LOGBUFFER）
+              - 配置管理
+                - 配置文件管理
+                  - 锁定配置（LCK CONFIG）
+                  - 加载Lua脚本（LOD LUASCRIPT）
+                  - 保存运行配置数据（SAV RUNNINGCONFIG）
+                  - 加载XML文件配置到数据库(LOD CONFIGXML)
+                  - 设置调试配置信息（SET CFGDEBUG）
+                - 配置检查
+                  - 查询APP配置数据检查功能（LST DATACHKPOLICY）
+                  - 设置APP配置数据检查功能（SET DATACHKPOLICY）
+              - 告警管理
+                - 告警震荡
+                  - 查询告警震荡信息（LST ALMFLAPINFO）
+                  - 显示告警震荡抑制信息（DSP ALMFLAPSURPINFO）
+                - 告警接收
+                  - 查询告警接收的信息（DSP ALMMESSAGERECV）
+                - 告警对象实例
+                  - 查询告警信息（LST ALARMINFO）
+                - 活动告警
+                  - 显示活动告警（DSP ACTALM）
+                - 告警发送
+                  - 查询告警发送的信息（DSP ALMMESSAGESEND）
+              - 跟踪管理
+                - 显示跟踪任务（DSP TRCTASK）
+                - 显示跟踪文件（DSP TRCFILE）
+              - 基础软件参数管理
+                - 查询基础软件参数配置（LST BASESOFTPARA）
+                - 设置基础软件参数配置（SET BASESOFTPARA）
+          - HTTP功能管理
+            - HTTP管理
+              - HTTP安全管理
+                - HTTP TLS预共享密钥组管理
+                  - 查询预共享密钥组（LST TLSPSKGRP）
+                  - 增加TLS预共享密钥组（ADD TLSPSKGRP）
+                  - 修改预共享密钥组信息（MOD TLSPSKGRP）
+                  - 删除TLS预共享密钥组（RMV TLSPSKGRP）
+                - HTTP OAuth安全管理
+                  - 删除NRF密钥（RMV SBINRFKEY）
+                  - 查询HTTPOauth密钥（LST HTTPOAUTHKEY）
+                  - 查询NRF密钥（LST SBINRFKEY）
+                  - 删除HTTPOauth密钥（RMV HTTPOAUTHKEY）
+                  - 增加HTTPOauth密钥（ADD HTTPOAUTHKEY）
+                  - 增加NRF密钥（ADD SBINRFKEY）
+                - HTTP TLS安全管理
+                  - 查询TLS参数（LST TLSPARA）
+                  - 修改TLS参数（MOD TLSPARA）
+                  - 增加TLS参数（ADD TLSPARA）
+                  - 删除TLS参数（RMV TLSPARA）
+                - HTTP TLS预共享密钥管理
+                  - 增加预共享密钥（ADD TLSPSK）
+                  - 删除预共享密钥（RMV TLSPSK）
+                  - 查询预共享密钥信息（LST TLSPSK）
+                - HTTP TLS证书场景管理
+                  - 删除TLS证书场景（RMV TLSSCENE）
+                  - 修改TLS证书场景（MOD TLSSCENE）
+                  - 查询TLS证书场景（LST TLSSCENE）
+                  - 增加TLS证书场景（ADD TLSSCENE）
+                - HTTP CCA安全管理
+                  - 设置HTTP CCA属性（SET HTTPCCACONF）
+                  - 查询HTTP CCA属性（LST HTTPCCACONF）
+                - HTTP TLS证书更新流程参数管理
+                  - 查询证书更新流程参数（LST CERTUPDATPARA）
+                  - 设置证书更新流程参数（SET CERTUPDATPARA）
+              - HTTP链路内部统计管理
+                - 增加HTTP统计参数（ADD HTTPSTATPARA）
+                - 查询HTTP统计参数（LST HTTPSTATPARA）
+                - 删除HTTP统计参数（RMV HTTPSTATPARA）
+              - HTTP消息日志管理
+                - 设置HTTP消息日志参数（SET HTTPMSGLOGPARA）
+                - 查询HTTP消息日志参数（LST HTTPMSGLOGPARA）
+              - HTTP进程状态管理
+                - 显示HTTP进程信息（DSP HTTPPROCESS）
+              - HTTP CHR上报管理
+                - 设置HTTP连接信息上报参数（SET HTTPINFORPT）
+                - 查询HTTP连接信息上报参数（LST HTTPINFORPT）
+              - TCP安全管理
+                - 查询SBI接口TCP控制参数（LST SBITCPPARA）
+                - 设置SBI接口TCP控制参数（SET SBITCPPARA）
+              - HTTP服务端负载管理
+                - POD内负载管理
+                  - 设置HTTP服务端负载重均衡功能（SET HTTPSRVLBSW）
+                  - 查询HTTP服务端负载重均衡功能（LST HTTPSRVLBSW）
+                - 整系统负载管理
+                  - 重均衡调整
+                    - 启动触发HTTP服务端TCP链路重均衡检测及调整（STR TLBRELBLINK）
+                  - 全局属性
+                    - 显示TLB统计信息（DSP TLBDATA）
+                    - 设置TLB全局配置（SET TLBGLBCONF）
+                    - 查询TLB全局配置（LST TLBGLBCONF）
+              - HTTP统计管理
+                - 显示HTTP统计信息（DSP HTTPSTATS）
+                - 删除基于对端结点的性能统计测量对象信息（RMV HTTPSTATOBJ）
+                - 查询基于对端结点的性能统计测量对象信息（LST HTTPSTATOBJ）
+                - 清除HTTP统计信息（CLR HTTPSTATS）
+              - HTTP属性管理
+                - 设置HTTP对于URL转义的参数（SET HTTPESCAPE）
+                - 查询HTTP属性（LST HTTPCONF）
+                - 设置HTTP属性（SET HTTPCONF）
+                - 查询HTTP对于URL转义的参数（LST HTTPESCAPE）
+              - HTTP VPN映射管理
+                - 查询HTTP VPN映射关系（LST HTTPVPNMAP）
+                - 删除HTTP VPN映射关系（RMV HTTPVPNMAP）
+                - 增加HTTP VPN映射关系（ADD HTTPVPNMAP）
+              - HTTP局向管理
+                - 查询HTTP局向（LST HTTPOFC）
+                - 修改HTTP局向（MOD HTTPOFC）
+                - 删除HTTP局向（RMV HTTPOFC）
+                - 增加HTTP局向（ADD HTTPOFC）
+              - HTTP链路管理
+                - 重建HTTP链路（RST HTTPLNK）
+                - 测试HTTP链路（TST HTTPPATH）
+                - 显示HTTP历史链路状态（DSP HTTPLINKHISTORY）
+                - 显示HTTP链路信息（DSP HTTPLNK）
+                - 显示HTTP服务端故障链路（DSP HTTPSVRFAULINK）
+              - HTTP本端实体管理
+                - 修改HTTP本端实体（MOD HTTPLE）
+                - 查询HTTP本端实体（LST HTTPLE）
+                - 增加HTTP本端实体（ADD HTTPLE）
+                - 删除HTTP本端实体（RMV HTTPLE）
+              - HTTP本端实体组管理
+                - 增加HTTP本端实体组（ADD HTTPLEGRP）
+                - 查询HTTP本端实体组（LST HTTPLEGRP）
+                - 删除HTTP本端实体组（RMV HTTPLEGRP）
+              - HTTP FQDN管理
+                - 设置HTTP是否支持FQDN（SET HTTPFQDNSW）
+                - 查询HTTP是否支持FQDN（LST HTTPFQDNSW）
+            - 白名单管理
+              - 基于地址的白名单管理
+                - 增加基于地址的白名单（ADD ALLOWSERNAME）
+                - 删除基于地址的白名单（RMV ALLOWSERNAME）
+                - 查询基于地址的白名单（LST ALLOWSERNAME）
+              - 基于服务的白名单管理
+                - 删除基于服务的白名单（RMV SBIALLOWSERV）
+                - 增加基于服务的白名单（ADD SBIALLOWSERV）
+                - 查询基于服务的白名单（LST SBIALLOWSERV）
+            - SBI管理
+              - 服务化接口本端实体管理
+                - 修改服务化接口本端实体（MOD SBIAPLE）
+                - 增加服务化接口本端实体（ADD SBIAPLE）
+                - 查询服务化接口本端实体（LST SBIAPLE）
+                - 删除服务化接口本端实体（RMV SBIAPLE）
+              - 服务化接口链路集策略管理
+                - 查询SBI链路集策略（LST SBILINKSETPROP）
+                - 删除SBI链路集策略（RMV SBILINKSETPROP）
+                - 增加SBI链路集策略（ADD SBILINKSETPROP）
+                - 修改SBI链路集策略（MOD SBILINKSETPROP）
+              - 服务化接口链路属性管理
+                - 增加SBI接口链路属性配置（ADD SBILINKCFG）
+                - 删除SBI接口链路属性配置（RMV SBILINKCFG）
+                - 查询SBI接口链路属性配置（LST SBILINKCFG）
+              - 服务化接口链路控制管理
+                - 查询服务化接口链路自动控制功能开关（LST SBILNKCTRLSW）
+                - 设置服务化接口链路自动控制功能开关（SET SBILNKCTRLSW）
+              - 服务化接口静态链路管理
+                - 激活静态链路（ACT SBISTATICLINK）
+              - 服务化接口链路管理
+                - 查询服务化接口链路状态（DSP SBILINKSTATUS）
+              - 服务化接口链路集管理
+                - 查询服务化接口链路集属性（LST SBILINKSETCFG）
+                - 检查服务化接口链路集FQDN的IP地址（CHK SBILINKFQDNIP）
+                - 显示服务化接口链路集信息（DSP SBILINKSET）
+                - 设置服务化接口链路集属性（SET SBILINKSETCFG）
+                - 删除服务化接口链路集（DEL SBILINKSET）
+              - 服务化接口对端NF管理
+                - 显示服务化接口对端NF信息（DSP SBIPEERNF）
+            - HTTP流控管理
+              - HTTP HTR流控管理
+                - HTTP HTR流控安全边界管理
+                  - 删除HTR流控安全边界配置（RMV HTTPHTRMS）
+                  - 增加HTR流控安全边界配置（ADD HTTPHTRMS）
+                  - 查询HTR流控安全边界配置（LST HTTPHTRMS）
+                  - 修改HTR流控安全边界配置（MOD HTTPHTRMS）
+                - HTTP HTR全局配置管理
+                  - 设置HTR流控全局配置（SET HTTPHTRCFG）
+                  - 查询HTR流控全局配置（LST HTTPHTRCFG）
+                - HTTP HTR流控状态管理
+                  - 显示HTR信息（DSP HTTPHTRINFO）
+              - HTTP指定消息类型固定速率流控管理
+                - 查询HTTP指定消息类型固定速率流控信息（LST HTTPFIXEDFCMSG）
+                - 设置HTTP指定消息类型固定速率流控信息（SET HTTPFIXEDFCMSG）
+              - HTTP流控消息管理
+                - 查询HTTP流控消息类型（LST HTTPFCMSG）
+                - 修改HTTP流控消息类型（MOD HTTPFCMSG）
+                - 删除HTTP流控消息类型（RMV HTTPFCMSG）
+                - 增加HTTP流控消息类型（ADD HTTPFCMSG）
+              - HTTP流控组管理
+                - 删除HTTP流控组（RMV HTTPFCIPGRP）
+                - 修改HTTP流控组（MOD HTTPFCIPGRP）
+                - 增加HTTP流控组（ADD HTTPFCIPGRP）
+                - 查询HTTP流控组（LST HTTPFCIPGRP）
+              - HTTP资源流控管理
+                - 删除HTTP资源流控门限（RMV HTTPRESCFG）
+                - 显示HTTP资源使用信息（DSP HTTPRESUSG）
+                - 增加HTTP资源流控门限（ADD HTTPRESCFG）
+                - 查询HTTP资源流控门限（LST HTTPRESCFG）
+              - HTTP内存流控管理
+                - 设置HTTP内存流控（SET HTTPMEMFC）
+                - 查询HTTP内存流控（LST HTTPMEMFC）
+              - HTTP流控属性管理
+                - 查询HTTP流控属性（LST HTTPFCCONF）
+                - 设置HTTP流控属性（SET HTTPFCCONF）
+              - HTTP全局固定带宽流控管理
+                - 查询HTTP全局固定带宽流控（LST HTTPGLBFIXEDBWFC）
+                - 设置HTTP全局固定带宽流控（SET HTTPGLBFIXEDBWFC）
+              - HTTP流控组固定速率流控管理
+                - 查询HTTP流控组固定速率流控信息（LST HTTPFIXEDFC）
+                - 修改HTTP流控组固定速率流控信息（MOD HTTPFIXEDFC）
+                - 删除HTTP流控组固定速率流控信息（RMV HTTPFIXEDFC）
+                - 增加HTTP流控组固定速率流控信息（ADD HTTPFIXEDFC）
+              - HTTP反压流控管理
+                - 设置TCP过载反压HTTP流控配置（SET TCPBPCFG）
+                - 查询TCP过载反压HTTP流控配置（LST TCPBPCFG）
+              - HTTP接口类型固定速率流控管理
+                - 删除HTTP接口类型固定速率流控信息（RMV HTTPFIXEDFCINF）
+                - 增加HTTP接口类型固定速率流控信息（ADD HTTPFIXEDFCINF）
+                - 查询HTTP接口类型固定速率流控信息（LST HTTPFIXEDFCINF）
+                - 修改HTTP接口类型固定速率流控信息（MOD HTTPFIXEDFCINF）
+            - HTTP平台管理
+              - 查询HTTP服务存储的PLMN（LST HTTPPLMN）
+              - 查询HTTP服务存储的接口DSCP信息（LST HTTPINTFDSCP）
+              - 查询HTTP服务存储的NF实例信息（LST HTTPNFINST）
+              - 查询HTTP拨测用户信息（LST HTTPDIALUSR）
+              - 查询内部升级配置表（LST UPDATECTRLCFG）
+              - 查询HTTP灰度升级状态（LST HTTPUPGSTAGE）
+            - HTTP状态码管理
+              - 删除HTTP状态码判定配置（RMV HTTPSTATUS）
+              - 增加HTTP状态码判定配置（ADD HTTPSTATUS）
+              - 修改HTTP状态码判定配置（MOD HTTPSTATUS）
+              - 查询HTTP状态码判定配置（LST HTTPSTATUS）
+          - 系统调测
+            - PAE 调测命令
+              - 配置
+                - 设置PAE内联口的MTU值（SET FABRICMTU）
+                - 查询PAE多队列功能开关（LST PAEMULTQUE）
+                - 设置OAM全局配置（SET GLOBALFABRICOAM）
+                - 查询PAE内联口MTU值（LST FABRICMTU）
+                - 查询网关转发地址（LST PAEPORTGATEWAY）
+                - 设置PAE故障检测使能开关（SET PAEEXAMINATION）
+                - 查询OAM全局配置（LST GLOBALFABRICOAM）
+                - 查询Fabric亚健康全局配置（LST FABRICSUBHEALTHY）
+                - 查询PAE告警配置（LST FABRICINALARMCFG）
+                - 增加网关转发地址（ADD PAEPORTGATEWAY）
+                - 设置Fabric亚健康全局配置（SET FABRICSUBHEALTHY）
+                - 设置PAE多队列功能开关（SET PAEMULTQUE）
+                - 查询PAE故障检测使能配置（LST PAEEXAMINATION）
+                - 查询Fabric-In功能开关（LST FABRICINSWITCH）
+                - 设置PAE告警配置（SET FABRICINALARMCFG）
+                - 设置Fabric-In功能开关（SET FABRICINSWITCH）
+                - 删除网关转发地址（RMV PAEPORTGATEWAY）
+                - 修改网关转发地址（MOD PAEPORTGATEWAY）
+                - 显示FABRIC内联口亚健康信息（DSP FABRICSUBHEALTHY）
+              - 系统资源
+                - 显示PAE网络配置信息（DSP PAENETWORKCFG）
+                - 使能或去使能PAE转发日志（SET PAEDEBUGSWITCH）
+                - 显示PAE故障信息（DSP PAEEXAMSTATE）
+                - 显示PAE负载信息（DSP PAEPAYLOADINFO）
+              - 报文
+                - 清除PAE分片重组统计计数（RTR PAEREASSEMBLEINFO）
+                - 清除PAE丢包统计信息（RTR PAEDISCARD）
+                - 显示PAE丢包统计信息（DSP PAEDISCARD）
+                - 显示PAE分片重组统计信息（DSP PAEREASSEMBLEINFO）
+              - 端口
+                - 显示PAE多队列信息（DSP PAEPORTQUEUE）
+                - 清除PAE端口统计信息（RTR PAEPORT）
+                - 显示PAE上外联口规则信息（DSP PAERULEEXTERN）
+                - 清除PAE通道统计信息（RTR PAECHANNEL）
+                - 显示PAE端口组信息（DSP PAEPORTGROUPINFO）
+                - 显示PAE端口网关信息（DSP PAEPORTGATEWAY）
+                - 清除PAE队列统计信息（RTR PAEQUEUE）
+                - 显示PAE端口统计信息（DSP PAEPORT）
+                - 显示PAE上Loop口三元组规则信息（DSP PAERULELOOP3T）
+                - 显示PAE队列统计信息（DSP PAEQUEUE）
+                - 显示PAE队列信息（DSP PAEQUEUEINFO）
+                - 显示Loop口路由信息（DSP PAELOOPROUTE）
+                - 显示PAE Fabric端口的TB统计信息（DSP PAEPORTBYTB）
+                - 显示PAE端口基本信息（DSP PAEPORTINFO）
+                - 显示Loop口IP和TB映射信息（DSP PAELOOPIPTB）
+                - 显示报文优先级与QoS映射信息（DSP PAEPRIMAPQOS）
+                - 显示同步到业务进程的通道信息（DSP PAECHANNELSYNC）
+                - 显示PAE通道统计信息（DSP PAECHANNEL）
+              - 性能模式
+                - 设置PAE的性能模式（SET PAEPERFMODE）
+                - 显示PAE的性能模式（DSP PAEPERFMODE）
+                - 删除配置表中的PAE性能模式（RMV PAEPERFMODE）
+                - 查询配置表中的PAE性能模式（LST PAEPERFMODE）
+                - 显示UDS链路状态（DSP PAEUDSSTATUS）
+              - 染色流控
+                - 显示PAE染色跟踪信息（DSP PAEDYETRACEINFO）
+                - 设置PAE染色流控开关及阈值参数（SET PAEDYETRACECFG）
+                - 查询PAE染色流控开关及阈值参数（LST PAEDYETRACECFG）
+              - 资源不足告警
+                - 设置PAE关键资源不足告警参数（SET PAERESOVLDTRHD）
+                - 查询PAE关键资源不足告警参数（LST PAERESOVLDTRHD）
+              - PAE统计信息
+                - 查询PAE Channel调度模式（LST PAESCHEDMOD）
+                - 设置PAE Channel调度模式（SET PAESCHEDMOD）
+                - 显示PAE调度统计信息（DSP PAESCHEDULE）
+              - 轨迹开关
+                - 设置PBUF轨迹开关和持续时间（SET MSSPBUFTRACELT）
+                - 查询PBUF轨迹开关状态和持续时间（LST MSSPBUFTRACELT）
+              - 时延统计
+                - 显示UFP时延度量统计结果（DSP UFPLATENCY）
+                - 查询PAE批量收包的数量（LST PAEBATCHRECVNUM）
+                - 设置PAE批量收包的数量（SET PAEBATCHRECVNUM）
+                - 显示PAE批量接收报文数（DSP PAEBATCHRECVNUM）
+                - 激活UFP逐包转发时延度量开关（ACT UFPLATENCYSTAT）
+                - 显示UFP逐包转发时延度量开关（DSP UFPLATENCYSTAT）
+              - 故障信息
+                - 显示Fabric平面亚健康链路信息（DSP FABRICSUBHEALTHYLINK）
+                - 显示Fabric平面Down信息（DSP FABRICPLANEDOWN）
+              - 链路探测
+                - 启动Fabric链路探测任务（STR PAEFABDETECT）
+                - 显示Fabric链路探测简要结果（DSP PAEFABDETBRF）
+                - 清除Fabric链路探测结果（CLR PAEFABDETECT）
+                - 停止Fabric链路探测任务（STP PAEFABDETECT）
+                - 显示Fabric链路探测任务的详细结果（DSP PAEFABDETDTL）
+              - Fabric
+                - 显示PAE告警信息（DSP PAEALARMINFO）
+                - 显示PAE OAM链路信息（DSP FABRICOAMINFO）
+                - 清除OAM统计信息（RTR FABRICOAMSTAT）
+                - 显示PAE链路信息（DSP PAEFABRICLINK）
+                - 显示PAE内联口亚健康统计信息（DSP FABRICSUBHEALTHYSTAT）
+                - 显示PAE各链路OAM报文统计结果（DSP FABRICOAMPORT）
+              - PAE软参
+                - 设置PAE参数（SET PAEPARAMS）
+                - 查询PAE参数（LST PAEPARAMS）
+            - MSS 调测命令
+              - PBUF
+                - 设置pbuf重用检测开关（SET PBUFREUSE5GC）
+                - 查询pbuf重用检测开关状态（LST PBUFREUSE5GC）
+                - 删除pbuf重用检测开关设置（RMV PBUFREUSE5GC）
+              - 设置PBUF轨迹设置的开关（SET MSSPBUFTRACE）
+              - 设置PBUF重用检测开关（SET MSSPBUFREUSE）
+              - 显示调度部署详细信息（DSP MSSSCHSUMTAILM）
+              - 显示泄漏的PBUF缓存信息（DSP MSSPBUFLEAK）
+              - 设置维测信息统计开关（SET MSSDEBUGSWITCHM）
+              - 设置端口报文统计开关（SET MSSPMDMATCH）
+              - 显示PBUF重用信息（DSP MSSPBUFREUSE）
+              - 显示端口PMD驱动信息（DSP MSSPORTPMDDRV）
+              - 显示FMM的PBUF概要信息（DSP MSSFMMSUMMARY）
+              - 显示FMM的进程信息（DSP MSSPROCINFO）
+              - 显示维测开关状态（DSP MSSDEBUGINFOM）
+              - 设置匹配规则（SET MSSRULEM）
+              - 显示端口信息（DSP MSSPORTINFO）
+              - 显示端口硬件统计信息（DSP MSSPORTHWSTC）
+              - 显示FMM的PBUF的进程信息（DSP MSSFMMPROCESS）
+              - 显示指定队列详细信息（DSP MSSQUEDETINFOM）
+              - 显示端口报文匹配统计信息（DSP MSSPMDMATCH）
+              - 显示队列总体信息（DSP MSSQUEINFOM）
+              - 显示匹配规则（DSP MSSRULEM）
+              - 显示调度组工作类型信息（DSP MSSSCHWORKGROUP）
+              - 显示调度线程概要信息（DSP MSSSCHTHREADHEADM）
+              - 显示调度工作类型信息（DSP MSSSCHWORKM）
+              - 显示端口队列统计信息（DSP MSSPORTQUEUESTC）
+              - 根据索引号查询PBUF信息（DSP MSSPBUFINFO）
+            - 工程调测
+              - 5G工程命令
+                - 设置CSLB负载不均衡检测功能的参数（SET LOADCHECKINFO）
+                - 显示跨层统一联动跟踪任务信息（DSP CNTRLTRCTASK）
+                - 停止跨层统一联动跟踪任务（STP CNTRLTRCTASK）
+                - 查询CSLB负载不均衡检测功能的参数（LST LOADCHECKINFO）
+                - 启动跨层统一联动跟踪任务（STR CNTRLTRCTASK）
+                - 调试信息（OPR DBGDATA）
+            - OM调测
+              - 显示OM模块的调试信息（DSP OMDBGDATA）
+          - 单体服务编排功能管理
+            - 系统管理
+              - 资源管理
+                - IPv6Pmtu管理
+                  - 设置IPv6参数(SET IPV6PARA)
+                  - 查询IPv6参数(LST IPV6PARA)
+                - RU配置
+                  - 设置RU CPU占用率告警上报门限和告警恢复门限(SET RUCPUTHRESH)
+                - RU信息
+                  - 查询RU的信息(LST SERVICERUSTATE)
+                  - 查询RU CPU占用率、告警上报门限和告警恢复门限(DSP RUCPUUSGTHRESH)
+                - ScaleGroup信息
+                  - 查询ScaleGroup信息(DSP SCALEGROUP)
+                - 业务RU状态
+                  - 查询业务RU的状态(DSP SERVICERUSTATE)
+                - scale功能管理
+                  - 查询系统处理状态(DSP SYSPROCSTAT)
+                  - 查询基于VNFC的扩缩容历史信息(LST VNFCSCALINGHISTORY)
+                - 磁盘管理
+                  - 硬盘分区扩容(ACT DPSCALEUP)
+                  - 查询硬盘分区扩容进展(DSP DPSCALEUP)
+                - 网络实例管理
+                  - 查询网络实例对应RU信息(DSP NETINSTRU)
+                - VNFC实例化
+                  - 查询VNFC实例化进度(DSP INSTPROGRESS)
+                - VM负载管理
+                  - 查询系统负载(DSP WORKLOAD)
+              - 系统维护
+                - 调试命令
+                  - 通过命令代理执行调试命令（OPR DBGCMDPRXY）
+                - Ping和Tracert
+                  - Ping
+                    - INNER IP Ping（INNERPING）
+                  - Tracert
+                    - INNER IP Tracert（INNERTRACERT）
+            - 操作维护
+              - 系统调测
+                - 升级维护
+                  - 查询是否放通管道大颗粒readiness就绪探测（LST PSPKUBEPROBE）
+                  - 设置是否放通管道大颗粒readiness就绪探测（SET PSPKUBEPROBE）
+          - 可靠性管理
+            - 微服务可靠性管理
+              - 显示微服务进程信息（DSP CELLINFO）
+              - 设置冷备容灾自动升主功能（SET DRAUTOACTIVE）
+              - 设置CMF流控参数（SET CMFFC）
+              - 查询监控的关键部件信息（LST DRKEYNF）
+              - 显示微服务进程可用状态统计信息（DSP CELLSTAT）
+              - 查询DC间通信通道信息（LST DRDCI）
+              - 显示Fabric亚健康通信质量信息（DSP FABSUBDETAIL）
+              - 显示微服务进程信息（DSP MSPROCESS）
+              - 设置事件全局开关（SET EVTHEALCTRL）
+              - 查询Pod Fabric平面亚健康诊断参数（LST FABDIAGPARA）
+              - 容灾实例主备倒换（SWAP DR）
+              - 修改进程频繁故障监控参数（MOD CELLMULFAULTTHD）
+              - 增加对应PODTYPE下CPU的阈值配置（ADD PODHEALCPUTHR）
+              - 查询用于仲裁目的的key的租约信息（DSP ETCDTTL）
+              - 显示HAFG相关信息（DSP DBGHAFG）
+              - 显示事件诊断失败状态（DSP EVTGOVSTAT）
+              - 查询策略参数值（LST EVTPARA）
+              - 查询多连接开关配置数据（LST MCSWITCH）
+              - 设置是否使能热备容灾组（SET DRGROUPABLEMENT）
+              - 查询负荷分担容灾功能开启信息（LST DRCOUPLINGRESET）
+              - 查询容灾组信息（LST DRGROUPINFO）
+              - 设置ResourceBox自愈策略控制参数（SET RSCBOXHEALCTRL）
+              - 查询Node自愈策略控制参数（LST NODEHEALCTRL）
+              - 查询是否放通就绪状态检测（LST KUBEPROBE）
+              - 查询Pod隔离黑名单（LST PODISOBLKLIST）
+              - 删除对应PODTYPE的配置记录（RMV PODHEALCPUTHR）
+              - 启动人工倒回命令（STR NFDRSWOVER）
+              - 显示HAFD调试命令结果（DSP DBGHAFD）
+              - 查询热备模式下是否开启自动倒换功能（LST DRAUTOSWOVER）
+              - 查询容灾控制通道TLS模式（LST DRTLSMODE）
+              - 设置Pod Fabric平面亚健康诊断参数（SET FABDIAGPARA）
+              - 显示DC间通信通道运行状态（DSP DRDCI）
+              - 查询对应PODTYPE的配置记录（LST PODHEALCPUTHR）
+              - 查询业务进程选举能力（LST ELECTIONABILITY）
+              - 显示故障进程历史记录（DSP CELLFAULTINFO）
+              - 修改DC间通信通道信息（MOD DRDCI）
+              - 强制推送集群管理数据（SYN CMFDATA）
+              - 增加DC间通信通道信息（ADD DRDCI）
+              - 设置运行备整系统复位开关（SET DRSTBYRSTCTRL）
+              - 设置事件开关状态（SET EVTSW）
+              - 查询Pod自愈策略（LST PODHEALPLY）
+              - 显示服务主实例相关信息（DSP MSACTIVE）
+              - 查询监控VPN实例（LST MONVPN）
+              - 查询快速隔离接口（LST DRSEPINTERFACE）
+              - 查询故障检测参数（LST MSFAULTTOLERANCE）
+              - 设置Node自愈策略控制参数（SET NODEHEALCTRL）
+              - 查询在复杂故障场景下自愈功能控制参数（LST CFSHEALCTRL）
+              - 查询HAFETCD网络亚健康探测参数（LST HAFEDETECT）
+              - 查询vHA ETCD集群节点详细信息（DSP VHAMEMBER）
+              - 显示集群选举实例信息（DSP ELECTION）
+              - 设置复位限制的次数（SET DRRESETLMTCOUNT）
+              - 显示Fabric端口亚健康通信质量信息（DSP FABPORTSUBDTL）
+              - 删除DC间通信通道信息（RMV DRDCI）
+              - 删除Pod自愈黑名单（RMV PODBLACKLIST）
+              - 查询CMF流控开关配置数据（LST CMFFCSWITCH）
+              - 设置业务进程选举能力（SET ELECTIONABILITY）
+              - 显示事件治理自愈结果（DSP EVTHEALREC）
+              - 查询事件全局开关（LST EVTHEALCTRL）
+              - 设置故障快速检测配置（SET FAULTCHECKBYFABRIC）
+              - 查询容灾定时器（LST DRHBNEGOTIMER）
+              - 查询容灾倒换记录（LST DRSWAPREC）
+              - 查询冷备容灾自动升主功能参数（LST DRAUTOACTIVE）
+              - 显示注册的服务实例信息（DSP SERVICEINST）
+              - 查询进程频繁故障监控参数（LST CELLMULFAULTTHD）
+              - 设置Pod自愈策略（SET PODHEALPLY）
+              - 显示ResourceBox重建历史记录（DSP RSCBOXHEALREC）
+              - 设置自愈功能开关状态（SET PODHEALCTRL）
+              - 显示Fabric平面亚健康诊断结果（DSP FABDIAGINFO）
+              - 显示已发生的倒换和复位次数和距离限制结束的时间（DSP DRLIMITINFO）
+              - 显示容灾组的运行状态信息（DSP DRGROUPSTATUS）
+              - 设置租约时长（SET MSETCDTTL）
+              - 查询事件开关状态（LST EVTSW）
+              - 删除故障隔离接口（RMV DRSEPINTERFACE）
+              - 启动人工恢复已隔离的Pod（STR RCISOLATION）
+              - 设置是否放通就绪状态检测（SET KUBEPROBE）
+              - 清除进程（CLR MSPROCESS）
+              - 设置HAF服务内部功能的相关参数（SET HAFFUNC）
+              - 设置HAFETCD网络亚健康探测参数（SET HAFEDETECT）
+              - 设置告警开关（SET MSFAULTALARM）
+              - 查询故障快速检测配置信息（LST FAULTCHECKBYFABRIC）
+              - 查询运行备整系统复位开关（LST DRSTBYRSTCTRL）
+              - 设置容灾控制通道TLS模式（SET DRTLSMODE）
+              - 显示注册的服务名称（DSP SERVICENAME）
+              - 查询状态核查参数（LST STATUSCHECK）
+              - 增加Pod隔离黑名单（ADD PODISOBLKLIST）
+              - 显示微服务进程类型（DSP MSPROCTYPE）
+              - 设置在热备容灾模式下是否开启自动倒换功能（SET DRAUTOSWOVER）
+              - 设置监控的关键部件信息（SET DRKEYNF）
+              - 删除Pod隔离黑名单（RMV PODISOBLKLIST）
+              - 查询租约时长（LST MSETCDTTL）
+              - 查询HAF服务内部功能的参数（LST HAFFUNC）
+              - 查询ResourceBox自愈策略控制参数（LST RSCBOXHEALCTRL）
+              - 微服务主备实例倒换（SWP CELLSERVICE）
+              - 增加容灾组信息（ADD DRGROUPINFO）
+              - 更改vHA ETCD节点进程状态（CHG VHASTATUS）
+              - 设置多连接开关（SET MCSWITCH）
+              - 增加监控VPN实例（ADD MONVPN）
+              - 查询是否使能热备容灾组（LST DRGROUPABLEMENT）
+              - 复位微服务进程（RST MSPROCESS）
+              - 查询复位限制的次数（LST DRRESETLMTCOUNT）
+              - 增加进程频繁故障监控参数（ADD CELLMULFAULTTHD）
+              - 查询POD重建历史记录（DSP PODHEALREC）
+              - 设置状态核查参数（SET STATUSCHECK）
+              - 查询正常状态网元的占比阈值（LST MONNFTHR）
+              - 设置CMF流控开关（SET CMFFCSWITCH）
+              - 启动人工执行容灾倒换（STR NFDREXE）
+              - 显示故障隔离逻辑接口的状态（DSP DRSEPINTERFACE）
+              - 设置故障检测参数（SET MSFAULTTOLERANCE）
+              - 查询自愈功能配置信息（LST PODHEALCTRL）
+              - 设置是否开启负荷分担容灾功能（SET DRCOUPLINGRESET）
+              - 查询告警开关配置数据（LST MSFAULTALARM）
+              - 显示微服务主实例切换历史记录（DSP MSSWPREC）
+              - 设置容灾定时器（SET DRHBNEGOTIMER）
+              - 转换vHA ETCD集群中节点间通讯地址的方式（STR VHACHGPEER）
+              - 查询CMF流控参数（LST CMFFC）
+              - 修改对应PODTYPE下的阈值配置（MOD PODHEALCPUTHR）
+              - 增加接口故障隔离（ADD DRSEPINTERFACE）
+              - 删除进程频繁故障监控参数（RMV CELLMULFAULTTHD）
+              - 删除监控VPN实例（RMV MONVPN）
+              - 查询Pod自愈黑名单（LST PODBLACKLIST）
+              - 设置在复杂故障场景下自愈功能控制参数（SET CFSHEALCTRL）
+              - 增加Pod自愈黑名单（ADD PODBLACKLIST）
+              - 设置策略参数值（SET EVTPARA）
+              - 删除容灾组信息（RMV DRGROUPINFO）
+              - 设置正常状态网元的占比阈值（SET MONNFTHR）
+          - 系统管理
+            - 资源管理
+              - 设置POD CPU告警阈值（SET PODCPUTHD）
+              - 查询VNF部署模式（DSP VNFMODE）
+              - 显示PAE开关信息（DSP PAESWITCH）
+              - 查询进程CPU信息（DSP MPROCCPUSTAT）
+              - 显示节点磁盘部署规格（DSP DISKINFO）
+              - 查询容器CPU阈值（LST CNTCPUTHD）
+              - 修改POD资源告警阈值（MOD PODALMTH）
+              - 查询Node的CPU信息（DSP NODECPUSTAT）
+              - 设置POD内存告警阈值（SET PODMEMTHD）
+              - 设置PAE隔离核统计状态（SET PAESWITCH）
+              - 查询进程资源数量（DSP MPROCRESSTAT）
+              - 设置容器CPU告警阈值（SET CNTCPUTHD）
+              - 查询POD CPU阈值（LST PODCPUTHD）
+              - 查询容器CPU信息（DSP CNTCPUSTAT）
+              - 删除POD资源告警阈值（RMV PODALMTH）
+              - 查询Node的内存信息（DSP NODEMEMSTAT）
+              - 查询容器内存阈值（LST CNTMEMTHD）
+              - 查询pod内存信息（DSP PODMEMSTAT）
+              - 查询容器内存信息（DSP CNTMEMSTAT）
+              - 设置容器内存告警阈值（SET CNTMEMTHD）
+              - 增加POD资源告警阈值（ADD PODALMTH）
+              - 查询POD内存阈值（LST PODMEMTHD）
+              - 查询进程内存信息（DSP MPROCMEMSTAT）
+              - 查询POD资源告警阈值（LST PODALMTH）
+              - 查询pod CPU信息（DSP PODCPUSTAT）
+            - 版本信息
+              - 显示节点信息（DSP NODEINFO）
+              - 导出节点信息（EXP NODEINFO）
+          - CSDB功能管理
+            - CSDB管理
+              - 软件参数管理
+                - 查询CSDB软件调试参数表(LST DBSOFTPARA)
+                - 设置CSDB软件调试参数表(SET DBSOFTPARA)
+              - 数据表管理
+                - 查询CSDB数据表信息（DSP DBTBL）
+              - 内存管理
+                - 删除CSDB RU内存信息(RMV DBRUMEM)
+                - 修改CSDB RU内存信息(MOD DBRUMEM)
+                - 查询CSDB RU内存信息(LST DBRUMEM)
+                - 增加CSDB RU内存信息(ADD DBRUMEM)
+              - 软件调试管理
+                - 发送CSDB的软件调试命令(STR DBSFTD)
+              - 容灾管理
+                - 查询容灾信息(DSP DRINFO)
+                - 设置容灾通道参数(SET DRCHANNELPARA)
+                - 查询容灾实例(LST DRINST)
+                - 查询CSDB容灾数据老化开关(LST DBDRAGING)
+                - 设置CSDB容灾数据老化开关(SET DBDRAGING)
+                - 修改容灾实例地址(MOD DRCOMM)
+                - 查询CSDB容灾主备本记录数(DSP DBDRTBLNUM)
+                - 增加容灾实例地址(ADD DRCOMM)
+                - 配置容灾实例(ADD DRINST)
+                - 删除容灾实例地址(RMV DRCOMM)
+                - 查询容灾通道参数(LST DRCHANNELPARA)
+                - 查询容灾实例地址(LST DRCOMM)
+                - 删除容灾实例(RMV DRINST)
+              - 参数管理
+                - 查询DB启动参数值(LST DBSTARTPARAS)
+                - 设置DB启动参数值(SET DBSTARTPARAS)
+              - 集群管理
+                - 查询CSDB子集群信息（DSP DBCLUSTER）
+              - 升级管理
+                - 查询CSDB灰度升级阶段(LST DBUPGSTAGE)
+                - 查询CSDB灰度升级状态(DSP DBUPGSTATUS)
+                - 设置CSDB灰度升级阶段(SET DBUPGSTAGE)
+              - 节点管理
+                - 查询CSDB节点信息（DSP DBNODE）
+              - 闭塞管理
+                - 闭塞CSDB RU（BLK RU）
+                - CSDB检查闭塞RU（CHK BLK）
+                - 查询CSDB RU闭塞信息（LST BLKHISTORY）
+                - 解闭CSDB RU（UBLK RU）
+              - 门限管理
+                - 查询CSDB配置过载门限(LST DBTHRESHOLD)
+                - 设置CSDB配置过载门限(SET DBTHRESHOLD)
+              - 插件管理
+                - 查询CSDB插件信息（DSP DBPLUGIN）
+              - 实例管理
+                - 查询CSDB使用者信息(DSP DBUSERINFO)
+                - 复位CSDB子实例（RST DBINSTANCE）
+                - 查询CSDB子实例信息（DSP DBINSTANCE）
+              - 数据特征管理
+                - 查询CSDB数据特征（DSP DBDATAFEATURE）
+              - 统计管理
+                - 查询CSDB的统计信息（DSP DBSTATS）
+            - 进程管理
+              - 查询CSDB进程信息(DSP PROCESSCSDB)
+          - 单体服务维护功能管理
+            - 操作维护
+              - 系统调测
+                - CPU能力基线信息
+                  - 查询CPU能力基线(LST CPUCAPABILITY)
+                  - 更新CPU能力基线(UPD CPUCAPABILITY)
+                  - 删除CPU能力基线(RMV CPUCAPABILITY)
+                  - 增加CPU能力基线(ADD CPUCAPABILITY)
+                - 进程管理
+                  - 复位进程(RST PROCESS)
+                - CPU信息
+                  - 查询RU CPU信息(LST RUCPUINFO)
+                - 跟踪调试信息
+                  - 查询跟踪调试信息(DSP TRCDBGINFO)
+                - MBP调测信息
+                  - 执行uniplt调试命令（OPR PLTMAINTAIN）
+              - 安全管理
+                - 文件删除策略
+                  - 设置文件删除策略(SET FILEDELPOLICY)
+                  - 查询文件删除策略(LST FILEDELPOLICY)
+          - CSLB功能管理
+            - 系统管理
+              - 进程状态
+                - 转发统计
+                  - 查询转发消息统计（DSP FWDSTAT）
+                - 进程信息
+                  - 查询CSLB进程（DSP LBPROC）
+              - 链路管理
+                - VNRS链路
+                  - 查询VNRS链路（DSP VNRSLINK）
+                - VNRS消息统计
+                  - 查询VNRS消息统计（DSP VNRSMSGSTAT）
+              - 插件管理
+                - 插件状态信息
+                  - 查询CSLB的插件信息（DSP LBPLUGIN）
+                - 插件侧转发地址信息
+                  - 查询CSLB插件侧VPN对应的转发拓扑（DSP LBPLUGINVPNTOPO）
+            - 操作维护
+              - 跟踪管理
+                - 删除跟踪重定向（RMV LBTRCRDTCFG）
+                - 增加跟踪重定向（ADD LBTRCRDTCFG）
+                - 查询跟踪重定向（LST LBTRCRDTCFG）
+              - 系统调测
+                - 策略调测
+                  - 交换信息
+                    - 查询负载均衡交换表（DSP EXCHANGE）
+                  - 负载均衡策略
+                    - 查询负载均衡策略（DSP LBPLY）
+                  - 策略跟踪
+                    - 查询策略跟踪（DSP PLYTRACE）
+                  - 下一跳策略
+                    - 查询负载均衡下一跳（DSP NEXTHOP）
+                - 流控参数
+                  - 设置流控开关（SET LBFC）
+                  - 查询流控开关（LST LBFC）
+                - 转发面流控参数
+                  - 查询转发面流控参数（LST FWDFCPARA）
+                  - 设置转发面流控参数（SET FWDFCPARA）
+                - 公共调测
+                  - 调试信息
+                    - 查询调试信息（DSP DBGSTAT）
+                  - 软件参数管理
+                    - 设置CSLB软件调试参数表（SET LBSOFTPARA）
+                    - 查询CSLB软件调试参数表（LST LBSOFTPARA）
+                - 系统参数
+                  - 设置转发参数（SET FWDPARA）
+                  - 查询转发参数（LST FWDPARA）
+            - 业务管理
+              - 隧道管理
+                - CSLB隧道绑定策略
+                  - 查询业务服务ID与隧道组ID的关系（DSP LBTNBINDPLY）
+                - CSLB隧道探测参数
+                  - 查询CSLB隧道IP-in-IP开关（LST LBTNIPINIPSWITCH）
+                  - 设置CSLB隧道IP-in-IP开关（SET LBTNIPINIPSWITCH）
+                  - 查询CSLB隧道探测参数（LST LBTNTSTPARA）
+                  - 设置CSLB隧道探测参数（SET LBTNTSTPARA）
+                - CSLB隧道组信息
+                  - 查询隧道组信息（DSP LBTNGROUP）
+                - CSLB服务ID与CSLB服务实例ID的关系
+                  - 查询服务ID与服务实例的关系（DSP LBSRVINSTIDREL）
+                - CSLB隧道信息
+                  - 查询隧道信息（DSP LBTN）
+              - 安全配置
+                - IP安全开关
+                  - 设置IP选项安全开关（SET IPSECURITYSWITCH）
+                  - 查询IP选项安全开关（LST IPSECURITYSWITCH）
+              - 服务实例管理
+                - 服务实例统计
+                  - 查询LB服务实例统计（DSP SRVINSTSTAT）
+                - 服务实例
+                  - 查询LB服务实例（DSP LBSRVINST）
+                - 服务实例与业务类型关系
+                  - 查询服务实例与业务类型关系（DSP SRVINSTTYPEREL）
+              - 业务重配置
+                - 重配置业务数据（ACT SRVRECFG）
+              - 激活CSLB表项老化功能
+                - 激活CSLB表项老化功能(ACT LBPLYAGING)
+              - IPv6引流规则
+                - 查询业务IPv6引流规则（DSP LBFLOWRULEV6）
+              - VPN管理
+                - VPN信息
+                  - 查询CSLB上的VPN信息（DSP LBVPN）
+                - VPN拓扑信息
+                  - 查询CSLB VPN对应的MPE或SFE拓扑(DSP LBVPNTOPO)
+              - 服务管理
+                - 容灾组信息
+                  - 查询容灾组信息（DSP LBGRGRP）
+                - 策略
+                  - 查询策略数量（DSP POLICYNUM）
+                - 服务消息统计
+                  - 查询服务消息统计（DSP SRVMSGSTAT）
+                - 服务VNFC消息统计
+                  - 查询服务VNFC消息统计（DSP SRVVNFCMSGSTAT）
+                - 服务VNFC
+                  - 查询服务VNFC（DSP SRVVNFC）
+                - 策略映射
+                  - 查询策略映射表（DSP POLICYMAP）
+              - 路由管理
+                - 服务实例地址
+                  - 查询服务IP（DSP SRVIP）
+                - 路由团体属性信息
+                  - 查询路由团体属性信息（DSP LBRTCMTY）
+                - 服务实例地址统计
+                  - 查询服务实例地址数（DSP SRVADDRNUM）
+                - 服务实例地址同步
+                  - CSLB向VNRS同步服务实例地址（SYN LBSRVADDR）
+              - 引流规则
+                - 查询业务引流规则（DSP LBFLOWRULE）
+            - 进程管理
+              - 查询CSLB进程信息(DSP PROCESSCSLB)
+          - UCF管理
+            - UCF文件管理规格配置
+              - 修改UCF文件管理规格配置（SET UCFCONFIG）
+              - 显示ucfexec-pod的磁盘空间大小（DSP UCFDISKSIZE）
+              - 查询UCF文件管理规格配置（LST UCFCONFIG）
+            - UCF服务器IP
+              - 修改UCF报表服务器的接入点IP地址（MOD UCFSVRIP）
+              - 添加UCF报表服务器的接入点IP地址（ADD UCFSVRIP）
+              - 查询UCF报表服务器的接入点IP地址（LST UCFSVRIP）
+              - 删除UCF报表服务器的接入点IP地址（RMV UCFSVRIP）
+            - UCF服务器链路状态
+              - 显示UCF链路状态（DSP UCFSVRLNKSTAT）
+            - UCF本地IP
+              - 查询UCF报表本地IP资源池（LST UCFIP）
+              - 配置UCF报表本地IP资源池（ADD UCFIP）
+              - 删除UCF报表本地IP资源池（RMV UCFIP）
+            - UCF单据报文信息
+              - 显示UCF收发的单据报文信息（DSP UCFPKTSTAT）
+          - 单体服务平台功能管理
+            - 系统管理
+              - 资源管理
+                - 资源实例管理
+                  - 设置资源过载和过载恢复阈值（SET RESTHRESHOLD）
+                  - 查询资源磁盘分区过载配置（LST DISKPARTITION）
+                  - 显示资源的磁盘分区信息（DSP RESPARTITIONINFO）
+                  - 设置资源磁盘分区过载配置（SET DISKPARTITION）
+                  - 查询NOS Base平面网络信息（DSP RESNOSBASENETWORK）
+                  - 查询系统HA状态（DSP RESHASTAT）
+                  - 显示资源信息（DSP RES）
+                  - 查询资源过载和过载恢复阈值（LST RESTHRESHOLD）
+                  - 查询资源配置信息（LST RES）
+                  - 查询VNFC内的资源配置信息（LST VNFCRES）
+                - 虚端口管理
+                  - 显示虚拟端口信息（DSP VPORT）
+                - VM管理
+                  - 显示资源CPU使用信息（DSP CPU）
+                  - 显示资源内存信息（DSP MEM）
+                  - 显示内存错误信息（DSP RESMEMERRORINFO）
+              - 应用编排管理
+                - 显示虚拟节点启动时间信息（DSP VNODESTARTTIME）
+                - 重启虚拟节点（RST VNODE）
+                - 查询虚拟节点信息（LST VNODE）
+              - 系统维护
+                - 软件仓软件
+                  - 显示软件仓软件（DSP SOFTWARE）
+                  - 下载软件仓软件（DLD SOFTWARE）
+                  - 删除软件仓软件（RMV SOFTWARE）
+                - 倒换主备操作维护单元
+                  - 倒换主备操作维护单元（SWP RESOMU）
+            - 操作维护
+              - 系统调测
+                - 基础网络调测
+                  - 查询NOS Base平面网络的路由信息（DSP RESNOSBASEROUTE）
+                  - 查询NOS Base平面网络的报文统计信息（DSP RESNOSBASEIFSTAT）
+                  - 查询NOS Base平面网络的邻居信息（DSP RESNOSBASENEIGH）
+                  - 查询NOS Base平面网络的Socket信息（DSP RESNOSBASESOCKET）
+                  - 查询NOS Base平面网络的网口状态信息（DSP RESNOSBASEIFSTATUS）
+                  - NOS Base平面网络Ping功能（ACT RESNOSBASEPING）
+                - 异常信息
+                  - 显示组件上报的故障信息（DSP RESREPORTFAILUREINFO）
+                  - 显示异常信息（DSP RESEXCEPTIONINFO）
+                  - 显示死循环信息（DSP RESDEADLOOPINFO）
+                  - 显示断言信息（DSP RESASSERTINFO）
+                - 进程和组件信息
+                  - 显示进程内存分区信息（DSP RESPROCMEMPT）
+                  - 显示进程定时器计数信息（DSP RESPROCTIMERSTAT）
+                  - 显示组件信息（DSP RESCOMPONENT）
+                  - 显示进程文件句柄使用信息（DSP RESPROCFILEHDLSTAT）
+                  - 显示进程消息分区信息（DSP RESPROCMSGAREA）
+                  - 显示进程信息（DSP RESPROCESSINFO）
+                - 设备管理
+                  - 显示设备驱动信息（DSP DEVDRIINFO）
+                - 网络配置协议
+                  - 显示NETCONF代理转发策略（DSP NCSPROXYFWD）
+                  - 显示所有NETCONF代理VNFC会话信息（DSP NCSPROXYSESSION）
+                  - 显示NETCONF代理操作失败信息（DSP NCSPROXYFAILOPER）
+                - 升级维护
+                  - 下载软件包（DLD PACKAGE）
+              - 用户管理
+                - 密码黑名单
+                  - 增加密码禁用词（ADD PWDBLACKLIST）
+                  - 删除密码禁用词（RMV PWDBLACKLIST）
+                  - 查询密码禁用词（LST PWDBLACKLIST）
+                - 用户
+                  - 修改本地用户属性（MOD OP）
+                  - 查询本地用户（LST OP）
+                - 登录告警阈值
+                  - 设置登录告警策略（SET LOGINALM）
+                - 修改自身密码
+                  - 修改在线用户自身密码（MOD PWD）
+              - 配置管理
+                - VNFC信息
+                  - 显示VNFC（DSP VNFC）
+                  - 查询VNFC（LST VNFC）
+                - 复位网元信息
+                  - 复位VNFC（RST RESVNFC）
+              - 接入配置管理
+                - 密钥配置
+                  - 本地密钥
+                    - 查询本地公钥（LST LOCALKEYPAIR）
+          - Voice Centric终端接入功能管理
+            - 增加Voice Centric终端接入接口地址（ADD VCFUNCIP）
+            - 查询Voice Centric终端接入参数配置（LST VCFUNCPARA）
+            - 去活SIP注册上下文（DEA SIPCTX）
+            - 显示SIP注册上下文（DSP SIPCTX）
+            - 查询Voice Centric终端接入功能开关（LST VCFUNCSW）
+            - 设置Voice Centric终端接入参数配置（SET VCFUNCPARA）
+            - 删除Voice Centric终端接入接口地址（RMV VCFUNCIP）
+            - 查询Voice Centric终端接入接口地址（LST VCFUNCIP）
+            - 设置Voice Centric终端接入功能开关（SET VCFUNCSW）
+          - 服务化拓扑管理
+            - 注册和服务发现
+              - 本地NRF功能管理
+                - 对端NF实例GPSI信息
+                  - 修改对端NF的GPSI信息（MOD UPPNFGPSI）
+                  - 查询对端NF的GPSI信息（LST UPPNFGPSI）
+                  - 增加对端NF的GPSI信息（ADD UPPNFGPSI）
+                  - 删除对端NF的GPSI信息（RMV UPPNFGPSI）
+                - 对端服务实例信息管理
+                  - 删除对端NF服务实例信息（RMV UPPNFSERVICE）
+                  - 增加对端NF服务实例信息（ADD UPPNFSERVICE）
+                  - 查询对端NF服务实例信息（LST UPPNFSERVICE）
+                  - 修改对端NF服务实例信息（MOD UPPNFSERVICE）
+                - 对端NF实例概述信息管理
+                  - 增加对端NF实例概述信息（ADD UPPNFPROFILE）
+                  - 修改对端NF实例概述信息（MOD UPPNFPROFILE）
+                  - 删除对端NF实例概述信息（RMV UPPNFPROFILE）
+                  - 查询对端NF实例概述信息（LST UPPNFPROFILE）
+              - NF概述信息管理
+                - 查询NF实例概述信息（LST UPNFPROFILE）
+                - 修改NF实例概述信息（MOD UPNFPROFILE）
+                - 删除NF实例概述信息（RMV UPNFPROFILE）
+                - 增加NF实例概述信息（ADD UPNFPROFILE）
+              - NF服务配置管理
+                - 修改NF服务实例（MOD UPNFSERVICE）
+                - 删除NF服务实例（RMV UPNFSERVICE）
+                - 查询NF服务实例（LST UPNFSERVICE）
+                - 增加NF服务实例（ADD UPNFSERVICE）
+              - NF UUID信息管理
+                - 删除NF UUID（RMV UPNFUUID）
+                - 增加NF UUID（ADD UPNFUUID）
+                - 查询NF UUID（LST UPNFUUID）
+              - 间接路由功能
+                - 设置间接路由功能（SET UPSCPFUNCSW）
+                - 查询间接路由功能配置（LST UPSCPFUNCSW）
+            - 拓扑软参管理
+              - 拓扑软参比特位
+                - 设置用户面服务化拓扑参数表比特位的值（SET UPTOPOSOFTPARAOFBIT）
+                - 查询用户面服务化拓扑软件参数指定比特位的值（LST UPTOPOSOFTPARAOFBIT）
+              - 拓扑软参配置数据管理
+                - 配置用户面服务化拓扑软参记录（SET UPTOPOSOFTPARA）
+                - 查询用户平面服务化拓扑软参记录（LST UPTOPOSOFTPARA）
+          - 编排管理
+            - 灰度升级管理
+              - 灰度升级步长
+                - 查询灰度升级Pod滚动步长（LST UPGSTEP）
+                - 设置灰度升级pod滚动步长（SET UPGSTEP）
+              - 微服务迁移过程
+                - 删除一个微服务迁移流程（RMV L3SERVICEDUALUPG）
+                - 增加一个微服务迁移过程（ADD L3SERVICEDUALUPG）
+                - 查询微服务迁移过程（LST L3SERVICEDUALUPG）
+                - 设置一个微服务迁移过程（SET L3SERVICEDUALUPG）
+              - 服务升级进度
+                - 增加服务升级进度（ADD L3SERVICEUPG）
+                - 设置服务升级进度（SET L3SERVICEUPG）
+                - 删除服务升级进度（RMV L3SERVICEUPG）
+                - 查询服务升级进度（LST L3SERVICEUPG）
+              - 灰度升级批次
+                - 查询灰度升级所处于的阶段（LST 5GGUMINFO）
+                - 设置灰度升级所处于的阶段（SET 5GGUMINFO）
+            - 部署规格管理
+              - 查询超时时间配置（LST SCFMVNFMLNK）
+              - 显示节点扩缩容任务进展（DSP PODMIGRATEHIST）
+              - 显示网络功能集状态（DSP FUNCTIONSETSTAT）
+              - 配置超时时间（SET SCFMVNFMLNK）
+              - 操作节点扩缩容与Pod迁移任务（OPR PODMIGRATE）
+              - 显示网络功能集全局列表（DSP FUNCTIONSETINFO）
+            - VNF状态管理
+              - 显示网元内部状态（DSP VNFINNERSTAT）
+            - 服务部署管理
+              - 查询特性上下线历史（DSP FEATUREOPRHIST）
+              - 系统状态查询（DSP SYSRUNNINGSTAT）
+              - 特性下线（OPR FEATUREDISABLE）
+              - 特性使能（OPR FEATUREENABLE）
+            - 弹性开关
+              - 查询自动扩缩容配置（LST SCALINGCFG）
+              - 设置扩缩容开关（SET SCALINGSWITCH）
+              - 查询扩缩容开关（LST SCALINGSWITCH）
+              - 设置自动扩缩容配置（SET SCALINGCFG）
+              - 显示扩缩容负载查询（DSP SCALINGWORKLOAD）
+            - 实例化管理
+              - 实例化完成结果查询（DSP VNFINSTANTIATIONRESULT）
+            - 一键式部署
+              - 显示网元下所有堆栈名称（DSP VNFSTACKNAMES）
+              - 显示防呆开关状态（DSP FOOLPROOFSWITCH）
+              - 设置防呆开关状态（SET FOOLPROOFSWITCH）
+              - 显示一键式部署操作历史（DSP ONECLICKDEPLOYHIST）
+              - 显示网元关联的软件包名称（DSP VNFPKGS）
+              - 操作服务一键式部署（OPR ONECLICKDEPLOY）
+            - NFVI分批升级管理
+              - 查询分批升级历史（DSP NFVIUPDRECVHIST）
+              - NFVI分批升级恢复（OPR NFVIUPDRECV）
+              - 查询跳过调整HAF域开关状态（LST SKIPADJUSTHAFDM）
+              - 设置跳过调整HAF域开关（SET SKIPADJUSTHAFDM）
+            - CPU节能策略
+              - 查询全局的CPU调频和休眠策略（LST ECOPOLICY）
+              - 显示VM的CPU节能策略（DSP ECOVMSINFO）
+              - 设置全局的CPU调频和休眠策略（SET ECOPOLICY）
+            - 软件管理
+              - 版本管理
+                - 显示系统版本信息（DSP APPVERSION）
+            - POD管理
+              - 显示已部署的Pod实例信息（DSP PODINFO）
+              - 显示已部署的Pod的版本号（DSP UPGPODINFO）
+            - 保护组管理
+              - 显示保护组信息（DSP PRTGRPINFO）
+              - 操作设置保护组规格值（OPR SETPRTGRPSPEC）
+              - 操作显示保护组规格值（OPR DSPPRTGRPSPEC）
+            - GID管理
+              - 显示POD的GID信息（DSP GIDINFO）
+          - 服务通信管理
+            - 策略核查管理
+              - 查询冗余策略老化开关（LST PLCYCLSWITCH）
+              - 显示策略核查任务进度（DSP SDRPLCYCHECK）
+              - 查询策略类型和核查间隔（LST PLCYCKTIMERINR）
+              - 设置集合类型策略刷新开关（SET PLYFLUSHSWITCH）
+              - 创建策略核查任务（STR PLCYCHECK）
+              - 设置策略类型和核查间隔（SET PLCYCKTIMERINR）
+              - 设置冗余策略老化开关（SET PLCYCLSWITCH）
+              - 查询集合类型策略刷新开关状态（LST PLYFLUSHSWITCH）
+            - 策略查询
+              - 显示SDRC中的KeyMatch信息（DSP SDRKEYMATCH）
+              - 显示SDRS中的VPN信息（DSP SDRSVPN）
+              - 显示PAE节点信息（DSP PAENODE）
+              - 查询SDRC中的TOKEN信息（DSP SDRTOKEN）
+              - 显示SDRS中的VPNIP信息（DSP SDRSVPNIP）
+              - 显示SDRS中的TOKEN信息（DSP SDRSTOKEN）
+              - 查询SDRC中缓存的下一跳组信息（DSP SDRLBPLCY）
+              - 显示SDRC中的Service信息（DSP SDRSERVICE）
+              - 显示策略同步版本（DSP SDRPLYSYNCVER）
+              - 查询CSLB的状态（DSP LBSTATUS）
+              - 查询SDRC中的TOPIC信息（DSP SDRTOPIC）
+              - 显示HAF向SDRS推送的主节点信息（DSP SDRSMASTERNODE）
+              - 显示所有策略订阅者信息（DSP SDRPLYSUBINFO）
+              - 显示SDRS中的APPROUTEINFO信息（DSP SDRSROUTE）
+              - 查询SDRC中的APPROUTERINFO信息（DSP SDRROUTE）
+              - 显示SDRC中保存的策略订阅关系（DSP SDRPLYSUBSTATUS）
+              - 显示SDRS中的APPTYPE信息（DSP SDRSAPPTYPE）
+              - 显示SDRC中的策略Key信息（DSP SDRPOLICYKEYS）
+              - 显示SDRC中的策略版本信息（DSP SDRPOLICYINFO）
+              - 显示PAE转发实例信息（DSP PAEFWDINSTANCE）
+              - 查询SDRC中缓存的进程信息（DSP SDRPROCESS）
+              - 查询SDRC中缓存的下一跳信息（DSP SDRNEXTHOP）
+              - 查询SDRC中的VPNIP信息（DSP SDRVPNIP）
+              - 查询SDRC中缓存的CSLB的拓扑（DSP LBTOPO）
+              - 查询SDRC中的VPN信息（DSP SDRVPN）
+              - 查询下发的VPN的app类型信息（LST VPNAPPCFG）
+              - 查询SDR VPN配置信息（LST SDRVPNCFG）
+            - 亚健康检测
+              - 设置Base平面的亚健康检测参数（SET COMBASEHEALTH）
+              - 激活SDR进程间透明通信检测任务（ACT TRANSCOMTASK）
+              - 停止SDR通信质量检测任务（STP COMTASK）
+              - 查询Base平面的亚健康检测参数（LST COMBASEHEALTH）
+              - 显示SDR通信质量检测结果详情（DSP COMTASKDETAIL）
+              - 显示base平面亚健康链路历史信息（DSP SUBHEALTHRECORD）
+              - 激活SDR点对点通信质量检测任务（ACT P2PCOMTASK）
+              - 显示Base平面通信质量（DSP COMBASEHEALTH）
+              - 显示SDR通信质量检测结果概要（DSP COMTASKSUMM）
+              - 显示BASE亚健康概况（DSP COMBASESUM）
+            - 流控管理
+              - 修改流控参数（MOD FCPARAM）
+              - 查询流控参数（LST FCPARAM）
+              - 显示流控统计（DSP FCSTATIS）
+              - 增加流控参数（ADD FCPARAM）
+              - 查询GC平滑开关（LST GCSMOOTHSWITCH）
+              - 设置GC平滑开关（SET GCSMOOTHSWITCH）
+              - 设置流控开关（SET FCSWITCH）
+              - 查询流控开关（LST FCSWITCH）
+              - 删除流控参数（RMV FCPARAM）
+            - TCP开关控制
+              - 查询SDR参数（LST SDRPARAMS）
+              - 设置SDR参数（SET SDRPARAMS）
+            - 维测
+              - 显示SDR调试信息（DSP SDRDBG）
+            - 邮箱配置
+              - 查询有界邮箱开关配置状态（LST LIMITMBSWITCH）
+              - 设置有界邮箱开关（SET LIMITMBSWITCH）
+            - 工程调测
+              - 5G工程命令
+                - 显示调试信息（DSP DBGDATAEX）
+            - 传输能力控制
+              - 设置SDR传输能力（SET SDRTRANS）
+              - 查询SDR传输能力（LST SDRTRANS）
+            - 策略流控管理
+              - 查询策略流控开关状态（LST POLICYFCSWITCH）
+              - 设置策略流控开关（SET POLICYFCSWITCH）
+          - 数据服务功能管理
+            - 参数管理
+              - 设置DB参数（SET DBPARAS）
+              - 删除数据库中的表记录（RMV DBRECORDS）
+              - 查询配置的DB参数（LST DBPARAS）
+          - IP管理
+            - IP配置
+              - 修改逻辑IP地址信息（MOD LOGICIP）
+              - 增加逻辑IP地址（ADD LOGICIP）
+              - 删除逻辑IP地址（RMV LOGICIP）
+              - 查询逻辑IP地址（LST LOGICIP）
+            - IP维护
+              - 查询路径MTU（DSP PATHMTU）
+              - 查询IPS老化配置（LST IPSAGING）
+              - 修改IPS老化配置（MOD IPSAGING）
+              - NGPING（NGPING）
+              - NGTRACEROUTE（NGTRACEROUTE）
+          - RCF管理
+            - 查询RCF核查开关状态（LST RESCHKSWITCH）
+            - 设置RCF核查开关状态（SET RESCHKSWITCH）
+          - DCF功能管理
+            - DCF管理
+              - DCF参数管理
+                - 设置Token延时迁移时间（SET TOKENDELAY）
+                - 查询Token延时迁移时间（LST TOKENDELAY）
+        - UDM服务管理
+          - 信令协议管理
+            - NRF客户端管理
+              - 网元路由模式配置
+                - 删除网元路由模式（RMV NFROUTEMODEL）
+                - 查询网元路由模式（LST NFROUTEMODEL）
+                - 增加网元路由模式（ADD NFROUTEMODEL）
+                - 修改网元路由模式（MOD NFROUTEMODEL）
+              - 网元注册配置
+                - 网元号段信息
+                  - 增加网元号段信息(ADD UDMNFRANGEINFO)
+                  - 查询网元号段信息(LST UDMNFRANGEINFO)
+                  - 删除网元号段信息(RMV UDMNFRANGEINFO)
+                - 网元实例信息
+                  - 查询网元实例信息(LST UDMNFSRV)
+                  - 查询网元实例动态信息(DSP UDMNFSRV)
+                  - 增加网元实例信息(ADD UDMNFSRV)
+                  - 删除网元实例信息(RMV UDMNFSRV)
+                  - 修改网元实例信息(MOD UDMNFSRV)
+                  - 修改网元实例恢复时间(MOD NFRECOVERYTIME)
+                - 网元信息
+                  - 查询网元信息（LST UDMNFINFO）
+                  - 删除网元信息（RMV UDMNFINFO）
+                  - 添加网元信息（ADD UDMNFINFO）
+                  - 修改网元信息（MOD UDMNFINFO）
+                - 网元服务信息
+                  - 查询网元服务信息(LST UDMNFSERVICE)
+                  - 修改网元服务信息(MOD UDMNFSERVICE)
+                  - 删除网元服务信息(RMV UDMNFSERVICE)
+                  - 增加网元服务信息(ADD UDMNFSERVICE)
+                - 网元默认通知订阅信息
+                  - 删除网元默认通知订阅信息(RMV UDMNFNOTIFSUB)
+                  - 添加网元默认通知订阅信息(ADD UDMNFNOTIFSUB)
+                  - 查询网元默认通知订阅信息(LST UDMNFNOTIFSUB)
+                - 网元切片信息
+                  - 删除网元S-Nssai信息(RMV UDMNFSNSSAI)
+                  - 查询网元S-Nssai信息(LST UDMNFSNSSAI)
+                  - 增加网元S-Nssai信息(ADD UDMNFSNSSAI)
+                - 网元服务版本信息
+                  - 删除网元服务版本信息(RMV UDMNFSRVVER)
+                  - 添加网元服务版本信息(ADD UDMNFSRVVER)
+                  - 查询网元服务版本信息(LST UDMNFSRVVER)
+                - 网元PLMN信息
+                  - 删除网元PLMN信息（RMV UDMNFPLMN）
+                  - 查询网元PLMN信息（LST UDMNFPLMN）
+                  - 增加网元PLMN信息（ADD UDMNFPLMN）
+                - 网元公共信息
+                  - 删除网元公共信息（RMV UDMNFCOMINFO）
+                  - 查询网元公共信息（LST UDMNFCOMINFO）
+                  - 添加网元公共信息（ADD UDMNFCOMINFO）
+                  - 修改网元公共信息（MOD UDMNFCOMINFO）
+              - 对端网元静态信息配置
+                - 查询对端网元静态信息(LST PNFSTATICINFO)
+                - 修改对端网元静态信息(MOD PNFSTATICINFO)
+                - 增加对端网元静态信息(ADD PNFSTATICINFO)
+                - 删除对端网元静态信息(RMV PNFSTATICINFO)
+              - NRF缓存管理
+                - 网元实例缓存信息
+                  - 清除网元实例缓存信息(CLR NFPROFILE)
+                  - 查询网元实例(DSP NFINSTANCE)
+                  - 查询网元实例缓存信息(DSP NFPROFILE)
+                - NRF内存数据
+                  - 校验内存数据(VRY NRFDATA)
+                  - 查询校验状态(DSP VRYNRFDATA)
+                  - 强制停止校验(STP VRYNRFDATA)
+                  - 显示服务发现响应缓存索引(DSP NFDISINDEX)
+                  - 查询服务订阅信息(DSP NFSUBSINFO)
+              - 网元订阅配置
+                - 网元订阅信息
+                  - 查询网元订阅信息(LST UDMNFSUBSCRDATA)
+                  - 修改网元订阅信息(MOD UDMNFSUBSCRDATA)
+                  - 删除网元订阅信息(RMV UDMNFSUBSCRDATA)
+                  - 增加网元订阅信息(ADD UDMNFSUBSCRDATA)
+              - NRF信息配置
+                - 增加NRF信息(ADD UDMNRFINFO)
+                - 修改NRF信息(MOD UDMNRFINFO)
+                - 删除NRF信息(RMV UDMNRFINFO)
+                - 显示NRF状态(DSP NRFSTATUS)
+                - 查询NRF信息(LST UDMNRFINFO)
+              - 网元发现配置
+                - 静态网元发现信息
+                  - 查询服务发现网元实例信息(LST UDMDISCNFPROF)
+                  - 修改服务发现网元实例信息(MOD UDMDISCNFPROF)
+                  - 删除服务发现网元实例信息(RMV UDMDISCNFPROF)
+                  - 增加服务发现网元实例信息(ADD UDMDISCNFPROF)
+                - 网元服务发现条件配置
+                  - 添加服务发现条件信息(ADD UDMDISCCONDCFG)
+                  - 查询服务发现条件信息(LST UDMDISCCONDCFG)
+                  - 删除服务发现条件信息(RMV UDMDISCCONDCFG)
+                  - 修改服务发现条件信息(MOD UDMDISCCONDCFG)
+            - Http信令链路管理
+              - 动态链路配置
+                - 设置HTTP链路流参数(SET HTTPPARAM)
+                - 查询HTTP链路流参数(LST HTTPPARAM)
+              - 对端设备配置
+                - 查询对端设备配置(LST PAPPIP)
+                - 删除对端设备配置(RMV PAPPIP)
+                - 修改对端设备配置(MOD PAPPIP)
+                - 增加对端设备配置(ADD PAPPIP)
+              - 链路告警过滤配置
+                - 添加链路告警过滤黑白名单(ADD LNKALMBWADDRLST)
+                - 查询链路告警过滤黑白名单(LST LNKALMBWADDRLST)
+                - 删除链路告警过滤黑白名单(RMV LNKALMBWADDRLST)
+              - 链路测量对象配置
+                - 新增HTTP链路测量对象(ADD HTTPLNKOBJ)
+                - 查询HTTP链路测量对象(LST HTTPLNKOBJ)
+                - 删除HTTP链路测量对象(RMV HTTPLNKOBJ)
+              - 对端设备组配置
+                - 增加对端设备组配置(ADD PAPPIPGRP)
+                - 查询对端设备组配置(LST PAPPIPGRP)
+                - 删除对端设备组配置(RMV PAPPIPGRP)
+                - 修改对端设备组配置(MOD PAPPIPGRP)
+              - 链路维护
+                - 查询均衡HTTP链路信息(DSP BALANCEHTTPLINK)
+                - 均衡HTTP链路(STR BALANCEHTTPLINK)
+                - 查询HTTP链路状态(DSP UDMHTTPLNK)
+                - 查询HTTP链路信息(DSP HTTPLNKINFO)
+                - 删除链路(RMV HTTPLINK)
+                - 查询HTTP消息负载信息(DSP HTTPLOAD)
+              - 端口分配信息
+                - 查询HTTP端口分配信息(LST HTTPPORTINFO)
+              - 链路管理
+                - 测试HTTP链路可达性 (TST UDMHTTPLNK)
+              - 链路话统对象实例配置
+                - 查询HLB链路话统对象实例(LST UDMHTTPLNKMOI)
+                - 删除HLB链路话统对象实例(RMV UDMHTTPLNKMOI)
+            - HTTP管理
+              - HLB TLS配置管理
+                - 增加HLB TLS协议配置 (ADD UDMHLBTLSCFG)
+                - 修改HLB TLS协议配置 (MOD UDMHLBTLSCFG)
+                - 查询HLB TLS协议配置 (LST UDMHLBTLSCFG)
+                - 删除HLB TLS协议配置 (RMV UDMHLBTLSCFG)
+              - 链路集参数配置
+                - 查询远端服务器链路集参数配置（LST HTTPLKSPARA）
+                - 修改远端服务器链路集参数配置（MOD HTTPLKSPARA）
+                - 删除远端服务器链路集参数配置（RMV HTTPLKSPARA）
+                - 增加远端服务器链路集参数配置（ADD HTTPLKSPARA）
+              - HTTP均衡管理
+                - 查询HTTP负载均衡配置(LST HTTPBCCFG)
+                - 查询HTTP均衡控制IP(LST HTTPBCIP)
+                - 增加HTTP均衡控制IP(ADD HTTPBCIP)
+                - 删除HTTP均衡控制IP(RMV HTTPBCIP)
+                - 设置HTTP负载均衡配置(SET HTTPBCCFG)
+              - FQDN信息配置
+                - 删除FQDN信息（RMV UDMFQDNINFO）
+                - 修改FQDN信息（MOD UDMFQDNINFO）
+                - 查询FQDN信息（LST UDMFQDNINFO）
+                - 增加FQDN信息（ADD UDMFQDNINFO）
+              - NRF倒换管理
+                - 倒换NRF(SWP NRF)
+              - VPN信息配置
+                - 删除VPN信息配置(RMV VPNINFO)
+                - 增加VPN信息配置(ADD VPNINFO)
+                - 修改VPN信息配置(MOD VPNINFO)
+                - 查询VPN信息配置(LST VPNINFO)
+              - 本端服务器配置
+                - 查询本端服务器配置(LST HTTPLSERVER)
+                - 增加本端服务器配置(ADD HTTPLSERVER)
+                - 修改本端服务器配置(MOD HTTPLSERVER)
+                - 删除本端服务器配置(RMV HTTPLSERVER)
+              - 远端服务器配置
+                - 修改远端服务器配置(MOD HTTPRSRV)
+                - 查询远端服务器配置(LST HTTPRSRV)
+                - 删除远端服务器配置(RMV HTTPRSRV)
+                - 增加远端服务器配置(ADD HTTPRSRV)
+              - 微服务对外IP设置
+                - 增加HTTP IP(ADD HTTPIP)
+                - 修改HTTP IP(MOD HTTPIP)
+                - 删除HTTP IP(RMV HTTPIP)
+                - 查询HTTP IP(LST HTTPIP)
+              - 远端服务器扩展配置
+                - 修改远端服务器扩展配置(MOD HTTPRSERVEREX)
+                - 查询远端服务器扩展配置(LST HTTPRSERVEREX)
+                - 删除远端服务器扩展配置(RMV HTTPRSERVEREX)
+                - 增加远端服务器扩展配置(ADD HTTPRSERVEREX)
+              - NRF公钥配置
+                - 增加NRF公钥配置 (ADD PUBLICKEY)
+                - 查询NRF公钥配置 (LST PUBLICKEY)
+                - 修改NRF公钥配置 (MOD PUBLICKEY)
+                - 删除NRF公钥配置 (RMV PUBLICKEY)
+              - 远端服务器组配置
+                - 删除远端服务器组配置(RMV HTTPRSRVGRP)
+                - 增加远端服务器组配置(ADD HTTPRSRVGRP)
+                - 查询远端服务器组配置(LST HTTPRSRVGRP)
+              - 服务化接口过滤列表配置
+                - 删除服务接口过滤列表(RMV UDMSBIFILTERLST)
+                - 增加服务接口过滤列表(ADD UDMSBIFILTERLST)
+                - 查询服务接口过滤列表(LST UDMSBIFILTERLST)
+              - AUC管理
+                - 删除AUC(RMV AUC)
+                - 增加AUC(ADD AUC)
+                - 查询AUC(LST AUC)
+              - AMF缓存管理
+                - 删除AMF缓存信息（RMV CACHEAMF）
+                - 查询AMF缓存信息（DSP CACHEAMF）
+            - Token管理
+              - 查询Token分配数量（DSP HLBTOKENNUM）
+              - 查询Token分配信息（DSP UDMHLBTOKENINFO）
+            - AppID管理
+              - 清除AppID信息(CLR APPIDINFO)
+              - 查询AppID动态信息(DSP APPIDINFO)
+            - SCP信息管理
+              - SCP功能开关设置
+                - 查询SCP功能开关(LST SCPSWITCH)
+                - 设置SCP功能开关(SET SCPSWITCH)
+            - BFD信息设置
+              - 查询BFD参数(LST BFDINFO)
+              - 设置BFD参数(SET BFDINFO)
+            - M3UA协议
+              - M3UA链路
+                - 释放M3UA链路(REL M3LNK)
+                - 修改M3UA链路(MOD M3LNK)
+                - 删除M3UA链路(RMV M3LNK)
+                - 解锁M3UA链路(ULK M3LNK)
+                - 激活M3UA链路(ACT M3LNK)
+                - 锁定M3UA链路(LCK M3LNK)
+                - 去激活M3UA链路(DEA M3LNK)
+                - 建立M3UA链路(EST M3LNK)
+                - 自动迁移M3UA链路(MIG M3LNK)
+                - 查询M3UA链路(LST M3LNK)
+                - 增加M3UA链路(ADD M3LNK)
+                - 显示M3UA链路(DSP M3LNK)
+              - M3UA路由
+                - 修改M3UA路由(MOD M3RT)
+                - 删除M3UA路由(RMV M3RT)
+                - 显示M3UA路由(DSP M3RT)
+                - 去激活M3UA路由(DEA M3RT)
+                - 激活M3UA路由(ACT M3RT)
+                - 增加M3UA路由(ADD M3RT)
+                - 查询M3UA路由(LST M3RT)
+              - M3UA目的实体
+                - 增加M3UA目的实体(ADD M3DE)
+                - 删除M3UA目的实体(RMV M3DE)
+                - 去激活M3UA目的实体(DEA M3DE)
+                - 显示M3UA目的实体状态(DSP M3DE)
+                - 激活M3UA目的实体(ACT M3DE)
+                - 查询M3UA目的实体(LST M3DE)
+                - 修改M3UA目的实体(MOD M3DE)
+              - M3UA协议维护
+                - 发送M3UA三层伪消息(SND M3FM3)
+                - 显示指定实体的M3UA链路(DSP M3DLNK)
+                - 显示M3UA SPMC(DSP M3SPMC)
+                - 显示指定链路集的M3UA链路(DSP M3LSLNK)
+                - 显示M3UA版本(DSP M3VER)
+                - 发送M3UA应用层伪消息(SND M3FMU)
+              - M3UA本地实体
+                - 修改M3UA本地实体(MOD M3LE)
+                - 查询M3UA本地实体(LST M3LE)
+                - 删除M3UA本地实体(RMV M3LE)
+                - 增加M3UA本地实体(ADD M3LE)
+              - M3UA链路集
+                - 增加M3UA链路集(ADD M3LKS)
+                - 修改M3UA链路集(MOD M3LKS)
+                - 删除M3UA链路集(RMV M3LKS)
+                - 查询M3UA链路集(LST M3LKS)
+                - 显示M3UA链路集(DSP M3LKS)
+            - SCTP协议
+              - SCTP流量控制维护
+                - 清除SCTP偶联流量控制信息(CLR SCTPFCPARA)
+                - 设置SCTP流量控制参数(SET SCTPFCPARA)
+                - 查询SCTP流量控制参数(LST SCTPFCPARA)
+                - 显示SCTP偶联流量控制信息(DSP SCTPFCPARA)
+              - SCTP协议参数
+                - 设置SCTP协议参数(SET SCTPPARA)
+                - 查询SCTP协议参数(LST SCTPPARA)
+              - SCTP协议维护
+                - 显示SCTP偶联信息(DSP SCTPAM)
+                - 显示SCTP偶联运行信息(DSP SCTPAR)
+                - 显示SCTP偶联路径状态(DSP SCTPAP)
+                - 清除SCTP统计信息(CLR SCTPBS)
+                - 查询SCTP负荷信息(DSP SCTPLOD)
+                - 显示SCTP全部统计信息(DSP SCTPBS)
+                - 显示SCTP偶联统计信息(DSP SCTPAS)
+              - SCTP主用路径
+                - 设置SCTP主用路径(SET FESCTPPRIPATH)
+            - SCCP信令
+              - SCCP子系统号
+                - 增加SCCP子系统(ADD SCCPSSN)
+                - 查询SCCP子系统(LST SCCPSSN)
+                - 删除SCCP子系统(RMV SCCPSSN)
+                - 显示SCCP子系统(DSP SCCPSSN)
+                - 修改SCCP子系统(MOD SCCPSSN)
+                - 设置SCCP子系统状态(SET SCCPSSN)
+              - SCCP负荷分担目的信令点组
+                - 增加SCCP目的负荷分担信令点组(ADD SCCPLDSHGRP)
+                - 删除SCCP目的负荷分担信令点组(RMV SCCPLDSHGRP)
+                - 显示SCCP目的负荷分担信令点组(DSP SCCPLDSHGRP)
+                - 修改SCCP目的负荷分担信令点组(MOD SCCPLDSHGRP)
+                - 查询SCCP目的负荷分担信令点组(LST SCCPLDSHGRP)
+              - SCCP协议维护
+                - 显示SCCP版本(DSP SCCPVER)
+                - 发送SCCP伪消息(SND SCCPFM)
+              - SCCP全局翻译码
+                - 增加SCCP全局翻译码(ADD SCCPGT)
+                - 测试SCCP全局翻译码(TST SCCPGT)
+                - 修改SCCP全局翻译码(MOD SCCPGT)
+                - 删除SCCP全局翻译码(RMV SCCPGT)
+                - 查询SCCP全局翻译码(LST SCCPGT)
+              - SCCP负荷分担目的信令点
+                - 查询SCCP目的负荷分担信令点(LST SCCPLDSH)
+                - 删除SCCP目的负荷分担信令点(RMV SCCPLDSH)
+                - 增加SCCP目的负荷分担信令点(ADD SCCPLDSH)
+                - 修改SCCP目的负荷分担信令点(MOD SCCPLDSH)
+              - SCCP目的信令点
+                - 修改SCCP目的信令点(MOD SCCPDSP)
+                - 查询SCCP目的信令点(LST SCCPDSP)
+                - 设置SCCP目的信令点状态(SET SCCPDSP)
+                - 删除SCCP目的信令点(RMV SCCPDSP)
+                - 增加SCCP目的信令点(ADD SCCPDSP)
+                - 显示SCCP目的信令点(DSP SCCPDSP)
+              - SCCP屏蔽策略
+                - 显示SCCP屏蔽流量(DSP SCCPPOL)
+                - 查询SCCP屏蔽策略(LST SCCPPOL)
+                - 增加SCCP屏蔽策略(ADD SCCPPOL)
+                - 删除SCCP屏蔽策略(RMV SCCPPOL)
+                - 修改SCCP屏蔽策略(MOD SCCPPOL)
+              - SCCP新全局翻译码
+                - 增加SCCP新全局翻译码(ADD SCCPNGT)
+                - 修改SCCP新全局翻译码(MOD SCCPNGT)
+                - 删除SCCP新全局翻译码(RMV SCCPNGT)
+                - 查询SCCP新全局翻译码(LST SCCPNGT)
+              - 关键SS7信令点
+                - 增加关键SS7信令点(ADD KEYDSP)
+                - 删除关键SS7信令点(RMV KEYDSP)
+              - 关键SS7信令点组
+                - 查询关键SS7信令点组(LST KEYDSPG)
+                - 增加关键SS7信令点组(ADD KEYDSPG)
+                - 修改关键SS7信令点组(MOD KEYDSPG)
+                - 删除关键SS7信令点组(RMV KEYDSPG)
+            - Diameter信令管理
+              - 关键Diameter对端组
+                - 增加关键DIAMETER对端组(ADD KEYDMPG)
+                - 删除关键DIAMETER对端组(RMV KEYDMPG)
+                - 修改关键DIAMETER对端组(MOD KEYDMPG)
+                - 查询关键DIAMETER对端组(LST KEYDMPG)
+              - Diameter链路
+                - 增加Diameter链路(ADD DMLNK)
+                - 激活Diameter链路(ACT DMLNK)
+                - 修改Diameter链路(MOD DMLNK)
+                - 去激活Diameter链路(DEA DMLNK)
+                - 删除Diameter链路(RMV DMLNK)
+                - 查询Diameter链路(LST DMLNK)
+                - 自动迁移diameter链路(MIG DMLNK)
+                - 查询Diameter链路状态(DSP DMLNK)
+              - Diameter对端实体
+                - 修改Diameter对端实体(MOD DMPE)
+                - 激活Diameter对端实体(ACT DMPE)
+                - 增加Diameter对端实体(ADD DMPE)
+                - 删除Diameter对端实体(RMV DMPE)
+                - 查询Diameter对端实体状态(DSP DMPE)
+                - 去激活Diameter对端实体(DEA DMPE)
+                - 查询Diameter对端实体(LST DMPE)
+              - Diameter SCTP协议的参数
+                - 修改Diameter SCTP协议参数 (MOD SCTPPP)
+                - 查询Diameter SCTP协议参数的配置信息 (LST SCTPPP)
+              - 关键Diameter对端
+                - 删除关键DIAMETER对端(RMV KEYDMP)
+                - 增加关键DIAMETER对端(ADD KEYDMP)
+              - Diameter对端实体能力
+                - 设置Diameter对端实体能力(SET DMPECAP)
+                - 删除Diameter对端实体能力(RMV DMPECAP)
+                - 查询Diameter对端实体能力(LST DMPECAP)
+              - Diameter链路集
+                - 增加Diameter链路集(ADD DMLKS)
+                - 查询Diameter链路集(LST DMLKS)
+                - 删除Diameter链路集(RMV DMLKS)
+                - 查询Diameter链路集状态(DSP DMLKS)
+                - 修改Diameter链路集(MOD DMLKS)
+              - 显式Diameter路由
+                - 查询显式Diameter路由 (LST EXPDMRT)
+                - 设置显式Diameter路由 (SET EXPDMRT)
+              - Diameter路由组
+                - 修改Diameter路由组(MOD DMRTS)
+                - 查询Diameter路由组(LST DMRTS)
+                - 查询Diameter路由组状态(DSP DMRTS)
+                - 删除Diameter路由组(RMV DMRTS)
+                - 增加Diameter路由组(ADD DMRTS)
+              - Diameter路由
+                - 查询Diameter路由(LST DMRT)
+                - 查询Diameter路由状态(DSP DMRT)
+                - 删除Diameter路由(RMV DMRT)
+                - 增加Diameter路由(ADD DMRT)
+              - Diameter本端实体
+                - 查询Diameter本端实体(LST DMLE)
+                - 修改Diameter本端实体(MOD DMLE)
+                - 删除Diameter本端实体(RMV DMLE)
+                - 增加Diameter本端实体(ADD DMLE)
+              - Diameter协议参数
+                - 查询Diameter协议参数的配置信息(LST DIAMPP)
+                - 修改Diameter协议参数(MOD DIAMPP)
+              - 协议默认端口
+                - 查询协议默认端口号的配置信息(LST DEFPORT)
+            - MTP信令
+              - MTP链路
+                - 激活MTP链路(ACT N7LNK)
+                - 管理禁止MTP链路(INH N7LNK)
+                - 解除管理禁止MTP链路(UIN N7LNK)
+                - 增加MTP链路(ADD N7LNK)
+                - 删除MTP链路(RMV N7LNK)
+                - 查询MTP链路(LST N7LNK)
+                - 显示MTP链路(DSP N7LNK)
+                - 修改MTP链路(MOD N7LNK)
+                - 查询模块链路信息(LST LNKINF)
+                - 去激活MTP链路(DEA N7LNK)
+              - MTP目的信令点
+                - 删除MTP目的信令点(RMV N7DSP)
+                - 查询MTP/M3UA目的信令点数据配置(LST DSPCFG)
+                - 修改MTP目的信令点(MOD N7DSP)
+                - 增加MTP目的信令点(ADD N7DSP)
+                - 查询MTP目的信令点(LST N7DSP)
+                - 显示MTP目的信令点(DSP N7DSP)
+              - MTP屏蔽策略
+                - 删除MTP屏蔽策略(RMV MTPPOL)
+                - 修改MTP屏蔽策略(MOD MTPPOL)
+                - 查询MTP屏蔽策略(LST MTPPOL)
+                - 增加MTP屏蔽策略(ADD MTPPOL)
+              - MTP路由
+                - 显示MTP路由(DSP N7RT)
+                - 增加MTP路由(ADD N7RT)
+                - 查询MTP路由(LST N7RT)
+                - 修改MTP路由(MOD N7RT)
+                - 删除MTP路由(RMV N7RT)
+              - MTP链路集
+                - 查询MTP链路集(LST N7LKS)
+                - 增加MTP链路集(ADD N7LKS)
+                - 激活MTP链路集 (ACT N7LKS)
+                - 修改MTP链路集(MOD N7LKS)
+                - 去激活MTP链路集 (DEA N7LKS)
+                - 删除MTP链路集(RMV N7LKS)
+              - MTP协议维护
+                - 显示MTP版本(DSP MTPVER)
+                - 显示指定DPC的MTP链路(DSP N7DLNK)
+                - 发送MTP二层伪消息(SND MTPFM2)
+                - 发送MTP用户层伪消息(SND MTPFMU)
+                - 显示MTP2软件版本(DSP MTP2VER)
+                - 发送MTP三层伪消息(SND MTPFM3)
+                - 显示指定链路集的MTP链路(DSP N7LSLNK)
+              - MTP链路维护
+                - 显示MTP,M3UA链路状态(DSP DSPLNK)
+            - 远端EIR管理
+              - 远端EIR配置
+                - 增加远端EIR配置(ADD REIRCFG)
+                - 查询远端EIR配置(LST REIRCFG)
+                - 删除远端EIR配置(RMV REIRCFG)
+                - 修改远端EIR配置(MOD REIRCFG)
+              - 本端模拟MME配置
+                - 删除本端模拟MME配置(RMV LMMECFG)
+                - 增加本端模拟MME配置(ADD LMMECFG)
+                - 查询本端模拟MME配置(LST LMMECFG)
+            - TCAP信令
+              - 发送TCAP伪消息 (SND TCAPFM)
+              - 显示TCAP版本(DSP TCAPVER)
+              - 释放TCAP对话资源(REL TCAPDHA)
+            - 本局信息
+              - 增加本局信令点 (ADD OFI)
+              - 查询本局信令点 (LST OFI)
+              - 删除本局信令点 (RMV OFI)
+              - 设置本局信息 (SET OFI)
+              - 修改本局信令点(MOD OFI)
+            - 信令链路管理
+              - 迁移链路(MOV LNK)
+          - 系统管理
+            - 业务参数管理
+              - 查询业务参数(LST UDMSOFTPARA)
+              - 修改业务参数(MOD UDMSOFTPARA)
+            - 5G系统运行模式
+              - 设置系统运行模式配置信息(SET SRVSYSRM)
+              - 查询系统运行模式配置信息(LST SRVSYSRM)
+              - 设置存储bypass模式下系统运行模式配置信息(SET BYPASSRM)
+              - 查询存储bypass模式下系统运行模式配置信息(DSP BYPASSRM)
+            - 系统资源
+              - 删除UDM IP资源 (RMV UDMIPRES)
+              - 查询UDM IP资源 (LST UDMIPRES)
+              - 添加UDM IP资源 (ADD UDMIPRES)
+              - 查询自动机状态(DSP FSMSTATUS)
+              - 显示UDM用户缓存信息(DSP UDMUSERCACHE)
+              - 查询系统资源(DSP SYSRES)
+            - 证书管理
+              - 证书更新参数
+                - 查询证书更新流程参数（LST UDMCERUPDATPARA）
+                - 设置证书更新流程参数（SET UDMCERUPDATPARA）
+            - SUCI密钥配置管理
+              - 修改SUCI密钥(MOD SUCIKEY)
+              - 查询SUCI密钥(LST SUCIKEY)
+              - 校验SUCI密钥(CHK SUCIKEY)
+              - 删除SUCI密钥(RMV SUCIKEY)
+              - 增加SUCI密钥(ADD SUCIKEY)
+            - UDM License管理
+              - License话务高峰信息
+                - 查询License话务高峰信息(LST LICPEAK)
+              - 查询ESN特征信息(LST MSESNFEATURE)
+              - 设置ESN特征段信息 (SET ESNFEATURE)
+              - 查询License资源数目和使用率(DSP UDMLICRATE)
+              - License告警阈值
+                - 查询License告警阈值(LST LICALM)
+                - 设置License告警阈值(SET LICALM)
+              - 显示License资源（DSP LICENSERES）
+              - License校验
+                - 查询License校验状态(DSP LICCHECK)
+                - 启动License校验(STR LICCHECK)
+            - 备份容灾
+              - 查询冷备5G功能参数(LST MSTHIRDDCFUNC)
+              - 设置冷备5G功能参数(SET MSTHIRDDCFUNC)
+              - 设置冷备传统功能参数(SET THIRDDCFUNC)
+              - 查询冷备传统功能参数(LST THIRDDCFUNC)
+            - 客户端认证断言配置
+              - 查询客户端认证断言配置(LST CCACONF)
+              - 设置客户端认证断言配置(SET CCACONF)
+            - 用户统计
+              - UDM用户存储模式统计
+                - 显示UDM各种存储模式用户数(DSP USERSTORAGECT)
+              - SLF用户统计
+                - 查看SLF用户统计结果(DSP SSUBCT)
+              - HSS鉴权用户统计
+                - 按照鉴权模式查询用户数(DSP HAUTHCT)
+              - 查询系统中REG、UNREG和PENDING状态的用户数量
+                - 查询系统中REG、UNREG和PENDING状态的用户数量(DSP USRSTACT)
+              - HSS用户统计
+                - 查看HSS用户统计结果(DSP HSUBCT)
+            - 鉴权向量下发策略管理
+              - 修改鉴权向量下发策略(MOD AUTHVECCFG)
+              - 查询鉴权向量下发策略(LST AUTHVECCFG)
+              - 增加鉴权向量下发策略(ADD AUTHVECCFG)
+              - 删除鉴权向量下发策略(RMV AUTHVECCFG)
+            - 控制中心管理
+              - 修改控制中心(MOD CTRLCENTER)
+              - 查询控制中心(LST CTRLCENTER)
+            - OMUHLRSN与本局信息数据
+              - 增加HLRSN与本局信息(ADD HLRSNOFI)
+              - 修改HLRSN与本局信息(MOD HLRSNOFI)
+              - 删除HLRSN与本局信息(RMV HLRSNOFI)
+              - 查询HLRSN与本局信息(LST HLRSNOFI)
+            - 用户数据统计扩展对象管理
+              - 修改用户数据统计扩展对象(MOD STRNGEX)
+              - 查询用户数据统计扩展对象(LST STRNGEX)
+              - 删除用户数据统计扩展对象(RMV STRNGEX)
+              - 添加用户数据统计扩展对象(ADD STRNGEX)
+            - 系统运行模式
+              - 修改系统的运行模式(MOD SYSRM)
+              - 查询系统的运行模式配置信息(LST SYSRM)
+            - SCTP/TCP链路传输质量检测参数
+              - 查询SCTP/TCP链路传输质量检测参数（LST LNKCHK）
+              - 修改SCTP/TCP链路传输质量检测参数（MOD LNKCHK）
+            - 数据库管理
+              - 数据校验
+                - 整表校验(STR CRC)
+                - 发送CRC校验失败的数据(SND CRCERR)
+                - 删除CRC错误数据(RMV CRCERR)
+                - 记录校验(CHK DATA)
+                - 查询CRC校验失败的数据(LST CRCERR)
+                - 设置是否停止最近一次自动CRC校验(SET AUTOCRC)
+              - 数据发送
+                - 查询超时数据(LST USD)
+                - 发送整表数据(SND SPD)
+                - 发送超时数据(SND USD)
+                - 设置是否显示成功记录(MOD SETRST)
+              - 事务模式
+                - 停止事务(STP TRAN)
+                - 回退事务(RBK TRAN)
+                - 开始事务(BGN TRAN)
+                - 提交事务(CMT TRAN)
+              - 通配符信息
+                - 查询通配符值(LST WILDCARD)
+              - 试运行模式
+                - 取消试运行(CNL TST)
+                - 确认试运行(CFM TST)
+                - 修改自动确认时间(MOD CMTTM)
+                - 查询自动确认时间(LST CMTTM)
+                - 回退试运行(RBK TST)
+                - 停止试运行(STP TST)
+              - 系统参数校验
+                - 启动软参CRC校验(STR SPCRC)
+              - 开关控制
+                - 设置格式化开关(SET FMT)
+                - 查询配置开关状态(LST CMSTS)
+                - 设置联机状态(LON)
+                - 设置脱机状态(LOF)
+              - 数据格式化
+                - 格式化数据(FMT)
+            - NP配置对象参数管理
+              - 查询NP配置对象参数(LST NPPARA)
+              - 设置NP配置对象参数(SET NPPARA)
+            - License工作模式
+              - 查询License的工作模式配置信息(LST LICMODE)
+              - 设定License的工作模式(SET LICMODE)
+            - License统计对象管理
+              - 查询License统计对象获取方式(LST LICOBJCTRL)
+              - 设置License统计对象获取方式(SET LICOBJCTRL)
+            - 定时器管理
+              - 修改定时器值(MOD TIMER)
+              - 查询定时器值(LST TIMER)
+              - 校验定时器默认值(CHK DEFTIMER)
+              - 重置定时器为缺省值(RST TIMER)
+            - E2E跟踪任务管理
+              - 查询E2E跟踪任务(LST E2ETSK)
+              - 删除E2E跟踪任务(RMV E2ETSK)
+            - 测量单元描述管理
+              - 查询测量单元描述的配置信息(LST MSUNIT)
+            - 跟踪任务管理
+              - 删除用户跟踪任务 (RMV UTRCTSK)
+              - 查询用户跟踪数据 (LST UTRCTSK)
+              - 创建用户跟踪任务 (ADD UTRCTSK)
+            - 队列流量控制消息权重管理
+              - 查询队列流控消息权重(LST QFCMQW)
+              - 修改队列流控消息权重(MOD QFCMQW)
+            - 队列流量控制信息
+              - 查询队列流控状态(DSP FCSTATUS)
+            - 信令链路探测
+              - 发送信令链路探测消息(SND RDUCHECK)
+            - 用户数据管理
+              - 校验用户数据(VRY USERDATA)
+              - 检查用户数据(CHK USERDATA)
+              - 删除用户数据(DEL USERDATA)
+              - 检测用户（CHK SUB）
+              - 查询用户标识关联关系(LST USR)
+            - HSS CDMA MAP
+              - 修改HSS CDMA MAP信息(MOD HCMAPOFI)
+              - 查询HSS CDMA MAP信息(LST HCMAPOFI)
+              - 删除HSS CDMA MAP信息(RMV HCMAPOFI)
+              - 增加HSS CDMA MAP信息(ADD HCMAPOFI)
+            - 随机密钥管理
+              - 增加随机密钥(ADD OMRANDOMKEY)
+              - 查询随机密钥(LST OMRANDOMKEY)
+              - 更新随机密钥(UPG OMKEY)
+              - 修改随机密钥(MOD OMRANDOMKEY)
+            - 队列流量控制参数管理
+              - 查询队列流控配置信息(LST QFCCFG)
+              - 修改队列流控配置信息(MOD QFCCFG)
+            - IMS全网跟踪
+              - 查询联合用户跟踪任务(LST IMSUTRC)
+              - 删除联合用户跟踪任务(RMV IMSUTRC)
+            - 参数管理
+              - 公共参数
+                - 查询公共参数(LST PUBPRM)
+                - 修改公共参数(MOD PUBPRM)
+              - 软件参数
+                - 校验软件参数默认值(CHK DEFMSFP)
+                - 修改软件参数(MOD MSFP)
+                - 查询软件参数(LST MSFP)
+            - IMSI与OMUHLRSN数据
+              - 查询IMSI前缀和HLRSN(LST IMSIHLRSN)
+              - 增加IMSI前缀和HLRSN(ADD IMSIHLRSN)
+              - 修改IMSI前缀和HLRSN(MOD IMSIHLRSN)
+              - 删除IMSI前缀和HLRSN(RMV IMSIHLRSN)
+            - CHR话单输出策略管理
+              - 查询CHR话单功能输出策略(LST CHRPLCY)
+              - 删除CHR话单功能输出策略(RMV CHRPLCY)
+              - 增加CHR话单功能输出策略(ADD CHRPLCY)
+              - 修改CHR话单功能输出策略(MOD CHRPLCY)
+            - 流量控制参数管理
+              - 查询流控状态(DSP FLOWCTRL)
+              - 查询流量控制参数(LST FLOWCTRL)
+              - 修改流量控制参数(MOD FLOWCTRL)
+            - DCI消息优先级
+              - 设置DCI消息优先级(SET DBMSGPRIORITY)
+              - 查询DCI消息优先级(LST DBMSGPRIORITY)
+            - Diameter IP链路
+              - 查询Diameter IP链路(LST DIAMIPLINK)
+            - 优先级配比模式
+              - 查询优先级配比模式记录(LST PRICPMODE)
+              - 修改优先级配比模式记录(MOD PRICPMODE)
+            - Pod管理
+              - 查询Pod信息(LST PODINFO)
+          - UIM服务管理
+            - 协议扩展端口
+              - 删除协议扩展端口号(RMV EXTPORT)
+              - 查询协议扩展端口号(LST EXTPORT)
+              - 增加协议扩展端口号(ADD EXTPORT)
+            - 手动流控策略管理
+              - 删除手动流控策略(RMV HDFCPOL)
+              - 查询手动流控策略(LST HDFCPOL)
+              - 增加手动流控策略(ADD HDFCPOL)
+              - 修改手动流控策略(MOD HDFCPOL)
+            - SOAP对端地址段管理
+              - 查询SOAP对端地址段(LST SOAPPEADDR)
+              - 修改SOAP对端地址段(MOD SOAPPEADDR)
+              - 删除SOAP对端地址段(RMV SOAPPEADDR)
+              - 增加SOAP对端地址段(ADD SOAPPEADDR)
+            - 对端HTTP实体配置
+              - 删除对端HTTP实体(RMV HTTPPE)
+              - 查询对端HTTP实体(LST HTTPPE)
+              - 增加对端HTTP实体(ADD HTTPPE)
+              - 修改对端HTTP实体(MOD HTTPPE)
+            - SOAP客户端白名单管理
+              - 修改SOAP客户端IP地址(MOD SOAPNAFIP)
+              - 增加SOAP客户端IP地址(ADD SOAPNAFIP)
+              - 删除SOAP客户端IP地址(RMV SOAPNAFIP)
+              - 查询SOAP客户端IP地址(LST SOAPNAFIP)
+            - SOAP对端管理
+              - 修改SOAP对端(MOD SOAPPE)
+              - 增加SOAP对端(ADD SOAPPE)
+              - 删除SOAP对端(RMV SOAPPE)
+              - 查询SOAP对端(LST SOAPPE)
+            - HTTP域名配置
+              - 删除HTTP域名配置（RMV HTTPLEHOST）
+              - 修改HTTP域名配置（MOD HTTPLEHOST）
+              - 查询HTTP域名配置（LST HTTPLEHOST）
+              - 增加HTTP域名配置（ADD HTTPLEHOST）
+            - AP配置管理
+              - 设置AP功能体本局信息(SET APTYPE)
+              - 查询AP功能体本局信息(LST APTYPE)
+          - 专家维护命令
+            - 调试命令
+              - 微服务软件调试开关
+                - 微服务软件调试开关(STR MSDEBUG)
+              - HTTP2链路负荷过载阈值
+                - 查询HTTP2链路负荷过载阈值(LST HTTPLOADTHD)
+                - 设置HTTP2链路负荷过载阈值(SET HTTPLOADTHD)
+              - HTTP2基准负荷
+                - 设置HTTP2基准负荷(SET HLBPERF)
+                - 查询HTTP2基准负荷(LST HLBPERF)
+              - 单用户DEBUG
+                - 增加单用户DEBUG(ADD USERDEBUG)
+                - 删除单用户DEBUG(RMV USERDEBUG)
+                - 查询单用户DEBUG(LST USERDEBUG)
+              - 丢包和并发流告警配置信息
+                - 查询丢包和并发流告警配置信息（LST DROPPKGALMINFO）
+                - 设置丢包和并发流告警配置信息（SET DROPPKGALMINFO）
+              - 调试信息
+                - 查询调试信息(DSP MSDBGDATA)
+              - Diameter数据字典变更信息
+                - 查询Diameter数据字典变更信息(LST DMDICTCHG)
+                - 增加Diameter数据字典变更信息(ADD DMDICTCHG)
+                - 删除Diameter数据字典变更信息(RMV DMDICTCHG)
+              - 性能管理
+                - 设置SCTP基准负荷(SET BSLPERF)
+                - 查询SCTP基准负荷(LST BSLPERF)
+              - 软件调试开关(STR SFTDEBUG)
+            - 系统管理命令
+              - 系统参数
+                - 查询UDM网元类型（DSP UDMMETYPE）
+                - 查询配置库中的UDM网元类型（LST UDMMETYPE）
+                - 设置UDM网元类型（SET UDMMETYPE）
+                - 查询系统配置参数(LST SCP)
+                - 查询系统参数(LST SYS)
+                - 设置系统参数(SET SYS)
+              - 微服务消息包申请测试配置管理
+                - 查询微服务消息包申请测试配置信息(LST MSMSGALLOCTESTCFG)
+                - 修改微服务消息包申请测试配置信息(MOD MSMSGALLOCTESTCFG)
+              - 平台软件参数
+                - 查询平台软件参数 (LST PLTSP)
+                - 修改平台软件参数(MOD PLTSP)
+              - 内存申请测试配置管理
+                - 修改内存申请测试配置信息(MOD MEMALLOCTESTCFG)
+                - 查询内存申请测试配置信息(LST MEMALLOCTESTCFG)
+              - 日志抑制参数
+                - 设置日志抑制(SET LOGSUPPRESSION)
+                - 查询日志抑制(LST LOGSUPPRESSION)
+              - 消息包申请测试配置管理
+                - 修改消息包申请测试配置信息(MOD MSGALLOCTESTCFG)
+                - 查询消息包申请测试配置信息(LST MSGALLOCTESTCFG)
+              - 内部软件参数
+                - 查询软件参数(LST INSP)
+                - 修改软件参数(MOD INSP)
+            - 设备管理命令
+              - 启动强制刷新微服务全局数据（STR SRVGDREF）
+              - 显示微服务全局数据状态(DSP SRVGDREF)
+              - 打印全局数据（SET GDATAPRINT）
+              - IMSI号段信息管理
+                - 查询IMSI号段信息(LST SCFIMSIPEFIX)
+                - 增加IMSI号段信息(ADD SCFIMSIPEFIX)
+                - 删除IMSI号段信息(RMV SCFIMSIPEFIX)
+              - 业务控制功能配置
+                - 增加业务控制功能配置(ADD SCFCFG)
+                - 查询业务控制功能配置(LST SCFCFG)
+                - 删除业务控制功能配置(RMV SCFCFG)
+                - 修改业务控制功能配置(MOD SCFCFG)
+              - 在线呼叫通知
+                - 设置通知端口状态 (SET TTOLCM)
+                - 查询通知端口状态 (LST TTOLCM)
+              - 查询全局数据状态(DSP GDATAREFRESH)
+              - 查询用户是否在HSS上（DSP USERONHSS）
+              - IMSI号段组管理
+                - 删除IMSI号段组(RMV SCFIMSIGRP)
+                - 修改IMSI号段组(MOD SCFIMSIGRP)
+                - 增加IMSI号段组(ADD SCFIMSIGRP)
+                - 查询IMSI号段组(LST SCFIMSIGRP)
+              - 强制刷新全局数据（SET GDATAREFRESH）
+              - 查询CCU模块状态(DSP CCUMODULE)
+              - 查询组件版本号(DSP COMVER)
+              - 查询分发配置记录（LST PORTCFG）
+              - 业务列表
+                - 获取业务列表（GET SERVICELIST）
+              - 查询MOC名称和索引(LST MOCTRC)
+            - HSS主机名域名配置
+              - 增加Diameter主机名域名配置(ADD DIAMNAMECFG)
+              - 查询Diameter主机名域名配置(LST DIAMNAMECFG)
+              - 删除Diameter主机名域名配置(RMV DIAMNAMECFG)
+          - 设备管理
+            - 微服务流控管理
+              - 流控策略配置
+                - 修改手工流控策略（MOD HTTPFCPOL）
+                - 查询手工流控策略（LST HTTPFCPOL）
+                - 删除手工流控策略（RMV HTTPFCPOL）
+                - 增加手工流控策略（ADD HTTPFCPOL）
+              - 消息优先级管理
+                - 修改消息优先级(MOD MSGPRIORITY)
+                - 查询消息优先级(LST MSGPRIORITY)
+              - 策略模板配置
+                - 删除手工流控模板（RMV HTTPFCTPL）
+                - 查询手工流控模板（LST HTTPFCTPL）
+                - 增加手工流控模板（ADD HTTPFCTPL）
+                - 修改手工流控模板（MOD HTTPFCTPL）
+              - 微服务流控策略管理
+                - 修改微服务流控策略(MOD MSFLOWCTRL)
+                - 查询微服务流控状态(DSP MSFLOWCTRL)
+                - 查询微服务流控策略(LST MSFLOWCTRL)
+            - 微服务进程测量对象
+              - 删除UDM微服务进程测量对象(RMV UDMMSMOI)
+              - 查询UDM微服务进程测量对象(LST UDMMSMOI)
+            - 服务管理
+              - 显示UDM进程内存占用信息(DSP UDMMEMINFO)
+              - 查询UDM服务内存告警阈值(LST UDMMEMTHRESHOLD)
+              - 查询UDM 微服务进程CPU过载阈值(LST UDMMSCPUTHD)
+              - 设置UDM 微服务进程CPU过载阈值(SET UDMMSCPUTHD)
+              - 查询UDM 微服务进程CPU配额(LST UDMMSCPUQUOTA)
+              - 修改UDM服务内存告警阈值(MOD UDMMEMTHRESHOLD)
+              - 设置UDM 微服务进程CPU配额(SET UDMMSCPUQUOTA)
+              - 查询服务（DSP UDMSERVICE）
+            - 异常流程防护策略
+              - 查询微服务单用户异常流程冲击防护检测参数(LST MSEXCDETECTPARA)
+              - 修改微服务单用户异常流程冲击防护检测参数(MOD MSEXCDETECTPARA)
+              - 修改单用户异常流程冲击防护检测参数(MOD EXCDETECTPARA)
+              - 查询单用户异常流程冲击防护检测参数(LST EXCDETECTPARA)
+            - HSM状态管理
+              - 显示HSM状态(DSP HSMSTATE)
+            - 模块阈值管理
+              - 查询模块CPU过载阈值(LST UDMLITECPUTHD)
+              - 设置模块CPU过载阈值(SET UDMLITECPUTHD)
+            - SLF与I-CSCF对端对象
+              - 查询外部I-CSCF设备的配置信息(LST SLFICSCF)
+            - HSS外部SAE设备
+              - 查询外部SAE设备的配置信息(LST HSAE)
+            - QOS IP地址对数据
+              - 增加QOS测量IP地址对(ADD QOSIP)
+              - 查询QOS测量IP地址对(LST QOSIP)
+              - 删除QOS测量IP地址对(RMV QOSIP)
+            - HSS与BSF对端对象
+              - 查询外部BSF设备的配置信息(LST HBSF)
+            - HSS与AS对端对象
+              - 查询外部AS设备的配置信息(LST HAS)
+            - 协议适配数据管理
+              - 修改协议适配数据(MOD PADATA)
+              - 增加协议适配数据(ADD PADATA)
+              - 删除协议适配数据(RMV PADATA)
+              - 查询协议适配数据(LST PADATA)
+            - IP地址管理
+              - 删除网元业务IP地址(RMV SRVIPADDR)
+              - 增加网元业务IP地址(ADD SRVIPADDR)
+              - 查询网元业务IP地址(LST SRVIPADDR)
+              - 查询网元IP地址(LST IPADDR)
+              - 修改网元IP地址(MOD IPADDR)
+              - 删除网元IP地址(RMV IPADDR)
+              - 增加网元IP地址(ADD IPADDR)
+            - 模块管理
+              - 修改模块(MOD MODULE)
+              - 增加模块(ADD MODULE)
+              - 倒换业务进程(SWP MODULE)
+              - 删除模块(RMV MODULE)
+              - 重启业务进程(RST MODULE)
+              - 停止业务进程(STP MODULE)
+              - 启动业务进程(STR MODULE)
+              - 查询模块(LST MODULE)
+            - 话统比对
+              - 话统比对（CMP SYSSTAT）
+              - 设置话统比对参数（SET SYSSTAT）
+              - 查询话统比对参数（LST SYSSTAT）
+            - TCAP流控策略
+              - 删除手动流控策略配置(RMV TCAPPOL)
+              - 增加手动流控策略配置(ADD TCAPPOL)
+              - 查询手工流控策略(LST TCAPPOL)
+              - 修改手动流控策略配置(MOD TCAPPOL)
+            - iGWB IP地址配置管理
+              - 设置iGWB IP地址配置信息(SET IGWBIP)
+              - 查询iGWB IP地址配置信息(LST IGWBIP)
+            - 远端FE管理
+              - 查询远端FE信息(LST REMOTEFE)
+              - 增加远端FE信息(ADD REMOTEFE)
+              - 删除远端FE信息(RMV REMOTEFE)
+              - 修改远端FE信息(MOD REMOTEFE)
+              - 查询远端FE状态(DSP REMOTEFE)
+            - 短消息RN路由
+              - 查询短消息RN路由(LST SMSRNROUT)
+              - 删除短消息RN路由(RMV SMSRNROUT)
+              - 增加短消息RN路由(ADD SMSRNROUT)
+              - 修改短消息RN路由(MOD SMSRNROUT)
+            - HLR号段管理
+              - 增加HLR号段(ADD HLRSNRNG)
+              - 删除HLR号段(RMV HLRSNRNG)
+              - 查询HLR号段(LST HLRSNRNG)
+            - SLF与BSF对端对象
+              - 查询外部BSF设备的配置信息(LST SLFBSF)
+            - BE北向配置信息
+              - 设置BE北向配置信息(SET BENORTHCON)
+              - 删除BE北向配置信息(RMV BENORTHCON)
+              - 查询BE北向配置信息(LST BENORTHCON)
+            - 协议适配类型管理
+              - 增加协议适配类型(ADD PATYPE)
+              - 查询协议适配类型(LST PATYPE)
+              - 删除协议适配类型(RMV PATYPE)
+            - HSS与I-CSCF对端链路
+              - 查询外部I-CSCF设备链路的配置信息(LST HICSCFL)
+            - PAU链路管理
+              - 删除PAU链路(RMV PAULINK)
+              - 显示PAU链路状态(DSP PAULINK)
+              - 增加PAU链路(ADD PAULINK)
+              - 查询PAU链路(LST PAULINK)
+              - 修改PAU链路(MOD PAULINK)
+            - 设置隔离状态
+              - 修改隔离状态(MOD SEGSTATE)
+              - 查询隔离状态(DSP SEGSTATE)
+            - FE平面信息管理
+              - 修改FE平面信息(MOD FEPLAINFO)
+              - 删除FE平面信息(RMV FEPLAINFO)
+              - 查询FE平面信息(LST FEPLAINFO)
+              - 添加FE平面信息(ADD FEPLAINFO)
+            - HSS与S-CSCF对端对象
+              - 查询外部S-CSCF设备的配置信息(LST HSCSCF)
+            - Diameter局向统计对象管理
+              - 修改Diameter局向统计对象(MOD STATDIAMHOST)
+              - 查询Diameter局向统计对象(LST STATDIAMHOST)
+              - 删除Diameter局向统计对象(RMV STATDIAMHOST)
+              - 增加Diameter局向统计对象(ADD STATDIAMHOST)
+            - SLF与BSF对端链路
+              - 查询外部BSF设备链路的配置信息(LST SLFBSFL)
+            - 跟踪HLRSN管理
+              - 删除跟踪HLRSN(RMV TRCHLRSN)
+              - 查询跟踪HLRSN(LST TRCHLRSN)
+              - 增加跟踪HLRSN(ADD TRCHLRSN)
+            - SLF与I-CSCF对端链路
+              - 查询外部I-CSCF设备链路的配置信息(LST SLFICSCFL)
+            - 业务条件操作统计对象管理
+              - 增加业务条件操作统计对象(ADD STATSTRNG)
+              - 删除业务条件操作统计对象(RMV STATSTRNG)
+              - 修改业务条件操作统计对象(MOD STATSTRNG)
+              - 查询业务条件操作统计对象(LST STATSTRNG)
+            - 短信互通网关用户
+              - 修改短信互通网关用户(MOD SMSCLISUB)
+              - 增加短信互通网关用户(ADD SMSCLISUB)
+              - 查询短信互通网关用户(LST SMSCLISUB)
+              - 删除短信互通网关用户(RMV SMSCLISUB)
+            - 显示HLR配置信息
+              - 设置HLR配置信息(SET FUNCCFG)
+              - 显示HLR配置信息(DSP FUNCCFG)
+            - KPI监控
+              - 设置KPI阈值(SET KPITHD)
+              - 查询KPI阈值(LST KPITHD)
+            - 业务异常日志分析管理
+              - 分析业务异常日志(EXC LOGAS)
+            - HSS与I-CSCF对端对象
+              - 查询外部I-CSCF设备的配置信息(LST HICSCF)
+            - 重发功能管理
+              - 删除重发信息(CLR RESENDINFO)
+              - 查询重发信息(DSP RESENDINFO)
+            - NGC 3GPP接入用户数
+              - 查询NGC 3GPP接入用户数(DSP NGCSUBCNT)
+            - HSS
+              - 查询HSS实体的配置信息(LST HSS)
+            - 模块CPU配额管理
+              - 设置模块CPU配额(SET UDMLITECPUQUOTA)
+              - 查询模块CPU配额(LST UDMLITECPUQUOTA)
+            - 它网RN数据
+              - 修改它网RN数据(MOD ROUTNUM)
+              - 查询它网RN数据(LST ROUTNUM)
+              - 删除它网RN数据(RMV ROUTNUM)
+              - 增加它网RN数据(ADD ROUTNUM)
+            - Diameter流控策略
+              - 删除Diameter手工流控策略(RMV DIAMPOL)
+              - 查询Diameter手工流控策略(LST DIAMPOL)
+              - 新增Diameter手工流控策略(ADD DIAMPOL)
+              - 修改Diameter手工流控策略(MOD DIAMPOL)
+            - HSS与AS对端链路
+              - 查询外部AS设备链路的配置信息(LST HASL)
+            - SLF与S-CSCF对端对象
+              - 查询外部S-CSCF设备的配置信息(LST SLFSCSCF)
+            - 最大元组数管理
+              - 查询最大元组数(LST MAXT)
+              - 修改最大元组数(MOD MAXT)
+            - SLF与S-CSCF对端链路
+              - 查询外部S-CSCF设备链路的配置信息(LST SLFSCSCFL)
+            - HSS外部SAE链路
+              - 查询外部SAE设备链路的配置信息(LST HSAEL)
+            - 查询HLR ID
+              - 查询HLR ID(LST FUNCID)
+            - SLF
+              - 查询SLF的配置信息(LST SLF)
+            - HSS与BSF对端链路
+              - 查询外部BSF设备链路的配置信息(LST HBSFL)
+            - HSS与S-CSCF对端链路
+              - 查询外部S-CSCF设备链路的配置信息(LST HSCSCFL)
+            - SLF与AS对端链路
+              - 查询外部AS设备链路的配置信息(LST SLFASL)
+            - SLF与AS对端对象
+              - 查询外部AS设备的配置信息(LST SLFAS)
+          - 数据服务接口
+            - DCI软件参数管理
+              - 修改DCI内部软件参数(MOD DCIINSP)
+              - 查询DCI内部软件参数的配置信息(LST DCIINSP)
+          - EIR服务管理
+            - DMC参数
+              - 修改DMC参数(MOD DMCPARAM)
+              - 查询DMC参数(LST DMCPARAM)
+              - 增加DMC参数(ADD DMCPARAM)
+              - 删除DMC参数(RMV DMCPARAM)
+          - 数据服务网关
+            - DSG链路中心管理
+              - 修改DSG链路中心(MOD DSGLINKCTRL)
+              - 查询DSG链路中心(LST DSGLINKCTRL)
+              - 删除DSG链路中心(RMV DSGLINKCTRL)
+              - 增加DSG链路中心(ADD DSGLINKCTRL)
+            - DSG SCTP协议维护管理
+              - 清除SCTP所有偶联的统计信息(CLR DSGSCTPBS)
+              - 显示DSG SCTP偶联配置(DSP SCTPASSOC)
+              - 查看SCTP偶联统计信息(DSP DSGSCTPAS)
+              - 查看SCTP偶联运行信息(DSP DSGSCTPAR)
+              - 查询DSG链路条数(LST LINKNUM)
+              - 查看DSG模块SCTP组件版本(DSP DSGSCTPVER)
+              - 查看SCTP所有偶联的统计信息(DSP DSGSCTPBS)
+              - 查看SCTP负荷信息(DSP DSGSCTPLOD)
+              - 查询DSG模块SCTP参数配置信息(LST DSGSCTPPARA)
+              - 查看DSG链路状态信息(DSP DSGSCTP)
+              - 设置DSG链路条数(SET LINKNUM)
+              - 设置DSG模块SCTP参数配置信息(SET DSGSCTPPARA)
+              - 查看SCTP偶联管理信息(DSP DSGSCTPAM)
+              - 查询DSG SCTP偶联配置(LST SCTPASSOC)
+              - 去激活SCTP链路(DEA DSGSCTP)
+              - 激活SCTP链路(ACT DSGSCTP)
+            - 远端Location管理
+              - 修改远端Location信息(MOD RLOCATION)
+              - 增加远端Location信息(ADD RLOCATION)
+              - 查询远端Location信息(LST RLOCATION)
+              - 删除远端Location信息(RMV RLOCATION)
+            - 远端网元IP地址管理
+              - 删除远端网元IP地址(RMV RIPADDR)
+              - 增加远端网元IP地址(ADD RIPADDR)
+              - 查询远端网元IP地址(LST RIPADDR)
+              - 加载远端IP信息(LOD RIPADDR)
+              - 同步远端IP信息到本端(SYN RIPADDR)
+              - 修改远端网元IP地址(MOD RIPADDR)
+            - 远端DSG链路中心管理
+              - 修改远端DSG链路中心(MOD RDSGLINKCTRL)
+              - 查询远端DSG链路中心(LST RDSGLINKCTRL)
+              - 增加远端DSG链路中心(ADD RDSGLINKCTRL)
+              - 删除远端DSG链路中心(RMV RDSGLINKCTRL)
+            - 应用类型远端Location管理
+              - 设置应用类型远端Location信息(SET SRVRLOCATION)
+              - 删除应用类型远端Location信息(RMV SRVRLOCATION)
+              - 查询应用类型远端Location信息(LST SRVRLOCATION)
+            - IP Dispatch管理
+              - 设置DSG五元组分发类型(SET DSGTUPDISPTYP)
+              - 查询DSG五元组分发类型(LST DSGTUPDISPTYP)
+              - 激活IP链路(ACT IPDISP)
+            - 远端网元对接模块管理
+              - 删除远端DSG(RMV RDSG)
+              - 查询远端DSG(LST RDSG)
+              - 增加远端DSG(ADD RDSG)
+              - 加载远端DSG模块信息(LOD RDSG)
+              - 同步远端DSG模块信息到本端(SYN RDSG)
+            - Location管理
+              - 设置Location信息(SET LOCATION)
+              - 查询Location信息(LST LOCATION)
+            - DSG路由管理
+              - 查询DSG路由目的Location(DSP DSGROUTING)
+              - 设置DSG路由目的Location(STR DSGROUTING)
+          - SLF服务管理
+            - SLF路由
+              - 修改SLF路由(MOD SLFROUTE)
+              - 删除SLF路由(RMV SLFROUTE)
+              - 查询SLF路由的配置信息(LST SLFROUTE)
+              - 增加SLF路由(ADD SLFROUTE)
+        - 用户面服务管理
+          - 业务控制策略
+            - 内容过滤
+              - APN内容过滤开关配置
+                - 查询APN内容过滤开关（LST APNCFFUNC）
+                - 设置APN内容过滤开关（SET APNCFFUNC）
+              - 全局内容过滤模板绑定配置
+                - 删除全局内容过滤模板（RMV GLBCFTEMPLATE）
+                - 查询全局内容过滤模板（LST GLBCFTEMPLATE）
+                - 增加全局内容过滤模板（ADD GLBCFTEMPLATE）
+              - 内容分类组配置
+                - 删除内容分类组（RMV CONTCATEGROUP）
+                - 查询内容分类组（LST CONTCATEGROUP）
+                - 修改内容分类组（MOD CONTCATEGROUP）
+                - 增加内容分类组（ADD CONTCATEGROUP）
+              - 内容过滤模板配置
+                - 修改内容过滤模板（MOD CFTEMPLATE）
+                - 删除内容过滤模板（RMV CFTEMPLATE）
+                - 增加内容过滤模板（ADD CFTEMPLATE）
+                - 查询内容过滤模板（LST CFTEMPLATE）
+              - 内容过滤策略特殊场景下的业务动作
+                - 修改指定内容过滤策略特殊场景下的业务动作（MOD CFPFSPECACTION）
+                - 查询内容过滤策略特殊场景下的业务动作（LST CFPFSPECACTION）
+                - 删除指定内容过滤策略特殊场景下的业务动作（RMV CFPFSPECACTION）
+                - 增加指定内容过滤策略特殊场景下的业务动作（ADD CFPFSPECACTION）
+              - 内容过滤策略配置
+                - 增加内容过滤策略（ADD CFPROFILE）
+                - 删除内容过滤策略（RMV CFPROFILE）
+                - 修改内容过滤策略（MOD CFPROFILE）
+                - 查询内容过滤策略（LST CFPROFILE）
+              - 内容过滤缓存参数配置
+                - 查询内容过滤缓存参数（LST CFCACHEPARA）
+                - 设置内容过滤缓存参数（SET CFCACHEPARA）
+              - 内容过滤全局开关
+                - 设置内容过滤全局开关（SET GLBCFFUNC）
+                - 查询内容过滤全局开关（LST GLBCFFUNC）
+              - APN 内容过滤模板绑定配置
+                - 设置APN内容过滤模板（SET APNCFTEMPLATE）
+                - 删除APN内容过滤模板（RMV APNCFTEMPLATE）
+                - 查询APN内容过滤模板（LST APNCFTEMPLATE）
+              - 内容过滤策略绑定配置
+                - 删除内容过滤策略绑定关系（RMV CFPROFBINDCFT）
+                - 增加内容过滤策略绑定关系（ADD CFPROFBINDCFT）
+                - 查询内容过滤策略绑定关系（LST CFPROFBINDCFT）
+              - 内容分类组绑定配置
+                - 增加内容分类组绑定关系（ADD CONTCATEGBIND）
+                - 删除内容分类组绑定关系（RMV CONTCATEGBIND）
+                - 查询内容分类组绑定关系（LST CONTCATEGBIND）
+                - 修改内容分类组绑定关系（MOD CONTCATEGBIND）
+              - 内容过滤协议类型列表
+                - 设置开启内容过滤的协议列表（SET CFPROTOCOLLST）
+                - 查询开启内容过滤的协议列表（LST CFPROTOCOLLST）
+              - URL过滤业务模式配置
+                - 配置 URL过滤业务模式（SET CFSRVMODE）
+                - 查询URL过滤功能业务模式（LST CFSRVMODE）
+              - 内容过滤IP白名单配置
+                - 删除IP地址白名单列表（RMV CFIPWHITELIST）
+                - 增加内容过滤IP白名单（ADD CFIPWHITELIST）
+                - 查询IP地址白名单列表（LST CFIPWHITELIST）
+              - URL过滤白名单列表配置
+                - 查询URL过滤白名单列表（LST CFWHITEURLLST）
+                - 增加URL过滤白名单列表（ADD CFWHITEURLLST）
+                - 删除URL过滤白名单列表（RMV CFWHITEURLLST）
+            - 媒体中继
+              - 媒体中继拨测用户配置
+                - 增加媒体中继拨测用户（ADD RELAYTESTUSER）
+                - 删除媒体中继拨测用户（RMV RELAYTESTUSER）
+                - 查询媒体中继拨测用户（LST RELAYTESTUSER）
+              - 媒体中继URL鉴权
+                - 删除媒体中继URL鉴权配置（RMV RELAYURLAUTH）
+                - 修改媒体中继URL鉴权配置（MOD RELAYURLAUTH）
+                - 增加媒体中继URL鉴权配置（ADD RELAYURLAUTH）
+                - 查询媒体中继URL鉴权配置（LST RELAYURLAUTH）
+              - 媒体中继服务IP绑定配置
+                - 增加媒体中继服务IP绑定配置（ADD RELAYIPBINDING）
+                - 查询媒体中继服务IP绑定配置（LST RELAYIPBINDING）
+                - 删除媒体中继服务IP绑定配置（RMV RELAYIPBINDING）
+              - 媒体中继模板
+                - 删除媒体中继模板（RMV RELAYTEMPLATE）
+                - 修改媒体中继模板（MOD RELAYTEMPLATE）
+                - 查询媒体中继模板（LST RELAYTEMPLATE）
+                - 增加媒体中继模板（ADD RELAYTEMPLATE）
+              - 媒体中继全局业务TCP控制
+                - 设置媒体中继全局业务TCP控制（SET GLBRLYSTCPCTRL）
+                - 查询媒体中继全局业务TCP控制（LST GLBRLYSTCPCTRL）
+              - 媒体中继白名单URL列表
+                - 增加媒体中继白名单URL列表（ADD RELAYWURLLIST）
+                - 修改媒体中继白名单URL列表（MOD RELAYWURLLIST）
+                - 查询媒体中继白名单URL列表（LST RELAYWURLLIST）
+                - 删除媒体中继白名单URL列表（RMV RELAYWURLLIST）
+              - 媒体中继告警详情
+                - 显示媒体中继告警详情（DSP RELAYALMDETAIL）
+              - 媒体中继回源IP段配置
+                - 查询媒体中继IP段（LST RELAYIPSECTION）
+                - 删除媒体中继IP段（RMV RELAYIPSECTION）
+                - 锁定媒体中继IP段（LCK RELAYIPSECTION）
+                - 增加媒体中继IP段（ADD RELAYIPSECTION）
+              - 媒体中继引用检查规则
+                - 查询媒体中继引用检查规则（LST RELAYRFCHKRULE）
+                - 修改媒体中继引用检查规则（MOD RELAYRFCHKRULE）
+                - 增加媒体中继引用检查规则（ADD RELAYRFCHKRULE）
+                - 删除媒体中继引用检查规则（RMV RELAYRFCHKRULE）
+              - 媒体中继HTTP消息头
+                - 修改媒体中继HTTP消息头（MOD RELAYHTTPMHD）
+                - 增加媒体中继HTTP消息头（ADD RELAYHTTPMHD）
+                - 删除媒体中继HTTP消息头（RMV RELAYHTTPMHD）
+                - 查询媒体中继HTTP消息头（LST RELAYHTTPMHD）
+              - 媒体中继HTTP消息控制
+                - 增加媒体中继Http消息控制（ADD RELAYHTTPMCTL）
+                - 查询媒体中继Http消息控制（LST RELAYHTTPMCTL）
+                - 删除媒体中继Http消息控制（RMV RELAYHTTPMCTL）
+              - 媒体中继业务TLS认证配置
+                - 查询媒体中继业务TLS认证配置（LST RELAYTLSCFG）
+                - 删除媒体中继业务TLS认证配置（RMV RELAYTLSCFG）
+                - 修改媒体中继业务TLS认证配置（MOD RELAYTLSCFG）
+                - 增加媒体中继业务TLS认证配置（ADD RELAYTLSCFG）
+              - 媒体中继协议定义
+                - 增加媒体中继协议定义（ADD RELAYPROTODEF）
+                - 删除媒体中继协议定义（RMV RELAYPROTODEF）
+                - 修改媒体中继协议定义（MOD RELAYPROTODEF）
+                - 查询媒体中继协议定义（LST RELAYPROTODEF）
+              - 应用性能统计
+                - 增加应用性能统计（ADD APPPERFSTAT）
+                - 删除应用性能统计（RMV APPPERFSTAT）
+                - 查询应用性能统计（LST APPPERFSTAT）
+                - 修改应用性能统计（MOD APPPERFSTAT）
+              - 媒体中继域名配置
+                - 增加媒体中继域名配置（ADD RELAYDOMAIN）
+                - 删除媒体中继域名配置（RMV RELAYDOMAIN）
+                - 查询媒体中继域名配置（LST RELAYDOMAIN）
+                - 修改媒体中继域名配置（MOD RELAYDOMAIN）
+              - 媒体中继IP地址信息
+                - 查询媒体中继IP信息（LST RELAYIPINFO）
+                - 增加媒体中继IP信息（ADD RELAYIPINFO）
+                - 删除媒体中继IP信息（RMV RELAYIPINFO）
+                - 修改媒体中继IP信息（MOD RELAYIPINFO）
+              - 媒体中继证书场景
+                - 删除配置证书场景（RMV SRVCERTSCENE）
+                - 增加配置证书场景（ADD SRVCERTSCENE）
+                - 修改配置证书场景（MOD SRVCERTSCENE）
+                - 查询配置证书场景（LST SRVCERTSCENE）
+              - 媒体中继回源IP池配置
+                - 查询媒体中继IP池（LST RELAYIPPOOL）
+                - 增加媒体中继IP池（ADD RELAYIPPOOL）
+                - 删除媒体中继IP池（RMV RELAYIPPOOL）
+              - TLS认证策略
+                - 删除TLS认证策略（RMV SRVTLSPLY）
+                - 修改TLS认证策略（MOD SRVTLSPLY）
+                - 增加TLS认证策略（ADD SRVTLSPLY）
+                - 查询TLS认证策略（LST SRVTLSPLY）
+              - 媒体中继黑名单URL列表
+                - 删除媒体中继黑名单URL列表（RMV RELAYBURLLIST）
+                - 增加媒体中继黑名单URL列表（ADD RELAYBURLLIST）
+                - 查询媒体中继黑名单URL列表（LST RELAYBURLLIST）
+                - 修改媒体中继黑名单URL列表（MOD RELAYBURLLIST）
+              - 媒体中继鉴权密钥
+                - 删除媒体中继鉴权密钥（RMV RELAYAUTHKEY）
+                - 更新媒体中继鉴权密钥（UPD RELAYAUTHKEY）
+                - 修改媒体中继鉴权密钥（MOD RELAYAUTHKEY）
+                - 查询媒体中继鉴权密钥（LST RELAYAUTHKEY）
+                - 增加媒体中继鉴权密钥（ADD RELAYAUTHKEY）
+              - 媒体中继全局业务参数控制
+                - 设置媒体中继全局业务参数控制（SET GLBRLYSPARACTL）
+                - 查询媒体中继全局业务参数控制（LST GLBRLYSPARACTL）
+              - 媒体中继DNS服务器配置
+                - 增加媒体中继的DNS属性（ADD RELAYDNSSERVER）
+                - 修改媒体中继的DNS属性（MOD RELAYDNSSERVER）
+                - 查询媒体中继的DNS属性（LST RELAYDNSSERVER）
+                - 删除媒体中继的DNS属性（RMV RELAYDNSSERVER）
+              - 媒体中继全局回源TCP控制
+                - 查询媒体中继全局回源TCP控制（LST GLBRLYOTCPCTRL）
+                - 设置媒体中继全局回源TCP控制（SET GLBRLYOTCPCTRL）
+              - 媒体中继功能
+                - 设置媒体中继功能配置（SET RELAYFUNC）
+                - 查询媒体中继功能配置（LST RELAYFUNC）
+              - 证书更新拆链配置
+                - 查询证书更新拆链配置（LST SRVCERTUPDCFG）
+                - 设置证书更新拆链配置（SET SRVCERTUPDCFG）
+              - 媒体中继全局业务HTTP控制
+                - 查询媒体中继全局业务HTTP控制（LST GLBRLYSHTTPCTL）
+                - 设置媒体中继全局业务HTTP控制（SET GLBRLYSHTTPCTL）
+              - 媒体中继DNS服务器状态
+                - 显示媒体中继DNS服务器状态（DSP RELAYDNSSTATUS）
+              - 媒体中继业务告警参数配置
+                - 查询媒体中继业务告警参数配置（LST RELAYSALMPARA）
+                - 设置媒体中继业务告警参数配置（SET RELAYSALMPARA）
+            - 头增强控制
+              - NSH头增强
+                - APN开关
+                  - 设置NSH头增强功能开关（SET APNNSHHEADENFUNC）
+                  - 查询NSH头增强功能开关（LST APNNSHHEADENFUNC）
+                - NSH参数
+                  - 修改NSH头增强（MOD NSHHEADEN）
+                  - 查询NSH头增强（LST NSHHEADEN）
+                  - 增加NSH头增强（ADD NSHHEADEN）
+                  - 删除NSH头增强（RMV NSHHEADEN）
+                - NSH全局策略
+                  - 配置NSH头增强全局策略（SET GLBNSHHDNPLY）
+                  - 恢复NSH头增强全局策略（RTR GLBNSHHDNPLY）
+                  - 查询NSH头增强全局策略（LST GLBNSHHDNPLY）
+              - EDNS
+                - 删除EDNS（RMV EDNS）
+                - 增加EDNS（ADD EDNS）
+                - 修改EDNS（MOD EDNS）
+                - 查询EDNS（LST EDNS）
+              - 头增强参数
+                - 修改头增强参数（MOD HEADENPARA）
+                - 删除头增强参数（RMV HEADENPARA）
+                - 查询头增强参数（LST HEADENPARA）
+                - 增加头增强参数（ADD HEADENPARA）
+              - 头增强公共参数
+                - 查询头增强全局参数（LST HEADENGLBPARA）
+                - 设置头增强全局参数（SET HEADENGLBPARA）
+              - 头增强
+                - 增加头增强（ADD HEADEN）
+                - 修改头增强（MOD HEADEN）
+                - 删除头增强（RMV HEADEN）
+                - 查询头增强（LST HEADEN）
+              - 头增强RAT类型
+                - 恢复头增强RAT类型定义（RTR HEADENRATTYPE）
+                - 设置头增强RAT类型定义（SET HEADENRATTYPE）
+                - 查询头增强RAT类型定义（LST HEADENRATTYPE）
+              - HTTPS头增强
+                - 查询HTTPS头增强（LST TLSHEADEN）
+                - 增加HTTPS头增强（ADD TLSHEADEN）
+                - 修改HTTPS头增强（MOD TLSHEADEN）
+                - 删除HTTPS头增强（RMV TLSHEADEN）
+            - IPSQM控制
+              - IPSQM整形队列深度
+                - 查询IPSQM缓存队列深度（LST IPSQMQDEPTH）
+                - 设置IPSQM缓存队列深度（SET IPSQMQDEPTH）
+              - IPSQM Shaping配置
+                - 增加IPSQM整形配置（ADD IPSQMSHAPING）
+                - 删除IPSQM整形配置（RMV IPSQMSHAPING）
+                - 查询IPSQM整形配置（LST IPSQMSHAPING）
+                - 修改IPSQM整形配置（MOD IPSQMSHAPING）
+              - IPSQM VIP用户列表
+                - 删除IPSQM VIP用户列表（RMV IPSQMVIPLIST）
+                - 增加IPSQM VIP用户列表（ADD IPSQMVIPLIST）
+                - 查询IPSQM VIP用户列表（LST IPSQMVIPLIST）
+              - IPSQM参数调整配置
+                - 设置IPSQM调整参数（SET IPSQMADJUST）
+                - 查询IPSQM调整参数（LST IPSQMADJUST）
+            - PCC控制策略
+              - PCC策略组
+                - 增加PCC策略组（ADD PCCPOLICYGRP）
+                - 删除PCC策略组（RMV PCCPOLICYGRP）
+                - 查询PCC策略组（LST PCCPOLICYGRP）
+                - 修改PCC策略组（MOD PCCPOLICYGRP）
+              - PCC动作属性
+                - 增加PCC动作属性（ADD PCCACTIONPROP）
+                - 查询PCC动作属性（LST PCCACTIONPROP）
+                - 删除PCC动作属性（RMV PCCACTIONPROP）
+                - 修改PCC动作属性（MOD PCCACTIONPROP）
+              - PCC策略组业务属性绑定
+                - 查询PCC组业务属性绑定（LST SRVPBINDPCCPG）
+                - 增加PCC组业务属性绑定（ADD SRVPBINDPCCPG）
+                - 删除PCC组业务属性绑定（RMV SRVPBINDPCCPG）
+                - 修改PCC组业务属性绑定（MOD SRVPBINDPCCPG）
+            - 计费控制
+              - 欠费用户下行RST报文控制
+                - 设置欠费用户下行RST报文处理动作（SET TCPRST）
+                - 查询欠费用户下行RST报文处理动作（LST TCPRST）
+              - APN计费控制
+                - 显示APN计费配置（LST UPAPNCHARGE）
+                - 设置APN的计费配置（SET UPAPNCHARGE）
+              - 使用率上报规则组
+                - 查询URR组（LST URRGROUP）
+                - 修改URR组（MOD URRGROUP）
+                - 增加URR组（ADD URRGROUP）
+                - 删除URR组（RMV URRGROUP）
+              - 用户面全局计费参数
+                - 设置全局计费参数（SET UPGLBCHGPARA）
+                - 查询全局计费参数（LST UPGLBCHGPARA）
+              - 指定APN配额耗尽末包动作
+                - 显示指定APN配额耗尽末包动作（LST APNDROPFINALPKT）
+                - 配置指定APN配额耗尽末包动作（SET APNDROPFINALPKT）
+              - UserProfile计费控制
+                - 设置User Profile的计费配置（SET UPUSRPROFCHG）
+                - 查询User Profile的计费配置（LST UPUSRPROFCHG）
+              - 特殊使用率上报规则组列表
+                - 查询特殊URR组列表（LST SPECURRGRPLIST）
+                - 增加特殊URR组列表（ADD SPECURRGRPLIST）
+                - 删除特殊URR组列表（RMV SPECURRGRPLIST）
+                - 删除所有特殊URR组列表（RMV SPECURRGRPLTALL）
+              - 使用率上报规则
+                - 增加URR（ADD URR）
+                - 删除URR（RMV URR）
+                - 查询URR（LST URR）
+                - 修改URR（MOD URR）
+              - UP默认配额配置
+                - 设置全局默认配额开关（SET UPDEFAULTQUOTA）
+                - 查询全局默认配额开关（LST UPDEFAULTQUOTA）
+              - 用户面计费检查参数
+                - 设置计费检查参数（SET UPCHGCHKPARA）
+                - 显示计费检查参数（LST UPCHGCHKPARA）
+              - 计费URR上报失败时的处理动作
+                - 设置URR上报失败后的动作处理参数（SET URRFAILACTION）
+                - 显示计费URR上报失败动作参数（LST URRFAILACTION）
+              - 配额耗尽末包动作
+                - 设置配额耗尽末包动作（SET DROPFINALPKT）
+                - 显示配额耗尽末包动作（LST DROPFINALPKT）
+              - 全局使用量上报规则组
+                - 设置全局计费属性（SET GLBURRGROUP）
+                - 删除全局计费属性（RMV GLBURRGROUP）
+                - 查询全局计费属性（LST GLBURRGROUP）
+              - 全局的PM策略控制
+                - 查询全局策略管理参数（LST UPGLBPMPARA）
+                - 设置全局策略管理参数（SET UPGLBPMPARA）
+              - 特殊流量使用量上报规则组
+                - 查询全局缺省费率的流量使用量上报规则组（LST SPECTRAFURRGRP）
+                - 设置全局缺省费率的流量使用量上报规则组（SET SPECTRAFURRGRP）
+                - 删除全局缺省费率的流量使用量上报规则组（RMV SPECTRAFURRGRP）
+              - URR控制参数
+                - 查询URR控制参数（LST UPURRCTRL）
+                - 设置URR控制参数（SET UPURRCTRL）
+            - 重定向控制
+              - 多级重定向控制
+                - 多级重定向密码
+                  - 删除多级重定向密码（RMV MULTREDIRECT）
+                  - 增加多级重定向密码（ADD MULTREDIRECT）
+                  - 修改多级重定向密码（MOD MULTREDIRECT）
+                  - 显示多级重定向密码（LST MULTREDIRECT）
+                - 多级重定向密码扩展
+                  - 删除扩展的多级重定向密码（RMV MULTREDIRECTEX）
+                  - 修改扩展的多级重定向密码（MOD MULTREDIRECTEX）
+                  - 增加扩展的多级重定向密码（ADD MULTREDIRECTEX）
+                  - 显示扩展的多级重定向密码（LST MULTREDIRECTEX）
+              - Gy接口一次重定向控制
+                - Gy接口一次重定向
+                  - 设置Gy一次重定向参数（SET GYONESHOT）
+                  - 查询Gy一次重定向参数（LST GYONESHOT）
+              - FUI重定向控制
+                - FUI增强
+                  - 恢复FUI增强参数（RTR FUIENRICHMENT）
+                  - 设置FUI增强参数（SET FUIENRICHMENT）
+                  - 查询FUI增强参数（LST FUIENRICHMENT）
+                - FUI扩展过滤器绑定
+                  - 修改FUI扩展过滤器绑定配置（SET FUIEXTFILTER）
+                  - 删除FUI扩展过滤器绑定配置（RMV FUIEXTFILTER）
+                  - 查询FUI扩展过滤器绑定配置（LST FUIEXTFILTER）
+                - FUI流控参数
+                  - 查询欠费重定向流控参数（LST FUIFLOWCTLPARA）
+                  - 设置欠费重定向流控参数（SET FUIFLOWCTLPARA）
+                - FUI流控动作
+                  - 查询欠费重定向流控动作（LST FUIFLOWCTLACT）
+                  - 设置欠费重定向流控动作（SET FUIFLOWCTLACT）
+              - URL重定向控制
+                - 重定向
+                  - 修改重定向（MOD REDIRECT）
+                  - 查询重定向（LST REDIRECT）
+                  - 增加重定向（ADD REDIRECT）
+                  - 删除重定向（RMV REDIRECT）
+              - 重定向公共参数管理
+                - 重定向携带信息
+                  - 查询重定向携带信息（LST REDIRAPPENDINFO）
+                  - 增加重定向携带信息（ADD REDIRAPPENDINFO）
+                  - 修改重定向携带信息（MOD REDIRAPPENDINFO）
+                  - 删除重定向携带信息（RMV REDIRAPPENDINFO）
+                - ErrorCode
+                  - 查询错误码（LST ERRORCODE）
+                  - 删除错误码（RMV ERRORCODE）
+                  - 增加错误码（ADD ERRORCODE）
+              - DNS重写控制
+                - DNS重写
+                  - 删除DNS重写动作配置（RMV DNSOVERWRITING）
+                  - 查询DNS重写动作配置（LST DNSOVERWRITING）
+                  - 新增DNS重写动作（ADD DNSOVERWRITING）
+                  - 修改DNS重写动作配置（MOD DNSOVERWRITING）
+              - Http重定向控制
+                - HTTP智能重定向
+                  - 查询HTTP重定向配置（LST SMARTHTTPREDIR）
+                  - 删除HTTP智能重定向（RMV SMARTHTTPREDIR）
+                  - 修改HTTP智能重定向配置（MOD SMARTHTTPREDIR）
+                  - 新增HTTP智能重定向（ADD SMARTHTTPREDIR）
+            - 带宽控制
+              - 分类属性
+                - 增加分类属性（ADD CATEGORYPROP）
+                - 查询分类属性（LST CATEGORYPROP）
+                - 删除分类属性（RMV CATEGORYPROP）
+              - 带宽管理用户组APN绑定
+                - 删除带宽管理用户组APN绑定（RMV APNBINDBWMUSRG）
+                - 增加带宽管理用户组APN绑定（ADD APNBINDBWMUSRG）
+                - 查询带宽管理用户组APN绑定（LST APNBINDBWMUSRG）
+              - 带宽管理用户组用户模板绑定
+                - 增加带宽管理用户组User Profile绑定（ADD UPBINDBWMUSRG）
+                - 查询带宽管理用户组User Profile绑定（LST UPBINDBWMUSRG）
+                - 删除带宽管理用户组User Profile绑定（RMV UPBINDBWMUSRG）
+              - APN 操作系统级带宽管理
+                - 设置APN操作系统级带宽管理开关（SET APNOSLELBWMSW）
+                - 查询APN操作系统级带宽管理开关（LST APNOSLELBWMSW）
+              - 带宽管理用户切片绑定
+                - 增加带宽管理用户组切片绑定（ADD SNSSAIBWMUSRG）
+                - 查询带宽管理用户组切片绑定（LST SNSSAIBWMUSRG）
+                - 删除带宽管理用户组切片绑定（RMV SNSSAIBWMUSRG）
+              - 带宽管理规则
+                - 修改全局带宽管理规则（MOD BWMRULEGLOBAL）
+                - 修改带宽管理规则（MOD BWMRULE）
+                - 查询全局带宽管理规则（LST BWMRULEGLOBAL）
+                - 删除所有全局带宽管理规则（RMV BWMRULEGLBALL）
+                - 增加带宽管理规则（ADD BWMRULE）
+                - 增加全局带宽管理规则（ADD BWMRULEGLOBAL）
+                - 删除全局带宽管理规则（RMV BWMRULEGLOBAL）
+                - 删除带宽管理规则（RMV BWMRULE）
+                - 查询带宽管理规则（LST BWMRULE）
+              - 带宽管理业务
+                - 增加带宽管理业务（ADD BWMSERVICE）
+                - 删除带宽管理业务（RMV BWMSERVICE）
+                - 修改带宽管理业务（MOD BWMSERVICE）
+                - 查询带宽管理业务（LST BWMSERVICE）
+              - 带宽管理用户组
+                - 删除所有带宽管理用户组（RMV BWMUSERGRPALL）
+                - 修改带宽管理用户组（MOD BWMUSERGROUP）
+                - 删除带宽管理用户组（RMV BWMUSERGROUP）
+                - 查询带宽管理用户组（LST BWMUSERGROUP）
+                - 增加带宽管理用户组（ADD BWMUSERGROUP）
+              - 带宽管理控制器业务级别策略
+                - 修改带宽管理控策略制器业务级别（MOD BCSRVLEVELPLY）
+                - 删除带宽管理控策略制器业务级别（RMV BCSRVLEVELPLY）
+                - 查询带宽管理控制器业务级别策略（LST BCSRVLEVELPLY）
+                - 增加带宽管理控制器业务级别策略（ADD BCSRVLEVELPLY）
+              - User Profile操作系统级带宽管理
+                - 查询User Profile操作系统级带宽管理开关（LST UPOSLELBWMSW）
+                - 设置User Profile操作系统级带宽管理开关（SET UPOSLELBWMSW）
+              - 带宽管理参数
+                - 设置带宽管理参数（SET BANDWIDTHMNG）
+                - 查询带宽管理参数（LST BANDWIDTHMNG）
+              - 整机操作系统级带宽管理
+                - 设置整机操作系统级带宽管理开关（SET GLBOSLELBWMSW）
+                - 查询整机操作系统级带宽管理开关（LST GLBOSLELBWMSW）
+              - 带宽管理控制器
+                - 增加带宽管理控制器（ADD BWMCONTROLLER）
+                - 修改带宽管理控制器（MOD BWMCONTROLLER）
+                - 查询带宽管理控制器（LST BWMCONTROLLER）
+                - 删除带宽管理控制器（RMV BWMCONTROLLER）
+            - 数据转发控制
+              - 深度隔离开关
+                - 显示深度隔离开关下发状态（DSP DEEPISOSWINFO）
+                - 设置转发线程深度隔离开关（SET DEEPISOSW）
+                - 查询转发线程深度隔离开关（LST DEEPISOSW）
+              - 入不转板总开关
+                - 查询数据面接口模式（LST DATAPLANEINFMODE）
+                - 设置用户面接口模式（SET DATAPLANEINFMODE）
+              - 报文检测功能
+                - 设置报文检测功能配置（SET PDFUNC）
+                - 查询报文检测功能配置（LST PDFUNC）
+              - 入不转板功能开关
+                - 设置用户面下行模式（SET DATAPLANEGIINFMODE）
+                - 查询用户面下行模式配置（LST DATAPLANEGIINFMODE）
+              - 批量处理控制功能
+                - 查询批量调度参数（LST BATCHPARA）
+                - 设置批量调度参数（SET BATCHPARA）
+            - 用户QOS控制
+              - 流量管理
+                - APN的QoS属性配置
+                  - 查询ApnQosAttr配置（LST APNQOSATTR）
+                  - 设置ApnQosAttr配置（SET APNQOSATTR）
+                - 配置Qos Car桶深信息
+                  - 删除用户做car的参数（RMV QOSCARBURST）
+                  - 查询用户做car的参数（LST QOSCARBURST）
+                  - 修改用户做car的参数（MOD QOSCARBURST）
+                  - 配置用户做car的参数（ADD QOSCARBURST）
+                - QoS shaping配置
+                  - 设置QosShape配置（SET QOSSHAPE）
+                  - 查询QosShape配置（LST QOSSHAPE）
+                - Qos全局配置
+                  - 查询QosGlobal配置（LST QOSGLOBAL）
+                  - 设置QosGlobal配置（SET QOSGLOBAL）
+                - QoS CAR配置
+                  - 设置QosCar配置（SET QOSCAR）
+                  - 查询QosCar配置（LST QOSCAR）
+                - 整形队列深度
+                  - 删除Qos Shape缓存队列深度与流量速率的对应关系（RMV QOSSHAPEQDEPTH）
+                  - 查询Qos Shape缓存队列深度与流量速率的对应关系（LST QOSSHAPEQDEPTH）
+                  - 修改Qos Shape缓存队列深度与流量速率的对应关系（MOD QOSSHAPEQDEPTH）
+                  - 添加Qos Shape缓存队列深度与流量速率的对应关系（ADD QOSSHAPEQDEPTH）
+                - 整形缓存使用率
+                  - 查询整形使用的缓存（DSP SHAPINGBUFUSED）
+              - 业务QOS控制
+                - 业务质量属性
+                  - 查询QoS属性（LST QOSPROP）
+                  - 增加QoS属性（ADD QOSPROP）
+                  - 修改QoS属性（MOD QOSPROP）
+                  - 删除QoS属性（RMV QOSPROP）
+                - QoS类型URR上报控制
+                  - 查询QoS URR上报的相关参数（LST QOSURRRPTCTRL）
+                  - 设置QoS URR上报的相关参数（SET QOSURRRPTCTRL）
+                - PCC QoS相关控制
+                  - 设置PCC QoS相关控制参数（SET PCCRULECTRL）
+                  - 查询PCC QoS相关控制参数（LST PCCRULECTRL）
+                - 业务感知专有承载
+                  - 增加业务感知专有承载配置（ADD SADEDICBEARER）
+                  - 查询业务感知专有承载配置（LST SADEDICBEARER）
+                  - 修改业务感知专有承载配置（MOD SADEDICBEARER）
+                  - 删除业务感知专有承载配置（RMV SADEDICBEARER）
+              - 宽带集群流量管理
+                - 宽带集群QoS全局配置
+                  - 查询宽带集群QosGlobal配置（LST TRUNKQOSGLOBAL）
+                  - 设置宽带集群QosGlobal配置（SET TRUNKQOSGLOBAL）
+                - 全局宽带集群QoS到DSCP或TOS映射
+                  - 删除整机Trunk Remark配置（RMV GLBTRUNKREMARK）
+                  - 查询整机Trunk Remark配置（LST GLBTRUNKREMARK）
+                  - 添加整机Trunk Remark配置（ADD GLBTRUNKREMARK）
+                  - 修改整机Trunk Remark配置（MOD GLBTRUNKREMARK）
+            - 业务控制公共配置
+              - 业务属性
+                - 删除业务属性（RMV SERVICEPROP）
+                - 修改业务属性（MOD SERVICEPROP）
+                - 增加业务属性（ADD SERVICEPROP）
+                - 查询业务属性（LST SERVICEPROP）
+              - RSA3072公钥配置
+                - 删除RSA3072公钥配置（RMV RSA3072）
+                - 修改RSA3072公钥参数（MOD RSA3072）
+                - 增加RSA3072公钥配置（ADD RSA3072）
+                - 查询RSA3072公钥配置（LST RSA3072）
+              - 服务重试定时器
+                - 设置服务重试等待时间（SET SRVRETRYTIMER）
+                - 查询服务重试等待时间（LST SRVRETRYTIMER）
+              - RSA1024公钥配置
+                - 修改RSA1024公钥配置（MOD RSA1024）
+                - 增加RSA1024公钥配置（ADD RSA1024）
+                - 删除RSA1024公钥配置（RMV RSA1024）
+                - 查询RSA1024公钥配置（LST RSA1024）
+              - 扩展策略配置
+                - 修改扩展策略配置（MOD EXTENDPOLICY）
+                - 删除扩展策略配置（RMV EXTENDPOLICY）
+                - 增加扩展策略配置（ADD EXTENDPOLICY）
+                - 查询扩展策略配置（LST EXTENDPOLICY）
+              - 共部署的本地分流开关
+                - 设置本地分流共部署参数（SET COLOCATEDLBO）
+                - 显示本地分流共部署参数（LST COLOCATEDLBO）
+              - BASE64编码
+                - 查询Base64编码规则（LST BASE64）
+                - 设置Base64编码规则（SET BASE64）
+              - 全局扩展策略配置
+                - 删除全局扩展策略（RMV GLBEXTENDPOLICY）
+                - 查询全局扩展策略（LST GLBEXTENDPOLICY）
+                - 增加全局扩展策略（ADD GLBEXTENDPOLICY）
+                - 修改全局扩展策略（MOD GLBEXTENDPOLICY）
+              - RSA2048公钥配置
+                - 修改RSA2048公钥参数（MOD RSA2048）
+                - 增加RSA2048公钥配置（ADD RSA2048）
+                - 删除RSA2048公钥配置（RMV RSA2048）
+                - 查询RSA2048公钥配置（LST RSA2048）
+              - AES256加密算法的IV值
+                - 查询Aes256加密算法的IV值（LST AES256）
+                - 设置aes256加密算法的IV值（SET AES256）
+              - 扩展属性
+                - 删除扩展属性配置（RMV EXTENDPROP）
+                - 修改扩展属性配置（MOD EXTENDPROP）
+                - 增加扩展属性配置（ADD EXTENDPROP）
+                - 查询扩展属性配置（LST EXTENDPROP）
+              - AES128加密算法的IV值
+                - 查询aes128加密算法的IV值（LST AES128）
+                - 设置aes128加密算法的IV值（SET AES128）
+              - 对端SMF属性
+                - 设置全局SMF属性（SET GLBSMFATTR）
+                - 查询全局SMF属性（LST GLBSMFATTR）
+            - 信令QOS控制
+              - UDP Checksum控制
+                - 配置UDP报文中是否携带checksum（SET UDPCHECKSUM）
+                - 查询UDP报文是否携带checksum（LST UDPCHECKSUM）
+              - 信令DSCP
+                - 查询信令报文DSCP值（LST SIGDSCP）
+                - 设置信令报文DSCP值（SET SIGDSCP）
+            - 动态分流业务控制
+              - 动态分流功能接入控制
+                - 设置系统是否开启专网UPF动态分流功能（SET DEDICATEDLBO）
+                - 查询系统是否开启专网UPF动态分流功能（LST DEDICATEDLBO）
+            - 无线资源优化
+              - SAI
+                - 查询SAI差异化控制功能（LST SAIFUNC）
+                - 设置SAI差异化控制功能（SET SAIFUNC）
+              - FPI
+                - 设置FPI差异化控制功能（SET FPIFUNC）
+                - 查询FPI差异化控制功能（LST FPIFUNC）
+            - ADC
+              - ADC参数
+                - 增加ADC参数（ADD ADCPARA）
+                - 修改ADC参数（MOD ADCPARA）
+                - 删除ADC参数（RMV ADCPARA）
+                - 查询ADC参数（LST ADCPARA）
+            - 配置校验控制
+              - CP和UP不一致的关键配置
+                - 显示CP和UP不一致的关键配置（DSP CUINCONSCONFIG）
+              - CP和UP关键配置不一致策略
+                - 设置SMF和UPF的时间一致性校验（SET CUSTATECHK）
+                - 查询CP和UP关键配置不一致的处理策略（LST CUINCONSPOLICY）
+                - 设置CP和UP关键配置不一致的处理策略（SET CUINCONSPOLICY）
+                - 查询SMF和UPF时间一致性检测（LST CUSTATECHK）
+            - 帧包识别
+              - 帧包识别参数
+                - 查询帧包识别功能相关参数（LST PKTFRAMEIDENT）
+                - 设置帧包识别功能相关参数（SET PKTFRAMEIDENT）
+            - 传输层控制
+              - TCP MSS
+                - 修改Tcp Mss配置（MOD TCPMSS）
+                - 查询Tcp Mss配置（LST TCPMSS）
+                - 删除Tcp Mss配置（RMV TCPMSS）
+                - 添加Tcp Mss配置（ADD TCPMSS）
+              - COSTOS映射策略
+                - 设置COS TOS映射策略（SET COSTOS）
+                - 查询COS TOS映射策略（LST COSTOS）
+              - IPv4分片策略
+                - 设置IPv4报文分片策略（SET IPV4FRAGPLCY）
+                - 查询IPv4分片策略（LST IPV4FRAGPLCY）
+              - IPv6分片策略
+                - 设置IPv6报文分片策略（SET IPV6FRAGPLCY）
+                - 查询IPv6分片策略（LST IPV6FRAGPLCY）
+            - 防火墙策略控制
+              - 防火墙策略配置
+                - 增加防火墙策略（ADD FWPOLICY）
+                - 删除防火墙策略（RMV FWPOLICY）
+                - 查询防火墙策略（LST FWPOLICY）
+                - 修改防火墙策略（MOD FWPOLICY）
+            - RTSDNN业务控制
+              - RTSDNN参数
+                - 显示RTSDNN参数（LST RTSDNNPARA）
+                - 设置RTSDNN参数（SET RTSDNNPARA）
+            - MultiDNN业务控制
+              - 多DNN条件
+                - 增加多DNN条件（ADD MULTIDNNCOND）
+                - 查询多DNN条件（LST MULTIDNNCOND）
+                - 删除多DNN条件（RMV MULTIDNNCOND）
+              - MultiDNN参数
+                - 显示MultiDNN参数（LST MULTIDNNPARA）
+                - 设置MultiDNN参数（SET MULTIDNNPARA）
+          - 业务匹配策略
+            - 业务过滤器管理
+              - 三四层规则管理
+                - 用户关联识别
+                  - 查询用户关联识别（LST USRRELATEIDEN）
+                  - 修改用户关联识别（MOD USRRELATEIDEN）
+                  - 删除用户关联识别（RMV USRRELATEIDEN）
+                  - 增加用户关联识别（ADD USRRELATEIDEN）
+                - IP地址列表
+                  - 修改IP地址列表（MOD IPLIST）
+                  - 删除IP地址列表（RMV IPLIST）
+                  - 增加IP地址列表（ADD IPLIST）
+                  - 查询IP地址列表（LST IPLIST）
+                - 自定义协议
+                  - 删除自定义协议（RMV PROTOCOLDEFINE）
+                  - 查询自定义协议（LST PROTOCOLDEFINE）
+                  - 增加自定义协议（ADD PROTOCOLDEFINE）
+                  - 修改自定义协议（MOD PROTOCOLDEFINE）
+                - 主机域参数
+                  - 查询主机域参数（LST HOSTDOMAINPARA）
+                  - 设置主机域参数（SET HOSTDOMAINPARA）
+                - 协议组
+                  - 查询默认协议组（LST DFTPROTGRP）
+                  - 删除自定义协议组（RMV PROTOCOLGROUP）
+                  - 增加自定义协议组（ADD PROTOCOLGROUP）
+                  - 查询自定义协议组（LST PROTOCOLGROUP）
+                - 知名端口
+                  - 修改知名端口（MOD WELLKNOWNPORT）
+                  - 查询知名端口（LST WELLKNOWNPORT）
+                  - 删除知名端口（RMV WELLKNOWNPORT）
+                  - 增加知名端口（ADD WELLKNOWNPORT）
+                - 主机名
+                  - 修改Host（MOD HOST）
+                  - 增加Host（ADD HOST）
+                  - 删除Host（RMV HOST）
+                  - 查询Host（LST HOST）
+                - 支持用户关联识别协议
+                  - 查询支持用户关联识别协议（LST SUPPUSRRLTIDEN）
+              - 七层规则管理
+                - 扩展头域
+                  - 增加扩展头域（ADD XHEADER）
+                  - 修改扩展头域（MOD XHEADER）
+                  - 删除扩展头域（RMV XHEADER）
+                  - 查询扩展头域（LST XHEADER）
+                - 协议重定义
+                  - 修改重定义协议（MOD PROTREDEFINE）
+                  - 删除重定义协议（RMV PROTREDEFINE）
+                  - 查询重定义协议（LST PROTREDEFINE）
+                  - 增加重定义协议（ADD PROTREDEFINE）
+                - URL白名单
+                  - 查询URL白名单（LST WHITEURLLIST）
+                  - 增加URL白名单（ADD WHITEURLLIST）
+                  - 删除URL白名单（RMV WHITEURLLIST）
+                - 七层过滤器
+                  - 查询七层过滤器（LST L7FILTER）
+                  - 删除七层过滤器（RMV L7FILTER）
+                  - 修改七层过滤器（MOD L7FILTER）
+                  - 增加七层过滤器（ADD L7FILTER）
+                - SA公共参数
+                  - 设置SA业务公共参数（SET SACOMMONPARA）
+                  - 设置基于APN的业务感知参数（SET APNSAPARA）
+                  - 查询SA业务公共参数（LST SACOMMONPARA）
+                  - 查询基于APN的业务感知参数（LST APNSAPARA）
+                - 前缀URL组
+                  - 增加前缀URL组（ADD PREFIXURLGRP）
+                  - 删除前缀URL组（RMV PREFIXURLGRP）
+                  - 查询前缀URL组（LST PREFIXURLGRP）
+                - Prefixed URL组绑定
+                  - 增加用户模板的前缀URL组绑定关系（ADD PREURLGBINDUP）
+                  - 查询用户模板的前缀URL组绑定关系（LST PREURLGBINDUP）
+                  - 删除用户模板的前缀URL组绑定关系（RMV PREURLGBINDUP）
+                - 前缀URL参数
+                  - 查询前缀URL参数（LST PREFIXURLPARA）
+                  - 设置前缀URL匹配时的控制参数（SET PREFIXURLPARA）
+              - 流过滤器管理
+                - 业务刷新
+                  - 业务刷新（SET REFRESHSRV）
+                - 流过滤器组
+                  - 增加流过滤器组（ADD FLOWFILTERGRP）
+                  - 删除流过滤器组（RMV FLOWFILTERGRP）
+                  - 查询流过滤器组（LST FLOWFILTERGRP）
+                - 全局扩展过滤器绑定
+                  - 配置全局扩展过滤器绑定关系（SET GLBEXTFILTER）
+                  - 删除全局扩展过滤器绑定配置（RMV GLBEXTFILTER）
+                  - 查询全局扩展过滤器绑定配置（LST GLBEXTFILTER）
+                - 过滤器
+                  - 增加IPv6过滤器（ADD FILTERIPV6）
+                  - 增加过滤器（ADD FILTER）
+                  - 修改IPv6过滤器（MOD FILTERIPV6）
+                  - 查询过滤器（LST FILTER）
+                  - 修改过滤器（MOD FILTER）
+                  - 删除过滤器（RMV FILTER）
+                - 流过滤器的过滤器绑定
+                  - 删除流过滤器的过滤器绑定关系（RMV FLTBINDFLOWF）
+                  - 增加流过滤器的过滤器绑定关系（ADD FLTBINDFLOWF）
+                  - 查询流过滤器的过滤器绑定关系（LST FLTBINDFLOWF）
+                - 扩展过滤器
+                  - 增加扩展过滤器（ADD EXTENDEDFILTER）
+                  - 查询扩展过滤器（LST EXTENDEDFILTER）
+                  - 修改扩展过滤器（MOD EXTENDEDFILTER）
+                  - 删除扩展过滤器（RMV EXTENDEDFILTER）
+                - APPID IMSI/MSISDN号段组绑定
+                  - 删除APP ID IMSI/MSISDN号段组绑定（RMV APPIDSEGBIND）
+                  - 查询APP ID IMSI/MSISDN号段组绑定（LST APPIDSEGBIND）
+                  - 增加APP ID IMSI/MSISDN号段组绑定（ADD APPIDSEGBIND）
+                - 过滤器组
+                  - 删除过滤器组（RMV FILTERGROUP）
+                  - 增加过滤器组（ADD FILTERGROUP）
+                  - 查询过滤器组（LST FILTERGROUP）
+                - 流过滤器的协议组绑定
+                  - 增加流过滤器协议组绑定关系（ADD PROTGBINDFLOWF）
+                  - 删除流过滤器协议组绑定关系（RMV PROTGBINDFLOWF）
+                  - 查询流过滤器协议组绑定关系（LST PROTGBINDFLOWF）
+                - 流过滤器的协议绑定
+                  - 修改流过滤器协议绑定关系（MOD PROTBINDFLOWF）
+                  - 增加流过滤器协议绑定关系（ADD PROTBINDFLOWF）
+                  - 查询流过滤器协议绑定关系（LST PROTBINDFLOWF）
+                  - 删除流过滤器协议绑定关系（RMV PROTBINDFLOWF）
+                - 流过滤器
+                  - 查询流过滤器（LST FLOWFILTER）
+                  - 删除流过滤器（RMV FLOWFILTER）
+                  - 修改流过滤器（MOD FLOWFILTER）
+                  - 增加流过滤器（ADD FLOWFILTER）
+                - 流过滤器信息显示
+                  - 查询流过滤器下的所有过滤器信息（LST FILTERINFO）
+              - 时间规则管理
+                - 时间段
+                  - 删除时间段（RMV TIMERANGE）
+                  - 查询时间段（LST TIMERANGE）
+                  - 增加时间段（ADD TIMERANGE）
+                - 绝对时间段
+                  - 删除绝对时间段（RMV ABSTIMERANGE）
+                  - 增加绝对时间段（ADD ABSTIMERANGE）
+                  - 修改绝对时间段（MOD ABSTIMERANGE）
+                  - 查询绝对时间段（LST ABSTIMERANGE）
+                - 周期时间段
+                  - 查询周期时间段（LST PERITIMERANGE）
+                  - 删除周期时间段（RMV PERITIMERANGE）
+                  - 增加周期时间段（ADD PERITIMERANGE）
+                  - 修改周期时间段（MOD PERITIMERANGE）
+              - Tethering检测
+                - APN Tethering用户终端数量检测开关配置
+                  - 设置APN Tethering终端数量检测开关（SET APNTETHERDETSW）
+                  - 查询APN Tethering终端数量检测开关（LST APNTETHERDETSW）
+                - Tethering用户终端数量检测全局配置
+                  - 设置Tethering用户终端数量检测全局配置（SET TETHERDETGLBPARA）
+                  - 恢复Tethering用户终端数量检测全局配置（RTR TETHERDETGLBPARA）
+                  - 查询Tethering用户终端数量检测全局配置（LST TETHERDETGLBPARA）
+                - APN Tethering检测功能
+                  - 查询APN Tethering检测开关（LST APNTETHERFUNC）
+                  - 设置APN Tethering检测开关（SET APNTETHERFUNC）
+                - 配置tethering的ttl值
+                  - 查询tethering的TTL值（LST TETHERINGTTL）
+                  - 配置tethering的TTL值（ADD TETHERINGTTL）
+                  - 删除tethering的TTL值（RMV TETHERINGTTL）
+                - Tethering检测特征库
+                  - 查询Tethering检测特征库（DSP TETHERDB）
+                  - 卸载Tethering检测特征库（RMV TETHERDB）
+                  - 加载Tethering检测特征库（LOD TETHERDB）
+                - Tethering用户终端数量检测全局开关
+                  - 查询Tethering用户终端数量检测全局开关（LST TETHERDETGLBSW）
+                  - 设置Tethering用户终端数量检测全局开关（SET TETHERDETGLBSW）
+                - Tethering事件上报控制
+                  - 查询tethering事件上报的相关参数（LST TETHRPTCTRL）
+                  - 设置tethering事件上报的相关参数（SET TETHRPTCTRL）
+                - 显示tethering用户终端接入数量
+                  - 显示tethering用户终端接入数量（DSP TETHERINGINFO）
+              - 用户属性管理
+                - 配置用户属性过滤条件
+                  - 配置用户属性过滤条件（ADD USRATTRCOND）
+                  - 查询用户属性过滤条件（LST USRATTRCOND）
+                  - 删除用户属性过滤条件（RMV USRATTRCOND）
+            - 业务匹配公共配置
+              - 业务规则管理
+                - DNS规则
+                  - 修改DNS规则（MOD DNSRULE）
+                  - 删除DNS规则（RMV DNSRULE）
+                  - 添加DNS规则（ADD DNSRULE）
+                  - 显示DNS规则（LST DNSRULE）
+                - Rule IMSI/MSISDN号段组绑定
+                  - 查询Rule IMSI/MSISDN号段组绑定（LST RULESEGBIND）
+                  - 删除Rule IMSI/MSISDN号段组绑定（RMV RULESEGBIND）
+                  - 增加Rule IMSI/MSISDN号段组绑定（ADD RULESEGBIND）
+                - 规则检测
+                  - 查询规则检测结果（DSP RULECHECK）
+                - 规则
+                  - 增加规则（ADD RULE）
+                  - 增加黑名单规则（ADD BLACKLISTRULE）
+                  - 修改规则（MOD RULE）
+                  - 删除所有规则（RMV RULEALL）
+                  - 查询规则（LST RULE）
+                  - 删除规则（RMV RULE）
+                - 用户模板
+                  - 增加用户模板（ADD USERPROFILE）
+                  - 删除用户模板的URL白名单列表（RMV WHITEURLLISTBIND）
+                  - 设置用户模板的URR组绑定关系（SET URRGRPBINDING）
+                  - 设置用户模板的锁定（LCK USERPROFILE）
+                  - 查询用户模板（LST USERPROFILE）
+                  - 删除用户模板的URR组绑定关系（RMV URRGRPBINDING）
+                  - 设置用户模板的URL白名单列表（SET WHITEURLLISTBIND）
+                  - 修改用户模板（MOD USERPROFILE）
+                  - 删除用户模板（RMV USERPROFILE）
+                - 规则绑定
+                  - 增加用户模板和规则的绑定关系（ADD RULEBINDING）
+                  - 删除用户模板和规则的绑定关系（RMV RULEBINDING）
+                  - 查询用户模板和规则的绑定关系（LST RULEBINDING）
+                - 对象反向查询
+                  - 查询对象反向绑定关系（DSP OBJVERBOSEQRY）
+                - CombRuleBkLst
+                  - 显示组合规则黑名单（LST COMBRULEBKLST）
+                  - 设置组合规则黑名单（SET COMBRULEBKLST）
+              - 业务规则匹配测试
+                - 规则匹配控制面信息
+                  - 显示规则匹配控制信息下发状态（DSP RULEMATCHCTRL）
+                  - 安装规则匹配控制面信息（TST RULEMATCHCTRL）
+                - 规则匹配报文参数
+                  - 显示规则匹配报文信息构造状态（DSP RULEMATCHPARA）
+                  - 构造规则匹配需要的报文信息（TST RULEMATCHPARA）
+                - 规则匹配测试
+                  - 查询规则匹配测试结果（DSP TESTRULEMATCH）
+              - 业务五元组管理
+                - Worker五元组老化关联开关
+                  - 删除Worker流表老化关联开关（RMV WKRFLAGEASSOSW）
+                  - 增加Worker流表老化关联开关（ADD WKRFLAGEASSOSW）
+                  - 修改Worker流表老化关联开关（MOD WKRFLAGEASSOSW）
+                  - 查询Worker流表老化关联开关（LST WKRFLAGEASSOSW）
+                - APN五元组节点老化时间
+                  - 查询APN五元组老化时间（LST APNFLOWAGETIME）
+                  - 设置APN五元组老化时间（SET APNFLOWAGETIME）
+                - 五元组节点老化时间
+                  - 设置五元组老化时间（SET FLOWAGETIME）
+                  - 恢复五元组老化时间（RTR FLOWAGETIME）
+                  - 查询五元组老化时间（LST FLOWAGETIME）
+                - 基于协议的五元组节点老化时间
+                  - 增加协议五元组老化时间（ADD PROTFAGETIME）
+                  - 查询协议五元组老化时间（LST PROTFAGETIME）
+                  - 修改协议五元组老化时间（MOD PROTFAGETIME）
+                  - 删除协议五元组老化时间（RMV PROTFAGETIME）
+              - 业务公共参数管理
+                - APN HTTP2协议回落开关
+                  - 设置APN HTTP2.0协议回落开关（SET APNHTTP2DGRD）
+                  - 查询APN HTTP2.0协议回落开关（LST APNHTTP2DGRD）
+                - 业务公共参数
+                  - 设置SA VOIP业务公共参数（SET SAVOIPCOMMONPARA）
+                  - 查询业务公共参数（LST SRVCOMMONPARA）
+                  - 设置业务公共参数（SET SRVCOMMONPARA）
+                - IMSI MSISDN号段
+                  - 增加IMSI和MSISDN号段（ADD UPIMSIMSSEG）
+                  - 删除IMSI和MSISDN号段（RMV UPIMSIMSSEG）
+                  - 修改IMSI和MSISDN号段（MOD UPIMSIMSSEG）
+                  - 查询IMSI和MSISDN号段（LST UPIMSIMSSEG）
+                - 应用策略开关参数
+                  - 设置应用策略参数（SET APPPOLICYPARA）
+                  - 显示应用策略参数（LST APPPOLICYPARA）
+                - APN应用参数配置
+                  - 显示基于APN的应用参数（LST APNAPPPARA）
+                  - 设置基于APN的应用参数（SET APNAPPPARA）
+                - 应用流量参数
+                  - 显示应用流量参数（LST APPTRAFFICPARA）
+                  - 设置应用流量参数（SET APPTRAFFICPARA）
+                - IMSI MSISDN号段组
+                  - 查询IMSI和MSISDN号段组（LST UPIMSIMSISDNG）
+                  - 增加IMSI和MSISDN号段组（ADD UPIMSIMSISDNG）
+                  - 删除IMSI和MSISDN号段组（RMV UPIMSIMSISDNG）
+                - 对冲突检测
+                  - 查询冲突检测结果（DSP COLLISIONCHECK）
+                - 全局应用参数配置
+                  - 设置全局app参数（SET GLBAPPPARA）
+                  - 显示全局app参数（LST GLBAPPPARA）
+                - 轻量DNS参数
+                  - 设置轻量DNS参数（SET DNSLITEPARA）
+                  - 显示轻量DNS参数（LST DNSLITEPARA）
+              - 业务软参管理
+                - 软件参数比特位
+                  - 查询软件参数指定比特位的值（LST UPSOFTPARAOFBIT）
+                  - 设置软件参数表比特位的值（SET UPSOFTPARAOFBIT）
+                - 软参配置数据管理
+                  - 配置软参记录（SET UPSOFTPARA）
+                  - 查询软参记录（LST UPSOFTPARA）
+            - 百万级业务规则库
+              - ESA业务信息
+                - 查询外置规则库OTT flow filter信息（LST OTTFLOWFILTERNAME）
+              - 全局OTT开关
+                - 查询OTT业务规则匹配功能是否使能配置（LST EXTOTTMATCHSW）
+                - OTT业务规则匹配功能是否使能（SET EXTOTTMATCHSW）
+              - 外部规则数据库
+                - 查询外置规则数据库（DSP EXTERNALDB）
+                - 卸载外置规则数据库（RMV EXTERNALDB）
+                - 加载外置规则数据库（LOD EXTERNALDB）
+            - 智能SA管理
+              - 智能识别全局配置
+                - 设置智能识别全局配置（SET INSAGLBCFG）
+                - 查询智能识别全局配置（LST INSAGLBCFG）
+              - 协议类型配置
+                - 查询黑白名单协议配置（LST INSAPROTOCOL）
+                - 增加黑白名单协议配置（ADD INSAPROTOCOL）
+                - 删除黑白名单协议配置（RMV INSAPROTOCOL）
+                - 修改黑白名单协议配置（MOD INSAPROTOCOL）
+              - 基于协议的识别功能配置
+                - 修改单协议推理配置（MOD INSAPROTPARA）
+                - 查询单协议推理配置（LST INSAPROTPARA）
+                - 删除单协议推理配置（RMV INSAPROTPARA）
+                - 增加单协议推理配置（ADD INSAPROTPARA）
+              - 全部流量智能识别功能开关
+                - 设置全量智能SA识别开关（SET INSAFULLIFSW）
+                - 查询全量智能SA识别开关（LST INSAFULLIFSW）
+            - 体验分级
+              - 体验分级全局参数
+                - 高带宽用户功能控制参数
+                  - 查询高带宽用户功能控制参数（LST HBUSRCTRL）
+                  - 设置高带宽用户功能控制参数（SET HBUSRCTRL）
+                - 低时延业务开关
+                  - 设置低时延业务开关（SET LOWLATENCYSW）
+                  - 查询低时延业务开关（LST LOWLATENCYSW）
+              - 体验分级用户匹配
+                - 高带宽用户属性
+                  - 查询高带宽用户属性（LST HBUSRATTRCONF）
+                  - 新增高带宽用户属性（ADD HBUSRATTRCONF）
+                  - 删除高带宽用户属性（RMV HBUSRATTRCONF）
+            - Intelligence SA模式数据库
+              - SA Intelligence功能开关
+                - SA Intelligence功能参数（SET AIFUNCPARA）
+                - 显示SA Intelligence功能参数（LST AIFUNCPARA）
+          - VoNR质量监控配置
+            - VoNR MOS 补充因子
+              - 设置MOS计算值的补偿因子（SET VONRMOSFACTOR）
+              - 恢复MOS补偿因子（RTR VONRMOSFACTOR）
+              - 查询MOS计算值的补偿因子（LST VONRMOSFACTOR）
+            - VoNR MOS分类
+              - 查询MOS分类信息（LST VONRMOSCLASS）
+              - 配置MOS分类的区间值（SET VONRMOSCLASS）
+              - 恢复MOS分类区间值（RTR VONRMOSCLASS）
+            - APN VoNR语音质量检测功能
+              - 查询VoNR语音质量监控功能开关（LST APNVONRMONFUNC）
+              - 设置VoNR语音质量监控功能开关（SET APNVONRMONFUNC）
+            - VoNR单通检测
+              - 设置单通检测信息（SET VONRONEWAYSIL）
+              - 查询单通检测信息（LST VONRONEWAYSIL）
+              - 恢复单通检测的系统初始设置值（RTR VONRONEWAYSIL）
+            - VoNR吞字断续配置
+              - 恢复VoNR滑窗相关的参数（RTR VONRSWALBRK）
+              - 显示VoNR滑窗相关参数（LST VONRSWALBRK）
+              - 设置VoNR滑窗相关的参数（SET VONRSWALBRK）
+            - VoNR MOS值的异常门限值
+              - 指定MOS值的异常门限值（SET VONRABNORMOS）
+              - 查询配置的MOS值异常门限值信息（LST VONRABNORMOS）
+              - 恢复MOS值的异常门限为系统初始设置值（RTR VONRABNORMOS）
+            - VoNR 理想到达报文
+              - 查询理想报文的最小时延偏差、固定传输时延（LST VONRPERFTDELAY）
+              - 配置理想到达报文的最小时延偏差、固定传输时延（SET VONRPERFTDELAY）
+              - 恢复理想到达报文的最小时延偏差、固定传输时延（RTR VONRPERFTDELAY）
+          - 业务安全防护
+            - 用户ACL管理
+              - 缺省ACL绑定
+                - 增加缺省Acl绑定（ADD ACLDEFAULT）
+                - 修改缺省Acl绑定（MOD ACLDEFAULT）
+                - 查询缺省Acl绑定（LST ACLDEFAULT）
+                - 删除缺省Acl绑定（RMV ACLDEFAULT）
+              - ACL
+                - 删除ACL（RMV ACL）
+                - 查询ACL（LST ACL）
+                - 修改ACL（MOD ACL）
+                - 增加ACL（ADD ACL）
+              - SgwAcl
+                - 设置SGW ACL功能（SET SGWACLFUNC）
+                - 查询SGW ACL功能（LST SGWACLFUNC）
+              - ACL节点绑定ACL
+                - 增加Acl节点绑定关系（ADD ACLNODEBINDACL）
+                - 修改Acl节点绑定关系（MOD ACLNODEBINDACL）
+                - 删除Acl节点绑定关系（RMV ACLNODEBINDACL）
+                - 查询Acl节点绑定关系（LST ACLNODEBINDACL）
+              - ACL绑定APN
+                - 增加Acl绑定关系（ADD ACLBINDAPN）
+                - 修改Acl绑定关系（MOD ACLBINDAPN）
+                - 删除Acl绑定关系（RMV ACLBINDAPN）
+                - 查询Acl绑定关系（LST ACLBINDAPN）
+              - ACL节点
+                - 查询ACL节点（LST ACLNODE）
+                - 增加ACL节点（ADD ACLNODE）
+                - 修改ACL节点（MOD ACLNODE）
+                - 删除ACL节点（RMV ACLNODE）
+            - 用户攻击防护
+              - Gi重定向
+                - Gi重定向功能
+                  - 查询全局Gi重定向信息（LST GIREDIRECTFUNC）
+                  - 设置全局Gi重定向信息（SET GIREDIRECTFUNC）
+                - Gi重定向参数
+                  - 查询单一Gi重定向信息（LST GIREDIRECTPARA）
+                  - 删除单一Gi重定向信息（RMV GIREDIRECTPARA）
+                  - 修改单一Gi重定向信息（MOD GIREDIRECTPARA）
+                  - 添加单一Gi重定向信息（ADD GIREDIRECTPARA）
+              - 用户互访控制
+                - UE互访白名单
+                  - 删除PA口UE互访白名单（RMV UEMUTACCWLIST）
+                  - 增加PA口UE互访白名单（ADD UEMUTACCWLIST）
+                  - 查询PA口UE互访白名单（LST UEMUTACCWLIST）
+                - APN用户互访控制
+                  - 设置APN下用户互访控制配置（SET APNUEMUTACC）
+                  - 查询APN下用户互访控制配置（LST APNUEMUTACC）
+                - 全局用户互访控制
+                  - 查询全局用户互访控制配置（LST GLOBUEMUTACC）
+                  - 设置全局用户互访控制配置（SET GLOBUEMUTACC）
+                - UE互访白名单绑定APN
+                  - 删除APN绑定PA口UE互访白名单（RMV UEMUTWLISTBIND）
+                  - 查询APN绑定PA口UE互访白名单（LST UEMUTWLISTBIND）
+                  - 增加APN绑定PA口UE互访白名单（ADD UEMUTWLISTBIND）
+              - IP Spoofing攻击防护
+                - IPSpoof攻击防护
+                  - 展示IP防攻击功能状态（LST IPSPOOFFUNC）
+                  - 设置IP防护开关（SET IPSPOOFFUNC）
+                - 反嗅探告警
+                  - 查询IP Spoofing攻击告警阈值（LST IPSPOOFALMTHD）
+                  - 设置IP Spoofing攻击告警阈值控制（SET IPSPOOFALMTHD）
+                - 攻击用户去活的报文一分钟内个数门限
+                  - 设置攻击用户去活报文的阈值（SET ANTISPOOFINGTHD）
+                  - 查询攻击用户去活报文的阈值（LST ANTISPOOFINGTHD）
+              - DDoS防护
+                - 大流量攻击防护开关
+                  - 查询大流量攻击防护配置（LST TRFCDFDSWITCH）
+                  - 设置大流量攻击防护功能（SET TRFCDFDSWITCH）
+                - DDoS防护阈值
+                  - 查询DDoS防攻击流控阈值（LST DDOS）
+                  - 设置DDoS防攻击流控阈值（SET DDOS）
+                - 大流量攻击防护参数
+                  - 设置大流量攻击防护参数（SET TRFCDFDPARA）
+                  - 查询大流量攻击防护配置参数（LST TRFCDFDPARA）
+                - 大流量攻击防护APN开关
+                  - 查询APN大流量攻击防护配置（LST APNTRFCDFDSWITCH）
+                  - 设置大流量攻击防护APN开关（SET APNTRFCDFDSWITCH）
+              - UEPing逻辑接口控制
+                - 查询UE Ping逻辑接口开关（LST UEPINGINF）
+                - 设置UE Ping逻辑接口开关（SET UEPINGINF）
+            - 边缘业务安全防护
+              - 边缘接入控制
+                - 删除边缘接入控制（RMV EDGEACCESSCTRL）
+                - 增加边缘接入控制（ADD EDGEACCESSCTRL）
+                - 查询边缘接入控制（LST EDGEACCESSCTRL）
+                - 修改边缘接入控制（MOD EDGEACCESSCTRL）
+              - IPv4服务器列表
+                - 删除IPv4服务器列表（RMV SERVERLISTV4）
+                - 查询IPv4服务器列表（LST SERVERLISTV4）
+                - 增加IPv4服务器列表（ADD SERVERLISTV4）
+              - IPv6服务器列表
+                - 增加IPv6服务器列表（ADD SERVERLISTV6）
+                - 查询IPv6服务器列表（LST SERVERLISTV6）
+                - 删除IPv6服务器列表（RMV SERVERLISTV6）
+          - 会话管理
+            - 会话连通性检测
+              - 网络侧连通性检测
+                - PDN侧路由探测
+                  - 显示PDN自动探测结果（DSP PDNAUTOTSTRESULT）
+                  - 查询PDN自动探测开关状态（LST PDNAUTOTSTSW）
+                  - 修改UPF向PDN服务器发送探测消息的探测路径配置（MOD PDNROUTETSTPATH）
+                  - 停止PDN侧路由探测（STP PDNROUTETST）
+                  - 查询UPF向PDN服务器发送探测消息的探测路径配置（LST PDNROUTETSTPATH）
+                  - 增加UPF向PDN服务器发送探测消息的探测路径（ADD PDNROUTETSTPATH）
+                  - 启动PDN侧路由探测（STR PDNROUTETST）
+                  - 删除UPF向PDN服务器发送探测消息的探测路径（RMV PDNROUTETSTPATH）
+                  - 设置PDN自动探测功能开关（SET PDNAUTOTSTSW）
+                - 单通检测周期
+                  - 设置单通检测周期（SET SGLPASSPERIOD）
+                  - 查询单通检测周期（LST SGLPASSPERIOD）
+                - 业务Ping功能
+                  - 业务Ping功能（SRVPING）
+                - PDN侧路由探测信息
+                  - 查询PDN侧路由探测结果（DSP PDNTSTRESULT）
+                - 业务Tracert功能
+                  - 业务Tracert功能（SRVTRACERT）
+                - 单通检测
+                  - 设置APN单通检测开关（SET APNSGLPASS）
+                  - 查询APN单通检测开关（LST APNSGLPASS）
+              - UE侧连通性检测
+                - UE灌包功能
+                  - 设置UE灌包开关（SET UEINJECTSWITCH）
+                  - 查询UE灌包开关（LST UEINJECTSWITCH）
+                - UE灌包白名单
+                  - 设置UE灌包白名单（SET UEINJECTLIST）
+                  - 查询UE灌包白名单（LST UEINJECTLIST）
+                  - 删除UE灌包白名单（RMV UEINJECTLIST）
+                - UE灌包参数
+                  - 设置UE灌包参数（SET UEINJECTPKT）
+                  - 删除UE灌包参数（RMV UEINJECTPKT）
+                  - 查询UE灌包参数（LST UEINJECTPKT）
+                - UE灌包信息
+                  - 查询UE灌包状态（DSP UEINJECTSTAT）
+                - UE灌包测试
+                  - 发送UE灌包（ACT UEINJECTSEND）
+            - 会话地址管理
+              - 冲突地址管理
+                - IPv6冲突地址管理
+                  - 查询本地地址池中冲突IPv6地址（LST CONFLICTIPV6）
+                  - 删除本地地址池中冲突IPv6地址（RMV CONFLICTIPV6）
+                  - 添加本地地址池中冲突IPv6地址（ADD CONFLICTIPV6）
+                - IPv4冲突地址管理
+                  - 删除本地地址池中冲突IPv4地址（RMV CONFLICTIP）
+                  - 添加本地地址池中冲突IPv4地址（ADD CONFLICTIP）
+                  - 查询本地地址池中冲突地址（LST CONFLICTIP）
+              - APN的地址分配属性配置
+                - 设置ApnAddressAttr配置（SET APNADDRESSATTR）
+                - 查询ApnAddressAttr配置（LST APNADDRESSATTR）
+              - 地址段配置
+                - 修改地址段信息（MOD SECTION）
+                - 查询地址池IP地址段（LST SECTION）
+                - 删除地址池IP地址段（RMV SECTION）
+                - 锁定地址段（LCK SECTION）
+                - 添加地址池IP地址段（ADD SECTION）
+              - 地址池配置
+                - 添加地址池（ADD UPPOOL）
+                - 修改地址池（MOD UPPOOL）
+                - 锁定地址池（LCK UPPOOL）
+                - 删除地址池（RMV UPPOOL）
+                - 显示地址池（LST UPPOOL）
+              - 静态地址用户路由冗余
+                - 冗余备份重定向IP
+                  - 增加冗余备份重定向IP地址（ADD REDUNDRDTIP）
+                  - 修改冗余备份重定向IP（MOD REDUNDRDTIP）
+                  - 删除冗余备份重定向IP地址（RMV REDUNDRDTIP）
+                  - 查询冗余备份重定向IP（LST REDUNDRDTIP）
+                - APN静态路由冗余上行报文隧道转发功能配置
+                  - 查询指定APN静态地址路由冗余上行报文隧道转发功能开关（LST APNREDUNDUPSW）
+                  - 配置APN路由冗余上行报文隧道转发功能开关（SET APNREDUNDUPSW）
+                - 路由冗余开关
+                  - 查询静态地址用户路由冗余功能（LST REDUNDUSER）
+                  - 配置静态地址用户路由冗余功能（SET REDUNDUSER）
+              - 位置区域地址分配用户白名单
+                - 删除位置区域地址分配用户白名单（RMV ADRLOCWHITELST）
+                - 查询位置区域地址分配用户白名单（LST ADRLOCWHITELST）
+                - 添加区域地址分配用户白名单（ADD ADRLOCWHITELST）
+              - SMF属性
+                - 修改SMF的NodeID（MOD CPNODEID）
+                - 显示SMF的NodeID（LST CPNODEID）
+                - 删除SMF的NodeID（RMV CPNODEID）
+                - 添加SMF的NodeID（ADD CPNODEID）
+              - 基于位置区分配地址开关
+                - 添加基于位置区+PLMN分配地址的开关（ADD IPALLOCBYPLMNLOCSW）
+                - 显示基于位置区分配地址的全局开关（LST IPALLOCBYLOCGLBSW）
+                - 设置基于位置区分配地址的全局开关（SET IPALLOCBYLOCGLBSW）
+                - 删除基于位置区+PLMN分配地址的开关（RMV IPALLOCBYPLMNLOCSW）
+                - 设置基于位置区分配地址的开关（SET IPALLOCBYLOCSW）
+                - 显示基于位置区+PLMN分配地址的开关（LST IPALLOCBYPLMNLOCSW）
+                - 修改基于位置区+PLMN分配地址的开关（MOD IPALLOCBYPLMNLOCSW）
+                - 显示基于位置区分配地址的开关（LST IPALLOCBYLOCSW）
+              - 基于APN的地址分配规则
+                - 基于APN配置地址分配规则（SET APNIPALLOCRULE）
+                - 显示基于APN分配地址的规则（LST APNIPALLOCRULE）
+              - 地址段使用情况
+                - 显示地址段使用情况（DSP SECTIONUSAGE）
+              - 地址池使用情况
+                - 显示地址池使用情况（DSP POOLUSAGE）
+              - 基于SMF分配地址开关
+                - 设置基于SMF分配地址全局开关（SET IPALLOCBYSMFGLBSW）
+                - 显示基于SMF分配地址开关（LST IPALLOCBYSMFSW）
+                - 显示基于SMF分配地址的全局开关（LST IPALLOCBYSMFGLBSW）
+                - 设置基于SMF分配地址的开关（SET IPALLOCBYSMFSW）
+              - Imsi绑定Pod
+                - 增加IMSI和Pod绑定关系（ADD IMSIBINDPOD）
+                - 查询IMSI和Pod绑定关系（LST IMSIBINDPOD）
+                - 修改IMSI和Pod的绑定关系（MOD IMSIBINDPOD）
+                - 删除IMSI和Pod的绑定关系（RMV IMSIBINDPOD）
+              - 地址池组映射关系
+                - 添加地址池组映射关系（ADD POOLGRPMAP）
+                - 显示地址池组映射关系（LST POOLGRPMAP）
+                - 移除地址池组映射关系（RMV POOLGRPMAP）
+              - 地址池组
+                - 删除地址池组（RMV POOLGROUP）
+                - 显示地址池组（LST POOLGROUP）
+                - 修改地址池组（MOD POOLGROUP）
+                - 添加地址池组（ADD POOLGROUP）
+              - IPv6接口标识管理
+                - APN IPv6接口标识管理
+                  - 设置APN IPv6接口ID配置（SET APNIPV6INFID）
+                  - 查询APN IPv6接口ID配置（LST APNIPV6INFID）
+                - 全局IPv6接口标识管理
+                  - 查询整机IPv6接口ID配置（LST GLBIPV6INFID）
+                  - 设置整机IPv6接口ID配置（SET GLBIPV6INFID）
+              - 全局地址分配属性配置
+                - 查询AddressAttr配置（LST ADDRESSATTR）
+                - 设置全局地址分配属性（SET ADDRESSATTR）
+              - 地址池绑定地址池组
+                - 显示地址池与地址池组绑定关系（LST POOLBINDGROUP）
+                - 修改地址池绑定地址池组中的地址池优先级（MOD POOLBINDGROUP）
+                - 将地址池从地址池组中移除（RMV POOLBINDGROUP）
+                - 绑定地址池到地址池组（ADD POOLBINDGROUP）
+              - 用户路由可靠性配置
+                - 显示用户路由可靠性配置（LST USERROUTINGSW）
+                - 设置用户路由可靠性配置（SET USERROUTINGSW）
+              - 地址分配规则
+                - 设置地址分配规则（SET IPALLOCRULE）
+                - 显示地址分配规则（LST IPALLOCRULE）
+              - 回收地址
+                - 回收地址（ACT RECYCLE）
+              - APN和地址池组映射关系
+                - 显示APN和地址池组映射关系（LST APNREFPOOLGRP）
+            - 会话信息管理
+              - 会话去活
+                - 去活用户会话（DEA SESSION）
+                - 停止去活用户的处理（ACT STOPDEASESSION）
+              - 会话去活速率
+                - 显示去活用户会话的速率（LST DEACTIVERATE）
+                - 配置去活用户会话的速率（SET DEACTIVERATE）
+              - 会话信息查询
+                - 显示用户上下文（DSP SESSIONINFO）
+              - 查看APN当前在线会话数
+                - 按照IP地址分配方式查看当前在线会话数（DSP APNSESSIONSTATS）
+              - NF锁定开关
+                - 设置NF锁定开关（LCK NF）
+                - 查询NF的锁定信息（LST NF）
+              - 允许IMSI在特定的Worker POD上激活
+                - 允许IMSI在特定的Worker Pod上激活配置（ACT IMSIALLOWWKPOD）
+                - 查询允许IMSI在特定的Worker Pod上激活信息（DSP IMSIALLOWWKPOD）
+              - 灰度升级拨测用户信息
+                - 删除灰度升级拨测用户（RMV GRAYUPTSTUSER）
+                - 增加灰度升级拨测用户（ADD GRAYUPTSTUSER）
+                - 查询支持灰度升级拨测的用户（LST GRAYUPTSTUSER）
+              - APN的接入速率属性配置
+                - 设置Apn接入速率配置（SET APNACCESSWAL）
+                - 查询Apn接入速率配置（LST APNACCESSWAL）
+              - 非3GPP业务管理
+                - 设置非3GPP业务配置参数（SET UPNON3GPPPARA）
+                - 查询非3GPP业务配置参数（LST UPNON3GPPPARA）
+              - 用户运行信息收集
+                - 删除网关对IMSI/MSISDN指定的用户的运行信息进行收集配置（RMV USERRUNINFO）
+                - 显示运行信息进行收集配置用户（LST USERRUNINFO）
+                - 添加网关对IMSI/MSISDN指定的用户的运行信息进行收集配置（ADD USERRUNINFO）
+              - 检测用户开关
+                - 设置用户检测开关（SET SESSIONDETECT）
+                - 查看用户检测开关（LST SESSIONDETECT）
+              - 用户纯转发配置
+                - 删除纯转发用户配置（RMV PUREFWDUSER）
+                - 显示纯转发用户配置（LST PUREFWDUSER）
+                - 设置指定用户进行纯转发（ADD PUREFWDUSER）
+              - POD锁定开关
+                - 锁定/解锁POD（LCK POD）
+                - 查询锁定的POD（LST LCKPOD）
+              - 用户运行信息查询
+                - 查询指定用户的运行信息（DSP USERRUNINFOSTATE）
+                - 清除指定用户全部的运行信息记录（CLR USERRUNINFOSTATE）
+              - 信令失败统计结果查询
+                - 显示信令失败统计的结果（DSP SESSIONMSGSTAT）
+              - 检测用户信息
+                - 查询检测用户信息（DSP SESSIONDETECT）
+              - 会话标准信息查询
+                - 显示用户上下文（DSP STDSESSION）
+              - 查询会话去活状态
+                - 显示去活操作状态（DSP DEACTIVESTATE）
+              - 承载数目查询
+                - 显示承载数（DSP BEARERNUM）
+              - 业务惯性运行
+                - 查询惯性运行功能配置（LST INERTIALOPER）
+                - 设置惯性运行功能（SET INERTIALOPER）
+              - 查询会话用量信息
+                - 查询会话上下文用量信息（DSP USAGEINFO）
+              - 阻塞IMSI在特定的Worker Pod上激活
+                - 查询阻塞IMSI在特定的Worker Pod上激活信息（DSP IMSIBLOCKWKPOD）
+                - 阻塞IMSI在特定的Worker Pod上激活配置（ACT IMSIBLOCKWKPOD）
+              - 空闲会话去激活
+                - 去激活空闲会话（DEA IDLESESSION）
+              - 会话数目查询
+                - 显示会话数（DSP SESSIONNUMBER）
+            - L2TP隧道管理
+              - L2tp组Lns信息
+                - 添加LNS与L2TP组绑定关系（ADD L2TPLNSINFO）
+                - 查询L2TP组的LNS信息（LST L2TPLNSINFO）
+                - 删除L2TP组中的LNS信息（RMV L2TPLNSINFO）
+                - 修改L2TP组的LNS信息（MOD L2TPLNSINFO）
+              - APN绑定L2TP接口
+                - 增加APN绑定的L2TP接口（ADD L2TPRDSCLIENT）
+                - 删除APN绑定的L2TP接口（RMV L2TPRDSCLIENT）
+                - 查询APN绑定的L2TP接口（LST L2TPRDSCLIENT）
+              - PPP接入
+                - 设置APN PPP配置（SET APNPPPACCESS）
+                - 查询APN PPP配置（LST APNPPPACCESS）
+              - 域名分隔符
+                - 配置前后缀分隔符（SET DOMAINSEPARATOR）
+                - 查询前后缀分隔符（LST DOMAINSEPARATOR）
+              - L2TP报文统计维护
+                - 清除L2TP报文统计信息（CLR L2TPSTATISTICS）
+                - 查询L2TP报文统计信息（DSP L2TPSTATISTICS）
+              - L2TP组绑定源端接口
+                - 增加L2TP绑定的接口（ADD L2TPCLIENTIP）
+                - 查询L2TP绑定的接口（LST L2TPCLIENTIP）
+                - 删除L2TP绑定的接口（RMV L2TPCLIENTIP）
+              - APN的L2TP属性
+                - 查询APN L2TP配置（LST APNL2TPATTR）
+                - 设置APN L2TP配置（SET APNL2TPATTR）
+              - PPP配置
+                - 查询PPP配置（LST PPPCFG）
+                - 设置PPP配置（SET PPPCFG）
+              - L2TP N4密码
+                - 设置L2TP N4密码配置（SET L2TPN4KEY）
+                - 查询L2TP N4密码配置（LST L2TPN4KEY）
+              - L2TP缺省配置
+                - 查询L2TP配置（LST GLOBALL2TP）
+                - 设置L2TP配置（SET GLOBALL2TP）
+              - L2TP会话查询
+                - 查询L2TP隧道下L2TP会话相关信息（DSP L2TPSESSION）
+              - L2TP隧道查询
+                - 查询L2TP隧道的相关信息（DSP L2TPTUNNEL）
+              - L2TP组
+                - 查询指定L2TP组（LST L2TPGROUP）
+                - 创建L2TP组（ADD L2TPGROUP）
+                - 删除指定L2TP组（RMV L2TPGROUP）
+                - 修改指定L2TP组（MOD L2TPGROUP）
+            - 会话位置管理
+              - TAI组
+                - 添加一个新的TAI组（ADD TAIGROUP）
+                - 删除指定的TAI组（RMV TAIGROUP）
+                - 查看指定TAI组或者已配置所有TAI组的配置信息（LST TAIGROUP）
+              - TAC组
+                - 查看指定TAC组或者已配置所有TAC组的配置信息（LST TACGROUP）
+                - 添加一个新的TAC组（ADD TACGROUP）
+                - 删除指定的TAC组（RMV TACGROUP）
+              - LAC组
+                - 查看指定LAC组或者已配置所有LAC组的配置信息（LST LACGROUP）
+                - 删除指定的LAC组（RMV LACGROUP）
+                - 添加一个新的LAC组（ADD LACGROUP）
+              - 位置实时通知
+                - 设置主动触发用户位置实时通知功能（SET USRREALLOCNTY）
+                - 查询主动触发用户位置实时通知功能（LST USRREALLOCNTY）
+              - LAC段
+                - 查看LAC与LAC组的绑定关系（LST LACID）
+                - 从LAC组内删除一个LAC（RMV LACID）
+                - 在LAC组内添加一个LAC（ADD LACID）
+              - N2TAC段
+                - 在N2TAC组内添加一个N2TAC（ADD N2TACID）
+                - 从N2TAC组内删除一个TAC（RMV N2TACID）
+                - 查看N2TAC与N2TAC组的绑定关系（LST N2TACID）
+              - TAI组与TAI号段绑定关系
+                - 删除TAC号段与TAI组的绑定关系（RMV TAIGROUPBINDING）
+                - 查看TAI组绑定的TAC号段（LST TAIGROUPBINDING）
+                - 绑定TAC号段到TAI组（ADD TAIGROUPBINDING）
+              - S1TAC段
+                - 在S1TAC组内添加一个S1TAC（ADD S1TACID）
+                - 查看S1TAC与S1TAC组的绑定关系（LST S1TACID）
+                - 从S1TAC组内删除一个S1TAC（RMV S1TACID）
+            - GTP隧道管理
+              - 全局下行数据缓存时长
+                - 查询全局下行数据缓存时长配置（LST GLBDLBUFTIME）
+                - 设置全局下行数据缓存时长（SET GLBDLBUFTIME）
+              - 全局下行数据长时间缓存
+                - 查询全局下行数据长时间缓存配置（LST GLBDLLTBUFFER）
+                - 设置全局下行数据长时间缓存个数（SET GLBDLLTBUFFER）
+              - APN下行数据长时间缓存
+                - 查询基于APN的下行数据长时间缓存配置（LST APNDLLTBUFFER）
+                - 设置基于APN的下行数据长时间缓存配置（SET APNDLLTBUFFER）
+              - 报文DDN 触发策略
+                - 查询DDN控制策略（LST DDNCTRL）
+                - 设置DDN报文策略（SET DDNCTRL）
+              - 基于APN的下行报文触发寻呼的流控参数
+                - 查询APN的下行数据DDN寻呼流控方式（LST APNDDNFLOWCTRL）
+                - 设置基于APN的下行数据DDN寻呼流控方式（SET APNDDNFLOWCTRL）
+              - CP分配TEID-U控制
+                - 配置CP分配TEID-U开关（SET CPTEIDUALLOC）
+                - 查询CP分配TEID-U开关（LST CPTEIDUALLOC）
+              - APN的下行数据缓存时长
+                - 设置基于APN的下行数据缓存时长（SET APNDLBUFTIME）
+                - 查询APN的下行数据缓存时长配置（LST APNDLBUFTIME）
+            - 过载限速
+              - 过载限速控制APN黑名单
+                - 查询过载限速APN黑名单（LST APNOLQCBLACKLIST）
+                - 增加过载限速APN黑名单（ADD APNOLQCBLACKLIST）
+                - 删除过载限速APN黑名单（RMV APNOLQCBLACKLIST）
+              - 过载限速参数
+                - 设置过载限速参数（SET OVERLOADQOSCTRL）
+                - 查询过载限速参数（LST OVERLOADQOSCTRL）
+            - 网络切片管理
+              - 网络切片与逻辑接口绑定关系配置
+                - 增加网络切片和逻辑接口绑定关系（ADD SNSSAIUPINTF）
+                - 删除网络切片和逻辑接口绑定关系（RMV SNSSAIUPINTF）
+                - 修改网络切片和逻辑接口绑定关系（MOD SNSSAIUPINTF）
+                - 查询网络切片和逻辑接口绑定关系（LST SNSSAIUPINTF）
+              - 网络切片选择标识
+                - 增加NF支持的网络切片选择标识（ADD SNSSAI）
+                - 查询NF支持的网络切片选择标识（LST SNSSAI）
+                - 删除NF支持的网络切片选择标识（RMV SNSSAI）
+              - 网络切片实例信息
+                - 添加切片实例信息（ADD SLICEINSTINFO）
+                - 显示切片实例信息（LST SLICEINSTINFO）
+                - 删除切片实例信息（RMV SLICEINSTINFO）
+            - 会话均衡基线能力
+              - 查询会话均衡基线能力值（LST SESSLBCAPABILITY）
+              - 删除会话均衡基线能力值（RMV SESSLBCAPABILITY）
+              - 添加会话均衡基线能力值（ADD SESSLBCAPABILITY）
+              - 修改会话均衡基线能力值（MOD SESSLBCAPABILITY）
+            - 业务恢复管理
+              - 业务快速恢复
+                - 查询全局业务快速恢复配置（LST FASTRECOVERY）
+                - 设置全局业务快速恢复配置（SET FASTRECOVERY）
+              - 业务核查
+                - 设置会话核查配置（SET SESSCHKFUNC）
+                - 查询会话核查配置（LST SESSCHKFUNC）
+            - 会话应急管理
+              - 应急授权时长
+                - 设置惯性运行/应急接入授权时长（SET EMERGAUTHTIMER）
+                - 查询惯性运行/应急接入授权时长（LST EMERGAUTHTIMER）
+              - 应急授权
+                - 惯性运行/应急接入授权（ACT EMERGAUTHACCESS）
+              - 应急授权状态
+                - 显示应急授权状态（DSP EMERGAUTHSTATUS）
+            - 异常用户信息查询
+              - 显示异常用户（DSP EXEPSESSINFO）
+          - 路径管理
+            - PFCP路径管理
+              - UP信息管理
+                - MNC长度
+                  - 删除MNC长度信息（RMV MNCLEN）
+                  - 设置MNC长度信息（ADD MNCLEN）
+                  - 修改MNC长度信息（MOD MNCLEN）
+                  - 显示MNC长度信息（LST MNCLEN）
+                - UP状态
+                  - 设置UP 状态信息（SET UPSTATUS）
+                  - 显示UP 状态（LST UPSTATUS）
+                - 归属地PLMN
+                  - 配置UPF设备的归属PLMN（ADD HPLMNLIST）
+                  - 查看UPF设备的归属PLMN（LST HPLMNLIST）
+                  - 删除UPF设备的归属PLMN（RMV HPLMNLIST）
+                - UP信息
+                  - 设置UP信息（SET UPINFO）
+                  - 查询 UP 参数信息（LST UPINFO）
+                - UP主动被动建联开关
+                  - 主被动切换（SET UPINITSETUP）
+                  - 显示主被动切换（LST UPINITSETUP）
+              - CP节点管理
+                - CP白名单配置
+                  - 删除CP白名单（RMV CPACCESSLIST）
+                  - 查询CP白名单（LST CPACCESSLIST）
+                  - 添加CP白名单（ADD CPACCESSLIST）
+                - CP
+                  - 查询CP配置（LST CPASSOCIATION）
+                  - 删除CP（RMV CPASSOCIATION）
+                  - 添加CP（ADD CPASSOCIATION）
+                - CP节点信息
+                  - 显示CP信息（DSP CPINFO）
+                - CP白名单开关配置
+                  - 查询CP白名单开关（LST CPACCESSLISTFUNC）
+                  - 配置CP白名单开关（SET CPACCESSLISTFUNC）
+              - PFCP负荷上报管理
+                - SSU负荷上报
+                  - 设置智能单元状态上报开关相关属性（SET PFCPSSUSTATERPT）
+                  - 查询智能单元状态上报相关属性（LST PFCPSSUSTATERPT）
+                - PFCP过载上报
+                  - 查询过载上报开关（LST PFCPOVERLOADRPT）
+                  - 设置过载上报开关（SET PFCPOVERLOADRPT）
+                - PFCP负荷上报
+                  - 设置负荷上报开关（SET PFCPLOADRPT）
+                  - 查询系统负荷上报开关（LST PFCPLOADRPT）
+              - PFCP参数管理
+                - PFCP路径参数
+                  - 设置PFCP路径相关属性（SET UPPFCPPATH）
+                  - 查询路径相关属性（LST UPPFCPPATH）
+                - UP系统开工参数
+                  - 设置系统开工流程中系统开工、系统参数更新、系统停工消息的参数（SET UPFSTARTPARA）
+                  - 查询UPF系统开工流程消息的参数（LST UPFSTARTPARA）
+            - VXLAN路径管理
+              - VXLAN隧道端点配置
+                - 增加VXLAN隧道端点配置（ADD VTEP）
+                - 查询VXLAN隧道端点（LST VTEP）
+                - 删除VXLAN隧道端点（RMV VTEP）
+                - 修改VXLAN隧道端点（MOD VTEP）
+              - VXLAN组信息
+                - 修改VXLAN组（MOD VXLANGRP）
+                - 查询VXLAN组（LST VXLANGRP）
+                - 新增VXLAN组（ADD VXLANGRP）
+                - 删除VXLAN组（RMV VXLANGRP）
+              - 查询VXLAN Group状态
+                - 显示VXLAN组链路状态（DSP VXLANGRPSTAT）
+              - 查询VTEP状态
+                - 显示Vtep状态（DSP VTEPSTAT）
+              - 5GLAN实例绑定VXLAN组
+                - 增加5G LAN实例绑定VXLAN组（ADD NGVNBINDVXLAN）
+                - 删除5G LAN实例绑定VXLAN组配置（RMV NGVNBINDVXLAN）
+                - 查询5G LAN实例绑定VXLAN组（LST NGVNBINDVXLAN）
+              - VPN VNI 映射
+                - 查询VPN VNI映射（LST VPNVNIMAP）
+                - 修改VPN VNI映射（MOD VPNVNIMAP）
+                - 删除VPN VNI映射（RMV VPNVNIMAP）
+                - 增加VPN VNI映射（ADD VPNVNIMAP）
+              - VXLAN隧道绑定Rule
+                - 查询VXLAN隧道组绑定Rule（LST VXLANBINDRULE）
+                - 修改VXLAN隧道组绑定Rule（MOD VXLANBINDRULE）
+                - 删除VXLAN隧道组绑定Rule（RMV VXLANBINDRULE）
+                - 新增VXLAN隧道组绑定Rule（ADD VXLANBINDRULE）
+              - VXLAN隧道绑定APN
+                - 删除VXLAN隧道组绑定APN（RMV VXLANBINDAPN）
+                - 新增VXLAN隧道组绑定APN（ADD VXLANBINDAPN）
+                - 查询VXLAN隧道组绑定APN（LST VXLANBINDAPN）
+                - 修改VXLAN隧道组绑定APN（MOD VXLANBINDAPN）
+              - VTEP绑定VXLAN隧道组
+                - 删除VXLAN隧道端点绑定隧道组（RMV VTEPBINDGRP）
+                - 增加VXLAN隧道端点绑定隧道组（ADD VTEPBINDGRP）
+                - 修改VXLAN隧道端点绑定隧道组（MOD VTEPBINDGRP）
+                - 查询VXLAN隧道端点绑定隧道组（LST VTEPBINDGRP）
+              - 家庭网关VXLAN隧道参数
+                - 设置家庭网关业务使用VXLAN隧道传输业务参数配置（SET TOHVXLANPARA）
+                - 查询家庭网关业务使用VXLAN隧道传输业务参数配置（LST TOHVXLANPARA）
+            - GTP路径管理
+              - GTP协议参数管理
+                - 用户面路径状态上报开关
+                  - 设置用户面路径状态上报功能（SET PATHSTATUSRPT）
+                  - 查询用户面路径状态上报功能（LST PATHSTATUSRPT）
+                - N4U路径全局参数
+                  - 查询N4U路径相关属性（LST UPN4UPATH）
+                  - 设置N4U路径相关属性（SET UPN4UPATH）
+                - GTP路径全局参数
+                  - 查询路径相关属性（LST UPGTPPATH）
+                  - 设置GTP路径相关属性（SET UPGTPPATH）
+                - 路径地址列表
+                  - 配置GTP路径管理IP地址（ADD ECHOIPLIST）
+                  - 删除GTP路径管理IP地址（RMV ECHOIPLIST）
+                  - 查询GTP路径管理IP地址（LST ECHOIPLIST）
+                - 路径数目
+                  - 查询路径数（DSP PATHNUMBER）
+                - 查询路径信息
+                  - 查询路径信息（DSP PATHINFO）
+              - GTP路径测试
+                - 探测路径
+                  - 探测路径（TST PATH）
+                - 批量路径探测
+                  - 停止批量路径探测（STP PATHSTST）
+                  - 启动批量路径探测（STR PATHSTST）
+                - 批量路径探测结果
+                  - 查询批量路径探测结果（DSP PATHSTSTRESULT）
+            - N6路径管理
+              - N6路径参数
+                - 删除探测路径配置（RMV DETECTPATH）
+                - 添加探测路径配置（ADD DETECTPATH）
+                - 修改探测路径配置（MOD DETECTPATH）
+                - 查询探测路径配置（LST DETECTPATH）
+              - APN与路径绑定关系
+                - 查询APNBindPath配置（LST APNBINDPATH）
+                - 添加APNBindPath配置（ADD APNBINDPATH）
+                - 删除APNBindPath配置（RMV APNBINDPATH）
+              - APN周期上报参数
+                - 设置APN N6故障状态上报周期（SET RPTPERIOD）
+                - 显示APN N6故障状态上报周期（LST RPTPERIOD）
+            - TM路径管理
+              - TM路径参数
+                - 查询TM路径相关属性（LST UPTMPATH）
+                - 设置TM路径相关属性（SET UPTMPATH）
+              - TSN节点信息
+                - 显示TSN信息（DSP TSNINFO）
+          - DN管理
+            - NE信息管理
+              - NE类型管理
+                - 显示 NeInfo（DSP NEINFO）
+                - 恢复 NeType默认值（RTR NETYPE）
+                - 设置 NE 类型（SET NETYPE）
+              - NF实例标识管理
+                - 显示当前配置的NF实例ID（LST UPINSTID）
+                - 添加NF实例ID（ADD UPINSTID）
+                - 删除NF实例ID（RMV UPINSTID）
+            - APN管理
+              - APN最大五元组数
+                - 查询APN最大流数（LST APNFLOWMAXNUM）
+                - 设置APN最大流数（SET APNFLOWMAXNUM）
+                - 删除APN最大流数（RMV APNFLOWMAXNUM）
+              - APN
+                - 添加APN配置（ADD UPAPN）
+                - 删除APN配置（RMV UPAPN）
+                - 设置APN锁定配置（LCK UPAPN）
+                - 修改APN配置（MOD UPAPN）
+                - 查询APN配置（LST UPAPN）
+              - APN上报属性
+                - 查询ApnReportAttr配置（LST APNREPORTATTR）
+                - 设置ApnReportAttr配置（SET APNREPORTATTR）
+              - 指定上报的APN
+                - 删除用户APN与消息交互使用APN的映射关系（RMV SPECIFICAPNVAL）
+                - 修改用户APN与消息交互使用APN的映射关系（MOD SPECIFICAPNVAL）
+                - 增加用户APN与消息交互使用APN的映射关系（ADD SPECIFICAPNVAL）
+                - 查询用户APN与消息交互使用APN的映射关系（LST SPECIFICAPNVAL）
+              - 别名APN
+                - 添加ApnAlias配置（ADD APNALIAS）
+                - 删除ApnAlias配置（RMV APNALIAS）
+                - 查询ApnAlias配置（LST APNALIAS）
+              - APN软参配置数据管理
+                - 查询APN软参记录（LST UPAPNSOFTPARA）
+                - 配置APN软参记录（SET UPAPNSOFTPARA）
+                - 恢复APN软参记录（RTR UPAPNSOFTPARA）
+              - APN N6隧道状态上报
+                - 查询隧道状态上报开关（LST APNTNLSTATUSRPT）
+                - 设置隧道状态上报（SET APNTNLSTATUSRPT）
+            - IP Farm 管理
+              - IP Farm全局参数
+                - 查询IPFarm全局参数（LST IPFARMGLOBAL）
+                - 设置IPFarm全局参数（SET IPFARMGLOBAL）
+              - IP Farm服务器
+                - 修改IPFarmServer（MOD IPFARMSERVER）
+                - 查询IPFarmServer（LST IPFARMSERVER）
+                - 增加IPFarmServer（ADD IPFARMSERVER）
+                - 删除IPFarmServer（RMV IPFARMSERVER）
+                - 查询IPFarm服务器状态（DSP IPFARMSERVER）
+              - IP Farm参数
+                - 查询IPFarm（DSP IPFARM）
+                - 查询IPFarm（LST IPFARM）
+                - 增加IPFarm（ADD IPFARM）
+                - 修改IPFarm（MOD IPFARM）
+                - 删除IPFarm（RMV IPFARM）
+            - 逻辑接口管理
+              - 逻辑接口配置
+                - 备份逻辑接口
+                  - 查询逻辑口（LST UDGNRMINTF）
+                  - 删除逻辑口（RMV UDGNRMINTF）
+                  - 增加逻辑口（ADD UDGNRMINTF）
+                - UDP环回
+                  - 查询UDP环回配置（LST LOOPUDP）
+                  - 配置UDP环回功能（SET LOOPUDP）
+                - 接口
+                  - 修改逻辑接口（MOD LOGICINF）
+                  - 查询逻辑接口（LST LOGICINF）
+                  - 删除逻辑接口（RMV LOGICINF）
+                  - 增加逻辑接口（ADD LOGICINF）
+              - 逻辑接口统计
+                - 接口统计
+                  - 查询逻辑口报文统计信息（DSP INTERFACEPERF）
+                - 清除接口统计
+                  - 清除逻辑口报文统计信息（CLR INTERFACEPERF）
+              - IP合一管理
+                - 设置CP和UP IP合一控制功能（SET CUSINGLEIPATTR）
+                - 查询CP和UP IP合一控制功能（LST CUSINGLEIPATTR）
+              - IPSUIT 信息
+                - 显示IPsuit信息（DSP IPSUIT）
+            - VPN管理
+              - 查询与指定VPN实例绑定的实体
+                - 查询与指定VPN实例绑定的实体（LST VPNRELATEOBJECT）
+              - VPN
+                - 查询VPN实例（LST VPNINST）
+                - 增加VPN实例（ADD VPNINST）
+                - 删除VPN实例（RMV VPNINST）
+            - 网络实例管理
+              - 网络实例配置
+                - 添加网络实例配置（ADD NETWORKINSTVPNMAP）
+                - 删除网络实例配置（RMV NETWORKINSTVPNMAP）
+                - 查询网络实例配置（LST NETWORKINSTVPNMAP）
+            - DNAI管理
+              - 数据网络接入标识
+                - 查询DNAI配置（LST DNAI）
+                - 修改DNAI配置（MOD DNAI）
+                - 删除DNAI配置（RMV DNAI）
+                - 添加DNAI配置（ADD DNAI）
+                - 设置DNAI锁定配置（LCK DNAI）
+            - M2M管理
+              - APN的Non-IP配置
+                - 设置APN Non-IP配置（SET APNNONIPFUNC）
+                - 查询APN Non-IP功能配置（LST APNNONIPFUNC）
+            - 流量转发管理
+              - 大流检测功能
+                - 设置大流优化参数(SET FLOWLETPARA)
+                - 查询大流优化参数(LST FLOWLETPARA)
+              - APN流量转发功能
+                - 查询APN流量转发配置（LST APNTRAFDFUNC）
+                - 设置流量转发APN开关（SET APNTRAFDFUNC）
+            - 宽带集群管理
+              - 宽带集群属性配置
+                - 查询宽带集群属性配置（LST TRUNKATTR）
+                - 设置宽带集群属性配置（SET TRUNKATTR）
+          - 业务运维
+            - 业务性能统计管理
+              - 业务性能统计上报范围配置
+                - 显示UPF上报性能指标范围配置（LST UPFPERFRANGE）
+                - 更新UPF上报性能指标范围配置（MOD UPFPERFRANGE）
+                - 删除UPF上报性能指标范围配置（RMV UPFPERFRANGE）
+                - 添加UPF上报性能指标范围配置（ADD UPFPERFRANGE）
+              - 用户选择范围
+                - 删除用户选择范围列表（RMV USERSELRANGE）
+                - 添加用户选择范围列表（ADD USERSELRANGE）
+                - 显示用户选择范围列表（LST USERSELRANGE）
+              - EPRPDYN性能统计对象
+                - 查询EPRPDYN对象（LST EPRPDYN）
+                - 添加EPRPDYN对象（ADD EPRPDYN）
+                - 删除EPRPDYN对象（RMV EPRPDYN）
+              - 业务匹配统计配置
+                - 查询业务匹配统计参数（LST SRVMATCHSTAT）
+                - 设置业务匹配统计参数（SET SRVMATCHSTAT）
+                - 查询业务匹配统计结果（DSP SRVMATCHSQRY）
+              - 地址池统计配置
+                - 删除地址池统计配置（RMV ADDRPOOLSTAT）
+                - 查询地址池统计配置（LST ADDRPOOLSTAT）
+                - 增加地址池统计配置（ADD ADDRPOOLSTAT）
+              - 业务统计协议绑定
+                - 增加业务统计协议绑定配置（ADD PROTBINDSRVS）
+                - 删除业务统计协议绑定配置（RMV PROTBINDSRVS）
+                - 查询业务统计协议绑定配置（LST PROTBINDSRVS）
+              - EPRPSTA性能统计对象
+                - 删除EPRPSTA对象（RMV EPRPSTA）
+                - 添加EPRPSTA对象（ADD EPRPSTA）
+                - 查询EPRPSTA对象（LST EPRPSTA）
+              - 业务实例性能统计对象
+                - 增加业务统计配置（ADD SERVICESTAT）
+                - 删除业务统计配置（RMV SERVICESTAT）
+                - 修改业务统计配置（MOD SERVICESTAT）
+                - 查询业务统计配置（LST SERVICESTAT）
+              - EPRPDYN性能统计对象的地址段
+                - 删除EpRpDyn对象本端IP地址或者删除远端IP地址段（RMV EPRPDYNIP）
+                - 配置EpRpDyn对象本端IP地址或者配置远端IP地址段（ADD EPRPDYNIP）
+                - 查询EpRpDyn对象的IP配置结果（LST EPRPDYNIP）
+              - 用户策略选择
+                - 查询用户策略选择（LST USERSELPLCY）
+                - 删除用户策略选择（RMV USERSELPLCY）
+                - 添加用户策略选择（ADD USERSELPLCY）
+              - 业务统计实例对象绑定规则
+                - 增加业务统计规则绑定配置（ADD RULEBINDSRVS）
+                - 查询业务统计规则绑定配置（LST RULEBINDSRVS）
+                - 删除业务统计规则绑定配置（RMV RULEBINDSRVS）
+              - Perf GtpVer
+                - 删除版本粒度的测量对象（RMV PERFGTPVER）
+              - 用户选择属性
+                - 显示用户选择属性（LST USERSELATTR）
+                - 删除用户选择属性（RMV USERSELATTR）
+                - 添加用户选择属性列表（ADD USERSELATTR）
+              - APN的业务统计开关设置
+                - 设置APN业务统计开关（SET APNSRVSTATFUNC）
+                - 查询APN业务统计开关（LST APNSRVSTATFUNC）
+              - TcpStatRttRange
+                - 设置TCP统计功能的RTT区间（SET TCPSTATRTTRANGE）
+                - 恢复TCP统计功能的RTT区间为初始值（RTR TCPSTATRTTRANGE）
+                - 查询TCP统计功能的RTT区间（LST TCPSTATRTTRANGE）
+            - 业务告警管理
+              - 单条路径断告警的分段抑制参数
+                - 修改单条路径断告警抑制参数的分段配置（MOD PATHDWNALMSEG）
+                - 增加单条路径断告警抑制参数的分段配置（ADD PATHDWNALMSEG）
+                - 查询单条路径断告警抑制参数的分段配置（LST PATHDWNALMSEG）
+                - 删除单条路径断告警抑制参数的分段配置（RMV PATHDWNALMSEG）
+              - 业务CPU过载告警阈值
+                - 查询ISU POD业务CPU过载告警阈值（LST ISUPODCPUTHD）
+                - 设置ISU POD的业务CPU过载告警阈值（SET ISUPODCPUTHD）
+              - 大量GTPU路径断告警门限
+                - 查询大量路径断告警告警阈值（LST PATHCTRLALMTHD）
+                - 设置大量路径断告警的告警阈值（SET PATHCTRLALMTHD）
+              - 地址池占用率告警阈值
+                - 查询本地地址池占用率告警阈值（LST IPPOOLALMTHD）
+                - 设置本地地址池占用率告警阈值（SET IPPOOLALMTHD）
+              - 业务节点资源不足告警阈值
+                - 设置业务节点资源不足告警阈值（SET SRVNDALMTHRES）
+                - 查询业务节点资源不足告警阈值（LST SRVNDALMTHRES）
+              - 指定地址池占用率告警阈值
+                - 设置指定本地POOL占用率告警阈值（SET POOLALMTHD）
+                - 查询本地指定地址池占用率告警阈值（LST POOLALMTHD）
+              - 单条路径断告警配置
+                - 查询单条路径断告警抑制参数全局配置（LST PATHDWNALMGLO）
+                - 设置单条路径断告警抑制参数的全局配置（SET PATHDWNALMGLO）
+              - 路径资源不足告警阈值
+                - 设置路径资源不足告警阈值（SET PATHRESALMTHD）
+                - 查询路径资源不足告警阈值（LST PATHRESALMTHD）
+            - 呼叫日志管理
+              - 基于APN的CHR本地存盘配置
+                - 增加指定某个APN下选择少量会话做本地存储CHR表单的策略（ADD CHRRPTAPN）
+                - 查询所有基于APN的CHR本地存盘策略（LST CHRRPTAPN）
+                - 删除指定某个APN做本地存储CHR表单的策略（RMV CHRRPTAPN）
+              - CHR本地存盘开关配置
+                - 设置CHR本地存盘开关（SET CHRRECORDSW）
+                - 查询CHR本地存盘开关（LST CHRRECORDSW）
+              - CHR本地存盘用户配置
+                - 查询CHR上报用户（LST CHRRPTSUBID）
+                - 删除CHR上报用户（RMV CHRRPTSUBID）
+                - 增加CHR本地存盘用户（ADD CHRRPTSUBID）
+              - CHR单据安全配置
+                - 设置CHR单据的匿名化配置（SET CHRRECORDANONY）
+                - 查询CHR单据的匿名化配置。（LST CHRRECORDANONY）
+            - 业务规格管理
+              - 内部规格调整管理
+                - 查询产品内部需要调整规格比例的项目（LST SPECCFGITEM）
+                - 修改产品内部需要调整规格比例的项目（MOD SPECCFGITEM）
+                - 增加产品内部需要调整规格比例的项目（ADD SPECCFGITEM）
+                - 删除产品内部需要调整规格比例的项目（RMV SPECCFGITEM）
+              - 内部规格查询
+                - 显示规格配置项信息（DSP SPECCFGINFO）
+            - License项开关管理
+              - 设置所有License项的开关（SET ALLLICENSESWITCH）
+            - 业务跟踪管理
+              - 用户跟踪本地存盘文件管理
+                - 查询用户跟踪本地文件（DSP TRACELOCFILE）
+                - 上传跟踪本地文件（ULD TRACELOCFILE）
+              - 用户跟踪策略配置
+                - 查询用户跟踪策略（LST USRTRCPLY）
+                - 设置用户跟踪策略（SET USRTRCPLY）
+            - 设备管理
+              - 生命周期管理
+                - 显示设备EOS时间（DSP UPVERLC）
+            - 业务统计管理
+              - 业务统计信息结果查询
+                - 查询业务统计信息（DSP FLOWSTATISTICS）
+              - 服务器时延统计
+                - 查询服务器时延统计功能配置（LST SERVERRTTSTAT）
+                - 设置服务器时延统计功能配置（SET SERVERRTTSTAT）
+            - 集中配置管理
+              - 公共命令配置域信息管理
+                - 批量设置绑定域信息（SET MMLCFGDOMAIN）
+                - 上传绑定配置域信息（ULD PUBCFGFILE）
+                - 清除绑定域信息（CLR MMLCFGDOMAIN）
+              - 公共配置域管理
+                - 添加配置域名称（ADD PUBCFGDOMAIN）
+                - 查询域配置信息表（LST PUBCFGDOMAIN）
+                - 删除公共配置域名称（RMV PUBCFGDOMAIN）
+          - Diameter AAA管理
+            - 服务器配置
+              - Diameter AAA组
+                - 增加Diameter AAA服务器组（ADD UPDIAMAAAGRP）
+                - 删除Diameter AAA服务器组（RMV UPDIAMAAAGRP）
+                - 查询Diameter AAA服务器组（LST UPDIAMAAAGRP）
+              - Diameter AAA服务器状态
+                - 查询Diameter AAA服务器状态（DSP UPDIAMAAASTATUS）
+              - Diameter AAA信息
+                - 删除Diameter AAA服务器（RMV UPDIAMETERAAA）
+                - 修改Diameter AAA服务器（MOD UPDIAMETERAAA）
+                - 增加Diameter AAA服务器（ADD UPDIAMETERAAA）
+                - 查询Diameter AAA服务器（LST UPDIAMETERAAA）
+              - APN的Diameter AAA组
+                - 修改APN的Diameter AAA服务器组（MOD UPAPNDIAMAAAG）
+                - 增加APN的Diameter AAA服务器组（ADD UPAPNDIAMAAAG）
+                - 删除APN的Diameter AAA服务器组（RMV UPAPNDIAMAAAG）
+                - 查询APN的Diameter AAA服务器组（LST UPAPNDIAMAAAG）
+              - Diameter AAA服务器和Diameter AAA服务器组的绑定关系
+                - 删除Diameter AAA服务器组里的Diameter AAA服务器（RMV UPDIAMAAABNDG）
+                - 查询Diameter AAA服务器与Diameter AAA服务器绑定关系（LST UPDIAMAAABNDG）
+                - 增加Diameter AAA服务器到Diameter AAA服务器组（ADD UPDIAMAAABNDG）
+              - 动态Diameter AAA
+                - 显示动态Diameter AAA服务器（DSP UPDYNDIAMAAA）
+          - 5G LAN管理
+            - 5G LAN双发选收配置
+              - 双发选收结对配置
+                - 增加双发选收结对配置（ADD DFSRPAIR）
+                - 删除双发选收结对配置（RMV DFSRPAIR）
+                - 修改双发选收结对配置（MOD DFSRPAIR）
+                - 查询双发选收结对配置（LST DFSRPAIR）
+              - 双发选收结对成员配置
+                - 增加双发选收结对成员配置（ADD DFSRPAIRMEM）
+                - 查询双发选收结对成员配置（LST DFSRPAIRMEM）
+                - 删除双发选收结对成员配置（RMV DFSRPAIRMEM）
+                - 显示双发选收结对成员状态（DSP DFSRPAIRMEMSTA）
+              - 5G LAN实例绑定双发选收结对
+                - 查询5G LAN实例绑定双发选收结对配置（LST NGBINDDFSRPAIR）
+                - 删除5G LAN实例绑定双发选收结对配置（RMV NGBINDDFSRPAIR）
+                - 增加5G LAN实例绑定双发选收结对配置（ADD NGBINDDFSRPAIR）
+              - 5G LAN双发选收功能配置
+                - 设置双发选收配置（SET NGDFSRFUNC）
+                - 查询双发选收配置（LST NGDFSRFUNC）
+              - 双发选收属性配置
+                - 查询双发选收属性配置（LST DFSRATTR）
+                - 设置双发选收属性配置（SET DFSRATTR）
+            - IGMP Snooping配置
+              - 组播源配置
+                - 增加IGMP Snooping组播源配置（ADD MULTICASTSOURCE）
+                - 删除IGMP Snooping组播源配置（RMV MULTICASTSOURCE）
+                - 查询IGMP Snooping组播源配置。（LST MULTICASTSOURCE）
+              - IGMP Snooping属性配置
+                - 设置IGMP Snooping属性（SET IGMPSNOOPINGATTR）
+                - 查询IGMP Snooping属性配置（LST IGMPSNOOPINGATTR）
+            - 5G LAN静态组播配置
+              - 组播组配置
+                - 增加组播组配置（ADD MULTICASTGRP）
+                - 删除组播组配置（RMV MULTICASTGRP）
+                - 修改组播组配置（MOD MULTICASTGRP）
+                - 查询组播组配置（LST MULTICASTGRP）
+              - 组播组成员配置
+                - 增加组播组成员配置（ADD MCASTGRPMEM）
+                - 查询组播组成员状态（DSP MCASTGRPMEM）
+                - 删除组播组成员配置（RMV MCASTGRPMEM）
+                - 查询组播组成员配置（LST MCASTGRPMEM）
+              - 5G LAN实例绑定组播组
+                - 增加5G LAN实例绑定组播组配置（ADD NGBINDMCASTGRP）
+                - 删除5G LAN实例绑定组播组配置（RMV NGBINDMCASTGRP）
+                - 查询5G LAN实例绑定组播组配置（LST NGBINDMCASTGRP）
+            - 5G LAN MAC地址维护
+              - 清除5G LAN学习的MAC地址
+                - 清除5G LAN学习的MAC地址（CLR NGLANLEARNMAC）
+              - 显示5G LAN MAC地址超规格信息
+                - 显示5G LAN MAC地址超规格信息（DSP NGLANMACEXINFO）
+              - 显示5G LAN冲突MAC地址信息
+                - 显示5G LAN冲突MAC地址信息（DSP NGLANCONFLICTMAC）
+            - 用户面以太业务参数配置
+              - 查询用户面以太业务参数配置（LST UPETHSRVPARA）
+              - 设置用户面以太业务参数（SET UPETHSRVPARA）
+            - 5G LAN VLAN配置
+              - VLAN映射配置
+                - 增加基于5G LAN组的VLAN映射信息（ADD NGVNVLANMAP）
+                - 查询基于5G LAN组的VLAN映射信息（LST NGVNVLANMAP）
+                - 删除基于5G LAN组的VLAN映射信息（RMV NGVNVLANMAP）
+                - 修改基于5G LAN组的VLAN映射信息（MOD NGVNVLANMAP）
+              - VLAN白名单配置
+                - 增加基于5G LAN组的VLAN白名单（ADD NGVNVLANWL）
+                - 删除基于5G LAN组的VLAN白名单（RMV NGVNVLANWL）
+                - 查询基于5G LAN组的VLAN白名单（LST NGVNVLANWL）
+            - 5G LAN基础配置
+              - 5G LAN实例配置
+                - 设置VnInstance锁定配置（LCK NGVNINSTANCE）
+                - 修改5G VNInstance配置（MOD NGVNINSTANCE）
+                - 增加5G LAN组的配置（ADD NGVNINSTANCE）
+                - 查看5G VNInstance的配置（LST NGVNINSTANCE）
+                - 删除5G VNInstance的配置（RMV NGVNINSTANCE）
+              - 5G LAN功能开关
+                - 设置5G LAN功能配置（SET NGLANFUNC）
+                - 查询5G LAN功能配置（LST NGLANFUNC）
+              - 5G LAN属性配置
+                - 设置5G LAN属性配置（SET NGLANATTR）
+                - 查询5G LAN属性配置（LST NGLANATTR）
+            - 5G LAN环路检测配置
+              - 5G LAN环路检测配置
+                - 设置5G LAN环路检测配置（SET NGLOOPDETFUNC）
+                - 查询5G LAN环路检测配置（LST NGLOOPDETFUNC）
+              - 显示5G LAN环路检测去活用户记录
+                - 显示5G LAN环路检测去活用户记录（DSP NGLOOPDETDEAUE）
+            - 5G LAN用户互访控制
+              - 5G LAN用户互访控制
+                - 设置5G LAN用户互访控制配置（SET NGVNUEMUTACC）
+                - 查询5G LAN组下用户互访控制配置（LST NGVNUEMUTACC）
+              - UE互访白名单绑定5G LAN组
+                - 删除5G LAN组绑定PA口UE互访白名单（RMV NGBINDUEMUTWL）
+                - 查询5G LAN组绑定PA口UE互访白名单（LST NGBINDUEMUTWL）
+                - 增加5G LAN组绑定PA口UE互访白名单（ADD NGBINDUEMUTWL）
+            - 5G LAN计费控制信息
+              - 查询5G LAN计费控制相关参数（LST NGLANCHGCTRL）
+              - 设置5G LAN计费控制相关参数（SET NGLANCHGCTRL）
+            - 5G LAN会话信息查询
+              - 显示5G LAN组会话上下文（DSP NGLANGRPSESSION）
+            - 5G LAN业务Ping功能
+              - 5G LAN业务Ping功能（NGSRVPING）
+          - 协议识别
+            - SA指纹识别
+              - SA指纹识别
+                - 修改SA指纹识别配置（MOD FINGERIDENT）
+                - 删除SA指纹识别配置（RMV FINGERIDENT）
+                - 查询SA指纹识别配置（LST FINGERIDENT）
+                - 增加SA指纹识别配置（ADD FINGERIDENT）
+              - 支持SA指纹识别的协议
+                - 查询SA指纹识别协议（LST SUPPFINGERIDEN）
+              - SA指纹识别统计
+                - 查询SA指纹识别统计结果（DSP FINGIDENSTATIC）
+                - 清零SA指纹识别统计结果（CLR FINGIDENSTATIC）
+            - 特征库管理
+              - 更新特征库规则
+                - 查询特征库规则配置（LST SIGNADBRULE）
+                - 删除特征库规则配置（RMV SIGNADBRULE）
+                - 增加特征库规则配置（ADD SIGNADBRULE）
+                - 修改特征库规则配置（MOD SIGNADBRULE）
+              - 解析特征库
+                - 查询协议解析数据库加载状态（DSP PARSERDB）
+                - 加载协议解析数据库（LOD PARSERDB）
+              - SA特征库规则加载条件
+                - 特征库规则加载条件相关配置
+                  - 显示特征库规则加载区域ID（LST SIGNADBMUTEX）
+                  - 配置特征库规则的加载条件（SET SIGNADBMUTEX）
+              - QUIC类协议信息
+                - 查询Quic类协议（DSP QUICPROTOCOL）
+              - 识别特征库
+                - 查询协议特征库文件加载状态（DSP SIGNATUREDB）
+                - 加载协议特征库文件（LOD SIGNATUREDB）
+              - SA EGN规则生效控制
+                - 查询SA EGN规则不启用协议（LST SAMUTEPROTOCOL）
+                - 增加SA EGN规则不启用协议（ADD SAMUTEPROTOCOL）
+                - 删除SA EGN规则不启用协议（RMV SAMUTEPROTOCOL）
+          - ICAPC管理
+            - ICAP服务器绑定
+              - 删除ICAP服务器绑定关系（RMV ICAPSVRBINDISG）
+              - 查询ICAP服务器绑定关系（LST ICAPSVRBINDISG）
+              - 增加ICAP服务器绑定关系（ADD ICAPSVRBINDISG）
+            - ICAP服务器
+              - 查询ICAP服务器状态（DSP ICAPSVRSTATUS）
+              - 增加ICAP服务器（ADD ICAPSERVER）
+              - 删除ICAP服务器（RMV ICAPSERVER）
+              - 查询ICAP服务器（LST ICAPSERVER）
+              - 修改ICAP服务器（MOD ICAPSERVER）
+            - ICAP本端信息
+              - 修改ICAP本端信息（MOD ICAPLOCALINFO）
+              - 增加ICAP本端信息（ADD ICAPLOCALINFO）
+              - 删除ICAP本端信息（RMV ICAPLOCALINFO）
+              - 查询ICAP本端信息（LST ICAPLOCALINFO）
+            - ICAP服务器组
+              - 查询ICAP服务器组（LST ICAPSVRGRP）
+              - 修改ICAP服务器组（MOD ICAPSVRGRP）
+              - 查询ICAP服务器组状态（DSP ICAPSVRGSTATUS）
+              - 删除ICAP服务器组（RMV ICAPSVRGRP）
+              - 增加ICAP服务器组（ADD ICAPSVRGRP）
+          - 业务防欺诈
+            - APN下终端异常下行流量检测开关
+              - 修改异常流量检测开关（MOD ABNTRAFFICDT）
+              - 查询异常流量功能开关（LST ABNTRAFFICDT）
+              - 删除异常流量检测开关（RMV ABNTRAFFICDT）
+              - 新增异常流量检测开关（ADD ABNTRAFFICDT）
+            - 防欺诈策略
+              - 增加防欺诈策略配置（ADD AFPOLICY）
+              - 删除所有防欺诈策略配置（RMV AFPOLICYALL）
+              - 修改防欺诈策略配置（MOD AFPOLICY）
+              - 删除防欺诈策略配置（RMV AFPOLICY）
+              - 查询防欺诈策略配置（LST AFPOLICY）
+            - 防欺诈可信代理服务器
+              - 查询防欺诈可信代理服务器（LST AFPROXYSERVER）
+              - 删除防欺诈可信代理服务器（RMV AFPROXYSERVER）
+              - 增加防欺诈可信代理服务器（ADD AFPROXYSERVER）
+              - 删除所有防欺诈可信代理服务器（RMV AFPROXYSRVALL）
+            - 防欺诈业务规则数据库
+              - 卸载计费防欺诈业务规则数据库（RMV AFDB）
+              - 查询防欺诈业务规则数据库（DSP AFDB）
+              - 加载防欺诈业务规则数据库（LOD AFDB）
+            - 显示欺诈用户检测结果
+              - 显示欺诈用户检测结果（DSP AFUSRDETECTST）
+            - HTTPS证书检查功能配置
+              - 查询HTTPS证书检查功能配置（LST AFHTTPSCTCK）
+              - 增加HTTPS证书检查功能配置（ADD AFHTTPSCTCK）
+              - 删除HTTPS证书检查功能配置（RMV AFHTTPSCTCK）
+            - 防欺诈用户检测功能
+              - 查询计费欺诈用户检测功能（LST AFUSRDETECT）
+              - 设置计费欺诈用户检测功能（SET AFUSRDETECT）
+            - 根据报文类型进行的DNS防欺诈检测
+              - 删除所有需要进行防欺诈检查的DNS报文类型（RMV AFDNSCHKTPALL）
+              - 查询需要进行防欺诈检查的DNS报文类型（LST AFDNSCHECKTYPE）
+              - 删除需要进行防欺诈检查的DNS报文类型（RMV AFDNSCHECKTYPE）
+              - 增加需要进行防欺诈检查的DNS报文类型（ADD AFDNSCHECKTYPE）
+            - HTTP欺诈场景的匹配情况统计
+              - 查询软参欺诈场景开关状态（LST AFMATCHCFG）
+              - 查询HTTP欺诈场景的统计结果（DSP AFMATCHSTATIC）
+              - 设置软参欺诈场景功能开关（SET AFMATCHCFG）
+              - 清零欺诈场景的匹配统计计数（CLR AFMATCHSTATIC）
+            - 异常下行流量检测阈值
+              - 查询异常流量检测报文阈值（LST ABNTRADTTHR）
+              - 设置异常流量检测报文阈值（SET ABNTRADTTHR）
+            - 防欺诈可信DNS服务器
+              - 增加防欺诈可信DNS服务器（ADD AFDNSSERVER）
+              - 删除所有防欺诈可信DNS服务器（RMV AFDNSSERVERALL）
+              - 删除防欺诈可信DNS服务器（RMV AFDNSSERVER）
+              - 查询防欺诈可信DNS服务器（LST AFDNSSERVER）
+            - 防欺诈参数
+              - 设置防欺诈配置（SET ANTIFRAUD）
+              - 查询防欺诈配置（LST ANTIFRAUD）
+            - APN防欺诈功能
+              - 设置APN防欺诈功能（SET APNAFFUNC）
+              - 查询APN防欺诈功能（LST APNAFFUNC）
+          - Diameter管理
+            - Diameter字典管理
+              - 加载路径
+                - 查询Diameter字典加载路径（LST UPDIAMDICTPATH）
+                - 删除Diameter字典加载路径（RMV UPDIAMDICTPATH）
+                - 修改Diameter字典加载路径（MOD UPDIAMDICTPATH）
+                - 增加Diameter字典加载路径（ADD UPDIAMDICTPATH）
+              - 加载状态
+                - 显示Diameter字典加载状态（DSP UPDIAMDICTSTAT）
+              - 加载字典
+                - 加载Diameter字典（LOD UPDIAMDICT）
+            - Diameter连接
+              - Diameter链路组
+                - 查询Diameter链路组（LST UPDIAMCONNGRP）
+                - 删除Diameter链路组（RMV UPDIAMCONNGRP）
+                - 修改Diameter链路组（MOD UPDIAMCONNGRP）
+                - 增加Diameter链路组（ADD UPDIAMCONNGRP）
+              - 重建Diameter链路组
+                - 重建Diameter链路组（RST UPDIAMCONNGRP）
+              - Diameter链路
+                - 增加Diameter链路（ADD UPDIAMCONN）
+                - 修改Diameter链路（MOD UPDIAMCONN）
+                - 查询Diameter链路（LST UPDIAMCONN）
+                - 删除Diameter链路（RMV UPDIAMCONN）
+              - Diameter链路拥塞控制
+                - 设置Diameter链路拥塞控制（SET UPLINKCONGCTRL）
+                - 查询Diameter链路拥塞控制（LST UPLINKCONGCTRL）
+              - 服务器地址
+                - 查询Diameter对端地址（LST UPDIAMPEERADDR）
+                - 增加Diameter对端地址（ADD UPDIAMPEERADDR）
+                - 删除Diameter对端地址（RMV UPDIAMPEERADDR）
+              - Diameter本端信息
+                - 增加Diameter本端信息（ADD UPDIAMLOCINFO）
+                - 修改Diameter本端信息（MOD UPDIAMLOCINFO）
+                - 查询Diameter本端信息（LST UPDIAMLOCINFO）
+                - 删除Diameter本端信息（RMV UPDIAMLOCINFO）
+            - DRA管理
+              - DRA状态
+                - 显示DRA状态（DSP UPDRASTATUS）
+              - DRA信息
+                - 增加DRA（ADD UPDRA）
+                - 修改DRA（MOD UPDRA）
+                - 查询DRA（LST UPDRA）
+                - 删除DRA（RMV UPDRA）
+            - Diameter Realm
+              - Realm绑定APN
+                - 修改APN与Diameter Realm关联关系（MOD UPREALMBINDAPN）
+                - 增加APN与Diameter Realm关联关系（ADD UPREALMBINDAPN）
+                - 删除APN与Diameter Realm关联关系（RMV UPREALMBINDAPN）
+                - 查询APN与Diameter Realm关联关系（LST UPREALMBINDAPN）
+              - 全局Realm
+                - 查询全局Diameter域（LST UPGLBDIAMREALM）
+                - 删除全局Diameter域（RMV UPGLBDIAMREALM）
+                - 增加全局Diameter域（ADD UPGLBDIAMREALM）
+                - 修改全局Diameter域（MOD UPGLBDIAMREALM）
+            - Diameter公共参数
+              - 查询TC定时器（LST UPTCTIMER）
+              - 设置TW定时器（SET UPTWTIMER）
+              - 设置TC定时器（SET UPTCTIMER）
+              - 查询TW定时器（LST UPTWTIMER）
+            - 路由管理
+              - 路由状态
+                - 显示Diameter Route状态（DSP UPDIAMRTSTATUS）
+              - Diameter路由
+                - 查询Diameter路由域名信息（LST UPDIAMRTREALM）
+                - 增加Diameter路由域名信息（ADD UPDIAMRTREALM）
+                - 删除Diameter路由域名信息（RMV UPDIAMRTREALM）
+                - 修改Diameter路由域名信息（MOD UPDIAMRTREALM）
+              - Diameter路由配置
+                - 删除Diameter路由下一跳（RMV UPDIAMRTNEXTHOP）
+                - 查询Diameter路由下一跳（LST UPDIAMRTNEXTHOP）
+                - 增加Diameter路由下一跳（ADD UPDIAMRTNEXTHOP）
+            - 路由控制
+              - Diameter路由控制
+                - 设置Diameter参数（SET UPDIAMETERPARA）
+                - 查询Diameter参数（LST UPDIAMETERPARA）
+            - 集中点模式
+              - 查询集中点部署模式（LST UPCONCENPOINT）
+              - 设置集中点部署模式（SET UPCONCENPOINT）
+          - VOLTE管理
+            - IMS Bypass
+              - 设置IMS Bypass功能相关参数（SET IMSBYPASS）
+              - 去激活指定用户的IMS Bypass状态（DEA IMSSRVBEARER）
+              - 显示IMS Bypass功能的相关参数（LST IMSBYPASS）
+            - SIP信令功能
+              - 设置镜像SIP信令功能（SET SIPSIGMIRRORPARA）
+              - 查询镜像SIP信令功能（LST SIPSIGMIRRORPARA）
+            - IMS信令分类器
+              - 添加IMS分类器（ADD IMSSIGFILTER）
+              - 删除IMS分类器（RMV IMSSIGFILTER）
+              - 查询IMS分类器（LST IMSSIGFILTER）
+              - 修改IMS分类器（MOD IMSSIGFILTER）
+            - Volte环回
+              - 配置VoLTE话路环回功能（ADD VOLTELOOP）
+              - 删除VoLTE话路环回功能（RMV VOLTELOOP）
+              - 修改VoLTE话路环回功能（MOD VOLTELOOP）
+              - 查询VoLTE话路环回功能（LST VOLTELOOP）
+            - APN的IMS信令分类器
+              - 修改APN的IMS分类器（MOD APNIMSSIGFLTR）
+              - 删除APN的IMS分类器（RMV APNIMSSIGFLTR）
+              - 查询APN的IMS分类器（LST APNIMSSIGFLTR）
+              - 添加APN的IMS分类器（ADD APNIMSSIGFLTR）
+            - 全局IMS配置
+              - 查询全局IMS配置（LST GLOBALIMS）
+              - 设置全局IMS配置（SET GLOBALIMS）
+            - APN的IMS属性
+              - 设置ApnImsAttr配置（SET APNIMSATTR）
+              - 查询ApnImsAttr配置（LST APNIMSATTR）
+          - VoLTE质量监控配置
+            - Volte MOS 评估方式
+              - 查询VoLTE AMR编解码的语音质量采用的评估方式（LST VOLTEMOSEVAL）
+              - 设置VoLTE AMR编解码的语音质量采用的评估方式（SET VOLTEMOSEVAL）
+            - APN VoLTE语音质量检测功能
+              - 设置VoLTE语音质量监控功能开关（SET APNVOLTEMONFUNC）
+              - 该命令用于查询VoLTE语音质量监控功能开关（LST APNVOLTEMONFUNC）
+            - VoLTE单通检测
+              - 查询单通检测信息（LST VOLTEONEWAYSIL）
+              - 设置单通检测信息（SET VOLTEONEWAYSIL）
+              - 恢复单通检测的系统初始设置值（RTR VOLTEONEWAYSIL）
+            - VoLTE MOS值的异常门限值
+              - 指定MOS值的异常门限值（SET VOLTEABNORMOS）
+              - 查询配置的MOS值异常门限值信息（LST VOLTEABNORMOS）
+              - 恢复MOS值的异常门限为系统初始设置值（RTR VOLTEABNORMOS）
+            - VoLTE吞字断续配置
+              - 设置VoLTE滑窗相关的参数（SET VOLTESWALBRK）
+              - 显示VoLTE滑窗相关参数（LST VOLTESWALBRK）
+              - 恢复VoLTE滑窗相关的参数（RTR VOLTESWALBRK）
+            - MOS值异常的用户比例告警阈值
+              - 恢复异常MOS告警阈值为系统初始设置值（RTR VOLTEMOSALMTHD）
+              - 查询异常MOS告警阈值（LST VOLTEMOSALMTHD）
+              - 设置异常MOS告警阈值（SET VOLTEMOSALMTHD）
+            - VoLTE MOS 补充因子
+              - 设置MOS计算值的补偿因子（SET VOLTEMOSFACTOR）
+              - 恢复MOS补偿因子（RTR VOLTEMOSFACTOR）
+              - 查询MOS计算值的补偿因子（LST VOLTEMOSFACTOR）
+            - VoLTE 理想到达报文
+              - 恢复理想到达报文的最小时延偏差、固定传输时延（RTR VOLTEPERFTDELAY）
+              - 配置理想到达报文的最小时延偏差、固定传输时延（SET VOLTEPERFTDELAY）
+              - 查询理想报文的最小时延偏差、固定传输时延（LST VOLTEPERFTDELAY）
+            - VoLTE MOS分类
+              - 恢复MOS分类区间值（RTR VOLTEMOSCLASS）
+              - 查询MOS分类区间值（LST VOLTEMOSCLASS）
+              - 配置MOS分类的区间值（SET VOLTEMOSCLASS）
+          - 业务监控
+            - 业务统计管理
+              - 计费数据统计信息
+                - 显示计费数据统计信息（DSP CHGDATASTAT）
+                - 清除计费数据统计信息（CLR CHGDATASTAT）
+          - 专网策略配置
+            - 专网控制策略
+              - 显示专网控制策略（LST PRINETPOLICY）
+              - 修改专网控制策略（MOD PRINETPOLICY）
+              - 添加专网控制策略（ADD PRINETPOLICY）
+              - 删除专网控制策略（RMV PRINETPOLICY）
+            - UAC信息
+              - 显示UAC信息（LST UACINFO）
+              - 删除UAC信息（RMV UACINFO）
+              - 添加UAC信息（ADD UACINFO）
+              - 修改UAC信息（MOD UACINFO）
+          - NB-IOT管理
+            - 物联网能力
+              - 查询物联网能力上报（LST IOTCAPABILITY）
+              - 设置物联网能力上报（SET IOTCAPABILITY）
+          - SCTP管理
+            - SCTP基础参数
+              - 设置SCTP全局参数（SET UPGLBSCTPPARA）
+              - 查询SCTP全局参数（LST UPGLBSCTPPARA）
+              - 恢复SCTP全局参数（RTR UPGLBSCTPPARA）
+            - SCTP模板
+              - 修改SCTP模板（MOD UPSCTPTEMPLATE）
+              - 增加SCTP模板（ADD UPSCTPTEMPLATE）
+              - 查询SCTP模板（LST UPSCTPTEMPLATE）
+              - 删除SCTP模板（RMV UPSCTPTEMPLATE）
+            - SCTP端点
+              - 修改SCTP端点（MOD UPSCTPENDPOINT）
+              - 增加SCTP端点（ADD UPSCTPENDPOINT）
+              - 删除SCTP端点（RMV UPSCTPENDPOINT）
+              - 查询SCTP端点（LST UPSCTPENDPOINT）
+            - SCTP测量对象
+              - 增加SCTP耦联测量对象（ADD UPSCTPASSOC）
+              - 查询SCTP耦联测量对象（LST UPSCTPASSOC）
+              - 删除SCTP耦联测量对象（RMV UPSCTPASSOC）
+            - SCTP偶联
+              - 显示SCTP耦联信息（DSP UPSCTPASSOC）
+          - MBS管理
+            - N6mb接口模式配置
+              - 查询N6mb接口数据传输的优选方式及端口配置（LST N6MBMODE）
+              - 配置N6mb接口数据传输的优选方式及端口范围（SET N6MBMODE）
+            - MBS整机QoS配置
+              - 设置MBS QosGlobal配置（SET MBSQOSGLOBAL）
+              - 查询MBS QosGlobal配置（LST MBSQOSGLOBAL）
+        - DBS管理
+          - DBS Link Center管理
+            - 查询DBS链路中心(LST DBSLINKCTRL)
+            - 增加DBS链路中心(ADD DBSLINKCTRL)
+            - 删除DBS链路中心(RMV DBSLINKCTRL)
+            - 修改DBS链路中心(MOD DBSLINKCTRL)
+          - DBS SCTP管理
+            - 查看链路状态信息(DSP DBSSCTP)
+            - 查看SCTP偶联运行信息(DSP DBSSCTPAR)
+            - 查看SCTP偶联管理信息(DSP DBSSCTPAM)
+            - 去激活SCTP链路(DEA DBSSCTP)
+            - 查看SCTP负荷信息(DSP DBSSCTPLOD)
+            - 启动DBS链路探测(STR DBSLINKDETECT)
+            - 清除SCTP所有偶联的统计信息(CLR DBSSCTPBS)
+            - 查看SCTP所有偶联的统计信息(DSP DBSSCTPBS)
+            - 发送DBS链路配置(SND DBSLINKCFG)
+            - 查看SCTP偶联统计信息(DSP DBSSCTPAS)
+            - 激活SCTP链路(ACT DBSSCTP)
+          - DBS Remote IP管理
+            - 增加远端网元IP地址(ADD DBSRIPADDR)
+            - 删除远端网元IP地址(RMV DBSRIPADDR)
+            - 修改远端网元IP地址(MOD DBSRIPADDR)
+            - 查询远端网元IP地址(LST DBSRIPADDR)
+          - DBS Link Number管理
+            - 设置DBS链路条数(SET DBSLINKNUM)
+            - 查询DBS链路条数(LST DBSLINKNUM)
+          - DBS Remote DSG管理
+            - 查询远端DSG(LST DBSRDSG)
+            - 增加远端DSG(ADD DBSRDSG)
+            - 删除远端DSG(RMV DBSRDSG)
+          - DBS Service Module Number管理
+            - 增加服务模块号(ADD DBSSERVICENO)
+            - 查询服务模块号(LST DBSSERVICENO)
+            - 删除服务模块号(RMV DBSSERVICENO)
+          - DBS Remote Link Center管理
+            - 查询远端DSG链路中心(LST DBSRLINKCTRL)
+            - 增加远端DSG链路中心(ADD DBSRLINKCTRL)
+            - 删除远端DSG链路中心(RMV DBSRLINKCTRL)
+            - 修改远端DSG链路中心(MOD DBSRLINKCTRL)
+          - DBS Access Mode管理
+            - 设置DBS访问BE模式(SET DBSACCESSMODE)
+            - 查询DBS访问BE模式(LST DBSACCESSMODE)
+          - DBS系统调测
+            - DBS软件调试开关(STR DBSSFTDEBUG)
+          - DBS DTLS协议配置管理
+            - 设置DBS DTLS协议配置(SET DBSDTLSCFG)
+            - 查询DBS DTLS协议配置(LST DBSDTLSCFG)
+          - DBS服务参数管理
+            - 查询DBS服务参数(LST DBSSRVPARA)
+            - 设置DBS服务参数(SET DBSSRVPARA)
+          - DBS Location管理
+            - 设置DBS Location信息(SET DBSLOCATION)
+            - 查询DBS Location信息(LST DBSLOCATION)
+          - DBS Route管理
+            - 查询DBS路由目的Location(DSP DBSROUTING)
+            - 设置DBS路由目的Location(STR DBSROUTING)
+          - DBS应用类型远端Location管理
+            - 删除DBS应用类型远端Location信息（RMV DBSSRVRLOC）
+            - 设置DBS应用类型远端Location信息（SET DBSSRVRLOC）
+            - 查询DBS应用类型远端Location信息（LST DBSSRVRLOC）
+          - DBS SCTPPARA管理
+            - 设置DBS服务SCTP参数配置信息(SET DBSSCTPPARA)
+            - 设置DBS SCTP拥塞控制参数(SET DBSSCTPCONGCFG)
+            - 查询DBS SCTP拥塞控制参数(LST DBSSCTPCONGCFG)
+            - 查询DBS服务SCTP参数配置信息(LST DBSSCTPPARA)
+          - DBS静态流控管理
+            - 查询DBS静态流控配置(LST DBSSTATICFC)
+            - 修改DBS静态流控配置(MOD DBSSTATICFC)
+          - DBS分组管理
+            - 设置DBS分组开关(SET DBSGRPSWITCH)
+            - 查询DBS分组开关(LST DBSGRPSWITCH)
+          - DBS Remote Location管理
+            - 查询远端DBS Location信息(LST DBSRLOCATION)
+            - 增加远端DBS Location信息(ADD DBSRLOCATION)
+            - 修改远端DBS Location信息(MOD DBSRLOCATION)
+            - 删除远端DBS Location信息(RMV DBSRLOCATION)
+          - DBS INSP管理
+            - 修改DBS软件参数的配置信息(MOD DBSINSP)
+            - 查询DBS软件参数的配置信息(LST DBSINSP)
+          - DBS IP管理
+            - 删除网元IP地址(RMV DBSIPADDR)
+            - 查询网元IP地址(LST DBSIPADDR)
+            - 增加网元IP地址(ADD DBSIPADDR)
+          - DBS同步远端配置管理
+            - 同步远端IP配置(SYN DBSRIPADDR)
+            - 同步远端DSG(SYN DBSRDSG)
+          - DBS关键资源管理
+            - 查询DBS关键资源告警配置(LST DBSESSRESALMCFG)
+            - 设置DBS关键资源告警配置(SET DBSESSRESALMCFG)
+          - DBS Assoc Config管理
+            - 查询DBS SCTP偶联配置(LST DBSSCTPASSOC)
+            - 显示DBS SCTP偶联配置(DSP DBSSCTPASSOC)
+          - DBS业务类型分组管理
+            - 查询DBS业务类型分组(LST DBSSRVGROUP)
+          - DBS IP Dispatch管理
+            - 激活IP链路(ACT DBSIPDISP)
+        - MEC控制面管理
+          - 基础配置
+            - API GW基本参数配置
+              - MEP TLS参数
+                - 添加MEP TLS参数（ADD MEPTLSPARA）
+                - 查询MEP TLS参数（LST MEPTLSPARA）
+                - 修改MEP TLS参数（MOD MEPTLSPARA）
+                - 删除MEP TLS参数（RMV MEPTLSPARA）
+              - MEP HTTP客户端组
+                - 删除MEP HTTP客户端组（RMV MEPHTTPCLIENTGRP）
+                - 查询MEP HTTP客户端组（LST MEPHTTPCLIENTGRP）
+                - 添加MEP HTTP客户端组（ADD MEPHTTPCLIENTGRP）
+              - MEP HTTP服务端
+                - 添加MEP HTTP服务端（ADD MEPHTTPSERVER）
+                - 查询MEP HTTP服务端（LST MEPHTTPSERVER）
+                - 修改MEP HTTP服务端（MOD MEPHTTPSERVER）
+                - 删除MEP HTTP服务端（RMV MEPHTTPSERVER）
+              - MEP HTTP客户端
+                - 修改MEP HTTP客户端（MOD MEPHTTPCLIENT）
+                - 添加MEP HTTP客户端（ADD MEPHTTPCLIENT）
+                - 查询MEP HTTP客户端（LST MEPHTTPCLIENT）
+                - 删除MEP HTTP客户端（RMV MEPHTTPCLIENT）
+              - MEP反向代理
+                - 删除MEP反向代理（RMV MEPREVERSEPROXY）
+                - 修改MEP反向代理（MOD MEPREVERSEPROXY）
+                - 添加MEP反向代理（ADD MEPREVERSEPROXY）
+                - 查询MEP反向代理（LST MEPREVERSEPROXY）
+              - MEP HTTP服务端组
+                - 删除MEP HTTP服务端组（RMV MEPHTTPSERVERGRP）
+                - 添加MEP HTTP服务端组（ADD MEPHTTPSERVERGRP）
+                - 查询MEP HTTP服务端组（LST MEPHTTPSERVERGRP）
+              - MEP HTTP客户端通信参数
+                - 添加MEP HTTP客户端通信参数（ADD MEPCLIENTCOMMPARA）
+                - 查询MEP HTTP客户端通信参数（LST MEPCLIENTCOMMPARA）
+                - 修改MEP HTTP客户端通信参数（MOD MEPCLIENTCOMMPARA）
+                - 删除MEP HTTP客户端通信参数（RMV MEPCLIENTCOMMPARA）
+              - MEP HTTP服务端通信参数
+                - 删除MEP HTTP服务端通信参数（RMV MEPSERVERCOMMPARA）
+                - 查询MEP HTTP服务端通信参数（LST MEPSERVERCOMMPARA）
+                - 添加MEP HTTP服务端通信参数（ADD MEPSERVERCOMMPARA）
+                - 修改MEP HTTP服务端通信参数（MOD MEPSERVERCOMMPARA）
+            - MPF服务软参管理
+              - MPF软参配置数据管理
+                - 配置软参记录（SET MPFSOFTPARA）
+                - 查询MPF软参记录（LST MPFSOFTPARA）
+              - MPF软参比特位
+                - 查询软件参数指定比特位的值（LST MPFSOFTPARAOFBIT）
+                - 设置MPF软件参数表比特位的值（SET MPFSOFTPARAOFBIT）
+            - DNS规则配置管理
+              - 去激活DNS规则（DEA DNSRULE）
+              - 查询DNS规则配置（DSP DNSRULE）
+              - 激活DNS规则（ACT DNSRULE）
+            - 服务API访问权限控制
+              - APP授权信息
+                - 添加APP授权信息（ADD APPAUTHINFO）
+                - 修改APP授权信息（MOD APPAUTHINFO）
+                - 删除APP授权信息（RMV APPAUTHINFO）
+                - 查询APP授权信息（LST APPAUTHINFO）
+              - 授权服务列表
+                - 删除授权服务列表（RMV AUTHSERVLIST）
+                - 查询授权服务列表（LST AUTHSERVLIST）
+                - 添加授权服务列表（ADD AUTHSERVLIST）
+              - 授权服务
+                - 查询授权服务（LST AUTHSERV）
+                - 添加授权服务（ADD AUTHSERV）
+                - 修改授权服务（MOD AUTHSERV）
+                - 删除授权服务（RMV AUTHSERV）
+              - MEP授权模式
+                - 设置授权模式（SET MEPAUTHMODE）
+                - 查询授权模式（LST MEPAUTHMODE）
+              - APP实例授权
+                - 添加APP实例授权（ADD AUTHAPPINSTANCE）
+                - 删除APP实例授权（RMV AUTHAPPINSTANCE）
+                - 查询APP实例授权（LST AUTHAPPINSTANCE）
+                - 修改APP实例授权（MOD AUTHAPPINSTANCE）
+            - 流控配置
+              - MEP流控策略绑定API
+                - 删除MEP API流控配置（RMV MEPAPITRAFFICCTRL）
+                - 查询MEP API流控配置（LST MEPAPITRAFFICCTRL）
+                - 增加MEP API流控配置（ADD MEPAPITRAFFICCTRL）
+                - 修改MEP API流控配置（MOD MEPAPITRAFFICCTRL）
+            - MEP ID
+              - 查询MEP标识（DSP MEPID）
+            - 负载均衡配置查询
+              - 查询负载均衡配置（DSP LBSRULE）
+            - MEC服务
+              - 删除MEC服务（RMV MECSERVICE）
+              - 修改MEC服务（MOD MECSERVICE）
+              - 查询MEC服务（LST MECSERVICE）
+              - 添加MEC服务（ADD MECSERVICE）
+            - MPF属性信息
+              - 设置MPF属性配置（SET MPFATTR）
+              - 显示MPF属性配置（LST MPFATTR）
+            - API GW鉴权管理
+              - 查询API token鉴权配置（LST APIAUTH）
+              - 设置API token鉴权（SET APIAUTH）
+            - 查询DNS重定向规则配置
+              - 查询DNS重定向规则配置（DSP DNSREDIRECTRULE）
+            - 服务API配置
+              - 修改服务API（MOD SERVICEAPI）
+              - 查询服务API（LST SERVICEAPI）
+              - 添加服务API（ADD SERVICEAPI）
+              - 删除服务API（RMV SERVICEAPI）
+            - 查询应用规则数
+              - 查询应用规则数量（DSP APPRULENUM）
+            - API GW主机型网络访问地址
+              - 查询API GW地址（LST APIGWADDR）
+              - 删除API GW地址（RMV APIGWADDR）
+              - 新增API GW地址（ADD APIGWADDR）
+              - 修改API GW地址（MOD APIGWADDR）
+            - 删除应用配置
+              - 删除APP配置（ACT DELETEAPPCONF）
+            - IP访问控制策略配置
+              - 设置 IP 访问控制策略参数（SET IPCTRLPLCYPARA）
+              - 查询IP访问控制策略参数（LST IPCTRLPLCYPARA）
+            - 删除MEP标识
+              - 删除MEP标识信息（ACT DELETEMEPID）
+            - 查询MEP能力信息
+              - 查询MEP能力信息（LST MEPCAPABILITY）
+            - API GW限流管理
+              - 设置限流（SET RATELIMIT）
+              - 查询限流配置（LST RATELIMIT）
+            - 查询ACL规则配置
+              - 查询ACL规则配置（DSP ACLRULE）
+            - API GW HTTP参数配置
+              - 查询API GW HTTP参数（LST APIGWHTTPPARA）
+              - 设置API GW HTTP 参数（SET APIGWHTTPPARA）
+            - 服务端点
+              - 添加服务端点（ADD SERVICEENDPOINT）
+              - 修改服务端点（MOD SERVICEENDPOINT）
+              - 查询服务端点（LST SERVICEENDPOINT）
+              - 删除服务端点（RMV SERVICEENDPOINT）
+            - APP配置信息查询
+              - 显示APP实例配置信息（DSP APPCONF）
+            - 路由查询
+              - 查询API GW路由（DSP APIGWROUTES）
+            - 服务端点组
+              - 添加服务端点组（ADD SERVICEENDPOINTGRP）
+              - 删除服务端点组（RMV SERVICEENDPOINTGRP）
+              - 查询服务端点组（LST SERVICEENDPOINTGRP）
+            - 查询应用信息
+              - 查询应用信息（DSP APPLICATIONINFO）
+            - MPF逻辑接口配置
+              - 查询MPF逻辑接口（LST MPFLOGICINF）
+              - 增加MPF逻辑接口（ADD MPFLOGICINF）
+              - 修改MPF逻辑接口（MOD MPFLOGICINF）
+              - 删除MPF逻辑接口（RMV MPFLOGICINF）
+            - 查询带宽分配配置
+              - 查询带宽分配配置（DSP BWALLOCATION）
+            - API GW对端证书校验
+              - 设置API GW对端证书校验开关（SET APIGWVRYCLIENT）
+              - 查询API GW对端证书校验开关配置（LST APIGWVRYCLIENT）
+            - APP操作信息查询
+              - 查询APP操作信息（DSP APPOPERATE）
+            - 流规则配置管理
+              - 查询流规则配置（DSP TRAFFICRULE）
+              - 去激活流规则（DEA TRAFFICRULE）
+              - 激活流规则（ACT TRAFFICRULE）
+            - 删除规则配置
+              - 删除规则配置（ACT DELETERULE）
+            - API GW TLS管理
+              - 查询API GW TLS配置（LST APIGWTLS）
+              - 设置API GW TLS配置（SET APIGWTLS）
+            - 查询MPF服务
+              - 查询MEC服务（DSP MECSERVICE）
+            - 获取UPF规则配置
+              - 获取UPF规则配置（ACT GETUPFRULE）
+            - 健康状态检查
+              - 健康状态检查（DSP APPFHEALTH）
+          - Mp2配置
+            - UPF信息
+              - 添加UPF信息（ADD UPFINFO）
+              - 显示UPF信息（LST UPFINFO）
+              - 删除UPF信息（RMV UPFINFO）
+            - 规则同步
+              - 规则同步（ACT RULESYN）
+            - MPF Mp2链路属性
+              - 设置MPF Mp2属性配置（SET MPFMP2ATTR）
+              - 显示MPF Mp2属性配置（LST MPFMP2ATTR）
+        - USM_UAM服务管理
+          - 会话管理
+            - 接入管理
+              - QoS
+                - 5GC QoS配置
+                  - 5GC允许接入的5QIs
+                    - 查询5G用户允许的5QI列表（LST SMFALLOWED5QIS）
+                    - 删除5G用户允许的5QI列表（RMV SMFALLOWED5QIS）
+                    - 增加5G用户允许的5QI列表（ADD SMFALLOWED5QIS）
+                  - 5GC允许接入的ARPs
+                    - 查询5G用户允许的ARP列表（LST SMFALLOWEDARPS）
+                    - 删除5G用户允许的ARP列表（RMV SMFALLOWEDARPS）
+                    - 增加5G用户允许的ARP列表（ADD SMFALLOWEDARPS）
+                    - 修改5G用户允许的ARP列表（MOD SMFALLOWEDARPS）
+                  - 基于IMSI号段的QoS管理
+                    - 本省UDM实例标识
+                      - 查询本省UDM实例标识（LST LOCALUDMINSTID）
+                      - 删除本省UDM实例标识（RMV LOCALUDMINSTID）
+                      - 增加本省UDM实例标识（ADD LOCALUDMINSTID）
+                    - Qos Flow QoS限制配置
+                      - 查询QosFlow QoS限制的配置（LST SMFQOSCAP）
+                      - 修改QosFlow QoS限制的配置（MOD SMFQOSCAP）
+                      - 增加QosFlow QoS限制的配置（ADD SMFQOSCAP）
+                      - 删除QosFlow QoS限制的配置（RMV SMFQOSCAP）
+                    - 基于5QI的Qos Flow QoS限制配置
+                      - 查询基于5QI的QosFlow QoS限制的配置（LST QOSCAPBY5QI）
+                      - 删除基于5QI的QosFlow QoS限制配置（RMV QOSCAPBY5QI）
+                      - 增加基于5QI的QosFlow QoS限制配置（ADD QOSCAPBY5QI）
+                      - 修改基于5QI的QosFlow QoS限制配置。（MOD QOSCAPBY5QI）
+                    - 不受SMFQOSCAP配置控制的APN白名单列表
+                      - 增加不受SMFQOSCAP配置控制的APN白名单列表。（ADD QOSCAPWHITEAPNS）
+                      - 查询不受SMFQOSCAP配置控制的APN白名单列表（LST QOSCAPWHITEAPNS）
+                      - 删除不受SMFQOSCAP配置控制的APN白名单列表。（RMV QOSCAPWHITEAPNS）
+                  - 5GC UDM全故障Qos
+                    - 增加BYPASS场景QoS描述配置（ADD APNQOSBYPASS）
+                    - 修改BYPASS场景QoS描述配置（MOD APNQOSBYPASS）
+                    - 查询BYPASS场景QoS描述配置（LST APNQOSBYPASS）
+                    - 删除BYPASS场景QoS描述配置（RMV APNQOSBYPASS）
+                  - 5GC Qos映射ToS/DSCP
+                    - 增加5GC QoS到TOS/DSCP的映射规则（ADD 5GCREMARK）
+                    - 删除5GC QoS到TOS/DSCP的映射规则（RMV 5GCREMARK）
+                    - 查询5GC QoS到TOS/DSCP的映射规则（LST 5GCREMARK）
+                    - 修改5GC QoS到TOS/DSCP的映射规则（MOD 5GCREMARK）
+                  - 5GC非缺省Flow QoS
+                    - 增加SMF的非Default QoS Flow配置（ADD SMFNONDFTQOSCTL）
+                    - 删除SMF的非Default QoS Flow配置（RMV SMFNONDFTQOSCTL）
+                    - 修改SMF的非Default QoS Flow配置（MOD SMFNONDFTQOSCTL）
+                    - 查询SMF的非Default QoS Flow配置（LST SMFNONDFTQOSCTL）
+                  - 本地5GC QoS
+                    - 查询5GC签约QoS配置（LST 5GCSUBQOS）
+                    - 增加5GC签约QoS配置（ADD 5GCSUBQOS）
+                    - 修改5GC签约QoS配置（MOD 5GCSUBQOS）
+                    - 删除5GC签约QoS配置（RMV 5GCSUBQOS）
+                  - 5GC QoS控制动作
+                    - 查询5GC QoS控制动作配置（LST 5GCQOSACTION）
+                    - 增加5GC QoS控制动作配置（ADD 5GCQOSACTION）
+                    - 修改5GC QoS控制动作配置（MOD 5GCQOSACTION）
+                    - 删除5GC QoS控制动作配置（RMV 5GCQOSACTION）
+                  - 全局5GC QoS纠错
+                    - 设置5GC QoS纠错配置（SET 5GCQOSCORRT）
+                    - 查询5GC QoS纠错配置（LST 5GCQOSCORRT）
+                - 一键通
+                  - APN的一键通配置
+                    - 修改基于APN的一键通功能配置（MOD APNPTTFUNC）
+                    - 删除基于APN的一键通功能配置（RMV APNPTTFUNC）
+                    - 增加基于APN的一键通功能配置（ADD APNPTTFUNC）
+                    - 查询基于APN的一键通功能配置（LST APNPTTFUNC）
+                  - 全局一键通配置
+                    - 查询一键通功能配置（LST PTTFUNC）
+                    - 设置一键通配置（SET PTTFUNC）
+                - Qos管理
+                  - 基于带宽的ARP控制
+                    - 增加基于带宽的ARP控制配置（ADD BANDWIDTHARP）
+                    - 查询基于带宽的ARP控制配置（LST BANDWIDTHARP）
+                    - 修改基于带宽的ARP控制配置（MOD BANDWIDTHARP）
+                    - 删除基于带宽的ARP控制配置（RMV BANDWIDTHARP）
+                  - 基于PDP数的ARP控制
+                    - 查询基于PDP数的ARP控制（LST PDPNUMBERARP）
+                    - 删除基于PDP数的ARP控制（RMV PDPNUMBERARP）
+                    - 修改基于PDP数的ARP控制（MOD PDPNUMBERARP）
+                    - 增加基于PDP数的ARP控制（ADD PDPNUMBERARP）
+                - 扩展QCI功能
+                  - 标准QoS ID配置
+                    - 删除标准QoS ID配置（RMV STDQOSID）
+                    - 修改标准QoS ID配置（MOD STDQOSID）
+                    - 查询标准QoS ID配置（LST STDQOSID）
+                    - 增加标准QoS ID配置（ADD STDQOSID）
+                  - 扩展QCI应用属性
+                    - 设置应用扩展QCI参数属性（SET EXTENQCIATTR）
+                    - 查询应用扩展QCI参数属性（LST EXTENQCIATTR）
+                  - 扩展QCI和标准QCI映射
+                    - 查询扩展QCI和标准QCI的映射关系（LST EXTENDQCIMAP）
+                    - 修改扩展QCI和标准QCI的映射关系（MOD EXTENDQCIMAP）
+                    - 增加扩展QCI和标准QCI的映射关系（ADD EXTENDQCIMAP）
+                    - 删除扩展QCI和标准QCI的映射关系（RMV EXTENDQCIMAP）
+                - 本地更新QOS
+                  - 增加本地更新QoS值（ADD LOCUPDQOS）
+                  - 查询本地更新QoS值（LST LOCUPDQOS）
+                  - 删除本地更新QoS值（RMV LOCUPDQOS）
+                  - 修改本地更新QoS值（MOD LOCUPDQOS）
+                - 全局QoS功能配置
+                  - 全局QoS参数
+                    - 查询用户ARP优先级配置（LST USERPRIORARP）
+                    - 查询全局QoS配置（LST CPQOSGLOBAL）
+                    - 设置用户ARP优先级配置（SET USERPRIORARP）
+                    - 设置全局QoS配置（SET CPQOSGLOBAL）
+                  - 全局DSCP/ToS映射功能
+                    - 设置全局QoS到TOS/DSCP的映射规则（SET QOSREMARK）
+                    - 查询全局QoS到TOS/DSCP的映射规则（LST QOSREMARK）
+                  - 全局QoS控制功能
+                    - 设置QoS控制配置（SET QOSCTRL）
+                    - 查询QoS控制配置（LST QOSCTRL）
+                - PreR8 QoS配置
+                  - PreR8 QoS控制动作
+                    - 删除Pre-R8 QoS控制动作配置（RMV PRER8QOSACTION）
+                    - 修改Pre-R8 QoS控制动作配置（MOD PRER8QOSACTION）
+                    - 增加Pre-R8 QoS控制动作配置（ADD PRER8QOSACTION）
+                    - 查询Pre-R8 QoS控制动作配置（LST PRER8QOSACTION）
+                  - 全局PreR8 QoS纠错
+                    - 查询缺省的Pre-R8 QoS参数（LST DEFPRER8QOS）
+                    - 设置缺省的Pre-R8 QoS参数（SET DEFPRER8QOS）
+                  - 本地PreR8 QoS
+                    - 修改Pre-R8签约QoS配置（MOD PRER8SUBQOS）
+                    - 查询Pre-R8签约QoS配置（LST PRER8SUBQOS）
+                    - 删除Pre-R8签约QoS配置（RMV PRER8SUBQOS）
+                    - 增加Pre-R8签约QoS配置（ADD PRER8SUBQOS）
+                  - PreR8 Qos映射ToS/DSCP
+                    - 增加Pre-R8 QoS到TOS/DSCP的映射规则（ADD PRER8REMARK）
+                    - 删除Pre-R8 QoS到TOS/DSCP的映射规则（RMV PRER8REMARK）
+                    - 修改Pre-R8 QoS到TOS/DSCP的映射规则（MOD PRER8REMARK）
+                    - 查询Pre-R8 QoS到TOS/DSCP的映射规则（LST PRER8REMARK）
+                  - EPS ARP到PreR8 ARP映射
+                    - 设置EPS ARP到Pre-R8 ARP的映射规则（SET ARPEPS2PRER8）
+                    - 查询EPS ARP到Pre-R8 ARP的映射规则（LST ARPEPS2PRER8）
+                  - EPS QCI映射到PreR8
+                    - 设置EPS QCI到Pre-R8 QoS映射规则（SET EPSQCI2PRER8）
+                    - 清除EPS QCI到Pre-R8 QoS映射规则 （CLR EPSQCI2PRER8）
+                    - 查询EPS QCI到Pre-R8 QoS映射规则（LST EPSQCI2PRER8）
+                - QoS映射
+                  - 5QI到QCI映射
+                    - 删除5QI到标准QCI的映射（RMV QOS5QI2QCIMAP）
+                    - 修改5QI到QCI的映射（MOD QOS5QI2QCIMAP）
+                    - 查询5QI到标准QCI的映射（LST QOS5QI2QCIMAP）
+                    - 增加5QI到标准QCI的映射（ADD QOS5QI2QCIMAP）
+                  - APN-AMBR控制
+                    - 删除APN-AMBR控制的配置（RMV APNAMBRCTRL）
+                    - 查询APN-AMBR控制的配置（LST APNAMBRCTRL）
+                    - 增加APN-AMBR控制的配置（ADD APNAMBRCTRL）
+                    - 修改APN-AMBR控制的配置（MOD APNAMBRCTRL）
+                  - GBR带宽控制
+                    - 查询GBR承载带宽速率控制配置（LST GBRBWCTRL）
+                    - 增加GBR承载带宽速率控制配置（ADD GBRBWCTRL）
+                    - 修改GBR承载带宽速率控制配置（MOD GBRBWCTRL）
+                    - 删除GBR承载带宽速率控制配置（RMV GBRBWCTRL）
+                  - 显示带宽配置及使用情况
+                    - 显示带宽配置及使用情况（DSP BANDWIDTH）
+                - QoS模板
+                  - 删除QoS描述配置（RMV QOSPROFILE）
+                  - 增加QoS描述配置（ADD QOSPROFILE）
+                  - 查询QoS描述配置（LST QOSPROFILE）
+                  - 修改QoS描述配置（MOD QOSPROFILE）
+                - EPS QoS配置
+                  - EPS Qos映射ToS/DSCP
+                    - 查询EPS QoS到TOS/DSCP的映射规则（LST EPSREMARK）
+                    - 增加EPS QoS到TOS/DSCP的映射规则（ADD EPSREMARK）
+                    - 修改EPS QoS到TOS/DSCP的映射规则（MOD EPSREMARK）
+                    - 删除EPS QoS到TOS/DSCP的映射规则（RMV EPSREMARK）
+                  - 本地EPS QoS
+                    - 增加EPS签约QoS配置（ADD EPSSUBQOS）
+                    - 查询EPS签约QoS配置（LST EPSSUBQOS）
+                    - 修改EPS签约QoS配置（MOD EPSSUBQOS）
+                    - 删除EPS签约QoS配置（RMV EPSSUBQOS）
+                  - 全局EPS QoS纠错
+                    - 查询EPS缺省QoS参数（LST DEFEPSQOS）
+                    - 设置EPS缺省QoS参数（SET DEFEPSQOS）
+                  - EPS QoS控制动作
+                    - 查询EPS QoS控制动作配置（LST EPSQOSACTION）
+                    - 删除EPS QoS控制动作配置（RMV EPSQOSACTION）
+                    - 增加EPS QoS控制动作配置（ADD EPSQOSACTION）
+                    - 修改EPS QoS控制动作配置（MOD EPSQOSACTION）
+                  - 缺省承载的EPS QoS
+                    - 查询Qos Profile缺省承载QoS属性（LST EPSQOS4DEFBER）
+                    - 删除Qos Profile缺省承载QoS属性（RMV EPSQOS4DEFBER）
+                    - 修改Qos Profile缺省承载QoS属性（MOD EPSQOS4DEFBER）
+                    - 增加Qos Profile缺省承载QoS属性（ADD EPSQOS4DEFBER）
+                - QCI到ARP映射
+                  - 查询标准QCI到ARP的映射规则（LST QCI2ARP）
+                  - 设置标准QCI到ARP的映射规则（SET QCI2ARP）
+                - APN的QoS属性
+                  - 设置指定APN的QoS属性配置信息（SET CPAPNQOSATTR）
+                  - 查询指定APN的QoS属性配置信息（LST CPAPNQOSATTR）
+              - SM原因值管理
+                - 原因值映射组管理
+                  - 删除SM原因值映射组配置（RMV SMCAUSEGRP）
+                  - 增加SM原因值映射组配置（ADD SMCAUSEGRP）
+                  - 修改SM原因值映射组配置（MOD SMCAUSEGRP）
+                  - 查询SM原因值映射组配置（LST SMCAUSEGRP）
+                - GTPv1 PDP流程原因值控制
+                  - 删除GGSN-C原因值控制参数（RMV GGSNCAUSECTRL）
+                  - 增加GGSN-C原因值控制参数（ADD GGSNCAUSECTRL）
+                  - 查询GGSN-C原因值控制参数（LST GGSNCAUSECTRL）
+                  - 修改GGSN-C原因值控制参数（MOD GGSNCAUSECTRL）
+                - GTPv2会话流程原因值控制
+                  - 修改SGW-C/PGW-C原因值控制参数（MOD SPGWCAUSECTRL）
+                  - 删除SGW-C/PGW-C原因值控制参数（RMV SPGWCAUSECTRL）
+                  - 查询SGW-C/PGW-C原因值控制参数（LST SPGWCAUSECTRL）
+                  - 增加SGW-C/PGW-C原因值控制参数（ADD SPGWCAUSECTRL）
+                - 内部原因值映射
+                  - 增加内部原因值映射为协议原因值的配置（ADD INNER2PROTCAUSE）
+                  - 删除内部原因值映射为协议原因值的配置（RMV INNER2PROTCAUSE）
+                  - 查询内部原因值映射为协议原因值的配置（LST INNER2PROTCAUSE）
+                - 原因值映射管理
+                  - 增加SM原因值映射配置（ADD SMCAUSEMAP）
+                  - 删除SM原因值映射配置（RMV SMCAUSEMAP）
+                  - 查询SM原因值映射配置（LST SMCAUSEMAP）
+                  - 修改SM原因值映射配置（MOD SMCAUSEMAP）
+                - 5GC会话流程原因值控制
+                  - 查询SMF流程控制参数（LST SMFCAUSECTRL）
+                  - 删除SMF流程控制参数（RMV SMFCAUSECTRL）
+                  - 修改SMF流程控制参数（MOD SMFCAUSECTRL）
+                  - 增加SMF流程控制参数（ADD SMFCAUSECTRL）
+              - UPF选择管理
+                - 智能业务后缀
+                  - 查询智能业务后缀（LST INTELLISUFFIX）
+                  - 增加智能业务后缀（ADD INTELLISUFFIX）
+                  - 删除智能业务后缀（RMV INTELLISUFFIX）
+                - 用户绑定UPF
+                  - 删除用户和UPF的绑定关系（RMV IMSIBINDUP）
+                  - 修改用户和UPF的绑定关系（MOD IMSIBINDUP）
+                  - 增加用户和UPF的绑定关系（ADD IMSIBINDUP）
+                  - 查询用户和UPF的绑定关系（LST IMSIBINDUP）
+                - UPF绑定GnGp或S5S8接口
+                  - 查询GGSN与Gn/Gp接口或PGW-U与S5/S8接口的绑定关系（LST UPBINDGNGP）
+                  - 增加GGSN与Gn/Gp接口或PGW-U与S5/S8接口的绑定关系（ADD UPBINDGNGP）
+                  - 修改GGSN与Gn/Gp接口或PGW-U与S5/S8接口的绑定关系（MOD UPBINDGNGP）
+                  - 删除GGSN与Gn/Gp接口或PGW-U与S5/S8接口的绑定关系（RMV UPBINDGNGP）
+                - UPF绑定用户漫游属性
+                  - 增加IMSI号码段（ADD IMSISEGMENT）
+                  - 查询IMSI号码段（LST IMSISEGMENT）
+                  - 查询UPF与用户漫游类型的绑定关系（LST ROAMTYPEBINDUP）
+                  - 增加UPF与用户漫游类型的绑定关系（ADD ROAMTYPEBINDUP）
+                  - 删除UPF与用户漫游类型的绑定关系（RMV ROAMTYPEBINDUP）
+                  - 删除IMSI号码段（RMV IMSISEGMENT）
+                - UPF重选
+                  - 查询UP重选功能（LST UPRESELECTFUNC）
+                  - 设置UP重选功能（SET UPRESELECTFUNC）
+                - DNAI粒度的UPF选择策略
+                  - 修改DNAI粒度的UPF选择策略（MOD DNAIUPSELPLY）
+                  - 删除DNAI粒度的UPF选择策略（RMV DNAIUPSELPLY）
+                  - 查询DNAI粒度的UPF选择策略（LST DNAIUPSELPLY）
+                  - 增加DNAI粒度的UPF选择策略（ADD DNAIUPSELPLY）
+                - UPF选择条件开关
+                  - 设置UPF选择条件开关（SET UPSELECTFLAG）
+                  - 查询UPF选择条件开关（LST UPSELECTFLAG）
+                - UPF和规则的绑定关系
+                  - 修改UPF和规则的绑定关系（MOD UPFBINDSELRULE）
+                  - 增加UPF和规则的绑定关系（ADD UPFBINDSELRULE）
+                  - 查询UPF和规则的绑定关系（LST UPFBINDSELRULE）
+                  - 删除UPF和规则的绑定关系（RMV UPFBINDSELRULE）
+                - 位置区域绑定LAI范围
+                  - 删除UPF位置信息与UPF优先支持的LAI范围的绑定关系（RMV LOCBINDLAI）
+                  - 增加UPF位置信息与UPF优先支持的LAI范围的绑定关系（ADD LOCBINDLAI）
+                  - 查询UPF位置信息与UPF优先支持的LAI范围的绑定关系（LST LOCBINDLAI）
+                - UPF负载均衡
+                  - 设置UP负载均衡功能（SET UPLOADBALANCE）
+                  - 查询UP负载均衡功能（LST UPLOADBALANCE）
+                - UPF锁定静态IP冲突处理
+                  - 查询静态地址段在锁定UPF的用户处理（LST STATICIPINLCKUP）
+                  - 设置静态地址段在锁定UPF的用户处理（SET STATICIPINLCKUP）
+                - I-UPF部署策略
+                  - APN粒度的I-UPF部署模式
+                    - 查询I-UPF在特定园区专用APN下的部署模式配置（LST IUPFAPNDPMODE）
+                    - 修改I-UPF在特定园区专用APN下的部署模式配置（MOD IUPFAPNDPMODE）
+                    - 删除I-UPF在特定园区专用APN下的部署模式配置（RMV IUPFAPNDPMODE）
+                    - 增加I-UPF在特定园区专用APN下的部署模式配置（ADD IUPFAPNDPMODE）
+                - UPF绑定S11接口
+                  - 删除SGW-U与SGW-C侧S11接口的绑定关系（RMV UPBINDS11）
+                  - 修改SGW-U与SGW-C侧S11接口的绑定关系（MOD UPBINDS11）
+                  - 查询SGW-U与SGW-C侧S11接口的绑定关系（LST UPBINDS11）
+                  - 增加SGW-U与SGW-C侧S11接口的绑定关系（ADD UPBINDS11）
+                - 位置区域绑定4G TAI范围
+                  - 查询UPF位置信息与UPF优先支持的4G TAI范围的绑定关系（LST LOCBINDS1TAI）
+                  - 增加UPF位置信息与UPF优先支持的4G TAI范围的绑定关系（ADD LOCBINDS1TAI）
+                  - 删除UPF位置信息与UPF优先支持的4G TAI范围的绑定关系（RMV LOCBINDS1TAI）
+                - 位置区域绑定5G TAI范围
+                  - 删除UPF位置信息与UPF优先支持的5G TAI范围的绑定关系（RMV LOCBINDN2TAI）
+                  - 查询UPF位置信息与UPF优先支持的5G TAI范围的绑定关系（LST LOCBINDN2TAI）
+                  - 增加UPF位置信息与UPF优先支持的5G TAI范围的绑定关系（ADD LOCBINDN2TAI）
+                - ULCL分流部署策略
+                  - DNAI服务区域粒度的ULCL部署模式
+                    - 增加指定DNAI服务区域的ULCL部署模式（ADD ULCLAREADPMODE）
+                    - 修改指定DNAI服务区域的ULCL部署模式（MOD ULCLAREADPMODE）
+                    - 查询指定DNAI服务区域的ULCL部署模式（LST ULCLAREADPMODE）
+                    - 删除指定DNAI服务区域的ULCL部署模式（RMV ULCLAREADPMODE）
+                  - DNAI粒度的ULCL部署模式
+                    - 修改指定DNAI的ULCL部署模式（MOD ULCLDNAIDPMODE）
+                    - 增加指定DNAI的ULCL部署模式（ADD ULCLDNAIDPMODE）
+                    - 查询指定DNAI的ULCL部署模式（LST ULCLDNAIDPMODE）
+                    - 删除指定DNAI的ULCL部署模式（RMV ULCLDNAIDPMODE）
+                  - APN粒度的ULCL部署模式
+                    - 查询指定APN的ULCL部署模式（LST ULCLAPNDPMODE）
+                    - 增加指定APN的ULCL部署模式（ADD ULCLAPNDPMODE）
+                    - 修改指定APN的ULCL部署模式（MOD ULCLAPNDPMODE）
+                    - 删除指定APN的ULCL部署模式（RMV ULCLAPNDPMODE）
+                - I-UPF选择失败处理
+                  - 设置I-UPF选择失败处理方式（SET IUPFSELFAIL）
+                  - 查询I-UPF选择失败处理方式（LST IUPFSELFAIL）
+                - 用户APN绑定UPF
+                  - 增加APN下用户和UPF的绑定关系配置（ADD IMSIAPNBINDUP）
+                  - 查询APN下用户和UPF的绑定关系配置（LST IMSIAPNBINDUP）
+                  - 修改APN下用户和UPF的绑定关系配置（MOD IMSIAPNBINDUP）
+                  - 删除APN下用户和UPF的绑定关系配置（RMV IMSIAPNBINDUP）
+                - PSA绑定ATSSS
+                  - 修改PSA UPF和ATSSS UPF绑定关系中的ATSSS-UPF（MOD PSAUPFBINDATSSS）
+                  - 查询PSA UPF和ATSSS UPF的绑定关系（LST PSAUPFBINDATSSS）
+                  - 增加PSA UPF和ATSSS UPF的绑定关系配置（ADD PSAUPFBINDATSSS）
+                  - 删除PSA UPF和ATSSS UPF的绑定关系（RMV PSAUPFBINDATSSS）
+                - 故障原因值重选UPF
+                  - 增加重选UPF的故障原因值（ADD RESELECTUPCAUSE）
+                  - 查询重选UPF故障原因值（LST RESELECTUPCAUSE）
+                  - 删除重选UPF故障原因值（RMV RESELECTUPCAUSE）
+                - UPF选择策略次序
+                  - 查询UPF选择策略次序（LST UPSELECTPRI）
+                  - 设置UPF选择策略次序（SET UPSELECTPRI）
+                - APN粒度的UPF选择策略
+                  - 查询APN粒度的UP选择策略（LST APNUPSELPLY）
+                  - 设置APN粒度的UP选择策略（SET APNUPSELPLY）
+                - UPF选择规则信息
+                  - 修改UPF选择规则信息（MOD SELECTRULEINFO）
+                  - 增加UPF选择规则信息（ADD SELECTRULEINFO）
+                  - 查询UPF选择规则信息（LST SELECTRULEINFO）
+                  - 删除UPF选择规则信息（RMV SELECTRULEINFO）
+                - 位置区域绑定本地优选名称
+                  - 查询UPF位置信息与该UPF优先支持的服务区的绑定关系（LST LOCBINDAREA）
+                  - 删除UPF位置信息与该UPF优先支持的服务区的绑定关系（RMV LOCBINDAREA）
+                  - 增加UPF位置信息与该UPF优先支持的服务区的绑定关系（ADD LOCBINDAREA）
+                - UPF锁定信息
+                  - 显示UPF上报的锁定信息（DSP UPLOCKINFO）
+              - 接入管理运维
+                - 流控管理
+                  - 会话锁定管理
+                    - 查询新创建会话或专载的锁定状态（LST SESSIONACT）
+                    - 锁定新创建会话或专载（LCK SESSIONACT）
+                  - 基于APN的DDN消息优先级管理
+                    - 删除基于APN的DDN消息优先级配置（RMV DDNPRIORITYAPN）
+                    - 查询基于APN的DDN消息优先级配置（LST DDNPRIORITYAPN）
+                    - 增加基于APN的DDN消息优先级配置（ADD DDNPRIORITYAPN）
+                    - 修改基于APN的DDN消息优先级配置（MOD DDNPRIORITYAPN）
+                  - SMF流控参数
+                    - 设置SMF自保流控参数（SET SMFFCPARA）
+                    - 查询SMF自保流控参数（LST SMFFCPARA）
+                  - DDN Throttling功能开关
+                    - 设置DDN Throttling功能（SET DDNTHROTTLING）
+                    - 查询DDN Throttling功能（LST DDNTHROTTLING）
+                  - 信令抑制
+                    - 查询过载控制的配置信息（LST OVERLOADCTRL）
+                    - 激活智能流控开始特定时长（ACT SMARTFCDURA）
+                    - 显示智能流控开启时长（DSP SMARTFCDURA）
+                    - 设置信令抑制功能开关以及老化定时器时长（SET OVERLOADCTRL）
+                  - 基于用户属性的DDN优先级管理
+                    - 设置基于用户属性的DDN消息优先级（SET DDNUSERTYPEPRI）
+                    - 查询基于用户属性的DDN消息优先级（LST DDNUSERTYPEPRI）
+                  - Back-off Time信息
+                    - 查询Back-off Time信息（LST BACKOFFTIME）
+                    - 设置Back-off Time信息（SET BACKOFFTIME）
+                  - 基于ARP的DDN消息优先级管理
+                    - 修改基于ARP的DDN消息优先级配置（MOD DDNPRIORITYARP）
+                    - 增加基于ARP的DDN消息优先级配置（ADD DDNPRIORITYARP）
+                    - 查询基于ARP的DDN消息优先级配置（LST DDNPRIORITYARP）
+                    - 删除基于ARP的DDN消息优先级配置（RMV DDNPRIORITYARP）
+                  - DDN消息无响应处理策略
+                    - 查询DDN定时器超时参数（LST DDNTIMEOUTCTRL）
+                    - 清除DDN超时延时删除功能运行信息记录（CLR DDNTIMEOUTCNT）
+                    - 显示DDN超时延时删除功能运行信息记录（DSP DDNTIMEOUTCNT）
+                    - 设置DDN定时器超时参数（SET DDNTIMEOUTCTRL）
+                  - DDN流控参数
+                    - 设置DDN流控参数（SET DDNFLOWCTRL）
+                    - 查询DDN流控参数（LST DDNFLOWCTRL）
+                  - 全局Back-off Time信息
+                    - 设置全局Back-off Time信息（SET GBACKOFFTIME）
+                    - 查询全局Back-off Time信息（LST GBACKOFFTIME）
+                  - DDN Throttling信息管理
+                    - 显示Throttling信息（DSP THROTTLINGINFO）
+                  - 异常场景的Back-off Time开关
+                    - 查询异常场景的Back-off Time开关（LST BACKOFFTIMECTRL）
+                    - 设置异常场景的Back-off Time开关（SET BACKOFFTIMECTRL）
+                - DDN Delay管理
+                  - 显示路径DDN Delay信息（DSP DDNDELAYINFO）
+                - DDN消息携带的属性
+                  - 查询DDN消息参数以及Delay信元处理开关（LST DDNATTR）
+                  - 设置DDN消息参数以及Delay信元处理开关（SET DDNATTR）
+                - 删除SM上下文
+                  - 删除SM上下文（RMV SMCTX）
+                - SMF公共配置
+                  - MEP_SMF联动功能开关
+                    - 查询MEP_SMF联动功能开关（LST MEPINTERACT）
+                    - 设置MEP_SMF联动功能开关（SET MEPINTERACT）
+                  - 空闲上下文定时器
+                    - 设置默认会话上下文定时器（SET DFTSESSIONTIME）
+                    - 设置默认空闲上下文定时器配置（SET DFTIDLETIME）
+                    - 查询默认空闲上下文定时器配置（LST DFTIDLETIME）
+                    - 查询默认会话上下文定时器（LST DFTSESSIONTIME）
+                - 去活PDP速率
+                  - 设置去激活用户承载的速率（SET CPDEACTIVERATE）
+                  - 查询去激活用户承载的速率（LST CPDEACTIVERATE）
+                - 过载控制信息维护
+                  - 清除过载控制记录信息（CLR OVERLOAD）
+                - 查询用户数
+                  - 显示会话管理的用户数（DSP SMUSERNUM）
+                - 查询PDP上下文信息
+                  - 显示PDU会话（DSP PDUSESSION）
+                - 查询专有DNN会话上下文数
+                  - 显示专用DNN会话数（DSP MULDNNSESSNUM）
+                - DDN抑制管理
+                  - 查询DDN抑制功能配置（LST DDNSUPPRESSION）
+                  - 设置DDN抑制功能（SET DDNSUPPRESSION）
+                - 查询会话签约信息
+                  - 显示会话签约信息（DSP SESSIONSUBDATA）
+                - 去活UPC上下文
+                  - 去激活用户面控制上下文（DEA UPCCTX）
+                - 重置RADIUS或DHCP链路状态
+                  - 复位RADIUS或DHCP链路状态（RST AAADHCPPATHSTAT）
+                - 查询会话QoS信息
+                  - 显示会话QoS信息（DSP SESSIONQOSINFO）
+                - 查询去活SM上下文状态
+                  - 显示去活操作状态（DSP DEASMCTXSTATUS）
+                - 查询会话惯性运行信息
+                  - 显示会话惯性运行信息（DSP SESSIONIOINFO）
+                - 显示UE IP对应的PCF信息
+                  - 显示UE IP对应的PCF信息（DSP BSFCTX）
+                - 过载控制信息查询
+                  - 显示过载控制记录信息（DSP OVERLOAD）
+                - 查询专有DNN会话信息
+                  - 显示专用DNN会话信息（DSP MULDNNPDUSES）
+                - 查询用户信息
+                  - 显示会话管理的用户信息（DSP SMUSERINFO）
+                - 去活SM上下文
+                  - 去激活或者停止去活SM上下文（DEA SMCTX）
+                - 查询PDP上下文数
+                  - 查询会话管理的PDP上下文数（DSP SMPDPNUM）
+                - 查询会话上下文数
+                  - 显示会话管理的会话上下文数（DSP SMSESSIONNUM）
+              - 紧急呼叫会话配置
+                - 修改运营商紧急呼叫会话功能配置（MOD SMFEMGCFG）
+                - 删除运营商紧急呼叫会话功能配置（RMV SMFEMGCFG）
+                - 查询运营商紧急呼叫会话功能配置（LST SMFEMGCFG）
+                - 增加运营商紧急呼叫会话功能配置（ADD SMFEMGCFG）
+              - 接入控制
+                - 域名分隔符
+                  - 设置域名前后缀分隔符（SET CPDOMAINSEPARATOR）
+                  - 查询域名前后缀分隔符（LST CPDOMAINSEPARATOR）
+                - DN网络DNS/NBNS选择管理
+                  - DNS选择管理
+                    - DNS关联的UPF组管理
+                      - 增加UPF和DNS关联的UPF组的绑定关系（ADD UEDNSUPFBINDGRP）
+                      - 增加DNS关联的UPF组（ADD UEDNSUPGROUP）
+                      - 查询DNS关联的UPF组（LST UEDNSUPGROUP）
+                      - 删除UPF和DNS关联的UPF组的绑定关系（RMV UEDNSUPFBINDGRP）
+                      - 查询UPF和DNS关联的UPF组的绑定关系（LST UEDNSUPFBINDGRP）
+                      - 删除DNS关联的UPF组（RMV UEDNSUPGROUP）
+                    - UPF组DNS域名策略
+                      - 修改UPF组的DNS属性（MOD UEDNSBINDUPGRP）
+                      - 查询UPF组的DNS属性（LST UEDNSBINDUPGRP）
+                      - 增加UPF组的DNS属性（ADD UEDNSBINDUPGRP）
+                      - 删除UPF组的DNS属性（RMV UEDNSBINDUPGRP）
+                    - APN DNS域名策略
+                      - 设置APN的DNS属性（SET UEDNSBINDAPN）
+                      - 查询APN的DNS属性（LST UEDNSBINDAPN）
+                      - 恢复APN的DNS属性（RTR UEDNSBINDAPN）
+                    - 缺省DNS
+                      - 设置系统默认DNS（SET GLOBALDNS）
+                      - 恢复系统默认DNS（RTR GLOBALDNS）
+                      - 查询系统默认DNS（LST GLOBALDNS）
+                  - NBNS选择管理
+                    - 缺省NBNS
+                      - 查询系统默认NBNS（LST GLOBALNBNS）
+                      - 设置系统默认NBNS（SET GLOBALNBNS）
+                      - 恢复系统默认NBNS（RTR GLOBALNBNS）
+                    - APN的NBNS属性
+                      - 查询APN的NBNS属性（LST APNNBNS）
+                      - 增加APN的NBNS属性（ADD APNNBNS）
+                      - 删除APN的NBNS属性（RMV APNNBNS）
+                      - 修改APN的NBNS属性（MOD APNNBNS）
+                - E-UTRAN和WLAN互操作控制
+                  - 全局E-UTRAN和WLAN互操作控制
+                    - 查询全局E-UTRAN和WLAN互操作控制属性（LST GLOBALWIFILTEHO）
+                    - 设置全局E-UTRAN和WLAN互操作控制属性（SET GLOBALWIFILTEHO）
+                  - 基于APN的E-UTRAN和WLAN互操作控制
+                    - 增加基于APN的E-UTRAN和WLAN互操作控制属性（ADD APNWIFILTEHO）
+                    - 删除基于APN的E-UTRAN和WLAN互操作控制属性（RMV APNWIFILTEHO）
+                    - 查询基于APN的E-UTRAN和WLAN互操作控制属性（LST APNWIFILTEHO）
+                    - 修改基于APN的E-UTRAN和WLAN互操作控制属性（MOD APNWIFILTEHO）
+                - 缺省服务节点PLMN
+                  - 修改默认PLMN（MOD DFTSRVNODEPLMN）
+                  - 删除默认PLMN（RMV DFTSRVNODEPLMN）
+                  - 查询默认PLMN（LST DFTSRVNODEPLMN）
+                  - 增加默认PLMN（ADD DFTSRVNODEPLMN）
+                - NSA控制管理
+                  - 设置NSA控制处理配置（SET NSACTRLPROP）
+                  - 查询NSA控制处理配置（LST NSACTRLPROP）
+                - 业务功能灵活控制
+                  - 信元携带策略管理
+                    - 查询信元携带控制配置（LST SMFIEADAPTER）
+                    - 删除信元携带控制配置（RMV SMFIEADAPTER）
+                    - 增加信元携带控制配置（ADD SMFIEADAPTER）
+                    - 显示SMF当前信元携带的信息（DSP CURSMFIEADAPTER）
+                  - 冲突策略管理
+                    - 查询冲突规则（LST SMFCONFLICTRULE）
+                    - 增加冲突规则（ADD SMFCONFLICTRULE）
+                    - 修改冲突规则（MOD SMFCONFLICTRULE）
+                    - 删除冲突规则（RMV SMFCONFLICTRULE）
+                    - 显示冲突规则生效状态（DSP SMFCONFLICTRULE）
+                - 获取RAT管理
+                  - 全局RAT配置
+                    - 查询默认RAT类型（LST DFTSRVNODERAT）
+                    - 设置默认RAT类型（SET DFTSRVNODERAT）
+                  - IP地址映射RAT
+                    - 修改SGSN/SGW IP与RAT类型间的映射关系（MOD SRVNODERAT）
+                    - 查询SGSN/SGW IP与RAT类型间的映射关系（LST SRVNODERAT）
+                    - 删除SGSN/SGW IP与RAT类型间的映射关系（RMV SRVNODERAT）
+                    - 增加SGSN/SGW IP与RAT类型间的映射关系（ADD SRVNODERAT）
+                  - 获取RAT方式的优先级
+                    - 设置获取RAT Type的优先级（SET SRVNODERATPRI）
+                    - 查询获取RAT Type的优先级（LST SRVNODERATPRI）
+                - 锁定白名单
+                  - 查询锁定白名单记录（LST LCKWHITELST）
+                  - 增加锁定白名单记录（ADD LCKWHITELST）
+                  - 删除锁定白名单记录（RMV LCKWHITELST）
+                - 获取PLMN管理
+                  - 服务节点PLMN
+                    - 增加SGSN/SGW/PGW地址段和PLMN标识之间的映射关系（ADD SRVNODEPLMN）
+                    - 查询SGSN/SGW/PGW地址段和PLMN标识之间的映射关系（LST SRVNODEPLMN）
+                    - 删除SGSN/SGW/PGW地址段和PLMN标识之间的映射关系（RMV SRVNODEPLMN）
+                    - 修改SGSN/SGW/PGW地址段和PLMN标识之间的映射关系（MOD SRVNODEPLMN）
+                  - 获取PLMN方式的优先级
+                    - 设置获取PLMN优先级（SET PLMNPRIORITY）
+                    - 查询获取PLMN优先级（LST PLMNPRIORITY）
+                  - S/P合一的SGW PLMN获取策略
+                    - 查询S-GW PLMN ID来源（LST SGWPLMNORIGIN）
+                    - 设置S-GW PLMN ID来源（SET SGWPLMNORIGIN）
+                - 发送UDP报文是否携带校验和
+                  - 设置UNC发送的UDP报文中是否携带checksum（SET CPUDPCHECKSUM）
+                  - 查询UNC发送的UDP报文是否携带checksum（LST CPUDPCHECKSUM）
+                - WLAN控制管理
+                  - 设置可信Non-3GPP接入开关（SET TRUSTEDWLANFUNC）
+                  - 查询可信Non-3GPP接入开关（LST TRUSTEDWLANFUNC）
+                - APN设备白名单
+                  - 查询APN设备白名单列表（LST APNWHITENODE）
+                  - 删除APN设备白名单（RMV APNWHITENODE）
+                  - 增加APN设备白名单（ADD APNWHITENODE）
+              - Proxy SGW/SMF管理
+                - Proxy SMF接入列表
+                  - 修改Proxy SMF接入控制列表（MOD PROXYSMFACCLIST）
+                  - 查询Proxy SMF接入控制列表（LST PROXYSMFACCLIST）
+                  - 删除Proxy SMF接入控制列表（RMV PROXYSMFACCLIST）
+                  - 增加Proxy SMF接入控制列表（ADD PROXYSMFACCLIST）
+                - Proxy SGW-C接入列表
+                  - 查询Proxy SGW-C接入控制列表（LST PROXYSGWACCLIST）
+                  - 增加Proxy SGW-C接入控制列表（ADD PROXYSGWACCLIST）
+                  - 删除Proxy SGW-C接入控制列表（RMV PROXYSGWACCLIST）
+                  - 修改Proxy SGW-C接入控制列表（MOD PROXYSGWACCLIST）
+                - Proxy SMFS8管理
+                  - 修改proxy SMF控制（MOD PROXYSMFCTRL）
+                  - 增加proxy SMF控制（ADD PROXYSMFCTRL）
+                  - 查询proxy SMF控制（LST PROXYSMFCTRL）
+                  - 删除proxy SMF控制（RMV PROXYSMFCTRL）
+                - 归属地PGW-C IP地址
+                  - 查询归属地PGW-C IP地址（LST HOMEPGWIP）
+                  - 删除归属地PGW-C IP地址（RMV HOMEPGWIP）
+                  - 修改归属地PGW-C IP地址（MOD HOMEPGWIP）
+                  - 增加归属地PGW-C IP地址（ADD HOMEPGWIP）
+                - Proxy SMF功能管理
+                  - 设置proxy SMF功能配置（SET PROXYSMFFUNC）
+                  - 查询proxy SMF功能配置（LST PROXYSMFFUNC）
+                - 缺省代理控制
+                  - 查询缺省代理控制配置（LST DFTPROXYCTRL）
+                  - 设置缺省的代理功能（SET DFTPROXYCTRL）
+                - Proxy SGW-C功能参数
+                  - 查询Proxy SGW功能参数（LST PROXYSGWFUNC）
+                  - 设置Proxy SGW功能参数（SET PROXYSGWFUNC）
+              - UE地址管理
+                - UE地址池管理
+                  - 地址分配位置区管理
+                    - 地址分配LAC段
+                      - 查询LAC组内LAC号段（LST ADDRLACID）
+                      - 删除LAC组内LAC号段（RMV ADDRLACID）
+                      - 增加LAC组内LAC号段（ADD ADDRLACID）
+                    - 地址分配S1TAC段
+                      - 增加S1TAC组内S1TAC号段（ADD ADDRS1TACID）
+                      - 删除S1TAC组内S1TAC号段（RMV ADDRS1TACID）
+                      - 查询S1TAC组内S1TAC号段（LST ADDRS1TACID）
+                    - 地址分配N2TAC段
+                      - 查询N2TAC组内N2TAC号段（LST ADDRN2TACID）
+                      - 删除N2TAC组内N2TAC号段（RMV ADDRN2TACID）
+                      - 增加N2TAC组内N2TAC号段（ADD ADDRN2TACID）
+                    - 地址分配TAC组
+                      - 查询TAC组（LST ADDRTACGROUP）
+                      - 增加TAC组（ADD ADDRTACGROUP）
+                      - 删除TAC组（RMV ADDRTACGROUP）
+                    - 地址分配LAC组
+                      - 增加LAC组（ADD ADDRLACGROUP）
+                      - 删除LAC组（RMV ADDRLACGROUP）
+                      - 查询LAC组（LST ADDRLACGROUP）
+                  - 冲突地址管理
+                    - 查询冲突地址（LST CPCONFLICTIP）
+                    - 增加冲突地址（ADD CPCONFLICTIP）
+                    - 删除冲突地址（RMV CPCONFLICTIP）
+                  - 基于UPF地址分配开关配置
+                    - 查询基于UPF地址分配的全局开关（LST IPALLOCBYUPFGLBSW）
+                    - 查询基于UPF的地址分配开关（LST IPALLOCBYUPFSW）
+                    - 设置基于UPF的地址分配开关（SET IPALLOCBYUPFSW）
+                    - 设置基于UPF地址分配的全局开关（SET IPALLOCBYUPFGLBSW）
+                  - 代理IP管理
+                    - 删除远端地址池代理IP信息（RMV AGENTIP）
+                    - 查询远端地址池代理IP信息（LST AGENTIP）
+                    - 增加远端地址池代理IP信息（ADD AGENTIP）
+                  - 地址分配UPF组管理
+                    - 删除UPF组（RMV ADDRUPGROUP）
+                    - 查询UPF组（LST ADDRUPGROUP）
+                    - 查询UPF和UPF组的绑定关系（LST UPFBINDGRP）
+                    - 增加UPF组（ADD ADDRUPGROUP）
+                    - 删除UPF和UPF组的绑定关系（RMV UPFBINDGRP）
+                    - 增加UPF和UPF组的绑定关系（ADD UPFBINDGRP）
+                  - 地址池组使用率告警阈值
+                    - 查询本地地址池组使用率告警阈值（LST CPIPPOOLALMTHD）
+                    - 设置本地地址池组使用率告警阈值（SET CPIPPOOLALMTHD）
+                  - 地址段管理
+                    - 查询地址段（LST CPSECTION）
+                    - 锁定/解锁地址段（LCK CPSECTION）
+                    - 删除地址段（RMV CPSECTION）
+                    - 增加地址段（ADD CPSECTION）
+                  - 基于位置区地址分配开关配置
+                    - 查询基于位置区地址分配的开关（LST CPIPALLOCBYLOCSW）
+                    - 查询基于位置区地址分配的全局开关（LST CPIPALLOCBYLOCGLBSW）
+                    - 设置基于位置区地址分配的开关（SET CPIPALLOCBYLOCSW）
+                    - 设置基于位置区地址分配的全局开关（SET CPIPALLOCBYLOCGLBSW）
+                  - 地址池管理
+                    - 锁定/解锁地址池（LCK CPADDRPOOL）
+                    - 增加地址池（ADD CPADDRPOOL）
+                    - 修改地址池（MOD CPADDRPOOL）
+                    - 删除地址池（RMV CPADDRPOOL）
+                    - 查询地址池（LST CPADDRPOOL）
+                  - 地址分配规则配置
+                    - 查询全局地址分配规则（LST CPIPALLOCRULE）
+                    - 查询基于APN的地址分配规则（LST CPAPNIPALLOCRULE）
+                    - 设置基于APN的地址分配规则（SET CPAPNIPALLOCRULE）
+                    - 设置全局地址分配规则（SET CPIPALLOCRULE）
+                  - 地址池组管理
+                    - 修改地址池与地址池组的绑定关系（MOD POOLBINDGRP）
+                    - 删除地址池与地址池组的绑定关系（RMV POOLBINDGRP）
+                    - 修改地址池组（MOD ADDRPOOLGRP）
+                    - 增加地址池和地址池组的绑定关系（ADD POOLBINDGRP）
+                    - 删除地址池组（RMV ADDRPOOLGRP）
+                    - 查询地址池组（LST ADDRPOOLGRP）
+                    - 查询地址池与地址池组的绑定关系（LST POOLBINDGRP）
+                    - 增加地址池组（ADD ADDRPOOLGRP）
+                  - ADDR地址分配参数配置
+                    - 设置ADDR参数（SET ADDRPARA）
+                    - 查询ADDR参数（LST ADDRPARA）
+                  - 地址池使用信息
+                    - 显示地址池使用信息（DSP CPPOOLUSAGE）
+                  - 回收地址
+                    - 回收地址（ACT CPRECYCLE）
+                  - 地址池使用率告警配置
+                    - 查询本地地址池使用率告警参数（LST POOLALMPARA）
+                    - 设置本地地址池使用率告警参数（SET POOLALMPARA）
+                  - 全局地址分配属性配置
+                    - 设置UE IP地址属性（SET CPADDRESSATTR）
+                    - 查询UE IP地址属性（LST CPADDRESSATTR）
+                  - 地址池组映射配置
+                    - 删除地址池组映射关系（RMV CPPOOLGRPMAP）
+                    - 增加地址池组映射关系（ADD CPPOOLGRPMAP）
+                    - 查询地址池组映射关系（LST CPPOOLGRPMAP）
+                  - 地址管理
+                    - 显示地址缓存（DSP ADDRIP）
+                    - 清除地址（CLR ADDRIP）
+                  - 地址段使用信息
+                    - 显示地址段使用信息（DSP CPSECTIONUSAGE）
+                  - 地址池绑定APN
+                    - 增加APN实例与地址池绑定关系（ADD POOLBINDAPN）
+                    - 删除APN实例与地址池绑定关系（RMV POOLBINDAPN）
+                    - 查询APN实例与地址池绑定关系（LST POOLBINDAPN）
+                - DHCP管理
+                  - DHCP服务器绑定
+                    - 查询DHCP服务器组与地址池组绑定关系（LST DHCPBINDPOOLGRP）
+                    - 删除DHCP服务器组与地址池组绑定关系（RMV DHCPBINDPOOLGRP）
+                    - 增加DHCP服务器组与地址池组绑定关系（ADD DHCPBINDPOOLGRP）
+                  - DHCP服务器
+                    - 查询DHCP服务器（LST DHCPSERVER）
+                    - 增加DHCP服务器（ADD DHCPSERVER）
+                    - 修改DHCP服务器（MOD DHCPSERVER）
+                    - 删除DHCP服务器（RMV DHCPSERVER）
+                  - DHCP请求信元参数信息
+                    - 设置向外部DHCPv4或者DHCPv6服务器发送的消息中的请求信元中的参数信息（SET DHCPPARAREQ）
+                    - 查询向外部DHCPv4或者DHCPv6服务器发送的消息中的请求信元中的参数信息（LST DHCPPARAREQ）
+                  - 手机后路由
+                    - 删除手机后路由配置（RMV ROUTINGBEHINDMS）
+                    - 查询手机后路由配置（LST ROUTINGBEHINDMS）
+                    - 增加本地配置的手机后路由信息（ADD ROUTINGBEHINDMS）
+                    - 删除所有手机后路由配置（RMV ROUTINGBEHMSALL）
+                  - 园区用户IP地址信息管理
+                    - 查询园区用户IP地址信息（LST RDSSTATICIPPARA）
+                    - 增加园区用户IP地址信息（ADD RDSSTATICIPPARA）
+                    - 删除园区用户IP地址信息（RMV RDSSTATICIPPARA）
+                  - DHCP服务器组
+                    - 查询DHCP服务器组（LST DHCPSERVERGRP）
+                    - 修改DHCP服务器组（MOD DHCPSERVERGRP）
+                    - 删除DHCP服务器组（RMV DHCPSERVERGRP）
+                    - 增加DHCP服务器组（ADD DHCPSERVERGRP）
+                - 静态地址参数配置
+                  - 查询静态地址参数（LST STATICADDRPARA）
+                  - 设置静态地址参数（SET STATICADDRPARA）
+                - IPv6接口标识管理
+                  - 全局IPv6接口标识管理
+                    - 设置整机IPv6接口ID配置（SET CPGLBIPV6INFID）
+                    - 查询整机IPv6接口ID配置（LST CPGLBIPV6INFID）
+                  - APN IPv6接口标识管理
+                    - 查询APN IPv6接口ID配置（LST CPAPNIPV6INFID）
+                    - 设置APN IPv6接口ID配置（SET CPAPNIPV6INFID）
+                - 静态地址黑名单管理
+                  - 增加黑名单地址列表（ADD BLACKLIST）
+                  - 查询黑名单地址列表（LST BLACKLIST）
+                  - 删除黑名单地址列表（RMV BLACKLIST）
+              - 会话协议参数管理
+                - 会话策略管理
+                  - 5GC用户面安全策略管理
+                    - 设置RAN侧安全策略（SET RANSECPLCY）
+                    - 增加DNN RAN侧安全策略（ADD DNNRANSECPLCY）
+                    - 查询RAN侧安全策略（LST RANSECPLCY）
+                    - 删除DNN RAN侧安全策略（RMV DNNRANSECPLCY）
+                    - 修改DNN RAN侧安全策略（MOD DNNRANSECPLCY）
+                    - 查询DNN RAN侧安全策略（LST DNNRANSECPLCY）
+                  - 5GC QoS Flow管理拓展功能
+                    - 查询去活用户面专有QoS Flow策略（LST DEACTQFPLCY）
+                    - 修改去活用户面专有QoS Flow策略（MOD DEACTQFPLCY）
+                    - 查询基于APN去活用户面专有QoS Flow策略（LST APNDEACTQFPLCY）
+                    - 查询QoS Flow功能（LST QOSFLOWFUNC）
+                    - 增加去活用户面专有QoS Flow策略（ADD DEACTQFPLCY）
+                    - 删除基于APN去活用户面专有QoS Flow策略（RMV APNDEACTQFPLCY）
+                    - 增加基于APN去活用户面专有QoS Flow策略（ADD APNDEACTQFPLCY）
+                    - 修改基于APN去活用户面专有QoS Flow策略（MOD APNDEACTQFPLCY）
+                    - 删除去活用户面专有QoS Flow策略（RMV DEACTQFPLCY）
+                    - 设置QoS Flow扩展功能（SET QOSFLOWFUNC）
+                - 会话流程控制管理
+                  - 会话流程冲突控制
+                    - 设置冲突控制参数（SET CONFCTRL）
+                    - 查看冲突控制参数（LST CONFCTRL）
+                - GTP会话协议参数管理
+                  - 下行报文缓存时长
+                    - 查询APN的下行报文缓存时长配置（LST SMFAPNDLBUFTIME）
+                    - 修改APN的下行报文缓存时长配置（MOD SMFAPNDLBUFTIME）
+                    - 删除APN的下行报文缓存时长配置（RMV SMFAPNDLBUFTIME）
+                    - 查询全局下行报文缓存时长（LST SMFGLBDLBUFTIME）
+                    - 设置全局下行报文缓存时长（SET SMFGLBDLBUFTIME）
+                    - 增加APN的下行报文缓存时长配置（ADD SMFAPNDLBUFTIME）
+                  - GTP会话协议参数
+                    - 查询会话管理GTP协议功能参数配置（LST SMGTPPROT）
+                    - 设置会话管理GTP协议功能参数配置（SET SMGTPPROT）
+                - 会话管理拓展功能
+                  - 通用会话管理拓展功能
+                    - 设置通用会话拓展功能（SET SMCOMMFUNC）
+                    - 查询通用会话拓展功能（LST SMCOMMFUNC）
+                  - H-SMF会话管理拓展功能
+                    - 查询H-SMF通用控制开关（LST HSMFCOMMONSW）
+                    - 设置H-SMF通用控制开关（SET HSMFCOMMONSW）
+                  - APN级通用会话拓展功能
+                    - 增加APN粒度的通用会话拓展功能控制（ADD APNSMCOMFUNC）
+                    - 查询APN粒度的通用会话拓展功能控制（LST APNSMCOMFUNC）
+                    - 修改APN粒度的通用会话拓展功能控制（MOD APNSMCOMFUNC）
+                    - 删除APN粒度的通用会话拓展功能控制（RMV APNSMCOMFUNC）
+                  - 园区会话管理拓展功能
+                    - 设置通用会话拓展功能（SET EDGESMCOMMFUNC）
+                    - 查询通用会话拓展功能（LST EDGESMCOMMFUNC）
+                  - 5GC会话管理拓展功能
+                    - 查询SMF扩展功能（LST SMFFUNC）
+                    - 设置SMF扩展功能（SET SMFFUNC）
+                - 会话协议定时器管理
+                  - 5GC会话协议定时器
+                    - 设置5GC会话管理定时器参数（SET SMTIMER）
+                    - 查询5GC会话管理定时器参数（LST SMTIMER）
+                  - 通用会话协议定时器
+                    - 设置通用会话管理定时器参数（SET SMCOMMTIMER）
+                    - 查询通用会话管理定时器参数（LST SMCOMMTIMER）
+              - APN管理
+                - 基于APN的地址管理控制参数
+                  - 查询基于APN的地址分配属性（LST CPAPNADDRESSATTR）
+                  - 设置基于APN的地址分配属性（SET CPAPNADDRESSATTR）
+                - 基于APN的接入属性控制
+                  - 查询APN访问控制参数（LST CPAPNACCESSCTRL）
+                  - 设置APN访问控制参数（SET CPAPNACCESSCTRL）
+                - CPAPN
+                  - 锁定存储ByPass场景下的APN（LCK APNFORBYPASS）
+                  - 删除APN配置（RMV CPAPN）
+                  - 显示APN锁定状态（DSP APNFORBYPASS）
+                  - 锁定APN配置（LCK CPAPN）
+                  - 查询APN配置（LST CPAPN）
+                  - 修改APN配置（MOD CPAPN）
+                  - 增加APN配置（ADD CPAPN）
+                - APN鉴权属性
+                  - 设置APN鉴权属性配置（SET APNAUTHATTR）
+                  - 查询对鉴权信元用户名和密码的控制（LST AUTHNAMEPWDCTRL）
+                  - 查询APN鉴权属性配置（LST APNAUTHATTR）
+                  - 增加对鉴权信元用户名和密码的控制（ADD AUTHNAMEPWDCTRL）
+                  - 修改对鉴权信元用户名和密码的控制（MOD AUTHNAMEPWDCTRL）
+                  - 删除对鉴权信元用户名和密码的控制（RMV AUTHNAMEPWDCTRL）
+                - MBR 删除PCC回滚上下文
+                  - 设置APN的MBR删除PCC回滚空闲上下文配置（SET APNPCRFEMEREATTACH）
+                  - 查询APN的MBR删除PCC回滚空闲上下文配置（LST APNPCRFEMEREATTACH）
+                - 周边接口呈现APN策略管理
+                  - 指定上报的APN
+                    - 删除用户APN与消息交互使用APN的映射关系（RMV CPSPECIFICAPNVAL）
+                    - 查询用户APN与消息交互使用APN的映射关系（LST CPSPECIFICAPNVAL）
+                    - 增加用户APN与消息交互使用APN的映射关系（ADD CPSPECIFICAPNVAL）
+                    - 修改用户APN与消息交互使用APN的映射关系（MOD CPSPECIFICAPNVAL）
+                  - 基于APN的上报APN策略控制
+                    - 查询APN的上报属性（LST CPAPNREPORTATTR）
+                    - 设置APN的上报属性（SET CPAPNREPORTATTR）
+                - APN组管理
+                  - 修改DNS关联的APN组的描述信息（MOD SMFAPNGRP）
+                  - 增加DNS关联的APN组（ADD SMFAPNGRP）
+                  - 删除APN和DNS关联的APN组的绑定关系（RMV SMFAPNGRPMEM）
+                  - 删除DNS关联的APN组（RMV SMFAPNGRP）
+                  - 查询APN和DNS关联的APN组的绑定关系（LST SMFAPNGRPMEM）
+                  - 增加APN和DNS关联的APN组的绑定关系（ADD SMFAPNGRPMEM）
+                  - 查询DNS关联的APN组（LST SMFAPNGRP）
+                - 基于APN的L2TP接入控制
+                  - 查询APN L2TP CTRL配置（LST APNL2TPCTRL）
+                  - 设置APN L2TP CTRL配置（SET APNL2TPCTRL）
+                - APN的DHCP属性
+                  - 设置APN DHCP属性配置（SET APNDHCPATTR）
+                  - 查询APN DHCP属性配置（LST APNDHCPATTR）
+                - 基于APN的ATSSS功能控制
+                  - 设置APN ATSSS功能（SET APNATSSSFUNC）
+                  - 查询APN ATSSS功能（LST APNATSSSFUNC）
+                - APN定时器属性
+                  - 查询APN会话上下文定时器配置（LST APNSESSIONTIME）
+                  - 查询APN空闲上下文定时器配置（LST APNIDLETIME）
+                  - 设置APN会话上下文定时器配置（SET APNSESSIONTIME）
+                  - 设置APN空闲上下文定时器配置（SET APNIDLETIME）
+                - 别名APN
+                  - 增加APN别名配置（ADD CPAPNALIAS）
+                  - 锁定APN别名配置（LCK CPAPNALIAS）
+                  - 删除APN别名配置（RMV CPAPNALIAS）
+                  - 查询APN别名配置（LST CPAPNALIAS）
+                - 匿名APN
+                  - 设置匿名APN配置（SET ANONYMOUSAPN）
+                  - 查询匿名APN配置（LST ANONYMOUSAPN）
+                - APN接入速率
+                  - 查询APN接入速率（LST CPAPNACCESSWAL）
+                  - 设置APN接入速率（SET CPAPNACCESSWAL）
+              - 智能分流专网DNN管理
+                - 查询智能分流ULCL部署模式（LST MULDNNULCLMODE）
+                - 查询智能分流专网DNN支持的服务区域（LST MULDNNBINDAREA）
+                - 增加本地专网DNN就近接入优先级（ADD MULDNNPRILIST）
+                - 删除智能分流专网DNN支持的服务区域（RMV MULDNNBINDAREA）
+                - 修改智能分流ULCL部署模式（MOD MULDNNULCLMODE）
+                - 修改本地专网DNN就近接入优先级（MOD MULDNNPRILIST）
+                - 增加智能分流专网DNN支持的服务区域（ADD MULDNNBINDAREA）
+                - 删除本地专网DNN就近接入优先级（RMV MULDNNPRILIST）
+                - 删除智能分流ULCL部署模式（RMV MULDNNULCLMODE）
+                - 查询本地专网DNN就近接入优先级（LST MULDNNPRILIST）
+                - 增加智能分流ULCL部署模式（ADD MULDNNULCLMODE）
+              - GGSN和P-GW Proxy
+                - Home Group绑定APN
+                  - 查询Home Group和APN的绑定关系（LST HOMEGRPBINDAPN）
+                  - 增加Home Group和APN的绑定关系（ADD HOMEGRPBINDAPN）
+                  - 删除Home Group和APN的绑定关系（RMV HOMEGRPBINDAPN）
+                - Home IP
+                  - 删除Home IP地址（RMV HOMEIP）
+                  - 增加Home IP地址（ADD HOMEIP）
+                  - 查询Home IP地址（LST HOMEIP）
+                - 代理选择的IMSI/MSISDN号段
+                  - 修改代理IMSI/MSISDN号段（MOD PRIMSIMSISDNSEG）
+                  - 查询代理IMSI/MSISDN号段（LST PRIMSIMSISDNSEG）
+                  - 增加代理IMSI/MSISDN号段（ADD PRIMSIMSISDNSEG）
+                  - 删除代理IMSI/MSISDN号段（RMV PRIMSIMSISDNSEG）
+                - APN网关Proxy功能
+                  - 删除APN网关Proxy功能配置（RMV APNGWPROXYFUNC）
+                  - 查询APN网关Proxy功能配置（LST APNGWPROXYFUNC）
+                  - 修改APN网关Proxy功能配置（MOD APNGWPROXYFUNC）
+                  - 增加APN网关Proxy功能配置（ADD APNGWPROXYFUNC）
+                - Home Group
+                  - 修改Home Group（MOD HOMEGROUP）
+                  - 查询Home Group（LST HOMEGROUP）
+                  - 增加Home Group（ADD HOMEGROUP）
+                  - 删除Home Group（RMV HOMEGROUP）
+                - 计费特征值
+                  - 增加计费特征值（ADD CCVALUE）
+                  - 删除计费特征值（RMV CCVALUE）
+                  - 查询计费特征值（LST CCVALUE）
+                - 代理选择的IMSI/MSISDN号段组
+                  - 删除代理IMSI/MSISDN号段组（RMV PRIMSIMSISDNG）
+                  - 增加代理IMSI/MSISDN号段组（ADD PRIMSIMSISDNG）
+                  - 查询代理IMSI/MSISDN号段组（LST PRIMSIMSISDNG）
+                - 计费特征组
+                  - 增加计费特征组（ADD CCGROUP）
+                  - 删除计费特征组（RMV CCGROUP）
+                  - 查询计费特征组（LST CCGROUP）
+                - 网关Proxy功能
+                  - 查询网关Proxy功能配置（LST GWPROXYFUNC）
+                  - 设置网关Proxy功能（SET GWPROXYFUNC）
+              - M2M
+                - M2M关联的UPF组管理
+                  - 删除UPF和M2M关联的UPF组的绑定关系（RMV M2MUPFBINDGRP）
+                  - 增加UPF和M2M关联的UPF组的绑定关系（ADD M2MUPFBINDGRP）
+                  - 查询UPF和M2M关联的UPF组的绑定关系（LST M2MUPFBINDGRP）
+                  - 删除M2M关联的UPF组（RMV M2MUPGROUP）
+                  - 查询M2M关联的UPF组（LST M2MUPGROUP）
+                  - 增加M2M关联的UPF组（ADD M2MUPGROUP）
+                - M2M服务器
+                  - 修改M2M服务器（MOD CPM2MSERVER）
+                  - 删除M2M服务器（RMV CPM2MSERVER）
+                  - 增加M2M服务器（ADD CPM2MSERVER）
+                  - 查询M2M服务器（LST CPM2MSERVER）
+                - M2M服务器组
+                  - 查询M2M服务器组（LST CPM2MSERVERGRP）
+                  - 删除M2M服务器组（RMV CPM2MSERVERGRP）
+                  - 增加M2M服务器组（ADD CPM2MSERVERGRP）
+                - M2M服务器组绑定关系
+                  - 删除M2M服务器组绑定关系（RMV M2MSVRGRPBIND）
+                  - 增加M2M服务器组绑定关系（ADD M2MSVRGRPBIND）
+                  - 查询M2M服务器组绑定关系（LST M2MSVRGRPBIND）
+                - 全局Non-IP配置
+                  - 查询Non-IP功能配置（LST NONIPFUNC）
+                  - 设置Non-IP功能配置（SET NONIPFUNC）
+                - APN的Non-IP配置
+                  - 查询APN Non-IP功能配置（LST CPAPNNONIPFUNC）
+                  - 设置APN Non-IP功能配置（SET CPAPNNONIPFUNC）
+              - 本地分流管理
+                - 2B2C双DNN控制
+                  - 设置2B2C漫游双DNN特性相关的功能控制（SET MULTIDNNCTRL）
+                  - 查询2B2C漫游双DNN特性相关的功能控制（LST MULTIDNNCTRL）
+                - 专网SMF拨测管理
+                  - 删除拨测用户和专网SMF的绑定关系（RMV IMSIBINDDEDSMF）
+                  - 修改拨测用户和专网SMF的绑定关系（MOD IMSIBINDDEDSMF）
+                  - 增加拨测用户和专网SMF的绑定关系（ADD IMSIBINDDEDSMF）
+                  - 查询拨测用户和专网SMF的绑定关系（LST IMSIBINDDEDSMF）
+                - APN粒度2B2C双DNN控制
+                  - 查询2B2C漫游双DNN特性APN级的相关功能控制（LST APNMULTIDNNCTRL）
+                  - 增加2B2C漫游双DNN特性APN级的相关功能控制（ADD APNMULTIDNNCTRL）
+                  - 删除2B2C漫游双DNN特性APN级的相关功能控制（RMV APNMULTIDNNCTRL）
+                  - 修改2B2C漫游双DNN特性APN级的相关功能控制（MOD APNMULTIDNNCTRL）
+                - 反向分流控制
+                  - 增加基于APN的反向分流配置（ADD APNREVERSESHUNT）
+                  - 查询基于APN的反向分流功能配置（LST APNREVERSESHUNT）
+                  - 删除基于APN的反向分流配置（RMV APNREVERSESHUNT）
+                  - 修改基于APN的反向分流功能配置（MOD APNREVERSESHUNT）
+                - 漫游地动态签约分流控制
+                  - 查询漫游地动态签约分流控制（LST APNTRAFFICDIST）
+                  - 增加漫游地动态签约分流控制（ADD APNTRAFFICDIST）
+                  - 修改漫游地动态签约分流控制（MOD APNTRAFFICDIST）
+                  - 删除漫游地动态签约分流控制（RMV APNTRAFFICDIST）
+                - 辅锚点故障迁移
+                  - 设置UP故障处理系统参数（SET UPFAULTOPERPARA）
+                  - 显示UP故障处理系统参数（LST UPFAULTOPERPARA）
+              - FWA用户匹配规则管理
+                - 删除FWA用户匹配规则（RMV FWAMATCHRULE）
+                - 查询FWA用户匹配规则（LST FWAMATCHRULE）
+                - 增加FWA用户匹配规则（ADD FWAMATCHRULE）
+              - 计费暂停管理
+                - APN的PGW计费暂停管理
+                  - 删除基于APN的计费暂停功能配置（RMV APNPGWCHGPAUSE）
+                  - 增加基于APN的PGW计费暂停功能配置（ADD APNPGWCHGPAUSE）
+                  - 修改基于APN的PGW计费暂停功能配置（MOD APNPGWCHGPAUSE）
+                  - 查询基于APN的PGW计费暂停功能配置（LST APNPGWCHGPAUSE）
+                - PGW计费暂停管理
+                  - 设置全局计费暂停配置（SET GLBPGWCHGPAUSE）
+                  - 查询全局计费暂停配置（LST GLBPGWCHGPAUSE）
+                - SGW计费暂停管理
+                  - 查询SGW的计费暂停功能（LST SGWCHGPAUSE）
+                  - 设置SGW的计费暂停能力（SET SGWCHGPAUSE）
+              - 虚拟APN映射管理
+                - 基于TAC位置的虚拟APN映射管理
+                  - TAC组的S1 TAC段
+                    - 增加TAC组内绑定的S1TAC号段（ADD CPS1TACID）
+                    - 查询TAC组内绑定的S1TAC号段（LST CPS1TACID）
+                    - 删除TAC组内绑定的S1TAC号段（RMV CPS1TACID）
+                  - 虚拟APN映射的TAC组
+                    - 删除TAC组（RMV CPTACGROUP）
+                    - 查询TAC组（LST CPTACGROUP）
+                    - 增加TAC组（ADD CPTACGROUP）
+                  - TAC组的N2 TAC段
+                    - 增加TAC组内绑定的N2TAC号段（ADD CPN2TACID）
+                    - 删除TAC组内绑定的N2TAC号段（RMV CPN2TACID）
+                    - 查询TAC组内绑定的N2TAC号段（LST CPN2TACID）
+                - 基于RAC位置的虚拟APN映射管理
+                  - 虚拟APN映射的RAC组
+                    - 增加RAC组（ADD RACGROUP）
+                    - 删除RAC组（RMV RACGROUP）
+                    - 查询RAC组（LST RACGROUP）
+                  - RAC组的RAC段
+                    - 增加RAC组内绑定的RAC号段（ADD RACID）
+                    - 删除RAC组内绑定的RAC号段（RMV RACID）
+                    - 查询RAC组内绑定的RAC号段（LST RACID）
+                - 基于LAC位置的虚拟APN映射管理
+                  - LAC组的LAC段
+                    - 查询LAC组内绑定的LAC号段（LST CPLACID）
+                    - 增加LAC组内绑定的LAC号段（ADD CPLACID）
+                    - 删除LAC组内绑定的LAC号段（RMV CPLACID）
+                  - 虚拟APN映射的LAC组
+                    - 增加LAC组（ADD CPLACGROUP）
+                    - 查询LAC组（LST CPLACGROUP）
+                    - 删除LAC组（RMV CPLACGROUP）
+                - 基于对接IP地址的虚拟APN映射管理
+                  - 虚拟APN映射的服务节点组
+                    - 删除服务节点组（RMV SRVNODEGROUP）
+                    - 查询服务节点组（LST SRVNODEGROUP）
+                    - 增加服务节点组（ADD SRVNODEGROUP）
+                  - 服务节点组的服务节点IP段
+                    - 增加服务节点IP（ADD SRVNODEIP）
+                    - 删除服务节点IP（RMV SRVNODEIP）
+                    - 查询服务节点IP（LST SRVNODEIP）
+                - 虚拟APN映射策略
+                  - 查询虚拟APN映射策略配置（LST VIRTUALAPNRULE）
+                  - 删除虚拟APN映射策略配置（RMV VIRTUALAPNRULE）
+                  - 增加虚拟APN映射策略配置（ADD VIRTUALAPNRULE）
+              - DNAI位置绑定区域管理
+                - 查询DNAI服务区域（LST DNAREA）
+                - 删除DNAI服务区域（RMV DNAREA）
+                - 查询DNAI服务区名称绑定的4G TAI范围（LST DNAREABINDS1TAI）
+                - 删除DNAI服务区名称绑定的5G TAI范围（RMV DNAREABINDN2TAI）
+                - 删除DNAI服务区名称绑定的4G Cell ID范围（RMV DNAREABINDS1CID）
+                - 删除DNAI支持的服务区域（RMV DNAIBINDDNAREA）
+                - 查询DNAI服务区名称绑定的4G Cell ID范围（LST DNAREABINDS1CID）
+                - 查询DNAI服务区名称绑定的5G TAI范围（LST DNAREABINDN2TAI）
+                - 增加DNAI服务区域（ADD DNAREA）
+                - 增加DNAI服务区名称绑定的4G Cell ID范围（ADD DNAREABINDS1CID）
+                - 增加DNAI服务区名称绑定的4G TAI范围（ADD DNAREABINDS1TAI）
+                - 删除DNAI服务区名称绑定的4G TAI范围（RMV DNAREABINDS1TAI）
+                - 查询DNAI服务区名称绑定的5G Cell ID范围（LST DNAREABINDN2CID）
+                - 增加DNAI服务区名称绑定的5G Cell ID范围（ADD DNAREABINDN2CID）
+                - 增加DNAI支持的服务区域名称（ADD DNAIBINDDNAREA）
+                - 删除DNAI服务区名称绑定的5G Cell ID范围（RMV DNAREABINDN2CID）
+                - 增加DNAI服务区名称绑定的5G TAI范围（ADD DNAREABINDN2TAI）
+                - 查询DNAI支持的服务区域（LST DNAIBINDDNAREA）
+              - 位置上报管理
+                - 老化时间管理
+                  - 查询SMF向AMF下发事件订阅时的老化策略（LST SMAMEVTEXPPLY）
+                  - 设置SMF向AMF下发事件订阅时的老化策略（SET SMAMEVTEXPPLY）
+                - 特性位置上报管理
+                  - 修改基于特性的位置上报配置（MOD FEATLOCREPORT）
+                  - 增加基于特性的位置上报配置（ADD FEATLOCREPORT）
+                  - 查询基于特性的位置上报配置（LST FEATLOCREPORT）
+                  - 删除基于特性的位置上报配置（RMV FEATLOCREPORT）
+                - APN用户位置信息上报开关
+                  - 查询用户位置上报配置（LST APNLOCREPORT）
+                  - 增加基于APN的位置上报配置（ADD APNLOCREPORT）
+                  - 修改基于APN的位置上报配置（MOD APNLOCREPORT）
+                  - 删除基于APN的位置上报配置（RMV APNLOCREPORT）
+                - 用户位置信息上报开关
+                  - 查询用户位置信息（LST LOCATIONREPORT）
+                  - 设置用户位置信息（SET LOCATIONREPORT）
+                - 会话位置上报管理
+                  - 停止位置上报（STOP LOCATEREPORT）
+                  - 开始位置上报（STR LOCATEREPORT）
+              - ISMF QoS管理
+                - ISMF QoS协商
+                  - 查询I-SMF的Default QoS Flow配置（LST ISMFDFTQOSCTRL）
+                  - 删除I-SMF的Default QoS Flow配置（RMV ISMFDFTQOSCTRL）
+                  - 增加I-SMF的Default QoS Flow配置（ADD ISMFDFTQOSCTRL）
+                  - 修改I-SMF的Default QoS Flow配置（MOD ISMFDFTQOSCTRL）
+              - 接入MBMS设置
+                - 查询SGmb心跳配置。（LST SGMBHEARTBEATFUNC）
+                - 设置全局异地容灾配置（SET TMREDUNDFUNC）
+                - 设置SGmb心跳配置（SET SGMBHEARTBEATFUNC）
+                - 查询接收STA响应超时次数的告警阈值（LST BMSCALMTHD）
+                - 设置接收STA响应超时次数的告警阈值（SET BMSCALMTHD）
+                - 查询全局异地容灾配置（LST TMREDUNDFUNC）
+              - eDRX模式管理
+                - 设置全局终端接入eDRX模式属性（SET GLBEDRXATTR）
+                - 查询全局终端接入eDRX模式属性（LST GLBEDRXATTR）
+                - 删除APN的终端接入eDRX模式属性（RMV APNEDRXATTR）
+                - 修改APN的终端接入eDRX模式属性（MOD APNEDRXATTR）
+                - 增加APN的终端接入eDRX模式属性（ADD APNEDRXATTR）
+                - 查询APN的终端接入eDRX模式属性（LST APNEDRXATTR）
+              - DNAI管理
+                - DNAI信息管理
+                  - 查询DNAI信息（LST DNAIINFO）
+                  - 修改DNAI信息（MOD DNAIINFO）
+                  - 增加DNAI信息（ADD DNAIINFO）
+                  - 删除DNAI信息（RMV DNAIINFO）
+                - I-SMF DNAI管理
+                  - 删除I-SMF支持的DNAI（RMV ISMFDNAI）
+                  - 增加I-SMF支持的DNAI（ADD ISMFDNAI）
+                  - 查询I-SMF支持的DNAI（LST ISMFDNAI）
+                  - 修改I-SMF支持的DNAI（MOD ISMFDNAI）
+              - 跨区域PDU会话管理
+                - 跨区域PDU会话重建
+                  - 删除跨区域PDU会话重建策略（RMV SMFPDUREACT）
+                  - 修改跨区域PDU会话重建策略（MOD SMFPDUREACT）
+                  - 增加跨区域PDU会话重建策略（ADD SMFPDUREACT）
+                  - 查询跨区域PDU会话重建策略（LST SMFPDUREACT）
+                - 多SMFInfo会话重建策略
+                  - 查询是否支持多SMFInfo场景下的会话重建功能（LST MULSMFPDUREEPOL）
+                  - 设置是否支持多SMFInfo场景下的PDU会话重建策略（SET MULSMFPDUREEPOL）
+              - 速率控制
+                - APN速率控制
+                  - 全局APN速率控制配置
+                    - 设置全局APN速率控制配置（SET GLBAPNRATECTRL）
+                    - 查询全局APN速率控制配置（LST GLBAPNRATECTRL）
+                  - APN速率控制配置
+                    - 查询APN速率控制配置（LST APNRATECTRL）
+                    - 设置APN速率控制配置（SET APNRATECTRL）
+                - PLMN速率控制
+                  - Serving PLMN速率控制配置
+                    - 设置Serving PLMN速率控制配置（SET PLMNRATECTRL）
+                    - 查询Serving PLMN速率控制配置（LST PLMNRATECTRL）
+                  - APN Serving PLMN速率控制
+                    - 查询APN Serving PLMN速率控制配置（LST APNPLMNRATECTRL）
+                    - 设置APN Serving PLMN速率控制配置（SET APNPLMNRATECTRL）
+              - 分组数据离线状态管理
+                - 3GPP PS data off功能配置
+                  - 查询3GPP PS data off功能相关的参数（LST PSDATAOFFFUNC）
+                  - 设置3GPP PS data off功能相关的参数（SET PSDATAOFFFUNC）
+                - 豁免业务配置
+                  - 查询豁免业务（LST EXEMPTSERVICE）
+                  - 增加豁免业务（ADD EXEMPTSERVICE）
+                  - 删除豁免业务（RMV EXEMPTSERVICE）
+              - 黑白名单地址列表
+                - 删除黑白名单（RMV ACCESSLISTIP）
+                - 增加黑白名单（ADD ACCESSLISTIP）
+                - 查询黑白名单（LST ACCESSLISTIP）
+              - VSMF QoS管理
+                - VPLMN QoS协商
+                  - 增加VSMF的Default QoS Flow配置（ADD VSMFDFTQOSCTRL）
+                  - 删除VSMF的Default QoS Flow配置（RMV VSMFDFTQOSCTRL）
+                  - 修改VSMF的Default QoS Flow配置（MOD VSMFDFTQOSCTRL）
+                  - 查询VSMF的Default QoS Flow配置（LST VSMFDFTQOSCTRL）
+              - 位置区域地址分配白名单
+                - 查询位置区域地址分配用户白名单（LST SMFADDRLOCWL）
+                - 增加位置区域地址分配用户白名单（ADD SMFADDRLOCWL）
+                - 删除位置区域地址分配用户白名单（RMV SMFADDRLOCWL）
+              - APN相关服务区域管理
+                - 删除APN相关服务区域（RMV APNAREA）
+                - 增加APN相关服务区域绑定的5G TAI范围（ADD APNAREABNDN2TAI）
+                - 删除APN相关服务区域绑定的5G TAI范围（RMV APNAREABNDN2TAI）
+                - 查询APN相关服务区域绑定的5G TAI范围（LST APNAREABNDN2TAI）
+                - 增加APN相关服务区域（ADD APNAREA）
+                - 查询APN相关服务区域（LST APNAREA）
+              - SM接口IP传输类型管理
+                - 设置会话管理接口IP传输类型（SET SMIPTRANSTYPE）
+                - 查询会话管理接口IP传输类型（LST SMIPTRANSTYPE）
+              - 增加PGW重定向功能设置
+                - 查询PGW重定向功能设置（LST APNPGWRNS）
+                - 增加PGW重定向功能设置（ADD APNPGWRNS）
+                - 删除PGW重定向功能设置（RMV APNPGWRNS）
+                - 修改PGW重定向功能设置（MOD APNPGWRNS）
+              - 黑白名单控制
+                - 查询接入控制名单功能（LST ACCESSLISTFUNC）
+                - 设置接入控制名单功能（SET ACCESSLISTFUNC）
+              - L2TP
+                - L2TP加密配置
+                  - 查询L2TP加密配置（LST L2TPKEY）
+                  - 设置L2TP加密参数（SET L2TPKEY）
+            - 计费和策略的业务管理
+              - 业务策略
+                - 全局使用量上报规则组
+                  - 查询全局使用量上报规则组（LST CPGLBURRGROUP）
+                  - 删除全局使用量上报规则组（RMV CPGLBURRGROUP）
+                  - 设置全局使用量上报规则组（SET CPGLBURRGROUP）
+                - 业务质量属性
+                  - 增加QoS属性（ADD CPQOSPROP）
+                  - 删除QoS属性（RMV CPQOSPROP）
+                  - 查询QoS属性（LST CPQOSPROP）
+                  - 修改QoS属性（MOD CPQOSPROP）
+                - 业务属性
+                  - 修改业务属性（MOD CPSERVICEPROP）
+                  - 删除业务属性（RMV CPSERVICEPROP）
+                  - 增加业务属性（ADD CPSERVICEPROP）
+                  - 查询业务属性（LST CPSERVICEPROP）
+                - 内容计费标识
+                  - 增加URR（ADD CPURR）
+                  - 查询URR（LST CPURR）
+                  - 修改URR（MOD CPURR）
+                  - 删除URR（RMV CPURR）
+                - 业务质量特征
+                  - 查询Qos特征（LST QOSCHARS）
+                  - 删除QoS特征（RMV QOSCHARS）
+                  - 修改QoS特征（MOD QOSCHARS）
+                  - 增加QoS特征（ADD QOSCHARS）
+                - PCC策略组
+                  - 增加PCC策略组（ADD CPPCCPOLICYGRP）
+                  - 查询PCC策略组（LST CPPCCPOLICYGRP）
+                  - 修改PCC策略组（MOD CPPCCPOLICYGRP）
+                  - 删除PCC策略组（RMV CPPCCPOLICYGRP）
+                - ULCL属性
+                  - 删除ULCL属性（RMV ULCLPROP）
+                  - 查询ULCL属性（LST ULCLPROP）
+                  - 增加ULCL属性（ADD ULCLPROP）
+                - 使用量上报规则组
+                  - 修改URR组（MOD CPURRGROUP）
+                  - 查询URR组（LST CPURRGROUP）
+                  - 增加URR组（ADD CPURRGROUP）
+                  - 删除URR组（RMV CPURRGROUP）
+                - 全局初始请求计费信息
+                  - 增加全局初始请求计费绑定关系（ADD CPGLBCTXREQRATE）
+                  - 删除全局初始请求计费绑定关系（RMV CPGLBCTXREQRATE）
+                  - 查询全局初始请求计费绑定关系（LST CPGLBCTXREQRATE）
+                - 字符串Monitoring-Key
+                  - 增加字符串类型Monitoring-Key（ADD STRINGMK）
+                  - 查询字符串Monitoring-Key（LST STRINGMK）
+                  - 删除字符串Monitoring-Key（RMV STRINGMK）
+                  - 修改字符串类型Monitoring-Key（MOD STRINGMK）
+                - PCC策略组业务属性绑定
+                  - 删除PCC组业务属性绑定（RMV CPSRVPBINDPCCPG）
+                  - 增加PCC组业务属性绑定（ADD CPSRVPBINDPCCPG）
+                  - 修改PCC组业务属性绑定（MOD CPSRVPBINDPCCPG）
+                  - 查询PCC组业务属性绑定（LST CPSRVPBINDPCCPG）
+              - 业务模板
+                - 用户模板DNAI绑定
+                  - 删除用户模板关联的DNAI（RMV USRPROBINDDNAI）
+                  - 查询用户模板关联的DNAI（LST USRPROBINDDNAI）
+                  - 增加用户模板关联的DNAI （ADD USRPROBINDDNAI）
+                - 用户模板绑定
+                  - 增加用户模板组和用户模板的绑定关系（ADD UPBINDUPG）
+                  - 删除用户模板组和用户模板的绑定关系（RMV UPBINDUPG）
+                  - 查询用户模板组和用户模板的绑定关系（LST UPBINDUPG）
+                  - 修改用户模板组和用户模板的绑定关系（MOD UPBINDUPG）
+                - 预定义规则DNAI绑定
+                  - 查询预定义规则关联的DNAI（LST RULEBINDDNAI）
+                  - 删除预定义规则关联的DNAI（RMV RULEBINDDNAI）
+                  - 增加预定义规则关联的DNAI（ADD RULEBINDDNAI）
+                - 规则
+                  - 查询规则（LST CPRULE）
+                  - 删除规则（RMV CPRULE）
+                  - 修改规则（MOD CPRULE）
+                  - 增加规则（ADD CPRULE）
+                - 层二规则
+                  - 查询层二规则（LST L2RULE）
+                  - 增加层二规则（ADD L2RULE）
+                  - 删除层二规则（RMV L2RULE）
+                  - 修改层二规则（MOD L2RULE）
+                - 层二规则组绑定
+                  - 删除层二规则组与用户的绑定关系（RMV L2RULEGRPBIND）
+                  - 修改层二规则组与用户的绑定关系（MOD L2RULEGRPBIND）
+                  - 查询层二规则组与用户的绑定关系（LST L2RULEGRPBIND）
+                  - 增加层二规则组与用户的绑定关系（ADD L2RULEGRPBIND）
+                - 用户模板
+                  - 删除给OCS/CHF发送的消息初始携带的计费属性（RMV CPCTXSTARTRATING）
+                  - 查询本地Common Policy配置（LST LOCCOMMPOLICY）
+                  - 设置用户模板的计费属性绑定关系（SET CPURRGRPBINDING）
+                  - 设置给OCS/CHF发送的消息初始携带的计费属性（SET CPCTXSTARTRATING）
+                  - 增加用户模板（ADD CPUSERPROFILE）
+                  - 增加本地Common Policy配置（ADD LOCCOMMPOLICY）
+                  - 删除用户模板（RMV CPUSERPROFILE）
+                  - 删除本地Common Policy配置（RMV LOCCOMMPOLICY）
+                  - 修改本地Common Policy配置（MOD LOCCOMMPOLICY）
+                  - 修改用户模板（MOD CPUSERPROFILE）
+                  - 设置用户模板的锁定（SET CPUSERPROFILELOCK）
+                  - 查询用户模板（LST CPUSERPROFILE）
+                - 层二过滤器
+                  - 删除层二过滤器（RMV L2FILTER）
+                  - 修改层二过滤器（MOD L2FILTER）
+                  - 增加层二过滤器（ADD L2FILTER）
+                  - 查询层二过滤器（LST L2FILTER）
+                - 用户模板组
+                  - 查询用户模板组（LST USRPROFGROUP）
+                  - 增加用户模板组（ADD USRPROFGROUP）
+                  - 删除用户模板组（RMV USRPROFGROUP）
+                - 规则绑定
+                  - 查询用户模板和规则的绑定关系（LST CPRULEBINDING）
+                  - 删除用户模板和规则的绑定关系（RMV CPRULEBINDING）
+                  - 增加用户模板和规则的绑定关系（ADD CPRULEBINDING）
+                - APN用户模板组绑定
+                  - 修改APN用户模板组绑定关系（MOD APNUSRPROFG）
+                  - 增加APN用户模板组绑定关系（ADD APNUSRPROFG）
+                  - 删除APN用户模板组绑定关系（RMV APNUSRPROFG）
+                  - 查询APN用户模板组绑定关系（LST APNUSRPROFG）
+                - 层二规则绑定
+                  - 删除层二规则与层二规则组的绑定关系（RMV L2RULEBINDGRP）
+                  - 查询层二规则与层二规则组的绑定关系（LST L2RULEBINDGRP）
+                  - 增加层二规则与层二规则组的绑定关系（ADD L2RULEBINDGRP）
+                - 层二规则组
+                  - 查询层二规则组（LST L2RULEGROUP）
+                  - 删除层二规则组（RMV L2RULEGROUP）
+                  - 增加层二规则组（ADD L2RULEGROUP）
+              - 业务公共
+                - IMSI MSISDN IMEISV号段组
+                  - 增加IMSI/MSISDN/IMEISV号段组（ADD SUBSCRIBERIDSEGGRP）
+                  - 删除IMSI/MSISDN/IMEISV号段组（RMV SUBSCRIBERIDSEGGRP）
+                  - 查询IMSI/MSISDN/IMEISV号段组（LST SUBSCRIBERIDSEGGRP）
+                - 用户位置
+                  - 查询用户位置（LST USRLOCATION）
+                  - 修改用户位置（MOD USRLOCATION）
+                  - 增加用户位置（ADD USRLOCATION）
+                  - 删除用户位置（RMV USRLOCATION）
+                - IMSI MSISDN号段
+                  - 修改IMSI和MSISDN号段（MOD IMSIMSISDNSEG）
+                  - 查询IMSI和MSISDN号段（LST IMSIMSISDNSEG）
+                  - 删除IMSI和MSISDN号段（RMV IMSIMSISDNSEG）
+                  - 锁定IMSI和MSISDN号段（LCK IMSIMSISDNSEG）
+                  - 增加IMSI和MSISDN号段（ADD IMSIMSISDNSEG）
+                - IMEISV号段
+                  - 增加IMEISV号段（ADD IMEISVSEG）
+                  - 修改IMEISV号段（MOD IMEISVSEG）
+                  - 查询IMEISV号段（LST IMEISVSEG）
+                  - 删除IMEISV号段（RMV IMEISVSEG）
+                - 用户位置组
+                  - 查询用户位置组（LST USRLOCATIONGRP）
+                  - 删除用户位置组（RMV USRLOCATIONGRP）
+                  - 增加用户位置组（ADD USRLOCATIONGRP）
+              - 业务过滤器
+                - 流过滤器
+                  - 查询流过滤器（LST CPSVCFLOWFILTER）
+                  - 增加流过滤器（ADD CPSVCFLOWFILTER）
+                  - 删除流过滤器（RMV CPSVCFLOWFILTER）
+              - 计费策略接口选择
+                - 修改基于PCF的计费策略接口类型（MOD PCCCHGMODEBYPCFID）
+                - 查询基于PCF的计费策略接口类型（LST PCCCHGMODEBYPCFID）
+                - 增加基于PCF的计费策略接口类型（ADD PCCCHGMODEBYPCFID）
+                - 删除基于PCF的计费策略接口类型（RMV PCCCHGMODEBYPCFID）
+            - PCC管理
+              - PCF发现和选择管理
+                - PCF业务服务区
+                  - 查询PCF的业务服务区（LST PCFSSCOPE）
+                  - 修改PCF的业务服务区（MOD PCFSSCOPE）
+                  - 删除PCF的业务服务区（RMV PCFSSCOPE）
+                  - 增加PCF的业务服务区（ADD PCFSSCOPE）
+                  - 删除所有的PCF的业务服务区（RMV PCFSSCOPEALL）
+                - PCF拨测管理
+                  - 修改拨测用户和PCF的绑定关系（MOD TSTPCFBINDING）
+                  - 增加拨测用户和PCF的绑定关系（ADD TSTPCFBINDING）
+                  - 查询拨测用户和PCF的绑定关系（LST TSTPCFBINDING）
+                  - 删除拨测用户和PCF的绑定关系（RMV TSTPCFBINDING）
+                - PCF服务区拨测管理
+                  - 查询拨测用户与PCF服务区的绑定关系（LST TSTPCFSEL）
+                  - 删除拨测用户与PCF服务区的绑定关系（RMV TSTPCFSEL）
+                  - 修改拨测用户与PCF服务区的绑定关系（MOD TSTPCFSEL）
+                  - 增加拨测用户与PCF服务区的绑定关系（ADD TSTPCFSEL）
+                - PCF业务服务区绑定
+                  - 修改PCF业务服务区的绑定关系（MOD PCFSSCOPEBIND）
+                  - 增加PCF业务服务区的绑定关系（ADD PCFSSCOPEBIND）
+                  - 删除PCF业务服务区的绑定关系（RMV PCFSSCOPEBIND）
+                  - 查询PCF业务服务区的绑定关系（LST PCFSSCOPEBIND）
+                  - 删除所有的PCF业务服务区的绑定关系（RMV PCFSSCOPEBINDALL）
+                - 用户TAI区域
+                  - 查询用户TAI区域（LST USRTAIRANGE）
+                  - 删除所有的用户TAI区域（RMV USRTAIRANGEALL）
+                  - 删除用户TAI区域（RMV USRTAIRANGE）
+                  - 增加用户TAI区域（ADD USRTAIRANGE）
+                  - 修改用户TAI区域（MOD USRTAIRANGE）
+              - 信令控制
+                - 返回码控制
+                  - 删除PCC故障场景维持BYPASS状态码配置（RMV PCCBYPASSCODE）
+                  - 修改返回码控制（MOD RESULTCODECTRL）
+                  - 增加返回码控制（ADD RESULTCODECTRL）
+                  - 修改配置MODELC/D组网的SCP原因码控制（MOD RESULTCODESCP）
+                  - 删除DRA返回码控制（RMV RESULTCODEDRA）
+                  - 查询配置MODELC/D组网的SCP原因码（LST RESULTCODESCP）
+                  - 修改DRA返回码控制（MOD RESULTCODEDRA）
+                  - 删除返回码控制（RMV RESULTCODECTRL）
+                  - 查询DRA返回码控制（LST RESULTCODEDRA）
+                  - 查询PCC故障场景维持BYPASS状态码配置（LST PCCBYPASSCODE）
+                  - 增加配置MODELC/D组网的SCP原因码控制（ADD RESULTCODESCP）
+                  - 增加DRA返回码控制（ADD RESULTCODEDRA）
+                  - 增加PCC故障场景维持BYPASS状态码配置（ADD PCCBYPASSCODE）
+                  - 删除配置MODELC/D组网的SCP原因码控制（RMV RESULTCODESCP）
+                  - 查询返回码控制（LST RESULTCODECTRL）
+                - 客户端信元控制
+                  - 设置PCC消息属性（SET PCCMSGATTR）
+                  - 查询PCC消息属性（LST PCCMSGATTR）
+                - 服务器端信元控制
+                  - 查询PCRF返回消息属性（LST PCCPCRFMSGATTR）
+                  - 设置PCRF返回消息属性（SET PCCPCRFMSGATTR）
+                - 复位PCC定时器
+                  - 复位PCC定时器（RST PCCTIMER）
+                - 定时器
+                  - 设置PCC定时器（SET PCCTIMER）
+                  - 查询PCC定时器（LST PCCTIMER）
+              - PCRF Diameter连接
+                - PCRF组
+                  - 设置主用PCRF（SET MASTERPCRF）
+                  - 查询PCRF组（LST PCRFGROUP）
+                  - 删除PCRF组（RMV PCRFGROUP）
+                  - 修改PCRF组（MOD PCRFGROUP）
+                  - 增加PCRF组（ADD PCRFGROUP）
+                - 全局PCRF组
+                  - 查询全局PCRF组绑定关系（LST GLBPCRFGROUP）
+                  - 删除全局PCRF组绑定关系（RMV GLBPCRFGROUP）
+                  - 增加全局PCRF组绑定关系（ADD GLBPCRFGROUP）
+                  - 修改全局PCRF组绑定关系（MOD GLBPCRFGROUP）
+                - PCRF组绑定APN
+                  - 修改APN和Pcrf组关联关系（MOD PCRFGRPBNDAPN）
+                  - 增加APN和Pcrf组关联关系（ADD PCRFGRPBNDAPN）
+                  - 查询APN和Pcrf组关联关系（LST PCRFGRPBNDAPN）
+                  - 删除APN和Pcrf组关联关系（RMV PCRFGRPBNDAPN）
+                - PCRF组状态
+                  - 显示PCRF组状态（DSP PCRFGRPSTATUS）
+                - PCRF绑定
+                  - 删除PCRF与PCRF Group的关联关系（RMV PCRFBINDGRP）
+                  - 查询PCRF与PCRF Group的关联关系（LST PCRFBINDGRP）
+                  - 增加PCRF与PCRF Group的关联关系（ADD PCRFBINDGRP）
+                  - 修改PCRF与PCRF Group的关联关系（MOD PCRFBINDGRP）
+                - 动态PCRF
+                  - 清除动态PCRF（CLR DYNAMICPCRF）
+                  - 显示动态PCRF（DSP DYNAMICPCRF）
+                - PCRF
+                  - 增加PCRF（ADD CPPCRF）
+                  - 查询PCRF（LST CPPCRF）
+                  - 修改PCRF（MOD CPPCRF）
+                  - 显示静态PCRF上用户数（DSP PCRFUSERNUM）
+                  - 删除PCRF（RMV CPPCRF）
+                - 缺省全局PCRF组
+                  - 查询全局缺省PCRF组（LST DFTGLBPCRFGRP）
+                  - 设置全局缺省PCRF组（SET DFTGLBPCRFGRP）
+                - PCRF状态
+                  - 显示PCRF状态（DSP PCRFSTATUS）
+              - 基本功能
+                - Profile Space
+                  - 查询Profile Space（LST PROFILESPACE）
+                  - 删除Profile Space（RMV PROFILESPACE）
+                  - 增加Profile Space（ADD PROFILESPACE）
+                  - 修改Profile Space（MOD PROFILESPACE）
+                - 23G接入控制
+                  - 设置N7发送信元处理控制（SET N7SNDATTRCTRL）
+                  - 查询N7发送信元处理控制（LST N7SNDATTRCTRL）
+                - 智能双N7会话
+                  - 查询全局默认智能PCF组（LST DFTIPEPCFGRP）
+                  - 增加智能业务后缀（ADD IPEN7SUFFIX）
+                  - 查询智能业务后缀（LST IPEN7SUFFIX）
+                  - 设置全局默认智能PCF组（SET DFTIPEPCFGRP）
+                  - 修改智能业务后缀（MOD IPEN7SUFFIX）
+                  - 删除智能业务后缀（RMV IPEN7SUFFIX）
+                  - 查询智能双N7会话特性是否使能（LST IPEN7SESSFUNC）
+                  - 设置智能双N7会话特性是否开启（SET IPEN7SESSFUNC）
+                - PCC模板
+                  - 修改PCC模板（MOD PCCTEMPLATE）
+                  - 查询PCC模板（LST PCCTEMPLATE）
+                  - 删除PCC模板（RMV PCCTEMPLATE）
+                  - 增加PCC模板（ADD PCCTEMPLATE）
+                - PCC公共参数
+                  - 增加选择对端NF时使用的业务服务区（ADD PNFSLCTSSCOPE）
+                  - 删除已配置的选择对端NF时使用的业务服务区（RMV PNFSLCTSSCOPE）
+                  - 设置PCC故障处理（SET PCCFAILACTION）
+                  - 查询PCC流控配置（LST PCCFLOWCONTROL）
+                  - 查询PCC故障处理（LST PCCFAILACTION）
+                  - 设置PCC流控配置（SET PCCFLOWCONTROL）
+                  - 查询PCC功能（LST PCCFUNC）
+                  - 查询选择对端NF时使用的业务服务区（LST PNFSLCTSSCOPE）
+                  - 设置PCC功能（SET PCCFUNC）
+                  - 修改选择对端NF时使用的业务服务区（MOD PNFSLCTSSCOPE）
+                - 更新流控策略
+                  - 增加流控策略（ADD PCCUSRFLOWCTRL）
+                  - 修改流控策略（MOD PCCUSRFLOWCTRL）
+                  - 删除流控策略（RMV PCCUSRFLOWCTRL）
+                  - 查询流控策略（LST PCCUSRFLOWCTRL）
+                - 语音PCF/PCRF Bypass管理
+                  - 设置语音PCF/PCRF故障Bypass场景功能（SET IMSBYPASSFUNC）
+                  - 显示进入语音PCF/PCRF故障Bypass状态的用户的IMSI列表（DSP IMSBYPASSUSER）
+                  - 查询语音PCF/PCRF故障Bypass场景功能（LST IMSBYPASSFUNC）
+                - 缺省GBR承载
+                  - 查询缺省GBR承载参数（LST DFTGBRBEARER）
+                  - 设置缺省GBR承载参数（SET DFTGBRBEARER）
+                - N7接收分发控制
+                  - 查询N7接收信元处理控制（LST N7RCVATTRCTRL）
+                  - 设置N7接收信元处理控制（SET N7RCVATTRCTRL）
+                - 基于APN的策略接口选择方式配置
+                  - 增加基于APN的策略接口的选择方式（ADD APNPOLICYMODE）
+                  - 查询基于APN的策略接口的选择方式（LST APNPOLICYMODE）
+                  - 删除基于APN的策略接口的选择方式（RMV APNPOLICYMODE）
+                  - 修改基于APN的策略接口的选择方式（MOD APNPOLICYMODE）
+                - APN控制
+                  - 设置APN PCC功能（SET APNPCCFUNC）
+                  - 查询APN PCC功能（LST APNPCCFUNC）
+                - 用户PCC模板绑定
+                  - 查询用户模板组和PccProfile的绑定关系（LST PCCPBINDUPG）
+                  - 删除用户模板组和PccProfile的绑定关系（RMV PCCPBINDUPG）
+                  - 增加用户模板组和PccProfile的绑定关系（ADD PCCPBINDUPG）
+                - CRA控制
+                  - 设置CRA控制参数（SET CRACTRL）
+                  - 显示CRA控制参数（LST CRACTRL）
+                - APN绑定Profile Space
+                  - 增加APN与Profile Space的绑定关系（ADD APNPROFSPACE）
+                  - 删除APN与Profile Space的绑定关系（RMV APNPROFSPACE）
+                  - 查询APN与Profile Space的绑定关系（LST APNPROFSPACE）
+                  - 修改APN与Profile Space的绑定关系（MOD APNPROFSPACE）
+                - PCC Rule控制
+                  - 查询PCC规则相关控制（LST CPPCCRULECTRL）
+                  - 设置PCC规则相关控制（SET CPPCCRULECTRL）
+                - 公共参数查询
+                  - 查询全局PCC参数（LST GLBPCCPARA）
+                - 策略模式选择
+                  - 查询策略接口的选择方式（LST POLICYMODE）
+                  - 设置策略接口的选择方式（SET POLICYMODE）
+              - ADC
+                - ADC参数
+                  - 查询ADC参数（LST CPADCPARA）
+                  - 删除ADC参数（RMV CPADCPARA）
+                  - 修改ADC参数（MOD CPADCPARA）
+                  - 增加ADC参数（ADD CPADCPARA）
+              - PCC维护
+                - PCC会话查询
+                  - 显示PCC会话信息（DSP PCCSESSINFO）
+                - PCRF具体信息
+                  - 显示PCRF具体信息（DSP PCRFINFO）
+              - UPF管理
+                - Gx UPF组
+                  - 删除Gx UPF组（RMV GXUPFGROUP）
+                  - 增加Gx UPF组（ADD GXUPFGROUP）
+                  - 查询Gx UPF组（LST GXUPFGROUP）
+                - 关联UPF与Gx UPF组
+                  - 增加UPF与Gx UPF组的关联关系（ADD UPFBINDGXUPFGRP）
+                  - 查询UPF与Gx UPF组的关联关系（LST UPFBINDGXUPFGRP）
+                  - 删除UPF与Gx UPF组的关联关系（RMV UPFBINDGXUPFGRP）
+              - 告警管理
+                - PCC告警门限
+                  - 查询PCC告警阈值（LST PCCALMTHD）
+                  - 设置PCC告警阈值（SET PCCALMTHD）
+            - 计费管理
+              - 计费控制
+                - 计费模式
+                  - 设置计费接口选择方式（SET CHGMODE）
+                  - 查询计费接口选择方式（LST CHGMODE）
+                - APN计费配置
+                  - 查询APN的计费配置（LST APNCHARGECTRL）
+                  - 设置APN的计费配置（SET APNCHARGECTRL）
+                - 计费参数
+                  - 设置对本地用户、漫游用户、拜访用户所采用的计费属性（SET GLBCHARGECHAR）
+                  - 设置是否检查Serving Node携带的CC（SET CHARGECHARCHK）
+                  - 查询是否检查Serving Node携带的CC（LST CHARGECHARCHK）
+                  - 设置RADIUS计费和在线计费消息优先级（SET CHGINITPRI）
+                  - 设置零流量计费事件忽略开关（SET ZEROCHGSKIPSW）
+                  - 查询RADIUS计费和在线计费消息优先级（LST CHGINITPRI）
+                  - 查询对本地用户、漫游用户、拜访用户所采用的计费属性（LST GLBCHARGECHAR）
+                  - 查询零流量计费事件忽略开关（LST ZEROCHGSKIPSW）
+                - NR用户RAT值
+                  - 设置5G接入用户的RAT填写值（SET NRRATVALUE）
+                  - 查询5G接入用户的RAT填写值（LST NRRATVALUE）
+                - 漫游属性计费模式
+                  - 查询基于漫游属性的计费接口选择方式（LST ROAMCHGMODE）
+                  - 修改基于漫游属性的计费接口选择方式（MOD ROAMCHGMODE）
+                  - 删除基于漫游属性的计费接口选择方式（RMV ROAMCHGMODE）
+                  - 增加基于漫游属性的计费接口选择方式（ADD ROAMCHGMODE）
+                - NSA用户RAT值
+                  - 设置NSA用户的RAT值（SET NSARATVALUE）
+                  - 查询NSA用户的RAT值（LST NSARATVALUE）
+                - NB-IoT用户RAT值
+                  - 查询NB-IoT终端配置的RAT值（LST NBIOTRATVALUE）
+                  - 设置NB-IoT用户的RAT值（SET NBIOTRATVALUE）
+                - 基本计费属性
+                  - 查询对本地用户、漫游用户、拜访用户所采用的计费属性（LST CHARGECHAR）
+                  - 修改对本地用户、漫游用户、拜访用户所采用的计费属性（MOD CHARGECHAR）
+                  - 增加对本地用户、漫游用户、拜访用户所采用的计费属性（ADD CHARGECHAR）
+                  - 删除对本地用户、漫游用户、拜访用户所采用的计费属性（RMV CHARGECHAR）
+                - 漫游参数协商控制
+                  - 设置漫游参数协商开关（SET HVNEGRCPSW）
+                  - 查询漫游参数协商开关（LST HVNEGRCPSW）
+                - RedCap用户RAT值
+                  - 设置RedCap终端接入RAT填写值（SET REDCAPRATVALUE）
+                  - 查询RedCap接入用户的RAT填写值（LST REDCAPRATVALUE）
+                - 计费属性计费控制
+                  - 增加计费方式（ADD CHARGEMETHOD）
+                  - 删除计费方式（RMV CHARGEMETHOD）
+                  - 查询计费方式（LST CHARGEMETHOD）
+                  - 修改计费方式（MOD CHARGEMETHOD）
+                - RG资源控制
+                  - 设置RG资源控制配置（SET RGRESCTRL）
+                  - 查询RG资源控制配置（LST RGRESCTRL）
+                - 用户属性计费控制
+                  - 设置计费控制配置（SET CHARGECTRL）
+                  - 查询计费控制配置（LST CHARGECTRL）
+                - APN计费模式
+                  - 删除基于APN的计费接口选择方式（RMV APNCHGMODE）
+                  - 查询基于APN的计费接口选择方式（LST APNCHGMODE）
+                  - 增加基于APN的计费接口选择方式（ADD APNCHGMODE）
+                  - 修改基于APN的计费接口选择方式（MOD APNCHGMODE）
+                - 计费相关速率控制
+                  - 显示计费速率控制（LST CHGRATECTRL）
+                  - 计费速率控制（SET CHGRATECTRL）
+                - LTE-M用户RAT值
+                  - 设置LTE-M用户的RAT值（SET LTEMRATVALUE）
+                  - 查询LTE-M用户的RAT值（LST LTEMRATVALUE）
+                - User Profile计费控制
+                  - 设置User Profile的计费配置（SET USRPROFCHARGE）
+                  - 查询User Profile的计费配置（LST USRPROFCHARGE）
+              - 离线计费
+                - GTPP信令
+                  - CG管理
+                    - 查询CG（LST CG）
+                    - 修改CG（MOD CG）
+                    - 删除CG（RMV CG）
+                    - 配置CG（ADD CG）
+                  - CG组管理
+                    - 抄送CG组
+                      - 修改抄送CG组（MOD CPCGGRP）
+                      - 删除抄送CG组（RMV CPCGGRP）
+                      - 显示抄送CG组（LST CPCGGRP）
+                      - 增加抄送CG组（ADD CPCGGRP）
+                    - CG组绑定
+                      - 增加CG组绑定关系（ADD CGGRPBINDING）
+                      - 删除CG组绑定关系（RMV CGGRPBINDING）
+                      - 修改CG组绑定关系（MOD CGGRPBINDING）
+                      - 查询CG组绑定关系（LST CGGRPBINDING）
+                    - CG组
+                      - 添加CG组（ADD CGGROUP）
+                      - 查询CG组（LST CGGROUP）
+                      - 修改CG组（MOD CGGROUP）
+                      - 删除CG组（RMV CGGROUP）
+                    - 抄送CG绑定
+                      - 显示抄送CG绑定（LST CPCGBINDING）
+                      - 增加抄送CG绑定（ADD CPCGBINDING）
+                      - 修改抄送CG绑定关系（MOD CPCGBINDING）
+                      - 删除抄送CG绑定（RMV CPCGBINDING）
+                    - 全局CG组
+                      - 设置全局CG组（SET GLBCGGROUP）
+                      - 查询全局CG组（LST GLBCGGROUP）
+                    - CG绑定
+                      - 修改CG绑定关系（MOD CGBINDING）
+                      - 增加CG绑定关系（ADD CGBINDING）
+                      - 查询CG绑定关系（LST CGBINDING）
+                      - 删除CG绑定关系（RMV CGBINDING）
+                  - 话单发送参数
+                    - 设置话单发送控制参数（SET CDRTRANSFER）
+                    - 查询话单发送控制参数（LST CDRTRANSFER）
+                  - GTPP本地信息
+                    - 增加GTPP本端信息（ADD GTPPLOCINFO）
+                    - 修改GTPP本端信息（MOD GTPPLOCINFO）
+                    - 查询GTPP本端信息（LST GTPPLOCINFO）
+                    - 删除GTPP本端信息（RMV GTPPLOCINFO）
+                  - CG状态
+                    - 查询CG状态（DSP CGSTATUS）
+                - SGW计费控制
+                  - SGW APN计费方式
+                    - 设置SGW APN计费方式（SET SGWAPNCHGMETH）
+                    - 查询SGW APN计费方式（LST SGWAPNCHGMETH）
+                  - SGW IMSI/MSISDN号段组计费方式
+                    - 修改SGW IMSI/MSISDN Group Charge Method（MOD SGWSEGGCHGMETH）
+                    - 查询SGW IMSI/MSISDN Group Charge Method（LST SGWSEGGCHGMETH）
+                    - 增加SGW IMSI/MSISDN Group Charge Method（ADD SGWSEGGCHGMETH）
+                    - 删除SGW IMSI/MSISDN Group Charge Method（RMV SGWSEGGCHGMETH）
+                  - 计费属性控制
+                    - 删除SGW Charge Method（RMV SGWCHGMETH）
+                    - 设置SGW Charge Method（SET SGWCHGMETH）
+                    - 查询SGW Charge Method（LST SGWCHGMETH）
+                  - SGW-C PLMN信息管理
+                    - 增加SGW-C Home PLMN（ADD NGSGWPLMN）
+                    - 修改SGW-C Home PLMN（MOD NGSGWPLMN）
+                    - 查询SGW-C Home PLMN（LST NGSGWPLMN）
+                    - 删除SGW-C Home PLMN（RMV NGSGWPLMN）
+                  - SGW计费基础参数
+                    - SGW计费配置（SET SGWCHARGECFG）
+                    - 查询SGW计费配置（LST SGWCHARGECFG）
+                - 话单字段控制
+                  - 5G用户话单重用字段控制
+                    - 查询基于apn的Ga接口重用字段的填写方式（LST APNGA5GREUSEAVP）
+                    - 设置5G用户接入时，Ga接口重用字段的填写方式（SET GA5GREUSEDAVP）
+                    - 设置5G用户接入时，Gy接口重用字段的填写方式（SET GY5GREUSEDAVP）
+                    - 删除基于apn的Gy接口重用字段的填写方式（RMV APNGY5GREUSEAVP）
+                    - 删除基于apn的Ga接口重用字段的填写方式（RMV APNGA5GREUSEAVP）
+                    - 修改基于apn的Ga接口重用字段的填写方式（MOD APNGA5GREUSEAVP）
+                    - 增加基于apn的Ga接口重用字段的填写方式（ADD APNGA5GREUSEAVP）
+                    - 修改基于apn的Gy接口重用字段的填写方式（MOD APNGY5GREUSEAVP）
+                    - 查询5G用户接入时，Ga接口重用字段的填写方式（LST GA5GREUSEDAVP）
+                    - 查询5G用户接入时，Gy接口重用字段的填写方式（LST GY5GREUSEDAVP）
+                    - 查询基于apn的Gy接口重用字段的填写方式（LST APNGY5GREUSEAVP）
+                    - 增加基于apn的Gy接口重用字段的填写方式（ADD APNGY5GREUSEAVP）
+                  - 全局话单字段模板
+                    - 设置全局话单模板（SET GLBCDRFLDTEMP）
+                    - 查询全局话单模板（LST GLBCDRFLDTEMP）
+                  - 话单字段模板
+                    - 查询话单字段模板（LST CDRFIELDTEMP）
+                    - 增加话单字段模板（ADD CDRFIELDTEMP）
+                    - 修改话单字段模板（MOD CDRFIELDTEMP）
+                    - 删除话单字段模板（RMV CDRFIELDTEMP）
+                - 离线计费维护
+                  - 全局生效话单字段配置查询
+                    - 查询全局生效CDR字段配置（DSP GLBCDRFLDCFG）
+                  - 清除冲突配置
+                    - 清除计费配置冲突（CLR CHARGECONFLICT）
+                  - CGIP测量对象
+                    - 查询CGIP测量对象（LST CGIP）
+                  - 全局生效离线计费配置查询
+                    - 查询全局生效离线计费模板配置（DSP GLBOFCTEMPCFG）
+                  - 查询强制产生业务数据容器结果
+                    - 查询强制产生业务数据容器结果（DSP GENERATESDC）
+                  - 查看冲突配置
+                    - 查询计费配置冲突（DSP CHARGECONFLICT）
+                  - 强制产生业务数据容器
+                    - 强制产生业务数据容器（FOC GENERATESDC）
+                - 离线计费基础参数
+                  - 全局离线计费模板
+                    - 查询全局离线计费模板（LST GLBOFCTEMPLATE）
+                    - 修改全局离线计费模板（MOD GLBOFCTEMPLATE）
+                    - 增加全局离线计费模板（ADD GLBOFCTEMPLATE）
+                    - 删除全局离线计费模板（RMV GLBOFCTEMPLATE）
+                  - 离线公共参数
+                    - 配置离线计费话单参数（SET OFCCDRPARA）
+                    - 显示离线计费话单参数（LST OFCCDRPARA）
+                  - 离线计费模板
+                    - 修改离线计费模板（MOD OFCTEMPLATE）
+                    - 显示离线计费模板（LST OFCTEMPLATE）
+                    - 删除离线计费模板或者属性（RMV OFCTEMPLATE）
+                    - 配置离线计费容器产生开关（SET CONTAINERTRIGGER）
+                    - 配置离线计费话单产生开关（SET CDRTRIGGER）
+                    - 设置离线计费阈值（SET OFCTHRESHOLD）
+                    - 增加离线计费模板（ADD OFCTEMPLATE）
+                - 业务级计费
+                  - 业务计费模板
+                    - 查询离线业务模板（LST OFCSRVTEMPLATE）
+                    - 删除离线业务模板（RMV OFCSRVTEMPLATE）
+                    - 修改离线业务模板（MOD OFCSRVTEMPLATE）
+                    - 增加离线业务模板（ADD OFCSRVTEMPLATE）
+                - 话单生成速率
+                  - 设置话单产生速率（SET CDRGENRATECTRL）
+                  - 查询话单产生速率（LST CDRGENRATECTRL）
+              - 费率切换
+                - 工作日
+                  - 删除计费星期表（RMV WEEKDAY）
+                  - 查询计费星期表（LST WEEKDAY）
+                  - 修改计费星期表（MOD WEEKDAY）
+                  - 配置计费星期表（ADD WEEKDAY）
+                - 费率切换组
+                  - 配置费率切换组（ADD TARIFFGROUP）
+                  - 查询费率切换组（LST TARIFFGROUP）
+                  - 删除费率切换组（RMV TARIFFGROUP）
+                - 节假日
+                  - 删除计费节假日表（RMV FESTIVAL）
+                  - 增加计费节假日表（ADD FESTIVAL）
+                  - 查询计费节假日表（LST FESTIVAL）
+                - 全局费率切换组
+                  - 查询全局费率切换组（LST GLBTARIFFGROUP）
+                  - 配置全局费率切换组（SET GLBTARIFFGROUP）
+              - 融合计费
+                - N40诊断值Trigger
+                  - 删除N40去活原因的映射关系（RMV N40DIAGTRIGGER）
+                  - 查询N40去活原因的映射关系（LST N40DIAGTRIGGER）
+                  - 增加N40去活原因的映射关系（ADD N40DIAGTRIGGER）
+                - QBC计费QoS Flow级Trigger
+                  - 删除QBC计费QoS Flow级的trigger参数（RMV QBCQOSFTRIGGER）
+                  - 查询QBC计费QoS Flow级的trigger参数（LST QBCQOSFTRIGGER）
+                  - 修改QBC计费QoS Flow级的trigger参数（MOD QBCQOSFTRIGGER）
+                  - 增加QBC计费QoS Flow级的trigger参数（ADD QBCQOSFTRIGGER）
+                - 全局配置
+                  - 查询在线业务零用量容器上报方式（LST ONLZEROUSGRPTSW）
+                  - 修改N40接口非UUID格式与UUID格式的UPF实例标识的映射关系（MOD N40UPFIDINUUID）
+                  - 设置QBC计费全局参数（SET QBCGLBPARA）
+                  - 设置离线业务零用量容器上报方式（SET OFLZEROUSGRPTSW）
+                  - 查询N40接口配额的控制参数（LST N40QUOTACTRL）
+                  - 删除N40接口非UUID格式与UUID格式的UPF实例标识的映射关系（RMV N40UPFIDINUUID）
+                  - 设置N40接口消息的控制参数（SET N40MSGCTRL）
+                  - 查询离线业务零用量容器上报方式（LST OFLZEROUSGRPTSW）
+                  - 查询QBC计费全局参数（LST QBCGLBPARA）
+                  - 设置N40接口配额的控制参数（SET N40QUOTACTRL）
+                  - 查询N4接口计费消息相关控制参数（LST N4CHGMSGCTRL）
+                  - 设置在线业务零用量容器上报方式（SET ONLZEROUSGRPTSW）
+                  - 设置N4接口计费消息相关控制参数（SET N4CHGMSGCTRL）
+                  - 增加N40接口非UUID格式与UUID格式的UPF实例标识的映射关系（ADD N40UPFIDINUUID）
+                  - 查询N40接口消息的控制参数（LST N40MSGCTRL）
+                  - 设置融合计费全局参数（SET CNVRGDCHGPARA）
+                  - 查询N40接口非UUID格式与UUID格式的UPF实例标识的映射关系（LST N40UPFIDINUUID）
+                  - 查询融合计费全局参数（LST CNVRGDCHGPARA）
+                - CHF选择
+                  - 设置全局默认CHF组（SET GLBDFTCHFGROUP）
+                  - 删除IMSI与CHF组的绑定关系（RMV SELCHFGBYIMSI）
+                  - 查询基于CC选择CHF处理（LST SELECTCHFGBYCC）
+                  - 查询全局默认CHF组（LST GLBDFTCHFGROUP）
+                  - 查询IMSI号段和该号段绑定的主备CHF组（LST SELCHFGBIMSISEG）
+                  - 增加IMSI与CHF组的绑定关系（ADD SELCHFGBYIMSI）
+                  - 增加基于CC选择CHF处理（ADD SELECTCHFGBYCC）
+                  - 查询用户激活和在线恢复场景CHF的选择模式（LST CHFSELECTMODE）
+                  - 查询IMSI与CHF组的绑定关系（LST SELCHFGBYIMSI）
+                  - 修改IMSI号段与CHF组的绑定关系（MOD SELCHFGBIMSISEG）
+                  - 修改基于CC选择CHF处理（MOD SELECTCHFGBYCC）
+                  - 增加IMSI号段与CHF组的绑定关系（ADD SELCHFGBIMSISEG）
+                  - 删除IMSI号段与CHF组的绑定关系（RMV SELCHFGBIMSISEG）
+                  - 删除基于CC选择CHF处理（RMV SELECTCHFGBYCC）
+                  - 设置用户激活和在线恢复场景CHF的选择模式（SET CHFSELECTMODE）
+                  - 修改IMSI与CHF组的绑定关系（MOD SELCHFGBYIMSI）
+                - 配额耗尽处理动作
+                  - 删除配额耗尽后的动作（RMV QUOTAEXHAUSTACT）
+                  - 修改配额耗尽后的动作（MOD QUOTAEXHAUSTACT）
+                  - 增加配额耗尽后的动作（ADD QUOTAEXHAUSTACT）
+                  - 查询配额耗尽后的动作（LST QUOTAEXHAUSTACT）
+                - 融合计费消息缓存
+                  - 查询缓存开关、回放间隔、回放速率（LST N40MSGSTG）
+                  - 设置融合计费消息缓存期间融合计费消息生成的trigger（SET STGTRIGGER）
+                  - 查询融合计费消息缓存期间融合计费消息生成的trigger（LST STGTRIGGER）
+                  - 设置缓存开关、回放间隔、回放速率（SET N40MSGSTG）
+                - RG级结果码处理动作
+                  - 删除RG级异常返回码处理动作（RMV RGRCACT）
+                  - 查询RG级异常返回码处理动作（LST RGRCACT）
+                  - 增加RG级异常返回码处理动作（ADD RGRCACT）
+                  - 修改RG级异常返回码处理动作（MOD RGRCACT）
+                - QBC计费控制
+                  - 设置漫游用户在归属地的计费方式和漫游参数的协商方式（SET HSMFCHGCTRL）
+                  - 查询I-SMF/SGW的计费模式和CHF选择参数（LST SERVINGCHGCTRL）
+                  - 设置V-SMF的计费模式和CHF选择参数（SET VSMFCHGCTRL）
+                  - 设置I-SMF/SGW的计费模式和CHF选择参数（SET SERVINGCHGCTRL）
+                  - 删除基于VPLMN配置的漫游用户归属地计费模式（RMV VPLMNCHGMODE）
+                  - 修改基于VPLMN配置的漫游用户归属地计费模式（MOD VPLMNCHGMODE）
+                  - 查询V-SMF的计费模式和CHF选择参数（LST VSMFCHGCTRL）
+                  - 查询漫游用户在归属地的计费方式和漫游参数的协商方式（LST HSMFCHGCTRL）
+                  - 增加基于VPLMN配置的漫游用户归属地计费模式（ADD VPLMNCHGMODE）
+                  - 查询基于VPLMN配置的漫游用户归属地计费模式（LST VPLMNCHGMODE）
+                - 融合计费模板
+                  - 修改融合计费模板（MOD CCT）
+                  - 设置融合计费模板中用户激活相关参数（SET CHFINIT）
+                  - 增加融合计费模板（ADD CCT）
+                  - 查询融合计费模板（LST CCT）
+                  - 删除融合计费模板（RMV CCT）
+                  - 设置融合计费模板故障处理动作（SET FAILHANDLING）
+                - RG级Trigger
+                  - 增加RG级的trigger参数（ADD RGTRIGGER）
+                  - 修改RG级的trigger参数（MOD RGTRIGGER）
+                  - 删除RG级的trigger参数（RMV RGTRIGGER）
+                  - 查询RG级的trigger参数（LST RGTRIGGER）
+                - 融合计费模板绑定
+                  - 修改基于CC配置融合计费模板处理（MOD SELECTCCTBYCC）
+                  - 删除基于CC配置融合计费模板处理（RMV SELECTCCTBYCC）
+                  - 增加基于CC配置融合计费模板处理（ADD SELECTCCTBYCC）
+                  - 查询基于CC配置融合计费模板处理（LST SELECTCCTBYCC）
+                - QBC计费PDU级Trigger
+                  - 增加QBC计费PDU会话级的trigger参数（ADD QBCPDUTRIGGER）
+                  - 修改QBC计费PDU会话级的trigger参数（MOD QBCPDUTRIGGER）
+                  - 查询QBC计费PDU会话级的trigger参数（LST QBCPDUTRIGGER）
+                  - 删除QBC计费PDU会话级的trigger参数（RMV QBCPDUTRIGGER）
+                - PDU级Trigger
+                  - 修改PDU会话级的trigger参数（MOD PDUTRIGGER）
+                  - 查询PDU会话级的trigger参数（LST PDUTRIGGER）
+                  - 增加PDU会话级的trigger参数（ADD PDUTRIGGER）
+                  - 删除PDU会话级的trigger参数（RMV PDUTRIGGER）
+                - 惯性运行参数
+                  - 设置融合计费惯性运行参数（SET CHGIOPARA）
+                  - 查询融合计费惯性运行参数（LST CHGIOPARA）
+                - N40消息属性模板
+                  - 查询N40消息属性模板（LST N40MSGTEMP）
+                  - 增加N40消息属性模板（ADD N40MSGTEMP）
+                  - 删除N40消息属性模板（RMV N40MSGTEMP）
+                  - 修改N40消息属性模板（MOD N40MSGTEMP）
+                - PDU级结果码处理动作
+                  - 查询PDU异常返回码动作（LST PDUSCACT）
+                  - 删除PDU异常返回码动作（RMV PDUSCACT）
+                  - 修改PDU异常返回码动作（MOD PDUSCACT）
+                  - 增加PDU异常返回码动作（ADD PDUSCACT）
+                - N40 API版本
+                  - 设置N40接口协议版本和需要使用的FeatureList（SET N40APIVER）
+                  - 查询N40接口协议版本和需要使用的FeatureList（LST N40APIVER）
+              - 在线计费
+                - 在线计费参数管理
+                  - 在线计费参数
+                    - 配置在线计费全局参数（SET OLNCHGPARA）
+                    - 显示在线计费全局参数配置（LST OLNCHGPARA）
+                - OCS Diameter连接
+                  - OCS绑定OCS Group
+                    - 删除Ocs绑定关系（RMV OCSBINDING）
+                    - 查询Ocs绑定关系（LST OCSBINDING）
+                    - 修改Ocs绑定关系（MOD OCSBINDING）
+                    - 增加Ocs绑定关系（ADD OCSBINDING）
+                  - OCS Group
+                    - 查询Ocs组（LST OCSGROUP）
+                    - 删除Ocs组（RMV OCSGROUP）
+                    - 增加Ocs组（ADD OCSGROUP）
+                  - 动态OCS
+                    - 查询动态OCS（DSP DYNAMICOCS）
+                    - 删除动态OCS（CLR DYNAMICOCS）
+                  - 绑定OCS Group到DCC模板
+                    - 修改OCS组绑定关系（MOD OCSGRPBINDING）
+                    - 查询OCS组绑定关系（LST OCSGRPBINDING）
+                    - 删除OCS组绑定关系（RMV OCSGRPBINDING）
+                    - 增加OCS组绑定关系（ADD OCSGRPBINDING）
+                  - OCS Server
+                    - 增加OCS（ADD OCS）
+                    - 显示静态OCS上用户数（DSP OCSUSERNUM）
+                    - 查询OCS（LST OCS）
+                    - 修改OCS（MOD OCS）
+                    - 删除OCS（RMV OCS）
+                  - OCS状态
+                    - 查询OCS状态（DSP OCSSTATUS）
+                  - OCS倒回
+                    - 将备OCS的业务强制切换到主OCS（ACT OCS）
+                - 信用控制
+                  - Mscc层返回码控制
+                    - 查询MSCC层异常返回码处理动作（LST MSCCRCACT）
+                    - 增加MSCC层异常返回码处理动作（ADD MSCCRCACT）
+                    - 修改MSCC层异常返回码处理动作（MOD MSCCRCACT）
+                    - 删除MSCC层异常返回码处理动作（RMV MSCCRCACT）
+                  - 信用控制模板
+                    - 设置DCC模板命令层缺省返回码动作（SET CMDLEVDFTBEH）
+                    - 删除DCC模板（RMV DCCTEMPLATE）
+                    - 设置DCC模板OCS初始化（SET OCSINIT）
+                    - 设置DCC模板MSCC层缺省返回码动作（SET MSCCLEVDFTBEH）
+                    - 增加DCC模板（ADD DCCTEMPLATE）
+                    - 设置DCC模板OCS状态Down动作（SET OCSDOWNACTION）
+                    - 查询DCC模板（LST DCCTEMPLATE）
+                    - 设置DCC模板用户持续时长（SET HOLDINGTIME）
+                    - 修改DCC模板（MOD DCCTEMPLATE）
+                    - 设置DCC模板Tx定时器（SET TXTIMER）
+                  - 全局信用控制模板
+                    - 增加计费属性与在线计费模板绑定关系（ADD GLBDCCTEMPLATE）
+                    - 删除计费属性与在线计费模板绑定关系（RMV GLBDCCTEMPLATE）
+                    - 查询计费属性与在线计费模板绑定关系（LST GLBDCCTEMPLATE）
+                    - 修改计费属性与在线计费模板绑定关系（MOD GLBDCCTEMPLATE）
+                  - 命令层返回码控制
+                    - 查询命令层异常返回码处理动作（LST CMDRCACT）
+                    - 修改命令层异常返回码处理动作（MOD CMDRCACT）
+                    - 删除命令层异常返回码处理动作（RMV CMDRCACT）
+                    - 增加命令层异常返回码处理动作（ADD CMDRCACT）
+                  - 信用池功能控制
+                    - 查询Credit Pooling功能（LST CREDITPOOLFUNC）
+                    - 设置Credit Pooling功能（SET CREDITPOOLFUNC）
+                  - 在线计费欠费返回码控制
+                    - 设置在线计费欠费结果码（SET CCLIMITRC）
+                    - 查询在线计费欠费返回码（LST CCLIMITRC）
+              - 计费维护
+                - 强制生成话单
+                  - 强制生成话单（FOC GENERATECDR）
+                - 用户计费信息
+                  - 查询计费上下文信息（DSP CPPDPCHGINFO）
+                - 强制生成话单结果查询
+                  - 查询强制生成话单结果（DSP GENERATECDR）
+              - 告警管理
+                - 业务节点资源耗尽告警阈值
+                  - 查询业务节点资源不足告警阈值（LST CPSRVNDALMTHRES）
+                  - 设置业务节点资源不足告警阈值（SET CPSRVNDALMTHRES）
+                - 话单池空间告警阈值
+                  - 查询话单池空间告警阈值（LST CDRPOOLTHRSH）
+                  - 设置话单池空间告警阈值（SET CDRPOOLTHRSH）
+                - OCS告警阈值
+                  - 设置OCS告警阈值（SET OCSALMTHD）
+                  - 查询OCS告警阈值（LST OCSALMTHD）
+              - 计费缓存
+                - 缓存目录
+                  - 设置话单缓存目录状态（SET CDRSTRGSTATUS）
+                  - 查询话单缓存目录状态（LST CDRSTRGSTATUS）
+                  - 清除话单缓存目录状态（CLR CDRSTRGSTATUS）
+                - 缓存控制
+                  - 查询话单存储控制参数（LST CDRSTORAGECTRL）
+                  - 设置话单存储控制参数（SET CDRSTORAGECTRL）
+                  - 设置融合计费话单缓存告警上报的控制参数（SET STGALARMCTRL）
+                  - 查询融合计费话单缓存告警上报的控制参数（LST STGALARMCTRL）
+                - 缓存信息
+                  - 查询缓存话单信息（DSP CDRSTRGINFO）
+            - 5G LAN管理
+              - 查询园区会话数
+                - 显示园区会话数（DSP EDGESESSNUM）
+              - 查询5G LAN UE会话分布信息
+                - 显示5G LAN UE会话分布情况（DSP NGLANUPINFO）
+              - 园区5G LAN组管理
+                - 增加园区5G LAN群组（ADD EDGENGLANGROUP）
+                - 查询园区5G LAN群组（LST EDGENGLANGROUP）
+                - 删除园区5G LAN群组（RMV EDGENGLANGROUP）
+              - 5G LAN组会话核查
+                - 测试5G LAN组会话状态（TST NGLANGRP）
+              - UP节点管理
+                - 修改指定实例名称的UPF节点特征（MOD NGLANUPNODE）
+                - 增加指定实例名称的UPF节点特征（ADD NGLANUPNODE）
+                - 查询指定实例名称的UPF节点特征（LST NGLANUPNODE）
+                - 删除指定实例名称的UPF节点特征（RMV NGLANUPNODE）
+              - 5G LAN组性能统计
+                - 增加用于性能统计的5G LAN群组（ADD PERFNGLANGRP）
+                - 删除用于性能统计的5G LAN群组（RMV PERFNGLANGRP）
+                - 查询用于性能统计的5G LAN群组（LST PERFNGLANGRP）
+              - 会话管理扩展功能
+                - 设置NGLAN扩展功能（SET CPNGLANFUNC）
+                - 查询NGLAN扩展功能（LST CPNGLANFUNC）
+              - 5G LAN组级扩展功能
+                - 增加指定群组的5G LAN会话扩展参数（ADD GRPNGLANFUNC）
+                - 删除指定群组的5G LAN会话扩展参数（RMV GRPNGLANFUNC）
+                - 查询指定群组的5G LAN会话扩展参数（LST GRPNGLANFUNC）
+                - 修改指定群组的5G LAN会话扩展参数（MOD GRPNGLANFUNC）
+              - 查询5G LAN组信息
+                - 显示5G LAN组会话信息（DSP NGLANINFO）
+              - 5G LAN组管理
+                - 增加5G LAN群组（ADD NGLANGROUP）
+                - 查询5G LAN群组（LST NGLANGROUP）
+                - 删除5G LAN群组（RMV NGLANGROUP）
+                - 修改5G LAN群组（MOD NGLANGROUP）
+              - 删除5G LAN组会话
+                - 删除5G LAN组会话（RMV NGLANGRPCTX）
+              - 查询5G LAN组PFCP会话信息
+                - 显示PFCP的组会话信息（DSP GRPPFCPSESSINFO）
+            - CHR管理
+              - APN CHR功能配置
+                - 查询APN CHR功能配置（LST APNCHRFUNC）
+                - 删除APN CHR功能配置（RMV APNCHRFUNC）
+                - 修改APN CHR功能配置（MOD APNCHRFUNC）
+                - 增加APN CHR功能配置（ADD APNCHRFUNC）
+              - CHR本地存盘用户
+                - 修改CHR本地存盘用户（MOD CPCHRRPTSUBID）
+                - 增加CHR本地存盘用户（ADD CPCHRRPTSUBID）
+                - 删除CHR本地存盘用户（RMV CPCHRRPTSUBID）
+                - 查询CHR本地存盘用户（LST CPCHRRPTSUBID）
+              - 会话CHR配置
+                - 设置会话CHR上报策略（SET SESSNCHRCFG）
+                - 查询会话CHR上报策略（LST SESSNCHRCFG）
+              - 会话CHR流程模板配置
+                - 增加会话CHR流程控制模板（ADD SESSNCHRPRCTMPL）
+                - 查询会话CHR流程控制模板（LST SESSNCHRPRCTMPL）
+                - 修改会话CHR流程控制模板（MOD SESSNCHRPRCTMPL）
+                - 删除会话CHR流程控制模板（RMV SESSNCHRPRCTMPL）
+              - CHR存储配置
+                - 查询CHR存储配置（LST SESSNCHRSTORECFG）
+                - 设置CHR存储配置（SET SESSNCHRSTORECFG）
+              - CHR本地存盘位置
+                - 查询CHR本地存盘位置配置（LST CHRRPTLOCINFO）
+                - 删除CHR本地存盘位置配置（RMV CHRRPTLOCINFO）
+                - 修改CHR本地存盘位置配置（MOD CHRRPTLOCINFO）
+                - 增加CHR本地存盘位置配置（ADD CHRRPTLOCINFO）
+              - 全局CHR功能配置
+                - 设置全局CHR功能配置（SET GLBCHRFUNC）
+                - 查询全局CHR功能配置（LST GLBCHRFUNC）
+              - IMS DDN流量控制上报CHR配置
+                - 设置IMS DDN流量控制上报CHR配置开关（SET IMSDDNFLOWCTRLCHR）
+                - 查询IMS DDN流量控制上报CHR配置开关（LST IMSDDNFLOWCTRLCHR）
+            - IMS管理
+              - P-CSCF管理
+                - P-CSCF组
+                  - 删除P-CSCF组配置（RMV PCSCFGROUP）
+                  - 增加P-CSCF组配置（ADD PCSCFGROUP）
+                  - 查询P-CSCF组配置（LST PCSCFGROUP）
+                - P-CSCF选择的IMSI和MSISDN号段
+                  - 删除IMSI和MSISDN号段（RMV PCSCFIMSISDNSEG）
+                  - 增加IMSI和MSISDN号段（ADD PCSCFIMSISDNSEG）
+                  - 修改IMSI和MSISDN号段（MOD PCSCFIMSISDNSEG）
+                  - 查询IMSI和MSISDN号段（LST PCSCFIMSISDNSEG）
+                - P-CSCF故障恢复控制
+                  - 设置P-CSCF控制配置（SET PCSCFCTRL）
+                  - 查询P-CSCF控制配置（LST PCSCFCTRL）
+                - P-CSCF组绑定IMSI/MSISDN号段
+                  - 删除P-CSCF组和IMSI/MSISDN号段的绑定关系（RMV PCSCFGRPBINDIMSI）
+                  - 增加P-CSCF组和IMSI/MSISDN号段的绑定关系（ADD PCSCFGRPBINDIMSI）
+                  - 查询P-CSCF组和IMSI/MSISDN号段的绑定关系（LST PCSCFGRPBINDIMSI）
+                  - 修改P-CSCF组和IMSI/MSISDN号段的绑定关系（MOD PCSCFGRPBINDIMSI）
+                - P-CSCF的IP地址
+                  - 增加P-CSCF地址配置（ADD PCSCFIP）
+                  - 锁定P-CSCF地址配置（LCK PCSCF）
+                  - 删除P-CSCF地址配置（RMV PCSCFIP）
+                  - 查询P-CSCF地址配置（LST PCSCFIP）
+                  - 修改P-CSCF地址配置（MOD PCSCFIP）
+                - P-CSCF组选择模式
+                  - 设置P-CSCF组选择模式（SET PCSCFGRPSELECT）
+                  - 查询P-CSCF组选择模式（LST PCSCFGRPSELECT）
+                - APN P-CSCF服务器优先级属性
+                  - 设置APN P-CSCF地址获取方式的优先级配置（SET APNPCSCFSRVPRI）
+                  - 查询APN P-CSCF地址获取方式的优先级配置（LST APNPCSCFSRVPRI）
+                - P-CSCF组与APN关联关系
+                  - 查询APN和P-CSCF组关联关系（LST PCSCFGRPBNDAPN）
+                  - 删除APN和P-CSCF组关联关系（RMV PCSCFGRPBNDAPN）
+                  - 修改APN和P-CSCF组关联关系（MOD PCSCFGRPBNDAPN）
+                  - 增加APN和P-CSCF组关联关系（ADD PCSCFGRPBNDAPN）
+              - IMS业务功能
+                - 全局IMS配置
+                  - 查询全局IMS互通配置信息（LST CPGLOBALIMS）
+                  - 设置全局IMS互通配置信息（SET CPGLOBALIMS）
+                - 基于APN的IMS属性
+                  - 设置APN的IMS属性（SET CPAPNIMSATTR）
+                  - 查询APN的IMS属性（LST CPAPNIMSATTR）
+            - RADIUS管理
+              - 连接管理
+                - Radius Client
+                  - 增加Radius Group Client IP接口（ADD RADIUSCLIENTIP）
+                  - 查询Radius Group Client IP接口（LST RADIUSCLIENTIP）
+                  - 删除Radius Group Client IP接口（RMV RADIUSCLIENTIP）
+                - APN RADIUS域名属性
+                  - 查询APN RADIUS配置（LST APNRADIUSATTR）
+                  - 设置APN RADIUS配置（SET APNRADIUSATTR）
+                - APN Radius服务器
+                  - 修改APN Radius服务器组（MOD APNRDSSVRGRP）
+                  - 删除APN Radius服务器组（RMV APNRDSSVRGRP）
+                  - 设置APN Radius服务器组（ADD APNRDSSVRGRP）
+                  - 查询APN Radius服务器组（LST APNRDSSVRGRP）
+                - UP列表
+                  - 向RADIUS服务器使用的UP列表中增加UP（ADD UPLIST4RDS）
+                  - 查询RADIUS服务器使用的UP列表配置（LST UPLIST4RDS）
+                  - 从RADIUS服务器使用的UP列表中删除UP（RMV UPLIST4RDS）
+                - NAS IP
+                  - 删除RADIUS NAS IP（RMV RADIUSNASIP）
+                  - 增加RADIUS NAS IP（ADD RADIUSNASIP）
+                  - 修改RADIUS NAS IP（MOD RADIUSNASIP）
+                  - 查询RADIUS NAS IP（LST RADIUSNASIP）
+                - RADIUS响应消息地址检查
+                  - 查询全局RADIUS响应消息源端口检查配置（LST RDSRSPADDRCHK）
+                  - 设置全局RADIUS响应消息源IP/端口检查配置（SET RDSRSPADDRCHK）
+                - UPF中转Radius客户端IP
+                  - 增加中转UPF与Radius客户端的绑定关系（ADD UPFRDSCLIENTIP）
+                  - 查询中转UPF与Radius客户端的绑定关系（LST UPFRDSCLIENTIP）
+                  - 删除中转UPF与Radius客户端的绑定关系（RMV UPFRDSCLIENTIP）
+                - Radius服务器
+                  - 查询RADIUS服务器（LST RDSSVR）
+                  - 修改RADIUS服务器（MOD RDSSVR）
+                  - 删除RADIUS服务器（RMV RDSSVR）
+                  - 增加RADIUS服务器（ADD RDSSVR）
+                - Radius服务器组
+                  - 增加Radius服务器组（ADD RDSSVRGRP）
+                  - 删除Radius服务器组（RMV RDSSVRGRP）
+                  - 查询Radius服务器组（LST RDSSVRGRP）
+                  - 修改Radius服务器组（MOD RDSSVRGRP）
+                - UPF中转Radius服务器
+                  - 删除中转UPF与Radius服务器的绑定关系（RMV UPFRDSSVR）
+                  - 查询中转UPF与Radius服务器的绑定关系（LST UPFRDSSVR）
+                  - 增加中转UPF与Radius服务器的绑定关系（ADD UPFRDSSVR）
+              - 鉴权管理
+                - 服务节点地址信息
+                  - 查询向AAA鉴权服务器发送消息中携带的地址信息（LST AUTHSGSNADDR）
+                  - 设置向AAA鉴权服务器发送消息中携带的地址信息（SET AUTHSGSNADDR）
+                - 请求消息信元控制
+                  - 设置RADIUS鉴权请求携带的私有扩展属性（SET RDSAUTHREQVSA）
+                  - 查询RADIUS鉴权请求携带的私有扩展属性（LST RDSAUTHREQVSA）
+                - 请求消息携带的属性
+                  - 查询Radius鉴权请求消息携带的属性（LST RDSAUTHREQATTR）
+                  - 设置Radius鉴权请求消息携带的属性（SET RDSAUTHREQATTR）
+                - 应答消息信元控制
+                  - 设置支持的Radius鉴权响应消息私有属性（SET RDSAUTHRSPATTR）
+                  - 查询支持的Radius鉴权响应消息私有属性（LST RDSAUTHRSPATTR）
+              - RADIUS计费管理
+                - APN计费控制
+                  - 查询APN RADIUS计费控制参数（LST APNRDSACCTCTRL）
+                  - 设置APN RADIUS计费控制参数（SET APNRDSACCTCTRL）
+                - 扩展信元控制
+                  - 查询RADIUS计费服务器组的私有扩展属性（LST RDSACCTREQVSA）
+                  - 设置RADIUS计费服务器组的私有扩展属性（SET RDSACCTREQVSA）
+                - 流量备份
+                  - 设置流量备份配置（SET TRAFFICBACKUP）
+                  - 查询流量备份配置（LST TRAFFICBACKUP）
+                - RADIUS计费信元模板
+                  - 查询计费消息属性模板（LST RDSACCTATTTEMP）
+                  - 删除计费消息属性模板（RMV RDSACCTATTTEMP）
+                  - 修改计费消息属性模板（MOD RDSACCTATTTEMP）
+                  - 增加计费消息属性模板（ADD RDSACCTATTTEMP）
+                - 基础信元控制
+                  - 查询RADIUS计费服务器可选消息属性（LST RDSACCTREQATTR）
+                  - 设置RADIUS计费服务器可选消息属性（SET RDSACCTREQATTR）
+                - RADIUS基础参数
+                  - 设置全局RADIUS Accounting配置（SET GLBRDSACCT）
+                  - 查询全局RADIUS Accounting配置（LST GLBRDSACCT）
+              - RADIUS维护
+                - RADIUS UPF控制
+                  - 查询RADIUS服务器使用的UP列表中UP的功能属性（LST RDSUPFCTRL）
+                  - 修改RADIUS服务器的UP列表中指定UP的功能属性（MOD RDSUPFCTRL）
+                  - 删除RADIUS服务器的UP列表中指定UP的功能属性（RMV RDSUPFCTRL）
+                  - 增加RADIUS服务器的UP列表中指定UP的功能属性（ADD RDSUPFCTRL）
+                - AAA统计对象
+                  - 查询RADIUS AAA测量对象（LST RADIUSAAA）
+                - 信令计数
+                  - 显示RADIUS相关消息发送接收个数的统计信息（DSP RDSSVRCOUNTER）
+                  - 清除RADIUS相关消息发送接收个数的统计信息（CLR RDSSVRCOUNTER）
+                - 服务器检测
+                  - 测试AAA服务器（TST AAA）
+                - Radius鉴权链路状态
+                  - 显示Radius鉴权路径信息（DSP RDSAUTHLINKINFO）
+                - RADIUS中转UPF会话信息
+                  - 删除RADIUS中转UPF会话上下文（RMV RDSPFCPCTX）
+                  - 显示RADIUS中转UPF的PFCP会话数目（DSP RDSPFCPSESSNUM）
+                  - 显示RADIUS中转UPF会话信息（DSP RDSPFCPSESSINFO）
+                - UPF中转Radius状态
+                  - 显示UPF中转Radius状态（DSP UPFRDSSTATUS）
+              - APN的Radius客户端地址属性
+                - 删除APN Radius Client IP接口（RMV APNRDSCLIENTIP）
+                - 查询APN Radius Client IP接口（LST APNRDSCLIENTIP）
+                - 增加APN Radius Client IP接口（ADD APNRDSCLIENTIP）
+            - Diameter AAA管理
+              - 服务器配置
+                - APN的Diameter AAA组
+                  - 增加APN的Diameter AAA服务器组（ADD APNDIAMAAAGRP）
+                  - 查询APN的Diameter AAA服务器组（LST APNDIAMAAAGRP）
+                  - 删除APN的Diameter AAA服务器组（RMV APNDIAMAAAGRP）
+                  - 修改APN的Diameter AAA服务器组（MOD APNDIAMAAAGRP）
+                - Diameter AAA服务器和Diameter AAA服务器组的绑定关系
+                  - 删除Diameter AAA服务器组里的Diameter AAA服务器（RMV DIAMAAABNDGRP）
+                  - 增加Diameter AAA服务器到Diameter AAA服务器组（ADD DIAMAAABNDGRP）
+                  - 查询Diameter AAA服务器与Diameter AAA服务器绑定关系（LST DIAMAAABNDGRP）
+                - Diameter AAA信息
+                  - 查询Diameter AAA服务器（LST DIAMETERAAA）
+                  - 修改Diameter AAA服务器（MOD DIAMETERAAA）
+                  - 删除Diameter AAA服务器（RMV DIAMETERAAA）
+                  - 增加Diameter AAA服务器（ADD DIAMETERAAA）
+                - Diameter AAA组
+                  - 删除Diameter AAA服务器组（RMV DIAMAAAGRP）
+                  - 增加Diameter AAA服务器组（ADD DIAMAAAGRP）
+                  - 修改Diameter AAA服务器组（MOD DIAMAAAGRP）
+                  - 查询Diameter AAA服务器组（LST DIAMAAAGRP）
+                - 动态Diameter AAA
+                  - 显示动态Diameter AAA服务器（DSP DYNDIAMAAA）
+                - Diameter AAA服务器状态
+                  - 查询Diameter AAA服务器状态（DSP DIAMAAASTATUS）
+              - P-GW Host Name配置
+                - P-GW逻辑接口主机名
+                  - 删除逻辑接口的PGW主机名（RMV PGWHOSTNAME）
+                  - 增加逻辑接口的PGW主机名（ADD PGWHOSTNAME）
+                  - 查询逻辑接口的PGW主机名（LST PGWHOSTNAME）
+            - NF发现和选择管理
+              - UDM选择策略管理
+                - 查询SMF选择UDM策略（LST SMFSELUDM）
+                - 修改SMF选择UDM策略（MOD SMFSELUDM）
+                - 删除SMF选择UDM策略（RMV SMFSELUDM）
+                - 增加SMF选择UDM策略（ADD SMFSELUDM）
+            - 可靠性管理
+              - UDM故障处理策略管理
+                - 查询SMF的UDM故障重选策略（LST SMFUDMRESET）
+                - 设置SMF的UDM故障处理策略（SET SMFUDMRESET）
+              - N3/N9链路故障恢复
+                - 设置用户面链路故障恢复功能（SET UPPATHFAULTREST）
+                - 查询用户面链路故障恢复功能配置信息（LST UPPATHFAULTREST）
+              - 高可靠低时延传输
+                - 冗余PDU会话
+                  - 增加RSN规则（ADD RSNRULE）
+                  - 删除RSN规则（RMV RSNRULE）
+                  - 查询RSN规则（LST RSNRULE）
+                  - 修改RSN规则（MOD RSNRULE）
+              - UDM Bypass管理
+                - 退出UDM Bypass
+                  - 启动会话退出UDM Bypass状态任务（STR SMFEXITUDMBYPASS）
+                  - 停止会话退出UDM Bypass状态任务（STP SMFEXITUDMBYPASS）
+                - UDM Bypass策略管理
+                  - 查询SMF的UDM全故障Bypass相关功能（LST SMFUDMBYPASS）
+                  - 设置SMF的UDM全故障Bypass相关功能（SET SMFUDMBYPASS）
+                - 查询UDM Bypass会话
+                  - 显示会话UDM Bypass信息（DSP SMUDMBYPASS）
+              - 间接路由代理故障处理
+                - 删除间接路由代理故障重选配置（RMV HTTPERRHANDLER）
+                - 修改间接路由代理故障重选配置（MOD HTTPERRHANDLER）
+                - 增加间接路由代理故障重选配置（ADD HTTPERRHANDLER）
+                - 查询间接路由代理故障重选配置（LST HTTPERRHANDLER）
+              - A-SMF故障处理策略管理
+                - 设置I-SMF对A-SMF的故障恢复策略（SET ISMFASMFRESET）
+                - 查询I-SMF对A-SMF的故障恢复策略（LST ISMFASMFRESET）
+              - 用户面故障管理
+                - 清除用户面故障缓存（CLR UPFAULTCACHE）
+                - 显示故障APN信息（DSP UPFAULTAPNCACHE）
+              - N16aSMF数据核查管理
+                - 设置N16aSMF数据核查开关（SET N16ASMFDATACHK）
+                - 查询N16aSMF数据核查功能（LST N16ASMFDATACHK）
+            - BSF管理
+              - BSF查询管理
+                - 增加APN的BSF查询功能配置（ADD APNBSFQUERY）
+                - 查询APN的BSF查询功能配置（LST APNBSFQUERY）
+                - 删除APN的BSF查询功能配置（RMV APNBSFQUERY）
+                - 修改APN的BSF查询功能配置（MOD APNBSFQUERY）
+            - QoS监测管理
+              - QoS监测规则管理
+                - 修改QoS监测规则（MOD QOSMONTRULE）
+                - 查询QoS监测规则（LST QOSMONTRULE）
+                - 删除QoS监测规则（RMV QOSMONTRULE）
+                - 增加QoS监测规则（ADD QOSMONTRULE）
+              - QoS监测控制
+                - 查询QoS监测配置（LST QOSMONT）
+                - 设置QoS监测配置（SET QOSMONT）
+            - 智家随行会话管理
+              - 查询APN粒度的智家随行功能控制（LST APNTOHCTRL）
+              - 修改APN粒度的智家随行会话控制（MOD APNTOHCTRL）
+              - 删除APN粒度的智家随行会话控制（RMV APNTOHCTRL）
+              - 增加APN粒度的智家随行会话控制（ADD APNTOHCTRL）
+          - SMSF业务管理
+            - 热备容灾
+              - 删除用户的SMSF关键信息（RMV SMSFKEYDATA）
+              - 显示SMSF/VLR用户关键信息表的用户数（DSP SMSKEYNUM）
+              - 设置SMSF热备容灾功能开关状态（SET SMSBACKUPSW）
+              - 设置SMSF用户关键信息数据核查扫描参数（SET SMSFKEYCHECK）
+              - 显示SMSF用户关键信息（DSP SMSFKEYDATA）
+              - 查询SMSF用户关键信息数据核查扫描参数（LST SMSFKEYCHECK）
+              - 查询SMSF热备容灾功能开关状态（LST SMSBACKUPSW）
+            - License管理
+              - 设置注册中心用户数license忽略开关（SET RCLICIGNSW）
+              - 查询注册中心用户数license忽略开关（LST RCLICIGNSW）
+            - SMSC选择管理
+              - 删除SMSC的GT（RMV SMSCGT）
+              - 增加SMSC的GT（ADD SMSCGT）
+              - 查询融合短消息功能共部署SMSC支持的IMSI号段配置（LST IMSIFORSMSC）
+              - 查询SMSF/VLR选择SMSC的相关参数（LST ROUTSMSCPARA）
+              - 设置SMSF/VLR选择SMSC的相关参数（SET ROUTSMSCPARA）
+              - 查询SMSC的GT（LST SMSCGT）
+              - 增加融合短消息功能共部署SMSC支持的IMSI号段（ADD IMSIFORSMSC）
+              - 删除融合短消息功能共部署SMSC支持的IMSI号段配置（RMV IMSIFORSMSC）
+            - SMSF固定速率流控
+              - 设置注册中心固定速率流控（SET RCFIXEDFC）
+              - 查询注册中心固定速率流控（LST RCFIXEDFC）
+            - CHR管理
+              - 删除SMS小范围CHR上报规则配置（RMV SMSSRCHRCFG）
+              - 删除SMS CHR流程控制模板（RMV SMSCHRPRCTMPL）
+              - 增加SMS小范围CHR上报规则配置（ADD SMSSRCHRCFG）
+              - 查询SMS小范围CHR存储配置（LST SMSCHRSTORCFG）
+              - 设置SMS CHR单据上报策略（SET SMSCHRCFG）
+              - 查询SMS小范围CHR上报规则配置（LST SMSSRCHRCFG）
+              - 查询SMS CHR流程控制模板（LST SMSCHRPRCTMPL）
+              - 修改SMS小范围CHR上报规则配置（MOD SMSSRCHRCFG）
+              - 设置SMS小范围CHR存储配置（SET SMSCHRSTORCFG）
+              - 增加SMS CHR流程控制模板（ADD SMSCHRPRCTMPL）
+              - 查询SMS CHR单据上报策略（LST SMSCHRCFG）
+              - 修改SMS CHR流程控制模板（MOD SMSCHRPRCTMPL）
+            - SMSF功能开关
+              - 查询SMSF功能开关（LST SMSFFUNCSW）
+              - 设置SMSF功能开关（SET SMSFFUNCSW）
+            - UDM Bypass管理
+              - 设置SMSF的UDM全故障Bypass功能开关（SET SMSFUDMBYPASS）
+              - 停止用户退出UDM Bypass任务（STP SMSFEXITUDMBYPASS）
+              - 启动用户退出UDM Bypass任务（STR SMSFEXITUDMBYPASS）
+              - 显示SMSF系统内处于UDM Bypass状态的用户数（DSP SMSFUDMBYPASSNUM）
+              - 查询SMSF的UDM全故障Bypass功能开关（LST SMSFUDMBYPASS）
+              - 显示SMSF用户UDM Bypass状态信息（DSP SMSFUDMBYPASSTAT）
+            - 定时器管理
+              - 设置VLR/SMSF向注册中心注册的时间参数（SET SMSREGTIMER）
+              - 查询VLR/SMSF向注册中心注册的时间参数（LST SMSREGTIMER）
+            - SMS维测管理
+              - 显示CS粒度或DS粒度的用户数（DSP SMSUSERSTAT）
+            - CHF管理
+              - 查询短消息计费CHF组（LST SMSCHFGRP）
+              - 设置短消息计费CHF组（SET SMSCHFGRP）
+            - 数据核查
+              - 设置SMSF核查注册中心状态功能（SET SMSFRCDATACHECK）
+              - 查询SMSF核查注册中心状态功能配置（LST SMSFRCDATACHECK）
+          - Pre 5G接入业务管理
+            - 控制面管理
+              - 扩展调测
+                - 公共信令调测
+                  - 系统资源
+                    - 显示系统资源使用信息(DSP SYSRESINFO)
+                  - CB表
+                    - 显示CB表(DSP CB)
+                - 业务调测
+                  - Diameter AVP表
+                    - 删除所有Diameter AVP表（RMV DMAVPDICTALL）
+                    - 修改Diameter数据字典中的AVP参数(MOD DMAVPDICT)
+                    - 查询Diameter AVP表(LST DMAVPDICT)
+                    - 删除Diameter AVP表(RMV DMAVPDICT)
+                  - 插件信息查询
+                    - 显示插件调试信息
+                      - 查询扩展VNFC插件调试信息（DSP TTPLUGDBGINFO）
+                  - VPPVER
+                    - 显示组件版本(DSP VPPVER)
+                  - 接口链路调测
+                    - 查询链路频繁闪断监控配置（LST LNKMONITOR）
+                    - 设置链路频繁闪断监控功能（SET LNKMONITOR）
+                  - SCTP统计信息
+                    - 清除SCTP统计信息(CLR CPSCTPAS)
+                    - 显示SCTP统计信息(DSP CPSCTPAS)
+                  - 配置同步开关
+                    - 设置配置同步开关(SET CFGSYNC)
+                  - 扩缩容业务控制参数
+                    - 查询扩缩容业务控制参数(LST SCALINGCTRL)
+                    - 设置扩缩容业务控制参数(SET SCALINGCTRL)
+                - 预埋命令
+                  - 查询预埋命令1 (LST USNRSVCMD1)
+                  - 查询预埋命令2 (LST USNRSVCMD2)
+                  - 修改预埋命令5 (MOD USNRSVCMD5)
+                  - 删除预埋命令4 (RMV USNRSVCMD4)
+                  - 删除预埋命令5 (RMV USNRSVCMD5)
+                  - 查询预埋命令5 (LST USNRSVCMD5)
+                  - 修改预埋命令3 (MOD USNRSVCMD3)
+                  - 修改预埋命令4 (MOD USNRSVCMD4)
+                  - 修改预埋命令2 (MOD USNRSVCMD2)
+                  - 增加预埋命令5 (ADD USNRSVCMD5)
+                  - 修改预埋命令1 (MOD USNRSVCMD1)
+                  - 查询预埋命令4 (LST USNRSVCMD4)
+                  - 查询预埋命令3 (LST USNRSVCMD3)
+                  - 删除预埋命令3 (RMV USNRSVCMD3)
+                  - 增加预埋命令2 (ADD USNRSVCMD2)
+                  - 增加预埋命令1(ADD USNRSVCMD1)
+                  - 增加预埋命令4 (ADD USNRSVCMD4)
+                  - 删除预埋命令2 (RMV USNRSVCMD2)
+                  - 删除预埋命令1 (RMV USNRSVCMD1)
+                  - 增加预埋命令3 (ADD USNRSVCMD3)
+                - 平台调测
+                  - 公共调测
+                    - 显示调试信息
+                      - 显示调试信息(DSP COMMONDBG)
+                  - 故障链路探测管理
+                    - 设置故障链路探测功能(SET FAULTLNKDETCFG)
+                    - 查询故障链路探测配置(LST FAULTLNKDETCFG)
+                  - 通信调测
+                    - 导出流控日志信息(EXP FLOWCTRLLOG)
+                    - 启动软调操作(STR SFTD)
+                    - 显示通信统计(DSP COMMSTAT)
+                    - 显示流控统计信息(DSP FLOWCTRLSTAT)
+                  - IP特性调测
+                    - 显示IP相关信息(DSP IPINFO)
+                  - OM调测
+                    - 删除端到端用户跟踪(RMV E2ETRCEX)
+                    - 显示端到端用户跟踪(DSP E2ETRCEX)
+                  - HA选举管理
+                    - 显示HA选举结果(DSP HARESULT)
+                - 移动性管理调测
+                  - MM模块信息
+                    - 显示MM移动性管理相关的调试信息(DSP MMDBGINFO)
+                - 会话管理调测
+                  - SM模块信息
+                    - 显示承载上下文相关的调试信息(DSP SMDBGINFO)
+              - 移动性管理
+                - 区域漫游限制管理
+                  - 区域码
+                    - 查询区域码(LST ZC)
+                    - 删除区域码(RMV ZC)
+                    - 增加区域码(ADD ZC)
+                  - 区域码转换
+                    - 删除区域码转换策略(RMV ZCCONVERT)
+                    - 增加区域码转换策略(ADD ZCCONVERT)
+                    - 查询区域码转换策略(LST ZCCONVERT)
+                    - 修改区域码转换策略(MOD ZCCONVERT)
+                  - Gb模式用户漫游限制管理
+                    - 删除Gb模式用户漫游限制列表(RMV GBSUBRRLST)
+                    - 查询Gb模式用户漫游限制列表(LST GBSUBRRLST)
+                    - 增加Gb模式用户漫游限制列表(ADD GBSUBRRLST)
+                    - 修改Gb模式用户漫游限制列表(MOD GBSUBRRLST)
+                  - MSISDN用户群成员管理
+                    - 增加MSISDN用户群成员(ADD MSISDNSUBGPMEM)
+                    - 查询MSISDN用户群成员(LST MSISDNSUBGPMEM)
+                    - 删除所有MSISDN用户群成员（RMV MSISDNSUBGPMEMALL）
+                    - 删除MSISDN用户群成员(RMV MSISDNSUBGPMEM)
+                  - S1模式区域漫游限制参数
+                    - 查询S1模式接入控制配置（LST S1ACCAREALST）
+                    - 修改S1模式接入控制配置（MOD S1ACCAREALST）
+                    - 删除S1模式接入控制配置（RMV S1ACCAREALST）
+                    - 增加S1模式接入控制配置（ADD S1ACCAREALST）
+                  - Iu模式区域漫游限制参数
+                    - 删除Iu模式区域漫游限制参数(RMV IUACCAREALST)
+                    - 查询Iu模式区域漫游限制参数(LST IUACCAREALST)
+                    - 增加Iu模式区域漫游限制参数(ADD IUACCAREALST)
+                  - S1模式用户漫游限制管理
+                    - 查询S1模式用户漫游限制列表(LST S1SUBRRLST)
+                    - 修改S1模式用户漫游限制列表(MOD S1SUBRRLST)
+                    - 增加S1模式用户漫游限制列表(ADD S1SUBRRLST)
+                    - 删除S1模式用户漫游限制列表(RMV S1SUBRRLST)
+                  - Iu模式用户漫游限制管理
+                    - 增加Iu模式用户漫游限制列表(ADD IUSUBRRLST)
+                    - 删除Iu模式用户漫游限制列表(RMV IUSUBRRLST)
+                    - 修改Iu模式用户漫游限制列表(MOD IUSUBRRLST)
+                    - 查询Iu模式用户漫游限制列表(LST IUSUBRRLST)
+                  - 区域群成员管理
+                    - 增加区域群成员(ADD AREAGPMEM)
+                    - 删除区域群成员(RMV AREAGPMEM)
+                    - 查询区域群成员(LST AREAGPMEM)
+                  - 用户群管理
+                    - 修改用户群(MOD SUBGP)
+                    - 删除用户群(RMV SUBGP)
+                    - 查询用户群(LST SUBGP)
+                    - 增加用户群(ADD SUBGP)
+                  - Gb模式区域漫游限制参数
+                    - 删除Gb模式区域漫游限制参数(RMV GBACCAREALST)
+                    - 增加Gb模式区域漫游限制参数（ADD GBACCAREALST）
+                    - 查询Gb模式区域漫游限制参数(LST GBACCAREALST)
+                  - 用户群成员管理
+                    - 查询用户群成员(LST SUBGPMEM)
+                    - 增加用户群成员(ADD SUBGPMEM)
+                    - 删除用户群成员(RMV SUBGPMEM)
+                  - 区域群管理
+                    - 增加区域群(ADD AREAGP)
+                    - 修改区域群(MOD AREAGP)
+                    - 删除区域群(RMV AREAGP)
+                    - 查询区域群(LST AREAGP)
+                - QCI寻呼策略参数配置
+                  - 增加QCI寻呼策略参数配置(ADD QCIPAGINGINFO)
+                  - 查询QCI寻呼策略参数配置(LST QCIPAGINGINFO)
+                  - 删除QCI寻呼策略参数配置(RMV QCIPAGINGINFO)
+                  - 修改QCI寻呼策略参数配置(MOD QCIPAGINGINFO)
+                - CHR管理
+                  - 小范围CHR流程配置
+                    - 修改小范围CHR生成规则（MOD SRANGECHRCFG）
+                    - 查询小范围CHR生成规则（LST SRANGECHRCFG）
+                    - 删除小范围CHR生成规则（RMV SRANGECHRCFG）
+                    - 增加小范围CHR生成规则（ADD SRANGECHRCFG）
+                  - CHR存盘管理
+                    - 设置CHR存盘配置（SET CHRSTORECFG）
+                    - 查询CHR存盘配置(LST CHRSTORECFG)
+                  - CHR传输策略
+                    - 查询CHR传输策略控制参数(LST CHRSNDPLCYCFG)
+                    - 设置CHR传输策略控制参数(SET CHRSNDPLCYCFG)
+                    - 删除CHR传输策略(RMV CHRSNDPLCY)
+                    - 查询CHR传输策略(LST CHRSNDPLCY)
+                    - 增加CHR传输策略(ADD CHRSNDPLCY)
+                  - CHR配置
+                    - 设置CHR配置（SET CHRCFG）
+                    - 查询CHR配置（LST CHRCFG）
+                - RFSP管理
+                  - 扩展RFSP策略管理
+                    - 修改扩展RFSP策略组成员(MOD EXTRFSP)
+                    - 查询扩展RFSP策略组成员(LST EXTRFSP)
+                    - 删除扩展RFSP策略组成员(RMV EXTRFSP)
+                    - 增加扩展RFSP策略组成员(ADD EXTRFSP)
+                  - 特征RFSP管理
+                    - 特征RFSP取值范围管理
+                      - 增加特征RFSP取值(ADD SPECRFSPVALUE)
+                      - 查询特征RFSP取值(LST SPECRFSPVALUE)
+                      - 删除特征RFSP取值(RMV SPECRFSPVALUE)
+                  - RFSP策略管理
+                    - RFSP参数配置
+                      - 查询RFSP配置(LST RFSP)
+                      - 增加RFSP配置(ADD RFSP)
+                      - 修改RFSP配置(MOD RFSP)
+                      - 删除RFSP配置(RMV RFSP)
+                - 实时小区位置上报订阅
+                  - Iu模式实时小区位置订阅配置参数
+                    - 增加Iu模式实时小区位置订阅(ADD IULOCRPT)
+                    - 查询Iu模式实时小区位置订阅(LST IULOCRPT)
+                    - 修改Iu模式实时小区位置订阅(MOD IULOCRPT)
+                    - 删除Iu模式实时小区位置订阅(RMV IULOCRPT)
+                  - S1模式实时小区位置订阅配置参数
+                    - 修改S1模式实时小区位置订阅(MOD S1LOCRPT)
+                    - 查询S1模式实时小区位置订阅(LST S1LOCRPT)
+                    - 删除S1模式实时小区位置订阅(RMV S1LOCRPT)
+                    - 增加S1模式实时小区位置订阅(ADD S1LOCRPT)
+                - MME群组管理
+                  - MME群组配置
+                    - 增加MME群组(ADD MMEGP)
+                    - 删除MME群组(RMV MMEGP)
+                    - 显示MME群组(LST MMEGP)
+                    - 修改MME群组(MOD MMEGP)
+                  - MME群组成员配置
+                    - 删除MME群组成员(RMV MMEGPMEM)
+                    - 查询MME群组成员(LST MMEGPMEM)
+                    - 修改MME群组成员(MOD MMEGPMEM)
+                    - 增加MME群组成员(ADD MMEGPMEM)
+                - eNodeB管理
+                  - eNodeB群组成员管理
+                    - 删除eNodeB群组成员(RMV ENBGPMEM)
+                    - 增加eNodeB群组成员(ADD ENBGPMEM)
+                    - 查询eNodeB群组成员(LST ENBGPMEM)
+                  - eNodeB跟踪区同步
+                    - 启动eNodeB跟踪区信息同步任务（STR ENBTASYN）
+                  - eNodeB群组管理
+                    - 修改eNodeB群组(MOD ENBGP)
+                    - 增加eNodeB群组(ADD ENBGP)
+                    - 查询eNodeB群组(LST ENBGP)
+                    - 删除eNodeB群组(RMV ENBGP)
+                - 流程限制管理
+                  - 删除SRVCC流程限制策略(RMV SRVCCLMTPLCY)
+                  - 增加流程限制策略(ADD PROCLMTPLCY)
+                  - 增加SRVCC流程限制策略(ADD SRVCCLMTPLCY)
+                  - 修改流程限制策略(MOD PROCLMTPLCY)
+                  - 修改SRVCC流程限制策略(MOD SRVCCLMTPLCY)
+                  - 查询流程限制策略(LST PROCLMTPLCY)
+                  - 查询SRVCC流程限制策略(LST SRVCCLMTPLCY)
+                  - 删除流程限制策略(RMV PROCLMTPLCY)
+                - 跟踪区管理
+                  - 跟踪区群组管理
+                    - 增加TA群组(ADD TAGP)
+                    - 查询TA群组(LST TAGP)
+                    - 修改TA群组(MOD TAGP)
+                    - 删除TA群组(RMV TAGP)
+                  - 跟踪区群组成员管理
+                    - 删除TA群组成员(RMV TAGPMEM)
+                    - 增加TA群组成员(ADD TAGPMEM)
+                    - 查询TA群组成员(LST TAGPMEM)
+                - TA List管理
+                  - 删除跟踪区列表(RMV TALST)
+                  - 查询跟踪区列表(LST TALST)
+                  - 修改跟踪区列表(MOD TALST)
+                  - 增加跟踪区列表(ADD TALST)
+                - MM流程管理
+                  - Iu模式PTMSI重分配控制参数
+                    - 设置Iu模式PTMSI重分配控制参数(SET PMMPTMSIREALLOC)
+                    - 查询Iu模式PTMSI重分配控制参数(LST PMMPTMSIREALLOC)
+                  - Iu模式MM流程控制参数
+                    - 查询Iu模式移动性管理流程控制参数(LST PMMPROCTRL)
+                    - 设置Iu模式移动性管理流程控制参数（SET PMMPROCTRL）
+                  - Iu连接控制参数
+                    - 设置Iu连接控制参数(SET IUCONNPARA)
+                    - 查询Iu连接控制参数(LST IUCONNPARA)
+                  - S1模式MM流程控制参数
+                    - 设置S1模式移动性管理流程控制参数(SET EMMPROCTRL)
+                    - 修改指定用户S1模式移动性管理流程控制参数(MOD EMMPROCTRLIMSI)
+                    - 删除指定用户S1模式移动性管理流程控制参数(RMV EMMPROCTRLIMSI)
+                    - 查询指定用户S1模式移动性管理流程控制参数(LST EMMPROCTRLIMSI)
+                    - 查询S1模式移动性管理流程控制参数(LST EMMPROCTRL)
+                    - 增加指定用户S1模式移动性管理流程控制参数(ADD EMMPROCTRLIMSI)
+                  - Gb模式PTMSI重分配控制参数
+                    - 设置Gb模式PTMSI重分配控制参数（SET GMMPTMSIREALLOC）
+                    - 查询Gb模式PTMSI重分配控制参数(LST GMMPTMSIREALLOC)
+                  - Gb模式MM流程控制参数
+                    - 设置Gb模式移动性管理流程控制参数(SET GMMPROCTRL)
+                    - 查询Gb模式移动性管理流程控制参数(LST GMMPROCTRL)
+                - 基于位置分配IP地址管理
+                  - IP区域群管理
+                    - 删除IP区域群(RMV IPAREAGP)
+                    - 修改IP区域群(MOD IPAREAGP)
+                    - 查询IP区域群(LST IPAREAGP)
+                    - 增加IP区域群(ADD IPAREAGP)
+                  - 基于位置分配IP地址APN信息配置
+                    - 增加IP区域APN网络标识(ADD IPAREAAPN)
+                    - 删除IP区域APN网络标识(RMV IPAREAAPN)
+                    - 查询IP区域APN网络标识(LST IPAREAAPN)
+                  - IP区域群成员管理
+                    - 增加IP区域群成员(ADD IPAREAGPMEM)
+                    - 查询IP区域群成员(LST IPAREAGPMEM)
+                    - 删除IP区域群成员(RMV IPAREAGPMEM)
+                  - 基于位置分配IP地址策略管理
+                    - 查询基于位置分配IP地址策略(LST IPAREAGPCTRL)
+                    - 设置基于位置分配IP地址策略(SET IPAREAGPCTRL)
+                - 接入限制管理
+                  - Iu模式接入限制参数
+                    - 查询Iu模式接入限制参数(LST IUARD)
+                    - 修改Iu模式接入限制参数(MOD IUARD)
+                    - 删除Iu模式接入限制参数(RMV IUARD)
+                    - 增加Iu模式接入限制参数(ADD IUARD)
+                  - S1模式接入限制参数
+                    - 增加S1模式接入限制参数(ADD S1ARD)
+                    - 查询S1模式接入限制参数(LST S1ARD)
+                    - 删除S1模式接入限制参数(RMV S1ARD)
+                    - 修改S1模式接入限制参数(MOD S1ARD)
+                  - Gb模式接入限制参数
+                    - 查询Gb模式接入限制参数(LST GBARD)
+                    - 删除Gb模式接入限制参数(RMV GBARD)
+                    - 修改Gb模式接入限制参数(MOD GBARD)
+                    - 增加Gb模式接入限制参数(ADD GBARD)
+                - 位置区管理
+                  - 位置区群组成员管理
+                    - 增加位置区群组成员(ADD LARAGPMEM)
+                    - 查询位置区群组成员(LST LARAGPMEM)
+                    - 删除位置区群组成员(RMV LARAGPMEM)
+                  - 位置区群组管理
+                    - 查询位置区群组(LST LARAGP)
+                    - 修改位置区群组(MOD LARAGP)
+                    - 增加位置区群组(ADD LARAGP)
+                    - 删除位置区群组(RMV LARAGP)
+                - PRA区域管理
+                  - PRA区域成员管理
+                    - 删除PRA列表成员(RMV PRALSTMEM)
+                    - 查询PRA列表成员(LST PRALSTMEM)
+                    - 增加PRA列表成员(ADD PRALSTMEM)
+                  - PRA区域标识管理
+                    - 增加PRA标识(ADD PRAID)
+                    - 查询PRA标识(LST PRAID)
+                    - 删除PRA标识(RMV PRAID)
+                    - 修改PRA标识(MOD PRAID)
+                - 基于APN的MM拥塞控制/流控/寻呼优化配置
+                  - 查询APN控制参数配置(LST APNCTRL)
+                  - 修改APN控制参数配置(MOD APNCTRL)
+                  - 增加APN控制参数配置(ADD APNCTRL)
+                  - 删除APN控制参数配置(RMV APNCTRL)
+                - 低优先级DSCP
+                  - 增加低优先级业务DSCP(ADD LOWPRIDSCP)
+                  - 删除低优先级业务DSCP(RMV LOWPRIDSCP)
+                  - 查询低优先级业务DSCP(LST LOWPRIDSCP)
+                - 原因值管理
+                  - 原因值映射组配置
+                    - 删除原因值映射组配置(RMV CAUSEGRP)
+                    - 增加原因值映射组配置(ADD CAUSEGRP)
+                    - 修改原因值映射组配置(MOD CAUSEGRP)
+                    - 查询原因值映射组配置(LST CAUSEGRP)
+                  - 原因值映射配置
+                    - 增加原因值映射配置(ADD CAUSEMAP)
+                    - 查询原因值映射配置(LST CAUSEMAP)
+                    - 删除原因值映射配置(RMV CAUSEMAP)
+                    - 修改原因值映射配置(MOD CAUSEMAP)
+                - 强制分离业务IMEI配置
+                  - 修改强制分离策略(MOD IMEIFORFD)
+                  - 增加强制分离策略(ADD IMEIFORFD)
+                  - 删除强制分离策略(RMV IMEIFORFD)
+                  - 查询强制分离策略(LST IMEIFORFD)
+                - MM协议参数管理
+                  - Gb模式MM协议参数
+                    - 设置Gb模式MM协议参数(SET GMM)
+                    - 查询Gb模式MM协议参数(LST GMM)
+                  - Iu模式MM协议参数
+                    - 查询Iu模式MM协议参数(LST PMM)
+                    - 设置Iu模式MM协议参数(SET PMM)
+                  - S1模式MM协议参数
+                    - 设置S1模式MM协议参数(SET EMM)
+                    - 查询S1模式MM协议参数(LST EMM)
+                - 紧急呼叫配置
+                  - 紧急呼叫号码配置
+                    - 增加紧急号码配置信息(ADD EMGCNUM)
+                    - 查询紧急号码配置信息(LST EMGCNUM)
+                    - 删除紧急号码信息表记录(RMV EMGCNUM)
+                  - 紧急呼叫功能配置
+                    - 修改运营商紧急呼叫功能配置（MOD EMGCFG）
+                    - 删除运营商紧急呼叫功能配置（RMV EMGCFG）
+                    - 查询运营商紧急呼叫功能配置（LST EMGCFG）
+                    - 增加运营商紧急呼叫功能配置（ADD EMGCFG）
+                  - E-STN-SR和PGW关系配置表
+                    - 查询E-STN-SR和PGW关系配置表(LST PGWESTNSR)
+                    - 增加E-STN-SR和PGW关系配置表(ADD PGWESTNSR)
+                    - 删除E-STN-SR和PGW关系配置表(RMV PGWESTNSR)
+                    - 修改E-STN-SR和PGW关系配置表(MOD PGWESTNSR)
+                - 用户数据资源核查
+                  - 设置核查定时器配置（SET SDBTMR）
+                  - 查询核查定时器配置（LST SDBTMR）
+                - MME重选管理
+                  - MME重选策略参数
+                    - 查询MME重选策略(LST MMERESELPLCY)
+                    - 增加MME重选策略(ADD MMERESELPLCY)
+                    - 删除MME重选策略(RMV MMERESELPLCY)
+                    - 修改MME重选策略(MOD MMERESELPLCY)
+                  - 基于UE无线能力选择MME
+                    - 删除UE无线能力选择UNC参数(RMV UERCAPUNCSEL)
+                    - 增加UE无线能力选择USN参数(ADD UERCAPUSNSEL)
+                    - 修改UE无线能力选择UNC参数(MOD UERCAPUNCSEL)
+                    - 查询UE无线能力选择USN参数(LST UERCAPUSNSEL)
+                    - 增加UE无线能力选择UNC参数(ADD UERCAPUNCSEL)
+                    - 删除UE无线能力选择USN参数(RMV UERCAPUSNSEL)
+                    - 查询UE无线能力选择UNC参数(LST UERCAPUNCSEL)
+                    - 修改UE无线能力选择USN参数(MOD UERCAPUSNSEL)
+                - 低性能CHR服务器的单据订阅条件
+                  - 设置低性能CHR服务器的单据订阅条件（SET CHRLOWPERFSVRSUB）
+                  - 查询低性能CHR服务器的单据订阅条件（LST CHRLOWPERFSVRSUB）
+                - 多时区管理
+                  - 多时区参数
+                    - 删除多时区参数(RMV TZLST)
+                    - 查询多时区参数(LST TZLST)
+                    - 显示多时区参数(DSP TZLST)
+                    - 修改多时区参数(MOD TZLST)
+                    - 增加多时区参数(ADD TZLST)
+                  - 区域时区参数配置
+                    - 增加区域时区参数(ADD AREATZ)
+                    - 查询区域时区参数(LST AREATZ)
+                    - 修改区域时区参数(MOD AREATZ)
+                    - 删除区域时区参数(RMV AREATZ)
+                - 基于路由区的寻呼参数设置
+                  - 查询基于路由区的寻呼参数设置(LST RAPAGINGRULE)
+                  - 修改基于路由区的寻呼参数设置(MOD RAPAGINGRULE)
+                  - 删除基于路由区的寻呼参数设置(RMV RAPAGINGRULE)
+                  - 增加基于路由区的寻呼参数设置(ADD RAPAGINGRULE)
+                - 特殊TLLI配置
+                  - 查询特殊随机TLLI配置(LST SPCTLLI)
+                  - 增加特殊随机TLLI配置(ADD SPCTLLI)
+                  - 删除特殊随机TLLI配置(RMV SPCTLLI)
+                - MPS配置
+                  - MPS ARP信息配置
+                    - 查询MPS ARP配置(LST MPSARP)
+                    - 设置MPS ARP配置(SET MPSARP)
+                - UE无线能力策略
+                  - 增加UE无线能力策略（ADD UECAPBYIMSI）
+                  - 删除UE无线能力策略（RMV UECAPBYIMSI）
+                  - 查询UE无线能力策略（LST UECAPBYIMSI）
+                - UE无线能力参数
+                  - 设置UE Radio Capability信元参数（SET UERCAPPARA）
+                  - 查询UE Radio Capability信元参数（LST UERCAPPARA）
+                - 分离非活动用户
+                  - Gb模式分离非活动用户参数
+                    - 设置Gb分离非活动用户参数(SET GBDETACH)
+                    - 查询Gb分离非活动用户参数(LST GBDETACH)
+                  - Iu模式分离非活动用户参数
+                    - 查询Iu分离非活动用户参数(LST IUDETACH)
+                    - 设置Iu分离非活动用户参数(SET IUDETACH)
+                - GU重定向策略管理
+                  - 修改GU重定向策略（MOD GUREDIRPLCY）
+                  - 查询GU重定向策略（LST GUREDIRPLCY）
+                  - 增加GU重定向策略（ADD GUREDIRPLCY）
+                  - 删除GU重定向策略（RMV GUREDIRPLCY）
+                - MM扩展功能管理
+                  - 设置移动性管理扩展功能(SET MMFUNC)
+                  - 查询移动性管理扩展功能(LST MMFUNC)
+              - 业务安全管理
+                - M2M管理
+                  - CIoT能力配置
+                    - 删除CIoT能力配置(RMV TAICIOT)
+                    - 增加CIoT能力配置(ADD TAICIOT)
+                    - 查询CIoT能力配置(LST TAICIOT)
+                    - 修改CIoT能力配置(MOD TAICIOT)
+                  - M2M策略参数配置
+                    - 查询M2M策略参数(LST M2MPLCY)
+                    - 增加M2M策略参数(ADD M2MPLCY)
+                    - 修改M2M策略参数(MOD M2MPLCY)
+                    - 删除M2M策略参数(RMV M2MPLCY)
+                  - M2M控制参数
+                    - 设置M2M控制参数(SET M2MCTRL)
+                    - 查询M2M控制参数(LST M2MCTRL)
+                  - 基于APN的信令控制参数
+                    - 增加基于APN的信令控制参数(ADD APNCTRLPARA)
+                    - 删除基于APN的信令控制参数(RMV APNCTRLPARA)
+                    - 修改基于APN的信令控制参数(MOD APNCTRLPARA)
+                    - 查询基于APN的信令控制参数(LST APNCTRLPARA)
+                  - eMTC-MM协议参数管理
+                    - 设置S1模式eMTC MM协议参数（SET EMTCBEMM）
+                    - 查询S1模式eMTC MM协议参数（LST EMTCBEMM）
+                  - eMTC-SM协议参数管理
+                    - 设置S1模式eMTC SM协议参数（SET EMTCBESM）
+                    - 查询S1模式eMTC SM协议参数（LST EMTCBESM）
+                  - Non-IP APNNI配置
+                    - 查询Non-IP APNNI配置(LST NONIPSUBCTRL)
+                    - 删除Non-IP APNNI配置(RMV NONIPSUBCTRL)
+                    - 增加Non-IP APNNI配置(ADD NONIPSUBCTRL)
+                    - 修改Non-IP APNNI配置(MOD NONIPSUBCTRL)
+                  - M2M信令控制
+                    - 修改M2M信令控制配置(MOD M2MSIGCTRL)
+                    - 删除M2M信令控制配置(RMV M2MSIGCTRL)
+                    - 增加M2M信令控制配置(ADD M2MSIGCTRL)
+                    - 查询M2M信令控制配置(LST M2MSIGCTRL)
+                  - NB-SM协议参数管理
+                    - 设置NB-S1模式SM协议参数（SET NBESM）
+                    - 查询NB-S1模式SM协议参数（LST NBESM）
+                  - NB-MM协议参数管理
+                    - 设置NB-S1模式MM协议参数（SET NBEMM）
+                    - 查询NB-S1模式MM协议参数（LST NBEMM）
+                  - H-SFN参考时间配置
+                    - 查询H-SFN参考时间(LST HSFNTIME)
+                    - 设置H-SFN参考时间(SET HSFNTIME)
+                - 会话管理
+                  - APNNI信息管理
+                    - APNNI组管理
+                      - 删除APNNI组(RMV APNNIGROUP)
+                      - 查询APNNI组(LST APNNIGROUP)
+                      - 增加APNNI组(ADD APNNIGROUP)
+                    - APNNI管理
+                      - 增加APNNI(ADD APNNI)
+                      - 查询APNNI(LST APNNI)
+                      - 删除APNNI(RMV APNNI)
+                  - APNNI转换管理
+                    - 删除APNNI转换配置(RMV IMSIAPNCONVERT)
+                    - 增加APNNI转换配置(ADD IMSIAPNCONVERT)
+                    - 查询APNNI转换配置(LST IMSIAPNCONVERT)
+                    - 修改APNNI转换配置(MOD IMSIAPNCONVERT)
+                  - 公共APNNI管理
+                    - 查询公共APN NI配置(LST PUBLICAPNNI)
+                    - 删除公共APN NI配置(RMV PUBLICAPNNI)
+                    - 增加公共APN NI配置(ADD PUBLICAPNNI)
+                  - APN激活数目限制配置
+                    - 增加APN激活数目限制(ADD APNACTNUM)
+                    - 修改APN激活数目限制(MOD APNACTNUM)
+                    - 查询APN激活数目限制(LST APNACTNUM)
+                    - 删除APN激活数目限制(RMV APNACTNUM)
+                  - APN功能配置
+                    - 增加APN配置（ADD APNPROFILE）
+                    - 删除APN配置（RMV APNPROFILE）
+                    - 增加APNNI功能配置(ADD APNFUNC)
+                    - 修改APN配置（MOD APNPROFILE）
+                    - 查询APN配置（LST APNPROFILE）
+                    - 删除APNNI功能配置(RMV APNFUNC)
+                    - 查询APNNI功能配置(LST APNFUNC)
+                  - APNNI属性
+                    - 修改APNNI属性配置信息(MOD APNNICHARACT)
+                    - 删除APNNI属性配置信息(RMV APNNICHARACT)
+                    - 查询APNNI属性配置信息(LST APNNICHARACT)
+                    - 增加APNNI属性配置信息(ADD APNNICHARACT)
+                  - 本地APNNI组管理
+                    - 查询本地APNNI组(LST LOCALAPNNIGP)
+                    - 增加本地APNNI组(ADD LOCALAPNNIGP)
+                    - 删除本地APNNI组(RMV LOCALAPNNIGP)
+                    - 修改本地APNNI组(MOD LOCALAPNNIGP)
+                  - 智能分流APN列表
+                    - 增加可按携带智能分流关键词进行处理的APN（ADD INTELAPN）
+                    - 删除可按携带智能分流关键词进行处理的APN（RMV INTELAPN）
+                    - 查询可按携带智能分流关键词进行处理的APN（LST INTELAPN）
+                  - PDP过滤功能
+                    - 修改APN优先级配置(MOD PDPFILTERAPN)
+                    - 查询PDP过滤功能参数(LST PDPFILTERCTL)
+                    - 查询APN优先级配置(LST PDPFILTERAPN)
+                    - 设置PDP过滤功能参数(SET PDPFILTERCTL)
+                    - 增加APN优先级配置(ADD PDPFILTERAPN)
+                    - 删除APN优先级配置(RMV PDPFILTERAPN)
+                  - 本地P-GW重选功能配置
+                    - 修改本地P-GW重选策略(MOD PGWRESEL)
+                    - 查询本地P-GW重选策略(LST PGWRESEL)
+                    - 删除本地P-GW重选策略(RMV PGWRESEL)
+                    - 增加本地P-GW重选策略(ADD PGWRESEL)
+                  - P-GW信息管理
+                    - P-GW节点管理
+                      - 查询P-GW局向(LST PGWNODE)
+                      - 删除P-GW局向(RMV PGWNODE)
+                      - 增加P-GW局向(ADD PGWNODE)
+                    - P-GW组管理
+                      - 查询P-GW组(LST PGWGROUP)
+                      - 增加P-GW组(ADD PGWGROUP)
+                      - 删除P-GW组(RMV PGWGROUP)
+                  - SM协议参数管理
+                    - Gb模式SM协议参数
+                      - 查询Gb模式SM协议参数(LST GBSM)
+                      - 设置Gb模式SM协议参数(SET GBSM)
+                    - S1模式SM协议参数
+                      - 设置S1模式SM协议参数(SET ESM)
+                      - 查询S1模式SM协议参数(LST ESM)
+                    - Iu模式SM协议参数
+                      - 查询Iu模式SM协议参数(LST IUSM)
+                      - 设置Iu模式SM协议参数(SET IUSM)
+                  - 签约数据纠正
+                    - 查询签约数据纠正参数(LST SMSUBDATA)
+                    - 修改签约数据纠正参数(MOD SMSUBDATA)
+                    - 删除签约数据纠正参数(RMV SMSUBDATA)
+                    - 增加签约数据纠正参数(ADD SMSUBDATA)
+                  - 激活过程管理
+                    - 增加IMEI库记录（ADD SMACTIMEILIB）
+                    - 增加激活过程控制参数（ADD SMACTCTRL）
+                    - 删除激活过程控制参数（RMV SMACTCTRL）
+                    - 修改激活过程控制参数（MOD SMACTCTRL）
+                    - 查询IMEI库记录（LST SMACTIMEILIB）
+                    - 查询激活过程控制参数（LST SMACTCTRL）
+                    - 删除IMEI库记录（RMV SMACTIMEILIB）
+                  - IP群组管理
+                    - IP群组配置
+                      - 查询IP群组(LST IPGP)
+                      - 删除IP群组(RMV IPGP)
+                      - 增加IP群组(ADD IPGP)
+                      - 修改IP群组(MOD IPGP)
+                    - IP群组成员配置
+                      - 查询IPv6群组成员(LST IPV6GPMEM)
+                      - 删除IPv6群组成员(RMV IPV6GPMEM)
+                      - 增加IPv6群组成员(ADD IPV6GPMEM)
+                      - 增加IPv4群组成员(ADD IPV4GPMEM)
+                      - 删除IPv4群组成员(RMV IPV4GPMEM)
+                      - 查询IPv4群组成员(LST IPV4GPMEM)
+                  - 差异化服务配置
+                    - 查询差异化服务接入门限(LST DIFFSERVICE)
+                    - 修改ARP策略范围配置(MOD ARPRANGE)
+                    - 增加差异化服务接入门限(ADD DIFFSERVICE)
+                    - 删除ARP策略范围配置(RMV ARPRANGE)
+                    - 查询ARP策略范围配置(LST ARPRANGE)
+                    - 删除差异化服务接入门限(RMV DIFFSERVICE)
+                    - 增加ARP策略范围配置(ADD ARPRANGE)
+                    - 显示差异化服务信息(DSP DIFFSERVICE)
+                    - 修改差异化服务接入门限(MOD DIFFSERVICE)
+                  - SM流程管理
+                    - S1模式SM流程控制参数
+                      - 查询S1模式SM流程控制参数(LST S1SMPROCTRL)
+                      - 设置S1模式SM流程控制参数(SET S1SMPROCTRL)
+                    - Gb模式SM流程控制参数
+                      - 设置Gb模式SM流程控制参数（SET GBSMPROCTRL）
+                      - 查询Gb模式SM流程控制参数（LST GBSMPROCTRL）
+                    - Iu模式SM流程控制参数
+                      - 查询Iu模式SM流程控制参数（LST IUSMPROCTRL）
+                      - 设置Iu模式SM流程控制参数（SET IUSMPROCTRL）
+                  - 智能分流管理
+                    - 查询APN智能分流配置 (LST SMARTAPN)
+                    - 设置智能分流功能(SET SMARTCL)
+                    - 删除APN智能分流配置 (RMV SMARTAPN)
+                    - 查询智能分流功能(LST SMARTCL)
+                    - 增加智能分流APN (ADD SUBSMARTAPN)
+                    - 查询智能分流APN (LST SUBSMARTAPN)
+                    - 修改APN智能分流配置 (MOD SMARTAPN)
+                    - 增加APN智能分流配置 (ADD SMARTAPN)
+                    - 删除智能分流APN (RMV SUBSMARTAPN)
+                  - APN智能分流关键词
+                    - 删除APN智能分流关键词（RMV APNINTELSHUNT）
+                    - 增加APN智能分流关键词（ADD APNINTELSHUNT）
+                    - 查询APN智能分流关键词（LST APNINTELSHUNT）
+                  - 业务切换策略
+                    - 增加业务切换策略(ADD SRVHANDOVER)
+                    - 删除业务切换策略(RMV SRVHANDOVER)
+                    - 修改业务切换策略(MOD SRVHANDOVER)
+                    - 查询业务切换策略(LST SRVHANDOVER)
+                  - 别名APN管理
+                    - 删除别名APN配置(RMV ALIASAPN)
+                    - 查询别名APN配置(LST ALIASAPN)
+                    - 修改别名APN配置(MOD ALIASAPN)
+                    - 增加别名APN配置(ADD ALIASAPN)
+                  - P-CSCF故障恢复策略
+                    - 查询P-CSCF故障恢复策略(LST PCSCFRESTOPLCY)
+                    - 修改P-CSCF故障恢复策略(MOD PCSCFRESTOPLCY)
+                    - 删除P-CSCF故障恢复策略(RMV PCSCFRESTOPLCY)
+                    - 增加P-CSCF故障恢复策略(ADD PCSCFRESTOPLCY)
+                  - SM扩展功能管理
+                    - 设置会话管理扩展功能(SET SMFUNC)
+                    - 查询会话管理扩展功能(LST SMFUNC)
+                  - 本地APNNI管理
+                    - 查询本地APN NI配置(LST PDPAPN)
+                    - 删除本地APN NI配置(RMV PDPAPN)
+                    - 增加本地APN NI配置(ADD PDPAPN)
+                    - 修改本地APN NI配置(MOD PDPAPN)
+                  - 基于APN的寻呼策略配置
+                    - 查询APN寻呼策略参数配置(LST APNPAGINGPLCY)
+                    - 增加APN寻呼策略参数配置(ADD APNPAGINGPLCY)
+                    - 删除APN寻呼策略参数配置(RMV APNPAGINGPLCY)
+                    - 修改APN寻呼策略参数配置(MOD APNPAGINGPLCY)
+                  - 语音承载保活
+                    - 增加语音承载保活(ADD VOLTEHOLDON)
+                    - 查询语音承载保活(LST VOLTEHOLDON)
+                    - 修改语音承载保活(MOD VOLTEHOLDON)
+                    - 删除语音承载保活(RMV VOLTEHOLDON)
+                - DCN管理
+                  - UE USAGE TYPE群组管理
+                    - 增加UE USAGE TYPE群组(ADD UEUSGTYPEGP)
+                    - 查询UE USAGE TYPE群组(LST UEUSGTYPEGP)
+                    - 删除UE USAGE TYPE群组(RMV UEUSGTYPEGP)
+                    - 修改UE USAGE TYPE群组(MOD UEUSGTYPEGP)
+                  - DCN映射关系
+                    - 删除DCN映射关系(RMV DCNMAP)
+                    - 增加DCN映射关系(ADD DCNMAP)
+                    - 查询DCN映射关系(LST DCNMAP)
+                  - DCN成员管理
+                    - 增加DCN成员(ADD DCNMEMBER)
+                    - 查询DCN成员(LST DCNMEMBER)
+                    - 删除DCN成员(RMV DCNMEMBER)
+                  - DCN控制参数
+                    - 查询DCN控制参数(LST DCNCTRL)
+                    - 设置DCN控制参数(SET DCNCTRL)
+                  - DCN配置策略
+                    - 删除DCN配置策略(RMV DCNPLCY)
+                    - 查询DCN配置策略(LST DCNPLCY)
+                    - 修改DCN配置策略(MOD DCNPLCY)
+                    - 增加DCN配置策略(ADD DCNPLCY)
+                  - DCN配置
+                    - 修改DCN(MOD DCN)
+                    - 删除DCN(RMV DCN)
+                    - 增加DCN(ADD DCN)
+                    - 查询DCN(LST DCN)
+                  - UE USAGE TYPE群组成员管理
+                    - 增加UE USAGE TYPE群组成员(ADD UEUSGTYPEGPMEM)
+                    - 查询UE USAGE TYPE群组成员(LST UEUSGTYPEGPMEM)
+                    - 删除UE USAGE TYPE群组成员(RMV UEUSGTYPEGPMEM)
+                - 用户终端管理
+                  - IMEI群组管理
+                    - 删除IMEI群组(RMV IMEIGP)
+                    - 查询IMEI群组(LST IMEIGP)
+                    - 增加IMEI群组(ADD IMEIGP)
+                    - 修改IMEI群组(MOD IMEIGP)
+                  - IMEI群组成员管理
+                    - 查询IMEI群组成员(LST IMEIGPMEM)
+                    - 修改IMEI群组成员(MOD IMEIGPMEM)
+                    - 删除IMEI群组成员(RMV IMEIGPMEM)
+                    - 增加IMEI群组成员(ADD IMEIGPMEM)
+                - 签约数据管理
+                  - 签约数据信息
+                    - 查询签约数据配置（LST SDCFG）
+                    - 设置签约数据配置(SET SDCFG)
+                  - 接口选择
+                    - 修改IMSI对应的HLR/HSS接口（MOD IMSIHLRHSS）
+                    - 增加IMSI对应的HLR/HSS接口(ADD IMSIHLRHSS)
+                    - 删除IMSI对应的HLR/HSS接口(RMV IMSIHLRHSS)
+                    - 查询IMSI对应的HLR/HSS接口（LST IMSIHLRHSS）
+                - Smartphone管理
+                  - 异常信令节省
+                    - S1模式信令抑制规则管理
+                      - 查询S1模式信令抑制规则(LST S1SMARTRULE)
+                      - 增加S1模式信令抑制规则(ADD S1SMARTRULE)
+                      - 删除S1模式信令抑制规则(RMV S1SMARTRULE)
+                      - 修改S1模式信令抑制规则(MOD S1SMARTRULE)
+                    - S1模式信令抑制参数管理
+                      - 查询S1模式信令抑制参数(LST S1SMARTPARA)
+                      - 设置S1模式信令抑制参数(SET S1SMARTPARA)
+                    - S1模式信令抑制维护
+                      - 显示S1模式用户信令状态(DSP S1SMARTINFO)
+                    - 激活抑制参数管理
+                      - 设置激活抑制参数（SET SMARTACTPARA）
+                      - 查询激活抑制参数（LST SMARTACTPARA）
+                    - 激活抑制规则管理
+                      - 删除激活抑制规则（RMV SMARTACT）
+                      - 修改激活抑制规则（MOD SMARTACT）
+                      - 增加激活抑制规则（ADD SMARTACT）
+                      - 查询激活抑制规则（LST SMARTACT）
+                  - Smartphone控制基础功能
+                    - 查询智能用户功能（LST SMARTCFG）
+                    - 设置智能用户功能（SET SMARTCFG）
+                  - 基于终端类型的DT限制
+                    - 删除基于终端类型的DT限制（RMV SMARTDT）
+                    - 查询基于终端类型的DT限制（LST SMARTDT）
+                    - 修改基于终端类型的DT限制（MOD SMARTDT）
+                    - 增加基于终端类型的DT限制(ADD SMARTDT)
+                  - 终端类型识别
+                    - APNNI库管理
+                      - 查询APNNI库记录（LST APNNILIB）
+                      - 增加APNNI库记录（ADD APNNILIB）
+                      - 删除APNNI库记录（RMV APNNILIB）
+                    - IMEI库管理
+                      - 删除IMEI库记录（RMV IMEILIB）
+                      - 增加IMEI库记录（ADD IMEILIB）
+                      - 查询IMEI库记录（LST IMEILIB）
+                - LCS
+                  - GMLC选择策略组
+                    - 增加GMLC选择策略组(ADD GMLCSELGRP)
+                    - 删除GMLC选择策略组(RMV GMLCSELGRP)
+                    - 查询GMLC选择策略组(LST GMLCSELGRP)
+                    - 修改GMLC选择策略组(MOD GMLCSELGRP)
+                  - LCS扩展参数
+                    - 查询LCS扩展参数(LST LCSPARAEX)
+                    - 增加LCS扩展参数(ADD LCSPARAEX)
+                    - 修改LCS扩展参数(MOD LCSPARAEX)
+                    - 删除LCS扩展参数(RMV LCSPARAEX)
+                  - GMLC和LCS Client对照表
+                    - 删除GMLC和LCS Client对照关系(RMV GMLCCLIENT)
+                    - 增加GMLC和LCS Client对照关系(ADD GMLCCLIENT)
+                    - 查询GMLC和LCS Client对照关系(LST GMLCCLIENT)
+                    - 修改GMLC和LCS Client对照关系(MOD GMLCCLIENT)
+                  - SAI和地理坐标对照表
+                    - 查询服务区标识与地理坐标对照关系(LST SAIGEO)
+                    - 增加服务区标识与地理坐标对照关系(ADD SAIGEO)
+                    - 修改服务区标识与地理坐标对照关系(MOD SAIGEO)
+                    - 删除服务区标识与地理坐标对照关系(RMV SAIGEO)
+                  - GMLC权限配置
+                    - 增加GMLC权限配置(ADD GMLCAU)
+                    - 查询GMLC权限配置(LST GMLCAU)
+                    - 删除GMLC权限配置(RMV GMLCAU)
+                  - LCS操作维护
+                    - 查询LCS资源状态(DSP LCS)
+                    - 显示用户当前位置(DSP LOCATION)
+                    - 显示ESMLC状态(DSP ESMLCSTATE)
+                    - 查询定位任务信息(DSP LCSTASKINFO)
+                  - GMLC配置
+                    - 增加GMLC配置(ADD GMLC)
+                    - 查询GMLC配置(LST GMLC)
+                    - 修改GMLC配置(MOD GMLC)
+                    - 删除GMLC配置(RMV GMLC)
+                  - 小区地理信息
+                    - 查询CELLID与地理坐标对应关系(LST CELLGEO)
+                    - 修改CELLID与地理坐标对应关系(MOD CELLGEO)
+                    - 增加CELLID与地理坐标对应关系(ADD CELLGEO)
+                    - 删除CELLID与地理坐标对应关系(RMV CELLGEO)
+                  - GMLC选择策略
+                    - 修改GMLC选择策略(MOD GMLCSELPLCY)
+                    - 增加GMLC选择策略(ADD GMLCSELPLCY)
+                    - 删除GMLC选择策略(RMV GMLCSELPLCY)
+                    - 查询GMLC选择策略(LST GMLCSELPLCY)
+                  - SGSN地址和SGSN号码对照表
+                    - 增加SGSN控制面IP地址与SGSN号码对应关系(ADD SGSNIPNUM)
+                    - 删除SGSN控制面IP地址与SGSN号码对应关系(RMV SGSNIPNUM)
+                    - 查询SGSN控制面IP地址与SGSN号码对应关系(LST SGSNIPNUM)
+                    - 修改SGSN控制面IP地址与SGSN号码对应关系(MOD SGSNIPNUM)
+                  - LCSAP链路配置
+                    - 增加LCSAP链路配置(ADD LCSAPLNK)
+                    - 查询LCSAP链路配置(LST LCSAPLNK)
+                    - 删除LCSAP链路配置(RMV LCSAPLNK)
+                    - 修改LCSAP链路配置(MOD LCSAPLNK)
+                  - LCS软件参数表
+                    - 查询LCS参数表记录(LST LCSPARA)
+                    - 设置LCS参数表记录(SET LCSPARA)
+                  - E-SMLC配置
+                    - 修改E-SMLC配置(MOD ESMLC)
+                    - 增加E-SMLC配置(ADD ESMLC)
+                    - 删除E-SMLC配置(RMV ESMLC)
+                    - 查询E-SMLC配置(LST ESMLC)
+                - 短消息
+                  - SMSC黑名单
+                    - 删除SMSC黑名单记录(RMV SMSCBLACKLIST)
+                    - 增加SMSC黑名单记录(ADD SMSCBLACKLIST)
+                    - 查询SMSC黑名单记录(LST SMSCBLACKLIST)
+                  - SMSC转换
+                    - 增加SMSC转换配置记录(ADD SMSCCONVERT)
+                    - 查询SMSC转换配置记录(LST SMSCCONVERT)
+                    - 删除SMSC转换配置记录(RMV SMSCCONVERT)
+                    - 修改SMSC转换配置记录(MOD SMSCCONVERT)
+                  - 短消息配置
+                    - 设置SMS配置信息(SET SMS)
+                    - 查询SMS配置信息(LST SMS)
+                - 可靠性管理
+                  - VLR故障增强功能
+                    - 启动用户退出VLR故障增强状态(STR VLRFAULTEXIT)
+                    - 查询VLR故障增强功能(LST VLRFAULTEN)
+                    - 停止用户退出VLR故障增强状态(STP VLRFAULTEXIT)
+                    - 设置VLR故障增强功能(SET VLRFAULTEN)
+                  - HSS故障BYPASS功能
+                    - 查询HSS故障Bypass功能控制参数(LST HSSBYPASS)
+                    - 增加故障状态HSS(ADD HSSBPOFC)
+                    - 启动用户退出HSS BYPASS状态(STR HSSBPEXIT)
+                    - 查询故障状态HSS(LST HSSBPOFC)
+                    - 设置HSS故障Bypass功能控制参数(SET HSSBYPASS)
+                    - 停止用户退出HSS BYPASS状态(STP HSSBPEXIT)
+                    - 删除故障状态HSS(RMV HSSBPOFC)
+                  - HLR BYPASS故障状态码
+                    - 查询HLR BYPASS故障状态码(LST HLRBPFAULTCODE)
+                    - 增加HLR BYPASS故障状态码(ADD HLRBPFAULTCODE)
+                    - 删除HLR BYPASS故障状态码(RMV HLRBPFAULTCODE)
+                  - HLR故障BYPASS功能
+                    - 设置HLR故障Bypass功能控制参数(SET HLRBYPASS)
+                    - 查询HLR故障Bypass功能控制参数(LST HLRBYPASS)
+                  - HSS BYPASS最小签约数据配置管理
+                    - 删除HSS BYPASS最小APN签约数据配置 (RMV HSSBPAPNSUB)
+                    - 查询HSS BYPASS最小用户签约数据配置 (LST HSSBPUSRSUB)
+                    - 增加HSS BYPASS最小用户签约数据配置 (ADD HSSBPUSRSUB)
+                    - 增加HSS BYPASS最小APN签约数据群组 (ADD HSSBPAPNGRP)
+                    - 删除HSS BYPASS最小用户签约数据配置 (RMV HSSBPUSRSUB)
+                    - 查询HSS BYPASS最小APN签约数据配置 (LST HSSBPAPNSUB)
+                    - 删除HSS BYPASS最小APN签约数据群组 (RMV HSSBPAPNGRP)
+                    - 查询HSS BYPASS最小APN签约数据群组 (LST HSSBPAPNGRP)
+                    - 修改HSS BYPASS最小APN签约数据群组 (MOD HSSBPAPNGRP)
+                    - 修改HSS BYPASS最小APN签约数据配置 (MOD HSSBPAPNSUB)
+                    - 修改HSS BYPASS最小用户签约数据配置 (MOD HSSBPUSRSUB)
+                    - 增加HSS BYPASS最小APN签约数据配置 (ADD HSSBPAPNSUB)
+                  - HSS HSS BYPASS故障状态码
+                    - 查询HSS BYPASS故障状态码(LST HSSBPFAULTCODE)
+                    - 删除HSS BYPASS故障状态码(RMV HSSBPFAULTCODE)
+                    - 增加HSS BYPASS故障状态码(ADD HSSBPFAULTCODE)
+                - 用户安全管理
+                  - S1模式用户安全参数
+                    - 删除S1模式用户安全配置(RMV S1USRSECPARA)
+                    - 查询S1模式用户安全配置(LST S1USRSECPARA)
+                    - 增加S1模式用户安全配置(ADD S1USRSECPARA)
+                    - 修改S1模式用户安全配置(MOD S1USRSECPARA)
+                    - 修改S1模式加密和完整性算法优先级配置信息(MOD S1ALGPRIORITY)
+                    - 查询S1模式加密和完整性算法优先级配置信息(LST S1ALGPRIORITY)
+                    - 增加S1模式加密和完整性算法优先级配置信息(ADD S1ALGPRIORITY)
+                    - 删除S1模式加密和完整性算法优先级配置信息(RMV S1ALGPRIORITY)
+                  - Iu模式用户安全参数
+                    - 查询Iu模式用户安全参数(LST IUAUTHCIPH)
+                    - 增加算法优先级配置信息（ADD ALGPRIORITY）
+                    - 删除Iu模式用户安全参数(RMV IUAUTHCIPH)
+                    - 修改Iu模式用户安全参数(MOD IUAUTHCIPH)
+                    - 修改算法优先级配置信息(MOD ALGPRIORITY)
+                    - 删除算法优先级配置信息(RMV ALGPRIORITY)
+                    - 增加Iu模式用户安全参数(ADD IUAUTHCIPH)
+                    - 查询算法优先级配置信息(LST ALGPRIORITY)
+                  - 基于LAC/RAC关闭加密配置
+                    - 查询基于LAC/RAC关闭加密配置(LST AREADECRYPT)
+                    - 增加基于LAC/RAC关闭加密配置(ADD AREADECRYPT)
+                    - 删除基于LAC/RAC关闭加密配置(RMV AREADECRYPT)
+                  - Gb模式用户安全参数
+                    - 查询Gb模式用户安全参数(LST GBAUTHCIPH)
+                    - 删除Gb模式用户安全参数(RMV GBAUTHCIPH)
+                    - 修改Gb模式用户安全参数（MOD GBAUTHCIPH）
+                    - 增加Gb模式用户安全参数（ADD GBAUTHCIPH）
+                - 网关重选管理
+                  - GTP原因值管理
+                    - 增加GTP原因值(ADD GTPCAUSE)
+                    - 查询GTP原因值(LST GTPCAUSE)
+                    - 删除GTP原因值(RMV GTPCAUSE)
+                - 设备检查管理
+                  - S1模式IMEI配置
+                    - 增加S1模式IMEI配置(ADD S1IMEICFG)
+                    - 查询S1模式IMEI配置(LST S1IMEICFG)
+                    - 修改S1模式IMEI配置(MOD S1IMEICFG)
+                    - 删除S1模式IMEI配置（RMV S1IMEICFG）
+                  - Gb模式IMEI配置
+                    - 删除Gb模式IMEI配置（RMV GBIMEICFG）
+                    - 查询Gb模式IMEI配置(LST GBIMEICFG)
+                    - 修改Gb模式IMEI配置(MOD GBIMEICFG)
+                    - 增加Gb模式IMEI配置(ADD GBIMEICFG)
+                  - Iu模式IMEI配置
+                    - 删除Iu模式IMEI配置（RMV IUIMEICFG）
+                    - 查询Iu模式IMEI配置(LST IUIMEICFG)
+                    - 修改Iu模式IMEI配置(MOD IUIMEICFG)
+                    - 增加Iu模式IMEI配置(ADD IUIMEICFG)
+                - MDT管理
+                  - 设置MDT控制参数(SET MDTCTRL)
+                  - 查询基于管理的最小化路测的PLMN(LST MDTPLMN)
+                  - 删除MDT上下文(RMV MDTCTX)
+                  - 查询MDT控制参数(LST MDTCTRL)
+                  - 增加基于管理的最小化路测的PLMN(ADD MDTPLMN)
+                  - 显示MDT上下文(DSP MDTCTX)
+                  - 修改基于管理的最小化路测的PLMN(MOD MDTPLMN)
+                  - 删除基于管理的最小化路测的PLMN(RMV MDTPLMN)
+                - 语音业务管理
+                  - 删除语音部署配置(RMV VOICEDEPLOY)
+                  - 修改语音部署配置(MOD VOICEDEPLOY)
+                  - 增加语音部署配置(ADD VOICEDEPLOY)
+                  - 查询语音部署配置(LST VOICEDEPLOY)
+              - 网络管理
+                - 归属网络运营商管理
+                  - MNO管理
+                    - MNO配置表
+                      - 修改MNO配置信息(MOD MNO)
+                      - 删除MNO配置信息(RMV MNO)
+                      - 查询MNO配置信息(LST MNO)
+                      - 增加MNO配置信息(ADD MNO)
+                    - MNO网络配置表
+                      - 修改本地PLMN(MOD HPLMN)
+                      - 删除本地PLMN(RMV HPLMN)
+                      - 查询本地PLMN(LST HPLMN)
+                      - 增加本地PLMN(ADD HPLMN)
+                  - 基于区域的网络名称管理
+                    - 删除基于区域的网络名称 (RMV AREAMMINFO)
+                    - 查询基于区域的网络名称 (LST AREAMMINFO)
+                    - 增加基于区域的网络名称 (ADD AREAMMINFO)
+                    - 修改基于区域的网络名称 (MOD AREAMMINFO)
+                  - MVNO管理
+                    - MVNO功能配置表
+                      - 查询MVNO功能配置信息(LST MVNOFUN)
+                      - 删除MVNO功能配置信息(RMV MVNOFUN)
+                      - 增加MVNO功能配置信息(ADD MVNOFUN)
+                      - 修改MVNO功能配置信息(MOD MVNOFUN)
+                    - MVNO网络标识配置表
+                      - 删除所有MVNO网络配置信息（RMV MVNONETALL）
+                      - 增加MVNO网络配置信息(ADD MVNONET)
+                      - 查询MVNO网络配置信息(LST MVNONET)
+                      - 删除MVNO网络配置信息(RMV MVNONET)
+                    - MVNO资源配置表
+                      - 增加MVNO资源配置信息(ADD MVNORES)
+                      - 修改MVNO资源配置信息(MOD MVNORES)
+                      - 查询MVNO资源配置信息(LST MVNORES)
+                      - 删除MVNO资源配置信息(RMV MVNORES)
+                      - 显示MVNO用户信息(DSP MVNOUSR)
+                    - MVNO配置表
+                      - 查询MVNO配置信息(LST MVNO)
+                      - 增加MVNO配置信息(ADD MVNO)
+                      - 修改MVNO配置信息(MOD MVNO)
+                      - 删除MVNO信息表记录(RMV MVNO)
+                  - 不发送运营商名称的HSS
+                    - 增加不发送运营商名称的HSS(ADD NWNAMEBYHSS)
+                    - 删除不发送运营商名称的HSS(RMV NWNAMEBYHSS)
+                    - 查询不发送运营商名称的HSS(LST NWNAMEBYHSS)
+                  - 归属网络信息管理
+                    - 修改归属网络信息(MOD HNOINFO)
+                    - 删除归属网络信息(RMV HNOINFO)
+                    - 查询归属网络信息(LST HNOINFO)
+                    - 增加归属网络信息(ADD HNOINFO)
+                  - 归属网络Serving PLMN管理
+                    - 增加归属网络Serving PLMN信息(ADD HNOSRVPLMN)
+                    - 查询归属网络Serving PLMN信息(LST HNOSRVPLMN)
+                    - 修改归属网络Serving PLMN信息(MOD HNOSRVPLMN)
+                    - 删除归属网络Serving PLMN信息(RMV HNOSRVPLMN)
+                  - IMSI号段属性配置表
+                    - 查询IMSI号段属性配置(LST IMSICHAR)
+                    - 增加IMSI号段属性配置(ADD IMSICHAR)
+                    - 删除IMSI号段属性配置(RMV IMSICHAR)
+                    - 修改IMSI号段属性配置(MOD IMSICHAR)
+                  - 网络名称管理
+                    - 查询网络名称(LST USRMMINFO)
+                    - 增加网络名称(ADD USRMMINFO)
+                    - 删除网络名称(RMV USRMMINFO)
+                    - 修改网络名称(MOD USRMMINFO)
+                  - 运营商名称信息功能管理
+                    - 设置运营商名称信息功能(SET NWNAMEFUNC)
+                    - 查询运营商名称信息功能(LST NWNAMEFUNC)
+                - SGSN POOL区管理
+                  - POOL区非广播RAI配置
+                    - 删除非广播RAI配置信息(RMV NONRAI)
+                    - 查询非广播RAI配置信息(LST NONRAI)
+                    - 增加非广播RAI配置信息(ADD NONRAI)
+                    - 修改非广播RAI配置信息(MOD NONRAI)
+                  - POOL LA配置
+                    - 增加POOL LA配置信息（ADD POOLLA）
+                    - 查询POOL LA配置信息（LST POOLLA）
+                    - 删除POOL LA配置信息（RMV POOLLA）
+                  - POOL区配置
+                    - 删除POOL配置信息(RMV POOL)
+                    - 查询POOL配置信息(LST POOL)
+                    - 增加POOL配置信息(ADD POOL)
+                  - 本局NRI配置
+                    - 查询本局NRI配置信息(LST LOCALNRI)
+                    - 增加本局NRI配置信息(ADD LOCALNRI)
+                    - 解闭本局NRI配置信息(UBL LOCALNRI)
+                    - 删除本局NRI配置信息(RMV LOCALNRI)
+                    - 闭塞本局NRI配置信息(BLK LOCALNRI)
+                  - POOL区NRI配置
+                    - 增加POOL区NRI配置信息(ADD POOLNRI)
+                    - 修改POOL区NRI配置信息(MOD POOLNRI)
+                    - 删除POOL区NRI配置信息(RMV POOLNRI)
+                    - 查询POOL区NRI配置信息(LST POOLNRI)
+                - VoPS管理
+                  - 查询VoPS配置(LST IMSVOPS)
+                  - 设置VoPS配置(SET IMSVOPS)
+                - 迁移控制
+                  - 查询迁移配置信息（LST OFFLOADINF）
+                  - 启动MME迁移任务（STR OFFLOADBYMME）
+                  - 启动边缘NB-IoT用户的MME迁移任务（STR NBOFFLOADBYEDGEMME）
+                  - 启动eNodeB迁移任务(STR OFFLOADBYENODEB)
+                  - 启动RNC迁移任务（STR OFFLOADBYRNC）
+                  - 启动NB-IoT用户的MME迁移任务（STR NBOFFLOADBYMME）
+                  - 启动SGSN迁移任务（STR OFFLOADBYSGSN）
+                  - 设置迁移配置表（SET OFFLOADINF）
+                  - 停止迁移任务(STP OFFLOAD)
+                  - 显示迁移进度(DSP OFFLOAD)
+                  - 启动TA迁移任务（STR OFFLOADBYTA）
+                  - 启动边缘MME迁移任务（STR OFFLOADBYEDGEMME）
+                  - 启动BSC迁移任务（STR OFFLOADBYBSC）
+                - DCN迁移控制
+                  - 查询DCN迁移状态(DSP DCNOFFLOAD)
+                  - 启动DCN迁移任务(STR DCNOFFLOAD)
+                  - 停止DCN迁移任务(STP DCNOFFLOAD)
+                - MME容灾管理
+                  - 容灾用户号段管理
+                    - 删除容灾用户号段参数 (RMV RESTOUSRSEG)
+                    - 修改容灾用户号段参数 (MOD RESTOUSRSEG)
+                    - 查询容灾用户号段参数  (LST RESTOUSRSEG)
+                    - 增加容灾用户号段参数 (ADD RESTOUSRSEG)
+                  - 容灾用户特征管理
+                    - 查询容灾用户特征参数(LST RESTOUSR)
+                    - 增加容灾用户特征参数(ADD RESTOUSR)
+                    - 删除容灾用户特征参数(RMV RESTOUSR)
+                  - 容灾功能调测
+                    - 显示容灾用户数(DSP RESTOUSRCTXNUM)
+                    - 模拟设备故障删除用户信息(RMV SERVUSR)
+                  - 容灾APN特征管理
+                    - 删除容灾APN特征参数(RMV RESTOAPN)
+                    - 查询容灾APN特征参数(LST RESTOAPN)
+                    - 增加容灾APN特征参数(ADD RESTOAPN)
+                  - 容灾功能管理
+                    - 设置容灾功能(SET RESTOFUNC)
+                    - 查询容灾功能(LST RESTOFUNC)
+                - N26互操作管理
+                  - N26互操作策略
+                    - 修改EPS与5GS互操作本地策略(MOD N26IWKPLCY)
+                    - 删除EPS与5GS互操作本地策略(RMV N26IWKPLCY)
+                    - 查询EPS与5GS互操作本地策略(LST N26IWKPLCY)
+                    - 增加EPS与5GS互操作本地策略(ADD N26IWKPLCY)
+                  - N26融合网关选择策略
+                    - 修改N26融合网关选择策略(MOD N26GWSELPLCY)
+                    - 增加N26融合网关选择策略（ADD N26GWSELPLCY）
+                    - 查询N26融合网关选择策略(LST N26GWSELPLCY)
+                    - 删除N26融合网关选择策略(RMV N26GWSELPLCY)
+                  - GUL互操作本地策略
+                    - 查询GUL互操作本地策略 (LST GULIWKPLCY)
+                    - 增加GUL互操作本地策略 (ADD GULIWKPLCY)
+                    - 删除GUL互操作本地策略 (RMV GULIWKPLCY)
+                    - 修改GUL互操作本地策略 (MOD GULIWKPLCY)
+                  - N26消息抄送路径
+                    - 设置AMF N26消息抄送路径（SET AMFN26CPPATH）
+                    - 查询AMF N26消息抄送路径（LST AMFN26CPPATH）
+                - NSA组网管理
+                  - NSA控制参数
+                    - 查询NSA控制参数(LST NSACTRL)
+                    - 设置NSA控制参数(SET NSACTRL)
+                  - NSA控制策略
+                    - 增加NSA控制策略(ADD NSACTRLPLCY)
+                    - 查询NSA控制策略(LST NSACTRLPLCY)
+                    - 修改NSA控制策略(MOD NSACTRLPLCY)
+                    - 删除NSA控制策略(RMV NSACTRLPLCY)
+                - 灰度升级
+                  - 拨测管理
+                    - 查询AMF拨测用户配置（LST AMFDIALTEST）
+                    - 增加拨测用户配置(ADD ISSUDIALTEST)
+                    - 查询拨测用户配置(LST ISSUDIALTEST)
+                    - 增加SMF拨测用户配置（ADD SMFDIALTEST）
+                    - 增加AMF拨测用户配置（ADD AMFDIALTEST）
+                    - 删除SMF拨测用户配置（RMV SMFDIALTEST）
+                    - 删除AMF拨测用户配置（RMV AMFDIALTEST）
+                    - 删除拨测用户配置(RMV ISSUDIALTEST)
+                    - 查询SMF拨测用户配置（LST SMFDIALTEST）
+                - Direct Tunnel管理
+                  - 修改IMSI Direct Tunnel配置(MOD IMSIDT)
+                  - 查询APNNI Direct Tunnel配置(LST APNNIDT)
+                  - 增加APNNI Direct Tunnel配置(ADD APNNIDT)
+                  - 增加IMSI Direct Tunnel配置(ADD IMSIDT)
+                  - 查询IMSI Direct Tunnel配置(LST IMSIDT)
+                  - 修改APNNI Direct Tunnel配置(MOD APNNIDT)
+                  - 删除APNNI Direct Tunnel配置(RMV APNNIDT)
+                  - 删除IMSI Direct Tunnel配置(RMV IMSIDT)
+                - 基于区域MME共享管理
+                  - 共享PLMN群组管理
+                    - 修改共享PLMN群组(MOD SHAREPLMNGP)
+                    - 查询共享PLMN群组(LST SHAREPLMNGP)
+                    - 删除共享PLMN群组(RMV SHAREPLMNGP)
+                    - 增加共享PLMN群组(ADD SHAREPLMNGP)
+                  - 共享PLMN群组成员
+                    - 增加共享PLMN群组成员(ADD SHAREPLMNMEM)
+                    - 查询共享PLMN群组成员(LST SHAREPLMNMEM)
+                    - 删除共享PLMN群组成员(RMV SHAREPLMNMEM)
+                  - 基于区域PLMN管理
+                    - 增加基于区域的PLMN管理(ADD TACSHAREPLMN)
+                    - 修改基于区域的PLMN管理(MOD TACSHAREPLMN)
+                    - 查询基于区域的PLMN管理(LST TACSHAREPLMN)
+                    - 删除基于区域的PLMN管理(RMV TACSHAREPLMN)
+                - 互联PLMN管理
+                  - 删除互联PLMN(RMV CONNECTPLMN)
+                  - 修改互联PLMN(MOD CONNECTPLMN)
+                  - 增加互联PLMN(ADD CONNECTPLMN)
+                  - 查询互联PLMN(LST CONNECTPLMN)
+                - MME POOL区管理
+                  - MME共享管理
+                    - 增加MME的共享PLMN(ADD MMESHAREPLMN)
+                    - 查询MME的共享PLMN(LST MMESHAREPLMN)
+                    - 删除MME的共享PLMN（RMV MMESHAREPLMN）
+                  - 发送MME配置信息
+                    - 发送MME配置信息 (SND MMECFG)
+                  - MMEID管理
+                    - 删除MMEID配置(RMV MMEID)
+                    - 修改MMEID配置(MOD MMEID)
+                    - 增加MMEID配置(ADD MMEID)
+                    - 查询MMEID配置(LST MMEID)
+                - LOCALHSS管理
+                  - 删除本地HSS(RMV LOCALHSS)
+                  - 修改本地HSS(MOD LOCALHSS)
+                  - 查询本地HSS(LST LOCALHSS)
+                  - 增加本地HSS(ADD LOCALHSS)
+                - 基于区域SGSN共享管理
+                  - 3G重定向PLMN
+                    - 增加3G重定向PLMN(ADD IUREPLMN)
+                    - 删除3G重定向PLMN(RMV IUREPLMN)
+                    - 查询3G重定向PLMN(LST IUREPLMN)
+                  - 融合RNC
+                    - 查询融合RNC(LST MRGRNC)
+                    - 删除融合RNC(RMV MRGRNC)
+                    - 增加融合RNC(ADD MRGRNC)
+                - 网关故障管理
+                  - 显示网关故障信息(DSP GWFAULTINF)
+                  - 执行用户迁移(STR USEROFFLOAD)
+                  - 删除网关容灾APN(RMV GWRESTORAPN)
+                  - 查询网关迁移参数（LST GWOFFLOADPARA）
+                  - 设置网关迁移参数（SET GWOFFLOADPARA）
+                  - 查询网关容灾APN(LST GWRESTORAPN)
+                  - 增加网关容灾APN(ADD GWRESTORAPN)
+                - 主备容灾管理
+                  - 容灾功能参数
+                    - 查询容灾功能参数(LST ASRFUNC)
+                    - 设置容灾功能参数(SET ASRFUNC)
+                  - 容灾业务通道
+                    - 删除容灾业务通道配置(RMV ASRCHN)
+                    - 查询容灾业务通道配置(LST ASRCHN)
+                    - 增加容灾业务通道配置(ADD ASRCHN)
+                    - 修改容灾业务通道配置(MOD ASRCHN)
+                    - 显示容灾业务通道状态(DSP ASRCHN)
+                - PCRF策略管理
+                  - 设置PCRF策略 (SET PCRFPLCY)
+                  - 查询PCRF策略（LST PCRFPLCY）
+                - LOCALHLR管理
+                  - 查询本地HLR(LST LOCALHLR)
+                  - 修改本地HLR(MOD LOCALHLR)
+                  - 删除本地HLR(RMV LOCALHLR)
+                  - 增加本地HLR(ADD LOCALHLR)
+                - 对等PLMN管理
+                  - 删除对等PLMN配置(RMV PEERPLMN)
+                  - 增加对等PLMN配置(ADD PEERPLMN)
+                  - 查询对等PLMN配置(LST PEERPLMN)
+                - 分批割接功能
+                  - 设置分批割接功能(SET BATCHCUTFUNC)
+                  - 查询分批割接功能(LST BATCHCUTFUNC)
+              - MAP应用协议
+                - MAP功能配置
+                  - 增加MAP协议接口兼容性IMSI号段配置(ADD MAPCMPTBYIMSI)
+                  - 查询MAP功能配置(LST MAPFUNC)
+                  - 查询MAP协议接口兼容性IMSI号段配置(LST MAPCMPTBYIMSI)
+                  - 设置MAP功能配置(SET MAPFUNC)
+                  - 删除MAP协议接口兼容性IMSI号段配置(RMV MAPCMPTBYIMSI)
+                  - 修改MAP协议接口兼容性IMSI号段配置(MOD MAPCMPTBYIMSI)
+                - IMSI GT转换信息
+                  - 查询IMSI-GT对应关系(LST IMSIGT)
+                  - 修改IMSI-GT对应关系(MOD IMSIGT)
+                  - 删除IMSI-GT对应关系(RMV IMSIGT)
+                  - 增加IMSI-GT对应关系(ADD IMSIGT)
+              - IP地址选择策略
+                - 查询IP地址选择策略(LST IPSELPLCY)
+                - 删除IP地址选择策略(RMV IPSELPLCY)
+                - 修改IP地址选择策略(MOD IPSELPLCY)
+                - 增加IP地址选择策略(ADD IPSELPLCY)
+              - 信令传输管理
+                - M3UA管理
+                  - M3UA链路
+                    - 修改M3UA信令链路（MOD CPM3LNK）
+                    - 建立M3UA信令链路（EST CPM3LNK）
+                    - 显示M3UA信令链路状态(DSP CPM3LNK)
+                    - 锁定M3UA信令链路（LCK CPM3LNK）
+                    - 去活M3UA信令链路(DEA CPM3LNK)
+                    - 释放M3UA信令链路(REL CPM3LNK)
+                    - 激活M3UA信令链路(ACT CPM3LNK)
+                    - 解锁M3UA信令链路（ULK CPM3LNK）
+                    - 查询M3UA信令链路(LST CPM3LNK)
+                    - 增加M3UA信令链路(ADD CPM3LNK)
+                    - 删除M3UA信令链路(RMV CPM3LNK)
+                  - M3UA本地实体
+                    - 修改M3UA本地实体(MOD CPM3LE)
+                    - 删除M3UA本地实体(RMV CPM3LE)
+                    - 查询M3UA本地实体(LST CPM3LE)
+                    - 增加M3UA本地实体(ADD CPM3LE)
+                  - M3UA路由
+                    - 增加M3UA信令路由(ADD CPM3RT)
+                    - 显示M3UA信令路由状态(DSP CPM3RT)
+                    - 删除M3UA信令路由(RMV CPM3RT)
+                    - 修改M3UA信令路由(MOD CPM3RT)
+                    - 查询M3UA信令路由(LST CPM3RT)
+                  - M3UA链路集
+                    - 删除M3UA信令链路集(RMV CPM3LKS)
+                    - 查询M3UA信令链路集(LST CPM3LKS)
+                    - 修改M3UA信令链路集(MOD CPM3LKS)
+                    - 增加M3UA信令链路集(ADD CPM3LKS)
+                  - M3UA目的实体
+                    - 显示M3UA目的实体状态(DSP CPM3DE)
+                    - 增加M3UA目的实体(ADD CPM3DE)
+                    - 删除M3UA目的实体(RMV CPM3DE)
+                    - 查询M3UA目的实体(LST CPM3DE)
+                    - 修改M3UA目的实体(MOD CPM3DE)
+                - Diameter管理
+                  - Diameter协议接口重选路配置
+                    - 增加触发重选路由的错误码(ADD DMFOVERCODE)
+                    - 查询触发重选路由的错误码(LST DMFOVERCODE)
+                    - 删除触发重选路由的错误码(RMV DMFOVERCODE)
+                  - Diameter虚拟本地实体
+                    - 删除Diameter虚拟本地实体(RMV DMVLE)
+                    - 查询Diameter虚拟本地实体(LST DMVLE)
+                    - 增加Diameter虚拟本地实体(ADD DMVLE)
+                    - 修改Diameter虚拟本地实体(MOD DMVLE)
+                  - Diameter参数
+                    - 设置Diameter配置(SET DMFUNC)
+                    - 查询Diameter配置(LST DMFUNC)
+                  - Diameter对端实体
+                    - 增加Diameter对端实体(ADD CPDMPE)
+                    - 修改Diameter对端实体(MOD CPDMPE)
+                    - 删除Diameter对端实体(RMV CPDMPE)
+                    - 查询Diameter对端实体(LST CPDMPE)
+                    - 显示Diameter对端实体(DSP CPDMPE)
+                  - Diameter主机路由
+                    - 删除Diameter主机路由(RMV DMHOSTRT)
+                    - 修改Diameter主机路由(MOD DMHOSTRT)
+                    - 查询Diameter主机路由(LST DMHOSTRT)
+                    - 增加Diameter主机路由(ADD DMHOSTRT)
+                  - Diameter链路集
+                    - 显示Diameter链路集状态(DSP CPDMLKS)
+                    - 删除Diameter链路集配置(RMV CPDMLKS)
+                    - 查询Diameter链路集配置(LST CPDMLKS)
+                    - 增加Diameter链路集配置(ADD CPDMLKS)
+                    - 修改Diameter链路集配置(MOD CPDMLKS)
+                  - Diameter路由
+                    - 增加Diameter域路由配置(ADD CPDMRT)
+                    - 修改Diameter域路由配置(MOD CPDMRT)
+                    - 删除Diameter域路由配置(RMV CPDMRT)
+                    - 查询Diameter域路由配置(LST CPDMRT)
+                    - 显示Diameter域路由状态(DSP CPDMRT)
+                  - Diameter协议接口兼容性配置
+                    - 查询Diameter兼容配置(LST DMCMPT)
+                    - 设置Diameter兼容性(SET DMCMPT)
+                  - Diameter链路
+                    - 修改Diameter链路配置(MOD CPDMLNK)
+                    - 激活Diameter链路(ACT CPDMLNK)
+                    - 去活Diameter链路(DEA CPDMLNK)
+                    - 增加Diameter链路配置(ADD CPDMLNK)
+                    - 查询Diameter链路配置(LST CPDMLNK)
+                    - 显示Diameter链路状态(DSP CPDMLNK)
+                    - 删除Diameter链路配置(RMV CPDMLNK)
+                  - Diameter协议接口兼容性IMSI号段配置
+                    - 查询IMSI对应的Diameter兼容性(LST DMCMPTBYIMSI)
+                    - 删除IMSI对应的Diameter兼容性(RMV DMCMPTBYIMSI)
+                    - 修改IMSI对应的Diameter兼容性(MOD DMCMPTBYIMSI)
+                    - 增加IMSI对应的Diameter兼容性(ADD DMCMPTBYIMSI)
+                  - Diameter本地实体
+                    - 显示Diameter本端实体(DSP CPDMLE)
+                    - 查询Diameter本端实体(LST CPDMLE)
+                    - 增加Diameter本端实体(ADD CPDMLE)
+                    - 删除Diameter本端实体(RMV CPDMLE)
+                    - 修改Diameter本端实体(MOD CPDMLE)
+                  - Diameter路由组
+                    - 删除Diameter路由组(RMV DMRTGRP)
+                    - 增加Diameter路由组(ADD DMRTGRP)
+                    - 查询Diameter路由组(LST DMRTGRP)
+                  - Diameter路由优先级
+                    - 查询Diameter域路由优先级权重(LST DMRTPRI)
+                    - 修改Diameter域路由优先级权重(MOD DMRTPRI)
+                - SCCP管理
+                  - SCCP子系统
+                    - 修改SCCP子系统(MOD CPSCCPSSN)
+                    - 禁止SCCP子系统(INH CPSCCPSSN)
+                    - 显示SCCP子系统状态(DSP CPSCCPSSN)
+                    - 删除SCCP子系统(RMV CPSCCPSSN)
+                    - 解禁SCCP子系统(UIN CPSCCPSSN)
+                    - 查询SCCP子系统(LST CPSCCPSSN)
+                    - 增加SCCP子系统(ADD CPSCCPSSN)
+                  - SCCP目的信令点
+                    - 查询SCCP目的信令点(LST SCCPDPC)
+                    - 修改SCCP目的信令点(MOD SCCPDPC)
+                    - 删除SCCP目的信令点(RMV SCCPDPC)
+                    - 禁止SCCP目的信令点(INH SCCPDPC)
+                    - 解禁SCCP目的信令点(UIN SCCPDPC)
+                    - 增加SCCP目的信令点(ADD SCCPDPC)
+                    - 显示SCCP目的信令点状态(DSP SCCPDPC)
+                  - SCCP本局信令点
+                    - 查询SCCP本局信令点(LST SCCPOPC)
+                    - 修改SCCP本局信令点(MOD SCCPOPC)
+                    - 增加SCCP本局信令点(ADD SCCPOPC)
+                    - 删除SCCP本局信令点(RMV SCCPOPC)
+                  - SCCP定时器
+                    - 查询SCCP定时器参数(LST SCCPTMR)
+                    - 设置SCCP定时器参数(SET SCCPTMR)
+                  - SCCP全局翻译码
+                    - 修改SCCP全局翻译码(MOD CPSCCPGT)
+                    - 查询SCCP全局翻译码(LST CPSCCPGT)
+                    - 删除SCCP全局翻译码(RMV CPSCCPGT)
+                    - 测试SCCP全局翻译码(TST CPSCCPGT)
+                    - 增加SCCP全局翻译码(ADD CPSCCPGT)
+                  - SCCP新全局翻译码
+                    - 增加SCCP新全局翻译码(ADD CPSCCPNGT)
+                    - 查询SCCP新全局翻译码(LST CPSCCPNGT)
+                    - 删除SCCP新全局翻译码(RMV CPSCCPNGT)
+                    - 修改SCCP新全局翻译码(MOD CPSCCPNGT)
+                  - SCCP目的信令点多点负荷分担
+                    - 查询DPC多点负荷分担记录(LST SCCPDPCSHR)
+                    - 增加DPC多点负荷分担记录(ADD SCCPDPCSHR)
+                    - 删除DPC多点负荷分担记录(RMV SCCPDPCSHR)
+                - 注册中心管理
+                  - 修改注册中心 (MOD RCENTER)
+                  - 删除注册中心链路集 (RMV RCAPLKS)
+                  - 查询注册中心链路 (LST RCAPLNK)
+                  - 增加注册中心链路 (ADD RCAPLNK)
+                  - 显示注册中心链路(DSP RCAPLNK)
+                  - 查询注册中心 (LST RCENTER)
+                  - 删除注册中心 (RMV RCENTER)
+                  - 删除注册中心链路 (RMV RCAPLNK)
+                  - 修改注册中心链路集 (MOD RCAPLKS)
+                  - 增加注册中心 (ADD RCENTER)
+                  - 修改注册中心链路 (MOD RCAPLNK)
+                  - 查询注册中心链路集 (LST RCAPLKS)
+                  - 增加注册中心链路集 (ADD RCAPLKS)
+                - SMSF管理
+                  - Vlr Sgs固定速率流控
+                    - 修改VLR局向Sgs固定速率流控 (MOD MMESGSFIXEDFC)
+                    - 增加VLR局向Sgs固定速率流控 (ADD MMESGSFIXEDFC)
+                    - 删除VLR局向Sgs固定速率流控 (RMV MMESGSFIXEDFC)
+                    - 查询VLR局向Sgs固定速率流控 (LST MMESGSFIXEDFC)
+                  - SGS MME实体
+                    - 修改SGS MME实体(MOD SGSMME)
+                    - 查询SGS MME实体(LST SGSMME)
+                    - 删除SGS MME实体(RMV SGSMME)
+                    - 增加SGS MME实体(ADD SGSMME)
+                  - SGS服务端链路集
+                    - 查询SGS服务端链路集 (LST SGSRLKS)
+                    - 增加SGS服务端链路集 (ADD SGSRLKS)
+                    - 修改SGS服务端链路集 (MOD SGSRLKS)
+                    - 删除SGS服务端链路集 (RMV SGSRLKS)
+                  - SGS服务端链路
+                    - 显示SGS服务端链路(DSP SGSRLNK)
+                    - 删除SGS服务端链路 (RMV SGSRLNK)
+                    - 查询SGS服务端链路 (LST SGSRLNK)
+                    - 修改SGS服务端链路 (MOD SGSRLNK)
+                    - 增加SGS服务端链路 (ADD SGSRLNK)
+                  - SMSFOPC本局信令点
+                    - 增加SMSF本局信令点(ADD SMSFOPC)
+                    - 删除SMSF本局信令点(RMV SMSFOPC)
+                    - 查询SMSF本局信令点(LST SMSFOPC)
+                  - SMSFOPC本局SSN号
+                    - 设置SMSF本局SSN号（SET SMSFSSN）
+                    - 查询SMSF本局SSN号（LST SMSFSSN）
+                - SCTP管理
+                  - 查询SCTP发送缓冲区参数(LST SCTPTXBUFFER)
+                  - 查询N2接口SCTP协议参数(LST NGSCTPPARA)
+                  - 查询SCTP发送缓冲区(DSP SCTPTXBUFF)
+                  - 设置SCTP发送缓冲区参数(SET SCTPTXBUFFER)
+                  - 设置SCTP缓冲区参数源(SET SCTPBUFFCFG)
+                  - 设置RAN侧拥塞检测功能参数(SET SCTPCCTRLPARA)
+                  - 设置链路控制消息日志开关(SET LNKCTRLLOG)
+                  - 显示SCTP偶联ID(DSP SCTPASID)
+                  - 设置SCTP缓冲区模式(SET SCTPBUFFERMODE)
+                  - 查询链路控制消息日志开关(LST LNKCTRLLOG)
+                  - 查询SCTP协议参数(LST CPSCTPPARA)
+                  - 删除SCTP协议参数(RMV CPSCTPPARA)
+                  - 查询SCTP接收缓冲区参数(LST SCTPRXBUFFER)
+                  - 查询SCTP缓冲区模式(LST SCTPBUFFERMODE)
+                  - 设置SCTP接入流控(SET SCTPINITFLOW)
+                  - 设置大端模式SCTP接收缓冲区参数(SET BIGSCTPRXNUM)
+                  - 修改SCTP协议参数(MOD CPSCTPPARA)
+                  - 查询SCTP接入流控(LST SCTPINITFLOW)
+                  - 查询SCTP均衡信息(DSP SCTPBALANCEINFO)
+                  - 增加SCTP协议参数(ADD CPSCTPPARA)
+                  - 查询大端模式SCTP接收缓冲区参数(LST BIGSCTPRXNUM)
+                  - 查询SCTP缓冲区参数源(LST SCTPBUFFCFG)
+                  - 查询SCTP接收缓冲区(DSP SCTPRXBUFF)
+                  - 设置SCTP接收缓冲区参数(SET SCTPRXBUFFER)
+                  - 查询RAN侧拥塞检测功能参数(LST SCTPCCTRLPARA)
+                  - 设置N2接口SCTP协议参数(SET NGSCTPPARA)
+                - VLR管理
+                  - 删除VLR信令点(RMV VLROPC)
+                  - 增加VLR信令点(ADD VLROPC)
+                  - 修改VLR信令点(MOD VLROPC)
+                  - 查询VLR信令点(LST VLROPC)
+                - 信令网属性管理
+                  - 设置信令网属性(SET SIGATTR)
+                  - 查询信令网属性(LST SIGATTR)
+                  - 显示信令网属性状态(DSP SIGATTR)
+                - MSC管理
+                  - 删除MSC信令点(RMV MSCOPC)
+                  - 查询MSC信令点(LST MSCOPC)
+                  - 增加MSC信令点(ADD MSCOPC)
+              - 操作维护
+                - 软件参数管理
+                  - 软件参数
+                    - 查询软件参数表(LST SOFTPARA)
+                    - 设置软件参数表(SET SOFTPARA)
+                  - 软件参数比特位
+                    - 设置软件参数表比特位(SET SOFTPARAOFBIT)
+                    - 查询软件参数表比特位(LST SOFTPARAOFBIT)
+                  - 假名化策略
+                    - 查询CHR假名化本地策略（LST PSEUDONYPOLICY）
+                    - 设置CHR假名化本地策略（SET PSEUDONYPOLICY）
+                  - 软件参数配置导出
+                    - 设置软件参数配置导出模式(SET SOFTPARAEXP)
+                    - 查询软件参数配置导出模式(LST SOFTPARAEXP)
+                - 设备管理
+                  - 快速扫描任务管理
+                    - 显示快速扫描任务状态（DSP FASTSCANPROCESS）
+                    - 查询快速扫描任务（LST FASTSCANRATE）
+                    - 增加快速扫描任务（ADD FASTSCANRATE）
+                    - 删除快速扫描任务（RMV FASTSCANRATE）
+                    - 显示快速扫描任务信息（DSP FASTSCANDATA）
+                    - 修改快速扫描任务（MOD FASTSCANRATE）
+                  - 流控管理
+                    - 业务流控管理
+                      - HTR流控局向管理
+                        - Gr HTR流控局向管理
+                          - 配置局向关联号段
+                            - 查询HTR号段(LST HTRIMSICFG)
+                            - 删除HTR号段(RMV HTRIMSICFG)
+                            - 修改HTR号段(MOD HTRIMSICFG)
+                            - 增加HTR号段(ADD HTRIMSICFG)
+                          - 流控功能管理
+                            - 设置HTR功能(SET HTR)
+                            - 查询HTR功能(LST HTR)
+                          - 配置局向
+                            - 查询HTR局向(LST HTROFC)
+                            - 修改HTR局向(MOD HTROFC)
+                            - 增加HTR局向(ADD HTROFC)
+                            - 删除HTR局向(RMV HTROFC)
+                        - 流控局向查询
+                          - 查询HTR局向信息
+                            - 显示HTR局向信息(DSP HTROFCINFO)
+                          - 查询HTR局向统计信息
+                            - 显示HTR局向统计信息(DSP HTROFCPERF)
+                        - 统一HTR流控局向管理
+                          - 统一HTR流控功能管理
+                            - 查询统一HTR功能(LST UNIHTR)
+                            - 设置统一HTR功能(SET UNIHTR)
+                      - 固定速率流控管理
+                        - 查询固定速率流控信息(LST FIXEDFC)
+                        - 显示固定速率流控信息(DSP FIXEDFC)
+                        - 设置固定速率流控信息(SET FIXEDFC)
+                      - PAE寻呼反压流控管理
+                        - 查询PAE寻呼反压流控启动/恢复阈值(LST REVERSEFCPARA)
+                        - 查询PAE寻呼反压流控检测参数(LST PAECHECKPARA)
+                        - 设置PAE寻呼反压流控检测阈值(SET PAECHECKTHD)
+                        - 设置PAE寻呼反压流控检测参数(SET PAECHECKPARA)
+                        - 设置PAE寻呼反压流控启动/恢复阈值(SET REVERSEFCPARA)
+                        - 查询PAE寻呼反压流控检测阈值(LST PAECHECKTHD)
+                        - 显示PAE过载状态(DSP PAEOVERLOADSTAT)
+                      - S1寻呼TALIST寻呼管理
+                        - 查询TALIST寻呼不重发TAC区间(LST TALISTPAGINGCFG)
+                        - 增加TALIST寻呼不重发TAC区间(ADD TALISTPAGINGCFG)
+                        - 删除TALIST寻呼不重发TAC区间(RMV TALISTPAGINGCFG)
+                      - 低优先级接入流控管理
+                        - 设置低优先级流控参数(SET LOWPRIOFC)
+                        - 查询低优先级流控参数(LST LOWPRIOFC)
+                        - 显示低优先级流控状态统计(DSP LOWPRIOFCSTAT)
+                      - 信令抑制管理
+                        - S11接口故障场景信令抑制管理
+                          - 显示S11接口信令风暴抑制功能的控制与统计信息(DSP SIGSUPPRESS)
+                          - 设置S11接口信令风暴抑制功能参数(SET SIGSUPPRESS)
+                          - 查询S11接口信令风暴抑制功能参数(LST SIGSUPPRESS)
+                      - S1寻呼流控管理
+                        - TA LIST流控
+                          - 查询S1 TAI组寻呼异常监控功能参数(LST S1TAIPAGMONPARA)
+                          - 显示S1 TAI对象寻呼流控状态明细(DSP S1TAIDETECTDETAILS)
+                          - 设置S1 TAI组寻呼异常监控功能参数(SET S1TAIPAGMONPARA)
+                          - 显示S1 TAI对象寻呼流控状态信息(DSP S1TAIDETECTINFO)
+                        - 查询S1寻呼流控参数(LST S1PAGINGFC)
+                        - 设置S1寻呼流控参数(SET S1PAGINGFC)
+                      - 低优先级APN流控管理
+                        - 设置低优先级APN流控参数(SET LOWPRIAPNFC)
+                        - 显示低优先级APN流控状态统计(DSP LOWPRIAPNFCSTAT)
+                        - 查询低优先级APN流控参数（LST LOWPRIAPNFC）
+                      - Diameterl流控管理
+                        - 删除Diameter流控节点(RMV DMOC)
+                        - 查询Diameter流控节点(LST DMOC)
+                        - 显示Diameter流控信息(DSP DMOCINFO)
+                        - 增加Diameter流控节点(ADD DMOC)
+                        - 查询Diameter流控控制参数(LST DMOCCFG)
+                        - 设置Diameter流控控制参数(SET DMOCCFG)
+                      - Inter-MME接入流控管理
+                        - 设置Inter-MME接入固定速率流控功能相关参数(SET INTERMMEFIXFC)
+                        - 查询Inter-MME流控参数(LST INTERMMEFC)
+                        - 查询Inter-MME接入固定速率流控功能相关参数(LST INTERMMEFIXFC)
+                        - 设置Inter-MME流控参数(SET INTERMMEFC)
+                      - NB-IoT业务流控管理
+                        - 设置NB流控参数(SET NBFC)
+                        - 显示NB流控状态统计(DSP NBFCSTAT)
+                        - 查看NB流控数据(LST NBFC)
+                      - P-GW Backoff流控管理
+                        - 显示P-GW Back-Off流控状态(DSP PGWBACKOFFSTAT)
+                        - 设置P-GW Back-off流控参数(SET PGWBACKOFF)
+                        - 查询P-GW Back-off流控参数(LST PGWBACKOFF)
+                      - CP Data控制管理
+                        - 设置CP Data流控参数(SET CPDATAFLOWCTRL)
+                        - 查询CP Data流控参数(LST CPDATAFLOWCTRL)
+                    - 系统流控参数管理
+                      - 查询流控系统参数(LST FLOWCTRLPARA)
+                      - 设置流控系统参数(SET FLOWCTRLPARA)
+                    - DDN信令抑制参数管理
+                      - 查询DDN信令抑制参数(LST DDNTHROTPARA)
+                      - 显示DDN信令抑制状态(DSP DDNTHROTPARA)
+                      - 设置DDN信令抑制参数(SET DDNTHROTPARA)
+                    - 系统流控队列管理
+                      - 设置流控队列信息(SET FLOWCTRLQUE)
+                      - 查询流控队列信息(LST FLOWCTRLQUE)
+                - 性能管理
+                  - 性能对象规则管理
+                    - 查询性能对象规则(LST PERFOBJRULE)
+                    - 修改性能对象规则(MOD PERFOBJRULE)
+                    - 删除性能对象规则(RMV PERFOBJRULE)
+                    - 增加性能对象规则(ADD PERFOBJRULE)
+                  - 性能对象管理
+                    - 删除性能对象信息(RMV PERFOBJ)
+                    - 显示性能对象信息(DSP PERFOBJ)
+                    - 修改性能对象信息(MOD PERFOBJ)
+                    - 增加Gb接口寻呼数据(ADD PERFGBPAGING)
+                    - 删除Gb接口寻呼数据(RMV PERFGBPAGING)
+                    - 查询Gb接口寻呼数据(LST PERFGBPAGING)
+                    - 增加性能对象信息(ADD PERFOBJ)
+                    - 查询性能对象信息(LST PERFOBJ)
+                  - KPI监控
+                    - 查询KPI门限(LST CPKPITHD)
+                    - 查询KPI监控参数(LST KPIMONPARA)
+                    - 设置KPI门限(SET CPKPITHD)
+                    - 设置KPI监控参数(SET KPIMONPARA)
+                  - 实时性能统计
+                    - 显示LINK性能统计实时结果(DSP RTMPERFCNTLINK)
+                    - 显示USN性能统计实时结果(DSP RTMPERFCNTUSN)
+                    - 显示GB性能统计实时结果(DSP RTMPERFCNTGB)
+                  - 性能对象自动生成管理
+                    - 查询话统对象自动生成开关(LST PERFAUTOSWITCH)
+                    - 设置话统对象自动生成开关(SET PERFAUTOSWITCH)
+                  - 性能统计核查
+                    - 查询性能统计核查开关(LST PERFCHKSWITCH)
+                    - 设置性能统计核查开关(SET PERFCHKSWITCH)
+                - 告警管理
+                  - 告警上报模式
+                    - 设置5G告警上报模式（SET NGALMRPTMODE）
+                    - 设置告警上报模式(SET ALMRPTMODE)
+                    - 查询告警上报模式(LST ALMRPTMODE)
+                    - 查询5G告警上报模式（LST NGALMRPTMODE）
+                    - 查询告警详细信息（LST ALMDETAIL）
+                - 灰度升级管理
+                  - 灰度升级前后信息对比管理
+                    - 显示灰度升级结果(DSP GRAYUPGRESULT)
+              - 数据转发管理
+                - GTP-U
+                  - GTP-U参数管理
+                    - 查询用户面控制参数(LST GTPUCTRL)
+                    - 设置用户面控制参数(SET GTPUCTRL)
+                  - GTP-U路径管理自定义策略
+                    - 修改GTP-U路径管理自定义策略(MOD GTPUPATHDP)
+                    - 删除GTP-U路径管理自定义策略(RMV GTPUPATHDP)
+                    - 查询GTP-U路径管理自定义策略(LST GTPUPATHDP)
+                    - 增加GTP-U路径管理自定义策略(ADD GTPUPATHDP)
+                  - GTP-U路径管理
+                    - 测试GTP-U路径(TST GTPUPATH)
+                    - 显示GTP-U路径(DSP GTPUPATH)
+                    - 显示GTP-U路径个数(DSP GTPUPATHNUM)
+                  - GTP-U协议参数管理
+                    - 查询GTP-U协议参数(LST GTPUPARA)
+                    - 设置GTP-U协议参数(SET GTPUPARA)
+                - 转发资源管理
+                  - PDP资源管理
+                    - 用户面PDP规格管理
+                      - 设置用户面PDP规格表(SET USRPDPCAP)
+                      - 查询用户面PDP规格表(LST USRPDPCAP)
+                    - PDP流控参数管理
+                      - 查询PDP流控参数(LST PDPCAR)
+                      - 设置PDP流控参数(SET PDPCAR)
+                  - 带宽资源管理
+                    - 带宽资源参数管理
+                      - 设置带宽资源管理参数(SET PFRES)
+                      - 查询带宽资源管理参数(LST PFRES)
+                      - 显示带宽资源使用明细(DSP PFRES)
+                    - 带宽占用比例管理
+                      - 查询带宽占用比例表(LST BWRATIO)
+                      - 设置带宽占用比例表(SET BWRATIO)
+                  - 资源状态管理
+                    - 查询资源状态表(LST PFRESSTAT)
+              - GTP-C接口管理
+                - GnGp-GGSN/S5/S8接口管理
+                  - 基于IMEI选择GGSN P-GW
+                    - 增加基于IMEI选择GGSN/P-GW配置(ADD GWSELBYIMEI)
+                    - 修改基于IMEI选择GGSN/P-GW配置(MOD GWSELBYIMEI)
+                    - 删除基于IMEI选择GGSN/P-GW配置(RMV GWSELBYIMEI)
+                    - 查询基于IMEI选择GGSN/P-GW配置(LST GWSELBYIMEI)
+                  - GGSN/P-GW选择
+                    - 删除相同APN建立多个PDP/PDN连接的网关选择策略(RMV SCNDGWSELPLCY)
+                    - 修改PGW重定向配置(MOD PGWRNSI)
+                    - 修改GGSN/P-GW选择策略（MOD GWSELPLCY）
+                    - 查询PGW重定向配置(LST PGWRNSI)
+                    - 查询相同APN建立多个PDP/PDN连接的网关选择策略(LST SCNDGWSELPLCY)
+                    - 修改相同APN建立多个PDP/PDN连接的网关选择策略(MOD SCNDGWSELPLCY)
+                    - 增加相同APN建立多个PDP/PDN连接的网关选择策略(ADD SCNDGWSELPLCY)
+                    - 查询基于CC选择GGSN/P-GW(LST GWSELBYCC)
+                    - 删除PGW重定向配置(RMV PGWRNSI)
+                    - 删除基于CC选择GGSN/P-GW(RMV GWSELBYCC)
+                    - 增加GGSN/P-GW选择策略（ADD GWSELPLCY）
+                    - 删除GGSN/P-GW选择策略（RMV GWSELPLCY）
+                    - 查询GGSN/P-GW选择策略（LST GWSELPLCY）
+                    - 增加PGW重定向配置(ADD PGWRNSI)
+                    - 增加基于CC选择GGSN/P-GW(ADD GWSELBYCC)
+                  - GGSN属性
+                    - 增加GGSN属性配置信息(ADD GGSNCHARACT)
+                    - 查询GGSN属性配置信息(LST GGSNCHARACT)
+                    - 删除GGSN属性配置信息(RMV GGSNCHARACT)
+                    - 修改GGSN属性配置信息(MOD GGSNCHARACT)
+                  - 支持DHCP服务的GGSN IP地址
+                    - 删除支持DHCP服务的GGSN IP地址（RMV DHCPGIP）
+                    - 查询支持DHCP服务的GGSN IP地址（LST DHCPGIP）
+                    - 增加支持DHCP服务的GGSN IP地址（ADD DHCPGIP）
+                  - P-GW属性
+                    - 修改位置上报配置信息(MOD LOCRPTCFG)
+                    - 删除位置上报配置信息(RMV LOCRPTCFG)
+                    - 增加P-GW特性对接配置（ADD PGWCHARACT）
+                    - 删除P-GW特性对接配置（RMV PGWCHARACT）
+                    - 修改P-GW特性对接配置（MOD PGWCHARACT）
+                    - 查询P-GW特性对接配置（LST PGWCHARACT）
+                    - 增加位置上报配置信息(ADD LOCRPTCFG)
+                    - 查询位置上报配置信息(LST LOCRPTCFG)
+                  - S-GW/P-GW/GGSN被禁用
+                    - 查询被禁用网关配置(LST BLKGWLST)
+                    - 增加被禁用网关配置(ADD BLKGWLST)
+                    - 删除被禁用网关配置(RMV BLKGWLST)
+                  - APN DNS域名策略
+                    - 查询APN DNS域名策略(LST APNDNS)
+                    - 删除APN DNS域名策略(RMV APNDNS)
+                    - 增加APN DNS域名策略(ADD APNDNS)
+                    - 修改APN DNS域名策略(MOD APNDNS)
+                - GTP-C协议管理
+                  - GTP-C V0 V1协议兼容性
+                    - 查询GTP-C V0/V1协议兼容性配置(LST GTPCCMPT)
+                    - 增加GTP-C V0/V1协议兼容性配置(ADD GTPCCMPT)
+                    - 修改GTP-C V0/V1协议兼容性配置(MOD GTPCCMPT)
+                    - 删除GTP-C V0/V1协议兼容性配置(RMV GTPCCMPT)
+                  - GTP-C协议参数配置
+                    - 查询S10路径参数(LST EDGECFGS10GTP)
+                    - 设置GTP-C协议参数(SET GTPPUB)
+                    - 查询GTP-C T3/N3参数配置(LST T3N3)
+                    - 查询MME和PGW IP地址(LST EDGEMMEPGWIP)
+                    - 设置S10路径参数(SET EDGECFGS10GTP)
+                    - 查询GTP-C协议参数(LST GTPPUB)
+                    - 增加MME和PGW IP地址(ADD EDGEMMEPGWIP)
+                    - 删除MME和PGW IP地址(RMV EDGEMMEPGWIP）
+                    - 设置GTP-C T3/N3参数配置(SET T3N3)
+                  - GTP-C路径白名单
+                    - 增加GTP-C路径白名单(ADD GTPCWHITELIST)
+                    - 修改GTP-C路径白名单(MOD GTPCWHITELIST)
+                    - 删除GTP-C路径白名单(RMV GTPCWHITELIST)
+                    - 查询GTP-C路径白名单(LST GTPCWHITELIST)
+                  - GTP-C V2协议兼容性
+                    - 修改GTP-C V2协议兼容性(MOD GTPCV2CMPT)
+                    - 删除GTP-C V2协议兼容性(RMV GTPCV2CMPT)
+                    - 查询GTP-C V2协议兼容性(LST GTPCV2CMPT)
+                    - 增加GTP-C V2协议兼容性(ADD GTPCV2CMPT)
+                  - GGSN容灾功能
+                    - 查询手工恢复GGSN地址(LST USRCTLGGSN)
+                    - 增加手工恢复GGSN地址(ADD USRCTLGGSN)
+                    - 删除手工恢复GGSN地址(RMV USRCTLGGSN)
+                    - 显示手工恢复GGSN地址状态(DSP USRCTLGGSN)
+                    - 恢复可用的GGSN地址(RES USRCTLGGSN)
+                  - 本地GGSN功能
+                    - 查询本地GGSN列表(LST LOCALGGSN)
+                    - 修改本地GGSN列表(MOD LOCALGGSN)
+                    - 删除本地GGSN列表(RMV LOCALGGSN)
+                    - 增加本地GGSN列表(ADD LOCALGGSN)
+                  - GTP-C路径管理
+                    - 删除GTP-C路径(RMV GTPCPATH)
+                    - 测试GTP-C路径(TST GTPCPATH)
+                    - 显示GTP-C路径(DSP GTPCPATH)
+                    - 显示GTP-C路径个数(DSP GTPCPATHNUM)
+                  - 路径告警屏蔽
+                    - 查询GTP路径断告警屏蔽记录(LST GTPALMMSK)
+                    - 修改GTP路径断告警屏蔽记录(MOD GTPALMMSK)
+                    - 删除GTP路径断告警屏蔽记录(RMV GTPALMMSK)
+                    - 增加GTP路径断告警屏蔽记录(ADD GTPALMMSK)
+                  - Recovery管理
+                    - 修改本端重启次数(MOD RECOVERY)
+                    - 显示本端重启次数(DSP RECOVERY)
+                  - GTP-C路径扫描参数
+                    - 查询GTP-C路径扫描参数(LST UGTP)
+                    - 设置GTP-C路径扫描参数(SET UGTP)
+                  - GTP-C路径管理自定义策略
+                    - 增加GTP-C路径管理自定义策略(ADD GTPCPATHDP)
+                    - 删除GTP-C路径管理自定义策略(RMV GTPCPATHDP)
+                    - 修改GTP-C路径管理自定义策略(MOD GTPCPATHDP)
+                    - 查询GTP-C路径管理自定义策略(LST GTPCPATHDP)
+                  - 防报文攻击配置
+                    - 查询防报文攻击上限(LST ANTIATTACK)
+                    - 设置防报文攻击上限(SET ANTIATTACK)
+                - DNS
+                  - DNS运行参数
+                    - 查询DNS运行参数(LST DNS)
+                    - 设置DNS运行参数(SET CPDNS)
+                    - 测试DNS通信(TST CPDNS)
+                  - DNS查询管理
+                    - 删除DNS查询控制参数(RMV DNSQ)
+                    - 查询DNS查询控制参数(LST DNSQ)
+                    - 修改DNS查询控制参数(MOD DNSQ)
+                    - 增加DNS查询控制参数(ADD DNSQ)
+                  - DNS NAPTR管理
+                    - 增加DNS NAPTR记录(ADD DNSN)
+                    - 修改DNS NAPTR记录(MOD DNSN)
+                    - 查询DNS NAPTR记录(LST DNSN)
+                    - 删除DNS NAPTR记录(RMV DNSN)
+                  - DNS Hostfile管理
+                    - 查询IPV4 DNS Hostfile记录(LST IPV4DNSH)
+                    - 查询IPV6 DNS Hostfile记录(LST IPV6DNSH)
+                    - 删除IPV6 DNS Hostfile记录(RMV IPV6DNSH)
+                    - 增加IPV6 DNS Hostfile记录(ADD IPV6DNSH)
+                    - 增加IPV4 DNS Hostfile记录(ADD IPV4DNSH)
+                    - 删除IPV4 DNS Hostfile记录(RMV IPV4DNSH)
+                    - 修改IPV6 DNS Hostfile记录(MOD IPV6DNSH)
+                    - 修改IPV4 DNS Hostfile记录(MOD IPV4DNSH)
+                  - DNS服务器管理
+                    - 显示DNS服务器状态(DSP DNSS)
+                    - 增加DNS服务器(ADD DNSS)
+                    - 修改DNS服务器(MOD DNSS)
+                    - 删除DNS服务器(RMV DNSS)
+                    - 查询DNS服务器(LST DNSS)
+                  - DNS Cache管理
+                    - 显示DNS Cache(DSP DNSCACHE)
+                    - 查询失败的DNS记录(DSP DNSERRDN)
+                  - DNS本端实体管理
+                    - 删除DNS Client IP与DNS实体的绑定关系(RMV DNSLE)
+                    - 增加DNS实体绑定DNS Client IP(ADD DNSLE)
+                    - 查询DNS Client IP与DNS实体的绑定关系(LST DNSLE)
+                - GnGp-SGSN/S10/S16/S3接口管理
+                  - SGSN MME选择
+                    - 查询SGSN/MME选择策略(LST PESELPLCY)
+                    - 设置SGSN/MME选择策略（SET PESELPLCY）
+                  - MME属性
+                    - 修改MME属性配置信息（MOD MMECHARACT）
+                    - 增加MME属性配置信息（ADD MMECHARACT）
+                    - 删除MME属性配置信息（RMV MMECHARACT）
+                    - 查询MME属性配置信息（LST MMECHARACT）
+                  - SGSN DNS解析
+                    - 查询SGSN DNS域名策略(LST SGSNDNS)
+                    - 增加SGSN DNS域名策略(ADD SGSNDNS)
+                    - 删除SGSN DNS域名策略(RMV SGSNDNS)
+                    - 修改SGSN DNS域名策略(MOD SGSNDNS)
+                  - 位置域名管理
+                    - 增加位置区域DNS域名(ADD AREADNS)
+                    - 查询位置区域DNS域名(LST AREADNS)
+                    - 删除位置区域DNS域名(RMV AREADNS)
+                    - 修改位置区域DNS域名(MOD AREADNS)
+                  - GnGp SGSN属性
+                    - 修改GnGp SGSN属性配置信息(MOD SGSNCHARACT)
+                    - 增加GnGp SGSN属性配置信息(ADD SGSNCHARACT)
+                    - 删除GnGp SGSN属性配置信息(RMV SGSNCHARACT)
+                    - 查询GnGp SGSN属性配置信息(LST SGSNCHARACT)
+                - 网关优选
+                  - 指定用户优选网关
+                    - 增加指定用户优选网关（ADD GWPRESELBYIMSI）
+                    - 查询指定用户优选网关（LST GWPRESELBYIMSI）
+                    - 修改指定用户优选网关（MOD GWPRESELBYIMSI）
+                    - 删除指定用户优选网关（RMV GWPRESELBYIMSI）
+                - S11接口管理
+                  - S-GW域名策略
+                    - 修改S-GW DNS域名策略（MOD SGWDNS）
+                    - 增加S-GW DNS域名策略（ADD SGWDNS）
+                    - 删除S-GW DNS域名策略（RMV SGWDNS）
+                    - 查询S-GW DNS域名策略（LST SGWDNS）
+                  - S-GW属性
+                    - 查询S-GW特性对接配置(LST SGWCHARACT)
+                    - 删除S-GW特性对接配置(RMV SGWCHARACT)
+                    - 修改S-GW特性对接配置(MOD SGWCHARACT)
+                    - 增加S-GW特性对接配置(ADD SGWCHARACT)
+                  - S-GW选择策略
+                    - 修改S-GW选择策略(MOD SGWSELPLCY)
+                    - 查询S-GW选择策略(LST SGWSELPLCY)
+                    - 删除S-GW选择策略(RMV SGWSELPLCY)
+                    - 增加S-GW选择策略(ADD SGWSELPLCY)
+                  - S-GWIP地址配置
+                    - 增加S11接口子网配置 (ADD S11INTFSUBNET)
+                    - 修改S11接口子网配置 (MOD S11INTFSUBNET)
+                    - 删除S11接口子网配置 (RMV S11INTFSUBNET)
+                    - 查询S11接口子网配置 (LST S11INTFSUBNET)
+                - Sv接口管理
+                  - MSC参数
+                    - 增加MSC参数(ADD MSCPARA)
+                    - 删除MSC参数(RMV MSCPARA)
+                    - 查询MSC参数(LST MSCPARA)
+                    - 修改MSC参数(MOD MSCPARA)
+                  - MSC选择策略
+                    - 查询MSC选择策略(LST MSCSELPLCY)
+                    - 设置MSC选择策略(SET MSCSELPLCY)
+                - GTP-C接口类型属性
+                  - 显示GTP-C IP地址接口属性(DSP GTPCINTFATTR)
+                  - 查询GTP-C IP地址接口属性(LST GTPCINTFATTR)
+                  - 删除GTP-C IP地址接口属性(RMV GTPCINTFATTR)
+                  - 修改GTP-C IP地址接口属性(MOD GTPCINTFATTR)
+                  - 增加GTP-C IP地址接口属性(ADD GTPCINTFATTR)
+                - Gtpc本端实体管理
+                  - 查询GTP-C本地实体(LST GTPCLE)
+                  - 增加GTP-C本地实体(ADD GTPCLE)
+                  - 删除GTP-C本地实体(RMV GTPCLE)
+                  - 修改GTP-C本地实体(MOD GTPCLE)
+              - 电路域联合业务
+                - LAI与VLR号对应关系
+                  - 删除LAI与VLR号对应关系(RMV LAIVLR)
+                  - 增加LAI与VLR号对应关系(ADD LAIVLR)
+                  - 查询LAI与VLR号对应关系(LST LAIVLR)
+                - TAI与LAI对应关系
+                  - 增加TAI与LAI对应关系(ADD TAILAI)
+                  - 删除TAI与LAI对应关系(RMV TAILAI)
+                  - 查询TAI与LAI对应关系(LST TAILAI)
+                - 空路由区信息
+                  - 增加空路由区对照表(ADD NRA)
+                  - 删除空路由区对照表(RMV NRA)
+                  - 查询空路由区对照表(LST NRA)
+                - BSSAPP
+                  - BSSAPP参数管理
+                    - 查询BSSAPP协议定时器表(LST BSSAPPTMR)
+                    - 设置BSSAPP协议定时器表(SET BSSAPPTMR)
+                - IMSI与VLR对应关系
+                  - 增加IMSI与VLR对应关系(ADD IMSIVLR)
+                  - 查询IMSI与VLR对应关系(LST IMSIVLR)
+                  - 删除IMSI与VLR对应关系(RMV IMSIVLR)
+                  - 修改IMSI与VLR对应关系(MOD IMSIVLR)
+                - SGSAP
+                  - SGsAP参数管理
+                    - 设置SGs参数(SET SGSPARA)
+                    - 查询SGs参数(LST SGSPARA)
+                  - SGsAP链路管理
+                    - 增加SGs链路(ADD SGSLNK)
+                    - 激活SGs链路(ACT SGSLNK)
+                    - 去活SGs链路(DEA SGSLNK)
+                    - 修改SGs链路(MOD SGSLNK)
+                    - 显示SGs链路状态(DSP SGSLNK)
+                    - 查询SGs链路(LST SGSLNK)
+                    - 删除SGs链路(RMV SGSLNK)
+                  - SGsAP链路集管理
+                    - 增加SGs链路集(ADD SGSLKS)
+                    - 查询SGs链路集(LST SGSLKS)
+                    - 删除SGs链路集(RMV SGSLKS)
+                    - 修改SGs链路集(MOD SGSLKS)
+                  - SGsAP协议兼容性
+                    - 查询SGsAP协议兼容性(LST SGSAPCMPT)
+                    - 设置SGsAP协议兼容性(SET SGSAPCMPT)
+                - MSC POOL管理
+                  - 基于LAI的IMSI分离业务
+                    - 停止IMSI分离4G用户任务(STP VLROFFLOADBYLAI)
+                    - 启动IMSI分离4G用户任务(STR VLROFFLOADBYLAI)
+                    - 显示IMSI分离4G用户任务运行状态(DSP VLROFFLOADBYLAI)
+                  - VLR迁移配置信息
+                    - 设置VLR迁移配置信息(SET VLROFFLOADINF)
+                    - 查询VLR迁移配置信息(LST VLROFFLOADINF)
+                  - 基于LAI的IMSI分离配置信息
+                    - 删除位置区列表(RMV VLROFFLOADLAILST)
+                    - 增加位置区列表(ADD VLROFFLOADLAILST)
+                    - 查询位置区列表(LST VLROFFLOADLAILST)
+                  - VLR迁移任务
+                    - 停止VLR迁移任务(STP VLROFFLOAD)
+                    - 启动VLR迁移任务(STR VLROFFLOAD)
+                  - LAIVLR黑名单管理
+                    - 查询LAIVLR黑名单(LST LAIVLRBLACKLIST)
+                    - 增加LAIVLR黑名单(ADD LAIVLRBLACKLIST)
+                    - 删除LAIVLR黑名单(RMV LAIVLRBLACKLIST)
+                - VLR管理
+                  - 修改VLR配置信息(MOD VLR)
+                  - 增加VLR配置信息(ADD VLR)
+                  - 删除VLR配置信息(RMV VLR)
+                  - 显示VLR迁移进度(DSP VLR)
+                  - 查询VLR配置信息(LST VLR)
+                - 预留功能策略管理
+                  - 修改预留功能策略(MOD UFCSFB)
+                  - 查询预留功能策略(LST UFCSFB)
+                  - 删除预留功能策略(RMV UFCSFB)
+                  - 增加预留功能策略(ADD UFCSFB)
+                - 联合接入管理
+                  - 设置联合接入策略(SET PSCSPLCY)
+                  - 删除联合接入HSS白名单(RMV PSCSHSS)
+                  - 查询联合接入策略(LST PSCSPLCY)
+                  - 查询联合接入IMSI白名单(LST PSCSIMSI)
+                  - 增加联合接入IMSI白名单(ADD PSCSIMSI)
+                  - 删除联合接入IMSI白名单(RMV PSCSIMSI)
+                  - 查询联合接入HSS白名单(LST PSCSHSS)
+                  - 增加联合接入HSS白名单(ADD PSCSHSS)
+              - 业务IP管理
+                - 业务IP
+                  - 删除业务IP(RMV SERVICEIP)
+                  - 增加业务IP(ADD SERVICEIP)
+                  - 修改业务IP(MOD SERVICEIP)
+                  - 查询业务IP(LST SERVICEIP)
+                  - 显示业务IP(DSP SERVICEIP)
+              - S1接口管理
+                - eNodeB邻接的en-gNB
+                  - 显示eNodeB邻接的en-gNB（DSP ENBGNBNEIBS）
+                - S1-U黑名单管理
+                  - S1-U黑名单规则
+                    - 设置S1-U黑名单参数(SET S1UBLACKLSTPARA)
+                    - 查询S1-U黑名单参数(LST S1UBLACKLSTPARA)
+                  - S1-U黑名单维护
+                    - 增加S1-U IP地址黑名单记录(ADD S1UBLACKLST)
+                    - 查询S1-U IP地址黑名单记录(LST S1UBLACKLST)
+                    - 删除S1-U IP地址黑名单记录(RMV S1UBLACKLST)
+                - eNodeB属性信息管理
+                  - 显示eNodeB属性(DSP ENBATTR)
+                  - 清除eNodeB属性(CLR ENBATTR)
+                - S1AP本地实体
+                  - 查询S1AP本地实体(LST S1APLE)
+                  - 增加S1AP本地实体(ADD S1APLE)
+                  - 删除S1AP本地实体(RMV S1APLE)
+                  - 修改S1AP本地实体(MOD S1APLE)
+                - SCTP本地实体
+                  - 删除SCTP本地实体(RMV SCTPLE)
+                  - 增加SCTP本地实体(ADD SCTPLE)
+                  - 修改SCTP本地实体(MOD SCTPLE)
+                  - 查询SCTP本地实体(LST SCTPLE)
+                - 基于TA List寻呼策略管理
+                  - 删除TA List寻呼策略配置(RMV TALSTPAGINGPLCY)
+                  - 修改TA List寻呼策略配置(MOD TALSTPAGINGPLCY)
+                  - 增加TA List寻呼策略配置(ADD TALSTPAGINGPLCY)
+                  - 查询TA List寻呼策略配置(LST TALSTPAGINGPLCY)
+                - S1寻呼规则管理
+                  - 删除所有S1寻呼规则（RMV S1PAGINGRULEALL）
+                  - 查询S1寻呼规则(LST S1PAGINGRULE)
+                  - 删除S1寻呼规则(RMV S1PAGINGRULE)
+                  - 增加S1寻呼规则(ADD S1PAGINGRULE)
+                  - 修改S1寻呼规则(MOD S1PAGINGRULE)
+                - S1AP链路
+                  - 复位S1AP连接(RST S1APLNK)
+                  - 删除S1AP连接(RMV S1APLNK)
+                  - 显示S1AP连接状态(DSP S1APLNK)
+                - S1接口兼容性
+                  - 设置S1接口兼容性(SET S1CMPT)
+                  - 查询S1接口兼容性(LST S1CMPT)
+                - SCTP本地实体组
+                  - 查询SCTP本地实体组(LST SCTPLEGRP)
+                  - 删除SCTP本地实体组(RMV SCTPLEGRP)
+                  - 增加SCTP本地实体组(ADD SCTPLEGRP)
+                - S1接口均衡管理
+                  - 启动S1接口均衡操作(STR S1BALANCE)
+                  - 停止S1接口均衡操作(STP S1BALANCE)
+                  - 查询S1接口均衡操作信息(DSP S1BALANCEINFO)
+                  - 查询S1接口均衡操作结果(DSP S1BALANCE)
+                - 基于跟踪区的MME相对权重
+                  - 查询基于跟踪区的MME相对权重配置(LST MMECAPBYTA)
+                  - 修改基于跟踪区的MME相对权重配置(MOD MMECAPBYTA)
+                  - 增加基于跟踪区的MME相对权重配置(ADD MMECAPBYTA)
+                  - 删除基于跟踪区的MME相对权重配置(RMV MMECAPBYTA)
+                - S1消息
+                  - 发送模拟S1AP错误消息(SND S1MESSAGE)
+                - S1接口过载控制
+                  - 设置S1过载控制信息(SET S1OVERLOAD)
+                  - 查询S1过载控制信息(LST S1OVERLOAD)
+                  - 启动S1接口过载控制(STR S1OVERLOAD)
+                  - 停止S1接口过载控制(STP S1OVERLOAD)
+                - S1寻呼策略管理
+                  - 设置S1寻呼策略控制表(SET S1PAGINGCTRL)
+                  - 查询S1寻呼策略控制表(LST S1PAGINGCTRL)
+                - S1AP协议参数
+                  - 查询S1AP协议参数(LST S1APPARA)
+                  - 设置S1AP协议参数(SET S1APPARA)
+                - en-gNB邻接的eNodeB
+                  - 显示en-gNB邻接的eNodeB（DSP GNBENBNEIBS）
+                - S1连接信息
+                  - 显示S1模式负载信息(DSP S1LOAD)
+                - eNodeB邻接关系测试
+                  - 删除配置的eNodeB邻接关系(RMV ENBNSINDB)
+                  - 增加eNodeB邻接关系(ADD ENBNSINDB)
+                  - 查询配置的eNodeB邻接关系(LST ENBNSINDB)
+                - S1接口寻呼数据
+                  - 查询S1接口寻呼数据(LST S1PAGING)
+                - en-gNB 标识
+                  - 显示en-gNB标识（DSP ENGNB）
+                - eNodeB邻接关系管理
+                  - 清除eNodeB邻接关系(CLR ENBNEIBS)
+                  - 显示eNodeB邻接关系(DSP ENBNEIBS)
+                - S1接口用户连接
+                  - 删除S1接口用户连接(RMV USRS1CONN)
+              - 系统管理
+                - 用户数据库管理
+                  - 删除承载上下文(RMV PDP)
+                  - 显示承载上下文(DSP SMCTX)
+                  - 显示用户面PDP上下文信息(DSP GTPUPDP)
+                  - 显示宽带集群系统上下文（DSP TRUNKCTX）
+                  - 显示用户和承载上下文数(DSP USRPDPNUM)
+                  - 查询TMSI资源分配状态(DSP TMSISTAT)
+                  - 显示指定IMSI用户MSISDN信息(DSP MSISDN)
+                  - 显示BSC下用户数(DSP BSCUSRNUM)
+                  - 显示用户面PDP上下文数目(DSP GTPPDPNUM)
+                  - 显示指定IMSI用户LCS签约信息(DSP LCSBYIMSI)
+                  - 删除用户(RMV USR)
+                  - 显示宽带集群系统TSN状态（DSP BTRUNCSTATUS）
+                  - 显示MM上下文扩展信息(DSP MMCTXEXT)
+                  - 显示MM上下文(DSP MMCTX)
+                  - 显示RNC下用户数(DSP RNCUSRNUM)
+                  - 显示指定MSISDN用户IMSI(DSP IMSI)
+                - 系统维护
+                  - 业务扩展包管理
+                    - 显示扩展包运行状态(DSP PLGPKGSTATE)
+                  - 组网拓扑功能
+                    - 设置组网拓扑采集功能开关（SET NWTOPO）
+                    - 查询组网拓扑采集功能开关(LST NWTOPO)
+                - 系统参数管理
+                  - 设置系统参数(SET CPSYS)
+                  - 查询系统参数(LST CPSYS)
+                  - 设置产品平台参数(SET SYSPLTPARA)
+                  - 查询MME复位标志(DSP MMERESETFLG)
+                  - 查询产品平台参数(LST SYSPLTPARA)
+                - DNS维护管理
+                  - 清除DNS Cache
+                    - 查询离散清缓存进度(DSP CLRDNSCPROG)
+                    - 清除DNS缓存(CLR DNSC)
+                  - 查询DNS Link
+                    - 显示DNS服务器链路状态(DSP DNSLNK)
+                - 资源管理
+                  - 业务规格管理
+                    - 显示规格信息(DSP SPEC)
+              - Tm接口管理
+                - Tm接口消息重传参数管理
+                  - 修改Tm接口消息T3N3参数(MOD TMT3N3)
+                  - 查询Tm接口消息T3N3参数(LST TMT3N3)
+                  - 删除Tm接口指定消息T3N3参数(RMV TMT3N3)
+                  - 增加Tm接口指定消息T3N3参数(ADD TMT3N3)
+                - Tm接口参数管理
+                  - 删除TMAP本地实体(RMV TMAPLE)
+                  - 查询TMAP本地实体(LST TMAPLE)
+                  - 增加TMAP本地实体(ADD TMAPLE)
+                  - 查询Tm接口参数(LST TMAPINTF)
+                  - 设置Tm接口参数(SET TMAPINTF)
+                - Tm路径管理
+                  - 显示TM路径（DSP TMPATH）
+              - QoS管理
+                - Pre-R8 QoS
+                  - QoS协商控制
+                    - QoS协商参数管理
+                      - 查询QoS协商参数(LST IMSISMCHAR)
+                      - 删除QoS协商参数(RMV IMSISMCHAR)
+                      - 增加QoS协商参数(ADD IMSISMCHAR)
+                      - 修改QoS协商参数(MOD IMSISMCHAR)
+                    - Iu模式RAB参数协商
+                      - 设置RAB参数协商配置(SET RABPARA)
+                      - 查询RAB参数协商配置(LST RABPARA)
+                    - 签约QoS转换
+                      - 增加签约QoS转换配置(ADD QOSTRANS)
+                      - 查询签约QoS转换配置(LST QOSTRANS)
+                      - 删除签约QoS转换配置(RMV QOSTRANS)
+                  - QoS应用
+                    - ARP转换
+                      - 查询ARP策略参数配置(LST ARPPARA)
+                      - 删除ARP策略参数配置(RMV ARPPARA)
+                      - 修改ARP策略参数配置(MOD ARPPARA)
+                      - 增加ARP策略参数配置(ADD ARPPARA)
+                - EPS QoS
+                  - 扩展QCI转换关系
+                    - 修改扩展QCI转换关系(MOD QCICONV)
+                    - 查询扩展QCI转换关系(LST QCICONV)
+                    - 删除扩展QCI转换关系(RMV QCICONV)
+                    - 增加扩展QCI转换关系(ADD QCICONV)
+                  - QoS限制配置
+                    - GBR承载QoS限制
+                      - 修改GBR承载QoS限制配置(MOD QOSCAPGBR)
+                      - 查询GBR承载QoS限制配置(LST QOSCAPGBR)
+                      - 增加GBR承载QoS限制配置(ADD QOSCAPGBR)
+                      - 删除GBR承载QoS限制配置(RMV QOSCAPGBR)
+                    - Non-GBR承载QoS限制
+                      - 修改Non-GBR承载QoS限制配置(MOD QOSCAP)
+                      - 查询Non-GBR承载QoS限制配置(LST QOSCAP)
+                      - 删除Non-GBR承载QoS限制配置(RMV QOSCAP)
+                      - 增加Non-GBR承载QoS限制配置(ADD QOSCAP)
+                    - 基于APN的QOS策略
+                      - 修改基于APN的QoS策略(MOD QOSPLCYBYAPN)
+                      - 增加基于APN的QoS策略(ADD QOSPLCYBYAPN)
+                      - 删除基于APN的QoS策略(RMV QOSPLCYBYAPN)
+                      - 查询基于APN的QoS策略(LST QOSPLCYBYAPN)
+                    - 基于QCI的承载级QoS限制
+                      - 增加基于QCI的Non-GBR承载QoS限制配置(ADD QOSCAPBYQCI)
+                      - 查询基于QCI的Non-GBR承载QoS限制配置(LST QOSCAPBYQCI)
+                      - 删除基于QCI的Non-GBR承载QoS限制配置(RMV QOSCAPBYQCI)
+                      - 修改基于QCI的Non-GBR承载QoS限制配置(MOD QOSCAPBYQCI)
+                - DSCP
+                  - DSCP优先级映射管理
+                    - 增加DSCP映射优先级配置表(ADD DSCPPRI)
+                    - 删除DSCP映射优先级配置表(RMV DSCPPRI)
+                    - 修改DSCP映射优先级配置表(MOD DSCPPRI)
+                    - 查询DSCP映射优先级配置表(LST DSCPPRI)
+                  - 接口DSCP管理
+                    - 设置接口DSCP配置(SET IFDSCP)
+                    - 查询接口DSCP配置(LST IFDSCP)
+                  - DSCP重映射管理
+                    - 查询重映射对应表(LST DSCPRMK)
+                    - 设置重映射对应表(SET DSCPRMK)
+                - QoS兼容性管理
+                  - EPS QoS参数到Pre-R8 QoS参数映射
+                    - 查询EPS QoS参数到Pre-R8 QoS参数映射规则（LST R8QOSMAP）
+                    - 设置EPS QoS参数到Pre-R8 QoS参数映射规则（SET R8QOSMAP）
+                  - QoS兼容性配置
+                    - 查询QoS兼容性配置(LST COMPATIBILITY)
+                    - 设置QoS兼容性配置(SET COMPATIBILITY)
+              - Iu接口管理
+                - Iu接口RNC信息
+                  - 修改Iu接口RNC信息(MOD RNC)
+                  - 查询Iu接口RNC信息(LST RNC)
+                  - 删除Iu接口RNC信息(RMV RNC)
+                  - 增加Iu接口RNC信息(ADD RNC)
+                - Iu负荷配置
+                  - 查询SGP负荷配置(LST IULOAD)
+                  - 显示用户Iu连接负荷状态(DSP IULOAD)
+                  - 设置SGP负荷配置(SET IULOAD)
+                - Iu接口寻呼数据
+                  - 删除Iu接口寻呼数据(RMV IUPAGING)
+                  - 查询Iu接口寻呼数据(LST IUPAGING)
+                  - 增加Iu接口寻呼数据(ADD IUPAGING)
+                - Iu接口复位管理
+                  - 复位Iu接口(RST IU)
+              - GnGp接口管理
+                - GTP用户面管理
+                  - 序号检查信息管理
+                    - 设置序号检查信息表(SET SEQCHK)
+                    - 查询序号检查信息表(LST SEQCHK)
+              - Gb接口管理
+                - MS上下文管理
+                  - 基于NSE的MS上下文管理
+                    - 删除NSE列表下的用户(RMV NSEUSR)
+                    - 删除NSE列表(RMV NSELST)
+                    - 显示删除NSE列表下的用户任务运行状态(DSP NSEUSR)
+                    - 增加NSE列表(ADD NSELST)
+                    - 查询NSE列表(LST NSELST)
+                - 信令实体管理
+                  - 增加信令实体(ADD NSE)
+                  - 删除所有信令实体（RMV NSEALL）
+                - Gb接口寻呼数据
+                  - 查询Gb接口寻呼数据(LST GBPAGING)
+              - GTP-U接口管理
+                - Gtpu本端实体管理
+                  - 增加GTP-U本地实体(ADD GTPULE)
+                  - 修改GTP-U本地实体(MOD GTPULE)
+                  - 查询GTP-U本地实体(LST GTPULE)
+                  - 删除GTP-U本地实体(RMV GTPULE)
+                - GTP-U接口类型属性
+                  - 增加GTP-U IP地址接口属性(ADD GTPUINTFATTR)
+                  - 查询GTP-U IP地址接口属性(LST GTPUINTFATTR)
+                  - 删除GTP-U IP地址接口属性(RMV GTPUINTFATTR)
+                  - 显示GTP-U IP地址接口属性(DSP GTPUINTFATTR)
+                  - 修改GTP-U IP地址接口属性(MOD GTPUINTFATTR)
+              - 虚拟化和弹性伸缩
+                - 业务资源部署位置
+                  - 启动业务资源均衡操作(STR SERRESBALANCE)
+                  - 显示业务资源部署位置(DSP SERRESLOC)
+              - SBc接口管理
+                - SBC MME配置
+                  - 修改SBC MME实体(MOD SBCMME)
+                  - 增加SBC MME实体(ADD SBCMME)
+                  - 显示SBC MME链路状态(DSP SBCMME)
+                  - 查询SBC MME实体(LST SBCMME)
+                  - 删除SBC MME实体(RMV SBCMME)
+                - CBC配置
+                  - 删除CBC(RMV CBC)
+                  - 增加CBC(ADD CBC)
+                  - 修改CBC(MOD CBC)
+                  - 查询CBC(LST CBC)
+                  - 显示CBC链路状态(DSP CBC)
+                - SBc链路
+                  - 删除SBc链路(RMV SBCAPLNK)
+                  - 修改SBc链路(MOD SBCAPLNK)
+                  - 查询SBc链路(LST SBCAPLNK)
+                  - 增加SBc链路(ADD SBCAPLNK)
+                  - 显示SBc链路状态(DSP SBCAPLNK)
+                - SBc参数
+                  - 查询小区广播功能(LST SBCFUNC)
+                  - 设置小区广播功能(SET SBCFUNC)
+                - SBCAP本地实体
+                  - 修改SBCAP本地实体(MOD SBCAPLE)
+                  - 删除SBCAP本地实体(RMV SBCAPLE)
+                  - 查询SBCAP本地实体(LST SBCAPLE)
+                  - 增加SBCAP本地实体(ADD SBCAPLE)
+              - Diameter应用协议
+                - EIR管理
+                  - 删除EIR配置(RMV EIR)
+                  - 修改EIR配置(MOD EIR)
+                  - 查询EIR配置(LST EIR)
+                  - 增加EIR配置(ADD EIR)
+                - IMSI-HSS转换信息
+                  - 查询IMSI-HSS对应关系(LST IMSIHSS)
+                  - 删除IMSI-HSS对应关系(RMV IMSIHSS)
+                  - 修改IMSI-HSS对应关系(MOD IMSIHSS)
+                  - 增加IMSI-HSS对应关系(ADD IMSIHSS)
+                - SCEF管理
+                  - 删除SCEF配置(RMV SCEF)
+                  - 增加SCEF配置(ADD SCEF)
+                  - 查询SCEF配置(LST SCEF)
+                - HSS管理
+                  - 清除HSS信息(CLR HSSINFO)
+                - 能力开放订阅管理
+                  - 查询能力开放订阅任务信息(DSP SCEFMONINFO)
+            - MME链式备份管理
+              - 接口DSCP管理
+                - 接口DSCP参数管理
+                  - 查询接口DSCP配置(LST IFDSCPMCR)
+                  - 设置接口DSCP配置(SET IFDSCPMCR)
+                - DSCP优先级映射管理
+                  - 删除DSCP映射优先级配置表(RMV DSCPPRIMCR)
+                  - 修改DSCP映射优先级配置表(MOD DSCPPRIMCR)
+                  - 查询DSCP映射优先级配置表(LST DSCPPRIMCR)
+                  - 增加DSCP映射优先级配置表(ADD DSCPPRIMCR)
+              - 业务IP管理
+                - 业务IP
+                  - 显示业务IP(DSP SERVICEIPMCR)
+                  - 删除业务IP(RMV SERVICEIPMCR)
+                  - 查询业务IP(LST SERVICEIPMCR)
+                  - 增加业务IP(ADD SERVICEIPMCR)
+                  - 修改业务IP(MOD SERVICEIPMCR)
+              - Sdup接口管理
+                - Sdup接口业务地址管理
+                  - 查询SDAP本地实体(LST SDAPLE)
+                  - 增加SDAP本地实体(ADD SDAPLE)
+                  - 删除SDAP本地实体(RMV SDAPLE)
+                - Sdup接口参数管理
+                  - 查询Sdup接口参数(LST SDAPINTF)
+                  - 设置Sdup接口参数(SET SDAPINTF)
+                - Sdup消息重传参数管理
+                  - 查询Sdup接口可靠性(LST SDAPRETRSMT)
+                  - 设置Sdup消息重传参数(SET SDAPRETRSMT)
+                - Sdup接口调测
+                  - 测试SDUP路径(TST SDUPPATH)
+                  - 显示SDAP实体重启计数(DSP SDAPRSTCNT)
+                  - 显示SDUP链路(DSP SDAPLNK)
+              - MME容灾管理
+                - 容灾功能调测
+                  - 显示容灾用户MM上下文信息(DSP RESTOMMCTX)
+                  - 显示容灾用户SM上下文信息（DSP RESTOSMCTX）
+                  - 显示容灾关系信息(DSP RESTORELAT)
+                  - 显示容灾用户数(DSP RESTOUSRCTXNUMMCR)
+              - 扩展调测
+                - 平台调测
+                  - 通信调测
+                    - 查询DDB记录(DSP DDBREC)
+                    - 启动软调操作(STR SFTDMCR)
+                    - 显示通信统计(DSP COMMSTATMCR)
+                  - 公共调测
+                    - 显示调试信息
+                      - 显示调试信息(DSP COMMONDBGMCR)
+                  - IP特性调测
+                    - 显示IP相关信息(DSP IPINFOMCR)
+            - 计费管理
+              - 计费节假日配置
+                - 查询节假日配置(LST CHGHOLI)
+                - 删除节假日配置(RMV CHGHOLI)
+                - 增加节假日配置(ADD CHGHOLI)
+              - 计费星期配置
+                - 设置星期配置(SET CHGWKDY)
+                - 查询星期配置(LST CHGWKDY)
+              - 计费控制
+                - 查询CG配置参数(LST CHGCG)
+                - 删除CG配置参数(RMV CHGCG)
+                - 显示强制生成用户话单的结果信息(DSP CHGCDR)
+                - 强制生成用户话单（CRE CHGCDR）
+                - 设置计费CDR参数（SET CHGCDR）
+                - 修改CG配置参数(MOD CHGCG)
+                - 模拟SGSN话单(TST CHGCDR)
+                - 显示CG状态(DSP CHGCG)
+                - 显示硬盘话单文件信息(DSP CHGFILE)
+                - 增加CG配置参数（ADD CHGCG）
+                - 查询计费CDR参数（LST CHGCDR）
+              - 计费费率时段配置
+                - 增加费率时段配置(ADD CHGTARI)
+                - 查询费率时段配置(LST CHGTARI)
+                - 删除费率时段配置(RMV CHGTARI)
+              - IMSI计费配置
+                - 修改IMSI计费配置(MOD CHGIMSICFG)
+                - 删除IMSI计费配置(RMV CHGIMSICFG)
+                - 增加IMSI计费配置(ADD CHGIMSICFG)
+                - 查询IMSI计费配置(LST CHGIMSICFG)
+              - 基于PLMN的M-CDR计费配置
+                - 增加M-CDR计费配置(ADD CHGMCDRCFG)
+                - 查询M-CDR计费配置(LST CHGMCDRCFG)
+                - 删除M-CDR计费配置(RMV CHGMCDRCFG)
+              - PLMN计费配置
+                - 查询PLMN计费配置(LST CHGPLMNCFG)
+                - 修改PLMN计费配置(MOD CHGPLMNCFG)
+                - 增加PLMN计费配置(ADD CHGPLMNCFG)
+                - 删除PLMN计费配置(RMV CHGPLMNCFG)
+              - 计费Ga接口参数
+                - 设置计费Ga接口参数(SET CHGGA)
+                - 显示计费Ga接口参数状态(DSP CHGGA)
+                - 查询计费Ga接口参数(LST CHGGA)
+              - CDPIP 配置
+                - 显示计费相关的IP配置参数(DSP CHGCDPIP)
+                - 查询计费相关的IP配置参数(LST CHGCDPIP)
+                - 增加计费相关的IP配置参数(ADD CHGCDPIP)
+                - 删除计费相关的IP配置参数(RMV CHGCDPIP)
+              - 计费行为参数配置
+                - 增加计费行为参数(ADD CHGBEHA)
+                - 删除计费行为参数(RMV CHGBEHA)
+                - 查询计费行为参数(LST CHGBEHA)
+              - 计费属性参数配置
+                - 设置计费属性参数(SET CHGCHAR)
+                - 查询计费属性参数(LST CHGCHAR)
+              - Gn接口计费属性选择策略配置
+                - 增加Gn接口计费属性选择策略(ADD CHGGNCCCFG)
+                - 修改Gn接口计费属性选择策略(MOD CHGGNCCCFG)
+                - 查询Gn接口计费属性选择策略(LST CHGGNCCCFG)
+                - 删除Gn接口计费属性选择策略(RMV CHGGNCCCFG)
+              - APN计费属性
+                - 查询APN计费属性(LST CHGAPN)
+                - 修改APN计费属性(MOD CHGAPN)
+                - 删除APN计费属性(RMV CHGAPN)
+                - 增加APN计费属性(ADD CHGAPN)
+              - 缺省计费属性参数配置
+                - 删除缺省计费属性参数(RMV CHGDCHAR)
+                - 增加缺省计费属性参数(ADD CHGDCHAR)
+                - 查询缺省计费属性参数(LST CHGDCHAR)
+              - PLMN CG 配置
+                - 删除PLMN-CG配置参数(RMV CHGPLMNCG)
+                - 增加PLMN-CG配置参数（ADD CHGPLMNCG）
+                - 查询PLMN-CG配置参数(LST CHGPLMNCG)
+                - 修改PLMN-CG配置参数(MOD CHGPLMNCG)
+              - 话单文件的工作目录
+                - 显示话单文件的工作目录(DSP CHGFILEDIR)
+                - 切换话单文件的工作目录(SWP CHGFILEDIR)
+              - PLMN计费属性参数配置
+                - 查询PLMN的计费属性参数(LST CHGPLMNCHAR)
+                - 设置PLMN的计费属性参数(SET CHGPLMNCHAR)
+            - 跟踪配置管理
+              - 信令采集
+                - 查询用户消息统计功能配置(LST IMRFUNC)
+                - 修改用户消息统计功能配置(MOD IMRFUNC)
+                - 增加用户消息统计功能配置(ADD IMRFUNC)
+                - 删除用户消息统计功能配置(RMV IMRFUNC)
+              - 端到端用户跟踪管理
+                - 查询端到端用户跟踪参数(LST E2ETRCCFG)
+                - 设置端到端用户跟踪参数(SET E2ETRCCFG)
+              - 跟踪重定向管理
+                - 跟踪重定向查询
+                  - 显示重定向跟踪任务(DSP RDTTRCTASK)
+              - 跟踪参数管理
+                - 查询跟踪参数(LST TRC_CFG)
+                - 设置跟踪参数(SET TRC_CFG)
+          - 接口管理
+            - 网络管理
+              - 业务快速恢复
+                - 将指定在线承载变为保留承载
+                  - 设置在线承载为保留承载（SET MAINTAINIMSI）
+                - SGW IP
+                  - 查询SGW IP（LST SGWIPTOSGWPOOL）
+                  - 删除SGW IP（RMV SGWIPTOSGWPOOL）
+                  - 增加SGW IP（ADD SGWIPTOSGWPOOL）
+                - MME Pool
+                  - 查询MME POOL（LST MMEPOOL）
+                  - 修改MME POOL（MOD MMEPOOL）
+                  - 增加MME POOL（ADD MMEPOOL）
+                  - 删除MME POOL（RMV MMEPOOL）
+                - MME IP
+                  - 增加MME IP（ADD MMEIPTOMMEPOOL）
+                  - 查询MME IP（LST MMEIPTOMMEPOOL）
+                  - 修改MME IP（MOD MMEIPTOMMEPOOL）
+                  - 删除MME IP（RMV MMEIPTOMMEPOOL）
+                - SGW Pool
+                  - 删除SGW POOL（RMV SGWPOOL）
+                  - 查询SGW POOL（LST SGWPOOL）
+                  - 增加SGW POOL（ADD SGWPOOL）
+                - 全局参数
+                  - 设置全局业务快速恢复配置（SET CPFASTRECOVERY）
+                  - 查询全局业务快速恢复配置（LST CPFASTRECOVERY）
+              - 链路状态
+                - 显示链路信息(DSP LINKINFO)
+            - 服务化接口管理
+              - 注册与服务发现
+                - NF优选区域管理
+                  - 增加目标NF发现和选择的位置匹配信息（ADD NFLOC）
+                  - 修改目标NF发现和选择的位置匹配信息（MOD NFLOC）
+                  - 查询目标NF发现和选择的位置匹配信息（LST NFLOC）
+                  - 删除目标NF发现和选择的位置匹配信息（RMV NFLOC）
+                - 网络切片内DNN管理
+                  - 删除网络切片支持的DNN（RMV NSDNN）
+                  - 修改网络切片支持的DNN（MOD NSDNN）
+                  - 查询网络切片支持的DNN（LST NSDNN）
+                  - 增加网络切片支持的DNN（ADD NSDNN）
+                - NF支持的切片管理
+                  - 增加NF支持的网络切片（ADD NFNS）
+                  - 查询NF支持的网络切片（LST NFNS）
+                  - 删除NF支持的网络切片（RMV NFNS）
+                - NRF管理
+                  - NRF参数管理
+                    - 注册与订阅管理
+                      - 删除NF的订阅上下文（RMV NFSUBS）
+                      - 查询NF订阅信息（DSP NFSUBCONDITIONS）
+                      - 修改NF订阅条件（MOD SUBCONDITION）
+                      - 删除NF订阅条件（RMV SUBCONDITION）
+                      - 增加NF订阅条件（ADD SUBCONDITION）
+                      - 设置对端网元的通知抑制时间（SET PNFNTFPLCY）
+                      - 查询对端网元的通知抑制时间（LST PNFNTFPLCY）
+                      - 查询NF订阅条件（LST SUBCONDITION）
+                    - NRF配置参数管理
+                      - 增加NRF协议参数（ADD NRFPARA）
+                      - 修改NRF协议参数（MOD NRFPARA）
+                      - 删除NRF协议参数（RMV NRFPARA）
+                      - 查询NRF协议参数（LST NRFPARA）
+                    - NF与NRF间全局管理参数管理
+                      - 查询NF与NRF间的全局管理参数（LST NFNRFMGMTPARA）
+                      - 设置NF与NRF间的全局管理参数（SET NFNRFMGMTPARA）
+                  - NRF地址管理
+                    - NRF实例地址管理
+                      - 修改NRF实例地址信息（MOD NRFADDR）
+                      - 增加NRF实例地址信息（ADD NRFADDR）
+                      - 查询NRF实例地址信息（LST NRFADDR）
+                      - 删除NRF实例地址信息（RMV NRFADDR）
+                  - NRF配置管理
+                    - NF与NRF注册关系
+                      - 修改本端NF和对端NRF实例的注册关系（MOD NFREGNRF）
+                      - 删除本端NF和对端NRF实例的注册关系（RMV NFREGNRF）
+                      - 增加本端NF和对端NRF实例的注册关系（ADD NFREGNRF）
+                      - 查询本端NF和对端NRF实例的注册关系（LST NFREGNRF）
+                    - NRF实例配置管理
+                      - 修改NRF信息（MOD NRF）
+                      - 显示当前NRF实例信息（DSP CURNRFINFO）
+                      - 删除NRF信息（RMV NRF）
+                      - 增加NRF信息（ADD NRF）
+                      - 查询NRF信息（LST NRF）
+                - 本地NRF功能管理
+                  - 对端NF实例PLMN管理
+                    - 增加对端NF的PLMN信息（ADD PNFPLMN）
+                    - 查询对端NF的PLMN信息（LST PNFPLMN）
+                    - 删除对端NF的PLMN信息（RMV PNFPLMN）
+                  - 对端NF域名信息管理
+                    - 增加对端NF允许的域名信息（ADD PNFALLOWDOMAIN）
+                    - 查询对端NF允许的域名信息（LST PNFALLOWDOMAIN）
+                    - 删除对端NF允许的域名信息（RMV PNFALLOWDOMAIN）
+                  - 对端NF实例TAI范围管理
+                    - 增加对端NF的TAI范围（ADD PNFTAIRANGE）
+                    - 查询对端NF的TAI范围（LST PNFTAIRANGE）
+                    - 修改对端NF的TAI范围（MOD PNFTAIRANGE）
+                    - 删除对端NF的TAI范围（RMV PNFTAIRANGE）
+                  - 目标NF实例绑定组管理
+                    - 删除目标NF实例绑定组（RMV TNFBINDGRP）
+                    - 查询目标NF实例绑定组（LST TNFBINDGRP）
+                    - 增加目标NF实例绑定组（ADD TNFBINDGRP）
+                    - 修改目标NF实例绑定组（MOD TNFBINDGRP）
+                  - 对端NF实例概述信息管理
+                    - 修改对端NF实例概述信息（MOD PNFPROFILE）
+                    - 增加对端NF实例概述信息（ADD PNFPROFILE）
+                    - 删除对端NF实例概述信息（RMV PNFPROFILE）
+                    - 查询对端NF实例概述信息（LST PNFPROFILE）
+                  - 对端服务实例回调管理
+                    - 查询对端NF服务实例的回调信息（LST PNFSRVNTFSUBS）
+                    - 修改对端NF服务实例的回调信息（MOD PNFSRVNTFSUBS）
+                    - 删除对端NF服务实例的回调信息（RMV PNFSRVNTFSUBS）
+                    - 增加对端NF服务实例的回调信息（ADD PNFSRVNTFSUBS）
+                  - NF发现策略管理
+                    - 删除对端NF的服务发现策略（RMV PNFDISCPLCY）
+                    - 查询对端NF的服务发现策略（LST PNFDISCPLCY）
+                    - 查询NF的服务发现策略（LST NFDISCPLCY）
+                    - 设置NF的服务发现策略（SET NFDISCPLCY）
+                    - 查询网元服务发现功能管理参数（LST NFDISCMGMTPARA）
+                    - 增加对端NF的服务发现策略（ADD PNFDISCPLCY）
+                    - 增加网元服务发现功能管理参数（ADD NFDISCMGMTPARA）
+                    - 修改网元服务发现功能管理参数（MOD NFDISCMGMTPARA）
+                    - 修改对端NF的服务发现策略（MOD PNFDISCPLCY）
+                    - 删除网元服务发现功能管理参数（RMV NFDISCMGMTPARA）
+                  - 对端AMF信息管理
+                    - 增加对端AMF信息（ADD PNFAMFINFO）
+                    - 删除对端AMF信息（RMV PNFAMFINFO）
+                    - 查询对端AMF信息（LST PNFAMFINFO）
+                    - 修改对端AMF信息（MOD PNFAMFINFO）
+                  - 对端GMLC信息管理
+                    - 删除对端GMLC信息（RMV PNFGMLCINFO）
+                    - 修改对端GMLC信息（MOD PNFGMLCINFO）
+                    - 增加对端GMLC的信息（ADD PNFGMLCINFO）
+                    - 查询对端GMLC的信息（LST PNFGMLCINFO）
+                  - NF发现Scheme优选策略管理
+                    - 增加服务发现Scheme优选策略（ADD NFDISCSCHEMEPLY）
+                    - 删除服务发现Scheme优选策略（RMV NFDISCSCHEMEPLY）
+                    - 查询服务发现Scheme优选策略（LST NFDISCSCHEMEPLY）
+                    - 修改服务发现Scheme优选策略（MOD NFDISCSCHEMEPLY）
+                  - 对端DNAI信息管理
+                    - 查询对端NF的DNAI信息（LST PNFDNAI）
+                    - 修改对端NF的DNAI信息（MOD PNFDNAI）
+                    - 增加对端NF的DNAI信息（ADD PNFDNAI）
+                    - 删除对端NF的DNAI信息（RMV PNFDNAI）
+                  - SCP信息管理
+                    - 查询SCP参数（LST SCPPARA）
+                    - 设置SCP参数（SET SCPPARA）
+                  - 对端NF实例SUPI信息管理
+                    - 增加对端NF的SUPI信息（ADD PNFSUPI）
+                    - 删除对端NF的SUPI信息（RMV PNFSUPI）
+                    - 查询对端NF的SUPI信息（LST PNFSUPI）
+                  - 对端NF实例网络切片标识管理
+                    - 查询对端NF实例网络切片标识（LST PNFNSILST）
+                    - 增加对端NF实例网络切片标识（ADD PNFNSILST）
+                    - 删除对端NF实例网络切片标识（RMV PNFNSILST）
+                  - 对端NF通配策略管理
+                    - 删除对端NF的通配策略（RMV PNFWILDCARD）
+                    - 查询对端NF的通配策略（LST PNFWILDCARD）
+                    - 修改对端NF的通配策略（MOD PNFWILDCARD）
+                    - 增加对端NF的通配策略（ADD PNFWILDCARD）
+                  - 对端NF实例PCF信息管理
+                    - 删除对端PCF信息（RMV PNFPCFINFO）
+                    - 增加对端PCF信息（ADD PNFPCFINFO）
+                    - 查询对端PCF信息（LST PNFPCFINFO）
+                  - 对端服务实例信息管理
+                    - 删除对端NF服务实例信息（RMV PNFSERVICE）
+                    - 增加对端NF服务实例信息（ADD PNFSERVICE）
+                    - 修改对端NF服务实例信息（MOD PNFSERVICE）
+                    - 查询对端NF服务实例信息（LST PNFSERVICE）
+                  - 对端SMF服务区管理
+                    - 删除对端NF的SMF服务区域信息（RMV PNFSMFSERAREA）
+                    - 增加对端NF的SMF服务区域信息（ADD PNFSMFSERAREA）
+                    - 查询对端NF的SMF服务区域信息（LST PNFSMFSERAREA）
+                    - 修改对端NF的SMF服务区域信息（MOD PNFSMFSERAREA）
+                  - 对端NF UPF信息管理
+                    - 增加对端UPF信息（ADD PNFUPFINFO）
+                    - 删除对端UPF信息（RMV PNFUPFINFO）
+                    - 修改对端UPF信息（MOD PNFUPFINFO）
+                    - 查询对端UPF信息（LST PNFUPFINFO）
+                  - 对端NF服务区信息管理
+                    - 查询对端NF的服务区信息（LST PNFSRVSCOPE）
+                    - 增加对端NF的服务区信息（ADD PNFSRVSCOPE）
+                    - 删除对端NF的服务区信息（RMV PNFSRVSCOPE）
+                  - 目标NF组管理
+                    - 查询目标NF组（LST TNFGRP）
+                    - 增加目标NF组（ADD TNFGRP）
+                    - 删除目标NF组（RMV TNFGRP）
+                  - 对端NF实例切片信息管理
+                    - 查询对端NF的切片信息（LST PNFNS）
+                    - 删除对端NF的切片信息（RMV PNFNS）
+                    - 增加对端NF的切片信息（ADD PNFNS）
+                    - 修改对端NF的切片信息（MOD PNFNS）
+                  - 对端NF扩展组管理
+                    - 增加对端NF的外部群组信息（ADD PNFEXGROUPID）
+                    - 查询对端NF的外部群组信息（LST PNFEXGROUPID）
+                    - 删除对端NF的外部群组信息（RMV PNFEXGROUPID）
+                  - 对端NF的PLMN信息管理
+                    - 查询对端NF允许的PLMN信息（LST PNFALLOWEDPLMN）
+                    - 删除对端NF允许的PLMN信息（RMV PNFALLOWEDPLMN）
+                    - 增加对端NF允许的PLMN信息（ADD PNFALLOWEDPLMN）
+                  - 对端GUAMI信息管理
+                    - 查询对端AMF的GUAMI信息（LST PNFGUAMI）
+                    - 增加对端AMF的GUAMI信息（ADD PNFGUAMI）
+                    - 删除对端AMF的GUAMI信息（RMV PNFGUAMI）
+                  - 目标NF实例IP地址管理
+                    - 删除目标NF实例IP地址（RMV TNFINSIP）
+                    - 增加目标NF实例IP地址（ADD TNFINSIP）
+                    - 查询目标NF实例IP地址（LST TNFINSIP）
+                  - 对端NF实例TAI信息
+                    - 查询对端NF的TAI信息（LST PNFTAI）
+                    - 增加对端NF的TAI信息（ADD PNFTAI）
+                    - 删除对端NF的TAI信息（RMV PNFTAI）
+                    - 修改对端NF的TAI信息（MOD PNFTAI）
+                  - 对端SMF域名信息管理
+                    - 增加对端SMF的信息（ADD PNFSMFINFO）
+                    - 删除对端SMF的信息（RMV PNFSMFINFO）
+                    - 查询对端SMF的信息（LST PNFSMFINFO）
+                  - 对端NF实例GPSI信息
+                    - 增加对端NF的GPSI信息（ADD PNFGPSI）
+                    - 修改对端NF的GPSI信息（MOD PNFGPSI）
+                    - 查询对端NF的GPSI信息（LST PNFGPSI）
+                    - 删除对端NF的GPSI信息（RMV PNFGPSI）
+                  - 目标NF实例管理
+                    - 增加目标NF实例（ADD TNFINS）
+                    - 查询目标NF实例（LST TNFINS）
+                    - 修改目标NF实例（MOD TNFINS）
+                    - 删除目标NF实例（RMV TNFINS）
+                  - 对端NWDAF信息管理
+                    - 删除对端NWDAF信息（RMV PNFNWDAFEVENT）
+                    - 增加对端NWDAF信息（ADD PNFNWDAFEVENT）
+                    - 查询对端NWDAF信息（LST PNFNWDAFEVENT）
+                    - 修改对端NWDAF信息（MOD PNFNWDAFEVENT）
+                  - 对端服务实例版本信息管理
+                    - 查询对端NF的服务实例的版本信息（LST PNFSERVICEVER）
+                    - 删除对端NF的服务实例的版本信息（RMV PNFSERVICEVER）
+                    - 增加对端NF的服务实例的版本信息（ADD PNFSERVICEVER）
+                  - 对端DNN信息管理
+                    - 删除对端NF的DNN信息（RMV PNFDNN）
+                    - 增加对端NF的DNN信息（ADD PNFDNN）
+                    - 修改对端NF的DNN信息（MOD PNFDNN）
+                    - 查询对端NF的DNN信息（LST PNFDNN）
+                  - 对端NF实例PLMN范围管理
+                    - 删除对端NF的PLMN范围（RMV PNFPLMNRANGE）
+                    - 增加对端NF的PLMN范围（ADD PNFPLMNRANGE）
+                    - 修改对端NF的PLMN范围（MOD PNFPLMNRANGE）
+                    - 查询对端NF的PLMN范围（LST PNFPLMNRANGE）
+                  - 对端LMF信息管理
+                    - 修改对端LMF信息（MOD PNFLMFINFO）
+                    - 查询对端LMF的信息（LST PNFLMFINFO）
+                    - 增加对端LMF的信息（ADD PNFLMFINFO）
+                    - 删除对端LMF信息（RMV PNFLMFINFO）
+                  - NF发现NFS负载均衡管理
+                    - 增加服务发现NF Service负载均衡开关（ADD NFDISCSRVLBSW）
+                    - 查询服务发现Service负载均衡功能（LST NFDISCSRVLBSW）
+                    - 删除服务发现Service负载均衡功能（RMV NFDISCSRVLBSW）
+                    - 修改服务发现Service负载均衡功能（MOD NFDISCSRVLBSW）
+                  - 对端NF实例优先级权重信息管理
+                    - 显示UPF优先级和权重（DSP PNFPRICAP）
+                  - 对端NF组管理
+                    - 删除对端NF的群组信息（RMV PNFGROUPID）
+                    - 查询对端NF的群组信息（LST PNFGROUPID）
+                    - 增加对端NF的群组信息（ADD PNFGROUPID）
+                  - NF更新管理
+                    - 查询NF更新方式（LST NFUPDATE）
+                    - 设置NF更新方式（SET NFUPDATE）
+                  - 对端NF服务切片信息管理
+                    - 查询对端NF允许的切片信息（LST PNFALLOWEDNFNS）
+                    - 增加对端NF允许的切片信息（ADD PNFALLOWEDNFNS）
+                    - 删除对端NF允许的切片信息（RMV PNFALLOWEDNFNS）
+                  - 对端NF路由标识信息
+                    - 查询对端NF的路由指示信息（LST PNFROUTEIND）
+                    - 删除对端NF的路由指示信息（RMV PNFROUTEIND）
+                    - 增加对端NF的路由指示信息（ADD PNFROUTEIND）
+                - NF 状态管理
+                  - 更新NF注册信息（ACT NFUPDATE）
+                  - 激活NF上线（ACT NFONLINE）
+                  - 测试NF和NRF上的网元信息是否一致（TST NFPROFILECHECK）
+                  - 查询NF向NRF注册状态（DSP NFREGNRFSTATUS）
+                  - 激活NF下线（ACT NFOFFLINE）
+                - 服务支持的切片实例管理
+                  - 删除服务支持的切片实例（RMV CPSLICEINSTINFO）
+                  - 查询服务支持的切片实例（LST CPSLICEINSTINFO）
+                  - 增加服务支持的切片实例（ADD CPSLICEINSTINFO）
+                - NF UUID信息管理
+                  - 增加NF UUID信息（ADD NFUUID）
+                  - 查询NF UUID信息（LST NFUUID）
+                  - 删除NF UUID信息（RMV NFUUID）
+                - 服务支持的PLMN配置管理
+                  - 删除NF或NF服务支持的PLMN（RMV ALLOWEDPLMN）
+                  - 查询NF或NF服务支持的PLMN（LST ALLOWEDPLMN）
+                  - 增加NF或NF服务支持的PLMN（ADD ALLOWEDPLMN）
+                - NF SUPIRANGE信息管理
+                  - 增加NF SUPIRANGE信息（ADD NFSUPIRANGE）
+                  - 删除NF SUPIRANGE信息（RMV NFSUPIRANGE）
+                  - 查询NF SUPIRANGE信息（LST NFSUPIRANGE）
+                - 服务区管理
+                  - 查询NF支持服务区信息（LST NFSRVSCOPE）
+                  - 增加NF支持服务区信息（ADD NFSRVSCOPE）
+                  - 删除NF支持服务区信息（RMV NFSRVSCOPE）
+                - NF概述信息管理
+                  - 查询本端NF大区和省份数据管理参数（LST NFREGIONINFO）
+                  - 增加NF实例概述信息（ADD CPNFPROFILE）
+                  - 显示网元概述信息（DSP REGNFPROFILE）
+                  - 删除NF实例概述信息（RMV CPNFPROFILE）
+                  - 修改NF实例概述信息（MOD CPNFPROFILE）
+                  - 设置本端NF大区和省份数据管理参数（SET NFREGIONINFO）
+                  - 查询NF实例概述信息（LST CPNFPROFILE）
+                - NF TAI区域信息管理
+                  - 删除NF TAI区域信息（RMV TAIRANGELIST）
+                  - 查询NF TAI区域信息（LST TAIRANGELIST）
+                  - 增加NF TAI区域信息（ADD TAIRANGELIST）
+                - NF服务配置管理
+                  - 查询NF服务实例（LST CPNFSERVICE）
+                  - 删除NF服务实例（RMV CPNFSERVICE）
+                  - 增加NF服务实例（ADD CPNFSERVICE）
+                  - 修改NF服务实例（MOD CPNFSERVICE）
+                - NF定时器管理
+                  - 设置NF管理模块的定时器配置（SET NFMGMTTIMER）
+                  - 查询NF管理模块的定时器配置（LST NFMGMTTIMER）
+                - 服务支持的域名配置管理
+                  - 删除NF或NF服务支持的域名（RMV ALLOWEDNFDOMAIN）
+                  - 查询NF或NF服务支持的域名（LST ALLOWEDNFDOMAIN）
+                  - 增加NF或NF服务支持的域名（ADD ALLOWEDNFDOMAIN）
+                - NF GPSIRANGE信息管理
+                  - 增加NF GPSIRANGE信息（ADD NFGPSIRANGE）
+                  - 查询NF GPSIRANGE信息（LST NFGPSIRANGE）
+                  - 删除NF GPSIRANGE信息（RMV NFGPSIRANGE）
+                - NF服务订阅管理
+                  - 修改服务回调信息（MOD NFSRVNTFSUBS）
+                  - 查询服务回调信息（LST NFSRVNTFSUBS）
+                  - 删除服务回调信息（RMV NFSRVNTFSUBS）
+                  - 添加服务回调信息（ADD NFSRVNTFSUBS）
+                - 服务支持的切片配置管理
+                  - 删除NF或NF服务支持的切片（RMV ALLOWEDNFNS）
+                  - 增加NF或NF服务支持的切片（ADD ALLOWEDNFNS）
+                  - 查询NF或NF服务支持的切片（LST ALLOWEDNFNS）
+                - NF Cache管理
+                  - 删除缓存更新策略（RMV CACHEUPDATEPLCY）
+                  - 设置缓存策略（SET CACHEPLCY）
+                  - 查询缓存更新策略（LST CACHEUPDATEPLCY）
+                  - 清除NF缓存（CLR CPNFCACHE）
+                  - 查询缓存策略（LST CACHEPLCY）
+                  - 增加缓存更新策略（ADD CACHEUPDATEPLCY）
+                  - 操作远端NF缓存同步（OPR NFCACHESYNC）
+                  - 查询异网白名单PLMN信息（LST CACHEWHITELST）
+                  - 修改缓存更新策略（MOD CACHEUPDATEPLCY）
+                  - 设置缓存数据规格（SET CACHESPECS）
+                  - 查询NF缓存信息（DSP CPNFCACHE）
+                  - 删除异网白名单PLMN信息（RMV CACHEWHITELST）
+                  - 增加异网白名单PLMN信息（ADD CACHEWHITELST）
+                  - 测试服务发现的NF信息（TST NRF）
+                  - 查询缓存数据规格（LST CACHESPECS）
+                - NF GROUP信息管理
+                  - 查询NF群组信息（LST NFGROUPID）
+                  - 删除NF群组信息（RMV NFGROUPID）
+                  - 增加NF群组信息（ADD NFGROUPID）
+                - 负载控制信息管理
+                  - 查询服务化接口负载控制参数（LST SBILCIPARA）
+                  - 设置服务化接口负载控制参数（SET SBILCIPARA）
+                - NF服务版本管理
+                  - 查询NF服务版本信息（LST NFSERVICEVER）
+                  - 删除NF服务版本信息（RMV NFSERVICEVER）
+                  - 添加NF服务版本信息（ADD NFSERVICEVER）
+                - 服务发现自适应流控
+                  - 设置服务发现自适应流控全局配置（SET DISCADAPTFCPARA）
+                  - 删除服务发现自适应流控NF级配置（RMV DISCADAPTFC）
+                  - 查询服务发现自适应流控NF级配置（LST DISCADAPTFC）
+                  - 查询服务发现自适应流控全局配置（LST DISCADAPTFCPARA）
+                  - 增加服务发现自适应流控NF级配置（ADD DISCADAPTFC）
+                  - 修改服务发现自适应流控NF级配置（MOD DISCADAPTFC）
+                - NF TAC区域信息管理
+                  - 修改NF TAC区域信息（MOD TACRANGE）
+                  - 删除NF TAC区域信息（RMV TACRANGE）
+                  - 查询NF TAC区域信息（LST TACRANGE）
+                  - 增加NF TAC区域信息（ADD TACRANGE）
+                - 漫游参数管理
+                  - 设置漫游管理参数（SET ROAMMGMTPARA）
+                  - 查询漫游管理参数（LST ROAMMGMTPARA）
+                - 网络切片实例列表管理
+                  - 删除NF支持切片信息（RMV NSILIST）
+                  - 查询NF支持切片信息（LST NSILIST）
+                  - 增加NF支持切片信息（ADD NSILIST）
+                - NF TAI信息管理
+                  - 查询NF TAI信息（LST NFTAI）
+                  - 增加NF TAI信息（ADD NFTAI）
+                  - 删除NF TAI信息（RMV NFTAI）
+                - AMF概述信息控制策略
+                  - 查询AMF上报NFPROFILE策略（LST AMFPROFILEPLCY）
+                  - 设置AMF上报NFPROFILE策略（SET AMFPROFILEPLCY）
+              - 通信模式管理
+                - 间接路由管理
+                  - 查询间接路由功能（LST SCPFUNCSW）
+                  - 设置间接路由功能（SET SCPFUNCSW）
+              - NF通信模式管理
+                - NF间接路由管理
+                  - 删除NF路由策略（RMV NFROUTEPLCY）
+                  - 增加NF路由策略（ADD NFROUTEPLCY）
+                  - 修改NF路由策略（MOD NFROUTEPLCY）
+                  - 查询NF路由策略（LST NFROUTEPLCY）
+                - FQDN端口策略管理
+                  - 增加FQDN端口策略（ADD SBIFQDNPORTPLCY）
+                  - 修改FQDN端口策略（MOD SBIFQDNPORTPLCY）
+                  - 删除FQDN端口策略（RMV SBIFQDNPORTPLCY）
+                  - 查询FQDN端口策略（LST SBIFQDNPORTPLCY）
+              - SEPP管理
+                - SEPP组管理
+                  - 删除SEPP绑定组关系（RMV SEPPBINDGRP）
+                  - 查询SEPP绑定组关系（LST SEPPBINDGRP）
+                  - 增加SEPP绑定组关系（ADD SEPPBINDGRP）
+                  - 修改SEPP绑定组关系（MOD SEPPBINDGRP）
+                - SEPP组PLMN管理
+                  - 修改PLMN与SEPP组的绑定关系（MOD PLMNBINDSEPPGRP）
+                  - 删除PLMN与SEPP组的绑定关系（RMV PLMNBINDSEPPGRP）
+                  - 增加PLMN与SEPP组的绑定关系（ADD PLMNBINDSEPPGRP）
+                  - 查询PLMN与SEPP组的绑定关系（LST PLMNBINDSEPPGRP）
+              - CHR管理
+                - CHR上报管理
+                  - 设置关键流程CHR上报管理参数（SET CHRMGMTPARA）
+                  - 查询关键流程CHR上报管理参数（LST CHRMGMTPARA）
+              - 拨测管理
+                - 删除间接路由拨测用户配置（RMV SBIDIALTEST）
+                - 查询间接路由拨测用户配置（LST SBIDIALTEST）
+                - 增加间接路由拨测用户配置（ADD SBIDIALTEST）
+              - 漫游通信模式管理
+                - 漫游间接路由管理
+                  - 查询漫游跨PLMN场景间接路由功能（LST ROAMSCPFUNCSW）
+                  - 增加漫游跨PLMN场景间接路由配置（ADD ROAMSCPFUNCSW）
+                  - 删除漫游跨PLMN场景间接路由配置（RMV ROAMSCPFUNCSW）
+                - 漫游通信策略管理
+                  - 设置漫游通信策略（SET ROAMCOMMPLCY）
+                  - 查询漫游通信策略（LST ROAMCOMMPLCY）
+            - N4 GTP-U管理
+              - N4 GTP-U路径管理
+                - 显示GTPU路径信息（DSP GTPUPATHINFO）
+                - 测试GTPU路径（TST GTPUPATHINFO）
+                - 删除GTPU路径（DEL GTPUPATHINFO）
+              - N4 GTP-U地址管理
+                - 删除CP GTP-U地址（RMV CPGTPUADDR）
+                - 增加CP GTP-U地址（ADD CPGTPUADDR）
+                - 查询CP GTP-U地址（LST CPGTPUADDR）
+              - 流过滤器
+                - 删除CP流过滤器（RMV CPFLOWFILTER）
+                - 增加CP流过滤器（ADD CPFLOWFILTER）
+                - 查询CP流过滤器（LST CPFLOWFILTER）
+              - N4 GTP-U路径参数管理
+                - 设置GTPU参数（SET CPGTPUPARA）
+                - 查询GTPU参数（LST CPGTPUPARA）
+            - 计费和策略接口管理
+              - Diameter管理
+                - Diameter Realm
+                  - 全局Realm
+                    - 查询全局Diameter域（LST GLBDIAMREALM）
+                    - 修改全局Diameter域（MOD GLBDIAMREALM）
+                    - 增加全局Diameter域（ADD GLBDIAMREALM）
+                    - 删除全局Diameter域（RMV GLBDIAMREALM）
+                  - Realm绑定APN
+                    - 修改APN与Diameter Realm关联关系（MOD REALMBINDAPN）
+                    - 删除APN与Diameter Realm关联关系（RMV REALMBINDAPN）
+                    - 查询APN与Diameter Realm关联关系（LST REALMBINDAPN）
+                    - 增加APN与Diameter Realm关联关系（ADD REALMBINDAPN）
+                - Diameter连接
+                  - Diamter本端主机组
+                    - 删除Diameter本端主机组（RMV LOCALHOSTGRP）
+                    - 增加Diameter本端主机组（ADD LOCALHOSTGRP）
+                    - 查询Diameter本端信息组（LST LOCALHOSTGRP）
+                  - 服务器地址
+                    - 增加Diameter对端地址(ADD DIAMPEERADDR)
+                    - 删除Diameter对端地址（RMV DIAMPEERADDR）
+                    - 查询Diameter对端地址（LST DIAMPEERADDR）
+                  - Diamter本端主机组绑定
+                    - 查询Diameter本端主机与Diameter本端主机组的关联关系（LST LOCALHOSTBIND）
+                    - 删除Diameter本端主机与Diameter本端主机组的关联关系（RMV LOCALHOSTBIND）
+                    - 增加Diameter本端主机与Diameter本端主机组的关联关系（ADD LOCALHOSTBIND）
+                  - 关联UPF组与Diameter本端主机组的关联关系
+                    - 查询UPF组与Diameter本端主机组的关联关系（LST UPFGBINDLOCG）
+                    - 删除UPF组与Diameter本端主机组的关联关系（RMV UPFGBINDLOCG）
+                    - 修改UPF组与Diameter本端主机组的关联关系（MOD UPFGBINDLOCG）
+                    - 增加UPF组与Diameter本端主机组的关联关系（ADD UPFGBINDLOCG）
+                  - Diameter链路组
+                    - 修改Diameter链路组（MOD DIAMCONNGRP）
+                    - 增加Diameter链路组(ADD DIAMCONNGRP)
+                    - 删除Diameter链路组（RMV DIAMCONNGRP）
+                    - 查询Diameter链路组（LST DIAMCONNGRP）
+                  - 重建Diameter链路组
+                    - 重建Diameter链路组（RST DIAMCONNGRP）
+                  - UPF组与Diam本端主机组的绑定关系组
+                    - 查询UPF组与Diameter本端主机组的绑定关系组（LST UPFGLOCGBNDGRP）
+                    - 删除UPF组与Diameter本端主机组的绑定关系组（RMV UPFGLOCGBNDGRP）
+                    - 增加UPF组与Diameter本端主机组的绑定关系组（ADD UPFGLOCGBNDGRP）
+                  - Diameter本端信息
+                    - 查询Diameter本端信息（LST DIAMLOCINFO）
+                    - 增加Diameter本端信息（ADD DIAMLOCINFO）
+                    - 删除Diameter本端信息（RMV DIAMLOCINFO）
+                    - 修改Diameter本端信息（MOD DIAMLOCINFO）
+                  - Diameter链路拥塞控制
+                    - 查询Diameter链路拥塞控制（LST LINKCONGCTRL）
+                    - 设置Diameter链路拥塞控制（SET LINKCONGCTRL）
+                  - Diameter链路
+                    - 修改Diameter链路（MOD DIAMCONNECTION）
+                    - 增加Diameter链路(ADD DIAMCONNECTION)
+                    - 删除Diameter链路（RMV DIAMCONNECTION）
+                    - 查询Diameter链路（LST DIAMCONNECTION）
+                - 公共参数
+                  - Diameter公共参数
+                    - 查询TC定时器（LST TCTIMER）
+                    - 设置对Gy接口的cea消息中的Origin-Host检查开关（SET CEAORIGHOSTCHK）
+                    - 查询对Gy接口的cea消息中的Origin-Host检查开关（LST CEAORIGHOSTCHK）
+                    - 设置TW定时器（SET TWTIMER）
+                    - 查询TW定时器（LST TWTIMER）
+                    - 设置TC定时器（SET TCTIMER）
+                  - TCP SACK开关
+                    - 设置TCP SACK开关配置（SET TCPSACKSWITCH）
+                    - 查询TCP SACK开关配置（LST TCPSACKSWITCH）
+                - 路由管理
+                  - 路由状态
+                    - 显示Diameter Route状态（DSP DIAMRTSTATUS）
+                  - Diameter路由
+                    - 修改Diameter路由域名信息（MOD DIAMRTREALM）
+                    - 查询Diameter路由域名信息（LST DIAMRTREALM）
+                    - 增加Diameter路由域名信息（ADD DIAMRTREALM）
+                    - 删除Diameter路由域名信息（RMV DIAMRTREALM）
+                  - Diameter路由配置
+                    - 删除Diameter路由下一跳（RMV DIAMRTNEXTHOP）
+                    - 查询Diameter路由下一跳（LST DIAMRTNEXTHOP）
+                    - 增加Diameter路由下一跳（ADD DIAMRTNEXTHOP）
+                - 路由控制
+                  - Diameter路由控制
+                    - 查询Diameter参数（LST DIAMETERPARA）
+                    - 设置Diameter参数（SET DIAMETERPARA）
+                  - 路径选择控制
+                    - 设置直连路径优先开关（SET DIRECTPATHFIRST）
+                    - 查询直连路径优先开关（LST DIRECTPATHFIRST）
+                - DRA管理
+                  - DRA信息
+                    - 修改DRA（MOD DRA）
+                    - 查询DRA（LST DRA）
+                    - 删除DRA（RMV DRA）
+                    - 增加DRA（ADD DRA）
+                  - DRA状态
+                    - 显示DRA状态（DSP DRASTATUS）
+                - Diameter字典管理
+                  - 加载路径
+                    - 查询Diameter字典加载路径（LST DIAMDICTPATH）
+                    - 增加Diameter字典加载路径（ADD DIAMDICTPATH）
+                    - 删除Diameter字典加载路径（RMV DIAMDICTPATH）
+                    - 修改Diameter字典加载路径（MOD DIAMDICTPATH）
+                  - 加载字典
+                    - 加载Diameter字典（LOD DIAMDICT）
+                  - 加载状态
+                    - 显示Diameter字典加载状态（DSP DIAMDICTSTAT）
+              - SCTP管理
+                - SCTP模板
+                  - 查询SCTP模板（LST SCTPTEMPLATE）
+                  - 增加SCTP模板（ADD SCTPTEMPLATE）
+                  - 删除SCTP模板（RMV SCTPTEMPLATE）
+                  - 修改SCTP模板（MOD SCTPTEMPLATE）
+                - SCTP基础参数
+                  - 查询SCTP全局参数（LST GLBSCTPPARA）
+                  - 恢复SCTP全局参数（RTR GLBSCTPPARA）
+                  - 设置SCTP全局参数（SET GLBSCTPPARA）
+                - SCTP端点
+                  - 增加SCTP端点（ADD SCTPENDPOINT）
+                  - 删除SCTP端点（RMV SCTPENDPOINT）
+                  - 修改SCTP端点（MOD SCTPENDPOINT）
+                  - 查询SCTP端点（LST SCTPENDPOINT）
+                - SCTP偶联
+                  - 显示SCTP耦联信息（DSP CPSCTPASSOC）
+                - SCTP测量对象
+                  - 删除SCTP耦联测量对象（RMV CPSCTPASSOC）
+                  - 增加SCTP耦联测量对象（ADD CPSCTPASSOC）
+                  - 查询SCTP耦联测量对象（LST CPSCTPASSOC）
+              - 失败旁路处理
+                - 恢复旁路失败处理的配置参数（RTR FHBYPASS）
+                - 查询失败旁路处理配置（LST FHBYPASS）
+                - 设置失败旁路处理（SET FHBYPASS）
+              - 链路管理
+                - 查询链路迁移控制参数（LST LINKMIGCTRL）
+                - 激活一次链路迁移操作（ACT LINKMIGRATION）
+                - 设置链路迁移控制参数（SET LINKMIGCTRL）
+              - 过载返回码
+                - 查询判断对端过载的返回码（LST OVERLOADRC）
+                - 设置判断对端过载的返回码（SET OVERLOADRC）
+              - 逻辑接口
+                - 增加逻辑接口(ADD CPLOGICINF)
+                - 查询逻辑接口（LST CPLOGICINF）
+                - 删除逻辑接口（RMV CPLOGICINF）
+                - 修改逻辑接口（MOD CPLOGICINF）
+              - 基础参数
+                - 集中点模式
+                  - 设置集中点部署模式(SET CONCENPOINT)
+                  - 查询集中点部署模式（LST CONCENPOINT）
+              - VPN
+                - 增加VPN实例（ADD CPVPNINST）
+                - 删除VPN实例（RMV CPVPNINST）
+                - 查询VPN实例（LST CPVPNINST）
+            - GTP-C接口配置管理
+              - ASN静态配置
+                - 查询静态ASN（LST STATICASN）
+                - 删除静态ASN（RMV STATICASN）
+                - 增加静态ASN（ADD STATICASN）
+              - GTP-C本地实体组
+                - 修改GTP-C本地实体组（MOD GTPCLEGRP）
+                - 删除GTP-C本地实体组（RMV GTPCLEGRP）
+                - 增加GTP-C本地实体组（ADD GTPCLEGRP）
+                - 查询GTP-C本地实体组（LST GTPCLEGRP）
+              - GTP-C路径维护
+                - 显示UAM GTP-C路径数量（DSP COMGTPCPATHNUM）
+                - 测试UAM GTP-C路径状态（TST UAMGTPCPATH）
+                - 显示GTP-C链路信息（DSP GTPCPATHINFO）
+                - 删除GTP-C路径（RMV GTPCPATHINFO）
+                - 显示UAM GTPC路径信息（DSP COMGTPCPATHINFO）
+                - 测试GTP-C路径以及查询非知名端口号范围（TST GTPCPATHINFO）
+                - 显示GTP-C路径当前及历史状态（DSP GTPCSTATUSINFO）
+                - 显示GTPC路径数目（DSP GTPCPATHINFONUM）
+              - GTP-C路径策略管理
+                - 查询GTP-C路径管理策略（LST GTPCPATHMP）
+                - 删除GTP-C路径管理策略（RMV GTPCPATHMP）
+                - 增加GTP-C路径管理策略（ADD GTPCPATHMP）
+                - 修改GTP-C路径管理策略（MOD GTPCPATHMP）
+              - N26接口管理
+                - MME属性
+                  - 增加N26接口MME属性（ADD N26MMECHAR）
+                  - 删除N26接口MME属性（RMV N26MMECHAR）
+                  - 查询N26接口MME属性（LST N26MMECHAR）
+                  - 修改N26接口MME属性（MOD N26MMECHAR）
+                - N26策略管理
+                  - 查询AMF N26接口策略（LST AMFN26PLCY）
+                  - 设置AMF N26接口策略（SET AMFN26PLCY）
+              - 缺省ASN管理
+                - 查询缺省ASN值（LST DEFAULTASN）
+                - 设置缺省ASN值（SET DEFAULTASN）
+              - GTP-C T3/N3参数
+                - 查询GTP-C T3N3参数（LST GTPCT3N3）
+                - 修改GTP-C T3N3参数（MOD GTPCT3N3）
+                - 增加GTP-C T3N3参数（ADD GTPCT3N3）
+                - 删除GTP-C T3N3参数（RMV GTPCT3N3）
+              - GTP-C本地实体组成员
+                - 增加GTP-C本地实体组成员（ADD GTPCLEGRPMEM）
+                - 修改GTP-C本地实体组成员（MOD GTPCLEGRPMEM）
+                - 查询GTP-C本地实体组成员（LST GTPCLEGRPMEM）
+                - 删除GTP-C本地实体组成员（RMV GTPCLEGRPMEM）
+              - ASN功能管理
+                - 设置ASN功能（SET ASNFUNC）
+                - 查询ASN功能（LST ASNFUNC）
+              - GTP-C接口信息管理
+                - 增加GTP-C接口信息（ADD GTPCINTF）
+                - 查询GTP-C接口信息（LST GTPCINTF）
+                - 删除GTP-C接口信息（RMV GTPCINTF）
+              - GTP-C功能参数
+                - 查询GTP-C功能参数（LST GTPCFUNCPARA）
+                - 设置GTP-C功能参数（SET GTPCFUNCPARA）
+              - GTP-C固定速率流控管理
+                - 查询指定消息类型固定速率流控信息（LST GTPCFIXEDFC）
+                - 设置指定消息类型固定速率流控信息（SET GTPCFIXEDFC）
+              - ASN同步管理
+                - 触发ASN同步（ACT ASNSYNC）
+            - PFCP接口管理
+              - UP管理
+                - UP跟踪区管理
+                  - TAI绑定UP区域
+                    - 增加UPF服务区名称绑定的5G TAI范围（ADD UPAREABINDN2TAI）
+                    - 查询UPF服务区名称绑定的5G TAI范围（LST UPAREABINDN2TAI）
+                    - 增加UPF服务区名称绑定的4G TAI范围（ADD UPAREABINDS1TAI）
+                    - 删除UPF服务区名称绑定的5G TAI范围（RMV UPAREABINDN2TAI）
+                    - 删除UPF服务区名称绑定的4G TAI范围（RMV UPAREABINDS1TAI）
+                    - 查询UPF服务区名称绑定的4G TAI范围（LST UPAREABINDS1TAI）
+                  - TAC后缀绑定UP区域
+                    - 增加UPF服务区名称以TAC后缀方式绑定的S1TAI范围（ADD SUFFIXS1TAIAREA）
+                    - 删除UPF服务区名称以TAC后缀方式绑定的S1TAI范围（RMV SUFFIXS1TAIAREA）
+                    - 查询UPF服务区名称以TAC后缀方式绑定的S1TAI范围（LST SUFFIXS1TAIAREA）
+                  - UP区域管理
+                    - 增加UPF服务区（ADD UPAREA）
+                    - 删除UPF服务区（RMV UPAREA）
+                    - 查询UPF服务区（LST UPAREA）
+                  - LAC后缀绑定UP区域
+                    - 删除UPF服务区名称以LAC后缀方式绑定的LAI范围（RMV SUFFIXLAIAREA）
+                    - 查询UPF服务区名称以LAC后缀方式绑定的LAI范围（LST SUFFIXLAIAREA）
+                    - 增加UPF服务区名称以LAC后缀方式绑定的LAI范围（ADD SUFFIXLAIAREA）
+                  - LAI绑定UP区域
+                    - 查询UPF服务区名称绑定的LAI范围（LST UPAREABINDLAI）
+                    - 增加UPF服务区名称绑定的LAI范围（ADD UPAREABINDLAI）
+                    - 删除UPF服务区名称绑定的LAI范围（RMV UPAREABINDLAI）
+                  - UP区域绑定方式
+                    - 设置获取UPF服务区绑定TAI/LAI的方式（SET UPAREABINDFUNC）
+                    - 查询获取UPF服务区绑定TAI/LAI的方式（LST UPAREABINDFUNC）
+                - UPF逻辑接口管理
+                  - 修改UPF逻辑接口（MOD UPLOGICINTF）
+                  - 查询UPF逻辑接口（LST UPLOGICINTF）
+                  - 增加UPF逻辑接口（ADD UPLOGICINTF）
+                  - 删除UPF逻辑接口（RMV UPLOGICINTF）
+                - UP故障管理
+                  - N3接口故障UPF组绑定管理
+                    - 增加N3接口故障UPF与UPF组的绑定关系（ADD FAULTUPBINDGRP）
+                    - 删除N3接口故障UPF与UPF组的绑定关系（RMV FAULTUPBINDGRP）
+                    - 查询N3接口故障UPF与UPF组的绑定关系（LST FAULTUPBINDGRP）
+                  - N3接口故障RAN组绑定管理
+                    - 查询N3接口故障RAN与RAN组的绑定关系（LST FAULTRANBINDGRP）
+                    - 修改N3接口故障RAN与RAN组的绑定关系（MOD FAULTRANBINDGRP）
+                    - 删除N3接口故障RAN与RAN组的绑定关系（RMV FAULTRANBINDGRP）
+                    - 增加N3接口故障RAN与RAN组的绑定关系（ADD FAULTRANBINDGRP）
+                  - N3接口故障UPF组管理
+                    - 查询N3接口故障UPF组（LST FAULTUPGRP）
+                    - 增加N3接口故障UPF组（ADD FAULTUPGRP）
+                    - 删除N3接口故障UPF组（RMV FAULTUPGRP）
+                  - N3接口故障RAN组管理
+                    - 增加N3接口故障RAN组（ADD FAULTRANGRP）
+                    - 删除N3接口故障RAN组（RMV FAULTRANGRP）
+                    - 修改N3接口故障RAN组（MOD FAULTRANGRP）
+                    - 查询N3接口故障RAN组（LST FAULTRANGRP）
+                  - N3接口故障网元组绑定管理
+                    - 修改N3接口故障网元组绑定（MOD FAULTUPBINDRAN）
+                    - 删除N3接口故障网元组绑定（RMV FAULTUPBINDRAN）
+                    - 查询N3接口故障网元组绑定（LST FAULTUPBINDRAN）
+                    - 增加N3接口故障网元组绑定（ADD FAULTUPBINDRAN）
+                    - 查询N3接口故障网元对（LST FAULTUPPAIR）
+                  - APN故障处理
+                    - 查询APN粒度的故障处理开关（LST APNFAULT）
+                    - 设置APN粒度的故障处理开关（SET APNFAULT）
+                  - N4接口故障恢复处理
+                    - 增加指定UPF的APN级别链路故障恢复处理（ADD APNUPRECOVER）
+                    - 查询指定UPF的APN级别链路故障恢复处理（LST APNUPRECOVER）
+                    - 删除指定UPF的APN级别链路故障恢复处理（RMV APNUPRECOVER）
+                    - 修改指定UPF的APN级别链路故障恢复处理（MOD APNUPRECOVER）
+                - UP节点管理
+                  - 增加UPF节点（ADD UPNODE）
+                  - 修改UPF节点（MOD UPNODE）
+                  - 删除UPF节点（RMV UPNODE）
+                  - 查询UPF节点（LST UPNODE）
+                - 虚拟UPF管理
+                  - 虚拟UPF绑定管理
+                    - 查询虚拟UPF实例标识（LST VIRTUALUPFID）
+                    - 删除虚拟UPF实例标识（RMV VIRTUALUPFID）
+                    - 增加虚拟UPF实例标识（ADD VIRTUALUPFID）
+                  - DNAI绑定管理
+                    - 删除虚拟UPF实例标识的DNAI（RMV VUPFIDBINDDNAI）
+                    - 增加虚拟UPF实例标识的DNAI（ADD VUPFIDBINDDNAI）
+                    - 查询虚拟UPF实例标识的DNAI（LST VUPFIDBINDDNAI）
+                  - 功能绑定管理
+                    - 查询虚拟UPF实例标识绑定的功能（LST VUPFIDBINDFUNC）
+                    - 删除虚拟UPF实例标识的绑定功能（RMV VUPFIDBINDFUNC）
+                    - 增加虚拟UPF实例标识绑定的功能（ADD VUPFIDBINDFUNC）
+                - APN UPF信息管理
+                  - 删除指定APN的UPF节点信息（RMV APNUPFINFO）
+                  - 增加指定APN的UPF节点信息（ADD APNUPFINFO）
+                  - 查询指定APN的UPF节点信息（LST APNUPFINFO）
+                  - 修改指定APN的UPF节点信息（MOD APNUPFINFO）
+                - UP节点协议兼容性管理
+                  - 查询UP节点定制信元兼容性配置（LST UPCMPTCUSIE）
+                  - 查询UP节点协议兼容性配置（LST UPCMPT）
+                  - 删除UP节点定制信元兼容性配置（RMV UPCMPTCUSIE）
+                  - 增加UP节点协议兼容性配置（ADD UPCMPT）
+                  - 增加UP节点定制信元兼容性配置（ADD UPCMPTCUSIE）
+                  - 删除UP节点协议兼容性配置（RMV UPCMPT）
+                  - 修改UP节点定制信元兼容性配置（MOD UPCMPTCUSIE）
+                  - 修改UP节点协议兼容性配置（MOD UPCMPT）
+                - UPF IP Domain管理
+                  - 增加当前UPF扩展类型绑定的IP域（ADD SUBUPIPDOMAIN）
+                  - 查询当前UPF绑定的IP域（LST UPIPDOMAIN）
+                  - 修改当前UPF扩展类型绑定的IP域（MOD SUBUPIPDOMAIN）
+                  - 删除当前UPF扩展类型绑定的IP域（RMV SUBUPIPDOMAIN）
+                  - 查询当前UPF扩展类型绑定的IP域（LST SUBUPIPDOMAIN）
+                  - 修改当前UPF绑定的IP域（MOD UPIPDOMAIN）
+                  - 删除当前UPF绑定的IP域（RMV UPIPDOMAIN）
+                  - 增加当前UPF绑定的IP域（ADD UPIPDOMAIN）
+                - DNAI UPF信息管理
+                  - 增加指定DNAI的UPF节点信息（ADD DNAIUPFINFO）
+                  - 修改指定DNAI的UPF节点信息（MOD DNAIUPFINFO）
+                  - 查询指定DNAI的UPF节点信息（LST DNAIUPFINFO）
+                  - 删除指定DNAI的UPF节点信息（RMV DNAIUPFINFO）
+                - UP动态信息
+                  - 显示UP节点动态信息（DSP UPDYNAMICINFO）
+                - 过滤器组管理
+                  - 查询过滤组（LST FILTERGP）
+                  - 增加过滤组（ADD FILTERGP）
+                  - 删除过滤组（RMV FILTERGP）
+                  - 修改过滤组（MOD FILTERGP）
+                - UPC链路告警
+                  - 查询UPC DS粒度N4请求等待超时异常的告警阈值（LST UPCALMVAL）
+                  - 设置UPC DS粒度N4请求等待超时异常的告警恢复阈值（SET UPCALMRSTVAL）
+                  - 显示UPC到UPF或者PFCP到UPF的路径状态（DSP TSTPATH）
+                  - 查询UPC DS粒度N4请求等待超时异常的告警恢复阈值（LST UPCALMRSTVAL）
+                  - 设置UPC DS粒度N4请求等待超时异常的告警阈值（SET UPCALMVAL）
+                - 过滤器组成员管理
+                  - 删除过滤器组成员（RMV FILTERGPMEMBER）
+                  - 增加过滤器组成员（ADD FILTERGPMEMBER）
+                  - 查询过滤器组成员（LST FILTERGPMEMBER）
+                - N4接口固定速率
+                  - 设置指定消息类型固定速率流控信息（SET N4FIXEDFC）
+                  - 查询指定消息类型固定速率流控信息（LST N4FIXEDFC）
+                - UP过滤组绑定管理
+                  - 删除UPF过滤组（RMV UPFILTER）
+                  - 查询UPF过滤组（LST UPFILTER）
+                  - 增加UPF过滤组（ADD UPFILTER）
+              - PFCP路径管理
+                - PFCP路径选择管理
+                  - 删除用户和UPF地址的绑定关系（RMV IMSIBINDUPFADDR）
+                  - 查询锁定的UPF地址（LST UPFADDRLCK）
+                  - 增加用户和UPF地址的绑定关系（ADD IMSIBINDUPFADDR）
+                  - 查询用户和UPF的绑定关系（LST IMSIBINDUPFADDR）
+                  - 锁定UPF地址（LCK UPFADDR）
+                  - 修改用户和UPF地址的绑定关系（MOD IMSIBINDUPFADDR）
+                  - 解锁UPF地址（ULK UPFADDR）
+                - UPF粒度PFCP路径参数管理
+                  - 查询UPF地址属性（LST UPFADDRATTR）
+                  - 删除UPF地址属性（RMV UPFADDRATTR）
+                  - 删除UPF粒度PFCP参数（RMV UPFPFCPPARA）
+                  - 修改UPF粒度PFCP参数（MOD UPFPFCPPARA）
+                  - 增加UPF地址属性（ADD UPFADDRATTR）
+                  - 查询UPF粒度PFCP参数（LST UPFPFCPPARA）
+                  - 增加UPF粒度PFCP参数（ADD UPFPFCPPARA）
+                  - 修改UPF地址属性（MOD UPFADDRATTR）
+                - PFCP路径查询
+                  - 查询PFCP偶联相关数据（DSP PFCPASSOC）
+                  - 显示PFCP链路当前及历史状态（DSP PFCPLINKINFO）
+                  - 显示PFCP链路相关数据（DSP PFCPPATHINFO）
+                - PFCP路径参数管理
+                  - 查询PFCP参数（LST PFCPPARA）
+                  - 设置PFCP参数（SET PFCPPARA）
+                - PFCP会话迁移
+                  - 迁移PFCP会话（MIG PFCPSESSION）
+                - PFCP会话迁移状态查询
+                  - 显示PFCP会话迁移任务状态（DSP PFCPSESSMIGSTS）
+                - PFCP会话信息查询
+                  - 显示PFCP会话信息（DSP PFCPSESSIONINFO）
+                - PFCP会话数查询
+                  - 显示PFCP会话上下文数量（DSP PFCPSESSIONNUM）
+              - CP管理
+                - CP端点管理
+                  - 查询CP端点信息（LST CPPOINT）
+                  - 增加CP端点信息（ADD CPPOINT）
+                  - 删除CP端点信息（RMV CPPOINT）
+                - CP节点管理
+                  - 查询CP节点信息（LST CPNODE）
+                  - 删除CP节点信息（RMV CPNODE）
+                  - 增加CP节点信息（ADD CPNODE）
+                  - 修改CP节点信息（MOD CPNODE）
+              - PFCP私有信元管理
+                - 查询PFCP私有信元携带配置（LST PFCPPVTEXT）
+                - 设置PFCP私有信元携带配置（SET PFCPPVTEXT）
+              - PFCP接口兼容性
+                - 查询PFCP接口兼容性参数（LST PFCPCMPT）
+                - 设置PFCP接口兼容性参数（SET PFCPCMPT）
+              - 基于APN的PFCP私有信元管理
+                - 查询指定APN的PFCP私有信元携带配置（LST APNPFCPCMPT）
+                - 删除指定APN的PFCP私有信元携带配置（RMV APNPFCPCMPT）
+                - 修改指定APN的PFCP私有信元携带配置（MOD APNPFCPCMPT）
+                - 增加指定APN的PFCP私有信元携带配置（ADD APNPFCPCMPT）
+              - 用户面控制扫描速率管理
+                - 设置用户面控制扫描速率（SET UPCSCANRATE）
+                - 查询用户面控制扫描速率（LST UPCSCANRATE）
+              - 用户面控制通用定时器管理
+                - 设置用户面控制通用定时器（SET UPCCOMMTIMER）
+                - 查询用户面控制通用定时器（LST UPCCOMMTIMER）
+              - PFCP流控管理
+                - 查询指定PFCP消息类型固定速率流控信息（LST PFCPFIXEDFC）
+                - 设置指定PFCP消息类型固定速率流控信息（SET PFCPFIXEDFC）
+              - PFCP消息可靠性管理
+                - 查询PFCP T1N1参数配置（LST T1N1PARA）
+                - 设置PFCP T1N1参数配置（SET T1N1PARA）
+            - N2接口管理
+              - NGAP接口寻呼管理
+                - 寻呼优先级策略参数配置
+                  - 查询5G寻呼优先级策略参数配置（LST NGPAGINGPRIPLCY）
+                  - 增加5G寻呼优先级策略参数配置（ADD NGPAGINGPRIPLCY）
+                  - 删除5G寻呼优先级策略参数配置（RMV NGPAGINGPRIPLCY）
+                  - 修改5G寻呼优先级策略参数配置（MOD NGPAGINGPRIPLCY）
+                - NG基于跟踪区列表的寻呼策略管理
+                  - 删除5G跟踪区列表的寻呼策略配置（RMV NGTAPAGINGPLCY）
+                  - 增加5G跟踪区列表的寻呼策略配置（ADD NGTAPAGINGPLCY）
+                  - 查询5G跟踪区列表的寻呼策略配置（LST NGTAPAGINGPLCY）
+                  - 修改5G跟踪区列表的寻呼策略配置（MOD NGTAPAGINGPLCY）
+                - NG TALIST寻呼管理
+                  - 查询N2模式TALIST寻呼不重发TAC区间（LST NGTALISTPAGINGCFG）
+                  - 增加N2模式TALIST寻呼不重发TAC区间（ADD NGTALISTPAGINGCFG）
+                  - 删除N2模式TALIST寻呼不重发TAC区间（RMV NGTALISTPAGINGCFG）
+                  - 修改N2模式TALIST寻呼不重发TAC区间（MOD NGTALISTPAGINGCFG）
+                - NG寻呼规则管理
+                  - 增加5G寻呼规则（ADD NGPAGINGRULE）
+                  - 查询5G寻呼规则（LST NGPAGINGRULE）
+                  - 删除5G寻呼规则（RMV NGPAGINGRULE）
+                  - 修改5G寻呼规则（MOD NGPAGINGRULE）
+                - NG寻呼定时器策略管理
+                  - 增加5G寻呼定时器策略配置（ADD NGPAGINGTMRPLCY）
+                  - 查询5G寻呼定时器策略配置（LST NGPAGINGTMRPLCY）
+                  - 修改5G寻呼定时器策略配置（MOD NGPAGINGTMRPLCY）
+                  - 删除5G寻呼定时器策略配置（RMV NGPAGINGTMRPLCY）
+                - NG寻呼策略管理
+                  - 设置5G寻呼策略控制表（SET NGPAGINGCTRL）
+                  - 查询5G寻呼策略控制表（LST NGPAGINGCTRL）
+                - 智能寻呼策略
+                  - 删除基于分组的智能寻呼策略（RMV NGPEIPSPLCY）
+                  - 查询基于分组的智能寻呼策略（LST NGPEIPSPLCY）
+                  - 修改基于分组的智能寻呼策略（MOD NGPEIPSPLCY）
+                  - 增加基于分组的智能寻呼策略（ADD NGPEIPSPLCY）
+                - NG寻呼数据
+                  - 显示5G寻呼表（DSP NGPAGING）
+              - NGAP本端实体管理
+                - 修改NGAP本端实体（MOD NGAPLE）
+                - 查询NGAP本端实体（LST NGAPLE）
+                - 增加NGAP本端实体（ADD NGAPLE）
+                - 删除NGAP本端实体（RMV NGAPLE）
+              - NGRAN跟踪区管理
+                - NGRAN跟踪区群组管理
+                  - 查询5G TA群组（LST NGTAGP）
+                  - 增加5G TA群组（ADD NGTAGP）
+                  - 删除5G TA群组（RMV NGTAGP）
+                  - 修改5G TA群组（MOD NGTAGP）
+                - NGRAN跟踪区群组成员管理
+                  - 删除5G TA群组成员（RMV NGTAGPMEM）
+                  - 增加5G TA群组成员（ADD NGTAGPMEM）
+                  - 查询5G TA群组成员（LST NGTAGPMEM）
+              - N2接口DTLS安全管理
+                - 设置N2接口的DTLS参数(SET N2DTLSPARA)
+                - 查询N2接口的DTLS参数(LST N2DTLSPARA)
+              - gNodeB邻接关系管理
+                - 增加NG-RAN基站邻接关系配置（ADD NGRANNEIBCFG）
+                - 清除NG-RAN基站邻接关系（CLR NGRANNEIBS）
+                - 显示NG-RAN基站邻接关系（DSP NGRANNEIBS）
+                - 查询NG-RAN基站邻接关系配置（LST NGRANNEIBCFG）
+                - 删除NG-RAN基站邻接关系配置（RMV NGRANNEIBCFG）
+              - 复位AN
+                - 复位AN（RST AN）
+              - TA邻接关系管理
+                - 查询TA邻接关系配置（LST NGTANEIBCFG）
+                - 删除TA邻接关系配置（RMV NGTANEIBCFG）
+                - 清除TA邻接关系（CLR NGTANEIBS）
+                - 显示TA邻接关系（DSP NGTANEIBS）
+                - 增加TA邻接关系配置（ADD NGTANEIBCFG）
+              - NGRAN接入管理控制
+                - 设置5G基站过载监控参数（SET NGRANOVERLOADCTRL）
+                - 查询5G基站接入控制策略（LST NGRANACCCTRL）
+                - 显示TALIST下5G基站接入数量信息（DSP TALISTNGRANINFO）
+                - 查询5G基站过载监控参数（LST NGRANOVERLOADCTRL）
+                - 设置5G基站接入控制策略（SET NGRANACCCTRL）
+              - NGAP协议参数管理
+                - 删除NGAP协议参数（RMV NGAPPARA）
+                - 查询NGAP协议参数（LST NGAPPARA）
+                - 增加NGAP协议参数（ADD NGAPPARA）
+                - 修改NGAP协议参数（MOD NGAPPARA）
+              - SFGAP本端实体管理
+                - 删除SFGAP本端实体（RMV SFGAPLE）
+                - 查询SFGAP本端实体（LST SFGAPLE）
+                - 增加SFGAP本端实体（ADD SFGAPLE）
+              - N2接口固定速率流控管理
+                - 设置指定消息类型固定速率流控信息（SET N2FIXEDFCBYMSG）
+                - 设置N2接口固定速率流控信息（SET N2FIXEDFC）
+                - 查询指定消息类型固定速率流控信息（LST N2FIXEDFCBYMSG）
+                - 查询N2接口固定速率流控信息（LST N2FIXEDFC）
+              - N2接口消息流控优先级管理
+                - 基于ARP的Paging消息流控优先级管理
+                  - 查询基于ARP的Paging消息在流控期间放通的优先级（LST NGPAGINGARPPRI）
+                  - 增加基于ARP的Paging消息在流控期间放通的优先级（ADD NGPAGINGARPPRI）
+                  - 删除基于ARP的Paging消息在流控期间放通的优先级（RMV NGPAGINGARPPRI）
+                  - 修改基于ARP的Paging消息在流控期间放通的优先级（MOD NGPAGINGARPPRI）
+                - 基于DNN的Paging消息流控优先级管理
+                  - 增加基于DNN的Paging消息在流控期间放通的优先级（ADD NGPAGINGDNNPRI）
+                  - 删除基于DNN的Paging消息在流控期间放通的优先级（RMV NGPAGINGDNNPRI）
+                  - 修改基于DNN的Paging消息在流控期间放通的优先级（MOD NGPAGINGDNNPRI）
+                  - 查询基于DNN的Paging消息在流控期间放通的优先级（LST NGPAGINGDNNPRI）
+              - 显示N2链路信息
+                - 显示N2链路信息（DSP N2LINKINFO）
+              - 显示NGAP链路信息
+                - 显示NGAP链路信息（DSP NGAPLINK）
+              - N2接口过载控制
+                - 设置N2过载控制信息（SET N2OVERLOAD）
+                - 查询N2过载控制信息（LST N2OVERLOAD）
+              - 查询本端实体下的AN信息
+                - 显示扩展的AN信息（DSP EXTANINFO）
+                - 显示AN信息（DSP ANINFO）
+              - N2接口SCTP链路管理
+                - 查询N2接口SCTP链路状态(DSP N2SCTPLNK)
+                - 删除N2接口SCTP链路(RMV N2SCTPLNK)
+              - N2模式反压流控管理
+                - 查询N2模式寻呼消息反压流控策略（LST N2PAGINGFCPLCY）
+                - 设置N2模式寻呼消息反压流控策略（SET N2PAGINGFCPLCY）
+              - NGAP兼容性参数管理
+                - 设置NGAP兼容性参数（SET NGAPCMPT）
+                - 查询NGAP兼容性参数（LST NGAPCMPT）
+              - 清除NG-RAN上下文
+                - 清除NG-RAN上下文（CLR NGRANCTX）
+            - 权重分配管理
+              - 展示当前权重信息
+                - 显示服务类型当前时间的非动态权重（DSP CURRENTWEIGHT）
+              - CPU代际睿频
+                - 设置CPU睿频开关（SET CPUGENTURBO）
+                - 查询CPU代际睿频开关（LST CPUGENTURBO）
+              - CPU能力系数策略
+                - 增加不同CPU类型的能力系数和基础消耗。（ADD CPUABILITYCFG）
+                - 删除不同CPU类型的能力系数和基础消耗。（RMV CPUABILITYCFG）
+                - 修改不同CPU类型的能力系数和基础消耗。（MOD CPUABILITYCFG）
+                - 查询不同CPU类型的能力系数和基础消耗。（LST CPUABILITYCFG）
+              - 静态权重策略
+                - 删除服务类型在POD实例下的静态权重（RMV STATICWTPOLICY）
+                - 查询服务类型在POD实例下的静态权重（LST STATICWTPOLICY）
+                - 修改服务类型在POD实例下的静态权重（MOD STATICWTPOLICY）
+                - 增加服务类型在POD实例下的静态权重（ADD STATICWTPOLICY）
+              - 权重分配策略
+                - 设置服务类型分配权重的管理策略（SET TOKENALLOCWT）
+                - 查询服务类型分配权重的管理策略（LST TOKENALLOCWT）
+              - 动态权重策略
+                - 设置服务类型分配动态权重的管理策略（SET DYNAMICPOLICY）
+                - 查询服务类型分配动态权重的管理策略（LST DYNAMICPOLICY）
+              - 展示动态权重信息
+                - 显示各业务pod历史的忙时负载、权重和部署位置信息（DSP DYNAMICHISTLOAD）
+            - 事件订阅接口管理
+              - AMF事件订阅兼容性参数管理
+                - 查询事件订阅通知消息的兼容性控制参数（LST AMFEVENTCMPT）
+                - 设置AMF事件订阅兼容性参数（SET AMFEVENTCMPT）
+            - Recovery管理
+              - 显示本端Recovery值及系统重启时间（DSP LOCALRECOVERY）
+          - NRF业务及策略管理
+            - NRF业务参数
+              - NRF功能开关
+                - 删除基于NFType设置NRF的各类功能开关（RMV NRFNFTYPEFUNC）
+                - 增加基于NFType设置NRF的各类功能开关（ADD NRFNFTYPEFUNC）
+                - 查询基于NFType设置NRF的各类功能开关（LST NRFNFTYPEFUNC）
+                - 修改基于NFType设置NRF的各类功能开关（MOD NRFNFTYPEFUNC）
+              - 定时器参数
+                - 增加指定NF在NRF上的时长信息（ADD NRFNFTIMER）
+                - 修改指定NF在NRF上的时长信息（MOD NRFNFTIMER）
+                - 查询指定NF在NRF上的时长信息（LST NRFNFTIMER）
+                - 删除指定NF在NRF上的时长信息（RMV NRFNFTIMER）
+              - NRF区域优选管理
+                - 查询DNNNI区域优选规则（LST NRFDNNNIRGNPREF）
+                - 增加DNAI区域优选规则（ADD NRFDNAIRGNPREF）
+                - 查询DNAI区域优选规则（LST NRFDNAIRGNPREF）
+                - 设置NRF区域优选策略（SET NRFRGNPREFPLY）
+                - 删除DNAI区域优选规则（RMV NRFDNAIRGNPREF）
+                - 查询NRF区域优选策略（LST NRFRGNPREFPLY）
+                - 修改DNAI区域优选规则（MOD NRFDNAIRGNPREF）
+                - 修改DNNNI区域优选规则（MOD NRFDNNNIRGNPREF）
+                - 增加DNNNI区域优选规则（ADD NRFDNNNIRGNPREF）
+                - 删除DNNNI区域优选规则（RMV NRFDNNNIRGNPREF）
+              - DNS客户端管理
+                - 增加IPv6 DNS Hostfile记录（ADD NGIPV6DNSH）
+                - 修改DNS服务器（MOD NGDNSS）
+                - 查询域名查询失败的记录（DSP DYNNGERRREC）
+                - 清空DNS客户端的缓存消息（CLR NGREQMSGCACHE）
+                - 增加DNS本端实体（ADD NGDNSLE）
+                - 查询DNS运行参数（LST NGDNS）
+                - 增加DNS NAPTR记录（ADD NGDNSN）
+                - 删除DNS NAPTR记录（RMV NGDNSN）
+                - 删除DNS本端实体（RMV NGDNSLE）
+                - 删除IPv4 DNS Hostfile记录（RMV NGIPV4DNSH）
+                - 设置DNS运行参数（SET NGDNS）
+                - 查询IPv4 DNS Hostfile记录（LST NGIPV4DNSH）
+                - 增加IPv4 DNS Hostfile记录（ADD NGIPV4DNSH）
+                - 查询DNS NAPTR记录（LST NGDNSN）
+                - 查询DNS服务器（LST NGDNSS）
+                - 修改DNS NAPTR记录（MOD NGDNSN）
+                - DNS客户端查询接口（TST NGDNSITF）
+                - 修改IPv6 DNS Hostfile记录（MOD NGIPV6DNSH）
+                - 查询DNS本端实体（LST NGDNSLE）
+                - 修改IPv4 DNS Hostfile记录（MOD NGIPV4DNSH）
+                - 查询IPv6 DNS Hostfile记录（LST NGIPV6DNSH）
+                - 增加DNS服务器（ADD NGDNSS）
+                - 删除DNS服务器（RMV NGDNSS）
+                - 删除IPv6 DNS Hostfile记录（RMV NGIPV6DNSH）
+              - SMSF割接场景NRF处理策略
+                - 查询SMSF白名单（LST NRFSMSFWHITELST）
+                - 设置SMSF号段白名单功能开关 （SET NRFSMSFSEGSW）
+                - 设置SMSF割接场景NRF处理策略（SET NRFSMSFCUTPLY）
+                - 查询SMSF白名单开关（LST NRFSMSFWHLISTSW）
+                - 删除SMSF号段白名单（RMV NRFSMSFSEGLIST）
+                - 增加SMSF号段白名单（ADD NRFSMSFSEGLIST）
+                - 查询SMSF割接场景NRF处理策略（LST NRFSMSFCUTPLY）
+                - 增加SMSF白名单（ADD NRFSMSFWHITELST）
+                - 查询SMSF号段白名单功能开关 （LST NRFSMSFSEGSW）
+                - 设置SMSF白名单开关（SET NRFSMSFWHLISTSW）
+                - 查询SMSF号段白名单（LST NRFSMSFSEGLIST）
+                - 删除SMSF白名单（RMV NRFSMSFWHITELST）
+              - NRF国际漫游参数管理
+                - 查询漫入场景SUPI白名单（LST ROAMINSUPIWL）
+                - 增加NRF管理的ProxySMF（ADD NRFPROXYSMF）
+                - 删除漫入场景SUPI白名单（RMV ROAMINSUPIWL）
+                - 删除NRF管理的ProxySMF（RMV NRFPROXYSMF）
+                - 增加漫入场景SUPI白名单（ADD ROAMINSUPIWL）
+                - 查询NRF管理的ProxySMF（LST NRFPROXYSMF）
+              - NF多INFO管理策略
+                - 查询NFINFOLIST处理策略（LST NRFNFLSTCTLPLY）
+                - 设置NFINFOLIST处理策略（SET NRFNFLSTCTLPLY）
+              - NRF通知管理
+                - 增加不通知NF实例（ADD NRFNOTNOTIFYNF）
+                - 删除不通知NF实例（RMV NRFNOTNOTIFYNF）
+                - 设置NRF通知策略（SET NRFNOTIFYPLY）
+                - 查询不通知NF实例（LST NRFNOTNOTIFYNF）
+                - 查询NRF通知策略（LST NRFNOTIFYPLY）
+              - NRF流控参数
+                - 设置NRF带宽流控功能参数（SET NRFBNDWDFCPARA）
+                - 查询NRF带宽流控配置（LST NRFBNDWDFCPARA）
+            - 分层NRF管理
+              - NRF路由配置
+                - DNN路由管理
+                  - 删除DNN中数据网络访问标识最长后缀匹配转发路由（RMV NRFDNNDNAIRT）
+                  - 增加DNN中数据网络访问标识最长后缀匹配转发路由（ADD NRFDNNDNAIRT）
+                  - 查询DNN中数据网络访问标识最长后缀匹配转发路由（LST NRFDNNDNAIRT）
+            - DNS Client
+              - DNS Cache管理
+                - 清除DNS缓存（CLR NGDNSC）
+          - 5G接入业务管理
+            - 移动性管理
+              - MM流程管理
+                - 5G原因值映射配置
+                  - 增加5G原因值映射配置（ADD NGCAUSEMAP）
+                  - 查询5G原因值映射配置（LST NGCAUSEMAP）
+                  - 删除5G原因值映射配置（RMV NGCAUSEMAP）
+                - 5G N26接口原因值映射配置
+                  - 查询5G N26接口原因值映射配置（LST NGN26CAUSEMAP）
+                  - 删除5G N26接口原因值映射配置（RMV NGN26CAUSEMAP）
+                  - 增加5G N26接口原因值映射配置（ADD NGN26CAUSEMAP）
+                - 5G移动性管理流程控制参数
+                  - 设置5G移动性管理流程控制参数（SET NGMMPROCTRL）
+                  - 查询5G移动性管理流程控制参数（LST NGMMPROCTRL）
+              - DNN智能分流管理
+                - DNN智能分流开启策略
+                  - 删除DNN智能分流配置（RMV DNNSMARTPLCY）
+                  - 修改DNN智能分流配置（MOD DNNSMARTPLCY）
+                  - 增加DNN智能分流配置（ADD DNNSMARTPLCY）
+                  - 查询DNN智能分流配置（LST DNNSMARTPLCY）
+                - 智能分流功能管理
+                  - 设置智能分流功能（SET NGSMARTDNNCL）
+                  - 查询智能分流功能（LST NGSMARTDNNCL）
+                - 智能分流DNN管理
+                  - 增加智能分流DNN（ADD SUBSMARTDNN）
+                  - 删除智能分流DNN（RMV SUBSMARTDNN）
+                  - 查询智能分流DNN（LST SUBSMARTDNN）
+              - MM协议参数管理
+                - 5G移动管理定时器
+                  - 增加基于DNN的周期性注册时长配置（ADD NGPRDREGTIMEDNN）
+                  - 设置5G MM协议参数（SET NGMMPARA）
+                  - 删除基于DNN的周期性注册时长配置（RMV NGPRDREGTIMEDNN）
+                  - 设置N2定时器参数（SET NGAPTIMER）
+                  - 查询5G MM协议参数（LST NGMMPARA）
+                  - 修改基于DNN的周期性注册时长配置（MOD NGPRDREGTIMEDNN）
+                  - 查询N2定时器参数（LST NGAPTIMER）
+                  - 查询基于DNN的周期性注册时长配置（LST NGPRDREGTIMEDNN）
+                - NAS兼容性参数管理
+                  - 查询NAS兼容性参数（LST NASCMPT）
+                  - 设置NAS兼容性参数（SET NASCMPT）
+                - 5G移动性管理
+                  - 设置5G移动性管理功能（SET NGMMFUNC）
+                  - 查询5G移动性管理功能（LST NGMMFUNC）
+                - AMF N8接口兼容性参数管理
+                  - 删除AMF N8接口兼容性策略（RMV AMFN8CMPTPLCY）
+                  - 增加AMF N8接口兼容性策略（ADD AMFN8CMPTPLCY）
+                  - 修改AMF N8接口兼容性策略（MOD AMFN8CMPTPLCY）
+                  - 查询AMF N8接口兼容性策略（LST AMFN8CMPTPLCY）
+                - AMF服务化接口兼容性参数管理
+                  - 查询AMF的SBI接口控制参数（LST AMFSBIINFCTRL）
+                  - 设置AMF的SBI接口控制参数（SET AMFSBIINFCTRL）
+                  - 查询AMF服务化接口兼容性参数（LST AMFSBICMPT）
+                  - 设置AMF服务化接口兼容性参数（SET AMFSBICMPT）
+              - 接入限制
+                - 5G接入限制区域管理
+                  - 删除5G接入限制区域列表（RMV NGACCAREALST）
+                  - 查询5G接入限制区域列表（LST NGACCAREALST）
+                  - 增加5G接入限制区域列表（ADD NGACCAREALST）
+                  - 修改5G接入限制区域列表（MOD NGACCAREALST）
+                - AMF本地服务区域限制
+                  - 增加本地服务区域限制（ADD SRVAREARES）
+                  - 查询AMF本地服务区域限制（LST SRVAREARES）
+                  - 修改本地服务区域限制（MOD SRVAREARES）
+                  - 删除本地服务区域限制（RMV SRVAREARES）
+                - 黑名单接入限制
+                  - 删除用户黑名单限制列表（RMV USRBLACKLST）
+                  - 设置用户黑名单接入控制功能（SET USRBLACKLSTFUN）
+                  - 查询用户黑名单限制列表（LST USRBLACKLST）
+                  - 增加用户黑名单限制列表（ADD USRBLACKLST）
+                  - 修改用户黑名单限制列表（MOD USRBLACKLST）
+                  - 查询用户黑名单接入控制功能（LST USRBLACKLSTFUN）
+              - NF发现和选择管理
+                - SMF缓存策略管理
+                  - 清除SMF缓存信息（CLR SMFCACHE）
+                  - 查询SMF映射关系的本地缓存策略（LST SMFCACHEFUNC）
+                  - 显示缓存的SMF与TAI映射关系（DSP SMFCACHE）
+                  - 设置SMF映射关系的本地缓存策略（SET SMFCACHEFUNC）
+                - SMF优选策略管理
+                  - 删除基于IMSI优选指定SMF配置（RMV SMFPRESELBYIMSI）
+                  - 增加基于IMSI优选指定SMF配置（ADD SMFPRESELBYIMSI）
+                  - 修改基于IMSI优选指定SMF配置（MOD SMFPRESELBYIMSI）
+                  - 查询基于IMSI优选指定SMF配置（LST SMFPRESELBYIMSI）
+                - PDU会话激活控制参数
+                  - 增加PDU会话激活控制参数（ADD PDUACTCTRL）
+                  - 修改PDU会话激活控制参数（MOD PDUACTCTRL）
+                  - 删除PDU会话激活控制参数（RMV PDUACTCTRL）
+                  - 查询PDU会话激活控制参数（LST PDUACTCTRL）
+                - 网络切片和DNN纠正管理
+                  - 删除网络切片或DNN纠正配置（RMV LOCALNSDNN）
+                  - 查询网络切片或DNN纠正配置（LST LOCALNSDNN）
+                  - 修改网络切片或DNN纠正配置（MOD LOCALNSDNN）
+                  - 增加网络切片或DNN纠正配置（ADD LOCALNSDNN）
+                - 配置DNN的TAI和ServingScope映射
+                  - 查询DNN的TAI和ServingScope映射（LST DNNTAISSP）
+                  - 增加DNN的TAI和ServingScope映射（ADD DNNTAISSP）
+                  - 修改DNN的TAI和ServingScope映射（MOD DNNTAISSP）
+                  - 删除DNN的TAI和ServingScope映射（RMV DNNTAISSP）
+                - 目标NF选择策略管理
+                  - 查询目标NF选择策略（LST NFSELPLCY）
+                  - 设置目标NF选择策略（SET NFSELPLCY）
+                - DNN接入选择策略管理
+                  - 修改DNN接入选择策略（MOD AMFDNNPLCY）
+                  - 删除DNN接入选择策略（RMV AMFDNNPLCY）
+                  - 增加DNN接入选择策略（ADD AMFDNNPLCY）
+                  - 查询DNN接入选择策略（LST AMFDNNPLCY）
+                - SMF选择策略管理
+                  - 查询SMF选择策略（LST SMFSELPLCY）
+                  - 增加SMF选择策略（ADD SMFSELPLCY）
+                  - 修改SMF选择策略（MOD SMFSELPLCY）
+                  - 删除SMF选择策略（RMV SMFSELPLCY）
+                - 备用AMF缓存策略管理
+                  - 显示缓存的备用AMF信息（DSP BACKUPAMFCACHE）
+                  - 清除备用AMF缓存信息（CLR BACKUPAMFCACHE）
+                - SMSF选择策略管理
+                  - 查询SMSF选择策略（LST SMSFSELPLCY）
+                  - 删除SMSF选择策略（RMV SMSFSELPLCY）
+                  - 增加SMSF选择策略（ADD SMSFSELPLCY）
+                  - 修改SMSF选择策略（MOD SMSFSELPLCY）
+                - 归属地SMF选择策略管理
+                  - 增加指定归属地SMF实例标识（ADD HOMESMFINSTID）
+                  - 删除指定归属地SMF实例标识（RMV HOMESMFINSTID）
+                  - 查询指定归属地SMF实例标识（LST HOMESMFINSTID）
+                - PCF选择策略管理
+                  - 删除PCF选择策略（RMV PCFSELPLCY）
+                  - 查询PCF选择策略（LST PCFSELPLCY）
+                  - 修改PCF选择策略（MOD PCFSELPLCY）
+                  - 增加PCF选择策略（ADD PCFSELPLCY）
+              - IP细分管理
+                - 5G IP细分区域组成员管理
+                  - 删除5G IP区域群成员（RMV NGIPAREAGRPMEM）
+                  - 增加5G IP区域群成员（ADD NGIPAREAGRPMEM）
+                  - 查询5G IP区域群成员（LST NGIPAREAGRPMEM）
+                - 5G IP细分区域组管理
+                  - 增加5G IP区域群（ADD NGIPAREAGRP）
+                  - 删除5G IP区域群（RMV NGIPAREAGRP）
+                  - 修改5G IP区域群（MOD NGIPAREAGRP）
+                  - 查询5G IP区域群（LST NGIPAREAGRP）
+                - 5G地址细分控制参数
+                  - 设置基于位置的地址分配控制参数（SET NGIPAREACTRL）
+                  - 查询基于位置的地址分配控制参数（LST NGIPAREACTRL）
+                - 5G IP细分区域DNN管理
+                  - 删除5G IP区域DNN（RMV NGIPAREADNN）
+                  - 查询5G IP区域DNN（LST NGIPAREADNN）
+                  - 增加5G IP区域DNN（ADD NGIPAREADNN）
+              - NAS传输管理
+                - 本地SMF的PDU会话重建功能管理
+                  - 修改本地SMF重选策略（MOD SMFRESEL）
+                  - 查询本地SMF重选策略（LST SMFRESEL）
+                  - 增加本地SMF重选策略（ADD SMFRESEL）
+                  - 删除本地SMF重选策略（RMV SMFRESEL）
+                - DNN兼容性控制管理
+                  - 设置DNN兼容性控制参数（SET DNNCMPT）
+                  - 查询DNN兼容性控制参数（LST DNNCMPT）
+                - PDU会话控制管理
+                  - 设置PDU会话控制参数（SET SMPDUCTRL）
+                  - 查询PDU会话控制参数（LST SMPDUCTRL）
+              - NITZ管理
+                - NITZ策略管理
+                  - 增加NITZ策略（ADD NITZPLCY）
+                  - 修改NITZ策略（MOD NITZPLCY）
+                  - 删除NITZ策略（RMV NITZPLCY）
+                  - 查询NITZ策略（LST NITZPLCY）
+              - 信令采集
+                - 增加用户消息统计功能配置（ADD AMFIMRFUNC）
+                - 删除用户消息统计功能配置（RMV AMFIMRFUNC）
+                - 查询用户消息统计功能配置（LST AMFIMRFUNC）
+                - 修改用户消息统计功能配置（MOD AMFIMRFUNC）
+              - 网络切片选择管理
+                - 网络切片选择控制参数
+                  - 查询网络切片选择相关参数（LST NSSELPARA）
+                  - 设置网络切片选择相关参数（SET NSSELPARA）
+                - TA级限制切片区域管理
+                  - 查询TA级限制切片所属跟踪区成员（LST RSTRNSAREAMEM）
+                  - 查询TA级切片限制区域码（LST RSTRNSAREACODE）
+                  - 删除TA级切片限制区域码（RMV RSTRNSAREACODE）
+                  - 增加TA级限制切片所属跟踪区成员（ADD RSTRNSAREAMEM）
+                  - 删除TA级限制切片所属跟踪区成员（RMV RSTRNSAREAMEM）
+                  - 增加TA级切片限制区域码（ADD RSTRNSAREACODE）
+                - TA级限制切片管理
+                  - 删除TA级限制切片（RMV AMFRSTRNSSAI）
+                  - 查询TA级限制切片（LST AMFRSTRNSSAI）
+                  - 增加TA级限制切片（ADD AMFRSTRNSSAI）
+                - 网络切片可用性信息查询
+                  - 显示授权后的网络切片可用性信息（DSP AMFNSAVLINFO）
+                  - 显示网络切片可用性订阅信息（DSP SUBNSAVLINFO）
+                - 网络切片可用性信息管理
+                  - 操作网络切片可用性信息（OPR NSAVLINFO）
+              - AM策略和UE策略管理
+                - 用于策略控制的网络切片群组成员管理
+                  - 查询用于策略控制的网络切片群组成员（LST PLCYNSGRPMEM）
+                  - 删除用于策略控制的网络切片群组成员（RMV PLCYNSGRPMEM）
+                  - 增加用于策略控制的网络切片群组成员（ADD PLCYNSGRPMEM）
+                - 用于策略控制的网络切片群组管理
+                  - 查询用于策略控制的网络切片群组（LST PLCYNSGRP）
+                  - 增加用于策略控制的网络切片群组（ADD PLCYNSGRP）
+                  - 删除用于策略控制的网络切片群组（RMV PLCYNSGRP）
+                - AM策略和UE策略控制参数
+                  - 查询AM策略和UE策略控制参数（LST AMUEPLCYCTRL）
+                  - 增加AM策略和UE策略控制参数（ADD AMUEPLCYCTRL）
+                  - 修改AM策略和UE策略控制参数（MOD AMUEPLCYCTRL）
+                  - 删除AM策略和UE策略控制参数（RMV AMUEPLCYCTRL）
+                - 本地特色业务区域管理
+                  - 本地特色业务区域TAI成员管理
+                    - 删除5G MEC TAI信息（RMV MECAREATAI）
+                    - 查询5G MEC TAI信息（LST MECAREATAI）
+                    - 增加5G MEC TAI信息（ADD MECAREATAI）
+                  - 本地特色业务区域gNodeB成员管理
+                    - 查询5G MEC gNodeB信息（LST MECAREAGNB）
+                    - 删除5G MEC gNodeB信息（RMV MECAREAGNB）
+                    - 增加5G MEC gNodeB信息（ADD MECAREAGNB）
+                  - 本地特色业务区域标识管理
+                    - 查询5G MEC区域信息（LST MECAREA）
+                    - 删除5G MEC区域信息（RMV MECAREA）
+                    - 增加5G MEC区域信息（ADD MECAREA）
+                - AMF策略功能管理
+                  - 查询AMF策略功能（LST AMFPLCYFUNC）
+                  - 设置AMF策略功能（SET AMFPLCYFUNC）
+              - AMF区域重选功能管理
+                - AMF重选控制策略
+                  - 修改AMF重选控制策略（MOD AMFRESELPLCY）
+                  - 增加AMF重选控制策略（ADD AMFRESELPLCY）
+                  - 查询AMF重选控制策略（LST AMFRESELPLCY）
+                  - 删除AMF重选控制策略（RMV AMFRESELPLCY）
+                - AMF重选功能区域编码
+                  - 增加AMF重选功能区域编码（ADD RESELAREACODE）
+                  - 查询AMF重选功能区域编码（LST RESELAREACODE）
+                  - 删除AMF重选功能区域编码（RMV RESELAREACODE）
+                - AMF区域重选控制
+                  - 设置AMF区域重选功能控制参数（SET NGAREARESELCTRL）
+                  - 查询AMF区域重选功能控制参数（LST NGAREARESELCTRL）
+                - AMF区域重选策略
+                  - 增加AMF区域重选控制策略（ADD NGAREARESELPLCY）
+                  - 查询AMF区域重选控制策略（LST NGAREARESELPLCY）
+                  - 删除AMF区域重选控制策略（RMV NGAREARESELPLCY）
+                  - 修改AMF区域重选控制策略（MOD NGAREARESELPLCY）
+                - AMF重选功能区域成员
+                  - 增加AMF重选功能区域成员（ADD RESELAREAMEM）
+                  - 查询AMF重选功能区域成员（LST RESELAREAMEM）
+                  - 删除AMF重选功能区域成员（RMV RESELAREAMEM）
+              - UE重载控制管理
+                - 增加UE重载控制策略（ADD UEOVERLDCTRL）
+                - 查询UE重载控制策略（LST UEOVERLDCTRL）
+                - 删除UE重载控制策略（RMV UEOVERLDCTRL）
+                - 修改UE重载控制策略（MOD UEOVERLDCTRL）
+              - 园区策略管理
+                - 修改园区策略（MOD NGPARKPLCY）
+                - 查询园区策略（LST NGPARKPLCY）
+                - 删除园区策略（RMV NGPARKPLCY）
+                - 增加园区策略（ADD NGPARKPLCY）
+              - AMF Pool 迁移控制
+                - 查询AMF迁移任务（DSP OFFLOADAMF）
+                - 停止AMF迁移任务（STP OFFLOADAMF）
+                - 启动AMF迁移任务（STR OFFLOADAMF）
+                - 启动园区内AMF用户迁移任务（STR OFFLOADBYEDGEAMF）
+              - 多时区管理
+                - 5G区域时区参数
+                  - 修改5G区域时区参数（MOD NGAREATZ）
+                  - 查询5G区域时区参数（LST NGAREATZ）
+                  - 删除5G区域时区参数（RMV NGAREATZ）
+                  - 增加5G区域时区参数（ADD NGAREATZ）
+                - 5G多时区参数
+                  - 修改5G多时区参数（MOD NGTZLST）
+                  - 查询5G多时区参数（LST NGTZLST）
+                  - 增加5G多时区参数（ADD NGTZLST）
+                  - 删除5G多时区参数（RMV NGTZLST）
+                - 显示5G多时区参数
+                  - 显示5G多时区参数（DSP NGTZLST）
+              - 网络切片映射管理
+                - 网络切片映射控制参数
+                  - 增加指定PLMN的网络切片映射参数（ADD NSMAPPARABYPLMN）
+                  - 修改指定PLMN的网络切片映射参数（MOD NSMAPPARABYPLMN）
+                  - 查询网络切片映射相关参数（LST NSMAPPARA）
+                  - 设置网络切片映射相关参数（SET NSMAPPARA）
+                  - 查询指定PLMN的网络切片映射参数（LST NSMAPPARABYPLMN）
+                  - 删除指定PLMN的网络切片映射参数（RMV NSMAPPARABYPLMN）
+                - AMF网络切片映射配置管理
+                  - 删除漫游切片映射配置（RMV AMFROAMNSMAP）
+                  - 增加漫游切片映射配置（ADD AMFROAMNSMAP）
+                  - 修改漫游切片映射配置（MOD AMFROAMNSMAP）
+                  - 查询漫游切片映射配置（LST AMFROAMNSMAP）
+                - AMF缺省网络切片映射配置管理
+                  - 增加漫游切片默认映射配置（ADD AMFDFTNSMAP）
+                  - 查询漫游切片默认映射配置（LST AMFDFTNSMAP）
+                  - 删除漫游切片默认映射配置（RMV AMFDFTNSMAP）
+              - AMF冲突配置管理
+                - 删除冲突规则（RMV AMFCONFLICTRULE）
+                - 查询AMF冲突规则（LST AMFCONFLICTRULE）
+                - 显示AMF冲突规则生效状态（DSP AMFCONFLICTRULE）
+                - 增加AMF冲突规则（ADD AMFCONFLICTRULE）
+                - 修改AMF冲突规则（MOD AMFCONFLICTRULE）
+              - AMF区域GUTI选网功能管理
+                - AMF区域GUTI选网策略
+                  - 增加AMF区域GUTI选网控制策略（ADD NGGUTISELPLCY）
+                  - 修改AMF区域GUTI选网控制策略（MOD NGGUTISELPLCY）
+                  - 查询AMF区域GUTI选网控制策略（LST NGGUTISELPLCY）
+                  - 删除AMF区域GUTI选网控制策略（RMV NGGUTISELPLCY）
+                - GUTI选网功能区域编码
+                  - 查询GUTI选网功能区域编码（LST GUTISELAREACODE）
+                  - 增加GUTI选网功能区域编码（ADD GUTISELAREACODE）
+                  - 删除GUTI选网功能区域编码（RMV GUTISELAREACODE）
+                - GUTI选网功能区域成员
+                  - 删除GUTI选网功能区域成员（RMV GUTISELAREAMEM）
+                  - 增加GUTI选网功能区域成员（ADD GUTISELAREAMEM）
+                  - 查询GUTI选网功能区域成员（LST GUTISELAREAMEM）
+              - 非公网络接入管理
+                - 查询公网集成非公网络管理功能（LST PNINPNFUNC）
+                - 设置公网集成非公网络管理功能（SET PNINPNFUNC）
+              - AMF漫游功能控制
+                - AMF跨运营商交互策略管理
+                  - 增加AMF跨运营商交互策略（ADD AMFCROSSOPPLCY）
+                  - 修改AMF跨运营商交互策略（MOD AMFCROSSOPPLCY）
+                  - 查询AMF运营商交互策略（LST AMFCROSSOPPLCY）
+                  - 删除AMF跨运营商交互策略（RMV AMFCROSSOPPLCY）
+                - 异网漫游PDU会话重建策略管理
+                  - 增加异网漫游PDU会话重建策略（ADD INTPDUPLCY）
+                  - 修改异网漫游PDU会话重建策略（MOD INTPDUPLCY）
+                  - 查询异网漫游PDU会话重建策略（LST INTPDUPLCY）
+                  - 删除异网漫游PDU会话重建策略（RMV INTPDUPLCY）
+                - N14N26接口跨运营商交互策略管理
+                  - 增加N14N26接口跨运营商交互策略（ADD N14N26INTOPPLCY）
+                  - 查询N14N26接口跨运营商交互策略（LST N14N26INTOPPLCY）
+                  - 删除N14N26接口跨运营商交互策略（RMV N14N26INTOPPLCY）
+                  - 修改N14N26接口跨运营商交互策略（MOD N14N26INTOPPLCY）
+                - AMF漫游功能管理
+                  - 查询AMF漫游功能管理参数（LST AMFROAMFUNC）
+                  - 设置AMF漫游功能管理参数（SET AMFROAMFUNC）
+              - 本地分流管理
+                - 删除允许本地专网分流的DNN（RMV ALLOWDNN）
+                - 增加允许本地专网分流的DNN（ADD ALLOWDNN）
+                - 查询允许本地专网分流的DNN（LST ALLOWDNN）
+              - 5G接入用户数控制
+                - 删除5G接入用户数控制参数（RMV NGUSERNUMCTRL）
+                - 查询5G接入用户数控制参数（LST NGUSERNUMCTRL）
+                - 增加5G接入用户数控制参数（ADD NGUSERNUMCTRL）
+                - 修改5G接入用户数控制参数（MOD NGUSERNUMCTRL）
+              - AMF热备容灾管理
+                - 增加AMF热备容灾控制参数（ADD AMFDRBKCTRL）
+                - 删除AMF热备容灾的控制参数（RMV AMFDRBKCTRL）
+                - 查询AMF热备容灾（LST AMFRESTOFUNC）
+                - 修改AMF热备容灾控制参数（MOD AMFDRBKCTRL）
+                - 设置AMF热备容灾（SET AMFRESTOFUNC）
+                - 查询AMF热备容灾的控制参数（LST AMFDRBKCTRL）
+              - DNN替换功能管理
+                - 设置DNN替换功能管理参数（SET DNNREPLACEFUNC）
+                - 查询DNN替换功能管理参数（LST DNNREPLACEFUNC）
+              - 签约数据管理
+                - 修改用户移动性管理参数（MOD NGMMSUBDATA）
+                - 查询用户移动性管理参数（LST NGMMSUBDATA）
+                - 增加用户移动性管理参数（ADD NGMMSUBDATA）
+                - 删除用户移动性管理参数（RMV NGMMSUBDATA）
+              - RRC Inactive业务管理
+                - RRC Inactive参数
+                  - 查询RRC Inactive参数（LST RRCINACTPARA）
+                  - 设置RRC Inactive参数（SET RRCINACTPARA）
+                - RRC Inactive策略
+                  - 查询RRC Inactive策略（LST RRCINACTPLCY）
+                  - 修改RRC Inactive策略（MOD RRCINACTPLCY）
+                  - 增加RRC Inactive策略（ADD RRCINACTPLCY）
+                  - 删除RRC Inactive策略（RMV RRCINACTPLCY）
+                - RRC Inactive生效的TAI范围
+                  - 查询RRC Inactive生效的TAI范围（LST RRCINACTTAI）
+                  - 删除RRC Inactive生效的TAI范围（RMV RRCINACTTAI）
+                  - 增加RRC Inactive生效的TAI范围（ADD RRCINACTTAI）
+                  - 修改RRC Inactive生效的TAI范围（MOD RRCINACTTAI）
+              - 5G小区广播管理
+                - 查询小区广播功能（LST NGCBSFUNC）
+                - 设置小区广播功能（SET NGCBSFUNC）
+              - 卫星网络接入管理
+                - 设置卫星网络接入管理功能（SET NGNTNFUNC）
+                - 查询卫星网络接入管理功能（LST NGNTNFUNC）
+              - UE无线能力控制策略
+                - 设置UE Radio Capability信元信息（SET UERADIOCAPLEN）
+                - 显示UE Radio Capability信元长度（DSP UERADIOCAPLEN）
+                - 清除UE Radio Capability信元长度统计信息（CLR UERADIOCAPLEN）
+                - 查询UE Radio Capability信元配置（LST UERADIOCAPLEN）
+              - 接入管理
+                - 等价PLMN区域管理
+                  - 增加跟踪区域组成员（ADD EPLMNAREAMEM）
+                  - 删除跟踪区域组成员（RMV EPLMNAREAMEM）
+                  - 查询跟踪区域组成员（LST EPLMNAREAMEM）
+              - 跟踪区管理
+                - 跟踪区列表管理
+                  - 增加5G跟踪区列表（ADD NGTALST）
+                  - 修改5G跟踪区列表（MOD NGTALST）
+                  - 删除5G跟踪区列表（RMV NGTALST）
+                  - 查询5G跟踪区列表（LST NGTALST）
+              - 拥塞控制
+                - AMF NAS固定速率流控
+                  - 查询指定消息类型的AMF NAS固定速率流控信息（LST AMFNASFIXEDFC）
+                  - 设置指定消息类型的AMF NAS固定速率流控信息（SET AMFNASFIXEDFC）
+                - TA LIST流控
+                  - 查询NG TAI组寻呼异常监控功能参数（LST NGTAIPAGMONPARA）
+                  - 显示NG TAI对象寻呼流控状态信息（DSP NGTAIDETECTINFO）
+                  - 设置NG TAI组寻呼异常监控功能参数（SET NGTAIPAGMONPARA）
+                - AMF流控参数
+                  - 设置AMF自保流控参数（SET AMFFCPARA）
+                  - 查询AMF自保流控参数（LST AMFFCPARA）
+                - 异常信令抑制参数
+                  - 查询5G信令抑制参数（LST NGSMARTPARA）
+                  - 设置5G信令抑制参数（SET NGSMARTPARA）
+                - Inter-AMF流控参数
+                  - 查询Inter-AMF流控参数（LST INTERAMFFC）
+                  - 设置Inter-AMF流控参数（SET INTERAMFFC）
+              - 多Serving Plmn增强管理
+                - 设置多Serving Plmn增强功能（SET MULTISRVPLMNEN）
+                - 查询多Serving Plmn增强功能（LST MULTISRVPLMNEN）
+              - AMF数据一致性核查
+                - 设置AMF数据核查相关参数（SET AMFDATACHK）
+                - 查询AMF数据核查相关参数（LST AMFDATACHK）
+              - 宽带集群系统扩展功能管理
+                - 设置宽带集群系统扩展功能(SET BTRUNCFUNC)
+                - 查询宽带集群系统扩展功能(LST BTRUNCFUNC)
+            - 通用配置管理
+              - 通用区域成员管理
+                - 查询跟踪区成员（LST AREAMEM）
+                - 删除跟踪区成员（RMV AREAMEM）
+                - 增加跟踪区成员（ADD AREAMEM）
+              - 通用园区管理
+                - 删除通用接入和移动扩展定时器（RMV EDGEAMTIMER）
+                - 查询通用接入和移动扩展功能（LST EDGEAMCOMMFUNC）
+                - 查询通用接入和移动扩展定时器（LST EDGEAMTIMER）
+                - 修改通用接入和移动扩展定时器（MOD EDGEAMTIMER）
+                - 设置通用接入和移动扩展功能（SET EDGEAMCOMMFUNC）
+                - 增加通用接入和移动扩展定时器（ADD EDGEAMTIMER）
+              - DNN群组成员管理
+                - 增加DNN群组成员（ADD DNNGRPMEM）
+                - 删除DNN群组成员（RMV DNNGRPMEM）
+                - 查询DNN群组成员（LST DNNGRPMEM）
+              - 用户群组标识管理
+                - 查询5G用户群（LST NGUSRGRP）
+                - 删除5G用户群（RMV NGUSRGRP）
+                - 增加5G用户群（ADD NGUSRGRP）
+                - 修改5G用户群（MOD NGUSRGRP）
+              - 通用区域编码管理
+                - 查询区域编码（LST AREACODE）
+                - 增加区域编码（ADD AREACODE）
+                - 删除区域编码（RMV AREACODE）
+              - 用户群组成员管理
+                - 删除5G用户群成员（RMV NGUSRGRPMEM）
+                - 增加5G用户群成员（ADD NGUSRGRPMEM）
+                - 查询5G用户群成员（LST NGUSRGRPMEM）
+              - Bypass故障状态码管理
+                - 修改BYPASS故障状态码（MOD BYPASSFAULTCODE）
+                - 删除BYPASS故障状态码（RMV BYPASSFAULTCODE）
+                - 查询BYPASS故障状态码（LST BYPASSFAULTCODE）
+                - 增加BYPASS故障状态码（ADD BYPASSFAULTCODE）
+              - DNN群组标识管理
+                - 查询DNN群组（LST DNNGRP）
+                - 删除DNN群组（RMV DNNGRP）
+                - 增加DNN群组（ADD DNNGRP）
+            - 感知业务管理
+              - 感知核查管理
+                - 查询AMF感知配置（LST AMFSENSECONF）
+                - 设置AMF感知配置（SET AMFSENSECONF）
+              - 感知控制面功能参数
+                - 增加SFC参数（ADD SFCPARA）
+                - 修改SFC参数（MOD SFCPARA）
+                - 删除SFC参数（RMV SFCPARA）
+                - 查询SFC参数（LST SFCPARA）
+              - 显示基站感知能力信息
+                - 显示感知基站感知能力信息（DSP SENSECAPINFO）
+            - 可靠性管理
+              - AMF的SMSF故障处理策略
+                - 查询AMF的SMSF故障处理策略（LST AMFSMSFRESET）
+                - 设置AMF的SMSF故障处理策略（SET AMFSMSFRESET）
+              - AMF的PCF故障处理策略
+                - 设置AMF的PCF故障处理策略（SET AMFPCFRESET）
+                - 查询AMF的PCF故障处理策略（LST AMFPCFRESET）
+              - AMF的SMF故障处理策略
+                - 设置AMF的SMF故障处理策略（SET AMFSMFRESET）
+                - 查询AMF的SMF故障处理策略（LST AMFSMFRESET）
+              - AMF自运行授权管理
+                - 设置AMF自运行授权配置（SET EDGEAMSELFRUNAUTH）
+                - 查询AMF自运行授权配置（LST EDGEAMSELFRUNAUTH）
+                - 显示AMF自运行授权状态（DSP EDGEAMSELFRUNAUTHSTAT）
+                - 查询园区NF（LST EDGENF）
+                - 激活AMF自运行授权（ACT EDGEAMSELFRUNAUTH）
+                - 增加园区NF（ADD EDGENF）
+                - 删除园区NF（RMV EDGENF）
+              - UDM故障BYPASS最小签约数据配置管理
+                - 修改UDM Bypass最小签约数据配置（MOD UDMBYPASSSUB）
+                - 查询UDM Bypass最小签约数据配置（LST UDMBYPASSSUB）
+                - 增加UDM Bypass最小签约数据配置（ADD UDMBYPASSSUB）
+                - 删除UDM Bypass最小签约数据配置（RMV UDMBYPASSSUB）
+              - AMF的UDM故障BYPASS功能
+                - 启动用户退出UDM Bypass状态任务（STR AMFEXITUDMBYPASS）
+                - 停止用户退出UDM Bypass状态任务（STP AMFEXITUDMBYPASS）
+                - 设置AMF的UDM故障BYPASS功能（SET AMFUDMBYPASS）
+                - 显示用户UDM Bypass信息（DSP AMFUDMBYPASS）
+                - 显示UDM Bypass用户数（DSP UDMBYPASSNUM）
+                - 查询AMF的UDM故障BYPASS功能（LST AMFUDMBYPASS）
+              - AMF存储BYPASS处理策略
+                - 操作AMF相对容量（OPR AMFCAP）
+                - 显示AMF相对容量信息（DSP AMFCAP）
+              - AMF的UDM故障处理策略
+                - 设置AMF的UDM故障处理策略（SET AMFUDMRESET）
+                - 查询AMF的UDM故障处理策略（LST AMFUDMRESET）
+              - AMF对端选择功能管理
+                - 查询AMF对端选择功能控制参数（LST AMFPEERSELFUNC）
+                - 设置AMF对端选择功能参数（SET AMFPEERSELFUNC）
+              - AMF的AUSF故障处理策略
+                - 查询AMF的AUSF故障处理策略（LST AMFAUSFRESET）
+                - 设置AMF的AUSF故障处理策略（SET AMFAUSFRESET）
+            - 5G 语音业务管理
+              - VoPS管理
+                - 查询5G语音部署配置（LST NGVOICEDEPLOY）
+                - 删除5G语音部署配置（RMV NGVOICEDEPLOY）
+                - 修改5G语音部署配置（MOD NGVOICEDEPLOY）
+                - 查询VoPS配置（LST NGIMSVOPS）
+                - 设置VoPS配置（SET NGIMSVOPS）
+                - 增加5G语音部署配置（ADD NGVOICEDEPLOY）
+              - 紧急呼叫业务管理
+                - 紧急呼叫号码配置
+                  - 查询紧急号码配置信息（LST NGEMGCNUM）
+                  - 删除紧急号码配置信息（RMV NGEMGCNUM）
+                  - 增加紧急号码配置信息（ADD NGEMGCNUM）
+                - 紧急服务功能配置
+                  - 设置5G紧急服务功能（SET NGEMGSRVFUNC）
+                  - 查询5G紧急服务功能（LST NGEMGSRVFUNC）
+                - 紧急呼叫配置
+                  - 查询运营商紧急呼叫功能配置（LST NGEMGCFG）
+                  - 修改运营商紧急呼叫功能配置（MOD NGEMGCFG）
+                  - 删除运营商紧急呼叫功能配置（RMV NGEMGCFG）
+                  - 增加运营商紧急呼叫功能配置（ADD NGEMGCFG）
+            - 业务安全管理
+              - PEI策略管理
+                - 查询5G PEI策略（LST NGPEIPLCY）
+                - 增加5G PEI策略（ADD NGPEIPLCY）
+                - 删除5G PEI策略（RMV NGPEIPLCY）
+                - 修改5G PEI策略（MOD NGPEIPLCY）
+              - 用户安全参数管理
+                - 修改5G用户安全配置（MOD NGUSRSECPARA）
+                - 增加5G用户安全配置（ADD NGUSRSECPARA）
+                - 删除5G用户安全配置（RMV NGUSRSECPARA）
+                - 查询5G用户安全配置（LST NGUSRSECPARA）
+              - 安全算法优先级管理
+                - 删除5G算法优先级属性（RMV NGALGPRIORITY）
+                - 查询5G算法优先级属性（LST NGALGPRIORITY）
+                - 增加5G算法优先级属性（ADD NGALGPRIORITY）
+                - 修改5G算法优先级属性（MOD NGALGPRIORITY）
+              - 切片安全策略管理
+                - 查询AMF切片安全策略（LST AMFNSSECPLCY）
+                - 设置AMF切片安全策略（SET AMFNSSECPLCY）
+            - 5G MDT管理
+              - 查询最小化路测的PLMN（LST NGMDTPLMN）
+              - 设置5G MDT控制参数（SET NGMDTCTRL）
+              - 查询5G MDT控制参数（LST NGMDTCTRL）
+              - 删除最小化路测的PLMN（RMV NGMDTPLMN）
+              - 增加最小化路测的PLMN（ADD NGMDTPLMN）
+            - 用户数据库管理
+              - 显示5G定位上下文信息（DSP NGLCSCTX）
+              - 显示用户IMSI信息（DSP NGIMSI）
+              - 停止批量去注册任务（STP NGUSRBATCHDEREG）
+              - 显示5G移动性管理上下文扩展信息（DSP NGMMCTXEXT）
+              - 启动批量去注册任务（STR NGUSRBATCHDEREG）
+              - 显示指定用户的会话信息（DSP USRSESSIONCTX）
+              - 显示5G用户资源（DSP NGUSERRESOURCE）
+              - 显示5G容灾用户数（DSP NGRDUSERNUM）
+              - 显示5G M2M用户资源数（DSP NGM2MUSERNUM）
+              - 显示5G移动性管理上下文（DSP NGMMCTX）
+              - 显示5G漫游用户移动性管理上下文（DSP NGROAMMMCTX）
+              - 删除N2接口AN信令连接（RMV USRN2CONN）
+              - 删除5G用户（RMV NGUSR）
+              - 删除UE-TNLA（RMV UETNLA）
+              - 显示5G用户数（DSP NGUSERNUM）
+            - 5G定位服务管理
+              - 紧急定位服务管理
+                - 删除NI-LR功能参数（RMV NGNILRPARA）
+                - 修改NI-LR功能参数（MOD NGNILRPARA）
+                - 增加NI-LR功能参数（ADD NGNILRPARA）
+                - 查询NI-LR功能参数（LST NGNILRPARA）
+              - 定位服务权限配置管理
+                - 删除定位服务权限配置（RMV LCSPERMITCFG）
+                - 查询定位服务权限配置（LST LCSPERMITCFG）
+                - 增加定位服务权限配置（ADD LCSPERMITCFG）
+              - 定位服务管理
+                - 设置5G定位服务参数（SET NGLCSPARA）
+                - 查询5G定位服务参数（LST NGLCSPARA）
+            - 网络开放管理
+              - 能力开放管理
+                - 启动向NEF发送消息（STR NEFMSGSEND）
+              - 5G PRA管理
+                - 5G PRA位置成员管理
+                  - 查询PRA位置区成员（LST NGPRAMEM）
+                  - 增加PRA位置区成员（ADD NGPRAMEM）
+                  - 删除PRA位置区成员（RMV NGPRAMEM）
+                - 5G PRA标识管理
+                  - 查询5G PRA（LST NGPRA）
+                  - 增加5G PRA（ADD NGPRA）
+                  - 删除5G PRA（RMV NGPRA）
+              - 查询网络开放事件订阅信息
+                - 显示网络开放事件的订阅信息（DSP EVTSUBINFO）
+            - CHR管理
+              - NG接入小范围CHR配置
+                - 设置AMF小范围CHR存储配置（SET NGCHRSTORCFG）
+                - 查询AMF小范围CHR存储配置（LST NGCHRSTORCFG）
+                - 增加AMF小范围CHR上报规则配置（ADD NGSRCHRCFG）
+                - 删除AMF小范围CHR上报规则配置（RMV NGSRCHRCFG）
+                - 查询AMF小范围CHR上报规则配置（LST NGSRCHRCFG）
+                - 修改AMF小范围CHR上报规则配置（MOD NGSRCHRCFG）
+              - NG接入CHR流程控制模板
+                - 删除NG接入CHR流程控制模板（RMV NGACCCHRPRCTMPL）
+                - 查询NG接入CHR流程控制模板（LST NGACCCHRPRCTMPL）
+                - 修改NG接入CHR流程控制模板（MOD NGACCCHRPRCTMPL）
+                - 增加NG接入CHR流程控制模板（ADD NGACCCHRPRCTMPL）
+              - NG接入CHR配置
+                - 设置NG接入CHR上报策略（SET NGACCCHRCFG）
+                - 查询NG接入CHR上报策略（LST NGACCCHRCFG）
+          - NCG业务及策略管理
+            - CDF token策略
+              - 查询CDF token策略（LST CDFTOKENPOLICY）
+              - 设置CDF token策略（SET CDFTOKENPOLICY）
+            - CDF token权重
+              - 查询cdf token权重（LST CDFTOKENWEIGHT）
+              - 增加cdf的token权重（ADD CDFTOKENWEIGHT）
+              - 删除cdf token权重（RMV CDFTOKENWEIGHT）
+              - 修改cdf token权重（MOD CDFTOKENWEIGHT）
+            - 计费管理
+              - 业务配置管理
+                - 话单统计
+                  - 显示话单统计信息（DSP CDRSTAT）
+                  - 修改话单统计（MOD CDRSTAT）
+                  - 查询话单统计（LST CDRSTAT）
+                  - 增加话单统计（ADD CDRSTAT）
+                  - 删除话单统计（RMV CDRSTAT）
+                - 业务隔离
+                  - 增加Ga业务隔离配置（ADD GAISOLATION）
+                  - 查询Ga业务隔离配置（LST  GAISOLATION）
+                  - 删除Ga业务隔离配置（RMV GAISOLATION）
+                - 虚拟通道映射
+                  - 增加虚拟通道映射（ADD VIRTUALCHL）
+                  - 删除虚拟通道映射（RMV VIRTUALCHL）
+                  - 查询虚拟通道映射（LST VIRTUALCHL）
+                  - 修改虚拟通道映射（MOD VIRTUALCHL）
+                - NCG队列状态
+                  - 显示NCG队列状态（DSP CGQUEUESTATUS）
+              - 业务系统管理
+                - GA接口License峰值
+                  - 显示GA接口话务高峰信息（DSP GALICENSEPEAK）
+                - BOSS操作信息
+                  - 查询BOSS操作信息（DSP BOSSOPINFO）
+            - CDF功能参数信息
+              - 查询CDF的功能参数（LST CDFFUNCPARA）
+              - 设置CDF的功能参数（SET CDFFUNCPARA）
+            - 话单通道一级目录类型映射表
+              - 增加话单通道一级目录类型映射表（ADD NCGCHLMAP）
+              - 查询话单通道一级目录类型映射表配置（LST NCGCHLMAP）
+              - 删除话单通道一级目录类型映射表（RMV NCGCHLMAP）
+            - 短消息告警服务功能
+              - 修改告警服务器相关配置信息（MOD NCGALMSRV）
+              - 删除告警服务器相关配置信息（RMV NCGALMSRV）
+              - 查询告警服务器相关配置信息（LST NCGALMSRV）
+              - 增加告警服务器相关配置信息（ADD NCGALMSRV）
+          - 本局信息管理
+            - SMF
+              - BSF信息管理
+                - 删除IPDOMAIN组（RMV BSFIPDOMAINGRP）
+                - 查询BSF信息（LST BSFINFO）
+                - 增加IPDOMAIN组（ADD BSFIPDOMAINGRP）
+                - 查询APN组（LST BSFAPNGROUP）
+                - 增加BSF实例与IPRANGE之间的绑定关系（ADD BSFIPRANGEBIND）
+                - 查询BSF实例与IPRANGE之间的绑定关系（LST BSFIPRANGEBIND）
+                - 增加APN组（ADD BSFAPNGROUP）
+                - 删除BSF信息（RMV BSFINFO）
+                - 删除APN组（RMV BSFAPNGROUP）
+                - 增加BSF信息（ADD BSFINFO）
+                - 删除BSF实例与IPRANGE之间的绑定关系（RMV BSFIPRANGEBIND）
+                - 查询IPDOMAIN组（LST BSFIPDOMAINGRP）
+              - SMF信息管理
+                - 查询SMF信息（LST SMFINFO）
+                - 增加SMF信息（ADD SMFINFO）
+                - 增加SMF扩展信息（ADD SMFINFOEXT）
+                - 修改SMF扩展信息（MOD SMFINFOEXT）
+                - 删除SMF信息（RMV SMFINFO）
+                - 删除SMF扩展信息（RMV SMFINFOEXT）
+                - 修改SMF信息（MOD SMFINFO）
+                - 查询SMF扩展信息（LST SMFINFOEXT）
+              - SGW-C信息管理
+                - 查询SGW-C网络标识符（LST SGWCID）
+                - 修改SGW-C网络标识符（MOD SGWCID）
+                - 删除SGW-C网络标识符（RMV SGWCID）
+                - 增加SGW-C网络标识符（ADD SGWCID）
+              - MNC长度
+                - 增加MNC长度信息（ADD CPMNCLEN）
+                - 查询MNC长度信息（LST CPMNCLEN）
+                - 删除MNC长度信息（RMV CPMNCLEN）
+                - 修改MNC长度信息（MOD CPMNCLEN）
+              - LINKMTU
+                - 设置Link MTU值（SET LINKMTU）
+                - 查询Link MTU值（LST LINKMTU）
+            - NWDAF
+              - 修改NWDAF信息（MOD NWDAFINFO）
+              - 修改NWDAF扩展信息（MOD NWDAFINFOEXT）
+              - 删除NWDAF扩展信息（RMV NWDAFINFOEXT）
+              - 删除NWDAF信息（RMV NWDAFINFO）
+              - 查询NWDAF扩展信息（LST NWDAFINFOEXT）
+              - 增加NWDAF信息（ADD NWDAFINFO）
+              - 查询NWDAF信息（LST NWDAFINFO）
+              - 增加NWDAF扩展信息（ADD NWDAFINFOEXT）
+            - AMF
+              - AMF信息管理
+                - 增加AMF信息（ADD AMFINFO）
+                - 修改AMF信息（MOD AMFINFO）
+                - 查询AMF信息（LST AMFINFO）
+                - 删除AMF信息（RMV AMFINFO）
+              - AMF的N2接口信息管理
+                - 查询AMF的N2接口信息（LST N2INFAMFINFO）
+                - 增加AMF的N2接口信息（ADD N2INFAMFINFO）
+                - 删除AMF的N2接口信息（RMV N2INFAMFINFO）
+              - AMF全局标识符管理
+                - 查询AMF全局标识（LST GUAMI）
+                - 删除AMF全局标识（RMV GUAMI）
+                - 修改AMF全局标识（MOD GUAMI）
+                - 增加AMF全局标识（ADD GUAMI）
+              - 备用GUAMI列表管理
+                - 增加供备GUAMI信息（ADD BACKUPGUAMI）
+                - 删除供备GUAMI信息（RMV BACKUPGUAMI）
+                - 修改供备GUAMI信息（MOD BACKUPGUAMI）
+                - 查询供备GUAMI信息（LST BACKUPGUAMI）
+              - 本地数据网络管理
+                - 查询本地数据网络（LST LADN）
+                - 增加本地数据网络（ADD LADN）
+                - 修改本地数据网络（MOD LADN）
+                - 删除本地数据网络（RMV LADN）
+          - 运营商管理
+            - PLMN内网络切片管理
+              - 删除网络切片（RMV PLMNNS）
+              - 增加网络切片（ADD PLMNNS）
+              - 查询网络切片（LST PLMNNS）
+              - 修改网络切片（MOD PLMNNS）
+            - 互联PLMN管理
+              - 修改5G Connect PLMN（MOD NGCONNECTPLMN）
+              - 删除5G Connect PLMN（RMV NGCONNECTPLMN）
+              - 增加5G Connect PLMN（ADD NGCONNECTPLMN）
+              - 查询5G Connect PLMN（LST NGCONNECTPLMN）
+            - 等价PLMN组管理
+              - 增加等价PLMN组（ADD EPLMNGRP）
+              - 修改等价PLMN组（MOD EPLMNGRP）
+              - 查询等价PLMN组（LST EPLMNGRP）
+              - 删除等价PLMN组（RMV EPLMNGRP）
+            - Serving PLMN信息管理
+              - 查询5G Serving PLMN（LST NGSRVPLMN）
+              - 删除5G Serving PLMN（RMV NGSRVPLMN）
+              - 增加5G Serving PLMN（ADD NGSRVPLMN）
+              - 修改5G Serving PLMN（MOD NGSRVPLMN）
+            - 等价PLMN组成员管理
+              - 查询等价PLMN组成员（LST EPLMNGRPMEM）
+              - 增加等价PLMN组成员（ADD EPLMNGRPMEM）
+              - 删除等价PLMN组成员（RMV EPLMNGRPMEM）
+            - 5G 移动网络运营商管理
+              - 修改5G模式移动网络运营商信息（MOD NGMNO）
+              - 删除5G模式移动网络运营商信息（RMV NGMNO）
+              - 查询5G模式移动网络运营商信息（LST NGMNO）
+              - 增加5G模式移动网络运营商信息（ADD NGMNO）
+            - Home PLMN信息管理
+              - 修改5G Home PLMN（MOD NGHPLMN）
+              - 删除5G Home PLMN（RMV NGHPLMN）
+              - 增加5G Home PLMN（ADD NGHPLMN）
+              - 查询5G Home PLMN（LST NGHPLMN）
+            - PLMN归属管理
+              - 增加MCC与MNC归属关系（ADD PLMNMATCH）
+              - 查询MCC与MNC的归属（LST PLMNMATCH）
+              - 删除MCC与MNC的归属关系（RMV PLMNMATCH）
+            - Home PLMN到Serving PLMN关联信息管理
+              - 增加Home PLMN到Serving PLMN的对应关系（ADD H2SRVPLMN）
+              - 修改Home PLMN到Serving PLMN的对应关系（MOD H2SRVPLMN）
+              - 查询Home PLMN到Serving PLMN的对应关系（LST H2SRVPLMN）
+              - 删除Home PLMN到Serving PLMN的对应关系（RMV H2SRVPLMN）
+          - 5G组播广播管理
+            - MB-SMF组播广播管理
+              - MB-SMF组播广播功能管理
+                - 设置MB-SMF组播广播功能参数（SET SMFMBSFUNC）
+                - 查询MB-SMF组播广播功能参数（LST SMFMBSFUNC）
+              - MB-SMF TMGI配置管理
+                - 查询TMGI号段（LST TMGIRNG）
+                - 增加TMGI号段（ADD TMGIRNG）
+                - 删除TMGI号段（RMV TMGIRNG）
+                - 锁定TMGI号段（LCK TMGIRNG）
+              - 显示MB-SMF组播广播会话数
+                - 显示MB-SMF组播广播会话数（DSP SMFMBSSESSIONNUM）
+              - 去活MB-SMF组播广播会话
+                - 去激活MB-SMF组播广播会话（DEA SMFMBSSESSION）
+              - 显示MB-SMF TMGI使用率
+                - 显示TMGI使用率（DSP TMGIUSAGE）
+              - 显示MB-SMF TMGI
+                - 显示TMGI（DSP TMGI）
+              - 去激活MB-SMF TMGI
+                - 去激活TMGI（DEA TMGI）
+              - 显示MB-SMF组播广播会话上下文
+                - 显示MB-SMF会话上下文信息（DSP SMFMBSSESSION）
+            - AMF组播广播管理
+              - 显示AMF组播广播会话上下文
+                - 显示AMF组播广播会话上下文（DSP AMFMBSSESCTX）
+              - 显示AMF组播广播会话数
+                - 显示AMF组播广播会话数（DSP AMFMBSSESNUM）
+              - AMF组播广播功能管理
+                - 查询AMF组播广播功能参数（LST AMFMBSFUNC）
+                - 设置AMF组播广播功能参数（SET AMFMBSFUNC）
+              - 去活AMF组播广播会话
+                - 去激活AMF组播广播会话（DEA AMFMBSSESSION）
+          - 5G M2M管理
+            - 5G M2M策略参数配置
+              - 删除5G M2M策略参数（RMV NGM2MPLCY）
+              - 修改5G M2M策略参数（MOD NGM2MPLCY）
+              - 增加5G M2M策略参数（ADD NGM2MPLCY）
+              - 查询5G M2M策略参数（LST NGM2MPLCY）
+            - M2M控制参数
+              - 查询5G M2M控制参数（LST NGM2MCTRL）
+              - 设置5G M2M控制参数（SET NGM2MCTRL）
+            - RedCap功能管理
+              - 查询AMF RedCap功能（LST AMFREDCAPFUNC）
+              - 设置AMF RedCap功能（SET AMFREDCAPFUNC）
+          - VLR业务管理
+            - 数据核查
+              - 查询VLR非短信用户数核查扫描参数（LST VLRUSRNUMCHECK）
+              - 设置VLR用户数据核查扫描参数（SET VLRDATACHECK）
+              - 设置VLR非短信用户数核查扫描参数（SET VLRUSRNUMCHECK）
+              - 查询VLR用户数据核查扫描参数（LST VLRDATACHECK）
+            - 热备容灾
+              - 查询VLR用户关键信息数据核查扫描参数（LST VLRKEYCHECK）
+              - 删除用户的VLR关键信息（RMV VLRKEYDATA）
+              - 显示VLR用户关键信息（DSP VLRKEYDATA）
+              - 设置VLR用户关键信息数据核查扫描参数（SET VLRKEYCHECK）
+            - VLR本局信息管理
+              - 设置VLR的本局信息（SET VLRLOCALINFO）
+              - 查询VLR的本局信息（LST VLRLOCALINFO）
+            - VLR功能开关
+              - 查询VLR功能开关（LST VLRFUNCSW）
+              - 设置VLR功能开关（SET VLRFUNCSW）
+            - 用户上下文管理
+              - 设置VLR向MME发送SGsAP-RESET-INDICATION消息定时器配置（SET VLRRESETTIMER）
+              - 显示VLR注册用户的上下文信息（DSP VLRCTX）
+              - 查询VLR向MME发送SGsAP-RESET-INDICATION消息定时器配置（LST VLRRESETTIMER）
+              - 触发VLR向MME发送RESET消息（SND VLRRESET）
+              - 删除VLR用户的上下文（RMV VLRCTX）
+            - 自保流控
+              - 查询VLR的SGs接口自保流控参数（LST VLRSGSSELFFC）
+              - 设置VLR的SGs接口自保流控参数（SET VLRSGSSELFFC）
+            - 定时器管理
+              - 设置VLR网元定时器（SET VLRTIMERPARA）
+              - 查询VLR网元定时器（LST VLRTIMERPARA）
+            - VLR固定速率流控
+              - 查询VLR向HLR发送请求的固定速率流控（LST HLRFIXEDFC）
+              - 设置VLR向HLR发送请求的固定速率流控（SET HLRFIXEDFC）
+            - MAP版本号管理
+              - 设置VLR使用的MAP接口版本（SET VLRMAPVERSION）
+              - 查询VLR使用的MAP接口版本（LST VLRMAPVERSION）
+          - 5G网络管理
+            - AUSF重选管理
+              - 启动重选AUSF（STR RESELECTAUSF）
+            - UDM注册上下文迁移管理
+              - 启动UDM注册上下文的迁移（STR OFFLOADUDM）
+          - QOS管理
+            - 逻辑接口DSCP管理
+              - 设置逻辑接口DSCP值（SET LOGIFDSCP）
+              - 查询逻辑接口DSCP配置（LST LOGIFDSCP）
+          - NSSF业务及策略管理
+            - AMF集合配置管理
+              - 查询默认AMF集所支持的S-NSSAI范围（LST NSSFDFTAMFSET）
+              - 删除默认AMF集所支持的S-NSSAI范围（RMV NSSFDFTAMFSET）
+              - 增加默认AMF集所支持的S-NSSAI范围（ADD NSSFDFTAMFSET）
+              - 修改默认AMF集所支持的S-NSSAI范围（MOD NSSFDFTAMFSET）
+          - 融合接入业务管理
+            - 融合用户数据库管理
+              - 显示移动性管理上下文的相关信息（DSP COMMMCTX）
+              - 显示移动性管理用户数（DSP COMUSRPDPNUM）
+              - 显示移动管理位置信息上下文（DSP COMMMCTXLOC）
+        - 位置服务管理
+          - GMLC配置管理
+            - Lcs Client策略
+              - 删除LCS客户端策略（RMV LCSCLIENTPLY）
+              - 查询LCS客户端策略（LST LCSCLIENTPLY）
+              - 修改LCS客户端策略（MOD LCSCLIENTPLY）
+              - 添加LCS客户端策略（ADD LCSCLIENTPLY）
+            - LCS UDM Bypass配置
+              - 查询LCS UDM Bypass配置（LST LCSUDMBYPASS）
+              - 配置UDM Bypass开关参数（SET LCSUDMBYPASS）
+            - GMLC消息控制
+              - 配置GMLC消息控制参数（SET GMLCMSGCTRL）
+              - 查询GMLC消息控制参数（LST GMLCMSGCTRL）
+            - LCS定位用户号段
+              - 增加LCS用户号段（ADD LCSSUBSEG）
+              - 修改LCS用户号段（MOD LCSSUBSEG）
+              - 删除LCS用户号段（RMV LCSSUBSEG）
+              - 查询LCS用户号段（LST LCSSUBSEG）
+            - LCS定位用户号段组
+              - 删除LCS用户号段组（RMV LCSSUBSEGGRP）
+              - 增加LCS用户号段组（ADD LCSSUBSEGGRP）
+              - 查询LCS用户号段组（LST LCSSUBSEGGRP）
+            - LCS重定向GMLC配置
+              - 配置重定向GMLC参数（SET LCSREDIRECTGMLC）
+              - 查询LCS重定向GMLC配置（LST LCSREDIRECTGMLC）
+            - 本地LMF信息
+              - 查询本地LMF信息配置（LST GMLCLOCLMFINFO）
+              - 删除本地LMF信息配置（RMV GMLCLOCLMFINFO）
+              - 添加本地LMF信息配置（ADD GMLCLOCLMFINFO）
+              - 修改本地LMF信息配置（MOD GMLCLOCLMFINFO）
+            - LCS备份AMF配置
+              - 删除LCS备用AMF配置（RMV LCSBACKUPAMF）
+              - 添加LCS备用AMF配置（ADD LCSBACKUPAMF）
+              - 修改LCS备用AMF配置（MOD LCSBACKUPAMF）
+              - 查询LCS备用AMF配置（LST LCSBACKUPAMF）
+            - LCS客户端信息
+              - 查询LCS客户端信息（LST LCSCLIENTINFO）
+              - 修改LCS客户端信息（MOD LCSCLIENTINFO）
+              - 删除LCS客户端信息（RMV LCSCLIENTINFO）
+              - 配置LCS客户端信息（ADD LCSCLIENTINFO）
+            - 显示Gmlc会话数
+              - 显示GMLC会话数（DSP GMLCSESSNUM）
+          - 位置服务参数管理
+            - LCS全局属性
+              - 查询LCS全局属性（LST LCSGLBATTR）
+              - LCS全局属性（SET LCSGLBATTR）
+            - LCS指纹参数配置
+              - UE指纹位置
+                - 删除指纹采集终端信息（RMV FPUEPOS）
+                - 配置指纹采集终端信息（ADD FPUEPOS）
+                - 修改指纹采集终端信息（MOD FPUEPOS）
+                - 查询指纹采集终端信息（LST FPUEPOS）
+              - 加载Lcs指纹数据
+                - 显示LCS指纹数据加载状态（DSP LODFPSTAT）
+                - 清除LCS指纹数据（CLR LCSFPDATA）
+                - 加载LCS指纹数据（LOD LCSFPDATA）
+              - 导出Lcs指纹数据
+                - 显示LCS指纹数据导出状态（DSP EXPFPSTAT）
+                - 导出LCS指纹数据（EXP LCSFPDATA）
+            - 信标UE配置
+              - 查询信标UE（LST BEACONUE）
+              - 删除信标UE（RMV BEACONUE）
+              - 修改信标UE（MOD BEACONUE）
+              - 配置信标UE（ADD BEACONUE）
+            - 位置不可达区域
+              - 查询不可达区域（LST UNREACHAREA）
+              - 删除不可达区域（RMV UNREACHAREA）
+              - 配置不可达区域（ADD UNREACHAREA）
+              - 修改不可达区域（MOD UNREACHAREA）
+            - pRRU节点配置
+              - 删除pRRU节点坐标配置（RMV PRRUNODE）
+              - 配置pRRU节点坐标信息（ADD PRRUNODE）
+              - 修改pRRU节点坐标信息（MOD PRRUNODE）
+              - 查询pRRU节点坐标信息（LST PRRUNODE）
+            - LCS算法参数
+              - 删除LCS算法参数（RMV LCSALGOPARA）
+              - 查询LCS算法参数（LST LCSALGOPARA）
+              - 修改LCS算法参数（MOD LCSALGOPARA）
+              - 增加LCS算法参数（ADD LCSALGOPARA）
+            - LCS NF锁定开关
+              - 配置LCS NF锁定开关（SET LCSNFLOCK）
+              - 查询LCS NF锁定开关（LST LCSNFLOCK）
+            - 位置边界
+              - 修改边界位置点（MOD LOCBOUNDARY）
+              - 配置位置边界点信息（ADD LOCBOUNDARY）
+              - 删除边界位置点（RMV LOCBOUNDARY）
+              - 查询位置边界点（LST LOCBOUNDARY）
+            - LCS会话管理
+              - 显示LCS会话信息（DSP LCSSESSION）
+              - 去活LCS会话（DEA LCSSESSION）
+            - LCS宏站一维定位NR
+              - 删除LCS宏站算法参数（RMV LCSMCELL1DNR）
+              - 查询LCS宏站一维算法NR（LST LCSMCELL1DNR）
+              - 增加LCS宏站一维算法NR（ADD LCSMCELL1DNR）
+            - 终端聚类组
+              - 新增多终端聚类组（ADD LCSUECLUSGRP）
+              - 查询多终端聚类组（LST LCSUECLUSGRP）
+              - 删除多终端聚类组（RMV LCSUECLUSGRP）
+            - LCS软参管理
+              - LCS软参比特位
+                - 设置LCS软件参数表比特位的值（SET LCSSOFTPARAOFBIT）
+                - 查询LCS软件参数指定比特位的值（LST LCSSOFTPARAOFBIT）
+              - LCS软参配置数据管理
+                - 配置LCS软参记录（SET LCSSOFTPARA）
+                - 查询LCS软参记录（LST LCSSOFTPARA）
+            - NR邻区配置
+              - 增加定位NR邻区（ADD NRCELLNEIGHBOR）
+              - 删除定位NR邻区（RMV NRCELLNEIGHBOR）
+              - 查询定位NR邻区（LST NRCELLNEIGHBOR）
+            - LCS小站独立定位TRP
+              - 增加LCS小站独立定位TRP（ADD LCSSCELLALONETRP）
+              - 删除LCS小站独立定位TRP（RMV LCSSCELLALONETRP）
+              - 查询LCS小站独立定位TRP配置（LST LCSSCELLALONETRP）
+            - 位置服务参数
+              - 配置位置定位参数（SET UPLCSPARA）
+              - 查询位置定位参数（LST UPLCSPARA）
+            - LCS小站二维定位TRP
+              - 增加LCS小站二维定位TRP（ADD LCSSCELL2DTRP）
+              - 查询LCS小站二维定位TRP配置（LST LCSSCELL2DTRP）
+              - 删除LCS小站二维定位TRP（RMV LCSSCELL2DTRP）
+            - LCS 预备开关
+              - LCS 预备开关（SET LCSPROVSWITCH）
+              - 显示LCS预备开关（LST LCSPROVSWITCH）
+            - LCS小站一维定位TRP
+              - 删除LCS小站一维算法TRP（RMV LCSSCELL1DTRPPAIR）
+              - 查询LCS小站一维定位TRP配置（LST LCSSCELL1DTRPPAIR）
+              - 增加LCS小站一维定位TRP（ADD LCSSCELL1DTRPPAIR）
+          - LMF配置管理
+            - LCS UE无关信息
+              - 显示TRP获取失败的gNodeB列表（DSP LCSTRPFAILLIST）
+              - 去订阅LCS UE无关的N2信息（ACT LCSNONUEN2UNSUB）
+              - 显示LCS基站列表（DSP LCSGNODEBLIST）
+              - 清除LCS UE无关信息（CLR LCSNONUEINFO）
+              - 显示LCS UE无关信息（DSP LCSNONUEINFO）
+              - 清除LCS TRP信息（CLR LCSTRPINFO）
+            - LMF消息控制
+              - 配置LMF消息控制参数（SET LMFMSGCTRL）
+              - 查询LMF消息控制参数（LST LMFMSGCTRL）
+            - 显示LMF会话数
+              - 显示LMF会话数（DSP LMFSESSNUM）
+            - LCS基站类型
+              - 添加基站类型配置（ADD LCSNRTYPE）
+              - 查询基站类型配置（LST LCSNRTYPE）
+              - 修改基站类型配置（MOD LCSNRTYPE）
+              - 删除基站类型配置（RMV LCSNRTYPE）
+            - LCS NR Map ID配置
+              - 删除LCS NR Map ID配置（RMV LCSNRMAPID）
+              - 修改LCS NR Map ID配置（MOD LCSNRMAPID）
+              - 增加LCS NR Map ID配置（ADD LCSNRMAPID）
+              - 查询LCS NR Map ID配置（LST LCSNRMAPID）
+            - 基于NG-RAN的LMF消息控制
+              - 基于NG-RAN的定位去使能开关
+                - 添加基于NG-RAN的定位去使能开关（ADD LCSPOSDEANRSW）
+                - 查询基于NG-RAN的定位去使能开关（LST LCSPOSDEANRSW）
+                - 删除基于NG-RAN的定位去使能开关（RMV LCSPOSDEANRSW）
+                - 修改基于NG-RAN的定位去使能开关（MOD LCSPOSDEANRSW）
+              - 基于NG-RAN的TRP开关
+                - 添加基于NG-RAN的TRP开关（ADD LCSTRPNRSW）
+                - 删除基于NG-RAN的TRP开关（RMV LCSTRPNRSW）
+                - 查询基于NG-RAN的TRP开关（LST LCSTRPNRSW）
+                - 修改基于NG-RAN的TRP开关（MOD LCSTRPNRSW）
+            - LCS UE无关的策略配置
+              - 查询LCS UE无关的策略参数（LST LCSNONUEPLY）
+              - LCS UE无关的策略参数（SET LCSNONUEPLY）
+            - LMF信息管理
+              - 查询LMF信息（LST LMFINFO）
+              - 删除LMF信息（RMV LMFINFO）
+              - 增加LMF信息（ADD LMFINFO）
+        - PCF服务管理
+          - HLB管理
+            - HLB设备地址管理
+              - 添加HLB设备地址(ADD HLBDEVADDR)
+              - 修改HLB设备地址(MOD HLBDEVADDR)
+              - 删除HLB设备地址(RMV HLBDEVADDR)
+              - 查询HLB设备地址(LST HLBDEVADDR)
+            - HLB TLS配置管理
+              - 删除HLB TLS配置(RMV HLBTLSCFG)
+              - 增加HLB TLS配置(ADD HLBTLSCFG)
+              - 查询HLB TLS配置(LST HLBTLSCFG)
+              - 修改HLB TLS配置(MOD HLBTLSCFG)
+            - NRF公钥管理
+              - 查询NRF公钥（LST NRFKEY）
+              - 修改NRF公钥 （MOD NRFKEY）
+              - 删除NRF公钥 （RMV NRFKEY）
+              - 增加NRF公钥（ADD NRFKEY）
+            - HLB对端管理
+              - 添加HLB对端(ADD HLBPEER)
+              - 查询HLB对端(LST HLBPEER)
+              - 删除HLB对端(RMV HLBPEER)
+              - 修改HLB对端(MOD HLBPEER)
+            - HLB对端链路管理
+              - 查询HLB对端链路(LST HLBPEERL)
+              - 添加HLB对端链路(ADD HLBPEERL)
+              - 修改HLB对端链路(MOD HLBPEERL)
+              - 显示HLB对端链路(DSP HLBPEERL)
+              - 删除HLB对端链路(RMV HLBPEERL)
+            - FQDN信息配置管理
+              - 删除FQDN信息(RMV FQDNINFO)
+              - 修改FQDN信息(MOD FQDNINFO)
+              - 添加FQDN信息(ADD FQDNINFO)
+              - 查询FQDN信息(LST FQDNINFO)
+            - HTTP软件调试管理
+              - 开始HTTP软件调试(STR HTTPSFTD)
+              - 测试HTTP客户端链路（TST HTTPCLINK）
+              - 查询HLB缓存中的HTTP客户端链路（DSP HLBHTTPCLINK）
+            - HTTP链路告警过滤黑白名单
+              - 查询HTTP链路告警过滤黑白名单(LST LNKALMBWADDR)
+              - 增加HTTP链路告警过滤黑白名单(ADD LNKALMBWADDR)
+              - 删除HTTP链路告警过滤黑白名单(RMV LNKALMBWADDR)
+            - NF信息管理
+              - 查询NF信息(LST NFPROFILE)
+              - 添加NF信息(ADD NFPROFILE)
+              - 删除NF信息(RMV NFPROFILE)
+              - 修改NF信息(MOD NFPROFILE)
+            - TCP配置管理
+              - 查询SBI接口TCP配置(LST SBITCPCFG)
+              - 设置SBI接口TCP配置(SET SBITCPCFG)
+            - HTTP链路测量对象管理
+              - 删除HTTP链路测量对象(RMV HTTPLINKOBJ)
+              - 添加HTTP链路测量对象(ADD HTTPLINKOBJ)
+              - 查询HTTP链路测量对象(LST HTTPLINKOBJ)
+            - 服务化接口过滤列表
+              - 查询服务接口过滤列表(LST SBIFILTERLST)
+              - 删除服务接口过滤列表(RMV SBIFILTERLST)
+              - 增加服务接口过滤列表(ADD SBIFILTERLST)
+            - HLB系统软参管理
+              - 查询HLB未生效软参(DSP HLBSSP)
+              - 修改HLB系统软参(MOD HLBSSP)
+              - 查询HLB系统软参(LST HLBSSP)
+            - 服务化接口过滤参数
+              - 设置服务接口过滤参数(SET SBIFILTERPARA)
+              - 查询服务接口过滤参数(LST SBIFILTERPARA)
+            - HLB软件调试管理
+              - 查询HLB业务Token信息(DSP HLBTOKENINFO)
+            - HLB流控配置管理
+              - 查询流控配置(LST HLBFLOWCTRL)
+              - 修改流控配置(MOD HLBFLOWCTRL)
+            - HLB系统运行模式管理
+              - 查询HLB系统运行状态(DSP HLBSYSRM)
+              - 修改HLB系统运行模式(MOD HLBSYSRM)
+              - 设置HLB系统运行模式(SET HLBSYSRM)
+              - 查询HLB系统运行模式配置(LST HLBSYSRM)
+            - HTTP配置管理
+              - 设置HTTP接口配置(SET HTTPCFG)
+              - 查询HTTP接口配置(LST HTTPCFG)
+            - HLB证书更新配置
+              - 设置HLB证书更新配置（SET HLBUPDCERCFG）
+              - 查询HLB证书更新配置（LST HLBUPDCERCFG）
+            - N15接口数据管理
+              - 显示N15接口数据(DSP N15IFDATA)
+          - DCS管理
+            - HTTP链路测量对象实例管理
+              - 增加HTTP链路测量对象实例(ADD HTTPLNKMOI)
+              - 查询HTTP链路测量对象实例(LST HTTPLNKMOI)
+              - 删除HTTP链路测量对象实例(RMV HTTPLNKMOI)
+            - LDAP链路信息管理
+              - 删除LDAP链路(RMV LDAPLNK)
+              - 查询LDAP链路配置信息(LST LDAPLNK)
+              - 增加LDAP链路(ADD LDAPLNK)
+              - 修改LDAP链路(MOD LDAPLNK)
+              - 查询LDAP链路状态信息(DSP LDAPLNK)
+            - TDF对端路由管理
+              - 增加TDF对端路由记录（ADD TDFROUTE）
+              - 查询TDF对端路由记录（LST TDFROUTE）
+              - 删除TDF对端路由记录（RMV TDFROUTE）
+              - 修改TDF对端路由记录（MOD TDFROUTE）
+            - Sy/N28结果码映射管理
+              - 修改Sy/N28结果码映射（MOD SYTOGXRCMAP）
+              - 查询Sy/N28结果码映射（LST SYTOGXRCMAP）
+              - 删除Sy/N28结果码映射（RMV SYTOGXRCMAP）
+              - 添加Sy/N28结果码映射（ADD SYTOGXRCMAP）
+            - 业务放通管理
+              - 增加Bypass配置(ADD BYPASS)
+              - 删除Bypass配置(RMV BYPASS)
+              - 查询Bypass配置(LST BYPASS)
+            - DLB VPN管理
+              - 修改DLB VPN(MOD DLBVPN)
+              - 添加DLB VPN（ADD DLBVPN）
+              - 删除DLB VPN(RMV DLBVPN)
+              - 查询DLB VPN(LST DLBVPN)
+            - PCRF局向流控配置管理
+              - 查询局向流控配置(LST MFLOWCTRL)
+              - 增加局向流控配置(ADD MFLOWCTRL)
+              - 删除局向流控配置(RMV MFLOWCTRL)
+              - 修改局向流控配置(MOD MFLOWCTRL)
+            - PCRF实体管理
+              - 查询PCRF实体配置信息(LST PCRF)
+              - 删除PCRF实体(RMV PCRF)
+              - 增加PCRF实体(ADD PCRF)
+              - 修改PCRF实体(MOD PCRF)
+            - HLB自动去激活管理
+              - 设置HLB自动去激活（SET AUTODEAHLB）
+              - 查询HLB自动去激活（LST AUTODEAHLB）
+            - PCRF的Diameter对端管理
+              - 修改PCRF的Diameter对端(MOD PEER)
+              - 查询PCRF的Diameter对端(LST PEER)
+              - 增加PCRF的Diameter对端(ADD PEER)
+              - 删除PCRF的Diameter对端(RMV PEER)
+            - PCRF目的域名配置管理
+              - 修改PCRF目的域名配置(MOD PDREALMCFG)
+              - 删除PCRF目的域名配置(RMV PDREALMCFG)
+              - 增加PCRF目的域名配置(ADD PDREALMCFG)
+              - 查询PCRF目的域名配置信息(LST PDREALMCFG)
+            - PCRF对端AF能力字典项管理
+              - 查询PCRF对端AF能力字典项的配置信息(LST AFABIITEM)
+              - 修改PCRF对端AF能力字典项(MOD AFABIITEM)
+            - TCP链路测量对象实例管理
+              - 查询TCP链路测量对象实例(LST TCPLNKMOI)
+              - 删除TCP链路测量对象实例(RMV TCPLNKMOI)
+              - 增加TCP链路测量对象实例(ADD TCPLNKMOI)
+            - 日志管理
+              - 修改上传日志文件配置（MOD ULDLOGFILECFG）
+              - 查询上传日志文件配置（LST ULDLOGFILECFG）
+              - 增加上传日志文件配置（ADD ULDLOGFILECFG）
+              - 删除上传日志文件配置（RMV ULDLOGFILECFG）
+              - 获取日志文件(GET LOGFILE)
+            - PCRF对端PCEF管理
+              - 查询PCRF对端PCEF实体配置信息(LST PPCEF)
+              - 删除PCRF对端PCEF实体(RMV PPCEF)
+              - 修改PCRF对端PCEF实体信息(MOD PPCEF)
+              - 增加PCRF对端PCEF实体(ADD PPCEF)
+            - LDAP设备地址管理
+              - 删除LDAP设备地址（RMV LDAPDEVADDR）
+              - 添加LDAP设备地址（ADD LDAPDEVADDR）
+              - 查询LDAP设备地址（LST LDAPDEVADDR）
+              - 修改LDAP设备地址（MOD LDAPDEVADDR）
+            - POD实例个数管理
+              - 查询设置的POD实例个数（LST PODINST）
+              - 设置POD实例个数（SET PODINST）
+            - APN管理
+              - 删除APN（RMV APN）
+              - 增加APN（ADD APN）
+              - 查询APN（LST APN）
+            - PCRF与容灾PCRF之间链路管理
+              - 增加PCRF容灾PCRF链路(ADD RPCRFL)
+              - 修改PCRF容灾PCRF链路信息(MOD RPCRFL)
+              - 查询PCRF容灾PCRF链路状态信息(DSP RPCRFL)
+              - 删除PCRF容灾PCRF链路(RMV RPCRFL)
+              - 查询PCRF容灾PCRF链路配置信息(LST RPCRFL)
+            - PCRF目的主机配置管理
+              - 查询PCRF目的主机配置（LST PDHOSTCFG）
+              - 增加PCRF目的主机配置（ADD PDHOSTCFG）
+              - 修改PCRF目的主机配置（MOD PDHOSTCFG）
+              - 删除PCRF目的主机配置（RMV PDHOSTCFG）
+            - PCRF对端OCS能力字典项管理
+              - 查询PCRF对端OCS能力字典项的配置信息（LST OCSABIITEM）
+              - 修改PCRF对端OCS能力字典项(MOD OCSABIITEM)
+            - PCRF与Diameter对端之间链路管理
+              - 查询PCRF与Diameter对端的链路状态（DSP PEERL）
+              - 删除PCRF与Diameter对端的链路(RMV PEERL)
+              - 查询PCRF与Diameter对端的链路(LST PEERL)
+              - 增加PCRF与Diameter对端的链路(ADD PEERL)
+              - 修改PCRF与Diameter对端的链路(MOD PEERL)
+            - 链路分配管理
+              - 重新均衡分配链路（ACT LINKASSIGN）
+              - 查询链路分配情况（DSP LINKASSIGN）
+              - 设置链路分配参数（SET LINKASSIGNPARA）
+              - 查询链路分配参数（LST LINKASSIGNPARA）
+              - 查询链路服务状态（DSP LINKSRVSTATE）
+            - PCRF域路由管理
+              - 查询PCRF的域路由记录（LST PREALMRT）
+              - 增加PCRF的域路由记录（ADD PREALMRT）
+              - 修改PCRF的域路由记录（MOD PREALMRT）
+              - 删除PCRF的域路由记录（RMV PREALMRT）
+            - 容灾PCRF实体管理
+              - 查询PCRF容灾PCRF实体信息(LST RPCRF)
+              - 修改PCRF容灾PCRF实体信息(MOD RPCRF)
+              - 增加PCRF容灾PCRF实体(ADD RPCRF)
+              - 删除PCRF容灾PCRF实体(RMV RPCRF)
+            - DLB设备地址管理
+              - 添加DLB设备地址(ADD DLBDEVADDR)
+              - 修改DLB设备地址(MOD DLBDEVADDR)
+              - 删除DLB设备地址(RMV DLBDEVADDR)
+              - 查询DLB设备地址(LST DLBDEVADDR)
+            - PCRF对端PCEF能力字典管理
+              - 增加PCRF对端PCEF能力字典(ADD PCEFABIDICT)
+              - 查询PCRF对端PCEF能力字典配置信息(LST PCEFABIDICT)
+              - 删除PCRF对端PCEF能力字典(RMV PCEFABIDICT)
+            - PCRF对端OCS接入点管理
+              - 增加PCRF对端OCS接入点实体(ADD POCSCP)
+              - 查询PCRF对端OCS接入点实体配置信息(LST POCSCP)
+              - 删除PCRF对端OCS接入点实体(RMV POCSCP)
+              - 修改PCRF对端OCS接入点实体信息(MOD POCSCP)
+            - OCS映射管理
+              - 删除OCS映射（RMV SUBOCSMAP）
+              - 修改OCS映射（MOD SUBOCSMAP）
+              - 查询OCS映射（LST SUBOCSMAP）
+              - 添加OCS映射（ADD SUBOCSMAP）
+            - PCRF与对端AF之间链路管理
+              - 查询PCRF对端AF链路配置信息(LST PAFL)
+              - 增加PCRF对端AF链路(ADD PAFL)
+              - 修改PCRF对端AF链路信息(MOD PAFL)
+              - 删除PCRF对端AF链路(RMV PAFL)
+              - 查询PCRF对端AF链路状态信息(DSP PAFL)
+            - PCRF与对端PCEF之间链路管理
+              - 修改PCRF对端PCEF链路信息(MOD PPCEFL)
+              - 增加PCRF对端PCEF链路(ADD PPCEFL)
+              - 删除PCRF对端PCEF链路(RMV PPCEFL)
+              - 查询PCRF对端PCEF链路状态信息(DSP PPCEFL)
+              - 查询PCRF对端PCEF链路配置信息(LST PPCEFL)
+            - 语音结果码映射管理
+              - 增加语音错误码映射（ADD VOICETORXRCMAP）
+              - 查询语音错误码映射（LST VOICETORXRCMAP）
+              - 删除语音错误码映射（RMV VOICETORXRCMAP）
+              - 修改语音错误码映射（MOD VOICETORXRCMAP）
+            - PCRF对端PCEF类别管理
+              - 修改PCRF对端PCEF类别(MOD PPCEFCAT)
+              - 增加PCRF对端PCEF类别(ADD PPCEFCAT)
+              - 删除PCRF对端PCEF类别(RMV PPCEFCAT)
+              - 查询PCRF对端PCEF类别的配置信息(LST PPCEFCAT)
+            - PCRF对端AF管理
+              - 增加PCRF对端AF实体(ADD PAF)
+              - 查询PCRF对端AF实体配置信息(LST PAF)
+              - 修改PCRF对端AF实体信息(MOD PAF)
+              - 删除PCRF对端AF实体(RMV PAF)
+            - LDAP证书更新配置
+              - 查询LDAP证书更新配置(LST LDAPUPDCERCFG)
+              - 设置LDAP证书更新配置(SET LDAPUPDCERCFG)
+            - PCRF与对端OCS接入点之间链路管理
+              - 删除PCRF对端OCS接入点链路(RMV POCSL)
+              - 增加PCRF对端OCS接入点链路(ADD POCSL)
+              - 查询PCRF对端OCS接入点链路配置信息(LST POCSL)
+              - 查询PCRF对端OCS接入点链路状态信息(DSP POCSL)
+              - 修改PCRF对端OCS接入点链路信息(MOD POCSL)
+            - DCS系统软参管理
+              - 修改DCS服务系统软参(MOD DCSSSP)
+              - 查询DCS服务系统软参(LST DCSSSP)
+            - PEER与PREALMRT关联关系管理
+              - 增加PEER与PREALMRT关联关系（ADD PREALMPEERREL）
+              - 删除PEER与PREALMRT关联关系（RMV PREALMPEERREL）
+              - 查询PEER与PREALMRT关联关系（LST PREALMPEERREL）
+            - PCRF对端PCEF能力字典项管理
+              - 查询PCRF对端PCEF能力字典项的配置信息(LST PCEFABIITEM)
+              - 修改PCRF对端PCEF能力字典项(MOD PCEFABIITEM)
+            - PCRF对端AF能力字典管理
+              - 删除PCRF对端AF能力字典(RMV AFABIDICT)
+              - 增加PCRF对端AF能力字典(ADD AFABIDICT)
+              - 查询PCRF对端AF能力字典配置信息(LST AFABIDICT)
+          - PES管理
+            - 维护管理
+              - 受限业务配置管理
+                - 修改受限业务配置(MOD PLMTSRV)
+                - 添加受限业务配置(ADD PLMTSRV)
+                - 删除受限业务配置(RMV PLMTSRV)
+                - 查询受限业务配置(LST PLMTSRV)
+              - 时间格式参数管理
+                - 修改时间字符串格式(MOD TIMESTRFMT)
+                - 查询时间字符串格式(LST TIMESTRFMT)
+              - 同步管理
+                - 同步全局数据(SYN GLBDATA)
+                - 查询全局数据加载状态(DSP GLBDATASTATUS)
+              - 内存申请统计任务管理
+                - 启动内存申请统计任务（STR MEMSTAT）
+                - 停止内存申请统计任务（STP MEMSTAT）
+              - 软件调试管理
+                - 设置日志自动抑制(SET PCFLOGSUPPRES)
+                - 设置软件调试参数（SET DBG）
+                - 查询日志自动抑制(LST PCFLOGSUPPRES)
+                - 增加日志手动控制(ADD LOGCTRL)
+                - 查询控制块信息（DSP CBINFO）
+                - 查询PES业务Token信息（DSP PESTOKENINFO）
+                - 显示服务订阅缓存信息(DSP INSTCACHE)
+                - 查询PES缓存中的HTTP客户端链路（DSP PESHTTPCLINK）
+                - 清空日志手动控制(CLR LOGCTRL)
+              - 跟踪管理
+                - 查询用户日志跟踪（DSP PSUBDBG）
+                - 设置用户日志跟踪（SET PSUBDBG）
+              - CHR输出策略管理
+                - 查询CHR输出策略(LST PCFCHRPLCY)
+                - 设置CHR输出策略(SET PCFCHRPLCY)
+              - OCS Counter映射管理
+                - 增加OCS Counter映射(ADD OCSCOUNTERMAP)
+                - 查询OCS Counter映射(LST OCSCOUNTERMAP)
+                - 删除OCS Counter映射(RMV OCSCOUNTERMAP)
+              - 内部审计管理
+                - 启动内部审计任务（STR INAT）
+                - 查询内部审计任务报告（DSP INAT）
+                - 显示内部审计报告（DSP INATEX）
+              - 外置SPR数据管理
+                - 同步外置SPR数据(SYN SPRDATA)
+              - 重定向配置管理
+                - 删除重定向配置信息(RMV REDIRECTCFG)
+                - 查询重定向配置信息(LST REDIRECTCFG)
+                - 增加重定向配置信息(ADD REDIRECTCFG)
+                - 修改重定向配置信息(MOD REDIRECTCFG)
+              - 内部审计参数管理
+                - 查询内部审计参数配置信息(LST INAP)
+                - 修改内部审计参数(MOD INAP)
+              - 用户下线管理
+                - 查询用户下线状态信息(DSP SSCSTATUS)
+                - 发送用户下线请求(SND SSCR)
+                - 停止强制用户下线任务(STP SSCR)
+              - 全局数据一致性校验配置管理
+                - 查询全局数据一致性校验配置(LST GLBDATACFG)
+                - 设置全局数据一致性校验配置(SET GLBDATACFG)
+              - 用户数据请求管理
+                - 查询用户数据请求状态（DSP PUDRSTATUS）
+                - 设置用户数据请求（SET PUDR）
+              - SBI设备间审计管理
+                - 设置SBI接口设备间审计参数（SET SBIDEVAUDIT）
+                - 查询SBI接口设备间审计参数（LST SBIDEVAUDIT）
+              - 业务调试管理
+                - 业务模块调试（SET SERDBG）
+              - PES服务管理
+                - 查询服务信息（DSP SERVICEINFO）
+              - 时延统计任务管理
+                - 启动时延统计任务（STR DELAYSTAT）
+                - 停止时延统计任务（STP DELAYSTAT）
+              - 会话备份数据审计任务管理
+                - 设置会话备份数据审计任务参数（SET SESSADT）
+                - 启动会话备份数据审计任务（STR SESSADT）
+                - 查询会话备份数据审计任务状态（DSP SESSADT）
+                - 查询会话备份数据审计任务参数（LST SESSADT）
+                - 停止会话备份数据审计任务（STP SESSADT）
+              - 软参管理
+                - 查询未生效软参(DSP PCFINSP)
+                - 查询内部软参(LST PCFINSP)
+                - 修改内部软参(MOD PCFINSP)
+              - 兼容性开关管理
+                - 修改兼容性参数（MOD COMPATSWITCH）
+                - 查询兼容性参数（LST COMPATSWITCH）
+              - PGW软参管理
+                - 查询PGW系统软参(LST PGWSSP)
+                - 设置PGW系统软参(SET PGWSSP)
+              - 全局数据最大记录数管理
+                - 设置全局数据最大记录数(SET GLBMAXNUM)
+                - 查询全局数据最大记录数(LST GLBMAXNUM)
+              - 快速审计管理
+                - 查询设备间的快速审计状态(DSP AUDITSTATUS)
+                - 设备间的快速审计(SND AUDIT)
+              - IP资源管理
+                - 查询PCF业务IP资源(LST PCFIPRES)
+              - 设备间审计管理
+                - 显示设备间审计状态（DSP DEVAUDIT）
+              - 全局数据ID映射管理
+                - 检查全局数据ID映射（CHK GLBIDMAP）
+            - 服务管理
+              - 外置SPR配置信息
+                - 清除外置SPR配置信息（CLR SPRCFG）
+                - 加载外置SPR配置信息（LOD SPRCFG）
+                - 查询外置SPR配置信息加载状态（DSP SPRCFG）
+              - FWA用户配置
+                - 增加FWA用户规则ID配置（ADD FWARULEID）
+                - 修改FWA用户规则ID配置（MOD FWARULEID）
+                - 删除FWA用户规则ID配置（RMV FWARULEID）
+                - 查询FWA用户规则ID配置（LST FWARULEID）
+              - BSF配置管理
+                - 查询BSF配置(LST BSFCFG)
+                - 设置BSF配置(SET BSFCFG)
+              - 事件记录配置管理
+                - 设置EDR配置（SET EDRCONFIG）
+                - 查询EDR配置（LST EDRCONFIG）
+                - 设置EDR上报特性列表(SET EDRREPORT)
+                - 查询EDR上报特性列表(LST EDRREPORT)
+              - NF发现配置管理
+                - 查询NF发现配置（LST NFDISCCFG）
+                - 设置NF发现配置（SET NFDISCCFG）
+              - 会话冲突配置管理
+                - 查询冲突配置（LST SESCOLLISIONCFG）
+                - 设置冲突配置（SET SESCOLLISIONCFG）
+              - 绑定配置管理
+                - 设置绑定配置(SET BINDCFG)
+                - 查询绑定配置(LST BINDCFG)
+              - N15策略优先级配置管理
+                - 设置N15策略优先级（SET N15SRVPRIO）
+                - 查询N15策略优先级（LST N15SRVPRIO）
+            - PES流控配置管理
+              - 修改PES静态流控配置(MOD PESSTCFLOWCTRL)
+              - 修改流控配置(MOD PESFLOWCTRL)
+              - 查询流控配置(LST PESFLOWCTRL)
+              - 查询PES静态流控配置(LST PESSTCFLOWCTRL)
+          - PMS管理
+            - PMS TLS管理
+              - 删除PMS TLS配置(RMV PMSTLSCFG)
+              - 修改PMS TLS配置(MOD PMSTLSCFG)
+              - 查询PMS TLS配置(LST PMSTLSCFG)
+              - 添加PMS TLS配置(ADD PMSTLSCFG)
+            - PMS同步管理
+              - PMS迁移全局数据(MGR PMSGLBDATA)
+              - PMS同步全局数据(SYN PMSGLBDATA)
+              - 查询PMS迁移全局数据结果(DSP PMSGLBDATA)
+            - PMS对端链路配置管理
+              - 删除策略管理服务对端链路配置信息(RMV PMSPEERLINKCFG)
+              - 查询策略管理服务对端链路配置信息(LST PMSPEERLINKCFG)
+              - 添加策略管理服务对端链路配置信息(ADD PMSPEERLINKCFG)
+              - 修改策略管理服务对端链路配置信息(MOD PMSPEERLINKCFG)
+            - PMS功能管理
+              - 查询策略管理服务功能配置(LST PMSFUNC)
+              - 修改策略管理服务功能配置(MOD PMSFUNC)
+              - 显示策略管理服务功能配置(DSP PMSFUNC)
+            - PMS设备地址管理
+              - 添加PMS设备地址(ADD PMSDEVADDR)
+              - 删除PMS设备地址(RMV PMSDEVADDR)
+              - 查询PMS设备地址(LST PMSDEVADDR)
+              - 修改PMS设备地址(MOD PMSDEVADDR)
+            - PMS VPN管理
+              - 修改PMS VPN(MOD PMSVPN)
+              - 查询PMS VPN(LST PMSVPN)
+              - 删除PMS VPN(RMV PMSVPN)
+              - 添加PMS VPN(ADD PMSVPN)
+            - PMS对端服务器管理
+              - 删除策略管理服务对端服务器(RMV PMSPEER)
+              - 查询策略管理服务对端服务器配置信息(LST PMSPEER)
+              - 增加策略管理服务对端服务器(ADD PMSPEER)
+              - 修改策略管理服务对端服务器配置信息(MOD PMSPEER)
+            - PMS端口配置管理
+              - 查询策略数据管理端口配置(LST PMSPMGRPORT)
+              - 修改策略数据管理端口配置(MOD PMSPMGRPORT)
+            - PMS SSO元数据管理
+              - 查询IdP元数据(LST IDPMETADATA)
+              - 获取SP元数据(GET SPMETADATA)
+              - 清除IdP元数据(CLR IDPMETADATA)
+              - 加载IdP元数据(LOD IDPMETADATA)
+            - PMS SSO链路管理
+              - 查询SSO链路(LST SSOLINK)
+              - 修改SSO链路(MOD SSOLINK)
+              - 增加SSO链路(ADD SSOLINK)
+              - 删除SSO链路(RMV SSOLINK)
+            - PMS系统软参管理
+              - 查询策略管理服务未生效软参(DSP PMSSSP)
+              - 查询策略管理服务软件参数（LST PMSINSP）
+              - 设置策略管理服务软件参数（SET PMSINSP）
+              - 修改策略管理服务系统软参(MOD PMSSSP)
+              - 查询策略管理服务系统软参(LST PMSSSP)
+            - PMS管理员IP地址管理
+              - 添加策略管理服务管理员IP地址(ADD PMSADMINIP)
+              - 解锁PMS用户WEB客户端IP(ULK PMSUSERIP)
+              - 查询策略管理服务管理员IP地址(LST PMSADMINIP)
+              - 删除策略管理服务管理员IP地址(RMV PMSADMINIP)
+            - PMS高级功能管理
+              - 设置策略管理服务高级功能(SET PMSHFUNC)
+              - 查询策略管理服务高级功能配置信息(LST PMSHFUNC)
+            - PMS PmCLI任务管理
+              - 查询策略管理服务PmCLI任务信息(DSP PMSPMTASK)
+            - PMS配置容量管理
+              - 设置UPCC全局数据容量（SET UPCCPLYCAP）
+              - 查询UPCC全局数据容量（LST UPCCPLYCAP）
+          - NTS管理
+            - NTS对端链路配置管理
+              - 修改通知服务对端链路配置信息(MOD NTSPEERLINKCFG)
+              - 显示通知服务对端链路状态信息(DSP NTSPEERLINKCFG)
+              - 添加通知服务对端链路配置信息(ADD NTSPEERLINKCFG)
+              - 发送通知测试(SND NOTIFYTEST)
+              - 查询通知服务对端链路配置信息(LST NTSPEERLINKCFG)
+              - 删除通知服务对端链路配置信息(RMV NTSPEERLINKCFG)
+            - NTS VPN管理
+              - 查询NTS VPN(LST NTSVPN)
+              - 修改NTS VPN(MOD NTSVPN)
+              - 添加NTS VPN(ADD NTSVPN)
+              - 删除NTS VPN(RMV NTSVPN)
+            - NTS设备地址管理
+              - 添加NTS设备地址(ADD NTSDEVADDR)
+              - 修改NTS设备地址(MOD NTSDEVADDR)
+              - 查询NTS设备地址(LST NTSDEVADDR)
+              - 删除NTS设备地址(RMV NTSDEVADDR)
+            - NTS对端服务器管理
+              - 增加通知服务对端服务器(ADD NTSPEER)
+              - 修改通知服务对端服务器配置信息(MOD NTSPEER)
+              - 删除通知服务对端服务器(RMV NTSPEER)
+              - 查询通知服务对端服务器配置信息(LST NTSPEER)
+            - NTS参数配置管理
+              - 查询NTS配置参数信息(LST NTSCFG)
+              - 修改NTS配置参数信息(MOD NTSCFG)
+            - NTS通知配置管理
+              - 查询发送通知的NTS实例个数(LST NTSNFNUM)
+              - 设置发送通知的NTS实例个数(SET NTSNFNUM)
+            - NTS同步管理
+              - NTS同步全局数据(SYN NTSGLBDATA)
+            - NTS系统软参管理
+              - 查询通知服务系统软参(LST NTSSSP)
+              - 修改通知服务系统软参(MOD NTSSSP)
+          - NCS管理
+            - 网元信息管理
+              - 网元服务信息配置
+                - 查询网元服务信息(LST NFSERVICE)
+                - 修改网元服务信息(MOD NFSERVICE)
+                - 增加网元服务信息(ADD NFSERVICE)
+                - 删除网元服务信息(RMV NFSERVICE)
+              - 网元切片信息配置
+                - 增加网元S-Nssai信息(ADD NFSNSSAI)
+                - 查询网元S-Nssai信息(LST NFSNSSAI)
+                - 删除网元S-Nssai信息(RMV NFSNSSAI)
+              - 网元实例信息配置
+                - 设置网元实例信息(SET NFSRV)
+                - 显示网元注册信息(DSP NFREGINFO)
+                - 增加网元实例信息(ADD NFSRV)
+                - 查询网元实例信息(LST NFSRV)
+                - 删除网元实例信息(RMV NFSRV)
+                - 修改网元实例信息(MOD NFSRV)
+              - 网元号段信息配置
+                - 显示网元号段信息(DSP NFRANGEINFO)
+                - 删除网元号段信息(RMV NFRANGEINFO)
+                - 增加网元号段信息(ADD NFRANGEINFO)
+                - 查询网元号段信息(LST NFRANGEINFO)
+              - 网元服务版本信息配置
+                - 删除网元服务版本信息(RMV NFSRVVER)
+                - 添加网元服务版本信息(ADD NFSRVVER)
+                - 查询网元服务版本信息(LST NFSRVVER)
+              - 网元SCP域配置
+                - 查询SCP域配置信息(LST NFSCPDOMAIN)
+                - 删除SCP域配置信息(RMV NFSCPDOMAIN)
+                - 增加SCP域配置信息(ADD NFSCPDOMAIN)
+              - 网元集合配置
+                - 增加网元集合配置信息(ADD NFSET)
+                - 查询网元集合配置信息(LST NFSET)
+                - 删除网元集合配置信息(RMV NFSET)
+              - 网元PLMN信息配置
+                - 查询网元PLMN信息（LST NFPLMN）
+                - 删除网元PLMN信息（RMV NFPLMN）
+                - 增加网元PLMN信息（ADD NFPLMN）
+              - 网元公共信息配置
+                - 删除网元公共信息（RMV NFCOMINFO）
+                - 查询网元公共信息（LST NFCOMINFO）
+                - 添加网元公共信息（ADD NFCOMINFO）
+                - 修改网元公共信息（MOD NFCOMINFO）
+              - 网元信息配置
+                - 添加网元信息（ADD NFINFO）
+                - 删除网元信息（RMV NFINFO）
+                - 修改网元信息（MOD NFINFO）
+                - 查询网元信息（LST NFINFO）
+              - 网元DNN组信息配置
+                - 删除网元DNN组信息(RMV NFDNNGRP)
+                - 查询网元DNN组信息(LST NFDNNGRP)
+                - 增加网元DNN组信息(ADD NFDNNGRP)
+              - 网元服务范围信息配置
+                - 查询服务范围配置信息(LST NFSERSCOPE)
+                - 增加服务范围配置信息(ADD NFSERSCOPE)
+                - 删除服务范围配置信息(RMV NFSERSCOPE)
+              - 网元订阅通知信息配置
+                - 删除网元默认通知订阅信息(RMV NFNOTIFSUB)
+                - 添加网元默认通知订阅信息(ADD NFNOTIFSUB)
+                - 查询网元默认通知订阅信息(LST NFNOTIFSUB)
+            - 网元缓存管理
+              - 查询网元缓存（DSP NFCACHE）
+              - 显示NCS服务信息（DSP NCSINFO）
+              - 同步内存数据（SYN NRFDATA）
+              - 查询网元缓存审计结果（DSP NFCACHEAUDIT）
+              - 清除网元缓存（CLR NFCACHE）
+              - 校验内存数据（VRY PCFNRFDATA）
+            - NRF注册结果码管理
+              - 添加NRF注册结果码（ADD NRFREGRC）
+              - 查询NRF注册结果码（LST NRFREGRC）
+              - 删除NRF注册结果码（RMV NRFREGRC）
+            - 网元服务发现网元类型配置
+              - 设置服务发现网元类型信息（SET DISCNFTYPECFG）
+              - 查询服务发现网元类型信息（LST DISCNFTYPECFG）
+            - NF对端链路管理维护
+              - HTTP客户端参数配置
+                - 设置HTTP客户端配置（SET HTTPCLIENTCFG）
+                - 查询HTTP客户端配置（LST HTTPCLIENTCFG）
+              - 对端NF管理
+                - 查询对端NF（LST PEERNF）
+                - 删除对端NF（RMV PEERNF）
+              - 对端NF参数配置
+                - 修改NF对端参数（MOD PEERNFCFG）
+                - 删除NF对端参数（RMV PEERNFCFG）
+                - 增加NF对端参数（ADD PEERNFCFG）
+                - 查询NF对端参数（LST PEERNFCFG）
+              - 对端网元静态信息配置
+                - 删除对端网元静态信息（RMV PNFSTCINFO）
+                - 增加对端网元静态信息（ADD PNFSTCINFO）
+                - 修改对端网元静态信息（MOD PNFSTCINFO）
+                - 查询对端网元静态信息（LST PNFSTCINFO）
+              - 例外对端NF配置
+                - 删除例外对端NF（RMV EXCPEERNF）
+                - 查询例外对端NF（LST EXCPEERNF）
+                - 检查例外对端NF（CHK EXCPEERNF）
+                - 增加例外对端NF（ADD EXCPEERNF）
+              - HTTP客户端链路管理
+                - 查询NCS缓存中的HTTP客户端链路（DSP NCSHTTPCLINK）
+                - 设置HTTP客户端链路（SET NCSHTTPCLINK）
+            - NRF信息配置
+              - 删除NRF信息(RMV NRFINFO)
+              - 修改NRF信息(MOD NRFINFO)
+              - 倒换NRF信息(SWP NRFINFO)
+              - 查询NRF信息(LST NRFINFO)
+              - 增加NRF信息(ADD NRFINFO)
+              - 显示NRF信息(DSP NRFINFO)
+            - 网元服务发现信息配置
+              - 删除服务发现网元实例信息(RMV DISCNFPROFILE)
+              - 增加服务发现网元实例信息(ADD DISCNFPROFILE)
+              - 查询服务发现网元实例信息(LST DISCNFPROFILE)
+            - 网元服务发现条件配置
+              - 查询服务发现条件信息（LST DISCCONDCFG）
+              - 修改服务发现条件信息（MOD DISCCONDCFG）
+              - 删除服务发现条件信息（RMV DISCCONDCFG）
+              - 添加服务发现条件信息（ADD DISCCONDCFG）
+            - token请求配置管理
+              - 查询TOKEN请求配置（LST TOKENREQ）
+              - 设置TOKEN请求配置（SET TOKENREQ）
+            - COMTLS配置管理
+              - 修改通用TLSCFG配置（MOD COMTLSCFG）
+              - 增加通用TLSCFG配置（ADD COMTLSCFG）
+              - 删除通用TLSCFG配置（RMV COMTLSCFG）
+              - 查询通用TLSCFG配置（LST COMTLSCFG）
+            - NCS系统软参管理
+              - 查询NRF客户端服务系统软参(LST NCSSSP)
+              - 修改NRF客户端服务系统软参(MOD NCSSSP)
+            - SCP信息配置
+              - SCP校验方式
+                - 设置SCP校验方式(SET SCPCHECK)
+                - 查询SCP校验方式(LST SCPCHECK)
+              - SCP业务通信代理模型
+                - 查询业务通信代理模型(LST SCPMODEL)
+                - 设置业务通信代理模型(SET SCPMODEL)
+              - SCP选择的方式
+                - 设置选择SCP的方式(SET SCPSELINFO)
+                - 查询选择SCP的方式(LST SCPSELINFO)
+            - 网元订阅信息配置
+              - 删除网元订阅信息(RMV NFSUBSCRDATA)
+              - 查询网元订阅信息(LST NFSUBSCRDATA)
+              - 增加网元订阅信息(ADD NFSUBSCRDATA)
+              - 修改网元订阅信息(MOD NFSUBSCRDATA)
+            - SBI URI配置管理
+              - 查询SBI接口的URI配置（LST SBIURICFG）
+              - 设置SBI接口的URI配置（SET SBIURICFG）
+          - DLB管理
+            - PCRF结果码映射管理
+              - 修改PCRF结果码映射（MOD PRCMAP）
+              - 删除PCRF结果码映射（RMV PRCMAP）
+              - 增加PCRF结果码映射（ADD PRCMAP）
+              - 查询PCRF结果码映射（LST PRCMAP）
+            - Diameter服务端故障链路自动重置管理
+              - 设置自动重置Diameter服务端链路(SET AUTORSTDMSRVLNK)
+              - 查询自动重置Diameter服务端链路(LST AUTORSTDMSRVLNK)
+            - DLB流控配置管理
+              - 查询流控配置(LST DLBFLOWCTRL)
+              - 修改流控配置(MOD DLBFLOWCTRL)
+            - DLB系统运行模式管理
+              - 设置DLB系统运行模式(SET DLBSYSRM)
+              - 查询DLB系统运行状态(DSP DLBSYSRM)
+              - 修改DLB系统运行模式(MOD DLBSYSRM)
+              - 查询DLB系统运行模式配置(LST DLBSYSRM)
+            - DLBSCTP配置管理
+              - 设置DLB服务SCTP参数配置信息(SET DLBSCTPPARA)
+              - 查询DLB服务SCTP参数配置信息(LST DLBSCTPPARA)
+            - Diameter参数管理
+              - 查询Diameter接口配置(LST DIAMCFG)
+              - 设置Diameter接口配置(SET DIAMCFG)
+          - DRS管理
+            - DRS对端服务器管理
+              - 增加报表服务对端服务器(ADD DRSPEER)
+              - 删除报表服务对端服务器(RMV DRSPEER)
+              - 查询报表服务对端服务器配置信息(LST DRSPEER)
+              - 修改报表服务对端服务器配置信息(MOD DRSPEER)
+            - DRS设备地址管理
+              - 查询DRS设备地址(LST DRSDEVADDR)
+              - 修改DRS设备地址(MOD DRSDEVADDR)
+              - 删除DRS设备地址(RMV DRSDEVADDR)
+              - 添加DRS设备地址(ADD DRSDEVADDR)
+            - 服务管理
+              - UPCF归属地管理
+                - 查询UPCF归属地信息(LST HOMEAREA)
+                - 设置UPCF归属地信息(SET HOMEAREA)
+              - DRS手动汇聚管理
+                - 启动DRS手动汇聚(STR DRSMA)
+            - DRS系统参数管理
+              - 查询报表服务系统软参(LST DRSSSP)
+              - 修改报表服务系统软参(MOD DRSSSP)
+            - DRS对端链路配置管理
+              - 修改报表服务对端链路配置信息(MOD DRSPEERLINKCFG)
+              - 删除报表服务对端链路配置信息(RMV DRSPEERLINKCFG)
+              - 添加报表服务对端链路配置信息(ADD DRSPEERLINKCFG)
+              - 查询报表服务对端链路配置信息(LST DRSPEERLINKCFG)
+          - OTS管理
+            - EDR管理
+              - 导出EDR日志(EXP EDRLOG)
+              - 查询EDR导出日志任务状态(DSP EDRLOG)
+            - 离线业务参数配置
+              - 设置离线业务参数(SET SCANSW)
+              - 查询离线业务参数(LST SCANSW)
+            - 离线任务管理
+              - 停止遍历任务(STP SCAN)
+              - 查询当前遍历任务状态(DSP SCANSTATUS)
+              - 设置遍历任务参数(SET SCANPARA)
+              - 启动遍历任务(STR SCAN)
+              - 查询遍历任务参数(LST SCANPARA)
+            - 冗余会话备份数据审计任务管理
+              - 查询冗余会话备份数据审计任务状态(DSP OTSSESSADT)
+              - 启动冗余会话备份数据审计任务(STR OTSSESSADT)
+              - 停止冗余会话备份数据审计任务(STP OTSSESSADT)
+          - LCS管理
+            - License资源管理
+              - 查询License资源数目和使用率(DSP LICRATE)
+              - 查询License控制节点信息(PRT LICINFO)
+              - 查询受限的License控制项(DSP RESTRICTEDLIC)
+            - FE序号管理
+              - 查询FE序号(LST FESN)
+              - 设置FE序号(SET FESN)
+          - NLF管理
+            - NLF白名单管理
+              - 查询NLF白名单(LST NLFWHITELIST)
+              - 添加NLF白名单(ADD NLFWHITELIST)
+              - 删除NLF白名单(RMV NLFWHITELIST)
+            - NLF对端管理
+              - 删除NLF对端(RMV NLFPEER)
+              - 修改NLF对端(MOD NLFPEER)
+              - 添加NLF对端(ADD NLFPEER)
+              - 查询NLF对端(LST NLFPEER)
+            - NLF设备地址管理
+              - 修改NLF设备地址(MOD NLFDEVADDR)
+              - 查询NLF设备地址(LST NLFDEVADDR)
+              - 添加NLF设备地址(ADD NLFDEVADDR)
+              - 删除NLF设备地址(RMV NLFDEVADDR)
+            - SFTP服务器管理
+              - 删除SFTP服务器(RMV SFTPSERVER)
+              - 添加SFTP服务器(ADD SFTPSERVER)
+              - 修改SFTP服务器(MOD SFTPSERVER)
+              - 查询SFTP服务器(LST SFTPSERVER)
+            - NLF系统软参管理
+              - 修改NLF服务系统软参(MOD NLFSSP)
+              - 查询NLF服务系统软参(LST NLFSSP)
+            - NLF对端链路管理
+              - 修改NLF对端链路(MOD NLFPEERLINKCFG)
+              - 查询NLF对端链路(LST NLFPEERLINKCFG)
+              - 删除NLF对端链路(RMV NLFPEERLINKCFG)
+              - 添加NLF对端链路(ADD NLFPEERLINKCFG)
+            - 通知日志管理
+              - 显示通知日志导出任务状态（DSP NOTIFYLOGTASK）
+              - 导出通知日志（EXP NOTIFYLOG）
+          - SGM管理
+            - SGM软件调试管理
+              - 设置SGM软件调试信息（SET SGMDBG）
+            - SGM服务管理
+              - 查询SGM服务信息（DSP SGMINFO）
+            - SGM业务调试管理
+              - 设置SGM业务调试信息（SET SGMSERDBG）
+            - SGM服务流控信息管理
+              - 修改SGM流控参数（MOD SGMFLOWCTRL）
+              - 查询SGM流控参数（LST SGMFLOWCTRL）
+          - AppCtrl管理
+            - Token分配策略管理
+              - 查询Token分配策略(LST TOKENASSIGNPLY)
+              - 设置Token分配策略(SET TOKENASSIGNPLY)
+            - 服务实例信息管理
+              - 显示注册的服务实例信息（DSP SERVICEINSTINFO）
+            - 端口分配管理
+              - 启动端口分配（STR PORTASSIGN）
+              - 查询端口分配结果（DSP PORTASSIGN）
+        - 智能板管理
+          - vvip
+            - 质差检测策略
+              - 显示业务质差检测策略（LST POLICYCONDITION）
+              - 修改业务质差检测策略（MOD POLICYCONDITION）
+              - 增加业务质差检测策略（ADD POLICYCONDITION）
+              - 删除业务质差检测策略（RMV POLICYCONDITION）
+            - 大流控制速率
+              - 设置智能板的大流判断速率阈值（SET SSUBIGFLOWCTRL）
+              - 查询智能板的大流判断速率阈值（LST SSUBIGFLOWCTRL）
+            - 体验分析基本功能
+              - 查询体验业务基本功能（LST EXPBASICFUNC）
+              - 设置体验业务上报基本功能（SET EXPBASICFUNC）
+            - 基于应用的质差策略
+              - 删除基于应用的质差上报策略（RMV APPPOLICYCTRL）
+              - 显示基于应用的质差上报策略（LST APPPOLICYCTRL）
+              - 修改基于应用的质差上报策略（MOD APPPOLICYCTRL）
+              - 增加基于应用的质差上报策略（ADD APPPOLICYCTRL）
+            - 重点业务保障基本功能
+              - 设置重点业务保障基本功能（SET VVIPBASICFUNC）
+              - 显示重点业务保障基本功能（LST VVIPBASICFUNC）
+            - 基于协议的质差策略
+              - 增加基于协议的质差检测策略（ADD SSUPROTCOLGROUP）
+              - 删除基于协议的质差检测策略（RMV SSUPROTCOLGROUP）
+              - 显示基于协议的质差检测策略（LST SSUPROTCOLGROUP）
+              - 修改基于协议的质差检测策略（MOD SSUPROTCOLGROUP）
+            - 流老化时间
+              - 设置SSU容器业务相关老化功能配置（SET SSUAGINGCFG）
+              - 查询SSU容器业务相关老化功能配置（LST SSUAGINGCFG）
+          - cco
+            - ccopolicy
+              - 查询CCO策略（LST CCOPOLICY）
+              - 设置CCO策略（SET CCOPOLICY）
+          - QoE
+            - QoE基本功能
+              - 查询QoE基本功能（LST QOEBASICFUNC）
+              - 设置QoE基本功能（SET QOEBASICFUNC）
+          - 实时流北向配置管理
+            - 基本信息配置
+              - 查询BTDR单据上报参数（LST BTDRBASICCFG）
+              - 设置BTDR单据上报参数（SET BTDRBASICCFG）
+        - CCDB管理
+          - 通用管理
+            - 应用管理
+              - 复位应用类型（RST APPTYPE）
+              - 查询应用类型（LST APPTYPE）
+            - 软件参数管理
+              - 修改软件参数的配置信息(MOD CCDBINSP)
+              - 查询基础软件参数的配置信息（LST CCDBINBSP）
+              - 修改基础软件参数的配置信息（MOD CCDBINBSP）
+              - 查询软件参数的配置信息(LST CCDBINSP)
+            - 信息收集
+              - 获取CCDB的关键资源信息（GET CCDBSRVINFO）
+          - DUS管理
+            - 数据校验管理
+              - 停止迁移残留分片清理任务(STP CLRRSDSHARD)
+              - 启动迁移残留分片清理任务(STR CLRRSDSHARD)
+              - 显示迁移残留分片清理状态(DSP CLRRSDSHARD)
+            - 实例管理
+              - 显示DUS服务分片信息（DSP DUSSHARD）
+              - 显示DUS ID（DSP DUSID）
+              - 显示DUS实例状态（DSP DUSSTAT）
+            - 内存数据库管理
+              - 操作内存数据库(EXC KVOML)
+              - 清除集群数据（CLR CCDBCLUSTER）
+          - CUS管理
+            - 数据迁移管理
+              - 显示分片数据迁移状态（DSP SHARDTRANS）
+              - 回退分片数据迁移（RBK SHARDTRANS）
+              - 结束分片数据迁移（FIN SHARDTRANS）
+              - 启动分片数据迁移（STR SHARDTRANS）
+            - CCDB公共数据管理
+              - 设置CCDB公共配置数据（SET CCDBPUBLICDATA）
+              - 查询CCDB公共配置数据（LST CCDBPUBLICDATA）
+            - 应用管理
+              - 显示CUS服务信息（DSP CUSSTAT）
+            - 迁移隔离状态管理
+              - 删除迁移隔离状态（RMV MIGRATESEGSTATE）
+              - 增加迁移隔离状态（ADD MIGRATESEGSTATE）
+              - 查询迁移隔离状态（LST MIGRATESEGSTATE）
+            - Channel管理
+              - 查询Channel数据（LST CHANNEL）
+              - 重建Channel数据（RBD CHANNEL）
+              - 检查Channel数据（CHK CHANNEL）
+            - 插件管理
+              - 显示插件信息（DSP PLUGIN）
+        - SFIP管理
+          - 业务链配置
+            - 添加业务链（ADD SRVCHAIN）
+            - 删除业务链（RMV SRVCHAIN）
+            - 查询业务链（LST SRVCHAIN）
+            - 修改业务链（MOD SRVCHAIN）
+        - 业务报表管理
+          - 报表本地策略管理
+            - 报表映射承载协议分类
+              - 增加业务报表映射承载协议分类配置（ADD RPTPROTMPCLASS）
+              - 删除业务报表映射承载协议分类配置（RMV RPTPROTMPCLASS）
+              - 修改业务报表映射承载协议分类配置（MOD RPTPROTMPCLASS）
+              - 查询业务报表映射承载协议分类配置（LST RPTPROTMPCLASS）
+            - 业务报表承载协议映射
+              - 删除业务报表承载协议映射配置（RMV RPTPROTOCOLMAP）
+              - 修改业务报表映射承载协议分类配置（MOD RPTPROTOCOLMAP）
+              - 增加业务报表承载协议映射配置（ADD RPTPROTOCOLMAP）
+              - 查询业务报表承载协议映射配置（LST RPTPROTOCOLMAP）
+            - 报表业务策略
+              - 删除基于策略的报表开关（RMV RPTPOLICY）
+              - 修改基于策略的报表开关（MOD RPTPOLICY）
+              - 配置基于策略的报表开关（ADD RPTPOLICY）
+              - 查询基于策略的业务报表开关（LST RPTPOLICY）
+          - 报表服务器管理
+            - 报表服务器地址
+              - 显示报表服务器接入点配置（LST RPTSVRADDR）
+              - 查询报表服务器状态（DSP RPTSVRSTATUS）
+              - 删除报表服务器接入点配置（RMV RPTSVRADDR）
+              - 修改报表服务器接入点配置（MOD RPTSVRADDR）
+              - 添加报表服务器接入点配置（ADD RPTSVRADDR）
+            - 报表服务器
+              - 显示报表服务器（LST RPTSVR）
+              - 删除报表服务器（RMV RPTSVR）
+              - 修改报表服务器（MOD RPTSVR）
+              - 配置报表服务器（ADD RPTSVR）
+          - 报表功能管理
+            - 报表承载协议映射开关
+              - 查询业务报表承载协议映射开关（LST RPTPROTMPSW）
+              - 设置业务报表承载协议映射开关（SET RPTPROTMPSW）
+            - 报表加密控制
+              - 查询业务报表加密算法配置（LST RPTENCRYPT）
+              - 设置业务报表加密算法（SET RPTENCRYPT）
+            - 报表速率控制
+              - 设置报表消息流控配置（SET RPTRATELT）
+              - 查询业务报表消息流控配置（LST RPTRATELT）
+            - 报表全局参数
+              - 查询业务报表全局参数（LST RPTGLBPARA）
+              - 设置报表功能全局参数（SET RPTGLBPARA）
+            - 报表系统级单据开关
+              - 设置基础单据上报配置开关（SET RPTBASICRECCFG）
+              - 显示基础单据上报功能开关（LST RPTBASICRECCFG）
+            - 报表全局开关
+              - 查询业务报表全局开关（LST RPTGLBCFG）
+              - 设置报表功能全局开关（SET RPTGLBCFG）
+          - 用户信息统计管理
+            - 用户信息统计功能
+              - 查询用户信息统计功能（LST USERSTATISTICS）
+              - 修改用户信息统计功能（MOD USERSTATISTICS）
+              - 删除用户信息统计功能（RMV USERSTATISTICS）
+              - 增加用户信息统计功能（ADD USERSTATISTICS）
+          - 报表订阅管理
+            - 报表业务订阅信息
+              - 显示报表订阅信息（DSP RPTSUBSINFO）
+        - 园区业务管理
+          - 本地用户数据同步
+            - 数据同步客户端
+              - 查询数据同步客户端支持的密钥交换算法（LST RDATACLIENTKEXALGOS）
+              - 设置数据同步客户端支持的密钥交换算法（SET RDATACLIENTKEXALGOS）
+              - 查询数据同步客户端支持的公钥算法（LST RDATACLIENTPUBKEYALGOS）
+              - 设置数据同步客户端支持的消息认证算法（SET RDATACLIENTHMACALGOS）
+              - 设置数据同步客户端支持的加密算法（SET RDATACLIENTCIPHERALGOS）
+              - 查询数据同步客户端支持的加密算法（LST RDATACLIENTCIPHERALGOS）
+              - 查询数据同步客户端支持的消息认证算法（LST RDATACLIENTHMACALGOS）
+              - 设置数据同步客户端公钥算法（SET RDATACLIENTPUBKEYALGOS）
+            - 园区UDM的IP地址
+              - 删除园区UDM的IP地址（RMV EDGEUDMIP）
+              - 增加园区UDM的IP地址（ADD EDGEUDMIP）
+              - 修改园区UDM的IP地址（MOD EDGEUDMIP）
+              - 查询园区UDM的IP地址（LST EDGEUDMIP）
+            - 园区全局配置
+              - 首次认证使能（SET RSFTPFIRSTTIME）
+              - 查询客户端首次认证（LST RSFTPFIRSTTIME）
+            - 解密配置
+              - 解密配置（SET EDGEDECRYPT）
+              - 查询解密配置（LST EDGEDECRYPT）
+            - 远端数据同步用户
+              - 查询远端用户数据同步用户密钥文件（LST RDATASYNUSERKEY）
+              - 加载远端用户数据同步用户密钥文件（LOD RDATASYNUSERKEY）
+              - 清除远端用户数据同步用户密钥文件（RMV RDATASYNUSERKEY）
+            - 服务器公钥
+              - 查询远端用户数据同步服务器与公钥的绑定关系（LST RSFTPBINDPUBLICKEY）
+              - 修改数据同步服务器公钥（MOD RSFTPPUBLICKEY）
+              - 查询数据同步服务器公钥（LST RSFTPPUBLICKEY）
+              - 创建数据同步服务器公钥（ADD RSFTPPUBLICKEY）
+              - 删除数据同步服务器公钥（RMV RSFTPPUBLICKEY）
+              - 删除远端用户数据同步服务器与公钥的绑定关系（RMV RSFTPBINDPUBLICKEY）
+              - 创建远端用户数据同步服务器与公钥的绑定关系（ADD RSFTPBINDPUBLICKEY）
+            - 远端数据同步服务器
+              - 增加远端用户数据同步服务器（ADD RDATASYNSERVER）
+              - 修改远端用户数据同步服务器（MOD RDATASYNSERVER）
+              - 删除远端用户数据同步服务器（RMV RDATASYNSERVER）
+              - 查询远端用户数据同步服务器（LST RDATASYNSERVER）
+            - 软参配置数据管理
+              - 查询DSM软参记录（LST EDGESOFTPARA）
+              - 配置软参记录（SET EDGESOFTPARA）
+            - 数据同步文件列表
+              - 查询数据导入的文件名列表（DSP EDGEDSSTATUS）
+            - 园区UDM数据手动同步
+              - 导入园区用户数据文件（LOD EDGEDSFILE）
+            - 园区UDM用户数据同步策略
+              - 查看园区用户数据同步策略（LST EDGEDSPOLICY）
+              - 设置园区用户数据同步策略（SET EDGEDSPOLICY）
+            - 数据同步连接
+              - 查询数据同步连接状态（DSP RDATASYNCONN）
+            - 查询用户数据文件
+              - 查询用户数据文件（DSP EDGEDSFILE）
+            - 园区UDM数据手动备份
+              - 手动触发园区用户数据同步（ACT EDGEUDMDS）
+        - NAT服务管理
+          - NAT服务管理
+            - NAT用户会话信息
+              - 查询NAT用户会话信息（DSP NATSESSION）
+            - NAT静态地址映射
+              - 查询NAT静态地址映射关系（DSP NATSTATICMAPPING）
+        - UIM服务管理
+          - 非3GPP信任关系配置
+            - 修改非3GPP信任关系(MOD NON3GPPTRS)
+            - 查询非3GPP信任关系(LST NON3GPPTRS)
+            - 增加非3GPP信任关系(ADD NON3GPPTRS)
+            - 删除非3GPP信任关系(RMV NON3GPPTRS)
+          - AP转发规则配置
+            - 增加AP转发规则(ADD APRULE)
+            - 删除AP转发规则(RMV APRULE)
+            - 查询AP转发规则(LST APRULE)
+            - 修改AP转发规则(MOD APRULE)
+          - 对端HTTP实体域名配置
+            - 修改对端HTTP实体域名(MOD HTTPPEHOST)
+            - 查询对端HTTP实体域名(LST HTTPPEHOST)
+            - 增加对端HTTP实体域名(ADD HTTPPEHOST)
+            - 删除对端HTTP实体域名(RMV HTTPPEHOST)
+          - 网络应用功能组配置
+            - 删除NAFGROUP群组名称(RMV NAFGROUP)
+            - 修改NAFGROUP群组名称(MOD NAFGROUP)
+            - 查询NAFGROUP群组名称(LST NAFGROUP)
+            - 增加NAFGROUP群组名称(ADD NAFGROUP)
+          - 协商规则管理
+            - 修改协商规则(MOD NEGORULE)
+            - 查询协商规则(LST NEGORULE)
+            - 增加协商规则(ADD NEGORULE)
+            - 删除协商规则(RMV NEGORULE)
+          - 非3GPP用户数据管理
+            - 删除GBA用户信息(RMV GBAUSER)
+          - 网络应用功能数据配置
+            - 修改NAFID群组数据(MOD NAFGRPDATA)
+            - 查询NAFID群组数据(LST NAFGRPDATA)
+            - 增加NAFID群组数据(ADD NAFGRPDATA)
+            - 删除NAFID群组数据(RMV NAFGRPDATA)
+          - 网络应用功能AP配置
+            - 增加网络应用功能AP列表数据(ADD NAFIDAP)
+            - 删除网络应用功能AP列表数据(RMV NAFIDAP)
+            - 查询网络应用功能AP列表数据(LST NAFIDAP)
+            - 修改网络应用功能AP列表数据(MOD NAFIDAP)
+          - USS列表配置
+            - 删除所有用户必签指定NAFID的USS列表(RMV NAFIDUSS)
+            - 查询所有用户必签指定NAFID的USS列表(LST NAFIDUSS)
+            - 修改所有用户必签指定NAFID的USS列表(MOD NAFIDUSS)
+            - 增加所有用户必签指定NAFID的USS列表(ADD NAFIDUSS)
+          - HOST模板配置
+            - 删除HOST模板(RMV HOSTTPL)
+            - 修改HOST模板(MOD HOSTTPL)
+            - 增加HOST模板(ADD HOSTTPL)
+            - 查询HOST模板(LST HOSTTPL)
+          - 3GPP AAA事件日志格式管理
+            - 查询3GPP AAA事件日志格式(LST EVENTLOG)
+            - 设置3GPP AAA事件日志格式(SET EVENTLOG)
+          - TMPI和IMPI配对关系管理
+            - 查询TMPI和IMPI配对关系(DSP TIMPIPAIR)
+          - GSID业务属性数据管理
+            - 删除GSID业务属性数据(RMV ASATTRIBUTE)
+            - 增加GSID业务属性数据(ADD ASATTRIBUTE)
+            - 查询GSID业务属性数据(LST ASATTRIBUTE)
+            - 修改GSID业务属性数据(MOD ASATTRIBUTE)
+          - AUID模板配置
+            - 修改AUID模板(MOD AUIDTPL)
+            - 增加AUID模板(ADD AUIDTPL)
+            - 删除AUID模板(RMV AUIDTPL)
+            - 查询AUID模板(LST AUIDTPL)
+      - CSP MML命令（裸机容器）
+        - 平台服务管理
+          - 系统管理
+            - 版本信息
+              - 查询电子保单信息（LST DIGIW）
+              - 配置软件生命周期预警策略（SET SWLCALMPOLICY）
+              - 修改网元信息（MOD ME）
+              - 查询软件生命周期信息（LST SWLCINFO）
+              - 查询网元生命周期管理日志（LST LCMLOG）
+              - 查询网元配置信息（LST ME）
+              - 查询软件生命周期预警策略（LST SWLCALMPOLICY）
+            - 路由管理
+              - 地址管理
+                - 修改浮动IP (MOD VIRTUALIP)
+                - 查询浮动IP (LST VIRTUALIP)
+              - 代理管理
+                - 查询OM转发路由 (LST OMFWDRT)
+                - 增加转发规则（ADD FWRULE）
+                - 删除转发规则（RMV FWRULE）
+                - 查询转发规则（LST FWRULE）
+                - 设置OM功能开关（SET OMSWITCH）
+                - 增加OM转发路由 (ADD OMFWDRT)
+                - 删除OM转发路由 (RMV OMFWDRT)
+                - 查询双向认证开关（LST CLTVFYSWITCH）
+                - 查询OM功能开关（LST OMSWITCH）
+                - 设置双向认证开关（SET CLTVFYSWITCH）
+              - 运维地址管理
+                - 查询OM IP (LST OMIP)
+                - 设置OM IP (SET OMIP)
+                - 查询OM网关（LST OMGATEWAY）
+                - 删除OM网关（RMV OMGATEWAY）
+                - 增加OM网关（ADD OMGATEWAY）
+              - 网络管理
+                - 配置OM网络探测参数（MOD OMNWCONF）
+                - OM Ping（OMPING）
+                - 查询OM网络探测参数（LST OMNWCONF）
+                - 跟踪路由（OMTRACERT）
+                - 网络查询（LST NETWORK）
+                - 网络配置（MOD NETWORK）
+            - 应用管理
+              - 查询应用信息(LST APPINFO)
+              - 查询插件信息(LST PLUGINFO)
+          - 操作维护
+            - 日志管理
+              - 设置日志自动备份策略（SET AUTOLOGPOLICY）
+              - 查询日志自动备份策略（LST AUTOLOGPOLICY）
+              - 查询系统日志（LST SYSTEMLOG）
+              - 查询安全日志（LST SECLOG）
+              - 设置上报任务（SET SYSLOGTASK）
+              - 设置日志内容配置（SET SYSLOGCONTENTCFG）
+              - 设置日志老化策略（SET LOGCLEANPOLICY）
+              - 删除上报任务（RMV SYSLOGTASK）
+              - 查询日志老化策略（LST LOGCLEANPOLICY）
+              - 查询上报任务（LST SYSLOGTASK）
+              - 查询日志内容配置（LST SYSLOGCONTENTCFG）
+              - 获取审计日志文件（GET LOGFILE）
+              - 查询操作日志（LST OPTLOG）
+            - Pod管理
+              - POD复位（RST POD）
+              - POD启动（STR POD）
+              - POD停止（STP POD）
+              - POD配置设置（SET PODCONFIG）
+              - POD查询（DSP POD）
+              - POD配置查询（DSP PODCONFIG）
+            - 性能统计
+              - 添加话统指标优化公式(ADD OPMMETRIC)
+              - 查询话统测量任务(DSP MEASTASK)
+              - 查询话统规格(DSP MEASSPECS)
+              - 查询话统指标统计趋势(DSP MEASTREND)
+              - 查询话统测量对象类模型(DSP MEASMOC)
+              - 设置性能统计配置参数(SET PMCFG)
+              - 查询性能统计配置参数(LST PMCFG)
+              - 查询话统指标优化公式(LST OPMMETRIC)
+              - 设置话统测量单元模型(SET MEASMU)
+              - 查询测量指标模型(LST MEASUNIT)
+              - 查询话统指标测量状态(DSP MEASSTAT)
+              - 查询话统测量单元模型(LST MEASMU)
+              - 设置话统测量指标参数(SET MEASMETRIC)
+              - 导出测量结果文件(EXP MEASRST)
+              - 查询话统测量对象实例(DSP MEASOBJ)
+              - 修改话统阈值规则(MOD MEASTHRESHOLDRULE)
+              - 查询话统测量指标参数(LST MEASMETRIC)
+              - 删除话统阈值规则(RMV MEASTHRESHOLDRULE)
+              - 删除话统指标优化公式(RMV OPMMETRIC)
+              - 查询测量结果文件(LST MEASRST)
+              - 查询话统阈值规则(LST MEASTHRESHOLDRULE)
+              - 修改话统指标优化公式(MOD OPMMETRIC)
+              - 添加话统阈值规则(ADD MEASTHRESHOLDRULE)
+              - 查询话统测量结果(DSP MEASRST)
+            - 告警管理
+              - 查询告警配置信息（LST ALMINFO）
+              - 查询活动告警（LST ACTALM）
+              - 查询历史告警（LST HISTALM）
+              - 设置网管北向告警上报模式（SET ALMNRMODE）
+              - 设置告警配置信息（SET ALMINFO）
+              - 查询被屏蔽告警（LST MASKALM）
+              - 查询网管北向告警上报模式（LST ALMNRMODE）
+              - 查询告警闪断振荡配置（LST ALMFILTER）
+              - 查询被抑制告警（LST SUPPRESSALM）
+              - 设置告警闪断振荡配置（SET ALMFILTER）
+            - 安全管理
+              - 二次授权用户管理
+                - 查看二次授权用户（LST USRSECAUTH）
+                - 增加二次授权用户（ADD USRSECAUTH）
+                - 删除二次授权用户（RMV USRSECAUTH）
+              - 二次授权命令管理
+                - 查看二次授权命令（LST SECAUTHMEM）
+                - 增加二次授权命令（ADD SECAUTHMEM）
+                - 删除二次授权命令（RMV SECAUTHMEM）
+                - 修改二次授权命令（MOD SECAUTHMEM）
+              - 二次授权状态管理
+                - 设置二次授权功能状态（SET SECAUTH）
+                - 查看二次授权功能状态（LST SECAUTH）
+              - 高危时间段状态管理
+                - 查询高危时间段提示状态（LST HIGHRISKPERIOD）
+                - 设置高危时间段提示状态（SET HIGHRISKPERIOD）
+              - 登录认证管理
+                - 设置网管登录认证策略（SET AUTHSOAP）
+                - 查询网管登录认证策略（LST AUTHSOAP）
+              - 用户管理
+                - 删除用户(RMV USER)
+                - 增加用户(ADD USER)
+                - 修改用户操作权限(MOD USER)
+              - 安全事件告警管理
+                - 设置安全事件告警开关（SET ALARMSWITCH）
+                - 查询安全事件告警开关（LST ALARMSWITCH）
+            - 多框维护
+              - 复位级联链路(RST CASCADELINK)
+              - 查询链路状态(DSP LINKSTATUS)
+              - 查询级联配置(DSP SCMCONFIG)
+              - 设置fabric平面BFD协议探测参数(SET BFDDETECTCFG)
+            - 证书维护
+              - 查询证书开关状态（LST NEWCERTSWITCH）
+              - 设置证书过期逃生开关状态（SET CERTESCAPESWITCH）
+              - 查询证书过期逃生开关状态（LST CERTESCAPESWITCH）
+              - 查询证书吊销列表（DSP REVCERTFILE）
+              - 查询证书到期提醒时间（LST REMINDTIME）
+              - 查询安全算法（LST SECALG）
+              - 修改证书到期提醒时间（MOD REMINDTIME）
+              - 设置证书开关状态（SET NEWCERTSWITCH）
+              - 设置安全算法（SET SECALG）
+              - 查询证书（DSP CERTFILE）
+            - 升级补丁管理
+              - 观察期管理
+                - 结束升级观察期(FIN UPGRADEWATCH)
+                - 设置升级观察期(SET UPGRADEWATCH)
+                - 查询升级观察期(LST UPGRADEWATCH)
+              - 任务管理
+                - 停止升级/补丁任务(STP UPGTSK)
+              - 热补丁管理
+                - 删除热补丁(RMV HPATCH)
+                - 查询热补丁信息(DSP HPATCH)
+            - 消息跟踪
+              - 设置消息跟踪配置参数（SET MTSCFG）
+              - 删除消息跟踪限制（RMV MTSPOLICY）
+              - 查询消息跟踪配置参数（LST MTSCFG）
+              - 添加消息跟踪限制（ADD MTSPOLICY）
+              - 设置跟踪消息流控状态（SET TMMSGFC）
+              - 查询消息跟踪限制（LST MTSPOLICY）
+              - 查询消息跟踪模型（DSP MTSMODEL）
+              - 查询跟踪消息流控状态（LST TMMSGFC）
+            - 网元管理
+              - 设置网元重调度开关（SET VNFEVICTION）
+              - 移除加载扩展包（RMV COMPKG）
+              - 加载扩展包（LOD COMPKG）
+              - 查询网元的POD与虚拟机位置关系（LST VNFPODVM）
+              - 查询加载扩展包（LST COMPKG）
+              - 查询网元重调度策略（LST VNFEVICTION）
+              - 复位网元服务（RST MESYS）
+            - VNFM管理
+              - 修改VNFM对接信息（MOD VNFMINFO）
+              - 查询VNFM对接信息（LST VNFMINFO）
+            - 安装参数
+              - 设置安装参数（SET INSTPARA）
+              - 查询安装参数（LST INSTPARA）
+            - IFCM管理
+              - 设置IFCM配置信息(SET IFCMCFG)
+              - 查询IFCM配置信息(DSP IFCMCFG)
+            - 配置管理
+              - 配置导出管理
+                - 上传导出文件（ULD EXPFILE）
+                - 导出MML文件（EXP MML）
+            - 配置校验
+              - 校验配置数据（STR CMCRC）
+              - 同步配置数据（SYN CMDATA）
+            - SNMP维护
+              - 查询网元长连接信息（LST SNMPINFO）
+            - 备份管理
+              - 查询自动备份策略(DSP BKMPOLICY)
+              - 设置自动备份策略(SET BKMPOLICY)
+            - MML维护
+              - 连接管理
+                - 查询MML服务连接信息（LST MMLLINKINFO）
+            - 系统调测
+              - 微服务软件调测（STR MSSFTD）
+            - 设备档案
+              - 导出设备档案（EXP DEVARCHIVES）
+            - Soap维护
+              - 查询网元长连接信息（LST CONNECT）
+          - 设备管理
+            - 节点管理
+              - 节点运维
+                - 查询节点检测参数（DSP NODECHKPARA）
+                - 查询存储检测参数（DSP DISKCHKPARA）
+                - 设置存储检测参数（SET DISKCHKPARA）
+                - 查询节点资源信息（DSP NODERES）
+                - 设置节点检测参数（SET NODECHKPARA）
+              - 容器管理
+                - 设置容器引擎临时目录（SET CNTTMPDIR）
+                - 设置容器资源阈值（SET CNTRESTHD）
+                - 查询OS系统信息（DSP OSSYSINFO）
+                - 查询容器资源信息（DSP CNTRESSTAT）
+                - 查询容器引擎临时目录（DSP CNTTMPDIR）
+                - 查询容器部署信息（DSP CNTINFO）
+              - 时区夏令时管理
+                - 查询时区和夏令时信息（LST TZ）
+                - 设置系统时间（SET TIME）
+                - 查询系统时间（DSP TIME）
+                - 设置时区和夏令时信息（SET TZ）
+              - 进程管理
+                - 查询进程部署信息（DSP PROCINFO）
+                - 查询进程资源信息（DSP PROCRESSTAT）
+                - 设置进程资源告警阈值（SET PROCRESTHD）
+              - OS管理
+                - 查询OS补丁版本号（DSP OSPATCH）
+                - 复位智算单元 (RST SMCU)
+                - 查询OS配置 (DSP OSCONFIG)
+                - 设置OS配置 (SET OSCONFIG)
+              - NTP服务器管理
+                - 删除NTP服务器(RMV NTPSVR)
+                - 查询NTP服务器(LST NTPSVR)
+                - 修改NTP服务器(MOD NTPSVR)
+                - 增加NTP服务器(ADD NTPSVR)
+          - 硬件管理
+            - 硬件信息
+              - 查询电子标签（DSP ELABEL）
+              - 增加硬件设备信息（ADD HW）
+              - 查询硬件设备信息（LST HW）
+              - 删除硬件设备信息（RMV HW）
+            - 密码管理
+              - 修改BMC默认账户密码 (MOD BMCPWD)
+            - 交换机
+              - 查询以太网交换机(LST LSW)
+              - 删除以太网交换机(RMV LSW)
+              - 增加以太网交换机(ADD LSW)
+            - 端口管理
+              - 查询端口（DSP PORTINFO）
+              - 复位端口（RST PORT）
+              - 启用端口（ACT PORT）
+              - 禁用端口（DEA PORT）
+            - 服务器
+              - 查询服务器 (LST SERVER)
+          - 文件传输
+            - 多节点文件同步（SYNC FILE）
+            - 查询文件信息（DSP FILE）
+            - 查询SFTP协议算法(LST SFTPALG)
+            - 设置SFTP协议算法(SET SFTPALG)
+        - 系统调测
+          - 系统日志管理
+            - 关闭系统日志级别(DEA SYSLOG)
+            - 打开系统日志级别(ACT SYSLOG)
+            - 查询系统日志级别(DSP SYSLOG)
+          - 软件管理
+            - 平面管理
+              - 平面合并(CBN PLANE)
+              - 检查网元版本(CHK MEVER)
+            - PID信息
+              - 查询PID信息(DSP PIDINF)
+            - 性能测量管理
+              - 导出性能统计资源信息(EXP TRFINFO)
+              - 设置性能插件(SET PMPLUG)
+            - OMU软参管理
+              - 设置OMU软参(SET OMUSFTD)
+            - 模块管理
+              - 主机HA
+                - 显示仲裁PMU信息(DSP HAMDU)
+                - 设置仲裁PMU信息(SET HAMDU)
+              - 内存
+                - 查询进程内存数据信息(DSP MEM)
+            - 工作区管理
+              - 解锁网元工作区(ULK WKSP)
+            - 命令统计
+              - 查询跨网元命令开关(LST CMSWITCH)
+            - 软件调试
+              - 开始软件调试(STR SFTD)
+            - 资源组
+              - 查询资源组状态(DSP RG)
+            - 备份管理
+              - 导入网元数据(IMP MES)
+          - 安全管理
+            - 证书管理
+              - 同步证书 (SYN CERT)
+              - 查询证书应用场景信息 (LST CERSCENE)
+              - 新增证书应用场景信息 (ADD CERSCENE)
+              - 删除证书应用场景信息 (RMV CERSCENE)
+            - 安全传输管理
+              - 一般文件上传 (ULD GENFILE)
+            - 机机用户安全策略管理
+              - 修改CGPLite机机用户密码(MOD SUPWD)
+            - 模块通讯跟踪
+              - 查询运行日志记录级别 (LST LOGLEVEL)
+              - 设置运行日志记录级别 (SET LOGLEVEL)
+            - FTP安全策略管理
+              - 修改内网FTP用户密码(MOD INFTPPWD)
+          - 数据库管理
+            - 数据库表
+              - 查询临时表信息（LST TMPTBL）
+              - 查询数据库表信息（DSP TBL）
+            - 数据库信息
+              - 输出数据库系统信息(EXP DBINFO)
+            - 数据库端口管理
+              - 修改数据库密码(MOD DBPWD)
+            - 数据库表空间
+              - 查询数据库表空间信息（LST DBTBS）
+          - 配置管理
+            - 数据发送
+              - 发送整表数据(SND SPD)
+            - 数据校验
+              - 设置是否停止最近一次自动CRC校验(SET AUTOCRC)
+          - OMU双机
+            - OMU管理
+              - 软件调试(SFTDEBUG OMU)
+        - 软件管理
+          - 工作区管理
+            - 删除工作区(RMV WKSP)
+            - 切换工作区(SWP WKSP)
+            - 查询工作区(LST WKSP)
+          - 包管理
+            - 删除包(RMV PKG)
+            - 加载包(LOD PKG)
+            - 查询包(LST PKG)
+            - 校验包(CHK PKG)
+          - 版本补丁管理
+            - 加载补丁(LOD PATCH)
+            - 同步冷补丁(SYN CPATCH)
+            - 激活补丁(ACT PATCH)
+            - 确认补丁(CON PATCH)
+            - 查询服务器补丁(DSP CPATCH)
+            - 回退补丁(ROL PATCH)
+            - 查询OMU侧补丁信息(LST PATCH)
+            - 去激活补丁(DEA PATCH)
+            - 删除补丁(RMV PATCH)
+            - 校验冷补丁程序CRC(CHK CPATCHCRC)
+            - 回退服务器补丁(ROL CPATCH)
+            - 查询补丁信息(DSP PATCH)
+            - 加载服务器补丁(LOD CPATCH)
+          - 备份管理
+            - 导出网元数据(EXP MES)
+            - 更新证书吊销列表文件(UPT CRL)
+            - 查询网元导出信息(LST EXPINFO)
+          - 模块管理
+            - 模块
+              - 修改模块(MOD MODULE)
+              - 倒换模块(SWP MODULE)
+              - 复位指定类型的模块(RST MDUTYPE)
+              - 复位模块(RST MODULE)
+              - 显示模块(DSP MODULE)
+              - 停止模块(STP MODULE)
+              - 启动模块(STR MODULE)
+              - 查询模块配置(LST MODULE)
+            - 组件版本
+              - 查询组件版本配置(LST COMVER)
+              - 查询组件版本(DSP COMVER)
+            - 模块备份管理
+              - 设置备份模式(SET BAKMODE)
+              - 查询备份模式(DSP BAKMODE)
+            - 进程
+              - 查询进程配置(LST PROCESS)
+              - 查询进程(DSP PROCESS)
+            - 异常系统资源
+              - 查询异常系统资源(DSP ABNMSYSRES)
+          - 系统参数配置
+            - 回退MML配置脚本(ROL MMLCONF)
+            - 查询MML配置脚本(LST MMLCONF)
+            - 查询系统参数配置(LST SYSCONF)
+            - 设置系统参数配置(MOD SYSCONF)
+            - 加载MML配置脚本(LOD MMLCONF)
+          - 性能测量管理
+            - 查询性能插件(LST PMPLUG)
+            - 查询性能统计任务信息（LST TRFTASK）
+          - 组件管理
+            - 加载组件模块(LOD COMMDU)
+            - 删除组件模块(RMV COMMDU)
+            - 查询组件模块信息（LST COMMDU）
+          - 系统信息
+            - 获取系统信息(GET SYSINFO)
+          - 系统资源
+            - 清理OMU磁盘空间(CLR OMUDISK)
+            - 设置文件删除策略(SET FILEDELPOLICY)
+            - 查询文件删除策略(LST FILEDELPOLICY)
+            - 查询系统资源(DSP SYSRES)
+          - CHR传输管理
+            - 查询CHR传输策略(LST CHRPOLICY)
+            - 查询CHR存储空间信息(DSP CHRSTORAGE)
+            - 设置CHR传输策略(SET CHRPOLICY)
+          - 主机时间
+            - 查询时间(DSP INTIME)
+          - 网元管理
+            - 启动网元(STR ME)
+            - 复位网元(RST ME)
+            - 停止网元(STP ME)
+          - 查询CM状态
+            - 查询CM状态(LST CMSTS)
+          - 版本信息管理
+            - 版本信息的配套检查(CHK VER)
+            - 查询版本信息(DSP VER)
+            - 查询版本配套信息(LST VERINFO)
+          - 命令统计
+            - 设置跨网元命令开关(SET CMSWITCH)
+        - 通信管理
+          - 通讯连接
+            - 测试连接(TST LINK)
+            - 查询通信质量信息(DSP COMMQLTY)
+            - 查询通信质量采集参数(LST COLPARA)
+            - 查询通信链路状态(DSP COMM)
+        - 配置管理
+          - 数据校验
+            - 整表校验(STR CRC)
+            - 发送CRC校验失败的数据(SND CRCERR)
+            - 删除CRC错误数据(RMV CRCERR)
+            - 记录校验(CHK DATA)
+            - 查询CRC校验失败的数据(LST CRCERR)
+          - 数据发送
+            - 查询超时数据(LST USD)
+            - 发送超时数据(SND USD)
+            - 设置是否显示成功记录(MOD SETRST)
+          - 数据格式化
+            - 格式化数据(FMT)
+        - 事件管理
+          - 修改事件统计告警配置(MOD STATALM)
+          - 删除事件统计告警配置(RMV STATALM)
+          - 增加事件统计告警配置(ADD STATALM)
+          - 导出事件数据 (EXP EVTDATA)
+          - 查询事件统计告警配置(LST STATALM)
+        - OMU双机
+          - 同步管理
+            - 重播失败日志(RUN FAILS)
+            - 重新初始化同步数据(RST SYNC)
+            - 查询同步状态(LST SYNC)
+          - OMU管理
+            - 清理资源激活失败标记(CLR FAILFLG)
+            - 复位OMU(RST OMU)
+            - 查询OMU信息(DSP OMU)
+            - 倒换OMU(SWP OMU)
+        - 资源管理
+          - Pod管理
+            - Pod端口
+              - 显示Pod端口(DSP VPORT)
+              - 查询Pod端口(LST VPORT)
+              - 查询内网IP(LST INIP)
+            - Pod信息
+              - 查询Pod信息(LST PODINFO)
+          - 表最大元组数管理
+            - 查询表最大元组数配置(LST MAXT)
+            - 修改表最大元组数配置(MOD MAXT)
+        - 配置同步管理
+          - 获取配置同步文件（GET CFGFILE）
+      - CSP MML命令（虚机容器）
+        - 系统调测
+          - 系统日志管理
+            - 关闭系统日志级别(DEA SYSLOG)
+            - 打开系统日志级别(ACT SYSLOG)
+            - 查询系统日志级别(DSP SYSLOG)
+          - 软件管理
+            - 平面管理
+              - 平面合并(CBN PLANE)
+              - 检查网元版本(CHK MEVER)
+            - PID信息
+              - 查询PID信息(DSP PIDINF)
+            - 性能测量管理
+              - 导出性能统计资源信息(EXP TRFINFO)
+              - 设置性能插件(SET PMPLUG)
+            - OMU软参管理
+              - 设置OMU软参(SET OMUSFTD)
+            - 模块管理
+              - 主机HA
+                - 显示仲裁PMU信息(DSP HAMDU)
+                - 设置仲裁PMU信息(SET HAMDU)
+              - 内存
+                - 查询进程内存数据信息(DSP MEM)
+            - 工作区管理
+              - 解锁网元工作区(ULK WKSP)
+            - 命令统计
+              - 查询跨网元命令开关(LST CMSWITCH)
+            - 软件调试
+              - 开始软件调试(STR SFTD)
+            - 资源组
+              - 查询资源组状态(DSP RG)
+            - 备份管理
+              - 导入网元数据(IMP MES)
+          - 安全管理
+            - 证书管理
+              - 同步证书 (SYN CERT)
+              - 查询证书应用场景信息 (LST CERSCENE)
+              - 新增证书应用场景信息 (ADD CERSCENE)
+              - 删除证书应用场景信息 (RMV CERSCENE)
+            - 安全传输管理
+              - 一般文件上传 (ULD GENFILE)
+            - 机机用户安全策略管理
+              - 修改CGPLite机机用户密码(MOD SUPWD)
+            - 模块通讯跟踪
+              - 查询运行日志记录级别 (LST LOGLEVEL)
+              - 设置运行日志记录级别 (SET LOGLEVEL)
+            - FTP安全策略管理
+              - 修改内网FTP用户密码(MOD INFTPPWD)
+          - 数据库管理
+            - 数据库表
+              - 查询临时表信息（LST TMPTBL）
+              - 查询数据库表信息（DSP TBL）
+            - 数据库信息
+              - 输出数据库系统信息(EXP DBINFO)
+            - 数据库端口管理
+              - 修改数据库密码(MOD DBPWD)
+            - 数据库表空间
+              - 查询数据库表空间信息（LST DBTBS）
+          - 配置管理
+            - 数据发送
+              - 发送整表数据(SND SPD)
+            - 数据校验
+              - 设置是否停止最近一次自动CRC校验(SET AUTOCRC)
+          - OMU双机
+            - OMU管理
+              - 软件调试(SFTDEBUG OMU)
+        - 软件管理
+          - 工作区管理
+            - 删除工作区(RMV WKSP)
+            - 切换工作区(SWP WKSP)
+            - 查询工作区(LST WKSP)
+          - 包管理
+            - 删除包(RMV PKG)
+            - 加载包(LOD PKG)
+            - 查询包(LST PKG)
+            - 校验包(CHK PKG)
+          - 版本补丁管理
+            - 加载补丁(LOD PATCH)
+            - 同步冷补丁(SYN CPATCH)
+            - 激活补丁(ACT PATCH)
+            - 确认补丁(CON PATCH)
+            - 查询服务器补丁(DSP CPATCH)
+            - 回退补丁(ROL PATCH)
+            - 查询OMU侧补丁信息(LST PATCH)
+            - 去激活补丁(DEA PATCH)
+            - 删除补丁(RMV PATCH)
+            - 校验冷补丁程序CRC(CHK CPATCHCRC)
+            - 回退服务器补丁(ROL CPATCH)
+            - 查询补丁信息(DSP PATCH)
+            - 加载服务器补丁(LOD CPATCH)
+          - 备份管理
+            - 导出网元数据(EXP MES)
+            - 更新证书吊销列表文件(UPT CRL)
+            - 查询网元导出信息(LST EXPINFO)
+          - 模块管理
+            - 模块
+              - 修改模块(MOD MODULE)
+              - 倒换模块(SWP MODULE)
+              - 复位指定类型的模块(RST MDUTYPE)
+              - 复位模块(RST MODULE)
+              - 显示模块(DSP MODULE)
+              - 停止模块(STP MODULE)
+              - 启动模块(STR MODULE)
+              - 查询模块配置(LST MODULE)
+            - 组件版本
+              - 查询组件版本配置(LST COMVER)
+              - 查询组件版本(DSP COMVER)
+            - 模块备份管理
+              - 设置备份模式(SET BAKMODE)
+              - 查询备份模式(DSP BAKMODE)
+            - 进程
+              - 查询进程配置(LST PROCESS)
+              - 查询进程(DSP PROCESS)
+            - 异常系统资源
+              - 查询异常系统资源(DSP ABNMSYSRES)
+          - 系统参数配置
+            - 回退MML配置脚本(ROL MMLCONF)
+            - 查询MML配置脚本(LST MMLCONF)
+            - 查询系统参数配置(LST SYSCONF)
+            - 设置系统参数配置(MOD SYSCONF)
+            - 加载MML配置脚本(LOD MMLCONF)
+          - 性能测量管理
+            - 查询性能插件(LST PMPLUG)
+            - 查询性能统计任务信息（LST TRFTASK）
+          - 组件管理
+            - 加载组件模块(LOD COMMDU)
+            - 删除组件模块(RMV COMMDU)
+            - 查询组件模块信息（LST COMMDU）
+          - 系统信息
+            - 获取系统信息(GET SYSINFO)
+          - 系统资源
+            - 清理OMU磁盘空间(CLR OMUDISK)
+            - 设置文件删除策略(SET FILEDELPOLICY)
+            - 查询文件删除策略(LST FILEDELPOLICY)
+            - 查询系统资源(DSP SYSRES)
+          - CHR传输管理
+            - 查询CHR传输策略(LST CHRPOLICY)
+            - 查询CHR存储空间信息(DSP CHRSTORAGE)
+            - 设置CHR传输策略(SET CHRPOLICY)
+          - 主机时间
+            - 查询时间(DSP INTIME)
+          - 网元管理
+            - 启动网元(STR ME)
+            - 复位网元(RST ME)
+            - 停止网元(STP ME)
+          - 查询CM状态
+            - 查询CM状态(LST CMSTS)
+          - 版本信息管理
+            - 版本信息的配套检查(CHK VER)
+            - 查询版本信息(DSP VER)
+            - 查询版本配套信息(LST VERINFO)
+          - 命令统计
+            - 设置跨网元命令开关(SET CMSWITCH)
+        - 平台服务管理
+          - 操作维护
+            - 日志管理
+              - 设置日志自动备份策略（SET AUTOLOGPOLICY）
+              - 查询日志自动备份策略（LST AUTOLOGPOLICY）
+              - 查询系统日志（LST SYSTEMLOG）
+              - 查询安全日志（LST SECLOG）
+              - 设置上报任务（SET SYSLOGTASK）
+              - 设置日志内容配置（SET SYSLOGCONTENTCFG）
+              - 设置日志老化策略（SET LOGCLEANPOLICY）
+              - 删除上报任务（RMV SYSLOGTASK）
+              - 查询日志老化策略（LST LOGCLEANPOLICY）
+              - 查询上报任务（LST SYSLOGTASK）
+              - 查询日志内容配置（LST SYSLOGCONTENTCFG）
+              - 获取审计日志文件（GET LOGFILE）
+              - 查询操作日志（LST OPTLOG）
+            - Pod管理
+              - POD复位（RST POD）
+              - POD启动（STR POD）
+              - POD停止（STP POD）
+              - POD配置设置（SET PODCONFIG）
+              - POD查询（DSP POD）
+              - POD配置查询（DSP PODCONFIG）
+            - 证书维护
+              - 查询证书开关状态（LST NEWCERTSWITCH）
+              - 设置证书过期逃生开关状态（SET CERTESCAPESWITCH）
+              - 查询证书过期逃生开关状态（LST CERTESCAPESWITCH）
+              - 查询证书吊销列表（DSP REVCERTFILE）
+              - 查询证书到期提醒时间（LST REMINDTIME）
+              - 查询安全算法（LST SECALG）
+              - 修改证书到期提醒时间（MOD REMINDTIME）
+              - 设置证书开关状态（SET NEWCERTSWITCH）
+              - 设置安全算法（SET SECALG）
+              - 查询证书（DSP CERTFILE）
+            - OMMQ管理
+              - 查询topic状态（DSP TOPICSTAT）
+              - 清理OMMQ数据（CLR OMMQ）
+              - 查询消费组状态（DSP GROUPSTAT）
+            - CPU节能策略
+              - 设置全局的CPU调频和休眠策略（SET CPUECOPOLICY）
+              - 显示VM的CPU节能策略（DSP CPUECOVMSINFO）
+              - 查询全局的CPU调频和休眠策略（LST CPUECOPOLICY）
+            - 网元管理
+              - 设置网元重调度开关（SET VNFEVICTION）
+              - 移除加载扩展包（RMV COMPKG）
+              - 加载扩展包（LOD COMPKG）
+              - 查询网元的POD与虚拟机位置关系（LST VNFPODVM）
+              - 查询加载扩展包（LST COMPKG）
+              - 查询网元重调度策略（LST VNFEVICTION）
+              - 复位网元服务（RST MESYS）
+            - VNFM管理
+              - 修改VNFM对接信息（MOD VNFMINFO）
+              - 查询VNFM对接信息（LST VNFMINFO）
+            - 架构管理
+              - 异构迁移（ACT MIGRATE）
+              - 异构迁移查询（DSP MIGRATE）
+            - 自动弹性管理
+              - 查询自动弹性策略状态(DSP AUTOSCALEPOLICY)
+            - 备份管理
+              - 查询自动备份策略(DSP BKMPOLICY)
+              - 设置自动备份策略(SET BKMPOLICY)
+            - 系统调测
+              - 微服务软件调测（STR MSSFTD）
+          - 设备管理
+            - 节点管理
+              - 查询节点检测参数（DSP NODECHKPARA）
+              - 查询存储检测参数（DSP DISKCHKPARA）
+              - 停止节点（STP NODE）
+              - 节点设置自动修复开关（SET NODEREPSWITCH）
+              - 节点查询（DSP NODE）
+              - 节点重建（REB NODE）
+              - 节点批量复位（RST NODEBATCH）
+              - 启动节点（STR NODE）
+              - 设置存储检测参数（SET DISKCHKPARA）
+              - 节点复位（RST NODE）
+              - 节点查询自动修复开关（LST NODEREPSWITCH）
+              - 查询节点资源信息（DSP NODERES）
+              - 设置网络亚健康参数（SET NETSUBHEALTH）
+              - 设置节点检测参数（SET NODECHKPARA）
+              - 查询网络亚健康参数（LST NETSUBHEALTH）
+            - 容器管理
+              - 设置容器引擎临时目录（SET CNTTMPDIR）
+              - 设置容器资源阈值（SET CNTRESTHD）
+              - 查询OS系统信息（DSP OSSYSINFO）
+              - 查询容器资源信息（DSP CNTRESSTAT）
+              - 查询容器引擎临时目录（DSP CNTTMPDIR）
+              - 查询容器部署信息（DSP CNTINFO）
+            - 时区夏令时管理
+              - 查询时区和夏令时信息（LST TZ）
+              - 设置系统时间（SET TIME）
+              - 查询系统时间（DSP TIME）
+              - 设置时区和夏令时信息（SET TZ）
+            - 进程管理
+              - 查询进程部署信息（DSP PROCINFO）
+              - 查询进程资源信息（DSP PROCRESSTAT）
+              - 设置进程资源告警阈值（SET PROCRESTHD）
+            - OS管理
+              - 查询OS补丁版本号（DSP OSPATCH）
+              - 查询OS配置 (DSP OSCONFIG)
+              - 设置OS配置 (SET OSCONFIG)
+            - NTP服务器管理
+              - 删除NTP服务器(RMV NTPSVR)
+              - 查询NTP服务器(LST NTPSVR)
+              - 修改NTP服务器(MOD NTPSVR)
+              - 增加NTP服务器(ADD NTPSVR)
+            - 裸机Bypass开关管理
+              - 设置裸机节点自动进入BYPASS开关（SET BMBYPASSSWITCH）
+              - 查询裸机节点自动进入BYPASS开关（DSP BMBYPASSSWITCH）
+            - NTP参数管理
+              - 配置NTP时间同步参数(SET NTPCFG)
+              - 查询NTP时间同步参数(LST NTPCFG)
+            - Bypass状态管理
+              - 设置BYPASS状态（SET BYPASSSTATUS）
+              - 查询BYPASS状态（DSP BYPASSSTATUS）
+            - NTP软参管理
+              - 设置NTP软参(SET NTPSFTD)
+              - 查询NTP软参(DSP NTPSFTD)
+            - 裸机Bypass状态管理
+              - 查询裸机BYPASS状态（DSP BMBYPASSSTATUS）
+              - 设置裸机BYPASS状态（SET BMBYPASSSTATUS）
+            - Bypass开关管理
+              - 查询节点自动进入BYPASS开关（DSP BYPASSSWITCH）
+              - 设置节点自动进入BYPASS开关（SET BYPASSSWITCH）
+            - Bypass模式管理
+              - 激活节点BYPASS模式（ACT BYPASSMODE）
+              - 查询节点BYPASS模式（DSP BYPASSMODE）
+          - 系统管理
+            - 路由管理
+              - 地址管理
+                - 修改浮动IP (MOD VIRTUALIP)
+                - 查询浮动IP (LST VIRTUALIP)
+              - 代理管理
+                - 查询OM转发路由 (LST OMFWDRT)
+                - 增加转发规则（ADD FWRULE）
+                - 删除转发规则（RMV FWRULE）
+                - 查询转发规则（LST FWRULE）
+                - 设置OM功能开关（SET OMSWITCH）
+                - 增加OM转发路由 (ADD OMFWDRT)
+                - 删除OM转发路由 (RMV OMFWDRT)
+                - 查询双向认证开关（LST CLTVFYSWITCH）
+                - 查询OM功能开关（LST OMSWITCH）
+                - 设置双向认证开关（SET CLTVFYSWITCH）
+              - 运维地址管理
+                - 查询OM IP (LST OMIP)
+                - 设置OM IP (SET OMIP)
+              - 网络管理
+                - 配置OM网络探测参数（MOD OMNWCONF）
+                - OM Ping（OMPING）
+                - 查询OM网络探测参数（LST OMNWCONF）
+                - 跟踪路由（OMTRACERT）
+                - 网络查询（LST NETWORK）
+                - 网络配置（MOD NETWORK）
+            - 版本信息
+              - 查询电子保单信息（LST DIGIW）
+              - 修改网元信息（MOD ME）
+              - 查询网元生命周期管理日志（LST LCMLOG）
+              - 查询网元配置信息（LST ME）
+            - 应用管理
+              - 查询应用信息(LST APPINFO)
+              - 查询插件信息(LST PLUGINFO)
+        - 通信管理
+          - 通讯连接
+            - 测试连接(TST LINK)
+            - 查询通信质量信息(DSP COMMQLTY)
+            - 查询通信质量采集参数(LST COLPARA)
+            - 查询通信链路状态(DSP COMM)
+        - 配置管理
+          - 数据校验
+            - 整表校验(STR CRC)
+            - 发送CRC校验失败的数据(SND CRCERR)
+            - 删除CRC错误数据(RMV CRCERR)
+            - 记录校验(CHK DATA)
+            - 查询CRC校验失败的数据(LST CRCERR)
+          - 数据发送
+            - 查询超时数据(LST USD)
+            - 发送超时数据(SND USD)
+            - 设置是否显示成功记录(MOD SETRST)
+          - 数据格式化
+            - 格式化数据(FMT)
+        - 事件管理
+          - 修改事件统计告警配置(MOD STATALM)
+          - 删除事件统计告警配置(RMV STATALM)
+          - 增加事件统计告警配置(ADD STATALM)
+          - 导出事件数据 (EXP EVTDATA)
+          - 查询事件统计告警配置(LST STATALM)
+        - OMU双机
+          - 同步管理
+            - 重播失败日志(RUN FAILS)
+            - 重新初始化同步数据(RST SYNC)
+            - 查询同步状态(LST SYNC)
+          - OMU管理
+            - 清理资源激活失败标记(CLR FAILFLG)
+            - 复位OMU(RST OMU)
+            - 查询OMU信息(DSP OMU)
+            - 倒换OMU(SWP OMU)
+        - 资源管理
+          - Pod管理
+            - Pod端口
+              - 显示Pod端口(DSP VPORT)
+              - 查询Pod端口(LST VPORT)
+              - 查询内网IP(LST INIP)
+            - Pod信息
+              - 查询Pod信息(LST PODINFO)
+          - 表最大元组数管理
+            - 查询表最大元组数配置(LST MAXT)
+            - 修改表最大元组数配置(MOD MAXT)
+    - UEG专家维护命令
+      - 空口日志命令
+        - 记录ADD日志（REC ADDLOG）
+        - 记录自动开户日志（SND AUTOPROVNOTIFY）
+        - 记录消息重发日志（RSEND MSG）
+        - 记录SQN动态同步日志（SND DYNSQNSYNC）
+      - CSP前台命令
+        - 查询网元适配包信息（CHECK ADAPTER）

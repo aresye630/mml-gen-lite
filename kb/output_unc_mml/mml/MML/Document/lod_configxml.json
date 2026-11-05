@@ -1,0 +1,138 @@
+{
+  "command_name": "LOD CONFIGXML",
+  "command_name_zh": "加载XML文件配置到数据库",
+  "command_name_full": "加载XML文件配置到数据库(LOD CONFIGXML)",
+  "command_function": "**须知** \n\n该命令为高危命令，执行时会导致CPU产生波动，如在业务高峰期需谨慎执行，且命令执行期间系统的操作维护类命令可能无法执行。请务必在华为技术支持人员的指导下使用该命令！\n\n当在系统中批量执行配置类MML时，系统执行时间可能很长，为提升效率，可将配置MML命令写入XML格式的配置数据文件，将文件通过OM Portal上传至“系统 > 文件传输 > 原子配置服务”下，然后通过该命令将配置数据文件加载至ACS的数据库，再通过**SYN ACSPEERCFG**命令，将配置数据文件中的配置同步至各微服务。\n\n该命令支持通过加载XML文件新增配置和删除配置，对应XML格式的配置数据文件格式如下所示。\n\n- 新增配置：\n\n  ```\n  <?xml version=\"1.0\" encoding=\"GBK\"?>\n  <db version=\"0.0.1\">\n      <data>\n          <table name=\"testAssMain\" version=\"1.0\" reparse=\"false\">\n              <record index=\"1\" ifName=\"aa\" />\n          </table>\n      </data>\n  </db>\n  ```\n\n- 删除配置：\n\n  ```\n  <?xml version=\"1.0\" encoding=\"GBK\"?>\n  <db version=\"0.0.1\">\n      <data>\n          <table name=\"AUSFIMSI\" version=\"1.0\" reparse=\"false\" operation=\"delete\">\n          </table>\n      </data>\n  </db>\n  ```\n\n**说明** \n\n该配置数据文件区分中英文，请根据实际使用场景选择对应文件。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001767897957",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001720417410",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001767897957",
+        "position": "1.2.1",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001768057237",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_configuration_management.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001720417410",
+        "position": "1.2.1.1",
+        "parentPosition": "1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001720258014",
+        "topicUrl": "MML/LinkedDoc/common_vnfc_n_configuration_file_management.html",
+        "name": "配置文件管理",
+        "parentTopicId": "TOPIC_0000001768057237",
+        "position": "1.2.1.1.1",
+        "parentPosition": "1.2.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001149621485",
+        "topicUrl": "MML/Document/lod_configxml.html",
+        "name": "加载XML文件配置到数据库(LOD CONFIGXML)",
+        "parentTopicId": "TOPIC_0000001720258014",
+        "position": "1.2.1.1.1.5",
+        "parentPosition": "1.2.1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

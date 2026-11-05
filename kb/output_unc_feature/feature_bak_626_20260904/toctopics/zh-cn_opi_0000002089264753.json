@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活支持FWA接入（SMF）",
+  "feature_description": "本操作指导介绍在运行网络中激活支持FWA接入特性的操作过程。\n\nFWA（Fixed Wireless Access）是一种固定宽带的接入技术，指家庭或企业的各种终端设备通过CPE（Customer-Premises Equipment ）直接接入无线网络，提供用户宽带接入功能。根据接入方式可以将固定宽带的接入方式分为有线接入技术和无线接入技术两种，有线接入技术主要包括混合光纤同轴电缆（HFC）接入、铜线（xDSL）接入和光纤（FTTx）接入；无线接入技术主要就是固定无线接入（FWA）。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450902",
+        "topicUrl": "toctopics/zh-cn_topic_0248450902.html",
+        "name": "基本接入功能",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0000001565784206",
+        "topicUrl": "toctopics/zh-cn_concept_0000001565784206.html",
+        "name": "WSFD-010112 支持FWA接入",
+        "parentTopicId": "TOPIC_0248450902",
+        "position": "5.15",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000002089264753",
+        "topicUrl": "toctopics/zh-cn_opi_0000002089264753.html",
+        "name": "激活支持FWA接入（SMF）",
+        "parentTopicId": "CONCEPT_0000001565784206",
+        "position": "5.15.3",
+        "parentPosition": "5.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

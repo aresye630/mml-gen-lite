@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP UPDYNDIAMAAA",
+  "command_name_zh": "显示动态Diameter AAA服务器",
+  "command_name_full": "显示动态Diameter AAA服务器（DSP UPDYNDIAMAAA）",
+  "command_function": "**适用NF：UPF**\n\n此命令用于显示动态Diameter AAA主机列表项。一次最多显示2000条记录，超过2000条记录将不再显示。\n\n1、如果指定主机名，则显示指定的动态Diameter AAA表项。\n\n2、如果不指定主机名，则显示所有动态Diameter AAA主机表项。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206136561392",
+        "topicUrl": "MML/LinkedDoc/udg_n_diameter_aaa_management.html",
+        "name": "Diameter AAA管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.20",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206288486681",
+        "topicUrl": "MML/LinkedDoc/udg_n_server_configuration.html",
+        "name": "服务器配置",
+        "parentTopicId": "CONCEPT_0000206136561392",
+        "position": "5.20.1",
+        "parentPosition": "5.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206288681021",
+        "topicUrl": "MML/LinkedDoc/udg_n_dynamic_diameter_aaa.html",
+        "name": "动态Diameter AAA",
+        "parentTopicId": "CONCEPT_0000206288486681",
+        "position": "5.20.1.6",
+        "parentPosition": "5.20.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206297080183",
+        "topicUrl": "MML/Document/dsp_updyndiamaaa.html",
+        "name": "显示动态Diameter AAA服务器（DSP UPDYNDIAMAAA）",
+        "parentTopicId": "CONCEPT_0000206288681021",
+        "position": "5.20.1.6.1",
+        "parentPosition": "5.20.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

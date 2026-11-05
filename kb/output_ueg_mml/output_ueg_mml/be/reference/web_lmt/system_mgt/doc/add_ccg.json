@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD CCG",
+  "command_name_zh": "添加命令组",
+  "command_name_full": "添加命令组（ADD CCG）",
+  "command_function": "该命令用于为PGW中的命令分组。G\\_0～G\\_7为默认的8个命令组，包含系统中可以执行的所有命令（除ADMINISTRATOR级别可以执行的命令）。其中命令组G\\_0～G\\_7具有的功能分别为：\n\n- G\\_0:用户数据查询。\n- G\\_1:用户数据修改。\n- G\\_2:全局数据查询。\n- G\\_3:全局数据修改。\n- G\\_4:鉴权数据查询。\n- G\\_5:鉴权数据操作。\n- G\\_6:业务数据查询。\n- G\\_7:业务数据修改。\n\n而G\\_8～G\\_127的命令组只有ADMINISTRATOR级别的操作员或被赋给该命令权限的操作员可以添加。\n\n- 软参“OPRCMDGMGRSWT”取值为“1”时，只有ADMINISTRATOR级别的操作员可以添加G\\_8～G\\_127的命令组。\n- 软参“OPRCMDGMGRSWT”取值为“0”时，ADMINISTRATOR级别的操作员或被赋给该命令权限的操作员可以添加G\\_8～G\\_127的命令组。当将多个命令组通过**ADD OPR**或**MOD OPR**命令赋给某个操作员后，该操作员即拥有了执行该命令组中所有命令的权限。同时，不同的命令组中的命令可以重复。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169335_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/command_group_management.html",
+        "name": "命令组管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.5",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169325_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/add_ccg.html",
+        "name": "添加命令组（ADD CCG）",
+        "parentTopicId": "CONCEPT_0173169335_2",
+        "position": "4.2.1.5.1",
+        "parentPosition": "4.2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP BEARERNUM",
+  "command_name_zh": "显示承载数",
+  "command_name_full": "显示承载数（DSP BEARERNUM）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用来查看当前在线承载个数。如果不输入参数表示显示整机的所有承载个数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155129",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315767",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_information_management.html",
+        "name": "会话信息管理",
+        "parentTopicId": "CONCEPT_0000202289155129",
+        "position": "5.2.1",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876452",
+        "topicUrl": "MML/LinkedDoc/udg_n_display_bear_number.html",
+        "name": "承载数目查询",
+        "parentTopicId": "CONCEPT_0000202289315767",
+        "position": "5.2.1.4",
+        "parentPosition": "5.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0216216973",
+        "topicUrl": "MML/Document/dsp_bearernum.html",
+        "name": "显示承载数（DSP BEARERNUM）",
+        "parentTopicId": "CONCEPT_0000202102876452",
+        "position": "5.2.1.4.1",
+        "parentPosition": "5.2.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

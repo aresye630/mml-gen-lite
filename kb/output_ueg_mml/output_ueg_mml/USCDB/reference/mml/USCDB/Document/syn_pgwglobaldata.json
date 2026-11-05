@@ -1,0 +1,143 @@
+{
+  "command_name": "SYN PGWGLOBALDATA",
+  "command_name_zh": "同步PGW全局数据",
+  "command_name_full": "同步PGW全局数据(SYN PGWGLOBALDATA)",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行该命令会影响系统运行性能。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于触发PGW同步刷新PGW全局数据，以保证PGW中缓存的全局数据和数据库中的一致。\n\nPGW可以通过全局数据定时刷新和全局数据刷新流程（通过订阅通知触发刷新PGW全局数据）两种机制来确保PGW中缓存的全局数据和数据库中的一致。当全局数据定时刷新功能关闭（即软参“GLOBALDATAREFRESHCYCLE（全局数据刷新周期）”设置为“0”），且直接在数据库中修改了全局数据时，须触发PGW同步刷新全局数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774292",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/pgw_management.html",
+        "name": "业务发放网关管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.4",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774282_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/pgw_global_data_management.html",
+        "name": "PGW全局数据管理",
+        "parentTopicId": "MMLREF_0172774292",
+        "position": "2.2.4.3.3.4.15",
+        "parentPosition": "2.2.4.3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774307_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/syn_pgwglobaldata.html",
+        "name": "同步PGW全局数据(SYN PGWGLOBALDATA)",
+        "parentTopicId": "CONCEPT_0172774282_2",
+        "position": "2.2.4.3.3.4.15.1",
+        "parentPosition": "2.2.4.3.3.4.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

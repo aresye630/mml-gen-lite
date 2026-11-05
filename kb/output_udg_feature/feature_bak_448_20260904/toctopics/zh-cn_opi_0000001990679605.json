@@ -1,0 +1,135 @@
+{
+  "feature_name": "配置在线计费的费率标识",
+  "feature_description": "本操作描述在线计费使用的费率标识的配置过程。\n\n在线计费中，UNC与OCS消息交互时需要用到费率标识。UNC支持用户级在线计费，也支持更细粒度的按用户使用的业务进行在线计费，即内容计费。这两种方式下都以费率组（Rating Group，缩写为RG）和业务ID（Service ID，缩写为SID）作为费率标识，其中RG是必须的，SID是可选的，同时使用RG和SID进行标识，使在线计费能够做更细粒度的信用控制，且OCS可以生成更丰富的话单信息。\n\n**说明** \n\n如果OCS主动推送费率标识类型与UNC本地配置不一致，则认为是无效的，去激活PDP上下文/EPS承载。所以要求UNC和OCS两端的费率标识配置一致。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVEF27ED6640F347AAB2947C13B7996017",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222378793",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040220",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040220.html",
+        "name": "方案二：部署NCG且基于传统Ga/Gy接口计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.2",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001990839417",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990839417.html",
+        "name": "SMF配置",
+        "parentTopicId": "TOPIC_0000001955040220",
+        "position": "1.3.2.2",
+        "parentPosition": "1.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040252",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040252.html",
+        "name": "在线计费配置",
+        "parentTopicId": "TOPIC_0000001990839417",
+        "position": "1.3.2.2.3",
+        "parentPosition": "1.3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "OPI_0000001990679605",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990679605.html",
+        "name": "配置在线计费的费率标识",
+        "parentTopicId": "TOPIC_0000001955040252",
+        "position": "1.3.2.2.3.2",
+        "parentPosition": "1.3.2.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

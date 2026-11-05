@@ -1,0 +1,131 @@
+{
+  "command_name": "MOD PCEFABIITEM",
+  "command_name_zh": "修改PCRF对端PCEF能力字典项",
+  "command_name_full": "修改PCRF对端PCEF能力字典项(MOD PCEFABIITEM)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会影响业务的正常使用，需联系华为技术支持确认后再执行。\n\n该命令为配置类命令，用于修改或调整配置数据库中的一条对端PCEF实体能力字典项的数据记录的某些参数，执行命令后立即生效。在该命令中，系统通过“能力字典ID”和“能力字典项ID”参数来唯一标识一条PCEF能力字典记录。\n\n在缺省的情况下，系统初始化时默认为“能力字典项ID”参数的每个字典项进行了赋值，预置的“能力字典项值”如下（以其中一个“能力字典ID”为例）：\n\n```\n 能力字典ID  能力字典项ID                   能力字典项值                 \n\n 127         IPSessAbort                       ASR/ASA                      \n 127         IPSessRevalidation                UnsupportedRevalidation      \n 127         UsageMonitor                      UsageMonitorHuawei           \n 127         R7ExtraEvent                      UnsupportedR7ExtraEvent      \n 127         BearerControlMode                 DeriveBCMUEOnly              \n 127         R8QoS                             UnsupportedR8QoS             \n 127         MultipleServiceAPN                UnsupportedMultipleServiceAPN\n 127         ProtoClassifierName               UnsupportedProClassifierName \n 127         PredefinedRuleName                UnsupportedPredefinedRuleName\n 127         MonitorKeyCodecModeForR9          FourBytesHex                 \n 127         AccessNode                        UnsupportedAccessNode        \n 127         FBBAction                         UnsupportedFBBAction         \n 127         GxFailover                        UnsupportedGxFailover\n 127         URLFiltering                      UnsupportedURLFiltering\n 127         TetheringControl                  UnsupportedTetheringControl\n 127         EventTriggerVersion               R940                        \n 127         InstSubID                         Msisdn                       \n 127         CiscoSCE                          UnsupportedCiscoSCE          \n 127         SecondaryPDP                      UnsupportedSecPDP            \n 127         NoEventTriggers                   UnsupportedNoEventTriggers\n 127         CarryARPInQosInfoAVPAtSession     NotCarryARPAVP\n 127         RedirectionAbility                UnsupportedSFD\n 127         ResultCodeSwitch                  UnsupportedRCSwitch\n 127         ChangePolicyByRAR                 SupportedChangePolicyByRAR\n 127         TermSessionMode                   FailedCCAAndRAR\n 127         ForcedMask                        UnsupportedForcedMask\n 127         SubProfile                        UnsupportedSubProfile\n 127         CiscoQoSGroupRule                 UnsupportQoSGroupRule\n 127         AppDetectionAbility               SupportedAppDetection\n 127         FlowDirection                     UnsupportedFlowDirection\n 127         CombineRule                       UnsupportedCombineRule\n 127         ReInsertRule                      NotReInsertRule\n 127         FlowDescriptionPosition           ControledByR8QoS\n 127         SubscriptionIDInCCA               UnsupportedSubscriptionIDInCCA\n 127         SGWRestoreAbility                 UnsupportedSGWRestore\n 127         PRAAbility                        UnsupportedPRA\n 127         RATTypeinSdSwitch                 Support3gppRatType\n 127         G4QosNegotiation                  UnsupportedG4QoSNegotiation\n 127         OriginRealmAndHost                FromPeerCfg\n 127         MIGAction                         UnsupportMIGAction\n 127         CCGroup                           SupportedCCGroup\n 127         Disconnectlink                    UnsupportDisconnectlink\n 127         BackfillQoS                       SupportedBackfillQoS\n 127         DirectLinkFaultSwitchDRA          SupportedSwitchDRA\n 127         CarryCommandQoS                   SupportedCarryCommandQoS\n 127         OriginStateId                     UnsupportedOriginStateId\n```",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170890737",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_dcs_management.html",
+        "name": "DCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.4",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167448685",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_peer_pcef_ability_item_management.html",
+        "name": "PCRF对端PCEF能力字典项管理",
+        "parentTopicId": "TOPIC_0170890737",
+        "position": "2.2.3.5.4.16",
+        "parentPosition": "2.2.3.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167449262",
+        "topicUrl": "MML/Document/mod_pcefabiitem.html",
+        "name": "修改PCRF对端PCEF能力字典项(MOD PCEFABIITEM)",
+        "parentTopicId": "CONCEPT_0167448685",
+        "position": "2.2.3.5.4.16.1",
+        "parentPosition": "2.2.3.5.4.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "command_name": "RMV SEPPBINDGRP",
+  "command_name_zh": "删除SEPP绑定组关系",
+  "command_name_full": "删除SEPP绑定组关系（RMV SEPPBINDGRP）",
+  "command_function": "**适用NF：AMF、SMF**\n\n该命令用于删除SEPP绑定组关系。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320040",
+        "topicUrl": "MML/LinkedDoc/unc_n_sbi_management.html",
+        "name": "服务化接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.1",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001589306505",
+        "topicUrl": "MML/LinkedDoc/unc_n_sepp_management.html",
+        "name": "SEPP管理",
+        "parentTopicId": "TOPIC_0234320040",
+        "position": "2.10.1.7",
+        "parentPosition": "2.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001589546493",
+        "topicUrl": "MML/LinkedDoc/unc_n_sepp_group_management.html",
+        "name": "SEPP组管理",
+        "parentTopicId": "TOPIC_0000001589306505",
+        "position": "2.10.1.7.1",
+        "parentPosition": "2.10.1.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001530840098",
+        "topicUrl": "MML/Document/rmv_seppbindgrp.html",
+        "name": "删除SEPP绑定组关系（RMV SEPPBINDGRP）",
+        "parentTopicId": "TOPIC_0000001589546493",
+        "position": "2.10.1.7.1.2",
+        "parentPosition": "2.10.1.7.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,305 @@
+﻿# 查询NOS Base平面网络的邻居信息（DSP NOSBASENEIGH）
+
+- 命令功能
+- 注意事项
+- 操作用户权限
+- 参数说明
+- 使用实例
+- 输出结果说明
+
+#### 命令功能
+
+该命令用于查询NOS Base平面网络的邻居信息。
+
+#### 注意事项
+
+该命令执行后立即生效。
+
+#### 操作用户权限
+
+G\_1，管理员级别命令组；G\_2，操作员级别命令组；G\_3，用户级别命令组
+
+#### 参数说明
+
+| 参数标识            | 参数名称   | 参数说明                                                                                                                        |
+|:----------------|:-------|:----------------------------------------------------------------------------------------------------------------------------|
+| RUNAME          | RU名称   | 可选必选说明：可选参数 参数含义：该参数用于指定RU名称。 数据来源：本端规划 取值范围：字符串类型，输入长度范围为1～63。不支持空格，区分大小写。 默认值：无 配置原则：当不输入时显示所有的RU的信息。使用DSP RU查看RU名称。      |
+| SERVICEINSTANCE | 服务实例   | 可选必选说明：必选参数 参数含义：该参数表示大颗粒服务实例名称。 数据来源：本端规划 取值范围：字符串类型，通过LST VNFC命令获取。 默认值：无 配置原则：只能填写通过LST VNFC命令查询到的管理代理标识，但不能填写0，0表示VNFP。 |
+
+#### 使用实例
+
+- 查询指定大颗粒服务实例的所有NOS Base平面网络邻居信息：
+
+  ```
+  DSP NOSBASENEIGH: SERVICEINSTANCE="CSDB_VNFC_999";
+  ```
+
+  ```
+  RETCODE = 0  操作成功
+
+  结果如下:
+  ---------
+  RU名称           IP地址        接口名称  MAC地址            表项状态   
+
+  CSDB_OM_RU_0001  192.168.0.32   eth1      02:55:b8:17:00:20  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.242  eth1      02:55:b8:17:01:f2  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.92   eth1      02:55:b8:17:00:5c  DELAY      
+  CSDB_OM_RU_0001  192.168.0.127  eth1      02:55:b8:17:00:7f  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.66   eth1      02:55:b8:17:01:42  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.137  eth1      02:55:b8:17:00:87  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.81   eth1      02:55:b8:17:01:51  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.146  eth1      02:55:b8:17:01:92  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.211  eth1      02:55:b8:17:01:d3  STALE      
+  CSDB_OM_RU_0001  192.168.1.10   eth1      02:55:b8:17:01:0a  STALE      
+  CSDB_OM_RU_0001  192.168.0.111  eth1      02:55:b8:17:00:6f  REACHABLE  
+  CSDB_OM_RU_0001  192.168.2.2    eth1      02:55:b8:17:02:02  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.165  eth1      02:55:b8:17:01:a5  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.246  eth1      02:55:b8:17:00:f6  STALE      
+  CSDB_OM_RU_0001  192.168.1.185  eth1      02:55:b8:17:01:b8  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.225  eth1      02:55:b8:17:01:e0  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.245  eth1      02:55:b8:17:01:f5  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.105  eth1      02:55:b8:17:00:69  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.130  eth1      02:55:b8:17:00:80  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.135  eth1      02:55:b8:17:00:87  STALE      
+  CSDB_OM_RU_0001  192.168.1.94   eth1      02:55:b8:17:01:5e  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.210  eth1      02:55:b8:17:00:d0  REACHABLE  
+  CSDB_OM_RU_0001  192.168.2.96   eth1      02:55:b8:17:02:60  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.225  eth1      02:55:b8:17:00:e1  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.235  eth1      02:55:b8:17:00:eb  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.250  eth1      02:55:b8:17:00:fa  STALE      
+  CSDB_OM_RU_0001  192.168.1.184  eth1      02:55:b8:17:01:b8  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.194  eth1      02:55:b8:17:01:c2  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.224  eth1      02:55:b8:17:01:e0  DELAY      
+  CSDB_OM_RU_0001  192.168.1.18   eth1      02:55:b8:17:01:12  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.99   eth1      02:55:b8:17:00:63  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.114  eth1      02:55:b8:17:00:72  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.48   eth1      02:55:b8:17:01:30  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.149  eth1      02:55:b8:17:00:95  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.128  eth1      02:55:b8:17:01:80  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.173  eth1      02:55:b8:17:01:ac  STALE      
+  CSDB_OM_RU_0001  192.168.0.3    eth1      02:55:b8:17:00:03  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.193  eth1      02:55:b8:17:01:c1  STALE      
+  CSDB_OM_RU_0001  192.168.0.18   eth1      02:55:b8:17:00:12  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.48   eth1      02:55:b8:17:00:30  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.7    eth1      02:55:b8:17:01:07  STALE      
+  CSDB_OM_RU_0001  192.168.1.32   eth1      02:55:b8:17:01:20  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.118  eth1      02:55:b8:17:00:76  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.128  eth1      02:55:b8:17:00:80  STALE      
+  CSDB_OM_RU_0001  192.168.0.153  eth1      02:55:b8:17:00:99  REACHABLE  
+  CSDB_OM_RU_0001  192.168.0.208  eth1      02:55:b8:17:00:d0  STALE      
+  CSDB_OM_RU_0001  192.168.0.238  eth1      02:55:b8:17:00:ee  REACHABLE  
+  CSDB_OM_RU_0001  192.168.1.172  eth1      02:55:b8:17:01:ac  STALE      
+  CSDB_OM_RU_0001  192.168.2.144  eth1      02:55:b8:17:02:90  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.153  eth1      02:55:b8:17:00:99  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.149  eth1      02:55:b8:17:00:95  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.118  eth1      02:55:b8:17:00:76  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.105  eth1      02:55:b8:17:00:69  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.111  eth1      02:55:b8:17:00:6f  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.224  eth1      02:55:b8:17:01:e0  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.172  eth1      02:55:b8:17:01:ac  STALE      
+  CSDB_OM_RU_0002  192.168.1.165  eth1      02:55:b8:17:01:a5  DELAY      
+  CSDB_OM_RU_0002  192.168.1.128  eth1      02:55:b8:17:01:80  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.66   eth1      02:55:b8:17:01:42  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.32   eth1      02:55:b8:17:01:20  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.127  eth1      02:55:b8:17:00:7f  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.114  eth1      02:55:b8:17:00:72  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.18   eth1      02:55:b8:17:01:12  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.7    eth1      02:55:b8:17:01:07  STALE      
+  CSDB_OM_RU_0002  192.168.0.76   eth1      02:55:b8:17:00:4c  STALE      
+  CSDB_OM_RU_0002  192.168.2.144  eth1      02:55:b8:17:02:90  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.32   eth1      02:55:b8:17:00:20  REACHABLE  
+  CSDB_OM_RU_0002  192.168.2.96   eth1      02:55:b8:17:02:60  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.185  eth1      02:55:b8:17:01:b8  STALE      
+  CSDB_OM_RU_0002  192.168.0.18   eth1      02:55:b8:17:00:12  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.250  eth1      02:55:b8:17:00:fa  STALE      
+  CSDB_OM_RU_0002  192.168.0.246  eth1      02:55:b8:17:00:f6  STALE      
+  CSDB_OM_RU_0002  192.168.1.48   eth1      02:55:b8:17:01:30  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.10   eth1      02:55:b8:17:01:0a  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.99   eth1      02:55:b8:17:00:63  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.242  eth1      02:55:b8:17:01:f2  DELAY      
+  CSDB_OM_RU_0002  192.168.1.245  eth1      02:55:b8:17:01:f5  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.225  eth1      02:55:b8:17:01:e0  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.48   eth1      02:55:b8:17:00:30  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.211  eth1      02:55:b8:17:01:d3  STALE      
+  CSDB_OM_RU_0002  192.168.1.194  eth1      02:55:b8:17:01:c2  STALE      
+  CSDB_OM_RU_0002  192.168.1.184  eth1      02:55:b8:17:01:b8  STALE      
+  CSDB_OM_RU_0002  192.168.0.3    eth1      02:55:b8:17:00:03  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.146  eth1      02:55:b8:17:01:92  DELAY      
+  CSDB_OM_RU_0002  192.168.0.235  eth1      02:55:b8:17:00:eb  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.238  eth1      02:55:b8:17:00:ee  REACHABLE  
+  CSDB_OM_RU_0002  192.168.0.187  eth1      02:55:b8:17:00:bb  DELAY      
+  CSDB_OM_RU_0002  192.168.2.2    eth1      02:55:b8:17:02:02  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.94   eth1      02:55:b8:17:01:5e  REACHABLE  
+  CSDB_OM_RU_0002  192.168.1.81   eth1      02:55:b8:17:01:51  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.32   eth1      02:55:b8:17:00:20  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.246  eth1      02:55:b8:17:00:f6  STALE      
+  CSDB_SD_RU_0064  192.168.1.144  eth1      02:55:b8:17:01:90  STALE      
+  CSDB_SD_RU_0064  192.168.0.94   eth1      02:55:b8:17:00:5e  STALE      
+  CSDB_SD_RU_0064  192.168.1.146  eth1      02:55:b8:17:01:92  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.194  eth1      02:55:b8:17:01:c2  STALE      
+  CSDB_SD_RU_0064  192.168.1.172  eth1      02:55:b8:17:01:ac  STALE      
+  CSDB_SD_RU_0064  192.168.0.105  eth1      02:55:b8:17:00:69  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.48   eth1      02:55:b8:17:00:30  REACHABLE  
+  CSDB_SD_RU_0064  192.168.2.2    eth1      02:55:b8:17:02:02  DELAY      
+  CSDB_SD_RU_0064  192.168.0.153  eth1      02:55:b8:17:00:99  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.111  eth1      02:55:b8:17:00:6f  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.10   eth1      02:55:b8:17:01:0a  STALE      
+  CSDB_SD_RU_0064  192.168.0.99   eth1      02:55:b8:17:00:63  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.184  eth1      02:55:b8:17:01:b8  STALE      
+  CSDB_SD_RU_0064  192.168.1.211  eth1      02:55:b8:17:01:d3  STALE      
+  CSDB_SD_RU_0064  192.168.1.15   eth1      02:55:b8:17:01:0f  STALE      
+  CSDB_SD_RU_0064  192.168.1.232  eth1      02:55:b8:17:01:e8  STALE      
+  CSDB_SD_RU_0064  192.168.0.149  eth1      02:55:b8:17:00:95  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.234  eth1      02:55:b8:17:01:e8  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.7    eth1      02:55:b8:17:01:07  STALE      
+  CSDB_SD_RU_0064  192.168.0.127  eth1      02:55:b8:17:00:7f  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.114  eth1      02:55:b8:17:00:72  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.224  eth1      02:55:b8:17:01:e0  DELAY      
+  CSDB_SD_RU_0064  192.168.1.225  eth1      02:55:b8:17:01:e0  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.118  eth1      02:55:b8:17:00:76  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.18   eth1      02:55:b8:17:01:12  DELAY      
+  CSDB_SD_RU_0064  192.168.1.66   eth1      02:55:b8:17:01:42  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.187  eth1      02:55:b8:17:00:bb  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.3    eth1      02:55:b8:17:00:03  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.242  eth1      02:55:b8:17:01:f2  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.235  eth1      02:55:b8:17:00:eb  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.32   eth1      02:55:b8:17:01:20  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.238  eth1      02:55:b8:17:00:ee  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.94   eth1      02:55:b8:17:01:5e  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.225  eth1      02:55:b8:17:00:e1  DELAY      
+  CSDB_SD_RU_0064  192.168.1.81   eth1      02:55:b8:17:01:51  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.84   eth1      02:55:b8:17:01:54  STALE      
+  CSDB_SD_RU_0064  192.168.2.96   eth1      02:55:b8:17:02:60  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.18   eth1      02:55:b8:17:00:12  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.128  eth1      02:55:b8:17:01:80  DELAY      
+  CSDB_SD_RU_0064  192.168.1.86   eth1      02:55:b8:17:01:54  DELAY      
+  CSDB_SD_RU_0064  192.168.0.249  eth1      02:55:b8:17:00:f9  STALE      
+  CSDB_SD_RU_0064  192.168.0.79   eth1      02:55:b8:17:00:4f  STALE      
+  CSDB_SD_RU_0064  192.168.0.250  eth1      02:55:b8:17:00:fa  REACHABLE  
+  CSDB_SD_RU_0064  192.168.2.144  eth1      02:55:b8:17:02:90  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.48   eth1      02:55:b8:17:01:30  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.3    eth1      02:55:b8:17:00:03  DELAY      
+  CSDB_SD_RU_0065  192.168.2.96   eth1      02:55:b8:17:02:60  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.79   eth1      02:55:b8:17:00:4f  STALE      
+  CSDB_SD_RU_0065  192.168.1.66   eth1      02:55:b8:17:01:42  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.7    eth1      02:55:b8:17:01:07  STALE      
+  CSDB_SD_RU_0065  192.168.1.86   eth1      02:55:b8:17:01:54  DELAY      
+  CSDB_SD_RU_0065  192.168.1.224  eth1      02:55:b8:17:01:e0  DELAY      
+  CSDB_SD_RU_0065  192.168.1.165  eth1      02:55:b8:17:01:a5  DELAY      
+  CSDB_SD_RU_0065  192.168.1.146  eth1      02:55:b8:17:01:92  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.238  eth1      02:55:b8:17:00:ee  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.225  eth1      02:55:b8:17:01:e0  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.48   eth1      02:55:b8:17:01:30  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.128  eth1      02:55:b8:17:01:80  REACHABLE  
+  CSDB_SD_RU_0065  192.168.2.2    eth1      02:55:b8:17:02:02  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.184  eth1      02:55:b8:17:01:b8  STALE      
+  CSDB_SD_RU_0065  192.168.0.225  eth1      02:55:b8:17:00:e1  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.48   eth1      02:55:b8:17:00:30  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.32   eth1      02:55:b8:17:01:20  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.246  eth1      02:55:b8:17:00:f6  STALE      
+  CSDB_SD_RU_0065  192.168.0.105  eth1      02:55:b8:17:00:69  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.10   eth1      02:55:b8:17:01:0a  STALE      
+  CSDB_SD_RU_0065  192.168.1.132  eth1      02:55:b8:17:01:84  STALE      
+  CSDB_SD_RU_0065  192.168.0.149  eth1      02:55:b8:17:00:95  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.211  eth1      02:55:b8:17:01:d3  STALE      
+  CSDB_SD_RU_0065  192.168.2.144  eth1      02:55:b8:17:02:90  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.32   eth1      02:55:b8:17:00:20  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.127  eth1      02:55:b8:17:00:7f  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.187  eth1      02:55:b8:17:00:bb  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.194  eth1      02:55:b8:17:01:c2  STALE      
+  CSDB_SD_RU_0065  192.168.1.18   eth1      02:55:b8:17:01:12  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.172  eth1      02:55:b8:17:01:ac  STALE      
+  CSDB_SD_RU_0065  192.168.0.114  eth1      02:55:b8:17:00:72  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.15   eth1      02:55:b8:17:01:0f  STALE      
+  CSDB_SD_RU_0065  192.168.0.111  eth1      02:55:b8:17:00:6f  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.232  eth1      02:55:b8:17:01:e8  STALE      
+  CSDB_SD_RU_0065  192.168.0.249  eth1      02:55:b8:17:00:f9  STALE      
+  CSDB_SD_RU_0065  192.168.0.250  eth1      02:55:b8:17:00:fa  STALE      
+  CSDB_SD_RU_0065  192.168.0.18   eth1      02:55:b8:17:00:12  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.234  eth1      02:55:b8:17:01:e8  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.153  eth1      02:55:b8:17:00:99  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.94   eth1      02:55:b8:17:00:5e  STALE      
+  CSDB_SD_RU_0065  192.168.1.81   eth1      02:55:b8:17:01:51  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.118  eth1      02:55:b8:17:00:76  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.99   eth1      02:55:b8:17:00:63  REACHABLE  
+  CSDB_SD_RU_0065  192.168.0.235  eth1      02:55:b8:17:00:eb  REACHABLE  
+  CSDB_SD_RU_0065  192.168.1.84   eth1      02:55:b8:17:01:54  STALE      
+  CSDB_SD_RU_0065  192.168.1.242  eth1      02:55:b8:17:01:f2  REACHABLE  
+  (结果个数 = 184)
+
+  ---    END
+  ```
+- 查询指定大颗粒服务实例的指定RU名称为“CSDB\_SD\_RU\_0064”的NOS Base平面网络邻居信息：
+
+  ```
+  DSP NOSBASENEIGH: RUNAME="CSDB_SD_RU_0064", SERVICEINSTANCE="CSDB_VNFC_999";
+  ```
+
+  ```
+  RETCODE = 0  操作成功
+
+  结果如下:
+  ---------
+  RU名称           IP地址        接口名称  MAC地址            表项状态   
+
+  CSDB_SD_RU_0064  192.168.0.32   eth1      02:55:b8:17:00:20  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.246  eth1      02:55:b8:17:00:f6  STALE      
+  CSDB_SD_RU_0064  192.168.1.144  eth1      02:55:b8:17:01:90  STALE      
+  CSDB_SD_RU_0064  192.168.0.94   eth1      02:55:b8:17:00:5e  STALE      
+  CSDB_SD_RU_0064  192.168.1.146  eth1      02:55:b8:17:01:92  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.194  eth1      02:55:b8:17:01:c2  STALE      
+  CSDB_SD_RU_0064  192.168.1.172  eth1      02:55:b8:17:01:ac  STALE      
+  CSDB_SD_RU_0064  192.168.0.105  eth1      02:55:b8:17:00:69  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.48   eth1      02:55:b8:17:00:30  DELAY      
+  CSDB_SD_RU_0064  192.168.2.2    eth1      02:55:b8:17:02:02  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.153  eth1      02:55:b8:17:00:99  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.111  eth1      02:55:b8:17:00:6f  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.10   eth1      02:55:b8:17:01:0a  STALE      
+  CSDB_SD_RU_0064  192.168.0.99   eth1      02:55:b8:17:00:63  DELAY      
+  CSDB_SD_RU_0064  192.168.1.184  eth1      02:55:b8:17:01:b8  STALE      
+  CSDB_SD_RU_0064  192.168.1.211  eth1      02:55:b8:17:01:d3  STALE      
+  CSDB_SD_RU_0064  192.168.1.15   eth1      02:55:b8:17:01:0f  STALE      
+  CSDB_SD_RU_0064  192.168.1.232  eth1      02:55:b8:17:01:e8  STALE      
+  CSDB_SD_RU_0064  192.168.0.149  eth1      02:55:b8:17:00:95  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.234  eth1      02:55:b8:17:01:e8  DELAY      
+  CSDB_SD_RU_0064  192.168.1.7    eth1      02:55:b8:17:01:07  STALE      
+  CSDB_SD_RU_0064  192.168.0.127  eth1      02:55:b8:17:00:7f  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.114  eth1      02:55:b8:17:00:72  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.224  eth1      02:55:b8:17:01:e0  DELAY      
+  CSDB_SD_RU_0064  192.168.1.225  eth1      02:55:b8:17:01:e0  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.118  eth1      02:55:b8:17:00:76  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.18   eth1      02:55:b8:17:01:12  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.66   eth1      02:55:b8:17:01:42  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.187  eth1      02:55:b8:17:00:bb  DELAY      
+  CSDB_SD_RU_0064  192.168.0.3    eth1      02:55:b8:17:00:03  DELAY      
+  CSDB_SD_RU_0064  192.168.1.242  eth1      02:55:b8:17:01:f2  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.235  eth1      02:55:b8:17:00:eb  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.32   eth1      02:55:b8:17:01:20  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.238  eth1      02:55:b8:17:00:ee  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.94   eth1      02:55:b8:17:01:5e  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.225  eth1      02:55:b8:17:00:e1  DELAY      
+  CSDB_SD_RU_0064  192.168.1.81   eth1      02:55:b8:17:01:51  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.84   eth1      02:55:b8:17:01:54  STALE      
+  CSDB_SD_RU_0064  192.168.2.96   eth1      02:55:b8:17:02:60  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.18   eth1      02:55:b8:17:00:12  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.128  eth1      02:55:b8:17:01:80  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.86   eth1      02:55:b8:17:01:54  REACHABLE  
+  CSDB_SD_RU_0064  192.168.0.249  eth1      02:55:b8:17:00:f9  STALE      
+  CSDB_SD_RU_0064  192.168.0.79   eth1      02:55:b8:17:00:4f  STALE      
+  CSDB_SD_RU_0064  192.168.0.250  eth1      02:55:b8:17:00:fa  STALE      
+  CSDB_SD_RU_0064  192.168.2.144  eth1      02:55:b8:17:02:90  REACHABLE  
+  CSDB_SD_RU_0064  192.168.1.48   eth1      02:55:b8:17:01:30  REACHABLE  
+  (结果个数 = 47)
+
+  ---    END
+  ```
+
+#### 输出结果说明
+
+| 输出项名称   | 输出项解释                   |
+|:--------|:------------------------|
+| RU名称    | 表示RU名称。                 |
+| IP地址    | 表示IP地址。                 |
+| 接口名称    | 表示NOS Base平面的接口名称。      |
+| MAC地址   | 表示NOS Base平面网络邻居的MAC地址。 |
+| 表项状态    | 表示NOS Base平面网络邻居的表项状态。  |

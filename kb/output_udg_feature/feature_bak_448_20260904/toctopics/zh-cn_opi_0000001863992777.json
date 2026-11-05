@@ -1,0 +1,110 @@
+{
+  "feature_name": "激活SBI接口加密(PSK)",
+  "feature_description": "为降低网络安全风险，建议开启SBI接口加密特性。\n\n**说明** \n\n适用于UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVC3FF3F5E20874B47B52929C1F1C33140",
+        "parentNaviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "pidId": "pid_bookmap_0000002187138142",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG安全配置",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8003",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8003"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001144684195",
+        "topicUrl": "toctopics/zh-cn_topic_0000001144684195.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091631538",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091631538.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001144684195",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091791208",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091791208.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001091631538",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "OPI_0000001863992777",
+        "topicUrl": "toctopics/zh-cn_opi_0000001863992777.html",
+        "name": "激活SBI接口加密(PSK)",
+        "parentTopicId": "TOPIC_0000001091791208",
+        "position": "2.2.5.12",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

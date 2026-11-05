@@ -1,0 +1,143 @@
+{
+  "command_name": "SET BGP",
+  "command_name_zh": "设置BGP",
+  "command_name_full": "设置BGP（SET BGP）",
+  "command_function": "**须知** \n\n操作不当会去使能BGP，导致BGP功能不可用，并且所有历史BGP配置全部删除，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于创建BGP协议并设置BGP协议参数。BGP是一种外部网关协议（EGP），与OSPF等内部网关协议（IGP）不同，其着眼点不在于发现和计算路由，而在于在AS之间选择最佳路由和控制路由的传播。BGP协议默认不开启认证，认证需要手动开启，否则会有风险。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595642",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.4",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289154999",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "CONCEPT_0000202103595642",
+        "position": "4.14.4.10",
+        "parentPosition": "4.14.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315637",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_bgp_management.html",
+        "name": "BGP管理",
+        "parentTopicId": "CONCEPT_0000202289154999",
+        "position": "4.14.4.10.1",
+        "parentPosition": "4.14.4.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116214",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_set_bgp_parameters.html",
+        "name": "设置BGP",
+        "parentTopicId": "CONCEPT_0000202289315637",
+        "position": "4.14.4.10.1.1",
+        "parentPosition": "4.14.4.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001600866001",
+        "topicUrl": "MML/Document/set_bgp.html",
+        "name": "设置BGP（SET BGP）",
+        "parentTopicId": "CONCEPT_0000202103116214",
+        "position": "4.14.4.10.1.1.1",
+        "parentPosition": "4.14.4.10.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

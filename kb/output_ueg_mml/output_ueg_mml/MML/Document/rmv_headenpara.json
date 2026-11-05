@@ -1,0 +1,143 @@
+{
+  "command_name": "RMV HEADENPARA",
+  "command_name_zh": "删除头增强参数",
+  "command_name_full": "删除头增强参数（RMV HEADENPARA）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令,执行本命令后将删除指定或所有头增强的参数配置，将头增强相关参数设置为默认值，可能导致头增强对外呈现发生变化，请谨慎使用。\n\n该命令用来删除头增强配置的相关参数。用于取消用户相应的头增强参数配置。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315825_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.5",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315835_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_header_enrichment_control.html",
+        "name": "头增强控制",
+        "parentTopicId": "CONCEPT_0000202289315825_3",
+        "position": "2.2.3.2.5.4",
+        "parentPosition": "2.2.3.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000205514244067_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_header_enrichment_parameter.html",
+        "name": "头增强参数",
+        "parentTopicId": "CONCEPT_0000202289315835_3",
+        "position": "2.2.3.2.5.4.4",
+        "parentPosition": "2.2.3.2.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000205513700305_3",
+        "topicUrl": "MML/Document/rmv_headenpara.html",
+        "name": "删除头增强参数（RMV HEADENPARA）",
+        "parentTopicId": "CONCEPT_0000205514244067_3",
+        "position": "2.2.3.2.5.4.4.2",
+        "parentPosition": "2.2.3.2.5.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

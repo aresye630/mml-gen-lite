@@ -1,0 +1,97 @@
+{
+  "feature_name": "激活用户身份保密性功能（适用于4G）",
+  "feature_description": "本操作指导介绍在运行网络中激活用户身份保密特性的操作过程。\n\n用户身份保密性功能是通过GUTI的分配来实现。分配GUTI（Globally Unique Temporary UE Identity）的目的是为入网的用户提供一个临时标识，同时这个标识不会展现用户的永久性标识。\n\n**说明** \n\n适用于MME",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVA7BE1C5944E4460EB0C4BEAE46395950",
+        "parentNaviId": "DOCNAV587740D5FE514D42A94EFBD884E51047",
+        "pidId": "pid_bookmap_0000002193794102",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC安全配置",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095683976",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095683976.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001141923835",
+        "topicUrl": "toctopics/zh-cn_topic_0000001141923835.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001095683976",
+        "position": "2.1",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "TOPIC_0000001095723766",
+        "topicUrl": "toctopics/zh-cn_topic_0000001095723766.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001141923835",
+        "position": "2.1.5",
+        "parentPosition": "2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193794102",
+        "topicId": "OPI_0000001150384082",
+        "topicUrl": "toctopics/zh-cn_opi_0000001150384082.html",
+        "name": "激活用户身份保密性功能（适用于4G）",
+        "parentTopicId": "TOPIC_0000001095723766",
+        "position": "2.1.5.5",
+        "parentPosition": "2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

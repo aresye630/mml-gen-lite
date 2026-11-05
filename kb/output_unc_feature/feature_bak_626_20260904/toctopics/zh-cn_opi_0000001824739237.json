@@ -1,0 +1,73 @@
+{
+  "feature_name": "配置NTP时间同步",
+  "feature_description": "网元可以同时从FusionStage和NTP服务器同步时间信息，这样当一路故障后，另一路仍然可以正常运行，可以保证时间同步的可靠性，如图1所示。\n\n**图1** 网元同时从FusionStage和外部NTP服务器同步时间信息\n\n- 从FusionStage同步时间：当FusionStage在“系统管理 > 系统配置 > 时间管理”页面时，将“支持夏令时时钟”设置为“是”，同时在“应用管理 > MML”执行**SET TZ**命令，将“是否执行夏令时”设置为“YES(是)”，并将相关时区和夏令时参数和FusionStage设置一致。\n- 从NTP服务器同步时间：对于计费类网元（UAMF、USMF），直接配置和NTP服务器对接即可。对于非计费类网元（NRF、NSSF、SMSF），需要和OMC对接，OMC最终和NTP服务器对接来实现时间同步。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001777939710",
+        "topicUrl": "toctopics/zh-cn_topic_0000001777939710.html",
+        "name": "基础数据配置",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001824739237",
+        "topicUrl": "toctopics/zh-cn_opi_0000001824739237.html",
+        "name": "配置NTP时间同步",
+        "parentTopicId": "TOPIC_0000001777939710",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

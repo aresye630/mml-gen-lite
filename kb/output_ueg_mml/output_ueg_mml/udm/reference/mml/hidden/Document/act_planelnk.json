@@ -1,0 +1,119 @@
+{
+  "command_name": "ACT PLANELNK",
+  "command_name_zh": "激活DIAMETER平面链路",
+  "command_name_full": "激活DIAMETER平面链路(ACT PLANELNK)",
+  "command_function": "该命令用于请求系统激活UDM设备与对端设备之间的Diameter平面链路。\n\n网元升级时为了减少业务中断，会将网元的所有Pod划分成两部分，分别为0平面和1平面。升级过程中先让0平面成为主平面，1平面成为备平面，先升级备平面，然后对平面进行倒换，再升级新备平面。为了防止升级过程中发送到备平面的业务消息无法被处理，升级之前会执行**DEA PLANELNK**命令去激活备平面上所有HSF模块关联的Diameter链路。升完之后，执行**ACT PLANELNK**激活该平面上所有的Diameter链路。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001313940589",
+        "topicUrl": "toctopics/zh-cn_topic_0000001313940589.html",
+        "name": "UDM机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.4",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0170302395",
+        "topicUrl": "udm/reference/mml/hidden/LinkedDoc/link_in_diameter_plane.html",
+        "name": "Diameter平面链路",
+        "parentTopicId": "TOPIC_0000001313940589",
+        "position": "2.3.3.4.5",
+        "parentPosition": "2.3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170302443",
+        "topicUrl": "udm/reference/mml/hidden/Document/act_planelnk.html",
+        "name": "激活DIAMETER平面链路(ACT PLANELNK)",
+        "parentTopicId": "CONCEPT_0170302395",
+        "position": "2.3.3.4.5.1",
+        "parentPosition": "2.3.3.4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "feature_name": "配置NCG/CHF(OCS)选择方式",
+  "feature_description": "当UNC部署融合计费功能时需要对接NCG/CHF（OCS），本指导用于描述对接NCG/CHF（OCS）的配置操作过程。\n\nUNC支持基于IMSI选择NCG/CHF(OCS)、基于IMSI号段选择NCG/CHF(OCS)、基于PCF下发的FQDN选择NCG/CHF(OCS)、基于用户的计费属性Charging Characteristics（CC）选择NCG/CHF(OCS)，也支持基于标准化服务发现选择NCG/CHF(OCS)。\n\nUNC选择NCG/CHF(OCS)的优先级从高到低依次是：基于IMSI选择NCG/CHF(OCS) > 基于IMSI号段选择NCG/CHF(OCS) > 基于PCF下发的信息选择NCG/CHF(OCS) > 基于从UDM获取的签约CC选择NCG/CHF(OCS) > 基于标准化服务发现选择NCG/CHF(OCS) > 基于SMF本地配置的CC选择NCG/CHF(OCS)。如果无法通过高优先级的方式选择NCG/CHF(OCS)，则依次向下使用低一级别的方式进行选择。\n\n其中，通过**ADD SELCHFGBYIMSI**命令配置基于IMSI选择NCG/CHF(OCS)方式一般用于测试场景，将指定IMSI的用户的计费信息发送到指定NCG/CHF(OCS)上，测试NCG/CHF(OCS)的基本功能。\n\n**说明** \n\n- 当通过NRF服务发现NCG/CHF（OCS），不需要在UNC上配置NCG/CHF（OCS）。通过本地NRF方式发现NCG/CHF（OCS）操作参考UNC产品文档的“网络部署 > 初始配置 > UNC初始配置与调测 > 组网对接配置 > 配置SMF&PGW-C&SGW-C&GGSN > 配置SMF > 配置和NF直连”中的配置到CHF的数据完成相关配置。\n- 如果已参考UNC产品文档的“网络部署 > 初始配置 > UNC初始配置与调测 > 组网对接配置 > 配置SMF&PGW-C&SGW-C&GGSN > 公共配置 > （可选）配置到计费系统和策略控制网元的对接（Ga/Gy/N40/Gx/N7） > （可选）配置到CHF的数据（GGSN/PGW-C/SMF）”完成相关配置，则无需再执行本来章节。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVEF27ED6640F347AAB2947C13B7996017",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222378793",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001990679693",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679693.html",
+        "name": "方案五：部署NCG且融合接口计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.5",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040352",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040352.html",
+        "name": "SMF配置",
+        "parentTopicId": "TOPIC_0000001990679693",
+        "position": "1.3.5.2",
+        "parentPosition": "1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040360",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040360.html",
+        "name": "融合计费配置",
+        "parentTopicId": "TOPIC_0000001955040352",
+        "position": "1.3.5.2.2",
+        "parentPosition": "1.3.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001990839553",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990839553.html",
+        "name": "融合计费对接配置",
+        "parentTopicId": "TOPIC_0000001955040360",
+        "position": "1.3.5.2.2.4",
+        "parentPosition": "1.3.5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "OPI_0000001955040372",
+        "topicUrl": "toctopics/zh-cn_opi_0000001955040372.html",
+        "name": "配置NCG/CHF(OCS)选择方式",
+        "parentTopicId": "TOPIC_0000001990839553",
+        "position": "1.3.5.2.2.4.1",
+        "parentPosition": "1.3.5.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

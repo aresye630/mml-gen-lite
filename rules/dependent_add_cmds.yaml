@@ -1,0 +1,58 @@
+# 从属型 ADD 命令登记表（数据外置，非硬编码在代码里）
+#
+# 用途：引用完整性校验（gen_selfcheck C2）判断"谁创建了对象"。
+#
+# 概念区分：
+#   创建型 ADD  —— 命令本身创建了一个新对象
+#                   例 ADD L3VPNINST:VRFNAME="VRF_A"  ← 创建 VRF_A
+#   从属型 ADD  —— 命令只是给"已存在的对象"挂属性/绑定关系，不创建该对象
+#                   例 ADD VPNINSTAF:VRFNAME="VRF_A", AFTYPE=ipv4uni
+#                      ← 给已存在的 VRF_A 加地址族，不创建 VRF_A
+#
+# 为什么需要这张表：
+#   两种命令的第一个参数都是 VRFNAME，靠参数形态分不出来。
+#   若把从属型也算作创建，ADD VPNINSTAF 里的 VRF_A 会被误认为"已定义"，
+#   导致真正缺失 VRF_A 的方案判不出悬空引用（实测自测 T2 曾因此失效）。
+#
+# 维护方式：
+#   1. 新增命令时，先看命令文档「注意事项」有没有"需确保 XXX 已通过 YYY 创建"
+#      —— 有则该命令是从属型，加进来
+#   2. 无文档说明时，看 EXP 里该命令的参数值是否总能被别的 ADD 找到
+#   3. 加错了会导致漏报（不报悬空），加少了会导致误报（把正常引用当悬空）
+#      ⇒ 倾向"宁可漏报不误报"：只登记有明确依据的
+#
+# 数据来源：
+#   · 命令文档「注意事项」段（覆盖不全，实测 4 个里 1 个有）
+#   · EXP 实测：该命令引用的对象在其它 ADD 里都被创建过
+
+version: 1
+
+# ── 地址族 / 绑定类（给已存在对象挂东西）──
+dependent:
+  - VPNINSTAF            # ADD VPNINSTAF: 文档明示"需确保 VPN 实例已通过 ADD L3VPNINST 创建"
+  - IPBINDVPN            # 绑定接口到 VPN：VRF 与接口都已存在
+  - IFIPV4ADDRESS        # 给接口配地址：接口已存在
+  - IFIPV6ADDRESS
+  - SRROUTE              # 静态路由下到 VRF：VRF 已存在
+  - SRROUTE6
+  - BGPVRFAF             # 给 VRF 加地址族
+  - AUTOSCALINGSRROUTE   # 自动化模板下的路由，依赖模板
+  - AUTOSCALINGBFD
+  - AUTOSCALINGSERVICE   # 服务实例，依赖 trunk 与 VRF
+  - FLTBINDFLOWF         # 过滤器绑定：过滤器与业务对象都已存在
+  - RULEBINDING          # 规则绑定
+  - TAIRANGELIST         # TAI 范围列表：TACRANGE 已存在
+  - UPAREABINDN2TAI      # 服务区绑 N2TAI：服务区已存在
+  - ACLNODEBINDACL       # ACL 节点绑定
+  - ACLBINDAPN           # ACL 绑定 APN
+  - PCSCFGRPBNDAPN       # P-CSCF 组绑 APN
+  - APNIPALLOCRULE       # APN 的地址分配规则，挂在已存在 APN 上
+
+# ── 反向：明确的创建型（即使参数多也一定是创建者）──
+# 用于覆盖 dependent 判定之外的特例
+creator:
+  - L3VPNINST            # 创建 VRF
+  - INTERFACE            # 创建接口
+  - APN                  # 创建 APN
+  - POOL                 # 创建地址池
+  - SECTION              # 创建地址段

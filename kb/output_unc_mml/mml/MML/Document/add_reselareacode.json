@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD RESELAREACODE",
+  "command_name_zh": "增加AMF重选功能区域编码",
+  "command_name_full": "增加AMF重选功能区域编码（ADD RESELAREACODE）",
+  "command_function": "**适用NF：AMF**\n\nAMF可基于运营商规划的区域进行AMF重选功能的差异化控制。AMF配置上述“区域”分为两个步骤，首先通过本命令定义区域编码（RESELAREACODE），其次通过ADD RESELAREAMEM为已定义的区域编码添加位置成员。\n\n在大网和园区共享RAN场景下，大网AMF可以通过本地配置将园区用户请求通过RAN重定向给园区AMF；园区AMF可以通过本地配置将大网用户请求通过基站重定向给大网AMF。大网和园区以及园区（如园区1、园区2）之间共享RAN且园区1、2和大网失联时，园区1的AMF可以通过本地配置将园区2的用户请求通过RAN重定向到园区2的AMF; 园区2的AMF可以通过本地配置将园区1的用户请求通过RAN重定向到园区1的AMF。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001868566729",
+        "topicUrl": "MML/LinkedDoc/unc_n_amf_area_reselection_function_management.html",
+        "name": "AMF区域重选功能管理",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.3.2.34",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001868646509",
+        "topicUrl": "MML/LinkedDoc/unc_n_amf_reselection_function_area_code.html",
+        "name": "AMF重选功能区域编码",
+        "parentTopicId": "TOPIC_0000001868566729",
+        "position": "2.3.2.34.1",
+        "parentPosition": "2.3.2.34",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001870382293",
+        "topicUrl": "MML/Document/add_reselareacode.html",
+        "name": "增加AMF重选功能区域编码（ADD RESELAREACODE）",
+        "parentTopicId": "TOPIC_0000001868646509",
+        "position": "2.3.2.34.1.1",
+        "parentPosition": "2.3.2.34.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

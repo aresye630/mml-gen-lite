@@ -1,0 +1,143 @@
+{
+  "command_name": "SET OMIP",
+  "command_name_zh": "设置OM IP",
+  "command_name_full": "设置OM IP (SET OMIP)",
+  "command_function": "**须知** \n\n该类命令执行之后**可能会导致OM Portal断链**、网管断链以及VNFM断链，需使用修改后IP重新登录OM Portal，并重新对接网管以及修改VNFM侧对应网元的IP。该命令若执行不当，**会导致所有业务中断**。\n\n用于修改系统OM网络配置参数，包括外部浮动IP地址、外部物理IP、子网掩码（IPV4场景）/前缀长度（IPV6场景）、默认网关。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421818",
+        "topicUrl": "toctopics/zh-cn_topic_0225421818.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.8",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421815",
+        "topicUrl": "toctopics/zh-cn_topic_0225421815.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0225421818",
+        "position": "2.2.1.8.3",
+        "parentPosition": "2.2.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0214565196",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/router_management.html",
+        "name": "路由管理",
+        "parentTopicId": "TOPIC_0225421815",
+        "position": "2.2.1.8.3.2",
+        "parentPosition": "2.2.1.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0276162847",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/omaddress_management.html",
+        "name": "运维地址管理",
+        "parentTopicId": "TOPIC_0214565196",
+        "position": "2.2.1.8.3.2.3",
+        "parentPosition": "2.2.1.8.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0276163350_3",
+        "topicUrl": "ueg/csp/MML/Document/set_omip.html",
+        "name": "设置OM IP (SET OMIP)",
+        "parentTopicId": "TOPIC_0276162847",
+        "position": "2.2.1.8.3.2.3.2",
+        "parentPosition": "2.2.1.8.3.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD QOSCARBURST",
+  "command_name_zh": "配置用户做car的参数",
+  "command_name_full": "配置用户做car的参数（ADD QOSCARBURST）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于增加用户流量管理时的突发尺寸（即令牌桶的深度）与流量速率对应关系的配置。用户流量速率与这个对应关系表进行比较得到对应的突发尺寸。配置这个突发尺寸是为了限制出现突发流量时所能支持的最大值，超过了这个值就会被丢弃，从而达到限制带宽的目的。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315825_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.5",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202288915795_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_qos_control.html",
+        "name": "用户QOS控制",
+        "parentTopicId": "CONCEPT_0000202289315825_3",
+        "position": "2.2.3.2.5.3",
+        "parentPosition": "2.2.3.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315833_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_traffic_management.html",
+        "name": "流量管理",
+        "parentTopicId": "CONCEPT_0000202288915795_3",
+        "position": "2.2.3.2.5.3.2",
+        "parentPosition": "2.2.3.2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103595872_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_set_qos_car_burstsize.html",
+        "name": "配置Qos Car桶深信息",
+        "parentTopicId": "CONCEPT_0000202289315833_3",
+        "position": "2.2.3.2.5.3.2.6",
+        "parentPosition": "2.2.3.2.5.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0182837681_3",
+        "topicUrl": "MML/Document/add_qoscarburst.html",
+        "name": "配置用户做car的参数（ADD QOSCARBURST）",
+        "parentTopicId": "CONCEPT_0000202103595872_3",
+        "position": "2.2.3.2.5.3.2.6.1",
+        "parentPosition": "2.2.3.2.5.3.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD TPLVBS",
+  "command_name_zh": "模板修改VBS业务",
+  "command_name_full": "模板修改VBS业务(MOD TPLVBS)",
+  "command_function": "该命令用于以模板方式修改用户的VBS（Voice Broadcast Service）业务数据。\n\n对于在网用户执行该命令后，如果是给用户签约该业务，则UDM会向MSC/VLR下发插入用户数据消息（Insert Subscriber Data）；如果是给用户去签约该业务，则UDM会向MSC/VLR下发删除用户数据消息（Delete Subscriber Data）。对于不在网用户执行该命令后，则仅会更新用户在数据库中的数据，当用户进行位置更新时UDM将用户的VBS业务数据下发给MSC/VLR。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803215",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/vbs_management.html",
+        "name": "VBS业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.23",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803455",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_tplvbs.html",
+        "name": "模板修改VBS业务(MOD TPLVBS)",
+        "parentTopicId": "CONCEPT_0190803215",
+        "position": "4.2.3.23.1",
+        "parentPosition": "4.2.3.23",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

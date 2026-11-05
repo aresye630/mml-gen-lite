@@ -1,0 +1,143 @@
+{
+  "command_name": "SET IMDBUSAGEALMTHD",
+  "command_name_zh": "设置内存数据库使用率告警阈值配置",
+  "command_name_full": "设置内存数据库使用率告警阈值配置(SET IMDBUSAGEALMTHD)",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行该操作可能修改ALM-369 节点内存使用率过高、ALM-371 节点内存不足两个告警的上报、恢复阈值，若设置不当可能导致告警误上报、恢复。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于设置节点内存数据库使用率告警阈值信息。\n\n系统根据当前节点内存使用率和该命令配置的告警阈值进行比较，超出相应的上报阈值时，上报“ALM-369 节点内存使用率过高”或“ALM-371 节点内存不足”告警。用户可以根据业务的需要，执行该命令修改参数值，从而监控节点内存使用率，以免内存不足造成业务处理失败。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774583",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/data_service_management.html",
+        "name": "数据服务管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.1",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001533936621",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/in_memory_database_usage_alarm_threshold_configuration.html",
+        "name": "内存数据库使用率告警阈值配置",
+        "parentTopicId": "MMLREF_0172774583",
+        "position": "2.2.4.3.3.1.23",
+        "parentPosition": "2.2.4.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001533493189_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/set_imdbusagealmthd.html",
+        "name": "设置内存数据库使用率告警阈值配置(SET IMDBUSAGEALMTHD)",
+        "parentTopicId": "CONCEPT_0000001533936621",
+        "position": "2.2.4.3.3.1.23.1",
+        "parentPosition": "2.2.4.3.3.1.23",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

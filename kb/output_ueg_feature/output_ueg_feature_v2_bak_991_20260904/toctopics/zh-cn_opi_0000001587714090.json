@@ -1,0 +1,588 @@
+{
+  "feature_name": "配置网元和交换机对接（裸机容器）",
+  "feature_description": "表1中指定型号的华为交换机作为DC-GW时，CSP支持纳管该交换机并支持告警上报功能。\n\n一个CSP最大支持纳管4个交换机。需要在交换机和CSP分别配置，才能完成对接。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001587714090_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001587714090.html",
+        "name": "配置网元和交换机对接（裸机容器）",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.4",
+        "parentPosition": "4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001587714090_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001587714090.html",
+        "name": "配置网元和交换机对接（裸机容器）",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.4",
+        "parentPosition": "4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001512283829",
+        "topicUrl": "toctopics/zh-cn_topic_0000001512283829.html",
+        "name": "裸机容器模式",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001103200390",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001103200390.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "TOPIC_0000001512283829",
+        "position": "2.4",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001196802129",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001196802129.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001103200390",
+        "position": "2.4.6",
+        "parentPosition": "2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001587714090_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001587714090.html",
+        "name": "配置网元和交换机对接（裸机容器）",
+        "parentTopicId": "TOPIC_0000001196802129",
+        "position": "2.4.6.3",
+        "parentPosition": "2.4.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV17528F50213D40089A8CCB8B29FE1C03",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818390",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（电力专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001986626012",
+        "topicUrl": "toctopics/zh-cn_topic_0000001986626012.html",
+        "name": "软件安装与初始配置",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001992710556",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992710556.html",
+        "name": "部署UEG",
+        "parentTopicId": "TOPIC_0000001986626012",
+        "position": "3.6",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000002257656352",
+        "topicUrl": "toctopics/zh-cn_topic_0000002257656352.html",
+        "name": "电力专网采用风筝S部署模式",
+        "parentTopicId": "TOPIC_0000001992710556",
+        "position": "3.6.1",
+        "parentPosition": "3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001992550784",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992550784.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000002257656352",
+        "position": "3.6.1.2",
+        "parentPosition": "3.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000002030016185",
+        "topicUrl": "toctopics/zh-cn_topic_0000002030016185.html",
+        "name": "裸机容器模式UPF初始配置",
+        "parentTopicId": "TOPIC_0000001992550784",
+        "position": "3.6.1.2.2",
+        "parentPosition": "3.6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001993377062",
+        "topicUrl": "toctopics/zh-cn_topic_0000001993377062.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002030016185",
+        "position": "3.6.1.2.2.4",
+        "parentPosition": "3.6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "OPI_0000001587714090",
+        "topicUrl": "toctopics/zh-cn_opi_0000001587714090.html",
+        "name": "配置网元和交换机对接（裸机容器）",
+        "parentTopicId": "TOPIC_0000001993377062",
+        "position": "3.6.1.2.2.4.3",
+        "parentPosition": "3.6.1.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302453",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302453.html",
+        "name": "子园区部署入驻式UEG-S",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002346620857",
+        "topicUrl": "toctopics/zh-cn_topic_0000002346620857.html",
+        "name": "子园区UEG-S初始配置",
+        "parentTopicId": "TOPIC_0000002304302453",
+        "position": "3.4.2",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002312502106",
+        "topicUrl": "toctopics/zh-cn_topic_0000002312502106.html",
+        "name": "裸机容器模式UPF初始配置",
+        "parentTopicId": "TOPIC_0000002346620857",
+        "position": "3.4.2.1",
+        "parentPosition": "3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002346501041",
+        "topicUrl": "toctopics/zh-cn_topic_0000002346501041.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002312502106",
+        "position": "3.4.2.1.4",
+        "parentPosition": "3.4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001587714090",
+        "topicUrl": "toctopics/zh-cn_opi_0000001587714090.html",
+        "name": "配置网元和交换机对接（裸机容器）",
+        "parentTopicId": "TOPIC_0000002346501041",
+        "position": "3.4.2.1.4.3",
+        "parentPosition": "3.4.2.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302453",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302453.html",
+        "name": "子园区部署入驻式UEG-S",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002346620857",
+        "topicUrl": "toctopics/zh-cn_topic_0000002346620857.html",
+        "name": "子园区UEG-S初始配置",
+        "parentTopicId": "TOPIC_0000002304302453",
+        "position": "3.4.2",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002312502106",
+        "topicUrl": "toctopics/zh-cn_topic_0000002312502106.html",
+        "name": "裸机容器模式UPF初始配置",
+        "parentTopicId": "TOPIC_0000002346620857",
+        "position": "3.4.2.1",
+        "parentPosition": "3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002346501041",
+        "topicUrl": "toctopics/zh-cn_topic_0000002346501041.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002312502106",
+        "position": "3.4.2.1.4",
+        "parentPosition": "3.4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001587714090",
+        "topicUrl": "toctopics/zh-cn_opi_0000001587714090.html",
+        "name": "配置网元和交换机对接（裸机容器）",
+        "parentTopicId": "TOPIC_0000002346501041",
+        "position": "3.4.2.1.4.3",
+        "parentPosition": "3.4.2.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

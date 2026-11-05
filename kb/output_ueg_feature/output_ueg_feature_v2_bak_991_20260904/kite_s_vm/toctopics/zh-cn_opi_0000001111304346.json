@@ -1,0 +1,93 @@
+{
+  "feature_name": "激活支持APP负载均衡",
+  "feature_description": "当运营商为了均衡APP的负荷，部署了多台APP Server进行负荷分担，采用负载均衡机制对外呈现单一的虚拟IP地址时，MPF需要部署负载均衡机制，将通过Nxu接口的VXLAN-GPE（Generic Protocol Extension for VXLAN）隧道转发到MPF上的数据报文分流到具体的APP Server。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001157865041",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001157865041.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001111304346",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001111304346.html",
+        "name": "激活支持APP负载均衡",
+        "parentTopicId": "TOPIC_0000001157865041",
+        "position": "5.4.2.5",
+        "parentPosition": "5.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

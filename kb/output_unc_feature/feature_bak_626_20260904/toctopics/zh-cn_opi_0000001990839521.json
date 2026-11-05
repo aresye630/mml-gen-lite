@@ -1,0 +1,117 @@
+{
+  "feature_name": "配置到CHF(OCS)的Local NRF",
+  "feature_description": "该任务用于在网络中没有部署NRF，或对端NF没有注册到NRF，或网络中存在NRF但需基于运营商策略本地配置周边NF的场景下，配置对端NF实例相关的信息。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVFA8996DD884B4F1A8C2DE9A506A462BD",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229234053",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案##计费",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679653",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679653.html",
+        "name": "方案四：部署NCG且基于服务化接口的离线+在线计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.4",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040336",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040336.html",
+        "name": "NCG配置",
+        "parentTopicId": "TOPIC_0000001990679653",
+        "position": "1.3.4.3",
+        "parentPosition": "1.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "OPI_0000001990839521",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990839521.html",
+        "name": "配置到CHF(OCS)的Local NRF",
+        "parentTopicId": "TOPIC_0000001955040336",
+        "position": "1.3.4.3.2",
+        "parentPosition": "1.3.4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

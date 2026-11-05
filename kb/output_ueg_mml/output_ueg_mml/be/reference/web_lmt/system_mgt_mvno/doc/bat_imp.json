@@ -1,0 +1,107 @@
+{
+  "command_name": "BAT IMP",
+  "command_name_zh": "导入批操作",
+  "command_name_full": "导入批操作（BAT IMP）",
+  "command_function": "**须知** \n\n该命令是批处理命令，在执行导入过程中，会占用系统较多资源，因此执行命令前，请确保业务处于低峰期。\n\n该命令用于启动对用户数据进行批量导入。\n\n导入批操作执行原理如图1所示。\n\n**图1** 导入批操作执行流程\n\n1. 用户预先准备好批量导入的用户数据文件并通过Web LMT的“文件管理器”将文件上传到批操作文件存放目录，并启动批操作。\n2. PGW自动执行批操作文件，对用户数据进行批量导入。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169394",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/system_management.html",
+        "name": "系统管理（MVNO）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169399",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/userdata_management.html",
+        "name": "用户数据导入管理",
+        "parentTopicId": "MMLREF_0173169394",
+        "position": "4.2.2.12",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169404_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/doc/bat_imp.html",
+        "name": "导入批操作（BAT IMP）",
+        "parentTopicId": "CONCEPT_0173169399",
+        "position": "4.2.2.12.1",
+        "parentPosition": "4.2.2.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

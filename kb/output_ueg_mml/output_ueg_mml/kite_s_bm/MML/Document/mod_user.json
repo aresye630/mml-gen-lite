@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD USER",
+  "command_name_zh": "修改用户操作权限",
+  "command_name_full": "修改用户操作权限(MOD USER)",
+  "command_function": "**须知** \n\n该操作将修改用户操作权限，同时注销该用户所有在线会话。\n\n编辑用户对应的角色。\n\n- 角色：特定的一些操作权限组成的权限集合。可以通过OM Portal的“安全 > 用户管理 > 角色”创建和查询。\n- 账号策略：对于账号的一些特定要求，可以通过OM Portal的“安全 > 安全策略”查询。\n- 密码策略：对于密码的一些特定要求，可以通过OM Portal的“安全 > 安全策略”查询。\n- 默认用户：系统缺省已配置的用户，可以通过OM Portal的“安全 > 用户管理”查询。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315563_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.6",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103355822_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "CONCEPT_0000202289315563_2",
+        "position": "3.2.6.11",
+        "parentPosition": "3.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116144_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_user_management.html",
+        "name": "用户管理",
+        "parentTopicId": "CONCEPT_0000202103355822_2",
+        "position": "3.2.6.11.4",
+        "parentPosition": "3.2.6.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0206404642_3",
+        "topicUrl": "kite_s_bm/MML/Document/mod_user.html",
+        "name": "修改用户操作权限(MOD USER)",
+        "parentTopicId": "CONCEPT_0000202103116144_2",
+        "position": "3.2.6.11.4.3",
+        "parentPosition": "3.2.6.11.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

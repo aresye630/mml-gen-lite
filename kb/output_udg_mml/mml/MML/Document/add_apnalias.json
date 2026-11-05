@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD APNALIAS",
+  "command_name_zh": "添加ApnAlias配置",
+  "command_name_full": "添加ApnAlias配置（ADD APNALIAS）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于添加ApnAlias配置。为了兼容多个APN使用完全相同资源的情况，使用该命令配置APN别名，把它映射到真实APN上，这样多个别名APN就能共用一个真实APN的系统资源。别名APN主要适用于以下两种场景：\n\n1、运营商合并和重组时，为了兼容现网中使用相同资源的多个APN，可将某APN的业务映射到另一APN上。\n\n2、网络改建时新规划了APN，为了不影响原规划APN的使用，只需将原规划的APN映射到新规划APN上即可。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876442",
+        "topicUrl": "MML/LinkedDoc/udg_n_dn_management.html",
+        "name": "DN管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555249",
+        "topicUrl": "MML/LinkedDoc/udg_n_apn_management.html",
+        "name": "APN管理",
+        "parentTopicId": "CONCEPT_0000202102876442",
+        "position": "5.1.2",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595800",
+        "topicUrl": "MML/LinkedDoc/udg_n_alias_apn.html",
+        "name": "别名APN",
+        "parentTopicId": "CONCEPT_0000202289555249",
+        "position": "5.1.2.5",
+        "parentPosition": "5.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837023",
+        "topicUrl": "MML/Document/add_apnalias.html",
+        "name": "添加ApnAlias配置（ADD APNALIAS）",
+        "parentTopicId": "CONCEPT_0000202103595800",
+        "position": "5.1.2.5.1",
+        "parentPosition": "5.1.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

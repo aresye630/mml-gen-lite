@@ -1,0 +1,93 @@
+{
+  "feature_name": "激活动态分流规则安装（UPF）",
+  "feature_description": "UPF上的动态规则生效原则受本地配置控制，本地配置支持两种粒度：DNN级别通过**SET APNAPPPARA**命令配置、全局级别通过**SET GLBAPPPARA**命令配置，其中，DNN级别优先级大于全局级别。根据全局/DNN级配置控制UPF上的APP动态规则如何安装生效。\n\n**说明** \n\n适用于UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001111305068",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001111305068.html",
+        "name": "配置UPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.1",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001111144442",
+        "topicUrl": "kite_s_vm/feature/ueg_2030_feature_023504_lbo05_mec.html",
+        "name": "激活动态分流规则安装（UPF）",
+        "parentTopicId": "TOPIC_0000001111305068",
+        "position": "5.4.1.1",
+        "parentPosition": "5.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

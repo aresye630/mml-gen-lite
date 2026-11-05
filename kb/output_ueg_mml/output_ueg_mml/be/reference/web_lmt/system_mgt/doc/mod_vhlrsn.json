@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD VHLRSN",
+  "command_name_zh": "修改虚拟HLR",
+  "command_name_full": "修改虚拟HLR（MOD VHLRSN）",
+  "command_function": "**须知** \n\n该命令属于高危命令，修改虚拟HLR可能会导致当前虚拟HLR不可用。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于对一条虚拟运营商数据记录的某些参数进行修改或调整。在该命令中，系统通过以下关键参数的组合来唯一标识一条虚拟运营商：\n\n- 系统HLR序列号\n- 虚拟HLR序列号",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169336_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/virtual_HLR_management.html",
+        "name": "虚拟HLR管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.3",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169338_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/mod_vhlrsn.html",
+        "name": "修改虚拟HLR（MOD VHLRSN）",
+        "parentTopicId": "CONCEPT_0173169336_2",
+        "position": "4.2.1.3.3",
+        "parentPosition": "4.2.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

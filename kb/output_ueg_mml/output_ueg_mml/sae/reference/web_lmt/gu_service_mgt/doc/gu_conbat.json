@@ -1,0 +1,119 @@
+{
+  "command_name": "CONBAT",
+  "command_name_zh": "业务条件批操作",
+  "command_name_full": "业务条件批操作（CONBAT）",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成链路拥塞、CPU负荷过载等现象，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n此操作用于按照业务条件批量执行MML命令。\n\n此操作可以通过用户号段、指定的业务条件对用户进行过滤，并对过滤后用户进行业务签约、修改或去签约。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803075",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/gu_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.1",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0262375989",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/gu_conbatch_management.html",
+        "name": "业务条件批操作管理",
+        "parentTopicId": "MMLREF_0190803075",
+        "position": "4.2.3.1.2",
+        "parentPosition": "4.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0262375990",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/gu_conbat.html",
+        "name": "业务条件批操作（CONBAT）",
+        "parentTopicId": "CONCEPT_0262375989",
+        "position": "4.2.3.1.2.1",
+        "parentPosition": "4.2.3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

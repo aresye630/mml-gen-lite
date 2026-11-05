@@ -1,0 +1,105 @@
+{
+  "feature_name": "配置点播业务的安全认证策略",
+  "feature_description": "在媒体中继业务中，UPF使用HTTPS方式进行通信时，在不同场景下分别承担着不同的角色。在和UE通信时，UPF作为服务端，而当和CDN进行通信时，UPF则作为客户端。\n\n本章节主要介绍针对点播业务UPF使用HTTPS方式进行通信时，如何配置TLS证书作为业务的安全认证策略。\n\n**说明** \n\n适用于UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF3E973F9A7A24393805B169F26A77E72",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002243122044",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 媒体中继解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002415996849",
+        "topicUrl": "toctopics/zh-cn_topic_0000002415996849.html",
+        "name": "媒体中继业务配置",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002184693166",
+        "topicUrl": "toctopics/zh-cn_topic_0000002184693166.html",
+        "name": "新建媒体中继基础配置",
+        "parentTopicId": "TOPIC_0000002415996849",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002184541032",
+        "topicUrl": "toctopics/zh-cn_topic_0000002184541032.html",
+        "name": "配置UPF",
+        "parentTopicId": "TOPIC_0000002184693166",
+        "position": "3.4.4",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002503427849",
+        "topicUrl": "toctopics/zh-cn_topic_0000002503427849.html",
+        "name": "增加媒体服务商配置（基于OTT应用）",
+        "parentTopicId": "TOPIC_0000002184541032",
+        "position": "3.4.4.3",
+        "parentPosition": "3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "OPI_0000002272830797",
+        "topicUrl": "toctopics/zh-cn_opi_0000002272830797.html",
+        "name": "配置点播业务的安全认证策略",
+        "parentTopicId": "TOPIC_0000002503427849",
+        "position": "3.4.4.3.5",
+        "parentPosition": "3.4.4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

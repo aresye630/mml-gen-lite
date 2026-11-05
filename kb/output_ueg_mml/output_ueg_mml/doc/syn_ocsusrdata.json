@@ -1,0 +1,119 @@
+{
+  "command_name": "SYN POCSUSRDATA",
+  "command_name_zh": "同步OCS用户数据",
+  "command_name_full": "同步OCS用户数据（SYN POCSUSRDATA）",
+  "command_function": "本命令用于OCS通知UPCF重新获取用户信息。当OCS中存储的用户签约信息发生变化时，OCS会通知UPCF去获取用户最新数据，UPCF收到通知后会发送SLR消息去OCS查询用户最新数据，以便调整策略控制。\n\n本命令应用的操作原理如图1所示。\n\n**图1** 同步OCS用户数据\n\n1. 用户签约业务发生变化，Provisioning System/OCS通过SOAP接口发送synOCSUsrdataRequest请求给UPCF，通知UPCF同步用户数据。\n2. UPCF回复响应消息给Provisioning System/OCS。\n3. UPCF通过Sy接口向OCS发起SLR-Intermediate请求消息查询用户配额状态。\n4. OCS根据用户标识查询配额状态，并向UPCF返回SLA-Intermediate响应消息携带Policy-Counter-Status-Report AVP。\n5. UPCF根据最新的配额状态、用户签约信息以及本地配置的策略进行策略决策，生成新的规则，通过RAR请求消息下发到PCEF。\n6. PCEF删除旧规则安装新规则，并返回RAA响应消息给UPCF。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001295986488",
+        "topicUrl": "toctopics/zh-cn_topic_0000001295986488.html",
+        "name": "UPCF业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.5",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167452623",
+        "topicUrl": "node/user_data_mml.html",
+        "name": "用户数据命令组",
+        "parentTopicId": "TOPIC_0000001295986488",
+        "position": "4.2.5.2",
+        "parentPosition": "4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452653",
+        "topicUrl": "node/sub_management.html",
+        "name": "用户管理",
+        "parentTopicId": "CONCEPT_0167452623",
+        "position": "4.2.5.2.1",
+        "parentPosition": "4.2.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452626",
+        "topicUrl": "doc/syn_ocsusrdata.html",
+        "name": "同步OCS用户数据（SYN POCSUSRDATA）",
+        "parentTopicId": "MMLREF_0167452653",
+        "position": "4.2.5.2.1.13",
+        "parentPosition": "4.2.5.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

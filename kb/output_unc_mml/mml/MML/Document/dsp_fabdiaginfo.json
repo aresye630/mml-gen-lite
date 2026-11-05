@@ -1,0 +1,114 @@
+{
+  "command_name": "DSP FABDIAGINFO",
+  "command_name_zh": "显示Fabric平面亚健康诊断结果",
+  "command_name_full": "显示Fabric平面亚健康诊断结果（DSP FABDIAGINFO）",
+  "command_function": "- 该命令用于显示Fabric平面亚健康诊断结果。\n- Pod级Fabric亚健康：若本Fabric Pod与其他所有Fabric Pod之间产生的亚健康链路数与总链路数的比值大于POD亚健康阈值，则认为该Fabric Pod处于Pod级别的Fabric亚健康，可能是Fabric亚健康汇聚点。POD亚健康阈值可使用**SET FABDIAGPARA**设置，**LST FABDIAGPARA**查询。\n- 节点级Fabric亚健康：若本节点上所有Fabric Pod都处于Pod级Fabric亚健康，则认为该节点处于节点级别的Fabric亚健康，可能是Fabric亚健康汇聚点。\n- 主机级Fabric亚健康：若本主机上所有Fabric Pod都处于Pod级Fabric亚健康，则认为该主机处于主机级别的Fabric亚健康，可能是Fabric亚健康汇聚点。\n- 若Pod、节点或主机不满足Pod级、节点级或主机级Fabric亚健康，但亚健康链路数排序在前10，也可通过此命令查询诊断结果。\n- Fabric Pod可使用**DSP PAENODE**查询，输出结果中的服务地址表示Pod名称。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001502089352",
+        "topicUrl": "MML/LinkedDoc/cmfsvc_n_high_available_management.html",
+        "name": "可靠性管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.1",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001502249248",
+        "topicUrl": "MML/LinkedDoc/cmfsvc_n_microservice_available_management.html",
+        "name": "微服务可靠性管理",
+        "parentTopicId": "TOPIC_0000001502089352",
+        "position": "1.1.1",
+        "parentPosition": "1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000002148150369",
+        "topicUrl": "MML/Document/dsp_fabdiaginfo.html",
+        "name": "显示Fabric平面亚健康诊断结果（DSP FABDIAGINFO）",
+        "parentTopicId": "TOPIC_0000001502249248",
+        "position": "1.1.1.107",
+        "parentPosition": "1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

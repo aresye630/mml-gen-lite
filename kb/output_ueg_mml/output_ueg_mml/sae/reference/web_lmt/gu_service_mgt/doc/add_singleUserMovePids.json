@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD SINGLEUSERMOVEPIDS",
+  "command_name_zh": "增加4升5迁移指令PID规则",
+  "command_name_full": "增加4升5迁移指令PID规则(ADD SINGLEUSERMOVEPIDS)",
+  "command_function": "该命令用于增加一条4升5迁移指令PID规则。\n\n在**SET MAPSERV**命令的“单用户迁移增强”参数取值“NSA\\_ADDSUB\\_MOVE\\_SRCPIDS2DESTPIDS” 或“SA\\_ADDSUB\\_MOVE\\_SRCPIDS2DESTPIDS”的场景下，将CloudDB版本或ATCA版本HSS上的5G SA或者NSA用户数据迁移至UDM。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000002041920780",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ngssub_migrate_config.html",
+        "name": "5G签约自动迁移PID管理",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.24",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002078040157",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_singleUserMovePids.html",
+        "name": "增加4升5迁移指令PID规则(ADD SINGLEUSERMOVEPIDS)",
+        "parentTopicId": "CONCEPT_0000002041920780",
+        "position": "4.2.3.5.24.1",
+        "parentPosition": "4.2.3.5.24",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

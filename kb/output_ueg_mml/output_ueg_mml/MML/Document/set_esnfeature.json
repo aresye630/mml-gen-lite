@@ -1,0 +1,131 @@
+{
+  "command_name": "SET ESNFEATURE",
+  "command_name_zh": "设置ESN特征段信息",
+  "command_name_full": "设置ESN特征段信息 (SET ESNFEATURE)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成系统ESN特征发生变化从而影响业务运行，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在出现以下场景时设置ESN特征段信息：\n\n- 对于系统上报“ALM-18805 ESN即将失效”告警的场景，需要使用新ESN信息重新申请License，并使用该命令设置新ESN。\n- 对于重新部署网元的场景，如果ESN的配置信息没有发生变更，可以在重装并恢复完成原配置信息后，使用该命令设置ESN序列号，“ESN序列号”取值为原ESN序列号，然后加载原网元的License文件。各网元的ESN配置信息如下（UDM-EIR、UDM-ENS、UDM-UIM仅在虚机场景涉及）：\n  - UDM或UDM-EIR：包括主机名、GT及信令IP\n  - UDM-ENS：包括ENS服务器IP\n  - UDM-UIM：作为AAA/GBA/BSF功能实体时，包括信令IP、主机名；在AP独立部署时，包括信令IP。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782889",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_udm_license_management.html",
+        "name": "UDM License管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.2",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0209259105_2",
+        "topicUrl": "MML/Document/set_esnfeature.html",
+        "name": "设置ESN特征段信息 (SET ESNFEATURE)",
+        "parentTopicId": "CONCEPT_0000203481782889",
+        "position": "2.2.3.4.2.2.5",
+        "parentPosition": "2.2.3.4.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

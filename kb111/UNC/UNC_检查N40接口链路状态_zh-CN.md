@@ -1,0 +1,49 @@
+---
+id: ''
+name: 检查N40接口链路状态
+ne_type: UNC
+type: feature
+description: 通过检查SMF和CHF之间的链路状态，确保交互链路正常，保证CHF正常提供计费业务。
+risk_level: ''
+doc_source: ["网络部署","业务专题","5G Core 计费解决方案","计费解决方案概述","例行维护","检查N40接口链路状态"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+通过检查SMF和CHF之间的链路状态，确保交互链路正常，保证CHF正常提供计费业务。
+
+## 必备事项
+前提条件
+
+操作人员已经登录OM Portal或U2020/MAE。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties: {}
+  examples: {}
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 在UNC上执行**DSP SBILINKSTATUS**命令，检查UNC作为客户端时的服务化接口链路状态，选择对端NF类型为NFTypeCHF。
+
+### 预期结果：“链路状态”为“正常”。
+
+### 非预期结果：“链路状态”为非“正常”，执行步骤 3。
+
+### 2 在告警服务台上查看UNC是否有“**ALM-100072 目的NF服务不可达**”告警，且告警参数中对端网元类型为CHF。
+
+### 预期结果：不存在上述告警。
+
+### 非预期结果：存在上述告警，参考“**ALM-100072 目的NF服务不可达**”的告警处理步骤解决，结束。
+
+### 3 检查结果不符合预期，请收集告警信息、日志信息和配置信息，并联系华为技术支持处理。
+

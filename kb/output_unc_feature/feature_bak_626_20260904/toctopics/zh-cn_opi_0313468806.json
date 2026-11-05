@@ -1,0 +1,109 @@
+{
+  "feature_name": "SBI接口（N20）配置",
+  "feature_description": "SMSF的服务化接口为Nsmsf，与参考点的对应关系如下。参考点是指5G系统服务化架构映射到传统架构后，对应传统网元之间点对点的接口，用来代表NF之间交互的参考模型，并不是真实的接口。\n\n**图1** Nsmsf接口示意图\n\n**图2** 服务化接口协议栈图\n\n服务化接口间采用相同的协议栈，传输层统一采用HTTP/2协议，应用层携带不同的服务消息。因为底层的传输方式相同，所有的服务化接口就可以在同一总线上进行传输，支撑业务灵活上线。\n\n**说明** \n\nHTTP/2（HyperText Transport Protocol 2.0）：下一代超文本传输协议。基于HTTP协议的信息交换分为四个过程：建立连接、发送请求信息、发送响应信息、关闭连接。\n\nTLS（Transport Layer Security）：安全传输层协议。在两个通信应用程序之间提供保密性和数据完整性。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC54A726B5F7946E1AFEDC2D90E4DD82D",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193952334",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core SMSF解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468810",
+        "topicUrl": "toctopics/zh-cn_topic_0313468810.html",
+        "name": "SMSF功能部署",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468773",
+        "topicUrl": "toctopics/zh-cn_topic_0313468773.html",
+        "name": "部署基础网络",
+        "parentTopicId": "TOPIC_0313468810",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468818",
+        "topicUrl": "toctopics/zh-cn_topic_0313468818.html",
+        "name": "部署UNC网元数据",
+        "parentTopicId": "TOPIC_0313468773",
+        "position": "2.3.1",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468784",
+        "topicUrl": "toctopics/zh-cn_topic_0313468784.html",
+        "name": "部署SMSF对接数据",
+        "parentTopicId": "TOPIC_0313468818",
+        "position": "2.3.1.2",
+        "parentPosition": "2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "OPI_0313468806",
+        "topicUrl": "toctopics/zh-cn_opi_0313468806.html",
+        "name": "SBI接口（N20）配置",
+        "parentTopicId": "TOPIC_0313468784",
+        "position": "2.3.1.2.3",
+        "parentPosition": "2.3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

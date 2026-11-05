@@ -1,0 +1,107 @@
+{
+  "command_name": "SET IPFARMGLOBAL",
+  "command_name_zh": "设置IPFarm全局参数",
+  "command_name_full": "设置IPFarm全局参数（SET IPFARMGLOBAL）",
+  "command_function": "**适用NF：MPF**\n\n该命令用于配置系统中的心跳检测次数和检测周期等参数，用于对每个server的网络状态进行检查，如果系统与其中的某些server无法通信，则在进行业务的时候不选择这些服务器，保证从系统出去的报文能到达一个可用的server上，以减少业务处理失败的可能性。\n\n心跳检测的具体做法是：系统定时向IP farm中的server发送ICMP报文，server收到报文后会对系统做出应答。如果系统在一定的时间内能收到server的应答，则认为这个server的状态为up。如果系统连续几次发送的ICMP报文都收不到响应，则认为server处于down状态。不论server处于up状态还是down状态，系统都会继续不断地向其发送ICMP报文，更新server的状态。\n\n该命令也用于配置整机的针对IP farm配置的重定向选择server的负荷分担方式。一个IP farm中的每个server都是相同的，这些server共同分担系统发出的业务，系统用一些固定的方式从一个IP farm中选取一个状态为up的server，以便在不影响业务进行的前提下保证IP farm下的server的负荷相对平衡。当一个业务到来时，系统找到对应的ip-farm1，并按配置的负荷分担方式在farm选取一个状态为up的server1，此时又有ip-farm1的业务到来时，系统会根据负荷分担方式选择状态为up的server3来处理这个业务，从而很好地保证了业务快速有效的进行。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441906",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_mec_data_plane_management.html",
+        "name": "MEC数据面管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.8",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201254728856",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_ip_farm_management.html",
+        "name": "IP Farm 管理",
+        "parentTopicId": "CONCEPT_0000201255441906",
+        "position": "1.8.3",
+        "parentPosition": "1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201254967814",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_ip_farm_global_parameter.html",
+        "name": "IP Farm全局参数",
+        "parentTopicId": "CONCEPT_0000201254728856",
+        "position": "1.8.3.3",
+        "parentPosition": "1.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201260296100",
+        "topicUrl": "kite_s_vm/mpf_om/MML/Document/set_ipfarmglobal.html",
+        "name": "设置IPFarm全局参数（SET IPFARMGLOBAL）",
+        "parentTopicId": "CONCEPT_0000201254967814",
+        "position": "1.8.3.3.1",
+        "parentPosition": "1.8.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

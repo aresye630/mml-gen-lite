@@ -1,0 +1,86 @@
+{
+  "feature_name": "修改网元基本信息",
+  "feature_description": "软件安装阶段，已完成网元名称和浮动IP地址的配置。在生产预安装场景或者现网使用时，如果需要修改，可参考本页面调整登录网元OM Portal的网元名称和浮动IP地址。\n\n**说明** \n\n- 网元名称、浮动IP地址需要与网管上配置的名称和IP地址属性一致，如果本端修改了网元名称和浮动IP地址，需要在网管上同步修改该网元的名称和IP地址属性。\n- 修改浮动IP时，请参考网元的改造OM网络方案改造OM网络。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0233049494",
+        "topicUrl": "toctopics/zh-cn_topic_0233049494.html",
+        "name": "基础数据配置",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0000002262350333",
+        "topicUrl": "toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0233049494",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,243 @@
+# rules/session_stages.yaml —— session 状态机迁移表 = 权限表（方案 §15.1/§15.3）
+# guide 由本文件 + 产物存在性动态计算（单一来源，前端按钮与 agent 决策共用）。
+# 新增动作/状态 = 改本 YAML，代码零改动（动作 handler 除外）。
+#
+# 动作字段：
+#   id/method/path_pattern/label/description : guide 输出
+#   requires_stage      : 哪些 stage 允许该动作；当前 stage 不在内 → blocked STAGE_CONFLICT
+#   requires_artifact   : 前置产物；缺失 → blocked，码按 artifact.code
+#                         （exp 缺 → EXP_REQUIRED；analysis_done 缺 → STAGE_CONFLICT 前置未跑）
+#   running_stage       : 运行中状态（同步动作 = null）
+#   to_stage            : 成功后状态
+#   sync                : true = 同步完成（无 task）
+#   hidden              : true = 不暴露为 guide 动作按钮（端点仍可用，供 agent/内部兜底）
+# 未实现动作暂不登记，登记即被 guide 暴露（M3 generations 走意图端点按需生成，
+# 不登记；M4 验证/归档登记即暴露，见下与 §17.7）。
+
+stages:
+  draft:        { meaning: 已建会话，无 exp }
+  exp_ready:    { meaning: 有 exp 未分析（含换 exp 回退点） }
+  analyzing:    { meaning: 确定性分析运行中 }
+  matched:      { meaning: 确定性分析完成（特性关联 + 功能链判定 + 指纹匹配 + groundtruth） }
+  # ★ 2026-09-22 补登记：failed 是 app_v1 运行期真实会置的状态（分析抛错时）；
+  #   此前未登记 ⇒ _action_verdict 对所有动作都判 blocked ⇒ 用户失败后完全死锁
+  #   （连「上传 exp」都不可用，无任何自救入口）。用户裁决：failed 允许
+  #   重新上传覆盖 + 删除 exp 回到 draft；不允许归档（残留文件会污染后续配置生成）。
+  failed:       { meaning: 最近一次分析失败 —— 可重新上传覆盖，或删除 exp 回到 draft }
+  # M2+ 扩展：generating / gen_ready / csv_ready / verifying / verified / archived
+
+actions:
+  # ── 通用文件上传（2026-11-05）──────────────────────────────────
+  #   任意文件（docx/xlsx/pdf/csv/md...），解析成 markdown 供 agent 读。
+  #   不强制任何流程：无 EXP 也能传、也能生成。
+  #   hidden: true —— 不暴露为 guide 按钮（前端自己做文件树，不走状态机按钮）
+  # ── 对话与预览（2026-11-05，配合新前端，全 hidden）──
+  - id: gen_events
+    method: GET
+    path_pattern: /sessions/{sid}/generations/{gid}/events
+    label: 实时事件流
+    description: SSE 推送生成过程（tool call 级别，仿 DeepSeek harness）
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: session_chat
+    method: POST
+    path_pattern: /sessions/{sid}/chat
+    label: 对话
+    description: 会话内对话（转发 /api/chat），可触发配置生成
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: chat_history
+    method: GET
+    path_pattern: /sessions/{sid}/chat/history
+    label: 对话历史
+    description: 读取会话对话历史
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: get_file
+    method: GET
+    path_pattern: /sessions/{sid}/file
+    label: 读文件
+    description: 读会话目录下的文件（供前端预览，限 uploads/uploads_text/analysis_code/gen_v1）
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: upload_files
+    method: POST
+    path_pattern: /sessions/{sid}/uploads
+    label: 上传文件
+    description: 上传任意文件到会话 workspace；自动解析成文本（docx/xlsx/pdf/csv/md...）；不限数量，不要求有 EXP
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: list_uploads
+    method: GET
+    path_pattern: /sessions/{sid}/uploads
+    label: 查看上传文件
+    description: 列出会话已上传的文件及解析状态
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: delete_upload
+    method: DELETE
+    path_pattern: /sessions/{sid}/uploads/{name}
+    label: 删除上传文件
+    description: 删除某个上传文件及其解析产物
+    requires_stage: [draft, exp_ready, analyzing, matched, failed, generating, gen_ready]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true
+    hidden: true
+
+  - id: upload_exp
+    method: PUT
+    path_pattern: /sessions/{sid}/exp
+    label: 上传 exp
+    description: 上传 exp 文本（.txt）；draft/exp_ready/failed 态可直传覆盖；已有下游产物且非 failed 时须先走换 exp 流程（M2 提供 impact/apply，当前返回 STAGE_CONFLICT）
+    requires_stage: [draft, exp_ready, failed]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: exp_ready
+    sync: true
+
+  - id: delete_exp
+    method: DELETE
+    path_pattern: /sessions/{sid}/exp
+    label: 删除 exp
+    description: 删除当前 exp 及其全部下游产物（分析/匹配/生成），会话回到 draft —— failed 后彻底重来的入口（不留残留，避免污染后续配置生成）
+    requires_stage: [failed, exp_ready, matched]
+    requires_archived: false
+    requires_artifact: []
+    running_stage: null
+    to_stage: draft
+    sync: true
+
+  - id: run_analysis
+    hidden: true   # 上传即分析：不暴露手动重跑按钮（端点保留，供 agent/重试兜底）
+    method: POST
+    path_pattern: /sessions/{sid}/analysis
+    label: 执行确定性分析
+    description: 上传 exp 即自动触发（也可手动重跑）。确定性代码一步产出全部产物：特性关联 + 12 功能链判定 + 归属映射 + 指纹匹配 + groundtruth 源文档对照；完成后 stage=matched
+    requires_stage: [draft, exp_ready, matched]
+    requires_archived: false
+    requires_artifact:
+      - { name: exp, code: EXP_REQUIRED, hint: 'PUT /sessions/{sid}/exp' }
+    running_stage: analyzing
+    to_stage: matched
+    sync: false
+    modes:
+      - { value: code, label: '确定性分析' }
+
+  # ── 换 exp 影响评估与确认（2026-09-08 P1 欠账清，§17.2/§12.3 B1/B2）──
+  # impact 只读评估（verdict + token）；apply 按 token 确认换入。两者同步完成
+  # （本地解析/rename，秒级，无需 task）。
+  - id: exp_impact
+    hidden: true   # 换 exp 走 agent 对话/新建会话，不暴露按钮
+    method: POST
+    path_pattern: /sessions/{sid}/exp/impact
+    label: 评估换 exp 影响
+    description: 上传候选 exp 文本评估换入影响（对象域重叠/diff/将失效产物），返回 verdict + impact_token；高差异（对象重叠 < 阈值）默认建议新建 session
+    requires_stage: [exp_ready, matched]
+    requires_artifact:
+      - { name: exp, code: EXP_REQUIRED, hint: '会话已有 exp 才能评估换入' }
+    running_stage: null
+    to_stage: null
+    sync: true
+
+  - id: exp_apply
+    hidden: true   # 换 exp 流程隐藏（与 impact 配套，不暴露按钮）
+    method: POST
+    path_pattern: /sessions/{sid}/exp/apply
+    label: 确认换入 exp
+    description: 按 impact_token（+force）确认换入：exp 版本链 +1、S3/S4 产物轮转保留、既有 gen 标基线过期、stage 回 exp_ready 待重跑
+    requires_stage: [exp_ready, matched]
+    requires_archived: false
+    requires_artifact:
+      - { name: exp, code: EXP_REQUIRED, hint: '会话已有 exp 才能换入' }
+    running_stage: null
+    to_stage: exp_ready
+    sync: true
+
+  # ── 生成结果验证：已移除（2026-09-18 实测裁决）──
+  # 移除理由（三项，见 测试报告/汇总_问题与修改方案.md 问题#1）：
+  #   ① 概念重复：特性文档对照职责已由「特性判定卡 · 官方基线」承担
+  #      （artifacts_v1.py:40 从 特性配置基线/ 确定性提取 cmd_count/
+  #      cmd_types/scenario/examples，与 exp 侧左右对照）。
+  #   ② 数据源废弃：依赖旧匹配器产物 match_result.json，该文件在 v5 单源链路
+  #      （111 为唯一知识源）不存在 ⇒ 入口点了必报错。
+  #   ③ 显示条件过宽：requires_artifact: [] 使任何 matched 会话都显示该入口。
+  # 用户口径：groundtruth 指特性文档，判定卡里已呈现其示例，不需单独入口。
+
+  # ── 会话管理（2026-09-08 M4.3，§6.1：归档只读 / 复制重写 / 删除隔离）──
+  # archived 为 session.json 附加标记（非 stage）：stage 不动、guide 不拦截；
+  # 列表默认隐藏即防误操作。copy 以源会话为模板（含 archived 源——归档恢复路径）。
+  # DELETE /sessions/{sid} 属运维接口不登记（防 UI 误触），agent/curl 专用。
+  - id: archive_session
+    method: POST
+    path_pattern: /sessions/{sid}/archive
+    label: 归档会话
+    description: 只读归档：置 archived 标记并从列表隐藏；stage 与产物保留，restore 可无损恢复
+    requires_stage: [draft, exp_ready, matched]
+    requires_artifact: []
+    requires_archived: false
+    running_stage: null
+    to_stage: null
+    sync: true
+
+  - id: restore_session
+    method: POST
+    path_pattern: /sessions/{sid}/restore
+    label: 恢复会话
+    description: 去 archived 标记，会话回到列表（stage 保持归档时状态）
+    requires_stage: [draft, exp_ready, matched]
+    requires_artifact: []
+    requires_archived: true
+    running_stage: null
+    to_stage: null
+    sync: true
+
+  - id: copy_session
+    method: POST
+    path_pattern: /sessions/{sid}/copy
+    label: 复制会话
+    description: 复制为新会话（可带 name）：目录复制 + 内部引用重写（session.json/gen.json sid、报告内旧目录路径）；源会话不动
+    requires_stage: [draft, exp_ready, matched]
+    requires_artifact: []
+    running_stage: null
+    to_stage: null
+    sync: true

@@ -1,0 +1,114 @@
+{
+  "command_name": "SET AGFOUTFC",
+  "command_name_zh": "设置出局流控参数",
+  "command_name_full": "设置出局流控参数（SET AGFOUTFC）",
+  "command_function": "**适用NF：NCG**\n\n该命令用于设置出局流控参数。\n\n当AGF转发消息给对端网元(如OCS或SCP)，对端网元出现异常无法处理计费请求时，为避免大量的异常消息导致服务内部资源过载，通过该命令设置流控参数，控制NCG转发计费消息到对端网元的频率，减少服务内部资源的消耗和对对端网元的冲击压力。\n\n该命令有4种模式：全局流控，会话级流控，隔离全部OCS，按消息步长流控。\n\n1）会话级流控模式：会话级流控模式，分为3种状态：正常状态、流控状态、待决状态。当设置为会话级流控模式时，。\n\n正常状态或待决状态下：AGF会转发在线计费消息给对端网元。\n\n流控状态下：AGF则会直接代应答该会话的在线消息。\n\n2）全局流控模式：全局流控模式，也分为3种状态:正常状态、流控状态、待决状态。当设置为全局流控模式时，。\n\n正常状态下：AGF会转发所有的在线计费消息给对端网元。\n\n流控状态下：AGF会直接代应答转发给该对端网元的所有在线消息。\n\n待决状态：AGF会转发所有的在线计费消息给对端网元，拥塞计数次数达到阈值，会直接进入拥塞状态。\n\n3）隔离全部OCS模式。当设置为隔离全部OCS模式时，AGF会直接代应答所有的在线消息，不转发给对端网元。\n\n4）消息步长流控模式。当设置为消息步长流控模式时，在线计费消息按照条数间隔转发OCS。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0245490879",
+        "topicUrl": "MML/LinkedDoc/unc_n_ncg_service_and_policy_management.html",
+        "name": "NCG业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.11",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0245490917",
+        "topicUrl": "MML/LinkedDoc/unc_n_agf_flow_control_parameters.html",
+        "name": "AGF流控参数信息",
+        "parentTopicId": "TOPIC_0245490879",
+        "position": "2.11.10",
+        "parentPosition": "2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001187446492",
+        "topicUrl": "MML/Document/set_agfoutfc.html",
+        "name": "设置出局流控参数（SET AGFOUTFC）",
+        "parentTopicId": "TOPIC_0245490917",
+        "position": "2.11.10.3",
+        "parentPosition": "2.11.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

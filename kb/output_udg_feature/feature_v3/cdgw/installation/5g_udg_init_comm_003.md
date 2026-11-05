@@ -1,0 +1,247 @@
+# 基于OSPFv3路由自动部署锚点UDG配置实例（IPv6）
+
+* 操作场景
+* 必备事项
+* 操作步骤
+
+## 操作场景
+
+本任务实例实现以下场景配置：
+
+UDG与对端设备（ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG、SGSN、SMF/PGW-C/SGW-C、DN/PDN）通过OSPFv3动态路由绑定动态BFD实现网络互通。
+
+* 网络形态：2/3/4/5G融合网络
+* 网元形态：锚点UDG
+* 路由协议：OSPFv3动态路由自动部署
+* 组网IP格式：IPv6组网
+* 接入用户：IPv4v6双栈用户
+
+* 本文所描述的锚点UDG仅做独立的锚点网关，不包含融合边缘网关的形态，与无线侧(R)AN没有连接。实际场景中请根据网络组网确定网元的形态和配置。
+* 对于IPv4v6双栈用户接入，则与外部DN网络连接的Gi/SGi/N6接口的vNIC外联口需要规划IPv4v6双栈地址。
+
+## 必备事项
+
+前提条件
+
+* 请了解UDG各类接口的类型及命名规范，可参见逻辑接口介绍。
+* IP路由组网和业务接口配置子任务在前述章节已有详细描述，可参见配置VNF侧IP路由数据（无NP卡\_非SDN）和配置业务接口数据。本文针对典型的任务场景举例说明整网脚本配置。
+
+数据
+
+可参考各子任务的数据规划准备。
+
+文档
+
+获取网设LLD文档。
+
+## 操作步骤
+
+1. 关闭自动配置开关。
+   1. 查询自动配置开关状态。
+
+      ```
+      LST AUTOCONFIG:;
+      ```
+
+      如果自动配置开关值为“TRUE”，需要执行如下步骤关闭自动配置开关。
+   2. 查询自动部署维护助手“autoscaling\_autoconfig.py”的状态，确保状态为“准备好状态（Ready）”或者查询无该脚本，以保证当前设备不在自动部署过程中。因为若系统当前有正在进行的自动部署，而自动部署生效有时延，此时若关闭自动配置开关，会影响系统配置效果。
+
+      ```
+      DSP OPSASSISTSTATE:;
+      ```
+   3. 关闭自动配置开关。
+
+      ```
+      SET AUTOCONFIG:SWITCHFLAG=FALSE;
+      ```
+2. 全局激活BFD。
+
+   ```
+   SET BFD: BFDENABLE=TRUE;
+   ```
+3. 配置UDG到与对端设备接入侧UPF/SGW-U（ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG）、SGSN的IP路由数据。
+   1. 配置VPN实例。
+
+      ```
+      ADD L3VPNINST:VRFNAME="VPN_Pa";
+      ADD VPNINSTAF:VRFNAME="VPN_Pa",AFTYPE=ipv6uni;
+      ```
+   2. 配置OSPF路由。
+
+      1. 创建OSPF进程。
+
+         ```
+         ADD OSPFV3:PROCID=8,VRFNAME="VPN_Pa",ROUTERID="10.8.26.1",BFDALLINTFFLG=TRUE,VPNINSCAPSIMFLG=TRUE,VIRTUALSYSFLAG=TRUE;
+         ```
+      2. 增加OSPF区域。
+
+         ```
+         ADD OSPFV3AREA:PROCID=8,AREAID="0.0.0.7";
+         ```
+      3. 设置OSPFv3引入路由类型。
+
+         ```
+         ADD OSPFV3IMPORTROUTE:PROCID=8,TOPOID=0,PROTOCOL=wlr,IMPTCOSTCFG=FALSE,IMPTTAGCFG=FALSE,IMPTTYPECFG=FALSE;
+         ```
+   3. 添加以太网隧道多虚拟网卡自动化配置模板。
+
+      ```
+      ADD AUTOSCALINGETHTRUNK: ETHTRUNKTMPID=2, VNICLIST="6 7";
+      ```
+   4. 配置外联口自动部署模板。
+
+      ```
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Pa_102",VPNNAME="VPN_Pa",AFTYPE=IPv6, IPALLOCTYPE6=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=2, VLANID=102, BEGINADDR6="FC00::1002", ENDADDR6="FC00::107E", MASKLEN=121, OSPFENABLE=TRUE, OSPFPROCID=8, OSPFAREAID="0.0.0.7", TPINENABLE=FALSE, TPOUTENABLE=FALSE; 
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Pa_202",VPNNAME="VPN_Pa",AFTYPE=IPv6, IPALLOCTYPE6=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=2, VLANID=202, BEGINADDR6="FC00::1082", ENDADDR6="FC00::10FE", MASKLEN=121, OSPFENABLE=TRUE, OSPFPROCID=8, OSPFAREAID="0.0.0.7", TPINENABLE=FALSE, TPOUTENABLE=FALSE;
+      ```
+4. 配置UDG到与对端数据网络（DN/PDN）的IPv4路由数据。
+   1. 配置VPN实例。
+
+      ```
+      ADD L3VPNINST:VRFNAME="VPN_Internet_IPv4";
+      ADD VPNINSTAF:VRFNAME="VPN_Internet_IPv4",AFTYPE=ipv4uni;
+      ```
+   2. 配置OSPF路由。
+
+      1. 创建OSPF进程。
+
+         ```
+         ADD OSPF:PROCID=9,VRFNAME="VPN_Internet_IPv4",SCHEMAROUID="192.168.38.210",BFDALLINTFFLG=TRUE,LSAARRINTVFLAG=FALSE, LSAARRMAXINTV=1000, LSAARRSTARINTV=500, LSAARRHLDINTV=500,VPNINSCAPSIMFLG=TRUE,VIRTUALSYSFLAG=TRUE;
+         ```
+      2. 增加OSPF区域。
+
+         ```
+         ADD OSPFAREA:PROCID=9,AREAID="0.0.0.8";
+         ```
+      3. 设置OSPF引入路由类型。
+
+         ```
+         ADD OSPFIMPORTROUTE:PROCID=9,TOPOID=0,PROTOCOL=wlr,IMPTCOSTCFG=FALSE,IMPTTAGCFG=FALSE,IMPTTYPECFG=FALSE;
+         ```
+   3. 配置外联口自动部署模板。
+
+      ```
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Internet_103",VPNNAME="VPN_Internet_IPv4",AFTYPE=IPv4,IPALLOCTYPE4=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=2,VLANID=103, BEGINADDR4="192.168.86.2", ENDADDR4="192.168.86.126", MASKLEN=25, OSPFENABLE=TRUE, OSPFPROCID=9, OSPFAREAID="0.0.0.8", TPINENABLE=FALSE, TPOUTENABLE=FALSE; 
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Internet_203",VPNNAME="VPN_Internet_IPv4",AFTYPE=IPv4,IPALLOCTYPE4=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=2,VLANID=203, BEGINADDR4="192.168.86.130", ENDADDR4="192.168.86.254", MASKLEN=25, OSPFENABLE=TRUE, OSPFPROCID=9, OSPFAREAID="0.0.0.8", TPINENABLE=FALSE, TPOUTENABLE=FALSE;
+      ```
+5. 配置UDG到与对端数据网络（DN/PDN）的IPv6路由数据。
+   1. 配置VPN实例。
+
+      ```
+      ADD L3VPNINST:VRFNAME="VPN_Internet_IPv6";
+      ADD VPNINSTAF:VRFNAME="VPN_Internet_IPv6",AFTYPE=ipv6uni;
+      ```
+   2. 配置OSPF路由。
+
+      1. 创建OSPF进程。
+
+         ```
+         ADD OSPFV3:PROCID=90,VRFNAME="VPN_Internet_IPv6",ROUTERID="10.8.28.1",BFDALLINTFFLG=TRUE,VPNINSCAPSIMFLG=TRUE,VIRTUALSYSFLAG=TRUE;
+         ```
+      2. 增加OSPF区域。
+
+         ```
+         ADD OSPFV3AREA:PROCID=90,AREAID="0.0.0.2";
+         ```
+      3. 设置OSPF引入路由类型。
+
+         ```
+         ADD OSPFV3IMPORTROUTE:PROCID=90,TOPOID=0,PROTOCOL=wlr,IMPTCOSTCFG=FALSE,IMPTTAGCFG=FALSE,IMPTTYPECFG=FALSE;
+         ```
+   3. 配置外联口自动部署模板。
+
+      ```
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Internet_103",VPNNAME="VPN_Internet_IPv6",AFTYPE=IPv6, IPALLOCTYPE6=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=2,VLANID=103, BEGINADDR6="FC00::3002", ENDADDR6="FC00::307E", MASKLEN=121, OSPFENABLE=TRUE, OSPFPROCID=90, OSPFAREAID="0.0.0.2", TPINENABLE=FALSE, TPOUTENABLE=FALSE; 
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Internet_203",VPNNAME="VPN_Internet_IPv6",AFTYPE=IPv6, IPALLOCTYPE6=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=2,VLANID=203, BEGINADDR6="FC00::3082", ENDADDR6="FC00::30FE", MASKLEN=121, OSPFENABLE=TRUE, OSPFPROCID=90, OSPFAREAID="0.0.0.2", TPINENABLE=FALSE, TPOUTENABLE=FALSE;
+      ```
+6. 配置UDG到与对端设备控制面网元（SMF/PGW-C/SGW-C）的IP路由数据。
+   1. 配置VPN实例。
+
+      ```
+      ADD L3VPNINST:VRFNAME="VPN_Signaling";
+      ADD VPNINSTAF:VRFNAME="VPN_Signaling",AFTYPE=ipv6uni;
+      ```
+   2. 配置OSPF路由。
+
+      1. 创建OSPF进程。
+
+         ```
+         ADD OSPFV3:PROCID=10,VRFNAME="VPN_Signaling",ROUTERID="10.8.29.1",BFDALLINTFFLG=TRUE,VPNINSCAPSIMFLG=TRUE,VIRTUALSYSFLAG=TRUE;
+         ```
+      2. 增加OSPF区域。
+
+         ```
+         ADD OSPFV3AREA:PROCID=10,AREAID="0.0.0.9";
+         ```
+      3. 设置OSPF引入路由类型。
+
+         ```
+         ADD OSPFV3IMPORTROUTE:PROCID=10,TOPOID=0,PROTOCOL=wlr,IMPTCOSTCFG=FALSE,IMPTTAGCFG=FALSE,IMPTTYPECFG=FALSE;
+         ```
+   3. 添加以太网隧道多虚拟网卡自动化配置模板。
+
+      ```
+      ADD AUTOSCALINGETHTRUNK: ETHTRUNKTMPID=3, VNICLIST="8 9";
+      ```
+   4. 配置外联口自动部署模板。
+
+      ```
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Signaling_104",VPNNAME="VPN_Signaling",AFTYPE=IPv6, IPALLOCTYPE6=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=3,VLANID=104, BEGINADDR6="FC00::4002", ENDADDR6="FC00::407E", MASKLEN=121, OSPFENABLE=TRUE, OSPFPROCID=10, OSPFAREAID="0.0.0.9", TPINENABLE=FALSE, TPOUTENABLE=FALSE; 
+      ADD AUTOSCALINGSERVICE:SERVICENAME="ServName_Signaling_204",VPNNAME="VPN_Signaling",AFTYPE=IPv6, IPALLOCTYPE6=USER_CONFIG,AUTOCFGIFTYPE=ETHTRUNK,ETHTRUNKTMPID=3,VLANID=204, BEGINADDR6="FC00::4082", ENDADDR6="FC00::40FE", MASKLEN=121, OSPFENABLE=TRUE, OSPFPROCID=10, OSPFAREAID="0.0.0.9", TPINENABLE=FALSE, TPOUTENABLE=FALSE;
+      ```
+7. 打开自动配置开关。
+
+   ```
+   SET AUTOCONFIG: SWITCHFLAG=TRUE;
+   ```
+
+   从自动部署开关打开到自动部署功能生效有时延，因此执行其他操作前（例如手动部署路由互通、关闭自动部署开关），务必先执行**DSP OPSASSISTSTATE**命令查询自动部署维护助手“autoscaling\_autoconfig.py”的状态为“准备好状态（Ready）”，否则结果不可预期。
+8. 配置逻辑接口数据。
+   1. 配置Pa（N9a/S5-P/S8-P/S2b/Gn-U/Gp-U）逻辑接口。
+
+      1. 配置Pa（N9a/S5-P/S8-P/S2b/Gn-U/Gp-U）逻辑接口所属的VPN实例。
+
+         ```
+         ADD VPNINST: VPNINSTANCE ="VPN_Pa";
+         ```
+      2. 配置Pa（N9a/S5-P/S8-P/S2b/Gn-U/Gp-U）逻辑接口。
+
+         ```
+         ADD LOGICINF:NAME="Paif1/1/0",IPVERSION=IPV6,IPV6ADDRESS1="FC00:2001::1",IPV6PREFIXLEN1=128,VPNINSTANCE="VPN_Pa";
+         ```
+   2. 配置N4（N4/Sxa/Sxb）逻辑接口。
+
+      1. 配置N4（N4/Sxa/Sxb）逻辑接口所属的VPN实例。
+
+         ```
+         ADD VPNINST: VPNINSTANCE="VPN_Signaling";
+         ```
+      2. 配置N4（N4/Sxa/Sxb）逻辑接口。
+
+         ```
+         ADD LOGICINF: NAME="N4if1/0/0", IPVERSION=IPV6, IPV6ADDRESS1="FC00:2002::1", IPV6PREFIXLEN1=128, VPNINSTANCE="VPN_Signaling";
+         ```
+      3. 配置UDG信息。
+
+         ```
+         SET UPINFO: HOSTNAME="UP_001";
+         ```
+9. 配置会话接入数据。
+   1. 配置APN/DNN实例。
+
+      ```
+      ADD VPNINST: VPNINSTANCE ="VPN_Internet";
+      ADD APN:APN="apn-op",HASVPNIPV6=ENABLE,VPNINSTANCEIPV6="VPN_Internet";
+      ```
+   2. 配置UDG分配地址，此处以基于APN/DNN分配地址为例。其他网元分配地址时，请跳过本步骤。
+
+      ```
+      ADD POOL:POOLNAME="testpool",POOLTYPE=LOCAL,HASVPN=ENABLE,VPNINSTANCE="VPN_Internet";
+      ADD SECTION:POOLNAME="testpool",SECTIONNUM=1,IPVERSION=IPV6,V6PREFIXSTART="FC00::20C2",V6PREFIXEND="FC00:20DE",V6PREFIXLENGTH=64;
+      ADD POOLGROUP: POOLGRPNAME="poolgroup1", IPV4ALLOCPRIALG=ENABLE, IPV6ALLOCPRIALG=ENABLE;
+      ADD POOLBINDGROUP: POOLGROUPNAME="poolgroup1", POOLNAME="testpool", PRIORITY=10;
+      ADD POOLGRPMAP: MAPPINGNAME="mapping1", APN="apn-op", POOLGROUPNAME="poolgroup1";
+      SET IPALLOCRULE: FIRSTRULESW=ENABLE, FIRSTRULE=APN-1&LOCATION-0&SMF-0, SECONDRULESW=DISABLE, THIRDRULESW=DISABLE;
+      ```
+
+版权所有 © 华为技术有限公司

@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活IPsec功能（普通IPv6 IPsec隧道）",
+  "feature_description": "如图1所示，网络A和网络B之间采用网关对网关组网模式进行资源传输。网络A和网络B分别通过Device A和Device B连接到Internet，要求通过配置IPsec隧道实现PCA与PCB之间可以安全地互访。\n\n**图1** IPv6 IPsec组网图\n\n网络环境描述如下：\n\n- 网络A属于2001:db8:1::/64子网，通过接口interface 2与Device A连接。\n\n- 网络B属于2001:db8:4::/64子网，通过接口interface 2与Device B连接。\n\nDevice A\n\n和\n\nDevice B\n\n路由可达。假设Device A往Device B方向下一跳地址为2001:db8:1:1:1::2/64，Device B往Device A方向下一跳地址为2001:db8:1:0:2::2/64。\n\n| 设备名称              | 接口             | IP地址                         |\n|:------------------|:---------------|:-----------------------------|\n| Device A VNRS微服务  | Ethernet66/0/5 | 2001:db8:1::1/64             |\n| Device A VNRS微服务  | Ethernet66/0/6 | 2001:db8:1:1:1::1/64         |\n| Device A VNRS微服务  | Tunnel27       | 2001:db8:1::1:0:1（需要双配）      |\n| Device B VNRS微服务  | Ethernet66/0/5 | 2001:db8:4::1/64             |\n| Device B VNRS微服务  | Ethernet66/0/6 | 2001:db8:1:0:2::1/64         |\n| Device B VNRS微服务  | Tunnel27       | 2001:db8:4::1:0:1（需要双配）      |\n| Device A IPsec微服务 | Tunnel27       | 2001:db8:1::1:0:1（IKE协商IP地址） |\n| Device B IPsec微服务 | Tunnel27       | 2001:db8:4::1:0:1（IKE协商IP地址） |\n| PCA               | -              | 2001:db8:1::2/64             |\n| PCB               | -              | 2001:db8:4::2/64             |\n| -                 | Device A侧网关接口  | 2001:db8:1:1:1::2/64         |\n| -                 | Device B侧网关接口  | 2001:db8:1:0:2::2/64         |",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450899",
+        "topicUrl": "toctopics/zh-cn_topic_0248450899.html",
+        "name": "IP基本功能",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0251174365",
+        "topicUrl": "toctopics/zh-cn_topic_0251174365.html",
+        "name": "IPFD-016000 IPSec功能",
+        "parentTopicId": "TOPIC_0248450899",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0278996150",
+        "topicUrl": "toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365",
+        "position": "2.10.4",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0278985538",
+        "topicUrl": "toctopics/zh-cn_opi_0278985538.html",
+        "name": "激活IPsec功能（普通IPv6 IPsec隧道）",
+        "parentTopicId": "TOPIC_0278996150",
+        "position": "2.10.4.3",
+        "parentPosition": "2.10.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

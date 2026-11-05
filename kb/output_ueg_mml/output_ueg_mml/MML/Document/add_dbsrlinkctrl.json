@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD DBSRLINKCTRL",
+  "command_name_zh": "增加远端DSG链路中心",
+  "command_name_full": "增加远端DSG链路中心(ADD DBSRLINKCTRL)",
+  "command_function": "该命令用于增加远端DSG链路中心。\n\n该命令的使用场景：当BE网元与FE网元使用链路中心方式对接，使用该命令增加远端网元的DSG链路中心。\n\n用户为FE配置远端链路中心时，需要为每个远端Location配置一个远端链路中心。\n\n配置对接通常有以下步骤：\n\n1. 通过**ADD DBSLINKCTRL**命令增加DBS链路中心。\n2. 通过**ADD DBSRLOCATION**命令增加远端Location标识。\n3. 通过本组命令增加远端DSG链路中心。\n4. 通过**SYN DBSRDSG**同步对端DSG信息到本端数据库。\n5. 通过**SYN DBSRIPADDR**同步对端IP信息到本端数据库。\n\n在对接双方都经过以上配置之后，通过**ACT DBSIPDISP**命令激活链路，完成对接配置。\n\nDBS链路中心：DBS链路中心负责将自身网元的DBS和IP信息发送到对端局点，同时接收对端局点发送的配置信息。链路中心指定IP，端口号固定为1999。同时配置对端网元的DSG链路中心的IP，链路中心将使用配置的IP和固定端口建立网元间的通讯通道，发送配置信息。\n\n远端Location：远端Location与本端Location是相对的，远端Location和远端网元一一对应。例如，对于主用局USCDB，它的远端Location指主用局FE、容灾局FE、容灾局USCDB的Location。对于容灾局USCDB，它的远端Location指容灾局FE、主用局FE、主用局USCDB的Location。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000204061238893",
+        "topicUrl": "MML/LinkedDoc/udrdbbroker_n_dbs_management.html",
+        "name": "DBS管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.7",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0183228526",
+        "topicUrl": "MML/LinkedDoc/udrdbbroker_n_dbs_remote_link_center_management.html",
+        "name": "DBS Remote Link Center管理",
+        "parentTopicId": "CONCEPT_0000204061238893",
+        "position": "2.2.3.7.10",
+        "parentPosition": "2.2.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0183228527_2",
+        "topicUrl": "MML/Document/add_dbsrlinkctrl.html",
+        "name": "增加远端DSG链路中心(ADD DBSRLINKCTRL)",
+        "parentTopicId": "CONCEPT_0183228526",
+        "position": "2.2.3.7.10.1",
+        "parentPosition": "2.2.3.7.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

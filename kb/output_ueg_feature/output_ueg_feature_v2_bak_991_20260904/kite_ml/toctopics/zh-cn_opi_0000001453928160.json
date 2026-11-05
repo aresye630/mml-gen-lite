@@ -1,0 +1,616 @@
+{
+  "feature_name": "激活国密IPsec支持IKEv1功能（GRE over IPsec）",
+  "feature_description": "IPsec只支持IP报文数据的传输，GRE over IPsec解决了IPsec不支持组播报文和广播报文数据传输的问题。组播报文和广播报文经过GRE封装后变成GRE报文，通过路由，再将GRE报文引入IPsec隧道进行加解密。\n\n如图1所示，该网络需实现以下需求：\n\n- 将IPsec不支持的组播、广播报文数据在PCA和PCB之间传输。\n- PCA和PCB之间传输的数据需要加密。\n\n**图1** GRE over IPsec组网图\n\n网络环境描述如下，以IPv4网络为例：\n\n- 网络A属于10.1.1.0/24子网，通过接口interface2与Device A连接。\n- 网络B属于10.1.2.0/24子网，通过接口interface2与Device B连接。\n- Device A和Device B路由可达。假设Device A往Device B方向下一跳地址为192.168.1.2/24，Device B往Device A方向下一跳地址为192.168.2.2/24。\n\n| 设备名称              | 接口             | IP地址                                         |\n|:------------------|:---------------|:---------------------------------------------|\n| Device A VNRS微服务  | Ethernet66/0/5 | 192.168.1.1/24（IPsec报文的本端物理出接口）              |\n| Device A VNRS微服务  | Ethernet66/0/6 | 10.1.1.1/24                                  |\n| Device A VNRS微服务  | Tunnel1        | 192.168.3.1/24（GRE隧道，该IP地址用于使GRE隧道的IPv4协议UP） |\n| Device A VNRS微服务  | Tunnel2        | 10.102.101.25/32（需要双配）                       |\n| Device A VNRS微服务  | LoopBack1      | 10.102.105.238/32（GRE的本端源接口）                 |\n| Device B VNRS微服务  | Ethernet66/0/5 | 192.168.2.1/24（IPsec报文的本端物理出接口）              |\n| Device B VNRS微服务  | Ethernet66/0/6 | 10.1.2.1/24                                  |\n| Device B VNRS微服务  | Tunnel1        | 192.168.4.1/24（GRE隧道，该IP地址用于使GRE隧道的IPv4协议UP） |\n| Device B VNRS微服务  | Tunnel2        | 10.102.101.21/32（需要双配）                       |\n| Device B VNRS微服务  | LoopBack1      | 10.102.105.224/32（GRE的本端源接口）                 |\n| Device A IPsec微服务 | Tunnel2        | 10.102.101.25/32（IKE协商IP地址，同时是GRE的本端出接口）     |\n| Device B IPsec微服务 | Tunnel2        | 10.102.101.21/32（IKE协商IP地址，同时是GRE的本端出接口）     |\n| PCA               | -              | 10.1.1.2/24                                  |\n| PCB               | -              | 10.1.2.2/24                                  |\n| -                 | Device A侧网关接口  | 192.168.1.2/24                               |\n| -                 | Device B侧网关接口  | 192.168.2.2/24                               |",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0239304519",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0239304519.html",
+        "name": "安全管理功能",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.10",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0239304519",
+        "position": "3.10.6",
+        "parentPosition": "3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "3.10.6.4",
+        "parentPosition": "3.10.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0000001453928160_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001453928160.html",
+        "name": "激活国密IPsec支持IKEv1功能（GRE over IPsec）",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "3.10.6.4.11",
+        "parentPosition": "3.10.6.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001453928160_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001453928160.html",
+        "name": "激活国密IPsec支持IKEv1功能（GRE over IPsec）",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.11",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001453928160_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001453928160.html",
+        "name": "激活国密IPsec支持IKEv1功能（GRE over IPsec）",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.11",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001453928160_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001453928160.html",
+        "name": "激活国密IPsec支持IKEv1功能（GRE over IPsec）",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.11",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184287592",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184287592.html",
+        "name": "GWFD-030500 边缘安全防护",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.25",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251174365_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251174365.html",
+        "name": "GWFD-030502 IPSec",
+        "parentTopicId": "TOPIC_0000001184287592",
+        "position": "6.25.2",
+        "parentPosition": "6.25",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0278996150_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365_2",
+        "position": "6.25.2.4",
+        "parentPosition": "6.25.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001453928160_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001453928160.html",
+        "name": "激活国密IPsec支持IKEv1功能（GRE over IPsec）",
+        "parentTopicId": "TOPIC_0278996150_2",
+        "position": "6.25.2.4.11",
+        "parentPosition": "6.25.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

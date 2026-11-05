@@ -1,0 +1,124 @@
+{
+  "feature_name": "配置基于CC+用户号段选择OCS",
+  "feature_description": "OCS的选择满足以下要求：\n\n1. 基于计费属性CC（Charge Characteristics）区分Postpaid和Prepaid用户。\n2. 基于用户号段进行OCS的选择。\n\n**说明** \n\n适用于GGSN、PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450955",
+        "topicUrl": "toctopics/zh-cn_topic_0248450955.html",
+        "name": "计费管理功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0227636706",
+        "topicUrl": "desc/unc_2030_feature_desc_online_Billing_Function.html",
+        "name": "WSFD-109001 Gy/Diameter在线计费",
+        "parentTopicId": "TOPIC_0248450955",
+        "position": "18.5",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0227639894",
+        "topicUrl": "om/unc_2030_feature_om_online_Billing_Function.html",
+        "name": "激活Gy/Diameter在线计费",
+        "parentTopicId": "TOPIC_0227636706",
+        "position": "18.5.4",
+        "parentPosition": "18.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0301676232",
+        "topicUrl": "toctopics/zh-cn_topic_0301676232.html",
+        "name": "配置OCS组网可靠性配置实例",
+        "parentTopicId": "OPI_0227639894",
+        "position": "18.5.4.8",
+        "parentPosition": "18.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0295923602",
+        "topicUrl": "toctopics/zh-cn_opi_0295923602.html",
+        "name": "配置基于CC+用户号段选择OCS",
+        "parentTopicId": "TOPIC_0301676232",
+        "position": "18.5.4.8.3",
+        "parentPosition": "18.5.4.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

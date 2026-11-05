@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD SCFCFG",
+  "command_name_zh": "增加业务控制功能配置",
+  "command_name_full": "增加业务控制功能配置(ADD SCFCFG)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会导致用户鉴权失败、无法正常接入网络。因此执行该命令前，请仔细检查配置的正确性，确认无误方可执行。如有疑问请与华为技术支持联系制定操作的实施方案、测试方案和应急措施后才可以实施。\n\n该命令用于在配置数据库中增加一个业务控制功能配置数据记录，使UDM实现对局向或IMSI号段信息管理功能。\n\n在网络拥塞场景下，为避免用户终端尝试频繁附着网络而不断发送请求消息到UDM，导致UDM长时间故障，UDM从局向或IMSI用户号段的维度进行业务控制丢弃部分请求业务，拒绝用户终端频繁附着网络请求，降低了业务处理量，从而保证整个网络系统能正常运行。\n\n当参数“业务控制的用户范围”的值设置为“ASSIGN(指定用户)”或“REVERSE(指定号码以外)”时，参数“IMSI号段组名称”的索引关系如图1所示。\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782893",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_expert_maintenance_command.html",
+        "name": "专家维护命令",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.4",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206271311976",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_device_management_command.html",
+        "name": "设备管理命令",
+        "parentTopicId": "CONCEPT_0000203481782893",
+        "position": "2.2.3.4.4.2",
+        "parentPosition": "2.2.3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206305482524",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_service_control_function_configuration.html",
+        "name": "业务控制功能配置",
+        "parentTopicId": "CONCEPT_0000206271311976",
+        "position": "2.2.3.4.4.2.6",
+        "parentPosition": "2.2.3.4.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284779_2",
+        "topicUrl": "reference/mml/ueg/Document/add_scfcfg.html",
+        "name": "增加业务控制功能配置(ADD SCFCFG)",
+        "parentTopicId": "CONCEPT_0000206305482524",
+        "position": "2.2.3.4.4.2.6.1",
+        "parentPosition": "2.2.3.4.4.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

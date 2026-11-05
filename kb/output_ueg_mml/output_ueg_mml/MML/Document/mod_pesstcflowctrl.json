@@ -1,0 +1,131 @@
+{
+  "command_name": "MOD PESSTCFLOWCTRL",
+  "command_name_zh": "修改PES静态流控配置",
+  "command_name_full": "修改PES静态流控配置(MOD PESSTCFLOWCTRL)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致业务异常，需联系华为技术支持确认后再执行。\n\n该命令用于修改PES静态流控开关、启控条件等。系统根据当前配置的流控参数信息和PES服务接收Initial、Update、Delete、AAR消息的负荷状态，判断是否启动静态流控。\n\n该命令的使用场景：当系统处于话务高峰期或流量异常时，操作员可以使用本命令修改PES静态流控参数以达到限流目的。\n\n**说明** \n\n- Initial消息数为Gx接口CCR-I、N7接口Npcf\\_SMPolicyControl\\_Create、N15接口Npcf\\_AMPolicyControl\\_Create与Npcf\\_UEPolicyControl\\_Create、N24接口Npcf\\_AMPolicyControl\\_Create消息数之和。\n- Update消息数为Gx接口CCR-U、N7接口Npcf\\_SMPolicyControl\\_Update、N15接口Npcf\\_AMPolicyControl\\_Update与Npcf\\_UEPolicyControl\\_Update、N24接口Npcf\\_AMPolicyControl\\_Update与Npcf\\_AMPolicyControl\\_UpdateNotify Update与Npcf\\_AMPolicyControl\\_UpdateNotify Terminate消息数之和。\n- Delete消息数为Gx接口CCR-T、N7接口Npcf\\_SMPolicyControl\\_Delete Request、Rx接口STR、N15接口Npcf\\_AMPolicyControl\\_Delete与Npcf\\_UEPolicyControl\\_Delete、N24接口Npcf\\_AMPolicyControl\\_Delete消息数之和。\n- AAR消息数为Rx接口AAR-I与AAR-U消息数之和。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173173476",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_flo_ontrol_configuration_management.html",
+        "name": "PES流控配置管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.2",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001353721298_2",
+        "topicUrl": "MML/Document/mod_pesstcflowctrl.html",
+        "name": "修改PES静态流控配置(MOD PESSTCFLOWCTRL)",
+        "parentTopicId": "CONCEPT_0173173476",
+        "position": "2.2.3.5.11.2.3",
+        "parentPosition": "2.2.3.5.11.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

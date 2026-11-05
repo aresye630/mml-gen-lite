@@ -1,0 +1,143 @@
+{
+  "command_name": "STR SPCRC",
+  "command_name_zh": "启动软参CRC校验",
+  "command_name_full": "启动软参CRC校验(STR SPCRC)",
+  "command_function": "本命令用于校验OMU系统的软件参数，当软参配置的取值和软参实际生效的取值存在不一致，在系统周期性检测是否存在未生效软参时，上报“ALM-15076 系统软参修改未生效”告警。处理“ALM-15076 系统软参修改未生效”告警时，使用该命令检查未生效的软参，依次重启软参对应的模块。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202866130467",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_database_management.html",
+        "name": "数据库管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.9",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206305482478",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_system_software_parameter_crc_management.html",
+        "name": "系统参数校验",
+        "parentTopicId": "CONCEPT_0000202866130467",
+        "position": "2.2.3.4.2.9.8",
+        "parentPosition": "2.2.3.4.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284897",
+        "topicUrl": "reference/mml/ueg/Document/str_spcrc.html",
+        "name": "启动软参CRC校验(STR SPCRC)",
+        "parentTopicId": "CONCEPT_0000206305482478",
+        "position": "2.2.3.4.2.9.8.1",
+        "parentPosition": "2.2.3.4.2.9.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "command_name": "SET SRVSTH",
+  "command_name_zh": "设置业务功能开关",
+  "command_name_full": "设置业务功能开关（SET SRVSTH）",
+  "command_function": "**须知** \n\n此命令为高危命令，如果将“GACDRRESNDCHK”或“GAMDRESNDCHK”设置为开启，可能会导致POD的CPU使用率增加。\n\n**适用NF：NCG**\n\n该命令用于设置业务功能开关。包括自动链路负载均衡、检查无效链路和Ga无效链路老化时长。\n\n**说明** \n\n负载均衡开关开启后，链路均衡调整需符合以下任一条件：\n\n- 检测到某一RU上无链路；\n- 检测到某一AP上话务量超过3000cdr/s;\n- 检测到某一RU磁盘使用率达到80%;\n- 检测到RU间前存盘和后存盘的使用率之和相差超过20%。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0245490879",
+        "topicUrl": "MML/LinkedDoc/unc_n_ncg_service_and_policy_management.html",
+        "name": "NCG业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.11",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174227",
+        "topicUrl": "MML/LinkedDoc/unc_n_cloudcg_management.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0245490879",
+        "position": "2.11.5",
+        "parentPosition": "2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174307",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_system_management.html",
+        "name": "业务系统管理",
+        "parentTopicId": "CONCEPT_0251174227",
+        "position": "2.11.5.2",
+        "parentPosition": "2.11.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001391302306",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_function_switch.html",
+        "name": "业务功能开关",
+        "parentTopicId": "CONCEPT_0251174307",
+        "position": "2.11.5.2.17",
+        "parentPosition": "2.11.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001441302357",
+        "topicUrl": "MML/Document/set_srvsth.html",
+        "name": "设置业务功能开关（SET SRVSTH）",
+        "parentTopicId": "CONCEPT_0000001391302306",
+        "position": "2.11.5.2.17.1",
+        "parentPosition": "2.11.5.2.17",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

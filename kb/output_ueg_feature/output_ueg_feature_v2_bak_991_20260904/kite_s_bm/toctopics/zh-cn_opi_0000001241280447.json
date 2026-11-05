@@ -1,0 +1,93 @@
+{
+  "feature_name": "UL CL UPF+辅锚点UPF配置实例",
+  "feature_description": "UEG部署在园区，作为企业专用UL CL UPF+辅锚点UPF。\n\nN3/N4/N9使用SR-IOV bonding组网（Eth-trunk接口），直连DCGW时，一个Eth-trunk接口的成员端口连接到DCGW1和DCGW2；直连PE时，一个Eth-trunk接口的成员端口必须连接到同一个PE设备；UEG与LocalDN使用非SR-IOV bonding组网（以太网接口），物理接口分别与两个PE/两个DCGW连接。若PE不支持BFD，则需要使用OSPF动态路由实现路由快速收敛，此处以支持BFD为例。\n\nUEG通过BGP over静态路由+BFD与对端网元实现网络互通。\n\n- 直连DCGW时，UEG与gNodeB之间的组网示意如图1所示，UEG与SMF之间的组网与图1类似。\n- 直连PE时，UEG与gNodeB之间的组网示意如图2所示，UEG与SMF之间的组网与图2类似。\n- 直连DCGW/PE时，UEG与企业园区服务器之间的组网示意如图3所示。\n\n**说明** \n\n- 直连DCGW时，推荐使用BGP over静态路由+BFD与对端实现网络互通。\n- 直连PE时，UEG支持：\n  - 通过BGP over静态路由+BFD与企业园区服务器之间实现网络互通。\n  - 通过静态路由+BFD与对端网元（gNodeB/SMF/园区服务器）实现网络互通。采用静态路由+BFD时：\n    - UEG上不需要配置BGP相关数据。\n    - 在直连三层设备上配置到UEG的逻辑接口IP&UE IP的路由，下一跳是UEG的外联口IP。\n  - 直连PE时，UEG支持通过OSPF动态路由与园区服务器实现网络互通。\n\n**图1** UEG与gNodeB之间的组网示意（直连DCGW）\n\n**图2** UEG与gNodeB之间的组网示意（直连PE）\n\n**图3** UEG与企业园区之间的组网示意（直连DCGW/PE）",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001512283829",
+        "topicUrl": "toctopics/zh-cn_topic_0000001512283829.html",
+        "name": "裸机容器模式",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001103200390",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001103200390.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "TOPIC_0000001512283829",
+        "position": "2.4",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001241664383",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001241664383.html",
+        "name": "配置实例(刀片式服务器2U)",
+        "parentTopicId": "TOPIC_0000001103200390",
+        "position": "2.4.5",
+        "parentPosition": "2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001241280447",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_opi_0000001241280447.html",
+        "name": "UL CL UPF+辅锚点UPF配置实例",
+        "parentTopicId": "TOPIC_0000001241664383",
+        "position": "2.4.5.2",
+        "parentPosition": "2.4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

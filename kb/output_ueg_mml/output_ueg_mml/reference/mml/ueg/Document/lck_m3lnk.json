@@ -1,0 +1,143 @@
+{
+  "command_name": "LCK M3LNK",
+  "command_name_zh": "锁定M3UA链路",
+  "command_name_full": "锁定M3UA链路(LCK M3LNK)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成业务呼损甚至中断，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令为维护类命令，用于请求系统对指定的M3UA链路执行锁定操作，其对应的恢复命令为**ULK M3LNK** 。\n\n该命令仅适用于开局调测的操作场景，例如，操作员希望保持M3UA链路的现有状态、或禁止处于非“已激活”状态的M3UA链路进入“已激活”状态。\n\n在实际使用中，**REL M3LNK** 、 **LCK M3LNK** 、**DEA M3LNK** 命令分别用于对M3UA链路执行释放、锁定、去激活操作，它们的主要差别是：\n\n- **REL M3LNK** ：仅当本局M3UA链路的客户端/服务器端模式为客户端时，操作员才能使用该命令。执行完该命令后，被释放的M3UA链路将直接进入“未建立”状态，此后，系统允许其重新建链并进入“已建立”状态，但在操作员未执行**EST M3LNK**命令之前，系统不允许该M3UA链路进入“未激活”状态，也不能进入“已激活”状态。\n- **LCK M3LNK** ：仅当本局M3UA链路的工作模式为SGP或IPSP时，操作员才能使用该命令。执行完该命令后，被锁定的M3UA链路将暂时保持其原来的状态。进入锁定状态后，在一定的条件下，系统允许该M3UA链路进行“已激活→未激活→已建立→未建立”的状态迁移；但在M3UA链路的“未建立→已建立→未激活→已激活”状态迁移过程中，在操作员未执行**ULK M3LNK**命令之前，系统仅允许该M3UA链路由“未建立”进入“已建立”状态，其他的状态迁移过程都是不允许的。\n- **DEA M3LNK** ：仅当M3UA链路的状态为“已激活”时，操作员才能使用该命令。执行完该命令后，被去激活的M3UA链路将进入“去激活”状态，在操作员未执行**ACT M3LNK**命令之前，系统不允许该M3UA链路进入“已激活”状态。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202665251028",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_m3ua_protocol.html",
+        "name": "M3UA协议",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.7",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206457038225",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_m3ua_link.html",
+        "name": "M3UA链路",
+        "parentTopicId": "CONCEPT_0000202665251028",
+        "position": "2.2.3.4.1.7.4",
+        "parentPosition": "2.2.3.4.1.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284533_2",
+        "topicUrl": "reference/mml/ueg/Document/lck_m3lnk.html",
+        "name": "锁定M3UA链路(LCK M3LNK)",
+        "parentTopicId": "CONCEPT_0000206457038225",
+        "position": "2.2.3.4.1.7.4.7",
+        "parentPosition": "2.2.3.4.1.7.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,283 @@
+# 配置会话接入数据
+
+- 操作场景
+- 必备事项
+- 操作流程
+- 操作步骤
+- 验证方法
+
+## 操作场景
+
+客户部署MEC本地分流或4G/5G互操作网络时，UEG作为UL CL UPF + 辅锚点UPF或者主锚点UPF时均需要配置会话接入数据，才能使用户完成激活流程并接入网络。
+
+## 必备事项
+
+前提条件
+
+- 请阅读并熟悉特性GWFD-020805 用户面地址分配。
+- 请阅读并熟悉特性GWFD-023101 基于位置的地址分配。
+- 具备管理员权限的操作人员已经登录华为操作维护系统（登录MAE客户端或登录OM Portal）。
+
+数据
+
+本实例中，操作员在UEG上进行数据配置实现以下要求：
+
+用户成功激活接入PDN/DN网络。
+
+**说明** 
+
+**如下数据仅为举例，请注意修改成局点规划的数据。**
+
+| 类别                            | 参数名称                | 取值样例          | 获取方法     | 说明                                                                                            |
+|:------------------------------|:--------------------|:--------------|:---------|:----------------------------------------------------------------------------------------------|
+| ADD VPNINST                   | VPN实例名（VPNINSTANCE） | VPN_Internet  | 全网规划     | 规划的VPN用于和APN绑定。                                                                               |
+| ADD APN(风筝S)/ADD UPAPN(风筝M或L) | APN名称 （APN）         | apn-op        | 本端规划     | APN/DNN实例应该全网规划，UEG本端配置的APN/DNN实例应该与C面（SMF/SGW-C/PGW-C）配置的APN/DNN实例一致。                        |
+| ADD APN(风筝S)/ADD UPAPN(风筝M或L) | 绑定VPN（HASVPN）       | ENABLE        | 本端规划     | 业务APN绑定的VPN必须与UEG到PDN/DN互通的外联口绑定的VPN一致。 可使用LST VPNINST命令进行查询。                                 |
+| ADD APN(风筝S)/ADD UPAPN(风筝M或L) | VPN实例名（VPNINSTANCE） | VPN_Internet  | 已配置数据中获取 | 业务APN绑定的VPN必须与UEG到PDN/DN互通的外联口绑定的VPN一致。 可使用LST VPNINST命令进行查询。                                 |
+| SET APNSGLPASS                | APN名称 （APN）         | apn-op        | 已配置数据中获取 | 可执行LST APN(风筝S)/LST UPAPN(风筝M或L)命令进行查询。                                                       |
+| SET APNSGLPASS                | 开关标识（SWITCH）        | PF_ACT_ENABLE | 本端规划     | 一般使用样例值即可。 对于一些特殊业务，例如NB-IoT解决方案中的抄表业务，只有上行流量，没有下行流量，则需要设置为“PF_ACT_DISABLE”，关闭对应APN的单通故障检测功能。 |
+
+UEG给UE分配IP地址时需要规划表2中的数据；其他网元给UE分配IP时，只需要规划表2中的**ADD POOL(风筝S)/****ADD UPPOOL(风筝M或L)**和**ADD SECTION**两个命令的数据。
+
+UEG作为辅锚点UPF时，不支持给UE分配IP地址；UEG作为主锚点UPF时，支持给UE分配IP地址。因此，UEG作为UL CL UPF + 辅锚点UPF时，只需要规划表2中的**ADD POOL(风筝S)/****ADD UPPOOL(风筝M或L)**和**ADD SECTION**两个命令的数据。
+
+**说明** 
+
+本页面以基于APN/DNN分配地址为例进行描述。基于SMF或基于位置分配地址时，请参见GWFD-020805 用户面地址分配和GWFD-023101 基于位置的地址分配。
+
+UPF通过5G LAN基本功能（以太类型）为层二终端提供服务时，不需要为层二终端分配IP地址。
+
+| 类别                              | 参数名称                                | 取值样例                   | 获取方法     | 说明                                                                                                              |
+|:--------------------------------|:------------------------------------|:-----------------------|:---------|:----------------------------------------------------------------------------------------------------------------|
+| ADD POOL(风筝S)/ADD UPPOOL(风筝M或L) | 地址池名称（POOLNAME）                     | testpool1              | 本端规划     | -                                                                                                               |
+| ADD POOL(风筝S)/ADD UPPOOL(风筝M或L) | 地址池类型（POOLTYPE）                     | LOCAL                  | 本端规划     | UEG作为主锚点UPF给UE分配IP地址时，该参数设置为“LOCAL”；其他网元给UE分配IP地址时，该参数设置为“EXTERNAL”。 UEG作为UL CL UPF + 辅锚点UPF时，该参数设置为“EXTERNAL”。 |
+| ADD POOL(风筝S)/ADD UPPOOL(风筝M或L) | IP地址类型（IPVERSION）                   | IPV4                   | 本端规划     | 本地地址池支持IPv4和IPv6类型，如果规划UE IPv4v6双栈地址，则需要配置两种类型的地址池。                                                             |
+| ADD POOL(风筝S)/ADD UPPOOL(风筝M或L) | 绑定VPN（HASVPN）                       | ENABLE                 | 本端规划     | 如下三者绑定的VPN实例必须一致。 用户激活使用的APN绑定的VPN实例地址池绑定的VPN实例与PDN/DN连接的Gi/SGi/N6接口的外联口绑定的VPN实例                                |
+| ADD POOL(风筝S)/ADD UPPOOL(风筝M或L) | VPN实例名（VPNINSTANCE）                 | VPN_Internet           | 已配置数据中获取 | 可以使用LST VPNINST命令进行查询。                                                                                          |
+| ADD SECTION                     | 地址池名称（POOLNAME）                     | testpool1              | 本端规划     | 可以使用LST POOL(风筝S)/LST UPPOOL(风筝M或L)命令进行查询。                                                                      |
+| ADD SECTION                     | 地址段号（SECTIONNUM）                    | 1                      | 本端规划     | -                                                                                                               |
+| ADD SECTION                     | IP地址类型（IPVERSION）                   | IPV4                   | 本端规划     | -                                                                                                               |
+| ADD SECTION                     | 地址段的起始IPv4地址（V4STARTIP）             | 10.10.1.1              | 全网规划     | 本地地址池支持IPv4和IPv6类型，如果规划UE IPv4v6双栈地址，则需要配置两种类型的地址池。 给用户分配的IP地址，不能与外联口IP或逻辑接口IP在同一网段。                            |
+| ADD SECTION                     | 地址段的终止IPv4地址（V4ENDIP）               | 10.10.1.254            | 全网规划     | 本地地址池支持IPv4和IPv6类型，如果规划UE IPv4v6双栈地址，则需要配置两种类型的地址池。 给用户分配的IP地址，不能与外联口IP或逻辑接口IP在同一网段。                            |
+| ADD SECTION                     | 掩码（MASK）                            | 5                      | 本端规划     | 开启上下行入不转板功能或下行入不转板功能时，需要规划“掩码（MASK）”参数。其他场景不需要规划。                                                               |
+| ADD POOLGROUP                   | 地址池组名称（POOLGRPNAME）                 | poolgroup1             | 本端规划     | -                                                                                                               |
+| ADD POOLGROUP                   | IPV4基于地址池优先级分配地址算法（IPV4ALLOCPRIALG） | ENABLE                 | 本端规划     | 若使用IPv4地址池优先级功能，则必须使能本参数。                                                                                       |
+| ADD POOLGROUP                   | IPV6基于地址池优先级分配地址算法（IPV6ALLOCPRIALG） | ENABLE                 | 本端规划     | 若使用IPv6地址池优先级功能，则必须使能本参数。                                                                                       |
+| ADD POOLBINDGROUP               | 地址池组名称（POOLGROUPNAME）               | poolgroup1             | 已配置数据中获取 | 可以使用LST POOLGROUP命令进行查询。                                                                                        |
+| ADD POOLBINDGROUP               | 地址池名称（POOLNAME）                     | testpool1              | 本端规划     | 可以使用LST POOL(风筝S)/LST UPPOOL(风筝M或L)命令进行查询。                                                                      |
+| ADD POOLBINDGROUP               | 优先级（PRIORITY）                       | 10                     | 本端规划     | 地址池组下绑定多个地址池时，支持按地址池优先级分配地址。只有同类地址池之间才有优先级比较，不同类型的地址池间（IPv4和IPv6）没有优先级比较。                                       |
+| ADD POOLGRPMAP                  | 映射规则名称（MAPPINGNAME）                 | mapping1               | 本端规划     | 配置给指定APN/DNN下的用户分配地址时使用哪个地址池组中的IP地址。                                                                            |
+| ADD POOLGRPMAP                  | APN名称（APN）                          | apn-op                 | 已配置数据中获取 | 配置给指定APN/DNN下的用户分配地址时使用哪个地址池组中的IP地址。                                                                            |
+| ADD POOLGRPMAP                  | 地址池组名称（POOLGROUPNAME）               | poolgroup1             | 已配置数据中获取 | 配置给指定APN/DNN下的用户分配地址时使用哪个地址池组中的IP地址。                                                                            |
+| SET IPALLOCRULE                 | 第一级规则开关（FIRSTRULESW）                | ENABLE                 | 本端规划     | 第一规则优先级默认使能。                                                                                                    |
+| SET IPALLOCRULE                 | 第一级规则（FIRSTRULE）                    | APN-1&LOCATION-0&SMF-0 | 本端规划     | -                                                                                                               |
+| SET IPALLOCRULE                 | 第二级规则开关（SECONDRULESW）               | DISABLE                | 本端规划     | 第二规则优先级默认不使能。                                                                                                   |
+| SET IPALLOCRULE                 | 第三级规则开关（THIRDRULESW）                | DISABLE                | 本端规划     | 第三规则优先级默认不使能。                                                                                                   |
+
+| 类别           | 参数名称                         | 取值样例                     | 获取方法   | 说明                                              |
+|:-------------|:-----------------------------|:-------------------------|:-------|:------------------------------------------------|
+| ADD CPNODEID | SMF 名称（CPNAME）               | smfnode1smfnode2smfnode3 | 本端规划   | 该参数不能重复。                                        |
+| ADD CPNODEID | CP NodeID 类型（CPNODEIDTYPE）   | IPV4IPV6FQDN             | 全网规划   | CP NodeID类型支持IPV4、IPv6或FQDN。                    |
+| ADD CPNODEID | IPv4地址类型的Node Id（IPV4NODEID） | 10.0.0.1                 | 全网规划   | “CPNODEIDTYPE”设置为“IPV4”时需要规划。 采用应急SMF的N4接口IP。   |
+| ADD CPNODEID | IPv6地址类型的Node Id（IPV6NODEID） | FC00::10:0:0:1           | 全网规划   | “CPNODEIDTYPE”设置为“IPV6”时需要规划。 采用应急SMF的N4接口IP。   |
+| ADD CPNODEID | FQDN类型的Node Id（FQDNNODEID）   | consumer.huawei.com      | 全网规划   | “CPNODEIDTYPE”设置为“FQDN”时需要规划。                   |
+| ADD CPNODEID | 本地应急接入节点（LOCALEMERNODE）      | TRUE                     | 本端规划   | 规划的是应急SMF的NODE信息时，该参数必须设置为“TRUE”。 采用应急SMF的FQDN。 |
+
+文档
+
+获取网设LLD文档。
+
+## 操作流程
+
+风筝S场景，UPF上用户IP地址段和APN的配置关系如图1所示。
+
+风筝M/L场景，UPF上用户IP地址段和APN的配置关系如图2所示。
+
+- 本地分配地址时，1和2都必须配置，且**ADD POOL****(风筝S)/ADD UPPOOL(风筝M或L)**命令中“地址池类型（POOLTYPE）”设置为“LOCAL”。
+- 外部分配地址时，1必须配置，且**ADD POOL****(风筝S)/ADD UPPOOL(风筝M或L)**命令中“地址池类型（POOLTYPE）”设置为“EXTERNAL”；UPF校验用户IP地址是否合法时需要配置2，否则不需要。
+
+**图1** APN和用户IP地址段配置关系（风筝S）
+
+**图2** APN和用户IP地址段配置关系（风筝M/风筝L）
+
+## 操作步骤
+
+1. 进入“MML命令行-UEG”窗口。
+2. 配置APN实例。
+
+   ```
+   ADD VPNINST: VPNINSTANCE ="VPN_Internet";
+   ADD APN(风筝S)/ADD UPAPN(风筝M或L):APN="apn-op",HASVPN=ENABLE,VPNINSTANCE="VPN_Internet";
+   ```
+
+   **说明** 
+
+   业务APN绑定的VPN必须与UEG到PDN/DN互通的外联口绑定的VPN一致。
+3. 指定APN的用户存在上行数据和下行数据时，开启APN单通检测功能。
+
+   ```
+   SET APNSGLPASS:APN="apn-op",SWITCH=PF_ACT_ENABLE;
+   ```
+
+   指定APN的用户只存在上行数据或只存在下行数据时，需设置为“DISABLE”，关闭APN单通检测功能。
+
+   **说明** 
+
+   - UEG作为主锚点且给UE分配IP地址时，请执行4，不需要执行5。
+   - UEG作为辅锚点 + UL CL UPF等非主锚点UPF或UEG作为主锚点UPF且外部NF给UE分配地址时，若采用动态路由发布用户下行路由，请执行5，不需要执行4；若采用静态路由方式时，则仅需在对端设备上配置到用户的下行路由，可不执行5。
+4. （本地分配地址场景）UEG作为主锚点且给UE分配IP地址时，配置用户面分配地址。
+   1. 配置“LOCAL”类型地址池。
+
+      ```
+      ADD POOL(风筝S)/ADD UPPOOL(风筝M或L):POOLNAME="testpool",POOLTYPE=LOCAL,HASVPN=ENABLE,VPNINSTANCE="VPN_Internet";
+      ```
+
+      **说明** 
+
+      UEG给UE分配IP地址时，“POOLTYPE”设置为“LOCAL”。
+   2. 配置地址池里的地址段。
+
+      ```
+      ADD SECTION:POOLNAME="testpool",SECTIONNUM=1,IPVERSION=IPV4,V4STARTIP="10.10.1.1",V4ENDIP="10.10.1.254";
+      ```
+   3. 配置地址池组。
+
+      ```
+      ADD POOLGROUP: POOLGRPNAME="poolgroup1", IPV4ALLOCPRIALG=ENABLE, IPV6ALLOCPRIALG=ENABLE;
+      ```
+   4. 配置地址池绑定到地址池组。
+
+      ```
+      ADD POOLBINDGROUP: POOLGROUPNAME="poolgroup1", POOLNAME="testpool", PRIORITY=10;
+      ```
+   5. 配置APN/DNN实例与地址池组的映射关系。
+
+      ```
+      ADD POOLGRPMAP: MAPPINGNAME="mapping1", APN="apn-op", POOLGROUPNAME="poolgroup1";
+      ```
+   6. 配置全局地址分配规则。
+
+      ```
+      SET IPALLOCRULE: FIRSTRULESW=ENABLE, FIRSTRULE=APN-1&LOCATION-0&SMF-0, SECONDRULESW=DISABLE, THIRDRULESW=DISABLE;
+      ```
+5. （外部分配地址场景）UEG作为辅锚点 + UL CL UPF等非主锚点UPF或UEG作为主锚点UPF且外部NF给UE分配地址时，配置地址池数据。
+   1. 配置“EXTERNAL”类型地址池。
+
+      ```
+      ADD POOL(风筝S)/ADD UPPOOL(风筝M或L):POOLNAME="testpool", POOLTYPE=EXTERNAL, IPVERSION=IPV4, CHECKIPVALID=ENABLE, HASVPN=ENABLE, VPNINSTANCE="VPN_Internet", IMSSW=DISABLE, REDUNDFUNC=ENABLE;
+      ```
+
+      **说明** 
+
+      UDM等外部设备给UE分配IP地址时，“POOLTYPE”设置为“EXTERNAL”。
+   2. 配置地址池里的地址段。
+
+      ```
+      ADD SECTION:POOLNAME="testpool",SECTIONNUM=1,IPVERSION=IPV4,V4STARTIP="10.10.1.1",V4ENDIP="10.10.1.254";
+      ```
+
+      **说明** 
+
+      ADD POOL(风筝S)/ADD UPPOOL(风筝M或L)命令中的“CHECKIPVALID”参数设置为“ENABLE”时，需要执行5.c~5.e，否则不需要。
+   3. 配置地址池组。
+
+      ```
+      ADD POOLGROUP: POOLGRPNAME="poolgroup1", IPV4ALLOCPRIALG=ENABLE, IPV6ALLOCPRIALG=ENABLE;
+      ```
+   4. 配置地址池绑定到地址池组。
+
+      ```
+      ADD POOLBINDGROUP: POOLGROUPNAME="poolgroup1", POOLNAME="testpool", PRIORITY=10;
+      ```
+   5. 配置APN/DNN实例与地址池组的映射关系。
+
+      ```
+      ADD POOLGRPMAP: MAPPINGNAME="mapping1", APN="apn-op", POOLGROUPNAME="poolgroup1";
+      ```
+6. **可选：**配置用户下行路由。
+
+   **说明** 
+
+   - UEG到PDN/DN的互通采用OSPF/OSPFv3动态路由方式时，到PDN/DN互通的外联口如已配置**ADD OSPFIMPORTROUTE**/**ADD OSPFV3IMPORTROUTE**且“PROTOCOL”设置为“wlr”，则表明已配置动态发布用户下行路由。
+   - UEG到PDN/DN的互通采用BGP over静态路由方式时，到PDN/DN互通的外联口如已配置**ADD IMPORTROUTE**且“PROTOCOL”设置为“wlr”，则表明已配置动态发布用户下行路由。
+   - UEG到PDN/DN的互通采用静态路由方式时，需要在对端设备上配置到用户的下行路由。在对端设备上配置的静态路由的目的地址和掩码对应UE IP所在网段，下一跳是每个ISU/IPU VMIPU上对应的外联口的IP。
+7. （风筝M）配置应急SMF的NODE信息。
+
+   //“CPNODEIDTYPE”设置为“IPV4”时：
+
+   ```
+   ADD CPNODEID: CPNAME="smfnode1", CPNODEIDTYPE=IPV4, IPV4NODEID="10.0.0.1", LOCALEMERNODE=TRUE;
+   ```
+
+   //“CPNODEIDTYPE”设置为“IPV6”时：
+
+   ```
+   ADD CPNODEID: CPNAME="smfnode2", CPNODEIDTYPE=IPV6, IPV6NODEID="FC00:0:0:0:10:0:0:1", LOCALEMERNODE=TRUE;
+   ```
+
+   //“CPNODEIDTYPE”设置为“FQDN”时：
+
+   ```
+   ADD CPNODEID: CPNAME="smfnode3", CPNODEIDTYPE=FQDN, FQDNNODEID="consumer.huawei.com", LOCALEMERNODE=TRUE;
+   ```
+
+## 验证方法
+
+1. 进入“MML命令行-UEG”窗口。
+2. 执行**LST APN****(风筝S)/LST UPAPN(风筝M或L)**/**LST POOLGRPMAP**/**LST POOLBINDGROUP**/**LST POOL****(风筝S)/LST UPPOOL(风筝M或L)**/**LST SECTION**命令，查询APN和地址池信息是否与规划数据一致。
+   - 一致，请执行3。
+   - 不一致，请参考“操作步骤”重新配置，与规划数据一致后执行3。
+3. 执行**DSP SESSIONINFO**命令，选择一个空闲IP作为探测源IP。
+
+   执行**SRVPING**/**SRVTRACERT**命令进行探测时：
+
+   - “POOLTYPE”为“LOCAL”时，若源IP与在线用户冲突，则会造成该用户下线。
+   - “POOLTYPE”为“EXTERNAL”时，若源IP与在线用户冲突，则探测失败。
+4. 执行**SRVPING**命令，调测UEG到APP/服务器的数据通信路径。
+
+   //IPv4地址：
+
+   ```
+   SRVPING: SRCIPTYPE=POOL, POOLNAME="testpool", IPVERSION=IPv4, SRCIPV4ADDR="10.10.1.254", DSTIPV4ADDR="10.20.1.254";
+   ```
+
+   //IPv6地址：
+
+   ```
+   SRVPING: SRCIPTYPE=POOL, POOLNAME="testpool", IPVERSION=IPv6, SRCIPV6ADDR="FC00::10:10:1:254", DSTIPV6ADDR="FC00::10:20:1:254";
+   ```
+
+   - 返回“0.00% packet loss”，表明通信正常，调测结束。
+   - 返回“100.00% packet loss”或其他非零丢包率，表明通信异常，请执行5。
+5. 执行**SRVTRACERT**命令，查询通信路径中的故障点。
+
+   //IPv4地址：
+
+   ```
+   SRVTRACERT: SRCIPTYPE=POOL, POOLNAME="testpool", IPVERSION=IPv4, SRCIPV4ADDR="10.10.1.254", DSTIPV4ADDR="10.20.1.254";
+   ```
+
+   //IPv6地址：
+
+   ```
+   SRVTRACERT: SRCIPTYPE=POOL, POOLNAME="testpool", IPVERSION=IPv6, SRCIPV6ADDR="FC00::10:10:1:254", DSTIPV6ADDR="FC00::10:20:1:254";
+   ```
+
+   - 返回“1 \* \* Request timed out.”，请执行6。
+   - 返回“n \* \* Request timed out.”，请联系最后1个地址所属的网元进行处理。
+6. 执行**DSP ROUTE**/**DSP ROUTE6**命令，检查是否存在到对端IP的路由。
+   - 存在，请执行8。
+   - 不存在，请执行7。
+7. 请检查外联口IP及路由配置是否正确。
+
+   检查外联口IP及路由配置的详细步骤，请参见组网路由配置。
+
+   - 是，请执行8。
+   - 否，请修改配置后执行3。
+8. 收集信息并寻求技术支持。
+
+   1. 在OM Portal上创建“UEG用户跟踪”任务，执行3~7并保存报文和查询结果。
+   2. 在“MML命令行-UEG”窗口上执行**EXP MML**命令将当前配置数据导出为MML脚本文件并保存。
+   3. 收集并保存上述所有查询信息。
+   4. 查看并收集对端设备配置及接口状态信息。
+   5. 收集归纳所有信息并联系华为技术支持解决。

@@ -1,0 +1,155 @@
+{
+  "command_name": "STP VRYNRFDATA",
+  "command_name_zh": "强制停止校验",
+  "command_name_full": "强制停止校验(STP VRYNRFDATA)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成业务呼损或系统严重过载甚至崩溃，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在校验NRFClient内存数据或NRFClient SDK内存数据和CSP内存数据以及校验NRFClient内存数据和NRF数据的过程中强制停止校验。\n\n**说明** \n\n校验NRFClient内存数据或NRFClient SDK内存数据支持校验NRF信息、网元实例信息、网元服务信息、网元PLMN信息、网元S-Nssai信息、网元号段信息、网元信息和网元公共信息。\n\n校验方式如下：\n\n- 执行**VRY NRFDATA**命令手动校验。\n- 由PeriodicVerificationSwitch(周期校验开关)与PeriodicVerificationNRFData(与NRF远端周期校验开关)软参控制的每天上午07时17分自动校验。\n\n该命令使用场景如下：\n\n- 在校验单个MML命令的过程中，支持校验的相关命令数据无法变更，若必须执行对应的命令，可执行该命令强制停止校验，执行对应的命令后，再次执行**VRY NRFDATA**进行校验。相关命令为：\n  - **ADD UDMNRFINFO**、**MOD UDMNRFINFO**、**RMV UDMNRFINFO**\n  - **ADD UDMNFSRV**、**MOD UDMNFSRV**、**RMV UDMNFSRV**\n  - **ADD UDMNFINFO**、**MOD UDMNFINFO**、**RMV UDMNFINFO**\n  - **ADD UDMNFSERVICE**、**MOD UDMNFSERVICE**、**RMV UDMNFSERVICE**\n  - **ADD UDMNFPLMN**、**RMV UDMNFPLMN**\n  - **ADD UDMNFSNSSAI**、**RMV UDMNFSNSSAI**\n  - **ADD UDMNFRANGEINFO**、**RMV UDMNFRANGEINFO**\n  - **ADD UDMNFCOMINFO**、**MOD UDMNFCOMINFO**、**RMV UDMNFCOMINFO**\n- 由于异常情况导致系统负载较高，可执行该命令强制停止校验。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0183015655",
+        "topicUrl": "MML/LinkedDoc/nrfclient_n_nrf_client_management.html",
+        "name": "NRF客户端管理",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.3",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0259254822",
+        "topicUrl": "MML/LinkedDoc/nrfclient_n_nrf_cache_management.html",
+        "name": "NRF缓存管理",
+        "parentTopicId": "CONCEPT_0183015655",
+        "position": "2.2.3.4.1.3.5",
+        "parentPosition": "2.2.3.4.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0295661872",
+        "topicUrl": "MML/LinkedDoc/nrfclient_n_nrf_memory_data.html",
+        "name": "NRF内存数据",
+        "parentTopicId": "CONCEPT_0259254822",
+        "position": "2.2.3.4.1.3.5.2",
+        "parentPosition": "2.2.3.4.1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000202673572768",
+        "topicUrl": "MML/Document/stp_vrynrfdata.html",
+        "name": "强制停止校验(STP VRYNRFDATA)",
+        "parentTopicId": "TOPIC_0295661872",
+        "position": "2.2.3.4.1.3.5.2.3",
+        "parentPosition": "2.2.3.4.1.3.5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

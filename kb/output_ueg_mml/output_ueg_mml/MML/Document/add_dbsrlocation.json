@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD DBSRLOCATION",
+  "command_name_zh": "增加远端DBS Location信息",
+  "command_name_full": "增加远端DBS Location信息(ADD DBSRLOCATION)",
+  "command_function": "该命令用于增加一个远端Location。\n\n该命令的使用场景：当需要为本端网元设备设置对接的远端网元设备时，需要通过本命令增加远端网元设备的location信息。\n\n本端网元设备和远端网元设备之间的容灾关系如图1所示。\n\n**图1** 本端网元设备与远端网元设备关系图\n\n在图1中：\n\n- 对于主用FE，它的远端网元设备指主用USCDB、容灾USCDB。\n- 对于主用USCDB，它的远端网元设备指主用局FE、容灾局FE、容灾局USCDB。\n- 对于容灾FE，它的远端网元设备指容灾USCDB、主用USCDB。\n- 对于容灾USCDB，它的远端网元设备指容灾局FE、主用局FE、主用局USCDB。\n\n本端网元设备：相对于远端网元设备而言，在本局点配置的网元设备称为本端网元设备。与远端网元设备组成容灾网络。\n\n远端网元设备：相对于本端网元设备而言，在对端或远端局点配置的网元设备称为远端网元设备。与本端网元设备组成容灾网络。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000204061238893",
+        "topicUrl": "MML/LinkedDoc/udrdbbroker_n_dbs_management.html",
+        "name": "DBS管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.7",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173570049",
+        "topicUrl": "MML/LinkedDoc/udrdbbroker_n_dbs_remote_location_management.html",
+        "name": "DBS Remote Location管理",
+        "parentTopicId": "CONCEPT_0000204061238893",
+        "position": "2.2.3.7.4",
+        "parentPosition": "2.2.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173570059_2",
+        "topicUrl": "MML/Document/add_dbsrlocation.html",
+        "name": "增加远端DBS Location信息(ADD DBSRLOCATION)",
+        "parentTopicId": "TOPIC_0173570049",
+        "position": "2.2.3.7.4.1",
+        "parentPosition": "2.2.3.7.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

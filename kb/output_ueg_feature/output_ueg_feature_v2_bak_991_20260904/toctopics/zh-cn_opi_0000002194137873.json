@@ -1,0 +1,315 @@
+{
+  "feature_name": "UPF配置实例(不和MPF对接)",
+  "feature_description": "UEG部署在园区，作为企业专用UPF。企业园区终端签约专有DNN（APN），UPF到企业园区采用VPN专线，与MPF无关。\n\nUEG使用标卡与DCGW连接。DCGW之间使用E-Trunk+EVPN或M-LAG组网，UEG使用Eth-trunk接口，一个Eth-trunk接口的成员端口，连接到同一台DCGW上。\n\nUEG通过BGP over静态路由+BFD单臂echo与对端网元（gNodeB/SMF/企业服务器）实现网络互通，如下以UEG与gNodeB之间的网络互通为例给出组网示意（如图1所示）。\n\n**图1** UEG与gNodeB之间的组网示意（标卡+DCGW）",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199181406",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199181406.html",
+        "name": "配置实例（虚机容器）",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199181476",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199181476.html",
+        "name": "配置UPF/SGW-U/PGW-U",
+        "parentTopicId": "TOPIC_0000001199181406",
+        "position": "4.3.3",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000002194137873",
+        "topicUrl": "toctopics/zh-cn_opi_0000002194137873.html",
+        "name": "UPF配置实例(不和MPF对接)",
+        "parentTopicId": "TOPIC_0000001199181476",
+        "position": "4.3.3.1",
+        "parentPosition": "4.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001911980889",
+        "topicUrl": "toctopics/zh-cn_topic_0000001911980889.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001866101090",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866101090.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001911980889",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913296141",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913296141.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001866101090",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913480805",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913480805.html",
+        "name": "配置实例（虚机容器）",
+        "parentTopicId": "TOPIC_0000001913296141",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000002254042881",
+        "topicUrl": "toctopics/zh-cn_topic_0000002254042881.html",
+        "name": "配置UPF/SGW-U/PGW-U",
+        "parentTopicId": "TOPIC_0000001913480805",
+        "position": "2.2.3.2.2",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000002194137873",
+        "topicUrl": "toctopics/zh-cn_opi_0000002194137873.html",
+        "name": "UPF配置实例(不和MPF对接)",
+        "parentTopicId": "TOPIC_0000002254042881",
+        "position": "2.2.3.2.2.1",
+        "parentPosition": "2.2.3.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304215565",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304215565.html",
+        "name": "中心园区部署入驻式UEG-L",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002339746169",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339746169.html",
+        "name": "初始配置与调测",
+        "parentTopicId": "TOPIC_0000002304215565",
+        "position": "3.1.4",
+        "parentPosition": "3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001199181406",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199181406.html",
+        "name": "配置实例（虚机容器）",
+        "parentTopicId": "TOPIC_0000002339746169",
+        "position": "3.1.4.3",
+        "parentPosition": "3.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002316434126",
+        "topicUrl": "toctopics/zh-cn_topic_0000002316434126.html",
+        "name": "配置UPF/SGW-U/PGW-U",
+        "parentTopicId": "TOPIC_0000001199181406",
+        "position": "3.1.4.3.2",
+        "parentPosition": "3.1.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000002194137873",
+        "topicUrl": "toctopics/zh-cn_opi_0000002194137873.html",
+        "name": "UPF配置实例(不和MPF对接)",
+        "parentTopicId": "TOPIC_0000002316434126",
+        "position": "3.1.4.3.2.1",
+        "parentPosition": "3.1.4.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "LST AMF3GPPREGINFO",
+  "command_name_zh": "查询AMF 3GPP注册信息数据",
+  "command_name_full": "查询AMF 3GPP注册信息数据（LST AMF3GPPREGINFO）",
+  "command_function": "该命令用于查询用户AMF 3GPP的注册信息数据。\n\n- 如果查询单个用户的注册信息，请输入参数“IMSI”或“MSISDN”其中的一个，其他参数不输入。\n- 若需要查询连续多个用户的注册信息，请输入参数“IMSI”或“MSISDN”的同时，再输入参数“用户个数”，其他参数不输入。\n- 若需要查询不连续的多个用户的注册信息，请输入参数“IMSI文件名”或“MSISDN文件名”，其他参数不输入。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0163185913",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/5GC_service_management.html",
+        "name": "5GC业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.43",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172768565",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/amf3gppreginfo_data_management.html",
+        "name": "AMF 3GPP注册信息数据管理",
+        "parentTopicId": "MMLREF_0163185913",
+        "position": "4.2.3.43.10",
+        "parentPosition": "4.2.3.43",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172768568",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_amf3gppreginfo.html",
+        "name": "查询AMF 3GPP注册信息数据（LST AMF3GPPREGINFO）",
+        "parentTopicId": "CONCEPT_0172768565",
+        "position": "4.2.3.43.10.3",
+        "parentPosition": "4.2.3.43.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

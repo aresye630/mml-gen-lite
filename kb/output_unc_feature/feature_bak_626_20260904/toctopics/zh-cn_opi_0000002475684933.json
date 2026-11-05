@@ -1,0 +1,133 @@
+{
+  "feature_name": "配置不同区域下发不同APN（方案二）",
+  "feature_description": "该任务旨在指导操作人员在4G网络中配置不同区域下发不同APN，配置独立开户模板。\n\n**说明** \n\n- 运营商大网SMF POOL业务不均质，从POOL中选择两台SMF作为智能分流SMF时，UDM使用此章节方式进行配置。\n- 配置不同区域下发不同DNN/APN时用户免签约功能（执行**SET UDMSERV**命令设置“DNN/APN替换业务是否免用户签约”参数）在UDM 20.11.2.15及之后的版本支持，之前的版本无需关注此功能，之后的版本根据局点实际规划进行设置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC401B065206E4CD18AD97FA1A9D3DB86",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002337228226",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 一跳入家解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5748",
+          "release_5749",
+          "release_5729"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5748",
+            "release_5749",
+            "release_5729"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002274680694",
+        "topicUrl": "toctopics/zh-cn_topic_0000002274680694.html",
+        "name": "一跳入家解决方案（基于3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002206446494",
+        "topicUrl": "toctopics/zh-cn_topic_0000002206446494.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002274680694",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002206446502",
+        "topicUrl": "toctopics/zh-cn_topic_0000002206446502.html",
+        "name": "部署移动VPN",
+        "parentTopicId": "TOPIC_0000002206446494",
+        "position": "3.4.4",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002475684913",
+        "topicUrl": "toctopics/zh-cn_topic_0000002475684913.html",
+        "name": "配置专用DNN数据",
+        "parentTopicId": "TOPIC_0000002206446502",
+        "position": "3.4.4.2",
+        "parentPosition": "3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002442325016",
+        "topicUrl": "toctopics/zh-cn_topic_0000002442325016.html",
+        "name": "配置UDM",
+        "parentTopicId": "TOPIC_0000002475684913",
+        "position": "3.4.4.2.4",
+        "parentPosition": "3.4.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "OPI_0000002442165140",
+        "topicUrl": "toctopics/zh-cn_opi_0000002442165140.html",
+        "name": "配置4G用户签约",
+        "parentTopicId": "TOPIC_0000002442325016",
+        "position": "3.4.4.2.4.2",
+        "parentPosition": "3.4.4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "OPI_0000002475684933",
+        "topicUrl": "toctopics/zh-cn_opi_0000002475684933.html",
+        "name": "配置不同区域下发不同APN（方案二）",
+        "parentTopicId": "OPI_0000002442165140",
+        "position": "3.4.4.2.4.2.1",
+        "parentPosition": "3.4.4.2.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

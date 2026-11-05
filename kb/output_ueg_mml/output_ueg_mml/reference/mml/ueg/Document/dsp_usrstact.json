@@ -1,0 +1,143 @@
+{
+  "command_name": "DSP USRSTACT",
+  "command_name_zh": "查询系统中REG、UNREG和PENDING状态的用户数量",
+  "command_name_full": "查询系统中REG、UNREG和PENDING状态的用户数量(DSP USRSTACT)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行该命令会对性能有影响，建议在话务量低时执行。\n\n该命令用于查询系统中REG（注册用户）、UNREG（未注册用户）和PENDING（挂起用户）状态的用户数量。\n\n- REG状态：已注册的IMS用户，即在线状态。\n- UEREG状态：IMS用户并没有完全注册，但是保存了一定的用户动态信息，用户可正常使用未注册业务（如关机语音信箱等）的场景。\n- PENDING状态：注册过程的一个中间状态，即S-CSCF给UDM下发MAR消息获取鉴权数据，但未下发SAR消息获取用户数据时，UDM更新用户状态为PENDING状态。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206810281619",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_user_statistic.html",
+        "name": "用户统计",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.5",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206305482486",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_count_hss_users_on_reg_unreg_pending_state.html",
+        "name": "查询系统中REG、UNREG和PENDING状态的用户数量",
+        "parentTopicId": "CONCEPT_0000206810281619",
+        "position": "2.2.3.4.2.5.4",
+        "parentPosition": "2.2.3.4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170285112_2",
+        "topicUrl": "reference/mml/ueg/Document/dsp_usrstact.html",
+        "name": "查询系统中REG、UNREG和PENDING状态的用户数量(DSP USRSTACT)",
+        "parentTopicId": "CONCEPT_0000206305482486",
+        "position": "2.2.3.4.2.5.4.1",
+        "parentPosition": "2.2.3.4.2.5.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

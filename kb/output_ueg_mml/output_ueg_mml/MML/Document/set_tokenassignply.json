@@ -1,0 +1,131 @@
+{
+  "command_name": "SET TOKENASSIGNPLY",
+  "command_name_zh": "设置Token分配策略",
+  "command_name_full": "设置Token分配策略(SET TOKENASSIGNPLY)",
+  "command_function": "本命令用于设置Token分配策略，实现Token分配时灵活控制启动分配Token的HLB/PES/SGM就绪状态实例比例和Token迁移的缄默等待时长。\n\n缄默等待时间计算公式：\n\n- 故障缄默等待时间=“故障缄默时长”\n- 就绪缄默等待时间=“就绪缄默时长”\\*i\n\n  当**i**/“就绪缄默步长”>=N/M时，系统自动计算出**i**的取值（0<=i<=“就绪缄默步长”），向上取整。\n\n  **说明** \n\n  - N/M=当前已分配token的实例个数/服务部署的实例总数。\n  - 就绪缄默等待时间是随着就绪的实例数增加而拉长的，最短等待时间为0，最长等待时间为“就绪缄默时长”\\*“就绪缄默步长”。\n  - 缄默时间内，所有实例达到就绪状态时DCF会立即分配Token。\n\n该命令存在系统初始记录，参数的初始设置值如下：\n\n|   ID |   分配阈值 |   故障缄默时长 |   就绪缄默时长 |   就绪缄默步长 |\n|-----:|-------:|---------:|---------:|---------:|\n|    1 |     30 |        0 |     5000 |        5 |",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001307196481",
+        "topicUrl": "MML/LinkedDoc/pcfappctrlservice_n_appctrl_management.html",
+        "name": "AppCtrl管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.1",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001312443481",
+        "topicUrl": "MML/LinkedDoc/pcfappctrlservice_n_token_assign_policy_management.html",
+        "name": "Token分配策略管理",
+        "parentTopicId": "TOPIC_0000001307196481",
+        "position": "2.2.3.5.1.2",
+        "parentPosition": "2.2.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001264882372",
+        "topicUrl": "MML/Document/set_tokenassignply.html",
+        "name": "设置Token分配策略(SET TOKENASSIGNPLY)",
+        "parentTopicId": "TOPIC_0000001312443481",
+        "position": "2.2.3.5.1.2.1",
+        "parentPosition": "2.2.3.5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

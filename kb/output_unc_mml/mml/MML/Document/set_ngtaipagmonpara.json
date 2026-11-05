@@ -1,0 +1,138 @@
+{
+  "command_name": "SET NGTAIPAGMONPARA",
+  "command_name_zh": "设置NG TAI组寻呼异常监控功能参数",
+  "command_name_full": "设置NG TAI组寻呼异常监控功能参数（SET NGTAIPAGMONPARA）",
+  "command_function": "**须知** \n\n检测参数设置不当，可能导致寻呼消息误流控或影响寻呼风暴场景下的流控效果。\n\n**适用NF：AMF**\n\n该命令用于设置NG TAI组对象寻呼异常监控功能的参数。针对局部区域（某个或某些TAI）下行寻呼风暴或因基站侧故障不回寻呼响应触发大量寻呼消息重发，导致寻呼成功率下降场景，AMF业务侧进行寻呼流控，减少寻呼风暴持续时长，快速恢复寻呼成功率。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321071",
+        "topicUrl": "MML/LinkedDoc/unc_n_mobility_management.html",
+        "name": "移动性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320843",
+        "topicUrl": "MML/LinkedDoc/unc_n_congestion_control.html",
+        "name": "拥塞控制",
+        "parentTopicId": "TOPIC_0234321071",
+        "position": "2.3.2.13",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001873115336",
+        "topicUrl": "MML/LinkedDoc/unc_n_ta_list_flow_ctrl.html",
+        "name": "TA LIST流控",
+        "parentTopicId": "TOPIC_0234320843",
+        "position": "2.3.2.13.5",
+        "parentPosition": "2.3.2.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001875982876",
+        "topicUrl": "MML/Document/set_ngtaipagmonpara.html",
+        "name": "设置NG TAI组寻呼异常监控功能参数（SET NGTAIPAGMONPARA）",
+        "parentTopicId": "TOPIC_0000001873115336",
+        "position": "2.3.2.13.5.2",
+        "parentPosition": "2.3.2.13.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

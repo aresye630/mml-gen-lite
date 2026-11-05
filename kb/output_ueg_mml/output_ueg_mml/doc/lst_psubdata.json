@@ -1,0 +1,119 @@
+{
+  "command_name": "LST PSUBDATA",
+  "command_name_zh": "查询用户数据",
+  "command_name_full": "查询用户数据（LST PSUBDATA）",
+  "command_function": "**须知** \n\n实时用户数统计操作可能对USRSU虚拟机（对应裸机场景的usrsu-pod）性能产生影响，当任一USRSU虚拟机（对应裸机场景的usrsu-pod）的CPU高于60%时不建议执行本命令。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在配置数据库中统计当前全部用户数、动态生成的用户数、在线用户数、从用户数、组用户数、成员用户总数、业务的签约用户数、套餐的签约用户数和子节点用户数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001295986488",
+        "topicUrl": "toctopics/zh-cn_topic_0000001295986488.html",
+        "name": "UPCF业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.5",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167452586",
+        "topicUrl": "node/global_data_mml.html",
+        "name": "全局数据命令组",
+        "parentTopicId": "TOPIC_0000001295986488",
+        "position": "4.2.5.1",
+        "parentPosition": "4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452640",
+        "topicUrl": "node/sys_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0167452586",
+        "position": "4.2.5.1.1",
+        "parentPosition": "4.2.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452602_2",
+        "topicUrl": "doc/lst_psubdata.html",
+        "name": "查询用户数据（LST PSUBDATA）",
+        "parentTopicId": "MMLREF_0167452640",
+        "position": "4.2.5.1.1.1",
+        "parentPosition": "4.2.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

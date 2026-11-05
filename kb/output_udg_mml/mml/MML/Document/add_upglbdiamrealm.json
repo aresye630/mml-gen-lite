@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD UPGLBDIAMREALM",
+  "command_name_zh": "增加全局Diameter域",
+  "command_name_full": "增加全局Diameter域（ADD UPGLBDIAMREALM）",
+  "command_function": "**适用NF：UPF**\n\n该配置基于某种应用类型生效。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206136561374",
+        "topicUrl": "MML/LinkedDoc/udg_n_diameter_management.html",
+        "name": "Diameter管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.19",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206288681011",
+        "topicUrl": "MML/LinkedDoc/udg_n_diameter_realm.html",
+        "name": "Diameter Realm",
+        "parentTopicId": "CONCEPT_0000206136561374",
+        "position": "5.19.4",
+        "parentPosition": "5.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206136561384",
+        "topicUrl": "MML/LinkedDoc/udg_n_global_realm.html",
+        "name": "全局Realm",
+        "parentTopicId": "CONCEPT_0000206288681011",
+        "position": "5.19.4.1",
+        "parentPosition": "5.19.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206145195186",
+        "topicUrl": "MML/Document/add_upglbdiamrealm.html",
+        "name": "增加全局Diameter域（ADD UPGLBDIAMREALM）",
+        "parentTopicId": "CONCEPT_0000206136561384",
+        "position": "5.19.4.1.1",
+        "parentPosition": "5.19.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

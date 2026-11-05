@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD GTPCWHITELIST",
+  "command_name_zh": "增加GTP-C路径白名单",
+  "command_name_full": "增加GTP-C路径白名单(ADD GTPCWHITELIST)",
+  "command_function": "**适用网元：MME**\n\n本命令用于增加GTP-C路径白名单，用于控制GTP-C路径的本端IP地址选择。\n\n应用场景：Sv接口与SGs接口共用信令网络，但信令网络只提供平行路径的互通，不支持交叉路径的互通。比如，MSC提供IP地址MSC\\_IP\\_1、MSC\\_IP\\_2，UNC提供IP地址USN\\_IP\\_A、USN\\_IP\\_B，平行路径指{MSC\\_IP\\_1，USN\\_IP\\_A}，{MSC\\_IP\\_2，USN\\_IP\\_B}，交叉路径指{MSC\\_IP\\_1，USN\\_IP\\_B}，{MSC\\_IP\\_2，USN\\_IP\\_A}。\n\nSv接口为GTP协议的接口，要求组网上DNS解析的IP地址全互联。为了解决这种矛盾，本命令提供Sv接口互通路径的配置。如果对端IP地址落入本命令的配置记录中，UNC只能选择GTP-C路径白名单中指定的本端IP地址；如果对端IP地址不在本命令的配置记录中，UNC在Sv接口的本端IP地址中进行轮选。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321016",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_c_interface_management.html",
+        "name": "GTP-C接口管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.9",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321213",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_c_protocol_management.html",
+        "name": "GTP-C协议管理",
+        "parentTopicId": "TOPIC_0234321016",
+        "position": "2.5.3.9.3",
+        "parentPosition": "2.5.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320439",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_c_path_white_list.html",
+        "name": "GTP-C路径白名单",
+        "parentTopicId": "TOPIC_0234321213",
+        "position": "2.5.3.9.3.7",
+        "parentPosition": "2.5.3.9.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345517",
+        "topicUrl": "MML/Document/add_gtpcwhitelist.html",
+        "name": "增加GTP-C路径白名单(ADD GTPCWHITELIST)",
+        "parentTopicId": "TOPIC_0234320439",
+        "position": "2.5.3.9.3.7.1",
+        "parentPosition": "2.5.3.9.3.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

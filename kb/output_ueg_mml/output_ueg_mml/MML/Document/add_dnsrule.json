@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD DNSRULE",
+  "command_name_zh": "添加DNS规则",
+  "command_name_full": "添加DNS规则（ADD DNSRULE）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n当系统为处于边缘节点的应用提供DNSLite业务时，该命令用于新增一条DNS规则，该DNS规则被称为静态DNS规则。\n\nDNS规则是一种具有域名匹配功能的分流规则，包含了服务器域名和服务器 IP地址的对应关系。基于DNS规则分流可以实现以下功能：当数据流的报文中携带服务器的域名时，如果命中DNS Rule，则返回DNS响应，将服务器的IP地址返回给UE。当数据流的报文根据域名返回的IP地址发送数据报文时，支持基于服务器的IP地址命中DNS规则，将数据流本地分流到服务器。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103356062_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.4",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315817_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_common_configuration.html",
+        "name": "业务匹配公共配置",
+        "parentTopicId": "CONCEPT_0000202103356062_3",
+        "position": "2.2.3.2.4.2",
+        "parentPosition": "2.2.3.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103116390_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_rule_management.html",
+        "name": "业务规则管理",
+        "parentTopicId": "CONCEPT_0000202289315817_3",
+        "position": "2.2.3.2.4.2.1",
+        "parentPosition": "2.2.3.2.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315819_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_dns_rule.html",
+        "name": "DNS规则",
+        "parentTopicId": "CONCEPT_0000202103116390_3",
+        "position": "2.2.3.2.4.2.1.7",
+        "parentPosition": "2.2.3.2.4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0235373556_2",
+        "topicUrl": "MML/Document/add_dnsrule.html",
+        "name": "添加DNS规则（ADD DNSRULE）",
+        "parentTopicId": "CONCEPT_0000202289315819_3",
+        "position": "2.2.3.2.4.2.1.7.1",
+        "parentPosition": "2.2.3.2.4.2.1.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

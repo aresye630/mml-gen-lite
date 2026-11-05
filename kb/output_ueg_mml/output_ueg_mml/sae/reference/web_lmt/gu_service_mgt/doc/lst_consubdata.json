@@ -1,0 +1,119 @@
+{
+  "command_name": "LST CONSUBDATA",
+  "command_name_zh": "批量查询用户数据",
+  "command_name_full": "批量查询用户数据(LST CONSUBDATA)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会增加数据库的负荷，引起系统过载，因此建议在夜间话务量低时执行该命令。\n\n该命令用于按照查询条件来批量查询数据库中满足指定条件的用户统计数据，查询结果以文本格式保存在PGW如下目录：“/opt/pgw/pgwtmpfile/SYSHLRSN+操作员名称”。例如，当前系统HLRSN为“001”，操作员名称为“admin”，则存储查询结果的目录为：“/opt/pgw/pgwtmpfile/001admin”。查询结果的文件名格式为“查询对象-时间-序列号.txt”，例如：CountOfSub-2011-07-08-17-12-35-355.txt。\n\n查询结果可以通过PGW Web LMT上的“文件管理器”下载到本地。\n\n**说明** \n\n- **SET MAPSERV**命令中的“LST命令导出文件压缩控制”取值不为“0”且**LST CONSUBDATA**查询结果大于或者等于“LST命令导出文件压缩控制”设置的取值时，查询结果的文件格式为“查询对象-时间-序列号.tar.gz”。**LST CONSUBDATA**命令报文中查询结果的文件格式固定显示为“查询对象-时间-序列号.txt”。\n- 查询结果包含用户的个人数据，如：IMSI、MSISDN等，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护，并严格控制查询结果文件的访问权限。\n- 在从运营商网络获取数据前，必须要获得运营商的授权。\n- 若需从运营商网络中获取必要的数据，需要运营商维护人员对其中的个人数据进行匿名化处理，匿名化后的数据由运营商维护人员审核后提供，以防止个人数据泄露。匿名化处理工具可以在http://support.huawei.com/网站获取，获取方法请参见产品手册“匿名化工具安全策略”页面。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803482",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/statistic_management.html",
+        "name": "用户统计",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.7",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803650",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_consubdata.html",
+        "name": "批量查询用户数据(LST CONSUBDATA)",
+        "parentTopicId": "CONCEPT_0190803482",
+        "position": "4.2.3.5.7.2",
+        "parentPosition": "4.2.3.5.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "feature_name": "配置动态路由OSPF+BFD组网（IPv4）",
+  "feature_description": "VNF与对端设备可通过OSPF动态路由绑定动态BFD探测的方式进行组网连接，该方式适用于IPv4组网的网络中。\n\n在网络拓扑结构复杂、设备与IP路由繁多的网络部署时，通常使用OSPF动态路由方式发布路由。同时，利用BFD双向转发检测机制为链路提供双向、轻负荷且持续时间短的快速检测功能，提高链路可靠性。\n\n如图1所示为VNF与周边网元的OSPF动态路由互通组网示意图。VNF与网关运行动态路由协议而接入运营商网络（IP骨干网），网关可以使用DC-GW、EOR（End of Row）交换机或运营商的PE（Provider Edge）交换机。无论哪种方式，VNF的配置相同，没有差异。网关设备的路由配置请参考运营商的网络规划配置，EOR的配置请参考对应型号设备的产品文档。\n\n**图1** OSPF动态路由+BFD组网",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0175096802",
+        "topicUrl": "installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0216653295",
+        "topicUrl": "installation/cu_com_010016_07.html",
+        "name": "配置VNF侧IP路由数据（无NP卡_非SDN）",
+        "parentTopicId": "TOPIC_0175096802",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0216653305",
+        "topicUrl": "installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0216653295",
+        "position": "5.1.2",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0216653306",
+        "topicUrl": "installation/ce_ugw_190016_10.html",
+        "name": "配置动态路由OSPF+BFD组网（IPv4）",
+        "parentTopicId": "TOPIC_0216653305",
+        "position": "5.1.2.1",
+        "parentPosition": "5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

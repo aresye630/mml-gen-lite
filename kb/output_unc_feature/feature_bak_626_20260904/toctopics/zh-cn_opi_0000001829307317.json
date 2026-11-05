@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置SMSF本局数据",
+  "feature_description": "配置SMSF本局数据。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782467896",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782467896.html",
+        "name": "配置SMSF",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001829307317",
+        "topicUrl": "toctopics/zh-cn_opi_0000001829307317.html",
+        "name": "配置SMSF本局数据",
+        "parentTopicId": "TOPIC_0000001782467896",
+        "position": "8.5.2",
+        "parentPosition": "8.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

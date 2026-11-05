@@ -1,0 +1,513 @@
+{
+  "feature_name": "配置动态PCC功能（PCF）",
+  "feature_description": "园区UEG部署PCF/PCRF实体功能时，涉及到语音专载业务或LTE一键通功能，支持动态PCC。\n\n动态PCC分为动态规则和预定义规则：\n\n- 动态规则：PCRF/PCF下发该规则对应的业务流特征及业务的精细化管理动作。SMF仅需要开启动态PCC开关，UPF不需要特殊配置。PCF可以随时删除旧规则，安装新规则。\n- 预定义规则：UPF/SMF/PCF上需定义相同的规则标识，UPF上定义该规则对应的业务流特征及业务的精细化管理动作。用户注册过程中，由PCF下发规则标识，PCF通过规则标识的方式激活SMF/UPF本地静态配置的规则来实现计费和策略的控制。PCF可以随时删除旧规则，安装新规则。\n\n**说明** \n\n本页面以PTT业务使用的动态规则为例。一号通专网场景下，请参考Rx接口（使用Diameter协议）VoLTE策略控制、Rx接口（使用Diameter协议）VoNR策略控制、Rx接口（使用Diameter协议）EPS Fallback策略控制选择对应场景的章节进行PCF上的语音策略配置，本页面仅提供PCF上动态PCC规则配置的使用样例，一号通场景无需配置PTT业务，本页面仅供学习参考使用。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001163494996_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001416557577",
+        "topicUrl": "toctopics/zh-cn_topic_0000001416557577.html",
+        "name": "配置动态PCC",
+        "parentTopicId": "TOPIC_0000001163494996_1",
+        "position": "5.1.2",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001365898564",
+        "topicUrl": "toctopics/zh-cn_opi_0000001365898564.html",
+        "name": "配置动态PCC功能（PCF）",
+        "parentTopicId": "TOPIC_0000001416557577",
+        "position": "5.1.2.1",
+        "parentPosition": "5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV8CDE6753523641B8ACAD6C1F13BC16B5",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818298",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网煤矿场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429964765",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429964765.html",
+        "name": "配置基础业务",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001379285000",
+        "topicUrl": "toctopics/zh-cn_topic_0000001379285000.html",
+        "name": "在UEG上配置业务数据",
+        "parentTopicId": "TOPIC_0000001429964765",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001163494996",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000001379285000",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001416557577",
+        "topicUrl": "toctopics/zh-cn_topic_0000001416557577.html",
+        "name": "配置动态PCC",
+        "parentTopicId": "TOPIC_0000001163494996",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "OPI_0000001365898564",
+        "topicUrl": "toctopics/zh-cn_opi_0000001365898564.html",
+        "name": "配置动态PCC功能（PCF）",
+        "parentTopicId": "TOPIC_0000001416557577",
+        "position": "4.2.1.2.1",
+        "parentPosition": "4.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001911980893",
+        "topicUrl": "toctopics/zh-cn_topic_0000001911980893.html",
+        "name": "配置基础业务",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001916344353",
+        "topicUrl": "toctopics/zh-cn_topic_0000001916344353.html",
+        "name": "在UEG上配置业务数据",
+        "parentTopicId": "TOPIC_0000001911980893",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001163494996",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000001916344353",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001416557577",
+        "topicUrl": "toctopics/zh-cn_topic_0000001416557577.html",
+        "name": "配置动态PCC",
+        "parentTopicId": "TOPIC_0000001163494996",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000001365898564",
+        "topicUrl": "toctopics/zh-cn_opi_0000001365898564.html",
+        "name": "配置动态PCC功能（PCF）",
+        "parentTopicId": "TOPIC_0000001416557577",
+        "position": "4.2.1.2.1",
+        "parentPosition": "4.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001217538279",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217538279.html",
+        "name": "配置业务数据（风筝M）",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.5",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001265232041",
+        "topicUrl": "toctopics/zh-cn_topic_0000001265232041.html",
+        "name": "配置业务数据（UEG）",
+        "parentTopicId": "TOPIC_0000001217538279",
+        "position": "3.3.5.1",
+        "parentPosition": "3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001163494996",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000001265232041",
+        "position": "3.3.5.1.2",
+        "parentPosition": "3.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001416557577",
+        "topicUrl": "toctopics/zh-cn_topic_0000001416557577.html",
+        "name": "配置动态PCC",
+        "parentTopicId": "TOPIC_0000001163494996",
+        "position": "3.1.5.1.2",
+        "parentPosition": "3.1.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001365898564",
+        "topicUrl": "toctopics/zh-cn_opi_0000001365898564.html",
+        "name": "配置动态PCC功能（PCF）",
+        "parentTopicId": "TOPIC_0000001416557577",
+        "position": "3.1.5.1.2.1",
+        "parentPosition": "3.1.5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV22ED20D5F182466F9AD869A8636504B9",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002339866657",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网通用场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002305930028",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305930028.html",
+        "name": "配置基础业务",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339769489",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339769489.html",
+        "name": "在UEG上配置业务数据",
+        "parentTopicId": "TOPIC_0000002305930028",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000001163494996",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000002339769489",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000001416557577",
+        "topicUrl": "toctopics/zh-cn_topic_0000001416557577.html",
+        "name": "配置动态PCC",
+        "parentTopicId": "TOPIC_0000001163494996",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "OPI_0000001365898564",
+        "topicUrl": "toctopics/zh-cn_opi_0000001365898564.html",
+        "name": "配置动态PCC功能（PCF）",
+        "parentTopicId": "TOPIC_0000001416557577",
+        "position": "4.2.1.2.1",
+        "parentPosition": "4.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "OPT HDATA",
+  "command_name_zh": "数据优化",
+  "command_name_full": "数据优化(OPT HDATA)",
+  "command_function": "该命令用于优化用户存储在数据库中的SIFC（Shared Initial Filter Criteria）数据记录。\n\nIMS-HSS数据库存储SIFC数据时，有两种存储方式（可通过**SET HSYSTEMPARA**命令的“SIFC存储方式”参数进行设置），第一种是一条数据库记录只能存储一个SIFCID，即一个共享iFC模板ID，第二种是一条数据库记录能存储四个SIFCID。本命令应用于当存储方式为第二种时对已存储的用户数据记录进行优化，达到节省存储空间的作用。\n\n**说明** \n\n优化数据时会优先按照一条记录存储满四个SIFCID进行优化。例如有三条记录，每一条记录保存了一个SIFCID，那么可以通过本命令将三条记录合并为一条记录，合并后只有一条记录，这一条记录中存储了三个SIFCID。若有三条记录，每一条记录保存了2个SIFCID，那么可以通过本命令将三条记录合并为两条记录，合并后一条记录中有四个SIFCID，另一条中有两个SIFCID。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732478",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/System_optimization_management.html",
+        "name": "系统优化管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.11",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732699",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Data_optimization_management.html",
+        "name": "数据优化管理",
+        "parentTopicId": "CONCEPT_0191732478",
+        "position": "4.2.4.11.1",
+        "parentPosition": "4.2.4.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732665",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/OPT_HDATA.html",
+        "name": "数据优化(OPT HDATA)",
+        "parentTopicId": "CONCEPT_0191732699",
+        "position": "4.2.4.11.1.1",
+        "parentPosition": "4.2.4.11.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

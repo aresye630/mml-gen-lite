@@ -1,0 +1,119 @@
+{
+  "command_name": "GET SYSINFO",
+  "command_name_zh": "获取系统信息",
+  "command_name_full": "获取系统信息(GET SYSINFO)",
+  "command_function": "**须知** \n\n根据系统信息文件大小，此命令的执行可能会耗费几分钟时间。\n\n本命令用于将指定的Pod上的系统启动日志、黑匣子文件、文件或目录属性信息等上传到主用OMU Pod。\n\n- 当“系统信息类型”为“HEALTHCHK(健康检查结果收集)”，文件上传目录：为/opt/HUAWEI/cgp/workshop/omu/share/run\\_log/omu/cdp/hck。\n- 当“系统信息类型”为其他选项，文件上传目录为“/opt/HUAWEI/cgp/workshop/omu/share/run\\_log/omu/cdp”。\n\n文件命名方式为Pod名，例如cgplite-0。\n\n本命令的使用场景为：\n\n- 定位模块异常退出的相关问题时，需要获取相应的黑匣子和monitor日志进行分析。\n- 定位操作系统相关的问题时，需要获取操作系统运行状态相关的信息进行分析。\n- 定位加载相关的问题时，需要获取启动日志等相关信息进行分析。\n\n**说明** \n\n收集日志信息：请登录OM Portal，选择“监控分析>运行日志>日志下载”，收集csp下/CGPLite/omu/cdp路径里的服务日志。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234699",
+        "topicUrl": "uen/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.2",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234769",
+        "topicUrl": "uen/csp/MML/LinkedDoc/system_information.html",
+        "name": "系统信息",
+        "parentTopicId": "CONCEPT_0243234699",
+        "position": "2.2.2.2.4",
+        "parentPosition": "2.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0243234736_2",
+        "topicUrl": "uen/csp/MML/Document/get_sysinfo.html",
+        "name": "获取系统信息(GET SYSINFO)",
+        "parentTopicId": "CONCEPT_0243234769",
+        "position": "2.2.2.2.4.1",
+        "parentPosition": "2.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

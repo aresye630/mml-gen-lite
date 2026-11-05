@@ -1,0 +1,114 @@
+{
+  "command_name": "SET VPROBECONFIG",
+  "command_name_zh": "设置vProbe文件管理规格配置",
+  "command_name_full": "设置vProbe文件管理规格配置（SET VPROBECONFIG）",
+  "command_function": "**须知** \n\n使用该命令配置缓存文件存储空间时，请结合实际磁盘空间大小进行设置，或通过DSP VPROBEDISKSIZE命令进行查询，选取不大于输出结果中“vProbe可用磁盘总空间(GB)”的最小值作为输入，超出默认大小值（20GB）存在风险，请谨慎修改。如果配置存储空间大小超过实际可用磁盘空间大小，可能会导致服务复位，无法正常运行。请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于设置使用TCP/SFTP协议时vProbe的文件管理规格配置。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001440920849",
+        "topicUrl": "MML/LinkedDoc/vprobeomsvc_n_vprobe_management.html",
+        "name": "vProbe管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.24",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001440801037",
+        "topicUrl": "MML/LinkedDoc/vprobeomsvc_n_vprobe_configuration_information.html",
+        "name": "vProbe文件管理规格配置",
+        "parentTopicId": "TOPIC_0000001440920849",
+        "position": "1.24.4",
+        "parentPosition": "1.24",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001439242825",
+        "topicUrl": "MML/Document/set_vprobeconfig.html",
+        "name": "设置vProbe文件管理规格配置（SET VPROBECONFIG）",
+        "parentTopicId": "TOPIC_0000001440801037",
+        "position": "1.24.4.2",
+        "parentPosition": "1.24.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

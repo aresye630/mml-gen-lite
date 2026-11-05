@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活基于信令面的数据传输（MME）",
+  "feature_description": "本操作指导介绍在运行网络中激活基于信令面的数据传输的操作过程。\n\nIoT终端数据收发频率低、数据包较小且多数情况为单向发送（例如智能抄表）。本特性是3GPP协议针对此类业务定义的控制面优化功能CP-CIoT（Control Plane Cellular Internet of Thing），实现了数据包在终端和MME之间通过NAS消息传递，在MME和SGW-U间通过S11-U口传递，上、下行数传过程中无需频繁建立E-RAB，从而提升数传效率，节省不必要的信令开销。\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375120453",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375120453.html",
+        "name": "MME特性指南",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001257972542",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001257972542.html",
+        "name": "GWFD-026100 NB-IoT基本功能",
+        "parentTopicId": "TOPIC_0000001375120453",
+        "position": "4.22",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0277260991",
+        "topicUrl": "kite_ml/desc/unc_2110_feature_desc_Data_Over_NAS03.html",
+        "name": "GWFD-026105 基于信令面的数据传输（MME）",
+        "parentTopicId": "TOPIC_0000001257972542",
+        "position": "4.22.5",
+        "parentPosition": "4.22",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0276015637",
+        "topicUrl": "kite_ml/om/unc_2110_feature_om_Data_Over_NAS01.html",
+        "name": "激活基于信令面的数据传输（MME）",
+        "parentTopicId": "TOPIC_0277260991",
+        "position": "4.22.5.3",
+        "parentPosition": "4.22.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

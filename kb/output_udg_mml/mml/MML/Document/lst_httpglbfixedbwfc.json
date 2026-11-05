@@ -1,0 +1,119 @@
+{
+  "command_name": "LST HTTPGLBFIXEDBWFC",
+  "command_name_zh": "查询HTTP全局固定带宽流控",
+  "command_name_full": "查询HTTP全局固定带宽流控（LST HTTPGLBFIXEDBWFC）",
+  "command_function": "该命令用于查询HTTP全局固定带宽流控的门限值等信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899264543",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.15",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204693666410",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_flow_control_management.html",
+        "name": "HTTP流控管理",
+        "parentTopicId": "CONCEPT_0000204899264543",
+        "position": "4.15.1",
+        "parentPosition": "4.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204693666414",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_global_fixed_bandwidth_flow_control_management.html",
+        "name": "HTTP全局固定带宽流控管理",
+        "parentTopicId": "CONCEPT_0000204693666410",
+        "position": "4.15.1.8",
+        "parentPosition": "4.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001303315070",
+        "topicUrl": "MML/Document/lst_httpglbfixedbwfc.html",
+        "name": "查询HTTP全局固定带宽流控（LST HTTPGLBFIXEDBWFC）",
+        "parentTopicId": "CONCEPT_0000204693666414",
+        "position": "4.15.1.8.2",
+        "parentPosition": "4.15.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

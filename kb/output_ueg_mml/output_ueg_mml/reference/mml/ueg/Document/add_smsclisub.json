@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD SMSCLISUB",
+  "command_name_zh": "增加短信互通网关用户",
+  "command_name_full": "增加短信互通网关用户(ADD SMSCLISUB)",
+  "command_function": "该命令用于增加短信互通网关用户的用户名和密码。\n\n在号码携带业务中，用户可以在不改变号码的情况下加入到其他运营商的网络，享受新运营商带来的服务。开通NPMSC特性，需要通过SOA（Service Order Administration）系统同步各个运营商中的相关数据，如配置携出用户数据、携转用户数据、短消息RN路由数据等，用户需要在满足工信部以及原运营商的条件下开通。用户不能通过手机自己签约开通。本特性可以应用于GSM网络或UMTS网络中。\n\n例如，用户由运营商A携号转网至运营商B，此时运营商A会在NPMSC中增加携出用户。原所在网络将给该携出用户发短消息，短消息中心会向NPMSC发MT-Forward操作，NPMSC根据用户携出的RN转换为Deliver消息投递给短信互通网关。短信互通网关根据与NPMSC绑定用户的用户名和密码，完成短消息下发通知。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782891",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.3",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206456920439",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_sms_gw_management.html",
+        "name": "短信互通网关用户",
+        "parentTopicId": "CONCEPT_0000203481782891",
+        "position": "2.2.3.4.3.15",
+        "parentPosition": "2.2.3.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170285083",
+        "topicUrl": "reference/mml/ueg/Document/add_smsclisub.html",
+        "name": "增加短信互通网关用户(ADD SMSCLISUB)",
+        "parentTopicId": "CONCEPT_0000206456920439",
+        "position": "2.2.3.4.3.15.1",
+        "parentPosition": "2.2.3.4.3.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

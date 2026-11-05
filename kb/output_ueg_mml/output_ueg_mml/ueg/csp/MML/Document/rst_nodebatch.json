@@ -1,0 +1,131 @@
+{
+  "command_name": "RST NODEBATCH",
+  "command_name_zh": "节点批量复位",
+  "command_name_full": "节点批量复位（RST NODEBATCH）",
+  "command_function": "**须知** \n\n- 执行该命令会批量复位指定网元ID下的所有非Stopped状态的节点，影响节点上的业务，请慎重使用该命令。\n- 在存储故障期间，执行该命令批量复位节点后，这些节点以及节点中的容器和进程，在存储恢复前都无法启动。\n- 在扩容后30min内进行批量复位，存在不对扩容节点复位的问题，当出现此情况时，请执行**RST NODE**对未复位的节点进行复位。\n- 在缩容后30min内进行批量复位，存在批量复位不生效或者失败的问题，当出现此情况时，请在缩容30min后再次进行批量复位操作，或者通过**DSP NODE**查询节点信息，通过**RST NODE**对未复位的节点进行复位。\n- 执行该命令批量复位节点后会重新加载适配包资源。复位前未关闭MML前台界面，可能会影响MML适配包加载，导致MML命令执行失败，此时需要清理浏览器缓存，再刷新界面即可正常执行MML命令。\n\n本命令用于复位指定网元ID下的所有节点。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421818",
+        "topicUrl": "toctopics/zh-cn_topic_0225421818.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.8",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0225421817",
+        "topicUrl": "toctopics/zh-cn_concept_0225421817.html",
+        "name": "设备管理",
+        "parentTopicId": "TOPIC_0225421818",
+        "position": "2.2.1.8.4",
+        "parentPosition": "2.2.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0193385811",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/node_om.html",
+        "name": "节点管理",
+        "parentTopicId": "CONCEPT_0225421817",
+        "position": "2.2.1.8.4.1",
+        "parentPosition": "2.2.1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173743460_3",
+        "topicUrl": "ueg/csp/MML/Document/rst_nodebatch.html",
+        "name": "节点批量复位（RST NODEBATCH）",
+        "parentTopicId": "TOPIC_0193385811",
+        "position": "2.2.1.8.4.1.6",
+        "parentPosition": "2.2.1.8.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

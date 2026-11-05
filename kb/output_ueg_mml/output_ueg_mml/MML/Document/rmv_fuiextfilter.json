@@ -1,0 +1,155 @@
+{
+  "command_name": "RMV FUIEXTFILTER",
+  "command_name_zh": "删除FUI扩展过滤器绑定配置",
+  "command_name_full": "删除FUI扩展过滤器绑定配置（RMV FUIEXTFILTER）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，删除FuiExtFilter会修改欠费重定向动作，引起欠费用户业务行为发生变化，请谨慎使用并联系华为支持协助操作。\n\n该命令用于删除FUI扩展过滤器绑定关系，删除后将会直接执行。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315825_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.5",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103595874_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_redirect_control.html",
+        "name": "重定向控制",
+        "parentTopicId": "CONCEPT_0000202289315825_3",
+        "position": "2.2.3.2.5.5",
+        "parentPosition": "2.2.3.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103116410_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_fui_redirect_control.html",
+        "name": "FUI重定向控制",
+        "parentTopicId": "CONCEPT_0000202103595874_3",
+        "position": "2.2.3.2.5.5.2",
+        "parentPosition": "2.2.3.2.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289555323_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_fui_extended_filter_binding.html",
+        "name": "FUI扩展过滤器绑定",
+        "parentTopicId": "CONCEPT_0000202103116410_3",
+        "position": "2.2.3.2.5.5.2.2",
+        "parentPosition": "2.2.3.2.5.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0186528385_3",
+        "topicUrl": "MML/Document/rmv_fuiextfilter.html",
+        "name": "删除FUI扩展过滤器绑定配置（RMV FUIEXTFILTER）",
+        "parentTopicId": "CONCEPT_0000202289555323_3",
+        "position": "2.2.3.2.5.5.2.2.2",
+        "parentPosition": "2.2.3.2.5.5.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

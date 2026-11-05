@@ -1,0 +1,131 @@
+{
+  "command_name": "DSP NODERES",
+  "command_name_zh": "查询节点资源信息",
+  "command_name_full": "查询节点资源信息（DSP NODERES）",
+  "command_function": "本命令用于查询节点的资源信息。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421818",
+        "topicUrl": "toctopics/zh-cn_topic_0225421818.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.8",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0225421817",
+        "topicUrl": "toctopics/zh-cn_concept_0225421817.html",
+        "name": "设备管理",
+        "parentTopicId": "TOPIC_0225421818",
+        "position": "2.2.1.8.4",
+        "parentPosition": "2.2.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0193385811",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/node_om.html",
+        "name": "节点管理",
+        "parentTopicId": "CONCEPT_0225421817",
+        "position": "2.2.1.8.4.1",
+        "parentPosition": "2.2.1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001186553878_4",
+        "topicUrl": "ueg/csp/MML/Document/dsp_noderes.html",
+        "name": "查询节点资源信息（DSP NODERES）",
+        "parentTopicId": "TOPIC_0193385811",
+        "position": "2.2.1.8.4.1.13",
+        "parentPosition": "2.2.1.8.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

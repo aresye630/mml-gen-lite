@@ -1,0 +1,131 @@
+{
+  "command_name": "SET ISDNBCALIAS",
+  "command_name_zh": "设置用户自定义承载能力",
+  "command_name_full": "设置用户自定义承载能力(SET ISDNBCALIAS)",
+  "command_function": "该命令用于实现：\n\n- 通过本命令设置用户自定义承载能力，当用户签约了SENDROUTINGINFO消息中携带承载对应的基础业务且在SENDROUTINGINFO消息中携带的承载业务和本命令中设置的承载业务一致时，UDM可以根据本命令设置的自定义承载能力替换SENDROUTINGINFO请求中携带的承载能力。\n- 针对移动用户呼叫PSTN用户的场景，SENDROUTINGINFO请求中携带TS11，但被叫用户未签约TS11，且被叫用户签约的“缺省呼叫类型”为非TS11的场景，当被叫用户签约“缺省呼叫类型”的业务码与本命令中的为用户签约的业务码一致时，系统根据本命令签约的用户业务码和承载能力替换SENDROUTINGINFO请求中携带的用户业务码和承载能力。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802862",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/cs_domain_data_service.html",
+        "name": "电路域数据业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.8",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802541",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/bearer_service_management.html",
+        "name": "GSM承载业务",
+        "parentTopicId": "MMLREF_0190802862",
+        "position": "4.2.3.8.1",
+        "parentPosition": "4.2.3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001891436220",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/user_defined_bearer_capability.html",
+        "name": "用户自定义承载能力",
+        "parentTopicId": "MMLREF_0190802541",
+        "position": "4.2.3.8.1.8",
+        "parentPosition": "4.2.3.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001934195641",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_isdnbcalias.html",
+        "name": "设置用户自定义承载能力(SET ISDNBCALIAS)",
+        "parentTopicId": "TOPIC_0000001891436220",
+        "position": "4.2.3.8.1.8.1",
+        "parentPosition": "4.2.3.8.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

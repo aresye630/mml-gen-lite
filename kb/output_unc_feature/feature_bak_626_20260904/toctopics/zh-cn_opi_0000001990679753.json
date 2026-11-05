@@ -1,0 +1,117 @@
+{
+  "feature_name": "Bi接口配置",
+  "feature_description": "该任务用于指导操作人员完成Bi口的IP资源数据的配置。配置Bi口后可以通过PULL或者PUSH模式向计费中心分发话单。\n\nPULL模式下计费中心主动到NCG取话单。此时NCG作为FTP/SFTP的服务器端，计费中心作为FTP/SFTP的客户端；PUSH模式下NCG采用FTP/SFTP协议分发第二份最终话单到计费中心。此时NCG作为FTP/SFTP的客户端，计费中心作为FTP/SFTP的服务器端。大多数情况下，NCG采用PULL方式分发话单。\n\nPULL方式下，NCG默认开放“/opt/CG\\_VNFC/run/vrpv8/product/backsave/”目录下的话单给计费中心，下级相对目录因运营商不同而不同。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVFA8996DD884B4F1A8C2DE9A506A462BD",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229234053",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案##计费",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679693",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679693.html",
+        "name": "方案五：部署NCG且融合接口计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.5",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679745.html",
+        "name": "NCG配置",
+        "parentTopicId": "TOPIC_0000001990679693",
+        "position": "1.3.5.3",
+        "parentPosition": "1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "OPI_0000001990679753",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990679753.html",
+        "name": "Bi接口配置",
+        "parentTopicId": "TOPIC_0000001990679745",
+        "position": "1.3.5.3.7",
+        "parentPosition": "1.3.5.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

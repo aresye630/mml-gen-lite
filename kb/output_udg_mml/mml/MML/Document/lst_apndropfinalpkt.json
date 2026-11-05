@@ -1,0 +1,119 @@
+{
+  "command_name": "LST APNDROPFINALPKT",
+  "command_name_zh": "显示指定APN配额耗尽末包动作",
+  "command_name_full": "显示指定APN配额耗尽末包动作（LST APNDROPFINALPKT）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n本命令用于查询指定APN，当配额耗尽时，UPF是否阻塞最后一个超出配额范围的数据报文。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315825",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.5",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116414",
+        "topicUrl": "MML/LinkedDoc/udg_n_charging_control.html",
+        "name": "计费控制",
+        "parentTopicId": "CONCEPT_0000202289315825",
+        "position": "5.5.6",
+        "parentPosition": "5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876524",
+        "topicUrl": "MML/LinkedDoc/udg_n_apn_drop_final_packet.html",
+        "name": "指定APN配额耗尽末包动作",
+        "parentTopicId": "CONCEPT_0000202103116414",
+        "position": "5.5.6.11",
+        "parentPosition": "5.5.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201293973679",
+        "topicUrl": "MML/Document/lst_apndropfinalpkt.html",
+        "name": "显示指定APN配额耗尽末包动作（LST APNDROPFINALPKT）",
+        "parentTopicId": "CONCEPT_0000202102876524",
+        "position": "5.5.6.11.2",
+        "parentPosition": "5.5.6.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

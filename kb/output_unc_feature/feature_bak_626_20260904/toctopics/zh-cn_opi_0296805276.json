@@ -1,0 +1,105 @@
+{
+  "feature_name": "NRF解决方案基本功能配置实例（NF注册/更新/去注册、NF订阅/通知）",
+  "feature_description": "NRF支持NF的自动注册、更新、去注册、NF订阅/通知。本章节介绍AMF如何通过配置实现到NRF的自动注册、更新、去注册、NF订阅/通知。\n\n**说明** \n\n本章节只是举例重点介绍NF和NRF对接部署逻辑，具体各NF侧的详细配置详见各产品的“初始配置与调测”。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVE38493D5E5D04CF5B8C84462D873F375",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229279861",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NRF解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "NRF解决方案##网络自治##NRF",
+          "pid_shortdesc": "介绍5G core端到端网络自治解决方案的详细原理，具体部署及网络自治问题处理。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303319",
+        "topicUrl": "toctopics/zh-cn_topic_0166303319.html",
+        "name": "NRF功能部署",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303337",
+        "topicUrl": "toctopics/zh-cn_topic_0166303337.html",
+        "name": "4/5G融合部署",
+        "parentTopicId": "TOPIC_0166303319",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0296805277",
+        "topicUrl": "toctopics/zh-cn_topic_0296805277.html",
+        "name": "NRF单层非容灾组网",
+        "parentTopicId": "TOPIC_0166303337",
+        "position": "3.2.3",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "OPI_0296805276",
+        "topicUrl": "toctopics/zh-cn_opi_0296805276.html",
+        "name": "NRF解决方案基本功能配置实例（NF注册/更新/去注册、NF订阅/通知）",
+        "parentTopicId": "TOPIC_0296805277",
+        "position": "3.2.3.1",
+        "parentPosition": "3.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

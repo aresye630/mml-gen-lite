@@ -1,0 +1,150 @@
+{
+  "command_name": "LST APPLYCOST",
+  "command_name_zh": "查询路由开销值设置",
+  "command_name_full": "查询路由开销值设置（LST APPLYCOST）",
+  "command_function": "该命令用于查询设置路由开销值的配置结果。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414752",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.3",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414880",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "TOPIC_0000002385414752",
+        "position": "1.20.3.10",
+        "parentPosition": "1.20.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419054273",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_route_policy_management.html",
+        "name": "路由策略管理",
+        "parentTopicId": "TOPIC_0000002385414880",
+        "position": "1.20.3.10.6",
+        "parentPosition": "1.20.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419174129",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_applying_cost_to_routes_matching_route_policy.html",
+        "name": "应用Cost",
+        "parentTopicId": "TOPIC_0000002419054273",
+        "position": "1.20.3.10.6.15",
+        "parentPosition": "1.20.3.10.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001550281586",
+        "topicUrl": "MML/Document/lst_applycost.html",
+        "name": "查询路由开销值设置（LST APPLYCOST）",
+        "parentTopicId": "TOPIC_0000002419174129",
+        "position": "1.20.3.10.6.15.4",
+        "parentPosition": "1.20.3.10.6.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

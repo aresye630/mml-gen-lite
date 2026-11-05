@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活SBI IMR信令上报",
+  "feature_description": "本操作指导介绍在运行网络中激活SBI IMR信令上报过程。\n\nSBI IMR信令上报是指网元支持将SBI接口解密后的原始信令使用IMR（initial message record）机制发送给单据服务器（如CloudUDN），单据服务器将原始信令通过xDR流北向接口发送给服务探针/SEQ系统/第三方服务器等。\n\n- 当已实例化的UNC不带vProbe服务时，需要上线vProbe，具体流程参见《UNC软件安装》手册 > 安装vProbe服务。\n- 完成UNC上IP路由数据的配置，具体流程参见《UNC初始配置与调测》手册>配置VNF侧IP路由数据。\n- 安装SBI信令软采扩展包，具体流程参见《支持SBI信令软采扩展包安装指导书》手册 > 安装SBI信令软采扩展包。\n- (可选)安装部署IPSec，建议部署IPSec保证传输通道安全、数据安全。\n- 配置vProbe与单据服务器对接数据。\n\n**图1** 操作过程",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000002123388834",
+        "topicUrl": "toctopics/zh-cn_topic_0000002123388834.html",
+        "name": "软探针数据采集功能",
+        "parentTopicId": "",
+        "position": "36",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001162953074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001162953074.html",
+        "name": "WSFD-220002 SBI IMR信令上报",
+        "parentTopicId": "TOPIC_0000002123388834",
+        "position": "36.2",
+        "parentPosition": "36",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000002131537766",
+        "topicUrl": "toctopics/zh-cn_opi_0000002131537766.html",
+        "name": "激活SBI IMR信令上报",
+        "parentTopicId": "TOPIC_0000001162953074",
+        "position": "36.2.2",
+        "parentPosition": "36.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

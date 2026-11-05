@@ -1,0 +1,110 @@
+{
+  "feature_name": "配置互访流量的重定向功能",
+  "feature_description": "重定向功能可以防止上行报文可能存在的报文攻击问题。通过重定向功能的设置保证了在同一UDG内部同一VPN的UE用户之间报文转发的安全。\n\n**说明** \n\n- 适用于PGW-U、UPF。\n- 本文中的重定向设备以Firewall为例。\n- PGW-U/UPF内置NAT功能时，不支持UE互访。\n\nUDG报文重定向示意图如图1和图2所示。\n\n**图1** UDG报文重定向示意图（DC-GW上基于独立VPN实现重定向）\n\n如图1，采用DC-GW上基于独立VPN实现重定向的方案时，组网要求如下：\n\n- DCGW上接收UPF上行报文的接口（接口2）和向UPF发送下行报文的接口（接口5）分开，且两个接口绑定的VPN实例不同。\n- DC-GW上接口2发布缺省路由给PGW-U/UPF，不接收PGW-U/UPF发布的UE路由。\n\n  接口3绑定的VPN实例与接口2相同，接口3接收PE侧路由，但不能把UE路由发布给PE侧。\n- DC-GW上接口5需要接收PGW-U/UPF发布的UE路由，不能向PGW-U/UPF发布缺省路由。\n\n  接口4绑定的VPN实例与接口5相同，接口4发布UE路由给PE，但不接收PE侧路由。\n- UDG上指定VPN的用户的所有上行报文均发送到重定向设备，由重定向设备安全过滤后基于目的IP转发报文。\n- UDG上发送上行报文的接口（子接口1）和接收下行报文的接口（子接口6）分开，但两个子接口绑定的VPN实例相同。\n\n  子接口1和子接口6的VLAN不复用，IP地址段不复用。UDG子接口1不对外发布UE路由（不需要引入wlr路由）。\n\n**图2** UDG报文重定向示意图（DC-GW上基于ACL+重定向IP实现重定向）\n\n如图2，采用DC-GW上基于ACL+重定向IP实现重定向方案时，组网要求如下：\n\n- DC-GW上需完成ACL及重定向IP等策略路由的相关配置。\n- UDG发送上行报文（重定向报文和普通N6/SGi报文）和接收用户下行报文的子接口复用（单子接口），VLAN复用，VPN复用，IP地址段复用。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVC3FF3F5E20874B47B52929C1F1C33140",
+        "parentNaviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "pidId": "pid_bookmap_0000002187138142",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG安全配置",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8003",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8003"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001144684195",
+        "topicUrl": "toctopics/zh-cn_topic_0000001144684195.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091631538",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091631538.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001144684195",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091791208",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091791208.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001091631538",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "OPI_0000001098060068",
+        "topicUrl": "secu_conf/udg_2020_secu_conf_010.html",
+        "name": "配置互访流量的重定向功能",
+        "parentTopicId": "TOPIC_0000001091791208",
+        "position": "2.2.5.1",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

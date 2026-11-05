@@ -1,0 +1,81 @@
+{
+  "feature_name": "配置本地PCC功能",
+  "feature_description": "当网络中无PCRF/PCF，若通过特定APN激活的用户需要激活为PCC用户，则需要配置本地PCC功能。\n\n对于本地PCC功能（本地规则），UPF/SMF上需定义相同的规则组标识（即**ADD USERPROFILE**命令中的“用户模板名称（USERPROFILENAME）”参数值），UPF上定义该规则对应的业务流特征及业务的精细化管理动作。用户注册过程中，由SMF下发规则组标识，SMF通过规则组标识的方式激活UPF本地静态配置的规则来实现计费和策略的控制。SMF不支持实时更新规则。\n\n**说明** \n\n适用于PGW-U、UPF。\n\n配置本地PCC时，UEG上需要配置rule和UserProfile，本页面不关注具体规则内容配置，具体规则内容需要根据具体业务策略确定。",
+  "full_nav": [
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001099620148",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001099620148.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146986615_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146986615.html",
+        "name": "PCC规则",
+        "parentTopicId": "TOPIC_0000001099620148",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0000001111158618_2",
+        "topicUrl": "kite_s_vm/Service_Cnf/cdgw/ic/cn_81_110206_11_02_mec.html",
+        "name": "配置本地PCC功能",
+        "parentTopicId": "TOPIC_0000001146986615_3",
+        "position": "5.1.1",
+        "parentPosition": "5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

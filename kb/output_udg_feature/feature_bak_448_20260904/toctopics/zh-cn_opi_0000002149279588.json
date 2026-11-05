@@ -1,0 +1,81 @@
+{
+  "feature_name": "用户签约一跳入家业务",
+  "feature_description": "该任务旨在指导操作人员给用户配置一跳入家网关签约数据。\n\n完成了一跳入家基础的业务部署与调测，网络就具备了为家庭用户开通一跳入家的能力。当家庭用户有开通业务诉求时，可以通过如下方式完成数据签约和业务开通。\n\n- 家庭成员和家庭网关在运营商BOSS系统进行签约。签约完成后BOSS系统通过运维接口下发签约信息到UDM上 。\n- 如果BOSS系统和UDM之间的运维接口尚未支持，请参考本章节在UDM上人工配置签约数据。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV7677237BD2914195B5B78B8034579F54",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222379409",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 智家随行解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002309353497",
+        "topicUrl": "toctopics/zh-cn_topic_0000002309353497.html",
+        "name": "一跳入家解决方案（基于非3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001866583250",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866583250.html",
+        "name": "一跳入家业务开通",
+        "parentTopicId": "TOPIC_0000002309353497",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "OPI_0000002149279588",
+        "topicUrl": "toctopics/zh-cn_opi_0000002149279588.html",
+        "name": "用户签约一跳入家业务",
+        "parentTopicId": "TOPIC_0000001866583250",
+        "position": "2.5.1",
+        "parentPosition": "2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

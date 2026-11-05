@@ -1,0 +1,138 @@
+{
+  "command_name": "SET DDNSUPPRESSION",
+  "command_name_zh": "设置DDN抑制功能",
+  "command_name_full": "设置DDN抑制功能（SET DDNSUPPRESSION）",
+  "command_function": "**适用NF：SGW-C**\n\n该命令用于设置DDN抑制功能相关参数。DDN抑制功能是指“MONITORTIMER(监控时长)”内某用户的DDN流程失败，且收到MME返回Downlink Data Notification Failure Indication消息携带失败原因值“UE not responding”或者“Unable to page UE”，失败的次数达到“MONITORTIMES(DDN失败次数)”，该用户在接下来的“SUPPTIMER(抑制时长)”内，将对DDN流程进行抑制，收到UPF的DDN请求后直接回复失败，不再向MME发送DDN消息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001227622729",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management000.html",
+        "name": "接入管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319777",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management_maintenance.html",
+        "name": "接入管理运维",
+        "parentTopicId": "TOPIC_0000001227622729",
+        "position": "2.7.1.9",
+        "parentPosition": "2.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001239862439",
+        "topicUrl": "MML/LinkedDoc/unc_n_ddn_suppression_management.html",
+        "name": "DDN抑制管理",
+        "parentTopicId": "TOPIC_0234319777",
+        "position": "2.7.1.9.21",
+        "parentPosition": "2.7.1.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001192686816",
+        "topicUrl": "MML/Document/set_ddnsuppression.html",
+        "name": "设置DDN抑制功能（SET DDNSUPPRESSION）",
+        "parentTopicId": "TOPIC_0000001239862439",
+        "position": "2.7.1.9.21.1",
+        "parentPosition": "2.7.1.9.21",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

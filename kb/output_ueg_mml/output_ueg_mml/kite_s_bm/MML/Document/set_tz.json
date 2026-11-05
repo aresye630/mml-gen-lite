@@ -1,0 +1,107 @@
+{
+  "command_name": "SET TZ",
+  "command_name_zh": "设置时区和夏令时信息",
+  "command_name_full": "设置时区和夏令时信息（SET TZ）",
+  "command_function": "本命令用于设置时区和夏令时信息。\n\n**须知** \n\n执行命令后，时区和夏令时将发生修改，将会影响系统时间，从而影响话务系统、告警、日志等数据记录中时间的准确性，请确认后进行修改。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876254_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.9",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915541_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_time_zone_management.html",
+        "name": "时区夏令时管理",
+        "parentTopicId": "CONCEPT_0000202102876254_2",
+        "position": "3.2.9.3",
+        "parentPosition": "3.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001231035120_2",
+        "topicUrl": "kite_s_bm/MML/Document/set_tz.html",
+        "name": "设置时区和夏令时信息（SET TZ）",
+        "parentTopicId": "CONCEPT_0000202288915541_2",
+        "position": "3.2.9.3.1",
+        "parentPosition": "3.2.9.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD FQDNINFO",
+  "command_name_zh": "添加FQDN信息",
+  "command_name_full": "添加FQDN信息(ADD FQDNINFO)",
+  "command_function": "该命令用于增加本地静态配置域名和IP的对应关系。\n\n使用场景：\n\n- UPCF收到AMF/SMF/NEF网元发送的Create请求消息时，支持将该消息中notificationUri中的host格式由FQDN转换成IP，使得UPCF可以获取AMF/SMF/NEF网元的IP地址。\n- UPCF收到NRF网元发送的Nnrf\\_NFManagement\\_NFRegister、Nnrf\\_NFManagement\\_NFUpdate、Nnrf\\_NFManagement\\_NFStatusSubscribe、Nnrf\\_NFManagement\\_Get响应消息时，支持将消息中location头域URI中的host格式由FQDN转换成IP。\n- UPCF主动向NRF网元发送的Nnrf\\_NFManagement\\_NFStatusSubscribe请求消息时，支持根据**SET SBIURICFG**配置，将消息中携带的nfStatusNotificationUri信元格式由IP转换成FQDN。\n- UPCF主动向AMF/SMF网元发送Npcf\\_SMPolicyControl\\_UpdateNotify、Npcf\\_AMPolicyControl\\_UpdateNotify的请求消息时，支持根据**SET SBIURICFG**配置，将消息中携带的resourceUri信元格式由IP转换成FQDN。\n- UPCF向AMF网元发送Npcf\\_AMPolicyControl\\_Update的响应消息时，支持根据**SET SBIURICFG**配置，将消息中携带的resourceUri信元格式由IP转换成FQDN。\n- UPCF向AMF/SMF网元发送Npcf\\_AMPolicyControl\\_Create、Npcf\\_SMPolicyControl\\_Create的Create类型响应消息时，支持根据**SET SBIURICFG**配置，将消息中携带的location头域URI中的host格式由IP转换成FQDN。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167444231",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_hlb_management.html",
+        "name": "HLB管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.5",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0239691678",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_fqdn_mation_configuration_management.html",
+        "name": "FQDN信息配置管理",
+        "parentTopicId": "CONCEPT_0167444231",
+        "position": "2.2.3.5.5.11",
+        "parentPosition": "2.2.3.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0284315028_2",
+        "topicUrl": "MML/Document/add_fqdninfo.html",
+        "name": "添加FQDN信息(ADD FQDNINFO)",
+        "parentTopicId": "CONCEPT_0239691678",
+        "position": "2.2.3.5.5.11.1",
+        "parentPosition": "2.2.3.5.5.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

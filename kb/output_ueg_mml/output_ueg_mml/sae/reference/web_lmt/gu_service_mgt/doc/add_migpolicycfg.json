@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD MIGPOLICYCFG",
+  "command_name_zh": "增加割接策略模板",
+  "command_name_full": "增加割接策略模板(ADD MIGPOLICYCFG)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会使签约该策略ID的用户的消息被转发到错误的HSS或HLR，导致业务呼损，因此执行该命令前，请仔细检查配置的正确性，确认无误方可执行。如有疑问请与华为技术支持联系，制定操作的实施方案、测试方案和应急措施后才可以实施。\n\n该命令用于在UDM中增加一条割接策略模板数据记录。使用该命令，只能在模板中增加一条模板记录且模板中只能签约一种路由记录，如果一个模板需要配置多个路由记录，则首先使用该命令定义一个割接策略模板，然后使用**MOD MIGPOLICYCFG**命令增加多个路由记录。割接策略模板定义“路由类型”、“是否转发MAP消息”、“是否发送ATI”、“是否转发EPS DIAMETER消息”和“是否转发IMS DIAMETER消息”。\n\n- 当用户MAP消息中携带IMSI用户标识，UDM根据“路由类型”为“IMSI\\_TYPE”查询割接策略模板中“是否转发MAP”配置确定是否对用户消息进行转发。\n- 当用户MAP消息中携带MSISDN用户标识，UDM根据“路由类型”为 “MSISDN\\_TYPE”查询割接策略模板中“是否转发MAP”配置确定是否对用户MAP消息进行转发。\n- 当用户MAP消息中携带MSISDN用户标识，UDM根据“路由类型”为 “ATI\\_TYPE”查询割接策略模板中“是否发送ATI”配置确定是否发送用户ATI消息到待割接的HLR。\n- 当用户EPS Diameter消息中携带IMSI或MSISDN用户标识，UDM根据“路由类型”为 “EPS\\_TYPE”查询割接策略模板中“是否转发EPS DIAMETER消息”配置确定是否转发S6a/S6d/SWx/SLh接口DIAMETER消息。\n- 当用户IMS Diameter消息中携带IMPI或IMPU用户标识\n  - UDM根据“路由类型”为 “IMS\\_TYPE”查询割接策略模板中“是否转发IMS DIAMETER消息”配置确定是否转发Cx/Sh/Zh接口DIAMETER消息。\n  - UDM根据“路由类型”为 “REPSYNC\\_TYPE”查询割接策略模板中“是否提供透明数据同步规则”配置确定是否向被割接局点自动同步透明数据。\n\n为提升现网平滑搬迁用户消息的能力，实现用户MAP消息、Diameter消息按IMSI、MSISDN、IMPI或IMPU号段分批割接。操作员通过执行**MOD MIGPOLICY**或**MOD IMSMIGPOLICY**命令为IMS用户或其他用户签约割接策略配置信息，只需签约对应的割接策略模板。UDM在割接用户MAP消息或Diameter消息时，根据消息中携带的用户标识及根据用户签约的割接策略配置对用户MAP消息或Diameter消息进行转发。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803024",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/migpolicycfg.html",
+        "name": "割接策略模板配置",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.63",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803297",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_migpolicycfg.html",
+        "name": "增加割接策略模板(ADD MIGPOLICYCFG)",
+        "parentTopicId": "CONCEPT_0190803024",
+        "position": "4.2.3.2.63.1",
+        "parentPosition": "4.2.3.2.63",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

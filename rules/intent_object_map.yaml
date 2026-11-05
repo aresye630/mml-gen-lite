@@ -1,0 +1,59 @@
+# 意图中文对象名 → 候选命令族（G7 用）
+#
+# 用途：从意图段的「新增/修改/删除 XXX」提取对象名，映射到命令族，
+#       再查产物里有没有该族。用于抓「意图提了、方案也没写」的缺口。
+#
+# 原则：
+#   · 一个中文名可映射多个候选族，产物命中**任一**即算覆盖
+#   · 映射不确定的（如"规则"可能是 ADD RULE 也可能是别的）宁可多列候选
+#   · 完全对不上的不放进本表 → 归入「需人工确认」，不硬判缺失
+#     （V1 曾因硬判导致 66 族次误报，全是 MME 的命令被当成 UPF 缺失）
+
+object_zh:
+  # ── 过滤 / 规则链 ──
+  流量过滤器: [ADD FLOWFILTER]
+  过滤器: [ADD FILTER, ADD FLOWFILTER]
+  IPv6过滤器: [ADD FILTERIPV6]
+  L7过滤器: [ADD L7FILTER]
+  流量过滤绑定: [ADD FLTBINDFLOWF, ADD PROTBINDFLOWF]
+  协议绑定流: [ADD PROTBINDFLOWF]
+  规则: [ADD RULE]
+  规则绑定: [ADD RULEBINDING]
+  主机: [ADD HOST, ADD HOSTIP]
+
+  # ── 计费 / 策略 ──
+  URR计费规则: [ADD URR]
+  URR组: [ADD URRGROUP]
+  URR组绑定: [ADD URRGRPBINDING]
+  PCC策略组: [ADD PCCPOLICYGRP]
+  用户签约模板: [ADD USERPROFILE]
+  QOSPROP: [ADD QOSPROP]
+
+  # ── 地址池 ──
+  资源池: [ADD POOL, ADD IPFARM]
+  资源池组映射: [ADD POOLGRPMAP]
+  POOL: [ADD POOL]
+  POOLGRPMAP: [ADD POOLGRPMAP]
+  区段: [ADD SECTION]
+
+  # ── 接入 / 隧道 ──
+  APN: [ADD APN, ADD NSDNN]
+  接口: [ADD INTERFACE]
+  GRETUNNEL: [ADD GRETUNNEL]
+  L3VPN实例: [ADD L3VPNINST]
+  VPN实例: [ADD VPNINST, ADD VPNINSTAF]
+  IP绑定VPN: [ADD IPBINDVPN]
+  ECHOIPLIST: [ADD ECHOIPLIST]
+  PNF DNN: [ADD PNFDNN]
+
+  # ── 系统 / 开关 ──
+  刷新服务器: [SET REFRESHSRV]
+  License开关: [SET LICENSESWITCH]
+  软件参数: [SET SOFTPARAOFBIT, SET DBPARAS]
+  UP GTP路径: [SET UPGTPPATH]
+  UP节点: [ADD UPNODE]
+  逻辑基站: [ADD LOGICINF]
+  N2TACID: [ADD N2TACID, ADD TAIRANGELIST]
+  S1TACID: [ADD S1TACID]
+  IPALLOCBYSMFSW: [SET IPALLOCBYSMFSW]
+  CPNODEID: [ADD CPNODEID]

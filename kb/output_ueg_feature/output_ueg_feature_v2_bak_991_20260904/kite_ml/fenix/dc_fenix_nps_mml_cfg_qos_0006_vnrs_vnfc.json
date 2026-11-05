@@ -1,0 +1,152 @@
+{
+  "feature_name": "去激活QoS复杂流分类功能（VNRS_VNFC）",
+  "feature_description": "本操作指导介绍如何在运行网络中去激活QoS复杂流分类功能特性。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324360342",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324360342.html",
+        "name": "UEG公共特性指南",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001229602229",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001229602229.html",
+        "name": "IP基本特性",
+        "parentTopicId": "TOPIC_0000001324360342",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001229682275",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001229682275.html",
+        "name": "IPFD-020400 IP可靠性",
+        "parentTopicId": "TOPIC_0000001229602229",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251058189_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251058189.html",
+        "name": "IPFD-020401 QoS",
+        "parentTopicId": "TOPIC_0000001229682275",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0251173739_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0251173739.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251058189_2",
+        "position": "2.2.3.1.3",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0213119478_2",
+        "topicUrl": "kite_ml/fenix/dc_fenix_nps_mml_cfg_qos_0008_vnrs_vnfc.html",
+        "name": "复杂流分类配置（VNRS_VNFC）",
+        "parentTopicId": "TOPIC_0251173739_2",
+        "position": "2.2.3.1.3.2",
+        "parentPosition": "2.2.3.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0213119481_2",
+        "topicUrl": "kite_ml/fenix/dc_fenix_nps_mml_cfg_qos_0006_vnrs_vnfc.html",
+        "name": "去激活QoS复杂流分类功能（VNRS_VNFC）",
+        "parentTopicId": "OPI_0213119478_2",
+        "position": "2.2.3.1.3.2.3",
+        "parentPosition": "2.2.3.1.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "feature_name": "安装vTCP_OPT服务",
+  "feature_description": "vTCP\\_OPT特性是通过采用TCP透明代理、提高慢启动阶段初始拥塞窗口、快速重传与快速恢复、TCP发送端算法优化来提升TCP协议的传输效率。UDG通过集成vTCP\\_OPT，可提供TCP协议传输效率的提升。\n\n仅当UDG网元需要部署vTCP\\_OPT功能，才需要安装vTCP\\_OPT服务。\n\n安装vTCP\\_OPT服务场景：\n\n- **场景一（静态上线）**：vTCP\\_OPT服务和UDG网元**同时实例化**。实例化UDG前填写如下VNFD参数。\n  - 配置VM：基于X86虚拟机（PBU\\_B1\\_Num，PBU\\_E-T\\_Num，PBU\\_E-T Redundancy Num）。基于ARM虚拟机(PBU\\_B1\\_ARM\\_Num，PBU\\_E-T\\_ARM\\_Num或PBU\\_E-T\\_C56\\_ARM\\_Num或PBU\\_E-T\\_C56\\_M\\_ARM\\_Num，PBU\\_E-T\\_ARM Redundancy Num或PBU\\_E-T\\_C56\\_ARM Redundancy Num或PBU\\_E-T\\_C56\\_M\\_ARM Redundancy Num)。\n  - 配置Pod：“TO\\_Instance\\_Num”，“TOC56\\_Instance\\_Num”，“TOC56M\\_Instance\\_Num”，“TO\\_ARM\\_Instance\\_Num”，“TOCTRL\\_Instance\\_Num”。\n- **场景二****（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线vTCP\\_OPT服务。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV0AFD9FCF2A9B487B871C707019F1CD67",
+        "parentNaviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "pidId": "pid_bookmap_0000002222378745",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "基于VNF LCM安装UDG（非SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7999",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7999"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "TOPIC_0222251328",
+        "topicUrl": "common/software-fs/1_5_0_Install_optional_service.html",
+        "name": "安装可选服务",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "OPI_0000001170057943",
+        "topicUrl": "toctopics/zh-cn_opi_0000001170057943.html",
+        "name": "安装vTCP_OPT服务",
+        "parentTopicId": "TOPIC_0222251328",
+        "position": "7.4",
+        "parentPosition": "7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活基于原因值的UE行为调整（SMF）",
+  "feature_description": "当用户接入5G网络，当系统内部以及周边网元异常导致流程失败时，SMF可以控制给终端下发的NAS原因值以调整终端的行为，辅助运营商实现对现网设备兼容性控制的需求。\n\n**说明** \n\n给UE下发的原因值变化可能会导致相应拒绝类话统指标的变化，并对终端行为产生影响，在部署前需要评估影响。关于不同原因值的含义及对终端行为的影响请参见协议3GPP TS 24.501。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450902",
+        "topicUrl": "toctopics/zh-cn_topic_0248450902.html",
+        "name": "基本接入功能",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0282813196",
+        "topicUrl": "toctopics/zh-cn_topic_0282813196.html",
+        "name": "WSFD-011301 基于原因值的UE行为调整",
+        "parentTopicId": "TOPIC_0248450902",
+        "position": "5.12",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0297654146",
+        "topicUrl": "toctopics/zh-cn_topic_0297654146.html",
+        "name": "WSFD-011301 基于原因值的UE行为调整（适用于SMF）",
+        "parentTopicId": "TOPIC_0282813196",
+        "position": "5.12.3",
+        "parentPosition": "5.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0282813201",
+        "topicUrl": "toctopics/zh-cn_opi_0282813201.html",
+        "name": "激活基于原因值的UE行为调整（SMF）",
+        "parentTopicId": "TOPIC_0297654146",
+        "position": "5.12.3.2",
+        "parentPosition": "5.12.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

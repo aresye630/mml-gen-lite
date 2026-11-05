@@ -1,0 +1,46 @@
+{
+  "active_wal_number": 3,
+  "current_seq": 26984,
+  "index_specs": {
+    "command_function_dense": {
+      "build_params": {},
+      "field_name": "command_function_dense",
+      "index_type": "HNSW",
+      "metric_type": "COSINE",
+      "search_params": {}
+    },
+    "command_function_sparse": {
+      "build_params": {},
+      "field_name": "command_function_sparse",
+      "index_type": "SPARSE_INVERTED_INDEX",
+      "metric_type": "BM25",
+      "search_params": {}
+    },
+    "command_name_full_dense": {
+      "build_params": {},
+      "field_name": "command_name_full_dense",
+      "index_type": "HNSW",
+      "metric_type": "COSINE",
+      "search_params": {}
+    },
+    "command_name_full_sparse": {
+      "build_params": {},
+      "field_name": "command_name_full_sparse",
+      "index_type": "SPARSE_INVERTED_INDEX",
+      "metric_type": "BM25",
+      "search_params": {}
+    }
+  },
+  "manifest_format_version": 2,
+  "partitions": {
+    "_default": {
+      "data_files": [
+        "data/data_000001_022238.parquet",
+        "data/data_022239_026984.parquet"
+      ],
+      "delta_files": []
+    }
+  },
+  "schema_version": 1,
+  "version": 6
+}

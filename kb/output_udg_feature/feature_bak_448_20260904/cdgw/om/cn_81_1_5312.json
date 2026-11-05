@@ -1,0 +1,91 @@
+{
+  "feature_name": "配置GTP/PFCP路径管理参数",
+  "feature_description": "当运营商在部署分组交换网，新增UDG时，需配置GTP/PFCP路径管理参数。通过GTP/PFCP路径管理，UDG可以进行到对端网元的路径管理，并控制路径中断后对已激活上下文的处理方式。\n\n**说明** \n\n- 非N4/Sxb接口的GTP路径管理应用以下对接网元之间。\n  - eNodeB与SGW-U之间。\n  - SGW-U与PGW-U之间。\n  - eNodeB/GnGp-SGSN和PGW-U之间。\n  - UPF和UPF之间。\n  - R(AN)和UPF之间。\n- N4/Sxb接口的GTP路径管理应用以下对接网元之间。\n  - PGW-C和PGW-U之间。\n  - SMF和UPF之间。\n- PFCP路径管理应用以下对接网元之间。\n  - SGW-C和SGW-U之间。\n  - PGW-C和PGW-U之间。\n  - SMF和UPF之间。\n- 路径管理在UDG和对端网元间是双向的，如果一方开启了本功能，为节省网络带宽资源，可以关闭另外一端的Echo消息开关。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317409",
+        "topicUrl": "toctopics/zh-cn_topic_0239317409.html",
+        "name": "基本接入功能",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0124082053",
+        "topicUrl": "cdgw/desc/cn_81_0_010102_01.html",
+        "name": "GWFD-010102 路径管理",
+        "parentTopicId": "TOPIC_0239317409",
+        "position": "4.4",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0124082055",
+        "topicUrl": "cdgw/om/cn_81_1_5312.html",
+        "name": "配置GTP/PFCP路径管理参数",
+        "parentTopicId": "CONCEPT_0124082053",
+        "position": "4.4.2",
+        "parentPosition": "4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

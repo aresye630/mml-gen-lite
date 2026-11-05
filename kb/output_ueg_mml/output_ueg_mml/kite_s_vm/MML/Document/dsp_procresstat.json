@@ -1,0 +1,107 @@
+{
+  "command_name": "DSP PROCRESSTAT",
+  "command_name_zh": "查询进程资源信息",
+  "command_name_full": "查询进程资源信息（DSP PROCRESSTAT）",
+  "command_function": "该命令用于查询进程的资源信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876254_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.9",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289154925_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_process_management.html",
+        "name": "进程管理",
+        "parentTopicId": "CONCEPT_0000202102876254_1",
+        "position": "1.2.9.9",
+        "parentPosition": "1.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001308146288_2",
+        "topicUrl": "kite_s_vm/MML/Document/dsp_procresstat.html",
+        "name": "查询进程资源信息（DSP PROCRESSTAT）",
+        "parentTopicId": "CONCEPT_0000202289154925_1",
+        "position": "1.2.9.9.2",
+        "parentPosition": "1.2.9.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

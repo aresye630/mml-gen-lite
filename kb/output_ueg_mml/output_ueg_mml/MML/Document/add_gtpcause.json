@@ -1,0 +1,167 @@
+{
+  "command_name": "ADD GTPCAUSE",
+  "command_name_zh": "增加GTP原因值",
+  "command_name_full": "增加GTP原因值(ADD GTPCAUSE)",
+  "command_function": "**适用网元：SGSN、MME**\n\n- 此命令用于增加一条记录，规定了当相应GTP版本消息携带了特定拒绝原因值，将进行P-GW/GGSN重选。\n- UNC在以下流程中根据消息中返回的Cause值及Cause值在该表1中的配置，判断是否将该P-GW/GGSN进行网元重选流程。\n\n  - E-UTRAN发起的附着流程和UE请求的PDN连接流程，收到S-GW返回的Create Session Response消息，且消息中携带远端(P-GW)带回的特定拒绝原因值。\n  - UE发起的PDP一次激活流程，收到GGSN返回的Create PDP Context Response消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.5",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.2.3.3.5.3",
+        "parentPosition": "2.2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320652",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_security_management.html",
+        "name": "业务安全管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.2.3.3.5.3.6",
+        "parentPosition": "2.2.3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320257",
+        "topicUrl": "MML/LinkedDoc/unc_n_gateway_reselection_management.html",
+        "name": "网关重选管理",
+        "parentTopicId": "TOPIC_0234320652",
+        "position": "2.2.3.3.5.3.6.11",
+        "parentPosition": "2.2.3.3.5.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234319744",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_cause_management.html",
+        "name": "GTP原因值管理",
+        "parentTopicId": "TOPIC_0234320257",
+        "position": "2.2.3.3.5.3.6.11.1",
+        "parentPosition": "2.2.3.3.5.3.6.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001172225465",
+        "topicUrl": "MML/Document/add_gtpcause.html",
+        "name": "增加GTP原因值(ADD GTPCAUSE)",
+        "parentTopicId": "TOPIC_0234319744",
+        "position": "2.2.3.3.5.3.6.11.1.1",
+        "parentPosition": "2.2.3.3.5.3.6.11.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD IMSIGT",
+  "command_name_zh": "增加IMSI-GT对应关系",
+  "command_name_full": "增加IMSI-GT对应关系(ADD IMSIGT)",
+  "command_function": "**适用网元：SGSN、SMSF**\n\n- 本命令用于增加IMSI前缀与国家代码\\_网络接入号的对应关系。本网的IMSI以及允许漫游到本网的IMSI都需要增加对应的记录。\n- 根据IMSI寻址HLR时，系统需要查询本表，分为以下两种情况:\n\n  1.将IMSI号转换成E.214编码的GT码，条件是在本命令中配置的IMSI前缀与国家代码\\_网络接入号不同，转换原则是将IMSI中与IMSI前缀相等的部分，转换成国家代码\\_网络接入号，IMSI的剩余部分不变。一般情况下都采用E.214。\n\n  2.将IMSI号转换成E.212编码的GT码，条件是在本命令中配置的IMSI前缀与国家代码\\_网络接入号相同，转换原则是将IMSI中与IMSI前缀相等的部分，转换成国家代码\\_网络接入号(实际两者是相同的)，IMSI的剩余部分不变。此时**ADD SCCPGT**中对应GT的编号计划必须为“陆地移动编号计划”。\n- 相关命令：**ADD SCCPGT**--增加SCCP全局翻译码。该命令的作用是将经过**ADD IMSIGT**命令翻译后的GT码再翻译成由DPC、SSN、GT或NEWGT等不同组合而组成的新地址。经过IMSIGT和SCCPGT的两次翻译，最终得到不同寻址方式下的目的地址。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320394",
+        "topicUrl": "MML/LinkedDoc/unc_n_map_application_protocol.html",
+        "name": "MAP应用协议",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.4",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320766",
+        "topicUrl": "MML/LinkedDoc/unc_n_imsi_gt_conversion_info.html",
+        "name": "IMSI GT转换信息",
+        "parentTopicId": "TOPIC_0234320394",
+        "position": "2.5.3.4.1",
+        "parentPosition": "2.5.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345061",
+        "topicUrl": "MML/Document/add_imsigt.html",
+        "name": "增加IMSI-GT对应关系(ADD IMSIGT)",
+        "parentTopicId": "TOPIC_0234320766",
+        "position": "2.5.3.4.1.1",
+        "parentPosition": "2.5.3.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

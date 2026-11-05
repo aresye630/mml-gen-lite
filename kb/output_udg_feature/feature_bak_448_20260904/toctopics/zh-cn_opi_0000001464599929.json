@@ -1,0 +1,110 @@
+{
+  "feature_name": "配置APN上下行防欺诈",
+  "feature_description": "为避免用户通过UDG非法访问数据业务，UDG会对指定APN接入的上下行报文进行检查，如果报文中携带的用户IP不是在UDG上合法的IP地址，则判断用户存在欺诈行为，丢弃用户报文。\n\n**说明** \n\n- 适用于PGW-U、UPF。\n- 本功能不适用于GWFD-110910 支持Routing Behind MS特性。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVC3FF3F5E20874B47B52929C1F1C33140",
+        "parentNaviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "pidId": "pid_bookmap_0000002187138142",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG安全配置",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8003",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8003"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001144684195",
+        "topicUrl": "toctopics/zh-cn_topic_0000001144684195.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091951132",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091951132.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001144684195",
+        "position": "2.1",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001138850523",
+        "topicUrl": "toctopics/zh-cn_topic_0000001138850523.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001091951132",
+        "position": "2.1.5",
+        "parentPosition": "2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "OPI_0000001464599929",
+        "topicUrl": "toctopics/zh-cn_opi_0000001464599929.html",
+        "name": "配置APN上下行防欺诈",
+        "parentTopicId": "TOPIC_0000001138850523",
+        "position": "2.1.5.1",
+        "parentPosition": "2.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

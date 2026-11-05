@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD TPLSUB",
+  "command_name_zh": "模板开户",
+  "command_name_full": "模板开户(ADD TPLSUB)",
+  "command_function": "该命令用于对一个或多个用户采用开户模板进行开户。为具有同样业务类型的用户业务发放时使用。\n\n本命令中“模板类型”参数取值不同，定义开户模板的命令不同。\n\n- 当本命令中的“模板类型”为“NORMAL”时，使用**ADD SUBTPL**定义开户模板，其中定义了用户需要使用的CS、PS、EPS或5G业务。\n- 当本命令中的“模板类型”为“EPS\\_SEPARATE”时，\n  - 使用**ADD SUBTPL**定义CSPS用户开户模板，其中定义了用户需要使用的CS、PS业务。\n  - 使用**ADD EPSUSERTPL**定义EPS用户模板，其中定义了用户需要使用的EPS业务。\n  - 使用**ADD NGSUSERTPL**定义5G用户模板，其中定义了用户需要使用的5G业务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803543",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/definition.html",
+        "name": "开户",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.1",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165884380",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_tplsub.html",
+        "name": "模板开户(ADD TPLSUB)",
+        "parentTopicId": "CONCEPT_0190803543",
+        "position": "4.2.3.5.1.2",
+        "parentPosition": "4.2.3.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

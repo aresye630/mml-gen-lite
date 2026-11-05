@@ -1,0 +1,131 @@
+{
+  "command_name": "ACT BOIC",
+  "command_name_zh": "激活BOIC业务",
+  "command_name_full": "激活BOIC业务(ACT BOIC)",
+  "command_function": "此操作用来激活BOIC业务。激活BOIC业务前，该用户必须已经开户，并且签约BOIC业务，否则系统会提示找不到该用户或用户未签约该业务。\n\n如果UDM支持签约管理优化（执行**SET MAPCONF**命令将“用户被锁后是否允许操作相关补充业务”设置为“TRUE”），即使用户停机，包括运营商锁（LCK）和用户锁（SABLCK），用户的业务签约变更仍可继续进行。\n\n执行此命令后，系统将向VLR下发插入用户数据消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802801",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplimentary_service_management.html",
+        "name": "补充业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.9",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803727",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplementary_call_barring.html",
+        "name": "呼叫闭锁类补充业务",
+        "parentTopicId": "MMLREF_0190802801",
+        "position": "4.2.3.9.2",
+        "parentPosition": "4.2.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803117",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/boic_service.html",
+        "name": "闭锁所有国际呼出业务",
+        "parentTopicId": "MMLREF_0190803727",
+        "position": "4.2.3.9.2.2",
+        "parentPosition": "4.2.3.9.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803730",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/act_boic.html",
+        "name": "激活BOIC业务(ACT BOIC)",
+        "parentTopicId": "MMLREF_0190803117",
+        "position": "4.2.3.9.2.2.2",
+        "parentPosition": "4.2.3.9.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD DIAMPOL",
+  "command_name_zh": "新增Diameter手工流控策略",
+  "command_name_full": "新增Diameter手工流控策略(ADD DIAMPOL)",
+  "command_function": "**须知** \n\n该命令属于高危命令，Diameter手工流控策略参数配置不合理，将导致业务呼损严重。因此执行该命令前，需要与华为技术支持认真核对Diameter各类接口允许通过的最大消息数量，并详细阅读本命令的联机帮助和注意事项，确保Diameter手工流控策略修改配置完全正确。如运营商无法确定具体的Diameter接口消息数量或有其他疑问，请与华为技术支持联系制定操作的实施方案、测试方案和回退方案后才可以实施。\n\n该命令为配置类命令，用于在配置数据库中增加一条Diameter手工流控策略。当UDM网元中的话务量超过系统允许的最大容量，会对系统稳定运行产生重大影响时，使用此命令增加流控策略控制，对系统当前的大话务量进行流控，从而保障系统稳定运行。\n\n系统支持对CCU模块、HSF模块或ACF模块配置Diameter手工流控策略，两种手工流控的应用场景如下：\n\n- CCU/ACF模块的手工流控受限于单个模块上允许的最大消息数量，未考虑链路能力。适用于链路能力充足，而业务层能力不足场景。\n- HSF模块的手工流控受限于Diameter链路条数和每条链路上消息数量，需要提前估算链路能力。适用于链路能力不足场景。\n\n不区分对端、或相同对端的流控策略只允许配置一条，即只能在CCU、HSF或ACF其中之一上配置；不同对端的流控策略可在HSF、CCU或ACF上分别进行配置，该场景下先达到哪个模块的流控阈值，则哪个模块进行流控。\n\n增加流控策略时，对于HSF模块的Diameter各接口配置的允许最大通过消息数量，可根据局点组网，按照以下方法进行估算，估算时请优先分析UAR、LIR、ULR消息是否异常。\n\n- UDM和对端网元直联组网。直联场景下以UDM作为IMS-HSS使用说明，组网图如图1所示。\n\n  **图1** UDM与对端网元直联组网\n\n  1. 登录性能管理系统，查看以下测量单元基于链路的消息统计。查看那条链路的消息量骤增，确认异常的链路。请优先分析“352323316 用户注册状态查询请求消息总数”、“352323356 被叫用户位置查询消息总数”。\n     - 基于链路的用户注册状态查询消息统计\n     - 基于链路的用户鉴权消息统计\n     - 基于链路的S-CSCF注册注销通知消息统计\n     - 基于链路的被叫用户位置查询消息统计\n  2. 使用**LST MODULE**查看配置的HSF模块信息。\n  3. 使用**LST DMLNK**查看各HSF模块配置的链路。\n  4. 计算所有单个HSF模块在系统运行正常时的负荷。HSF模块负荷等于该HSF配置的所有链路通过的消息数总和。\n  5. 配置按照对端主机名进行手工流控的流控策略，接口允许最大消息数配置为系统运行正常情况时负荷最大的HSF接收到的消息数。\n  6. 流控策略生效后再过一个话统周期，查看话统：\n\n     - 若各接口消息的统计结果在正常情况下的消息总量范围内，无需再调整接口允许最大消息数。\n     - 若各接口消息的统计结果较正常情况下的消息总量有偏差，以各消息数增减5%微调各接口允许最大消息数。\n- UDM和对端网元通过DRA转接。转接场景下以DRA主备组网进行说明，组网图如图2所示。\n\n  **图2** UDM与对端网元通过DRA转接\n\n  1. 登录性能管理系统，查看以下测量单元的消息统计。\n     - Cx接口消息统计\n     - Sh接口消息统计\n     - S6a/S6d接口消息测量\n     - SWx接口消息测量\n     - SLh接口消息测量\n     - Zh接口消息统计\n  2. 使用**LST MODULE**查看配置的HSF模块信息。\n  3. 使用**LST DMLNK**查看各HSF模块配置的链路。\n  4. 计算每条链路发送到本端网元的平均消息数。接口消息统计中的收到请求消息总数除以HSF配置的链路总数即为每条链路发送到本端网元的平均消息数。\n  5. 计算HSF模块在系统运行正常时的最大负荷。用每条链路发送到本端网元的消息数乘以HSF模块配置最多链路数即为HSF模块正常运行时的最大负荷。\n  6. **须知** \n\n     配置不区分对端主机名进行手工流控的流控策略进行流控时，可能导致正常的HSF模块业务受损明显上升。\n\n     配置不区分对端主机名进行手工流控的流控策略，接口允许最大消息数配置为系统运行正常情况下负荷最大的HSF模块处理的消息数量。\n  7. 流控策略生效后再过一个话统周期，查看话统：\n\n     - 若各接口消息的统计结果在正常情况下的消息总量范围内，无需再调整接口允许最大消息数。\n     - 若各接口消息的统计结果较正常情况下的消息总量有偏差，以各消息数增减5%微调各接口允许最大消息数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782891",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.3",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206457038267",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_diameter_flow_control_policy.html",
+        "name": "Diameter流控策略",
+        "parentTopicId": "CONCEPT_0000203481782891",
+        "position": "2.2.3.4.3.10",
+        "parentPosition": "2.2.3.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284435_2",
+        "topicUrl": "reference/mml/ueg/Document/add_diampol.html",
+        "name": "新增Diameter手工流控策略(ADD DIAMPOL)",
+        "parentTopicId": "CONCEPT_0000206457038267",
+        "position": "2.2.3.4.3.10.1",
+        "parentPosition": "2.2.3.4.3.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

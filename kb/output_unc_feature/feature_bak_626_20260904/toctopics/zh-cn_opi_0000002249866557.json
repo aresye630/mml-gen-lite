@@ -1,0 +1,109 @@
+{
+  "feature_name": "配置业务可靠性",
+  "feature_description": "传统UPF容灾时，主倒备，然后主恢复，SMF会通知备UPF去活所有IKE会话，但在异常场景下，家庭侧仍然与备UPF保持连接，或家庭侧新接入的IKE会话仍然接到备UPF上，这会导致UE侧会话和家庭侧会话不在同一个UPF上，业务不通。此时只能通过UPF定时核查去活家庭会话，业务恢复不及时。\n\n该任务旨在解决此问题，在备UPF上开启智家APN主备状态动态管理功能，确保主UPF恢复场景下，备UPF通过N4接口的信令交互感知到主UPF恢复，然后主动把当前备UPF上的IKE会话踢下线后触发IKE重新激活到主UPF上，达到业务自动及时恢复的目的。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC401B065206E4CD18AD97FA1A9D3DB86",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002337228226",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 一跳入家解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5748",
+          "release_5749",
+          "release_5729"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5748",
+            "release_5749",
+            "release_5729"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002309353497",
+        "topicUrl": "toctopics/zh-cn_topic_0000002309353497.html",
+        "name": "一跳入家解决方案（基于非3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000001912622529",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912622529.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002309353497",
+        "position": "2.4",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000001992972333",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992972333.html",
+        "name": "部署一跳入家",
+        "parentTopicId": "TOPIC_0000001912622529",
+        "position": "2.4.5",
+        "parentPosition": "2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000001912662877",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912662877.html",
+        "name": "配置一跳入家专网UPF",
+        "parentTopicId": "TOPIC_0000001992972333",
+        "position": "2.4.5.1",
+        "parentPosition": "2.4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "OPI_0000002249866557",
+        "topicUrl": "toctopics/zh-cn_opi_0000002249866557.html",
+        "name": "配置业务可靠性",
+        "parentTopicId": "TOPIC_0000001912662877",
+        "position": "2.4.5.1.6",
+        "parentPosition": "2.4.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

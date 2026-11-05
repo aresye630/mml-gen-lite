@@ -1,0 +1,254 @@
+{
+  "command_name": "RMV GLBEXTFILTER",
+  "command_name_zh": "删除全局扩展过滤器绑定配置",
+  "command_name_full": "删除全局扩展过滤器绑定配置（RMV GLBEXTFILTER）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，删除扩展过滤器会影响重定向动作的业务范围可能导致用户业务受损，请谨慎使用并联系华为支持协助操作。\n\n该命令用于删除全局扩展过滤器绑定关系。如果只删除指定扩展过滤器，按照未删除其他过滤器绑定关系执行匹配动作，如果删除全部扩展过滤器，将会直接执行已经匹配成功的URL重定向（使用ADD REDIRECT或MOD REDIRECT配置）或智能重定向动作（在ADD RULE或MOD RULE配置时指定Policy Type为SMARTREDIRECT）。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356062_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595844_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_filter_management.html",
+        "name": "业务过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103356062_2",
+        "position": "3.3.4.1",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315809_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_flow_filter_management.html",
+        "name": "流过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103595844_2",
+        "position": "3.3.4.1.2",
+        "parentPosition": "3.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555295_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_global_extended_filter_binding.html",
+        "name": "全局扩展过滤器绑定",
+        "parentTopicId": "CONCEPT_0000202289315809_2",
+        "position": "3.3.4.1.2.3",
+        "parentPosition": "3.3.4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837358_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_glbextfilter.html",
+        "name": "删除全局扩展过滤器绑定配置（RMV GLBEXTFILTER）",
+        "parentTopicId": "CONCEPT_0000202289555295_2",
+        "position": "3.3.4.1.2.3.2",
+        "parentPosition": "3.3.4.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356062_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595844_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_filter_management.html",
+        "name": "业务过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103356062_2",
+        "position": "3.3.4.1",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315809_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_flow_filter_management.html",
+        "name": "流过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103595844_2",
+        "position": "3.3.4.1.2",
+        "parentPosition": "3.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555295_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_global_extended_filter_binding.html",
+        "name": "全局扩展过滤器绑定",
+        "parentTopicId": "CONCEPT_0000202289315809_2",
+        "position": "3.3.4.1.2.3",
+        "parentPosition": "3.3.4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837358_2",
+        "topicUrl": "kite_s_bm/MML/Document/rmv_glbextfilter.html",
+        "name": "删除全局扩展过滤器绑定配置（RMV GLBEXTFILTER）",
+        "parentTopicId": "CONCEPT_0000202289555295_2",
+        "position": "3.3.4.1.2.3.2",
+        "parentPosition": "3.3.4.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

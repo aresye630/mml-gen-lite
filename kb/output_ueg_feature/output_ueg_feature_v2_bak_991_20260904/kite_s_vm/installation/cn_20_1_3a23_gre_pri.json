@@ -1,0 +1,276 @@
+{
+  "feature_name": "配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道",
+  "feature_description": "- 当用户通过WAP（Wireless Application Protocol）访问PDN/DN时，可以采用PGW-U/UPF与WAP网关之间建立GRE隧道的方式构建VPN。\n\n具体组网如图1所示。\n\n**图1** GRE隧道连通与PDN/DN组网图\n\n- PGW-U/UPF与WAP网关之间建立GRE VPN，实现用户的业务访问。\n- PGW-U/UPF与WAP网关之间必须支持Loopback接口建立GRE隧道。\n- 当PGW-U/UPF外联口之间采用BGP/OSPF动态路由时，PGW-U/UPF的Loopback接口的IP地址网段必须对外发布。\n- 用户的上行数据采用静态路由，出接口为Tunnel接口，对端接入设备必须配置到用户终端网段的静态路由。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339692528",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339692528.html",
+        "name": "初始配置与调测（入驻式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389812585",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389812585.html",
+        "name": "初始配置与调测（入驻式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339692528",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001142675370_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001142675370.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001389812585",
+        "position": "4.2.2.3",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143335928",
+        "topicUrl": "kite_s_vm/installation/5g_com_init_comm_008_pri.html",
+        "name": "组网路由配置",
+        "parentTopicId": "TOPIC_0000001142675370_3",
+        "position": "4.2.2.3.5",
+        "parentPosition": "4.2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001143495726",
+        "topicUrl": "kite_s_vm/installation/cu_com_010016_07_pri.html",
+        "name": "配置VNF侧IP路由数据（无NP卡）",
+        "parentTopicId": "TOPIC_0000001143335928",
+        "position": "4.2.1.3.5.1",
+        "parentPosition": "4.2.1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001189375823",
+        "topicUrl": "kite_s_vm/installation/ce_ugw_190009_81_pri.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001143495726",
+        "position": "4.2.1.3.5.1.1",
+        "parentPosition": "4.2.1.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001189375827",
+        "topicUrl": "kite_s_vm/installation/cn_20_1_3a23_gre_pri.html",
+        "name": "配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道",
+        "parentTopicId": "TOPIC_0000001189375823",
+        "position": "4.2.1.3.5.1.1.6",
+        "parentPosition": "4.2.1.3.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001462442398",
+        "topicUrl": "toctopics/zh-cn_topic_0000001462442398.html",
+        "name": "虚机容器模式",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001149557839",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001149557839.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "TOPIC_0000001462442398",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000002084236249",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000002084236249.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001149557839",
+        "position": "1.3.1",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001142675370_1",
+        "topicUrl": "kite_s_vm/vm_on_pre_ref_nonsdn.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002084236249",
+        "position": "1.3.1.3",
+        "parentPosition": "1.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001143335928",
+        "topicUrl": "kite_s_vm/installation/5g_com_init_comm_008_pri.html",
+        "name": "组网路由配置",
+        "parentTopicId": "TOPIC_0000001142675370_1",
+        "position": "1.3.1.3.5",
+        "parentPosition": "1.3.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001143495726",
+        "topicUrl": "kite_s_vm/installation/cu_com_010016_07_pri.html",
+        "name": "配置VNF侧IP路由数据（无NP卡）",
+        "parentTopicId": "TOPIC_0000001143335928",
+        "position": "1.3.1.3.5.1",
+        "parentPosition": "1.3.1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001189375823",
+        "topicUrl": "kite_s_vm/installation/ce_ugw_190009_81_pri.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001143495726",
+        "position": "1.3.1.3.5.1.1",
+        "parentPosition": "1.3.1.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001189375827",
+        "topicUrl": "kite_s_vm/installation/cn_20_1_3a23_gre_pri.html",
+        "name": "配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道",
+        "parentTopicId": "TOPIC_0000001189375823",
+        "position": "1.3.1.3.5.1.1.6",
+        "parentPosition": "1.3.1.3.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

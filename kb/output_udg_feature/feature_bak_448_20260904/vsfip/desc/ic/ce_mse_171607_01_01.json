@@ -1,0 +1,81 @@
+{
+  "feature_name": "激活流串接功能",
+  "feature_description": "当需要通过部署增值业务提升用户体验或运营收益时，请参考本节激活流串接功能。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVE7DED619A08B413DA0C5CCA095666C6D",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222265013",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG SFIP功能专题",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "TOPIC_0000001282145608",
+        "topicUrl": "toctopics/zh-cn_topic_0000001282145608.html",
+        "name": "功能描述",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "CONCEPT_0000001334228153",
+        "topicUrl": "vsfip/desc/ce_mse_171607_01.html",
+        "name": "流串接功能",
+        "parentTopicId": "TOPIC_0000001282145608",
+        "position": "3.6",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "OPI_0000001282067924",
+        "topicUrl": "vsfip/desc/ic/ce_mse_171607_01_01.html",
+        "name": "激活流串接功能",
+        "parentTopicId": "CONCEPT_0000001334228153",
+        "position": "3.6.1",
+        "parentPosition": "3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

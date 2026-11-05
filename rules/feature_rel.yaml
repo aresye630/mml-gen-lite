@@ -1,0 +1,26 @@
+# 特性关联关系与公共配置分析规则（数据驱动，新增对象参数只加行，脚本零改动）
+# 对象引用参数：值 = 现网配置对象实例名（跨命令/跨特性共享识别用）
+# 命名规范：显式清单覆盖最常见对象类；后缀规则 (NAME|NM|ID|INSTANCE)$ 兜底自动识别
+object_ref_params:
+  - VRFNAME          # VRF 实例名
+  - DESTVRFNAME      # 目的 VRF 实例名
+  - APN              # APN 名
+  - IFNAME           # 接口名
+  - MEMBERIFNAME     # 成员接口名
+  - TRUNKIFNAME      # Trunk 接口名
+  - LICITEM          # license 授权项
+  - FILTERNAME       # 过滤器名
+  - FLOWFILTERNAME   # 流过滤器名
+  - RUNAME           # 路由策略名
+  - USERPROFILENAME  # 用户策略名
+  - POOLNAME         # 地址池
+  - SESSIONNAME      # 会话
+  - SESSNAME         # 会话（别名）
+  - SERVICENAME      # 服务
+
+# 通用命令阈值：命令出现在 ≥ 该比例的特性文档 → 通用命令，不计入专属命令共享
+common_cmd_doc_ratio: 0.05
+
+# exp 换入影响评估（§17.2 impact）：对象域重叠率低于该值 → 高差异（suggest_new）
+# 对象 = (对象引用参数, 值) 对；overlap = |旧 ∩ 新| / |旧|
+exp_impact_obj_overlap_ok: 0.6

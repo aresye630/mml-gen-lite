@@ -1,0 +1,103 @@
+{
+  "feature_name": "配置到ICAP Server的互通数据",
+  "feature_description": "部署URL过滤基本功能特性时，需要配置UDG与ICAP Server的互通数据。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317439",
+        "topicUrl": "toctopics/zh-cn_topic_0239317439.html",
+        "name": "业务感知功能",
+        "parentTopicId": "",
+        "position": "14",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001405929912",
+        "topicUrl": "toctopics/zh-cn_topic_0000001405929912.html",
+        "name": "GWFD-110471 URL过滤基本功能",
+        "parentTopicId": "TOPIC_0239317439",
+        "position": "14.30",
+        "parentPosition": "14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001425520392",
+        "topicUrl": "toctopics/zh-cn_topic_0000001425520392.html",
+        "name": "激活URL过滤基本功能",
+        "parentTopicId": "TOPIC_0000001405929912",
+        "position": "14.30.2",
+        "parentPosition": "14.30",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001475400117",
+        "topicUrl": "toctopics/zh-cn_opi_0000001475400117.html",
+        "name": "配置到ICAP Server的互通数据",
+        "parentTopicId": "TOPIC_0000001425520392",
+        "position": "14.30.2.1",
+        "parentPosition": "14.30.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

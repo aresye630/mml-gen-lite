@@ -1,0 +1,100 @@
+{
+  "feature_name": "配置SMF和“UL CL UPF+辅锚点UPF”对接",
+  "feature_description": "本操作指导介绍部署基于预定义规则的分流策略控制特性的操作过程。\n\n3GPP针对于5G用户面的数据分流定义了UL CL(Uplink Classifier)功能，通过上行分流器（即UL CL UPF）实现根据用户业务流特征将访问本地网络的数据分流到本地DN，将访问Internet数据分流到公网，从而实现对用户本地业务数据的分流控制。\n\n当UE会话激活或位置发生变化时，SMF基于用户的DNN、位置区以及DNAI（Data Network Access Identifier）等信息判定是否需要将用户数据分流到本地DN，如需分流则为用户选择UL CL UPF和辅锚点UPF，将UL CL UPF和辅锚点UPF插入当前的会话中并对UL CL UPF下发相应的分流规则来实现对用户本地数据的分流控制。\n\n**说明** \n\nDNAI（DN Access Identifier）是3GPP定义用于标识DN网络接入点。DNN表示DN的名称，DNAI则表示DN的具体网络接入点，带有一定的物理属性。例如网络中规划了一个DN，其DNN为abc，该DN有A城和B城两个接入点，则A、B城对应的DNAI可以命名为abc.A和abc.B。在UL CL分流场景下，DNAI则用于标识边缘侧的PDU会话锚点，即辅锚点UPF。\n\n如前所述本特性仅支持UL CL UPF和辅锚点UPF合一部署场景，前面原理描述中主锚点PSA0 UPF和“UL CL UPF+辅锚点UPF”是分离部署的。但是在现网实际使用过程中可能出现“UL CL UPF+辅锚点UPF”和主锚点PSA0 UPF共部署场景，华为SMF支持和这种UL CL和主、辅锚点UPF合一部署形态的UPF进行对接并实现UL CL分流，详细如表1所示。\n\n| 场景                                                                       | 原理描述                                                                                                                                                                                  |\n|:-------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 为某工业园区建分流网络，希望最大限度节约成本，将UL CL和主、辅锚点UPF共部署。接入园区的用户访问公网以及本地DN都使用该合一形态的UPF。 | 此时SMF需要和UPF间创建两个N4会话，一个主锚点N4会话，一个辅锚点N4会话。UPF根据SMF下发的DNAI和本地规划的VPN的绑定关系来识别辅锚点N4会话。 SMF上需要打开ADD UPNODE命令中“ UPF共享开关”才能使能该使用场景。同时还需要配置命令ADD VIRTUALUPFID和ADD VUPFIDBINDDNAI来指定辅锚点会话的DNAI。 |",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450966",
+        "topicUrl": "toctopics/zh-cn_topic_0248450966.html",
+        "name": "MEC解决方案",
+        "parentTopicId": "",
+        "position": "28",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0229033545",
+        "topicUrl": "toctopics/zh-cn_topic_0229033545.html",
+        "name": "WSFD-108002 基于预定义规则的分流策略控制",
+        "parentTopicId": "TOPIC_0248450966",
+        "position": "28.2",
+        "parentPosition": "28",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0231367702",
+        "topicUrl": "toctopics/zh-cn_opi_0231367702.html",
+        "name": "配置SMF和“UL CL UPF+辅锚点UPF”对接",
+        "parentTopicId": "TOPIC_0229033545",
+        "position": "28.2.3",
+        "parentPosition": "28.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

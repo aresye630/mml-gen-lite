@@ -1,0 +1,107 @@
+{
+  "command_name": "LST HPURREPDATA",
+  "command_name_zh": "查询PUR更新的透明数据",
+  "command_name_full": "查询PUR更新的透明数据(LST HPURREPDATA)",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行不当会增加数据库的负荷，引起系统过载。请仔细评估数据查询的范围及执行的次数后方可执行。并且该命令不能和**LST LOG**、**LST HLOG**命令同时执行。如有疑问请与华为技术支持联系制定操作的实施方案、测试方案和应急措施后才可以实施。\n\n该命令用于查询内存库的空口日志中通过PUR消息更新的IMS用户或PSI用户透明数据。\n\n查询完成后，查询的结果以文本格式保存在PGW中，可以通过PGW Web LMT上的“文件管理器”下载到本地。\n\n**说明** \n\n- 查询结果包含用户的个人数据，如：IMPU，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护，并严格控制查询结果文件的访问权限。\n- 在从运营商网络获取数据前，必须要获得运营商的授权。\n- 若需从运营商网络中获取必要的数据，需要运营商维护人员对其中的个人数据进行匿名化处理，匿名化后的数据由运营商维护人员审核后提供，以防止个人数据泄露。匿名化处理工具可以在http://support.huawei.com/网站获取，获取方法请参见产品手册“匿名化工具安全策略”页面。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732463",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Network_Maintenance.html",
+        "name": "网络维护管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.12",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732592",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/LST_HPURREPDATA.html",
+        "name": "查询PUR更新的透明数据(LST HPURREPDATA)",
+        "parentTopicId": "CONCEPT_0191732463",
+        "position": "4.2.4.12.1",
+        "parentPosition": "4.2.4.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

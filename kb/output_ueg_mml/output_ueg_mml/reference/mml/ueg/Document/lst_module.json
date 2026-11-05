@@ -1,0 +1,131 @@
+{
+  "command_name": "LST MODULE",
+  "command_name_zh": "查询模块",
+  "command_name_full": "查询模块(LST MODULE)",
+  "command_function": "该命令用于查询服务器Pod上的模块情况，使操作员了解当前UDM网元内模块的相关配置信息时。模块即Pod上运行的业务进程。\n\n查询模块配置的相关方法如下：\n\n- 若需要查询全部模块信息，请不要输入任何参数值。\n- 若需要查询全部模块信息中符合某一参数条件的模块时，请在对应参数中输入对应的参数值。如：需要查询UDM30T\\_HLR\\_QHF的Pod上配置的所有模块信息时，请在参数“主用Pod名称”中输入对应的参数值“UDM30T\\_HLR\\_QHF”。\n- 若需要查询全部模块信息中符合多个参数条件的模块时，请在对应的多个参数中输入对应的参数值。如：需要查询UDM30T\\_HLR\\_QHF的Pod上配置的所有DSG模块信息时，请在参数“主用Pod名称”中输入对应的参数值“UDM30T\\_HLR\\_QHF”，参数“模块类型”中输入对应值“DSG(DSG)”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782891",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.3",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206457038265",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_module_management.html",
+        "name": "模块管理",
+        "parentTopicId": "CONCEPT_0000203481782891",
+        "position": "2.2.3.4.3.6",
+        "parentPosition": "2.2.3.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284757",
+        "topicUrl": "reference/mml/ueg/Document/lst_module.html",
+        "name": "查询模块(LST MODULE)",
+        "parentTopicId": "CONCEPT_0000206457038265",
+        "position": "2.2.3.4.3.6.4",
+        "parentPosition": "2.2.3.4.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

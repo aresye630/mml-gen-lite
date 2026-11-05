@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD DISCCONDCFG",
+  "command_name_zh": "添加服务发现条件信息",
+  "command_name_full": "添加服务发现条件信息（ADD DISCCONDCFG）",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致系统异常，影响业务处理，需联系华为技术支持确认后再执行。\n\n该命令用于添加一条PCF到BSF/CHF/SCP/AMF/NWDAF/PCF的服务发现条件信息。当PCF通过指定条件发现远端服务时，需要配置此命令。\n\n- 直接通信场景下，支持配置BSF/CHF/NWDAF的服务发现条件信息。\n  - 当对端为CHF时，PCF会根据配置的GPSI或PREFERLOC进行匹配，发现对应的CHF。\n  - 当对端为BSF时，PCF会根据配置的IPV4ADDR、IPV4DNN等信息进行匹配，发现对应的BSF。\n  - 当对端为NWDAF时，PCF会根据配置的TAI等信息进行匹配，发现对应的NWDAF。\n- 间接通信（SCP代理）场景下，支持配置BSF/CHF/AMF/SCP/PCF/NWDAF的服务发现条件信息。\n  - 当对端为SCP时，PCF会根据配置的SCPDOMAIN或SERSCOPE进行匹配，发现对应的SCP。\n  - 当对端为BSF/CHF/AMF/PCF/NWDAF时，PCF会将本命令配置的信息下发给SCP，由SCP向NRF进行服务发现。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0175053740",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_ncs_management.html",
+        "name": "NCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.9",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0248198144",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_conditi_iguration_for_service_discovery.html",
+        "name": "网元服务发现条件配置",
+        "parentTopicId": "TOPIC_0175053740",
+        "position": "2.2.3.5.9.6",
+        "parentPosition": "2.2.3.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0248198145_2",
+        "topicUrl": "MML/Document/add_disccondcfg.html",
+        "name": "添加服务发现条件信息（ADD DISCCONDCFG）",
+        "parentTopicId": "CONCEPT_0248198144",
+        "position": "2.2.3.5.9.6.1",
+        "parentPosition": "2.2.3.5.9.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

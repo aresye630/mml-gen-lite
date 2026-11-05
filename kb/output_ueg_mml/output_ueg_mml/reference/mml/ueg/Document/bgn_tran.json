@@ -1,0 +1,143 @@
+{
+  "command_name": "BGN TRAN",
+  "command_name_zh": "开始事务",
+  "command_name_full": "开始事务(BGN TRAN)",
+  "command_function": "**须知** \n\n开始事务需要大约2分钟完成，请务必在华为技术支持人员的指导下操作。\n\n本命令用于启动事务模式。执行完本命令后，执行本命令的用户对该网元下发的后续配置命令（可以通过OM Portal或者网管客户端下发）都被作为事务中的一条命令，直到该用户使用**RBK TRAN**回退事务或**CMT TRAN**提交事务为止，admin用户还可以用**STP TRAN**命令强行中止任何用户开始的事务。\n\n事务：事务是OMU的一种运行模式，用户显式开始事务后可以下发一系列的配置命令，然后显式提交该事务，提交事务之前的配置命令不会生效。OMU保证该事务内的配置命令的原子性（所有配置命令要么都被提交，要么都不提交）、一致性（事务模式下能保证OMU配置数据的一致性约束）、隔离性（事务之间是隔离的，由于目前OMU不允许事务并发，因此不必考虑这个特性）和持久性（OMU确保已提交的事务对配置数据的更新是持久的）（即：ACID）。\n\n本命令的使用场景为：执行某些配置命令后，不能确定其结果，可以执行本命令进入事务模式，进行相关的配置操作，通过试运行观察这些配置命令的结果。如果这些结果符合预期，可以执行**CMT TRAN**提交事务；如果这些结果不符合预期，可以执行**RBK TRAN**回退事务，进入执行事务之前的正常模式。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202866130467",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_database_management.html",
+        "name": "数据库管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.9",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206305719140",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_transaction_mode.html",
+        "name": "事务模式",
+        "parentTopicId": "CONCEPT_0000202866130467",
+        "position": "2.2.3.4.2.9.5",
+        "parentPosition": "2.2.3.4.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170784603_1",
+        "topicUrl": "reference/mml/ueg/Document/bgn_tran.html",
+        "name": "开始事务(BGN TRAN)",
+        "parentTopicId": "CONCEPT_0000206305719140",
+        "position": "2.2.3.4.2.9.5.1",
+        "parentPosition": "2.2.3.4.2.9.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

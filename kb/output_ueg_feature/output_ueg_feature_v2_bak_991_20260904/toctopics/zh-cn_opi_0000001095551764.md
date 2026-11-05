@@ -1,0 +1,168 @@
+# 激活SBI接口加密特性(CERT)
+
+- 操作场景
+- 必备事项
+- 操作步骤
+- 任务示例
+
+## 操作场景
+
+为降低网络安全风险，建议开启SBI接口加密特性。
+
+**说明** 
+
+适用于AMF、SMF、NRF、NSSF、SMSF。
+
+## 必备事项
+
+前提条件
+
+- 请仔细阅读GWFD-021507 SBI接口加密特性概述。
+- 已获取商用证书，客户申请。
+
+  **注意** 
+
+  如需开启证书域名校验功能，则证书中的域名必须与实际域名保持一致。否则将导致域名校验失败，从而导致NF间建链失败。
+
+数据
+
+| 类别            | 参数名称                 | 取值样例                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 获取方法   | 说明                                               |
+|:--------------|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|:-------------------------------------------------|
+| ADD TLSSCENE  | 索引                   | 设备证书：1 CA证书：2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 本端规划   | -                                                |
+| ADD TLSSCENE  | 证书使用场景名称             | 设备证书：NESCENE CA证书：CASCENE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 本端规划   | -                                                |
+| ADD TLSSCENE  | 场景类型                 | 设备证书：SCENE_NE CA证书：SCENE_CA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 本端规划   | -                                                |
+| ADD TLSPARA   | 索引(INDEX)            | 服务端：1 客户端：2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 本端规划   | -                                                |
+| ADD TLSPARA   | 模式(MODE)             | 服务端：SERVER 客户端：CLIENT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 全网规划   | -                                                |
+| ADD TLSPARA   | 是否验证对端证书(VERIFY)     | YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 全网规划   | -                                                |
+| ADD TLSPARA   | 域名校验开关(VERIFYCN)     | Yes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 全网规划   | 证书中的域名应当与网络规划的域名保持一致。开启域名校验开关后，如果校验失败将导致NF间建链失败。 |
+| ADD TLSPARA   | 加密套件集合(CIPHER)       | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256-1&TLS_DHE_RSA_WITH_AES_256_GCM_SHA384-1&TLS_DHE_DSS_WITH_AES_128_GCM_SHA256-1&TLS_DHE_DSS_WITH_AES_256_GCM_SHA384-1&TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256-1&TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384-1&TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256-1&TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384-1&TLS_DHE_RSA_WITH_AES_128_CCM-1&TLS_DHE_RSA_WITH_AES_256_CCM-1&TLS_DHE_RSA_WITH_AES_128_CCM_8-1&TLS_DHE_RSA_WITH_AES_256_CCM_8-1&TLS_ECDHE_ECDSA_WITH_AES_128_CCM-1&TLS_ECDHE_ECDSA_WITH_AES_256_CCM-1&TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8-1&TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8-1&TLS_AES_128_GCM_SHA256-1&TLS_AES_256_GCM_SHA384-1&TLS_CHACHA20_POLY1305_SHA256-1 | 全网规划   | -                                                |
+| ADD TLSPARA   | 协议版本(PROTOCAL)       | TLS1_2&TLS1_3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 全网规划   | -                                                |
+| ADD TLSPARA   | 设备证书场景(NESCENE)      | 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 本端规划   | 该参数需要与ADD TLSSCENE中配置的设备证书场景的“索引”一致。             |
+| ADD TLSPARA   | CA证书场景(CASCENE)      | 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 本端规划   | 该参数需要与ADD TLSSCENE中配置的CA证书场景的“索引”一致。             |
+| ADD TLSPARA   | CRL是否开启(CRLFLAG)     | CRL_ON                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 本端规划   | 为了提升系统安全性，避免使用已被吊销的证书，建议开启证书吊销列表（CRL）功能。         |
+| ADD HTTPLEGRP | 索引                   | AMF：1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 本端规划   | -                                                |
+| ADD LOGICIP   | IP地址类型(IPVERSION)    | IPv4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 全网规划   | -                                                |
+| ADD LOGICIP   | IPv4地址(LOGICIPV4)    | 10.2.144.10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 全网规划   | -                                                |
+| ADD LOGICIP   | VPN实例名称(VPNINSTNAME) | _public_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 全网规划   | -                                                |
+| ADD LOGICIP   | 描述(DESC)             | test                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 全网规划   | -                                                |
+| ADD HTTPLE    | HTTPLE本端实体索引         | 服务端：1 客户端：2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 本端规划   | -                                                |
+| ADD HTTPLE    | HTTP本端实体组标识          | 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 本端规划   | 该参数需要提前通过ADD HTTPLEGRP添加。                        |
+| ADD HTTPLE    | 本端实体类型               | 服务端：SERVER 客户端：CLIENT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 全网规划   | -                                                |
+| ADD HTTPLE    | 端口号                  | 30116                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 全网规划   | -                                                |
+| ADD HTTPLE    | 是否启用TLS              | YES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 全网规划   | -                                                |
+| ADD HTTPLE    | TLS索引                | 服务端：1 客户端：2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 全网规划   | 用于指定关联的TLSPARA的索引，需要与ADD TLSPARA中配置的“索引”匹配。      |
+| ADD HTTPLE    | IP类型                 | IPv4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 全网规划   | -                                                |
+| ADD HTTPLE    | IPv4地址               | 10.2.144.10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 全网规划   | -                                                |
+| ADD HTTPLE    | VPN名称                | _public_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 全网规划   | -                                                |
+| ADD SBIAPLE   | 索引                   | AMF：1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 全网规划   | -                                                |
+| ADD SBIAPLE   | HttpLEGRP索引          | AMF：1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 全网规划   | -                                                |
+| ADD SBIAPLE   | 本端NF类型               | AMF：NFTypeAMF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 全网规划   | -                                                |
+
+## 操作步骤
+
+1. 上传证书 文件。
+   1. 登录OM Portal。
+   2. 选择“安全 > 证书管理>证书与证书集管理”，单击“上传证书”，分别上传CA证书和设备证书文件。
+   3. （可选）如果存在CA证书对应的证书吊销列表（CRL文件），则根据需要上传CRL文件。
+
+      选择“安全 > 证书管理>上传证书吊销列表”，单击“上传证书吊销列表”，上传CRL文件。
+
+      **须知** 
+
+      - CA证书与CRL文件一一对应，如果存在多个CA证书，则需要分别上传其对应的CRL文件。
+      - 为了提升系统安全性，避免使用已被吊销的证书，建议开启证书吊销列表（CRL）功能。
+2. 增加TLS证书场景，各个NF配置方法相同。
+   1. 进入“MML命令行-UEG”窗口。
+   2. 增加TLS证书场景。
+
+      **ADD TLSSCENE**
+3. 关联证书业务场景。
+   1. 选择“安全 > 证书管理 > 证书应用场景关联”，在证书场景列表中选择2中增加的证书场景，单击“关联证书”。
+   2. 选择需要与该场景关联的证书，比如设备证书场景则选择对应的设备证书进行关联，CA证书场景则选择对应的CA证书和CRL文件进行关联。
+
+      **须知** 
+
+      CA证书与CRL文件一一对应。当一个证书场景关联了多个CA证书时，如果需要启用CRL功能，那么还需要一一关联这些CA证书所对应的CRL文件。
+4. 配置AMF、SMF的TLS参数和相关服务化接口参数。各个NF的配置方法相同，此处以配置AMF为例。
+   1. 进入“MML命令行-UEG”窗口。
+   2. 增加AMF作为服务器端的TLS参数。其中，“模式”配置为“SERVER”，“设备证书场景”和“CA证书场景”与2中配置的对应证书场景“索引”一致。
+
+      **ADD TLSPARA**
+   3. 增加AMF作为客户端的TLS参数。其中，“模式”配置为“CLIENT”，“设备证书场景”和“CA证书场景”与2中配置的对应证书场景“索引”一致。
+
+      **ADD TLSPARA**
+   4. 增加AMF HTTP本端地址组信息。
+
+      **ADD HTTPLEGRP**
+   5. 增加逻辑IP地址。"**IPv4地址"**、"**IPv6地址**"以及**"VPN实例名称"**全网规划。
+
+      **ADD LOGICIP**
+   6. 增加AMF作为服务器端的HTTP本端实体。其中，“本端实体类型”配置为“SERVER”，“TLS索引”需要与4.b中配置的“索引”相同。
+
+      **ADD HTTPLE**
+   7. 增加AMF作为客户端的HTTP本端实体。其中，“本端实体类型”配置为“CLIENT”，“TLS索引”需要与4.c中配置的“索引”相同。
+
+      **ADD HTTPLE**
+   8. 增加AMF服务化接口的接入点信息。
+
+      **ADD SBIAPLE**
+
+## 任务示例
+
+任务描述
+
+以AMF侧的配置为例。
+
+脚本
+
+- AMF侧配置
+
+//增加AMF的TLS证书场景。
+
+```
+ADD TLSSCENE:INDEX=1, SCENE="NESCENE", TYPE=SCENE_NE, DESC="AMFNESCENE";
+ADD TLSSCENE:INDEX=2, SCENE="CASCENE", TYPE=SCENE_CA, DESC="AMFCASCENE";
+```
+
+//增加AMF作为服务器端的TLS参数。
+
+```
+ADD TLSPARA: INDEX=1, MODE=Server, VERIFY=Yes, VERIFYCN=Yes, CIPHER=TLS_DHE_RSA_WITH_AES_128_GCM_SHA256-1&TLS_DHE_RSA_WITH_AES_256_GCM_SHA384-1&TLS_DHE_DSS_WITH_AES_128_GCM_SHA256-1&TLS_DHE_DSS_WITH_AES_256_GCM_SHA384-1&TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256-1&TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384-1&TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256-1&TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384-1&TLS_DHE_RSA_WITH_AES_128_CCM-1&TLS_DHE_RSA_WITH_AES_256_CCM-1&TLS_DHE_RSA_WITH_AES_128_CCM_8-1&TLS_DHE_RSA_WITH_AES_256_CCM_8-1&TLS_ECDHE_ECDSA_WITH_AES_128_CCM-1&TLS_ECDHE_ECDSA_WITH_AES_256_CCM-1&TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8-1&TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8-1&TLS_AES_128_GCM_SHA256-1&TLS_AES_256_GCM_SHA384-1&TLS_CHACHA20_POLY1305_SHA256-1, PROTOCAL=TLS1_2-1&TLS1_3-1, NESCENE=1, CASCENE=2, CRLFLAG=CRL_ON;
+```
+
+//增加AMF作为客户端的TLS参数。
+
+```
+ADD TLSPARA: INDEX=2, MODE=Client, VERIFY=Yes, VERIFYCN=Yes, CIPHER=TLS_DHE_RSA_WITH_AES_128_GCM_SHA256-1&TLS_DHE_RSA_WITH_AES_256_GCM_SHA384-1&TLS_DHE_DSS_WITH_AES_128_GCM_SHA256-1&TLS_DHE_DSS_WITH_AES_256_GCM_SHA384-1&TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256-1&TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384-1&TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256-1&TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384-1&TLS_DHE_RSA_WITH_AES_128_CCM-1&TLS_DHE_RSA_WITH_AES_256_CCM-1&TLS_DHE_RSA_WITH_AES_128_CCM_8-1&TLS_DHE_RSA_WITH_AES_256_CCM_8-1&TLS_ECDHE_ECDSA_WITH_AES_128_CCM-1&TLS_ECDHE_ECDSA_WITH_AES_256_CCM-1&TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8-1&TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8-1&TLS_AES_128_GCM_SHA256-1&TLS_AES_256_GCM_SHA384-1&TLS_CHACHA20_POLY1305_SHA256-1, PROTOCAL=TLS1_2-1&TLS1_3-1, NESCENE=1, CASCENE=2, CRLFLAG=CRL_ON;
+```
+
+//增加AMF HTTP本端地址组信息。
+
+```
+ADD HTTPLEGRP: INDEX=1, DESC="AMF";
+```
+
+//增加逻辑IP地址。
+
+```
+ADD LOGICIP: IPVERSION=IPv4, LOGICIPV4="10.16.1.5", VPNINSTNAME="_public_", DESC="test";
+ADD LOGICIP: IPVERSION=IPv4, LOGICIPV4="10.16.1.6", VPNINSTNAME="_public_", DESC="test";
+```
+
+//增加AMF作为服务器端的HTTP本端实体。
+
+```
+ADD HTTPLE: INDEX=1, HTTPLEGRPIDX=1, LETYPE=SERVER, PORT=30116, TLSFLG=YES, TLSIDX=1, IPTYPE=IPv4,IPV4="10.16.1.5", VPNNAME="_public_";
+```
+
+//增加AMF作为客户端的HTTP本端实体。
+
+```
+ADD HTTPLE: INDEX=2, HTTPLEGRPIDX=1, LETYPE=CLIENT, TLSIDX=2, IPTYPE=IPv4, IPV4="10.16.1.6",VPNNAME="_public_";
+```
+
+//增加AMF服务化接口的接入点信息。
+
+```
+ADD SBIAPLE: INDEX=1, HTTPLEGRPIDX=1, NFTYPE=NFTypeAMF, DESCRIPTION="AMF";
+```

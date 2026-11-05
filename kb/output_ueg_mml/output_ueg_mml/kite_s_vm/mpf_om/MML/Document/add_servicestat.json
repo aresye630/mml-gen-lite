@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD SERVICESTAT",
+  "command_name_zh": "增加业务统计配置",
+  "command_name_full": "增加业务统计配置（ADD SERVICESTAT）",
+  "command_function": "**适用NF：MPF**\n\n**须知** \n\n本命令属于高危命令，操作不当会导致性能下降明显，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于添加基于业务的性能统计对象组合，配置是否统计HTTP协议和DNS协议的请求次数、成功/错误响应次数和响应时延等。\n\n同一个性能统计对象组合中所包含的协议和规则是“与”的关系，报文必须同时匹配中才能上报，而协议与协议、规则与规则之间是“或”的关系。\n\n如果性能统计对象添加了基于用户接入属性相关的配置，用户激活时会先进行用户接入属性的匹配，匹配中后才会进行后续的协议、规则的匹配。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441906",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_mec_data_plane_management.html",
+        "name": "MEC数据面管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.8",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441926",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_monitoring.html",
+        "name": "业务监控",
+        "parentTopicId": "CONCEPT_0000201255441906",
+        "position": "1.8.8",
+        "parentPosition": "1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201442576809",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_performance_mangement.html",
+        "name": "业务性能统计管理",
+        "parentTopicId": "CONCEPT_0000201255441926",
+        "position": "1.8.8.1",
+        "parentPosition": "1.8.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201254728874",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_statistic_object.html",
+        "name": "业务实例性能统计对象",
+        "parentTopicId": "CONCEPT_0000201442576809",
+        "position": "1.8.8.1.1",
+        "parentPosition": "1.8.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201259582932",
+        "topicUrl": "kite_s_vm/mpf_om/MML/Document/add_servicestat.html",
+        "name": "增加业务统计配置（ADD SERVICESTAT）",
+        "parentTopicId": "CONCEPT_0000201254728874",
+        "position": "1.8.8.1.1.1",
+        "parentPosition": "1.8.8.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

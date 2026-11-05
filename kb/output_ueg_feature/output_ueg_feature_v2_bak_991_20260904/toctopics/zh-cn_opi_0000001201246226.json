@@ -1,0 +1,81 @@
+{
+  "feature_name": "配置AMF/SMF/MME/SGW-C/PGW-C",
+  "feature_description": "UEG部署在企业园区，新开局场景，需要配置AMF和SMF实体功能，已保证用户能够正常开展业务。\n\n**说明** \n\n- 5G网络中，UEG部署在园区，作为UPF+AMF+SMF共建部署或作为UPF+AMF+SMF+UDM共建部署。\n- 4G网络中，UEG部署在园区，作为SGW-U+PGW-U+MME+SGW-C+PGW-C共建部署或作为SGW-U+PGW-U+MME+SGW-C+PGW-C+HSS共建部署。SGW-C+PGW-C的外联口与SMF的复用。\n\nUDM/HSS部署在中心网络，UEG的逻辑接口如图1所示。\n\n**图1** 逻辑接口和组网实体之间的关系（UDM/HSS部署在中心网络）\n\nUDM/HSS部署在园区网络，AMF和SMF与其他网络实体的逻辑接口如图2所示。\n\n**图2** 逻辑接口和组网实体之间的关系（UDM/HSS部署在园区网络）\n\nUDM/HSS部署在中心网络+UDM/HSS部署在园区网络时，UEG的逻辑接口如图3所示。\n\n**图3** 逻辑接口和组网实体之间的关系（UDM/HSS部署在中心网络+UDM/HSS部署在园区网络）",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199181406",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199181406.html",
+        "name": "配置实例（虚机容器）",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001201246226",
+        "topicUrl": "toctopics/zh-cn_opi_0000001201246226.html",
+        "name": "配置AMF/SMF/MME/SGW-C/PGW-C",
+        "parentTopicId": "TOPIC_0000001199181406",
+        "position": "4.3.4",
+        "parentPosition": "4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "feature_name": "修改MTU值",
+  "feature_description": "修改MTU值为**高危操作**，例如：\n\n- MTU修改可能导致整网分片增多，其他网元的分片重组能力的限制可能导致业务受影响。\n- 部分协议对最小报文有限制，如果配置过小会导致协议邻居无法建立。\n\n**说明** \n\n网元外联口MTU值和直连下一跳网关（DCGW/路由器等）的接口MTU值必须一致，默认值是1500，如果运营商没有特殊要求和组网要求，建议保持默认值。\n\n如下几种场景下，可参考本页面修改MTU值：\n\n- 配合整网规划修改Fabric平面MTU值时。\n- 配合整网规划修改Tunnel接口MTU值时。\n- 配合整网规划修改外联口MTU值时。\n\n**说明** \n\n- 为保证系统正常通信，**网卡MTU****≥Fabric的MTU>主接口的MTU≥子接口的MTU**。\n- 建议子接口的MTU和主接口的配置一致。\n- 网元实例化完成后，Fabric平面的MTU可以通过命令**SET FABRICMTU**修改。\n- 修改硬件网卡的MTU的操作步骤请参考相应的硬件产品手册进行。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV8CDE6753523641B8ACAD6C1F13BC16B5",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818298",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网煤矿场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429777717",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429777717.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429958805",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429958805.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001429777717",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429599077",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429599077.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001429958805",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001196529620_2",
+        "topicUrl": "kite_ml/kitel_Mining_Initia_B2.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001429599077",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "OPI_0175096774",
+        "topicUrl": "installation/5g_com_init_comm_005.html",
+        "name": "修改MTU值",
+        "parentTopicId": "TOPIC_0000001196529620_2",
+        "position": "2.2.3.4.11",
+        "parentPosition": "2.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV17528F50213D40089A8CCB8B29FE1C03",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818390",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（电力专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001986626012",
+        "topicUrl": "toctopics/zh-cn_topic_0000001986626012.html",
+        "name": "软件安装与初始配置",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001992710556",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992710556.html",
+        "name": "部署UEG",
+        "parentTopicId": "TOPIC_0000001986626012",
+        "position": "3.6",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000002257656352",
+        "topicUrl": "toctopics/zh-cn_topic_0000002257656352.html",
+        "name": "电力专网采用风筝S部署模式",
+        "parentTopicId": "TOPIC_0000001992710556",
+        "position": "3.6.1",
+        "parentPosition": "3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001992550784",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992550784.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000002257656352",
+        "position": "3.6.1.2",
+        "parentPosition": "3.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000002029936645",
+        "topicUrl": "toctopics/zh-cn_topic_0000002029936645.html",
+        "name": "虚机容器模式UPF初始配置",
+        "parentTopicId": "TOPIC_0000001992550784",
+        "position": "3.6.1.2.1",
+        "parentPosition": "3.6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "TOPIC_0000001993536814",
+        "topicUrl": "toctopics/zh-cn_topic_0000001993536814.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002029936645",
+        "position": "3.6.1.2.1.3",
+        "parentPosition": "3.6.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818390",
+        "topicId": "OPI_0175096774",
+        "topicUrl": "installation/5g_com_init_comm_005.html",
+        "name": "修改MTU值",
+        "parentTopicId": "TOPIC_0000001993536814",
+        "position": "3.6.1.2.1.3.7",
+        "parentPosition": "3.6.1.2.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001911980889",
+        "topicUrl": "toctopics/zh-cn_topic_0000001911980889.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001866101090",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866101090.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001911980889",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913296141",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913296141.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001866101090",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001867441084",
+        "topicUrl": "toctopics/zh-cn_topic_0000001867441084.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001913296141",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0175096774",
+        "topicUrl": "installation/5g_com_init_comm_005.html",
+        "name": "修改MTU值",
+        "parentTopicId": "TOPIC_0000001867441084",
+        "position": "2.2.3.3.12",
+        "parentPosition": "2.2.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002305896652",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305896652.html",
+        "name": "初始配置与调测",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001142675370",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002305896652",
+        "position": "3.3.4.4",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0175096774",
+        "topicUrl": "installation/5g_com_init_comm_005.html",
+        "name": "修改MTU值",
+        "parentTopicId": "TOPIC_0000001142675370",
+        "position": "3.3.4.4.11",
+        "parentPosition": "3.3.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002305896652",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305896652.html",
+        "name": "初始配置与调测",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001142675370",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002305896652",
+        "position": "3.3.4.4",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0175096774",
+        "topicUrl": "installation/5g_com_init_comm_005.html",
+        "name": "修改MTU值",
+        "parentTopicId": "TOPIC_0000001142675370",
+        "position": "3.3.4.4.11",
+        "parentPosition": "3.3.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV22ED20D5F182466F9AD869A8636504B9",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002339866657",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网通用场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339849309",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339849309.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339769477",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339769477.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000002339849309",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002305930016",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305930016.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000002339769477",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002331072490",
+        "topicUrl": "kitel_Mining_Initia_B2.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002305930016",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "OPI_0175096774",
+        "topicUrl": "installation/5g_com_init_comm_005.html",
+        "name": "修改MTU值",
+        "parentTopicId": "TOPIC_0000002331072490",
+        "position": "2.2.3.4.11",
+        "parentPosition": "2.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

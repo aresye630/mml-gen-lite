@@ -1,0 +1,121 @@
+{
+  "feature_name": "配置专网会话支持Ga/Gy接口",
+  "feature_description": "本章节用于指导配置在用户4G/5G NSA接入时，专网SMF基于Ga/Gy接口选择计费网元CG/OCS并完成对用户流量的计费。\n\n根据用户接入网络类型的不同（4G/5G NSA/5G SA），用户的公网会话可以是4G会话，也可以是5G会话，但是在创建用户专网会话时，智能分流PGW-C会将默认将4G信息转换为5G信息，再触发专网会话的建立，因此用户专网会话默认都是5G会话。这种情况下，当运营商的计费网络未改造，仅支持Ga/Gy的组网方式，不支持基于5G SA的N40组网时，需要专网SMF能够基于Gy/Ga接口传递4G计费的关键信息给OCS或CG，如携带4G格式的位置信息/QoS信息/用户接入网元类型等。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC401B065206E4CD18AD97FA1A9D3DB86",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002337228226",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 一跳入家解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5748",
+          "release_5749",
+          "release_5729"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5748",
+            "release_5749",
+            "release_5729"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002274680694",
+        "topicUrl": "toctopics/zh-cn_topic_0000002274680694.html",
+        "name": "一跳入家解决方案（基于3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002206446494",
+        "topicUrl": "toctopics/zh-cn_topic_0000002206446494.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002274680694",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002206446502",
+        "topicUrl": "toctopics/zh-cn_topic_0000002206446502.html",
+        "name": "部署移动VPN",
+        "parentTopicId": "TOPIC_0000002206446494",
+        "position": "3.4.4",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002475684913",
+        "topicUrl": "toctopics/zh-cn_topic_0000002475684913.html",
+        "name": "配置专用DNN数据",
+        "parentTopicId": "TOPIC_0000002206446502",
+        "position": "3.4.4.2",
+        "parentPosition": "3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002442325020",
+        "topicUrl": "toctopics/zh-cn_topic_0000002442325020.html",
+        "name": "配置SMF",
+        "parentTopicId": "TOPIC_0000002475684913",
+        "position": "3.4.4.2.2",
+        "parentPosition": "3.4.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "OPI_0000002475605129",
+        "topicUrl": "toctopics/zh-cn_opi_0000002475605129.html",
+        "name": "配置专网会话支持Ga/Gy接口",
+        "parentTopicId": "TOPIC_0000002442325020",
+        "position": "3.4.4.2.2.4",
+        "parentPosition": "3.4.4.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

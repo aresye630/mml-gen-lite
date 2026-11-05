@@ -1,0 +1,119 @@
+{
+  "command_name": "SET DEFGLOBALPLMNRSZI",
+  "command_name_zh": "设置全局PLMN区域缺省漫游限制",
+  "command_name_full": "设置全局PLMN区域缺省漫游限制(SET DEFGLOBALPLMNRSZI)",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行不当会影响该HLRSN中用户的缺省漫游能力，影响在网用户业务体验。因此执行该命令前，请仔细评估当前操作的风险，确认对业务没有影响后方可执行。如有疑问请与华为技术支持联系制定操作的实施方案、测试方案和应急措施后才可以实施。\n\n该命令用于设置全局PLMN区域缺省漫游限制业务数据。当某一HLRSN中用户漫游到未通过**MOD GLOBALPLMNRSZI**命令设置全局PLMN区域漫游限制状态的区域时，可以通过本命令设置是否允许该HLRSN中用户漫游。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802787",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/globalplmnrszi_management.html",
+        "name": "PLMN区域漫游限制配置",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.70",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803541_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_defglobalplmnrszi.html",
+        "name": "设置全局PLMN区域缺省漫游限制(SET DEFGLOBALPLMNRSZI)",
+        "parentTopicId": "CONCEPT_0190802787",
+        "position": "4.2.3.2.70.2",
+        "parentPosition": "4.2.3.2.70",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

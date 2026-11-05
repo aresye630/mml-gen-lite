@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活请求信息纠正功能",
+  "feature_description": "如果某地区因手机DNN参数设置错误，导致用户携带DNN的不被选择的切片支持，并且所选切片中不包含默认DNN，从而造成的PDU会话激活成功率低，建议开启本特性。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450904",
+        "topicUrl": "toctopics/zh-cn_topic_0248450904.html",
+        "name": "会话管理功能",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0261598801",
+        "topicUrl": "toctopics/zh-cn_topic_0261598801.html",
+        "name": "WSFD-106004 请求信息纠正功能",
+        "parentTopicId": "TOPIC_0248450904",
+        "position": "7.12",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0173170575",
+        "topicUrl": "desc/unc_2000_feature_desc_DNN_Correction.html",
+        "name": "WSFD-106004 请求信息纠正功能（适用于AMF、SMF）",
+        "parentTopicId": "TOPIC_0261598801",
+        "position": "7.12.2",
+        "parentPosition": "7.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0181812385",
+        "topicUrl": "toctopics/zh-cn_opi_0181812385.html",
+        "name": "激活请求信息纠正功能",
+        "parentTopicId": "TOPIC_0173170575",
+        "position": "7.12.2.3",
+        "parentPosition": "7.12.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "feature_name": "安装NAT服务",
+  "feature_description": "NAT(Network Address Translation)服务应用场景：当用户从私有网络（私有IP地址）访问公有网络（公有IP地址）时，使用NAT功能将私有地址转换为公有地址，实现业务访问。\n\n仅当UEG网元需要部署NAT功能，才需要安装NAT服务。\n\n**在CSPedge裸机场景下，需要先**实例化UEG，**然后**再参考本章节，**动态上线**NAT服务。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217538277",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217538277.html",
+        "name": "UEG软件安装（风筝M）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001337101637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001337101637.html",
+        "name": "基于生产预安装UEG（裸机容器）",
+        "parentTopicId": "TOPIC_0000001217538277",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284901886",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284901886.html",
+        "name": "修改UEG安装参数",
+        "parentTopicId": "TOPIC_0000001337101637",
+        "position": "3.3.1",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "CONCEPT_0000001481968798",
+        "topicUrl": "toctopics/zh-cn_concept_0000001481968798.html",
+        "name": "UEG软件安装（已预安装）",
+        "parentTopicId": "TOPIC_0000001284901886",
+        "position": "3.3.1.1",
+        "parentPosition": "3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001482448274",
+        "topicUrl": "toctopics/zh-cn_topic_0000001482448274.html",
+        "name": "可选服务安装与卸载",
+        "parentTopicId": "CONCEPT_0000001481968798",
+        "position": "3.3.1.1.4",
+        "parentPosition": "3.3.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001481968802",
+        "topicUrl": "toctopics/zh-cn_opi_0000001481968802.html",
+        "name": "安装NAT服务",
+        "parentTopicId": "TOPIC_0000001482448274",
+        "position": "3.3.1.1.4.3",
+        "parentPosition": "3.3.1.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002305736948",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305736948.html",
+        "name": "软件安装",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.3",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001337101637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001337101637.html",
+        "name": "基于生产预安装UEG（裸机容器）",
+        "parentTopicId": "TOPIC_0000002305736948",
+        "position": "3.3.3.1",
+        "parentPosition": "3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001284901886",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284901886.html",
+        "name": "修改UEG安装参数",
+        "parentTopicId": "TOPIC_0000001337101637",
+        "position": "3.3.3.1.1",
+        "parentPosition": "3.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "CONCEPT_0000001481968798",
+        "topicUrl": "toctopics/zh-cn_concept_0000001481968798.html",
+        "name": "UEG软件安装（已预安装）",
+        "parentTopicId": "TOPIC_0000001284901886",
+        "position": "3.3.3.1.1.1",
+        "parentPosition": "3.3.3.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001482448274",
+        "topicUrl": "toctopics/zh-cn_topic_0000001482448274.html",
+        "name": "可选服务安装与卸载",
+        "parentTopicId": "CONCEPT_0000001481968798",
+        "position": "3.3.3.1.1.1.4",
+        "parentPosition": "3.3.3.1.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001481968802",
+        "topicUrl": "toctopics/zh-cn_opi_0000001481968802.html",
+        "name": "安装NAT服务",
+        "parentTopicId": "TOPIC_0000001482448274",
+        "position": "3.3.3.1.1.1.4.3",
+        "parentPosition": "3.3.3.1.1.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

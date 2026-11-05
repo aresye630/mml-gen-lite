@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活双故障Bypass",
+  "feature_description": "在UDG上激活双故障Bypass功能，降低PCF/PCRF双故障对用户业务的影响。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317438",
+        "topicUrl": "toctopics/zh-cn_topic_0239317438.html",
+        "name": "语音功能",
+        "parentTopicId": "",
+        "position": "13",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0000001868148336",
+        "topicUrl": "cdgw/desc/cn_81_0_110606_01.html",
+        "name": "GWFD-112000 双故障Bypass",
+        "parentTopicId": "TOPIC_0239317438",
+        "position": "13.7",
+        "parentPosition": "13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001914147877",
+        "topicUrl": "cdgw/ic/cn_81_110606_11_02.html",
+        "name": "激活双故障Bypass",
+        "parentTopicId": "CONCEPT_0000001868148336",
+        "position": "13.7.3",
+        "parentPosition": "13.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

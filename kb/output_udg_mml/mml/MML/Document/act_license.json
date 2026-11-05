@@ -1,0 +1,107 @@
+{
+  "command_name": "ACT LICENSE",
+  "command_name_zh": "激活License",
+  "command_name_full": "激活License(ACT LICENSE)",
+  "command_function": "**须知** \n\n此操作将会影响网元业务，请确认将要激活的License文件是否正确，再进行此操作。\n\n该命令用于激活License。\n\n该命令的使用场景为：\n\n- 在新建场景中，操作员需要使用该命令激活有效的License文件，使用户能够获得系统用户容量和功能等使用权。\n- 在扩容场景中，如果用户申请了新的License控制项功能，操作员需要使用该命令激活新申请的License文件，这样用户才能获得该新功能的服务。\n- 当使用中的License文件到期时，用户需要重新申请一个新的License文件，否则原有License控制的功能将无法使用，操作员需要使用该命令激活新申请的License文件，继续获得所需功能的服务。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315563",
+        "topicUrl": "MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.6",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555061",
+        "topicUrl": "MML/LinkedDoc/csp_n_license_management.html",
+        "name": "License管理",
+        "parentTopicId": "CONCEPT_0000202289315563",
+        "position": "4.6.16",
+        "parentPosition": "4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001099793370",
+        "topicUrl": "MML/Document/act_license.html",
+        "name": "激活License(ACT LICENSE)",
+        "parentTopicId": "CONCEPT_0000202289555061",
+        "position": "4.6.16.1",
+        "parentPosition": "4.6.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

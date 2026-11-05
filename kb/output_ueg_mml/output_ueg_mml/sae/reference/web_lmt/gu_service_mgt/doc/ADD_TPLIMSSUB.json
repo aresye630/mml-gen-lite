@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD TPLIMSSUB",
+  "command_name_zh": "利用模板增加用户IMS数据",
+  "command_name_full": "利用模板增加用户IMS数据(ADD TPLIMSSUB)",
+  "command_function": "该命令用于GSM/UMTS/EPS/IMS融合网络，IMS-HSS与SAE-HSS/HLR融合部署，在HSS的业务数据库中利用模板为GSM/UMTS用户、EPS用户或GSM/UMTS/EPS融合网络用户签约IMS业务数据。\n\nGSM/UMTS用户、EPS用户或GSM/UMTS/EPS融合网络用户申请签约IMS业务数据的操作流程如图1所示。\n\n**图1** GSM/UMTS用户、EPS用户或GSM/UMTS/EPS融合网络用户申请签约IMS业务数据",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732724",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Subscriber_Data_Management_by_Template.html",
+        "name": "模板开户数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.7",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732485",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/imsData_Addition_by_Template.html",
+        "name": "利用模板管理用户IMS数据",
+        "parentTopicId": "CONCEPT_0191732724",
+        "position": "4.2.4.7.8",
+        "parentPosition": "4.2.4.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732496",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/ADD_TPLIMSSUB.html",
+        "name": "利用模板增加用户IMS数据(ADD TPLIMSSUB)",
+        "parentTopicId": "CONCEPT_0191732485",
+        "position": "4.2.4.7.8.1",
+        "parentPosition": "4.2.4.7.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

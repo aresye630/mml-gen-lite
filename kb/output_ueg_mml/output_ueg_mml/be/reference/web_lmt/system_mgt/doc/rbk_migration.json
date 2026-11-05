@@ -1,0 +1,107 @@
+{
+  "command_name": "RBK MIGRATION",
+  "command_name_zh": "启动跨分区用户迁移回退任务",
+  "command_name_full": "启动跨分区用户迁移回退任务（RBK MIGRATION）",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行时会弹出提示：即将执行迁移回退操作，回退过程中可能存在业务呼损，请确认是否继续操作。\n\n该命令用于执行用户迁移回退操作，当用户跨分区迁移过程中出现异常场景需要回退时，执行该命令将已迁出的用户恢复到原来迁出的分区，同时删除已迁移到迁入分区的用户数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001541012281",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/migration_management.html",
+        "name": "跨分区用户迁移管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.19",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001540892393",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/rbk_migration.html",
+        "name": "启动跨分区用户迁移回退任务（RBK MIGRATION）",
+        "parentTopicId": "CONCEPT_0000001541012281",
+        "position": "4.2.1.19.4",
+        "parentPosition": "4.2.1.19",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

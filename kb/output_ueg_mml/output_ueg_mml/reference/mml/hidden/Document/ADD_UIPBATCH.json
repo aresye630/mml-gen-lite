@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD UIPBATCH",
+  "command_name_zh": "批处理添加IP地址段",
+  "command_name_full": "批处理添加IP地址段(ADD UIPBATCH)",
+  "command_function": "**说明** \n\n当前版本不支持该命令功能。\n\n该命令用于批量为IP地址段增加IP地址信息。\n\nUIM基于增强IP分配策略为WCDMA用户匹配动态IP地址时，根据匹配到的**IP分配规则**中签约的IP地址池，在对应的IP地址池内寻找空闲IP地址下发给用户。通过批处理方式批量增加IP地址信息，可提高配置效率。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123473",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123473.html",
+        "name": "PGW机机接口命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0316030481",
+        "topicUrl": "toctopics/zh-cn_topic_0316030481.html",
+        "name": "UDM PGW 机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123473",
+        "position": "4.3.1",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001912594710",
+        "topicUrl": "reference/mml/hidden/LinkedDoc/pgw_mml_index.html",
+        "name": "UIM PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0316030481",
+        "position": "4.3.1.2",
+        "parentPosition": "4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001945273837",
+        "topicUrl": "reference/mml/hidden/LinkedDoc/uipbatch.html",
+        "name": "批处理IP地址",
+        "parentTopicId": "CONCEPT_0000001912594710",
+        "position": "4.3.1.2.1",
+        "parentPosition": "4.3.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001945273893",
+        "topicUrl": "reference/mml/hidden/Document/ADD_UIPBATCH.html",
+        "name": "批处理添加IP地址段(ADD UIPBATCH)",
+        "parentTopicId": "CONCEPT_0000001945273837",
+        "position": "4.3.1.2.1.1",
+        "parentPosition": "4.3.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

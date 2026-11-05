@@ -1,0 +1,138 @@
+{
+  "command_name": "RMV IPRESOURCE",
+  "command_name_zh": "删除IP资源",
+  "command_name_full": "删除IP资源（RMV IPRESOURCE）",
+  "command_function": "**须知** \n\n- 执行此命令后立即出现IP不通，请谨慎操作。\n- 此命令不能动态生效，需要执行“RST VNFC”重启服务，并且删除IP资源可能导致话单业务不可用或话单无法被取走。\n\n**适用NF：NCG**\n\n该命令用于删除已添加的IP资源。\n\nIP资源有四种用途，不同用途情况下，删除的前提条件有如下不同：\n\n1、IP资源用于话单接收：需要先确保该IP资源没有用来接收话单，然后删除与该IP资源相关的路由资源。\n\n2、IP资源仅用于话单分发：需要先删除该IP资源所在的RU上所有分发任务，然后删除与该IP资源相关的路由资源。\n\n3、IP资源仅用于话单备份：需要先删除该IP资源所在的RU上所有备份到第三方服务器/UDN服务器的任务，然后删除与该IP资源相关的路由资源。\n\n4、IP资源用于话单分发和备份：需要先删除该IP资源所在的RU上所有分发任务和备份到第三方服务器/UDN服务器的任务，然后删除与该IP资源相关的路由资源。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0245490879",
+        "topicUrl": "MML/LinkedDoc/unc_n_ncg_service_and_policy_management.html",
+        "name": "NCG业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.11",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174227",
+        "topicUrl": "MML/LinkedDoc/unc_n_cloudcg_management.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0245490879",
+        "position": "2.11.5",
+        "parentPosition": "2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174228",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_configuration_management.html",
+        "name": "业务配置管理",
+        "parentTopicId": "CONCEPT_0251174227",
+        "position": "2.11.5.1",
+        "parentPosition": "2.11.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174281",
+        "topicUrl": "MML/LinkedDoc/unc_n_ip_resource.html",
+        "name": "IP资源",
+        "parentTopicId": "CONCEPT_0251174228",
+        "position": "2.11.5.1.14",
+        "parentPosition": "2.11.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0251174283",
+        "topicUrl": "MML/Document/rmv_ipresource.html",
+        "name": "删除IP资源（RMV IPRESOURCE）",
+        "parentTopicId": "CONCEPT_0251174281",
+        "position": "2.11.5.1.14.2",
+        "parentPosition": "2.11.5.1.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

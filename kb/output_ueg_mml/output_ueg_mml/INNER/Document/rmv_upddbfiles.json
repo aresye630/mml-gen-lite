@@ -1,0 +1,377 @@
+{
+  "command_name": "RMV UPDDBFILES",
+  "command_name_zh": "删除DB文件",
+  "command_name_full": "删除DB文件（RMV UPDDBFILES）",
+  "command_function": "该命令用于删除所有升级DB文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001266739438",
+        "topicUrl": "toctopics/zh-cn_topic_0000001266739438.html",
+        "name": "Service Fabric机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.1",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767897761_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "TOPIC_0000001266739438",
+        "position": "2.3.3.1.2",
+        "parentPosition": "2.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720257814_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001767897761_3",
+        "position": "2.3.3.1.2.1",
+        "parentPosition": "2.3.3.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001767897765_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0000001720257814_3",
+        "position": "2.3.3.1.2.1.2",
+        "parentPosition": "2.3.3.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001720257818_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_upgrade_maintenance.html",
+        "name": "升级维护",
+        "parentTopicId": "TOPIC_0000001767897765_3",
+        "position": "2.3.3.1.2.1.2.1",
+        "parentPosition": "2.3.3.1.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001196190215_3",
+        "topicUrl": "INNER/Document/rmv_upddbfiles.html",
+        "name": "删除DB文件（RMV UPDDBFILES）",
+        "parentTopicId": "TOPIC_0000001720257818_3",
+        "position": "2.3.3.1.2.1.2.1.7",
+        "parentPosition": "2.3.3.1.2.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001767897761_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001720257814_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001767897761_3",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001767897765_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0000001720257814_3",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001720257818_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_upgrade_maintenance.html",
+        "name": "升级维护",
+        "parentTopicId": "TOPIC_0000001767897765_3",
+        "position": "4.2.1.2.1",
+        "parentPosition": "4.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001196190215_3",
+        "topicUrl": "INNER/Document/rmv_upddbfiles.html",
+        "name": "删除DB文件（RMV UPDDBFILES）",
+        "parentTopicId": "TOPIC_0000001720257818_3",
+        "position": "4.2.1.2.1.7",
+        "parentPosition": "4.2.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122070240",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122070240.html",
+        "name": "UEG机机接口命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001767897761_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_legacy_monolithic_service_management.html",
+        "name": "单体服务公共功能管理",
+        "parentTopicId": "TOPIC_0000001122070240",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001720257814_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0000001767897761_3",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001767897765_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0000001720257814_3",
+        "position": "4.2.1.2",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001720257818_3",
+        "topicUrl": "INNER/LinkedDoc/common_vnfc_n_upgrade_maintenance.html",
+        "name": "升级维护",
+        "parentTopicId": "TOPIC_0000001767897765_3",
+        "position": "4.2.1.2.1",
+        "parentPosition": "4.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001196190215_3",
+        "topicUrl": "INNER/Document/rmv_upddbfiles.html",
+        "name": "删除DB文件（RMV UPDDBFILES）",
+        "parentTopicId": "TOPIC_0000001720257818_3",
+        "position": "4.2.1.2.1.7",
+        "parentPosition": "4.2.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

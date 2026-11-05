@@ -1,0 +1,88 @@
+{
+  "feature_name": "强制下线",
+  "feature_description": "上线可选VNFC失败和加载补丁失败时，需要强制下线可选VNFC并清理相关残留数据，请务必在研发人员指导下参考本章节进行操作。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVBADDD44F8AC34B37BA625D99285B6797",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVEBCBD18E60954A5AA4858004F7C9C4C4",
+        "parentNaviId": "DOCNAVBADDD44F8AC34B37BA625D99285B6797",
+        "pidId": "pid_bookmap_0000002193793382",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "基于VNF LCM安装UNC（非SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_383",
+          "pid_type_7873",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7873"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793382",
+        "topicId": "TOPIC_0245736789",
+        "topicUrl": "common/software-fs/1_7_0_Reference.html",
+        "name": "参考及FAQ",
+        "parentTopicId": "",
+        "position": "12",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193793382",
+        "topicId": "OPI_0000001661818808",
+        "topicUrl": "toctopics/zh-cn_opi_0000001661818808.html",
+        "name": "强制下线",
+        "parentTopicId": "TOPIC_0245736789",
+        "position": "12.5",
+        "parentPosition": "12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

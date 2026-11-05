@@ -1,0 +1,61 @@
+{
+  "feature_name": "用户面选择结果验证",
+  "feature_description": "当需要观察是否为用户选择到了预期的用户面时，需要对选择用户面功能进行验证，确保功能可以正常使用。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV4773FDAFD9CC47C4BEDC1DFDB0E612AD",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229278221",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC UPF选择专题",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278221",
+        "topicId": "OPI_0307202677",
+        "topicUrl": "toctopics/zh-cn_opi_0307202677.html",
+        "name": "用户面选择结果验证",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

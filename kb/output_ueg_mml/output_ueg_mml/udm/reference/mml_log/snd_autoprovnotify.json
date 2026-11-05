@@ -1,0 +1,95 @@
+{
+  "command_name": "SND AUTOPROVNOTIFY",
+  "command_name_zh": "记录自动开户日志",
+  "command_name_full": "记录自动开户日志（SND AUTOPROVNOTIFY）",
+  "command_function": "该命令用于在触发自动开户业务流程时记录空口日志。\n\n该命令不能在业务窗口上执行，是在FE触发自动开户后，BE的PGW模块向业务发放系统发送5G自动开户通知消息，业务发放系统向BE返回响应消息后，FE向BE发送该空口日志记录的命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123469",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123469.html",
+        "name": "UEG专家维护命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0195322667",
+        "topicUrl": "udm/reference/mml_log/mml_log.html",
+        "name": "空口日志命令",
+        "parentTopicId": "TOPIC_0000001406123469",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0195322671",
+        "topicUrl": "udm/reference/mml_log/snd_autoprovnotify.html",
+        "name": "记录自动开户日志（SND AUTOPROVNOTIFY）",
+        "parentTopicId": "TOPIC_0195322667",
+        "position": "2.7.1.2",
+        "parentPosition": "2.7.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

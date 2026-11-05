@@ -1,0 +1,119 @@
+{
+  "command_name": "RST HTTPLNK",
+  "command_name_zh": "重建HTTP链路",
+  "command_name_full": "重建HTTP链路（RST HTTPLNK）",
+  "command_function": "**须知** \n\n执行该命令会重建或拆除链路，可能会对操作链路进行中的业务造成影响。\n\n该命令用于重建HTTP链路，即该命令执行以后，当前指定的HTTP链路会释放，该链路释放以后系统会自动触发重建新的链路。重建的链路的本对端IP地址和本对端端口号信息可能变化也可能不变化。该命令可用于用户希望通过链路故障触发链路重建的场景，如发现服务端链路负载过高，导致系统内负载不均衡时，可通过此命令触发链路重建，人工干预负载均衡。\n\n当该命令的可选输入参数DSTPORTNUM不为空时，按照输入的四元组拆除对应的唯一链路；若不输入此参数，则按照输入的三元组批量拆链，若链路数低于20条则全拆除，但单次执行命令拆链数上限为20条。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899264543",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.15",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899025455",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_management.html",
+        "name": "HTTP管理",
+        "parentTopicId": "CONCEPT_0000204899264543",
+        "position": "4.15.2",
+        "parentPosition": "4.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899264557",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_link_management.html",
+        "name": "HTTP链路管理",
+        "parentTopicId": "CONCEPT_0000204899025455",
+        "position": "4.15.2.6",
+        "parentPosition": "4.15.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001229053339",
+        "topicUrl": "MML/Document/rst_httplnk.html",
+        "name": "重建HTTP链路（RST HTTPLNK）",
+        "parentTopicId": "CONCEPT_0000204899264557",
+        "position": "4.15.2.6.1",
+        "parentPosition": "4.15.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

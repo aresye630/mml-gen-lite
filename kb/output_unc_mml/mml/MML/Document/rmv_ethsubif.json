@@ -1,0 +1,138 @@
+{
+  "command_name": "RMV ETHSUBIF",
+  "command_name_zh": "删除子接口配置",
+  "command_name_full": "删除子接口配置（RMV ETHSUBIF）",
+  "command_function": "该命令用于删除子接口关联的VLAN。\n\n当网络重新规划，需要重新规划指定子接口的用途，如果指定的子接口已经关联VLAN，此时可执行该命令删除关联的VLAN。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414752",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.3",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414820",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_vlan_management.html",
+        "name": "VLAN管理",
+        "parentTopicId": "TOPIC_0000002385414752",
+        "position": "1.20.3.5",
+        "parentPosition": "1.20.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419173909",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_vlan_sub_interface.html",
+        "name": "VLAN子接口",
+        "parentTopicId": "TOPIC_0000002385414820",
+        "position": "1.20.3.5.1",
+        "parentPosition": "1.20.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001600866281",
+        "topicUrl": "MML/Document/rmv_ethsubif.html",
+        "name": "删除子接口配置（RMV ETHSUBIF）",
+        "parentTopicId": "TOPIC_0000002419173909",
+        "position": "1.20.3.5.1.2",
+        "parentPosition": "1.20.3.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

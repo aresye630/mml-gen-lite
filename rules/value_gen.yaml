@@ -1,0 +1,178 @@
+# 值生成规则库（数据驱动；脚本是规则引擎，不含硬编码参数表）
+#
+# 用途：为 origin=placeholder 的参数生成"最符合原文"的值。
+# 依据：docs/值生成规则库草案_v1.md（实测 1377 条 placeholder，7 类规则覆盖 96.7%）
+# 口径（用户已拍板 2026-09-13）：
+#   1) 枚举不参与全局唯一
+#   2) 生成值全局唯一，与现网已用值 + 本次已生成互斥
+#   3) 命名风格：EXP 优先 → 特性示例 → 默认（不另创体系）
+#   4) 未知类型不猜值，降级 placeholder 并说明原因
+#   5) 尽量让用户「确认」而非「填写」
+#
+# 判定顺序：按 types 顺序自上而下，首个 match 命中即用（顺序敏感！）
+#   R8_secret（脱敏密钥）与 R1_name 有 overlap，故须放在 R1_name 之前。
+version: 1
+
+defaults:
+  # 数值类默认步长
+  step: 1
+  # 是否还原 Markdown 转义（与 gen_assemble._unescape_md 同口径）
+  unescape_md: true
+  # 生成值前缀（仅 v1 兜底命名使用；优先 EXP/示例风格）
+  fallback_prefix: ''
+  # 单参数生成值的最大尝试次数（唯一化冲突时递增序号）
+  max_attempts: 200
+
+# ─────────────────────────────────────────────────────────── 规则定义
+# 每条规则字段：
+#   id          规则编号（写入 note/注释，供追溯）
+#   match       匹配条件（param_regex / sample_regex / sample_in / param_in）
+#   strategy    生成策略（见各规则注释）
+#   unique      是否参与全局唯一约束
+#   reason      写入注释的人类可读理由模板
+types:
+
+  # ── 密钥/凭据类（样例为脱敏值，绝不自动生成，须人工提供）
+  #    须置于 R1_name 之前：MASTERAUTHKEY 等以 KEY 结尾，否则先被名称类抢走
+  #    ⚠ 排除 *NAME/*_ID（那是"密钥的名字/标识"，属名称类可生成）
+  - id: R8_secret
+    match:
+      param_regex: '^(?!.*(NAME$|ID$))(.*(KEY|PASSWORD|PWD|SECRET|TOKEN|CREDENTIAL|CERT))'
+    strategy: placeholder_with_reason
+    unique: false
+    reason: '密钥/凭据类参数，须人工提供，不自动生成'
+
+  # ── 通配掩码（WILD，形如 0.0.0.1）
+  - id: R3c_wild
+    match:
+      param_regex: 'WILD'
+      sample_regex: '^"?\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"?$'
+    strategy: keep_sample
+    unique: false
+    reason: '通配掩码，保持样例值（形如 0.0.0.1）'
+  - id: R3c2_wild_bad_sample
+    match:
+      param_regex: 'WILD'
+    strategy: placeholder_with_reason
+    unique: false
+    reason: '通配掩码参数的样例非掩码形态（疑源文档串栏），不自动生成'
+
+  # ── 掩码/前缀（必须放在 IP 之前：掩码样例也是纯数字，避免被 R2 抢走）
+  - id: R4_mask
+    match:
+      param_regex: '(MASK|MASKLEN|PREFIXLEN|PREFIX)'
+    strategy: keep_sample
+    unique: false
+    validate:
+      ipv4: '0-32'
+      ipv6: '0-128'
+    reason: '掩码/前缀，与地址族匹配故保持样例值不变'
+
+  # ── 地址族/协议约束校验（防源数据串栏：如 WILD 参数拿到掩码长度 24）
+  #    命中的参数若样例形态与"参数语义期望"不符，则降级 placeholder（不猜值）
+  - id: R3d_addr_expect
+    match:
+      param_regex: '(IP$|IPADDR|ADDRESS|ADDR)'
+      sample_regex: '^"?\d+$'
+    strategy: placeholder_with_reason
+    unique: false
+    reason: '参数语义期望地址形态，但样例如为纯数字（疑源文档串栏），不自动生成'
+
+  # ── IP 地址（IPv4 点分 / IPv6 冒号）
+  - id: R3_ip
+    match:
+      sample_regex: '^"?\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"?$'
+    strategy: increment_last_octet
+    unique: true
+    overflow: carry_to_third        # 第4段>255 → 第3段+1，第4段归1（不产出256）
+    keep_quote: true
+    reason: 'IP 地址按相邻段递增（同网段，末段+1）'
+
+  - id: R3b_ipv6
+    match:
+      param_regex: '(IPV6|IP6)'
+      sample_regex: '^"?[0-9A-Fa-f:]+"?$'
+    strategy: keep_sample
+    unique: false
+    reason: 'IPv6 地址，保持样例值（避免进制递增出错）'
+
+  # ── 开关/布尔（取样例值，必须放在 R2 之前：样例可能是 YES/NO 等非数字但参数名含 IS*）
+  - id: R5_switch
+    match:
+      sample_in: [ENABLE, DISABLE, YES, NO, TRUE, FALSE, ON, OFF,
+                  Enable, Disable, Yes, No, True, False, enable, disable]
+    strategy: keep_sample
+    unique: false
+    reason: '开关/布尔值，取官方样例语义'
+    # 参数名以开关语义开头也可命中（样例缺失时）
+  - id: R5b_switch_by_name
+    match:
+      param_regex: '(SWITCH|FLAG|^IS[A-Z]|ENABLE|ALLOW|SUPPORT)'
+      sample_regex: '^[A-Za-z]{2,8}$'
+    strategy: keep_sample
+    unique: false
+    reason: '开关类参数，取官方样例语义'
+
+  # ── 时间（取样例值，不递增）
+  - id: R6_time
+    match:
+      param_regex: '(TIME|INTERVAL|PERIOD|DURATION|TIMER|TIMO|_SEC|SECOND|MINUTE)'
+      sample_regex: '^"?\d+"?$'
+    strategy: keep_sample
+    unique: false
+    reason: '时间量值，保持样例值（递增无业务意义）'
+
+  # ── 端口/VLAN（数值，递增且唯一）
+  - id: R2b_port
+    match:
+      param_regex: '(PORT|VLAN|VNI|VXLAN)'
+      sample_regex: '^"?\d+"?$'
+    strategy: sample_with_step
+    unique: true
+    reason: '端口/VLAN 编号，样例值起递增避免冲突'
+
+  # ── 编号/数值（样例起增减递增）
+  - id: R2_number
+    match:
+      sample_regex: '^"?\d+"?$'
+    strategy: sample_with_step
+    unique: true
+    # 档位类参数不递增（递增会产出非法档位）
+    no_step_params:
+      - PRIORITY
+      - PRECEDENCE
+      - LEVEL
+      - DSCP
+      - 8021P
+      - TYPE
+    reason: '数值类，样例值起递增（档位类参数除外）'
+
+  # ── 名称/标识（样例优先，冲突则按 EXP/示例风格唯一化）
+  - id: R1_name
+    match:
+      # ⚠ 与 gen_assemble._is_key_param 同口径：
+      #   - 以 NAME/ID 结尾即视为名称类（ACLRULENAME/NRFINSTANCENAME/CLIENTID…）
+      #   - APN/DNN/KEY 须为完整参数名（避免 SUPP_DUAL_DOMAINS_DNN 类开关被误判）
+      param_regex: '(NAME$|ID$|^ALIAS|DESC$|POOL$|GROUP$|(^|_)APN$|(^|_)DNN$|(^|_)KEY$|TAG$)'
+    strategy: sample_then_unique
+    unique: true
+    # 口径3：命名风格按序回退
+    naming_style: [from_exp, from_sample, default]
+    default_suffix_format: '_{n}'
+    reason: '名称/标识，样例如已占用则按既有命名风格唯一化'
+
+  # ── 枚举（取样例；多值列举取首个；不参与唯一）
+  - id: R7_enum
+    match:
+      sample_regex: '^"?[A-Za-z][A-Za-z0-9_.\-]*"?$'
+    strategy: keep_sample_first_if_multi
+    unique: false
+    reason: '枚举值，取官方样示例的取值'
+
+
+  # ── 兜底：未知类型 → 不猜值，降级 placeholder
+  - id: R9_unknown
+    match: {}
+    strategy: placeholder_with_reason
+    unique: false
+    reason: '未知参数类型，未纳入自动生成（需人工确认）'

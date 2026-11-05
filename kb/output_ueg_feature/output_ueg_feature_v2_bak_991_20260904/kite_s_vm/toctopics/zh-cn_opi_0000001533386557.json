@@ -1,0 +1,117 @@
+{
+  "feature_name": "安装IPsec服务（UPF）",
+  "feature_description": "IPsec(Internet Protocol Security)是IETF制定的一系列协议，通过对数据流中的每个IP包进行鉴权和加密，为IP数据报提供了高质量的、可互操作的、基于密码技术的安全性。\n\n仅当UEG网元需要部署IPsec功能时，才需要安装IPsec服务。\n\n安装IPsec服务场景：\n\n**场景一**\n\n**（静态上线）**\n\n：IPsec服务和\n\nUEG\n\n网元\n\n**同时实例化**\n\n。实例化\n\nUEG\n\n前填写如下VNFD参数。\n\n- 配置VM：\n  - 基于X86虚拟机：\n\n    PBU\\_P-I\\_M\\_Num（仅UEG S），PBU\\_P-I\\_M Redundancy Num（仅UEG S）；PBU\\_P-I\\_Num，PBU\\_P-I Redundancy Num；PBU\\_P-I\\_C4\\_Num， PBU\\_P-I\\_C4 Redundancy Num。\n  - 基于ARM虚拟机：\n\n    PBU\\_P-I\\_M\\_ARM\\_Num（仅UEG S），PBU\\_P-I\\_M\\_ARM Redundancy Num（仅UEG S）；PBU\\_P-I\\_ARM\\_Num，PBU\\_P-I\\_ARM Redundancy Num；PBU\\_P-I\\_C4\\_ARM\\_Num， PBU\\_P-I\\_C4\\_ARM Redundancy Num。\n- 配置Pod：IPSECCTL\\_Instance\\_Num，IPSECEXEC\\_Instance\\_Num，IPSECEXEC\\_C4\\_Instance\\_Num，IPSECEXEC\\_M\\_Instance\\_Num（仅UEG S）。\n\n| 虚拟机        | 允许在单个主机上部署的此类虚拟机最大个数      | 转发pod                                           |\n|:-----------|:--------------------------|:------------------------------------------------|\n| PBU_P-I    | PBU_P-I Redundancy Num    | IPSECCTL_Instance_Num、IPSECEXEC_Instance_Num    |\n| PBU_P-I_C4 | PBU_P-I_C4 Redundancy Num | IPSECCTL_Instance_Num、IPSECEXEC_C4_Instance_Num |\n| PBU_P-I_M  | PBU_P-I_M Redundancy Num  | IPSECCTL_Instance_Num、 IPSECEXEC_M_Instance_Num |\n\n上述虚机每次上线只选择一种，配套的参数**有成套关系**，例如根据网设数据**成套配置**上述参数，其他参数都配置为0。以PBU\\_P-I\\_C4为例：\n\n正确样例：PBU\\_P-I\\_C4=2、PBU\\_P-I\\_C4 Redundancy Num=1、IPSECESEC\\_C4\\_Instance\\_Num=2\n\n错误样例：PBU\\_P-I\\_C4=2、PBU\\_P-I\\_C4 Redundancy Num=1、IPSECEXEC\\_Instance\\_Num=2\n\n**说明** \n\n以上是VNFD模板中IPsec虚拟机和容器的参数全集，在单个plan文件中，只会有部分VNFD参数，以实际的plan中所呈现的VNFD参数为准。\n\n请以网设给出的虚拟机和容器规划来配置VNFD参数。\n\n- **场景二****（动态上线）**：**先**实例化UEG并扩容出IPsec服务自身VM（PBU\\_P-I\\_C4），**然后**再参考本章节，动态上线IPsec服务。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105078612",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105078612.html",
+        "name": "UEG软件安装（风筝S）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001310331628",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001310331628.html",
+        "name": "安装UPF（独立部署）",
+        "parentTopicId": "TOPIC_0000001105078612",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001099758986",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001099758986.html",
+        "name": "基于中心NFVO (Orchestrator)安装（UPF）",
+        "parentTopicId": "TOPIC_0000001310331628",
+        "position": "3.1.5",
+        "parentPosition": "3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339501816",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339501816.html",
+        "name": "NFVO安装UEG（SDN场景）",
+        "parentTopicId": "TOPIC_0000001099758986",
+        "position": "3.1.5.4",
+        "parentPosition": "3.1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001533386553",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001533386553.html",
+        "name": "安装可选服务",
+        "parentTopicId": "TOPIC_0000001339501816",
+        "position": "3.1.5.4.7",
+        "parentPosition": "3.1.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001533386557",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001533386557.html",
+        "name": "安装IPsec服务（UPF）",
+        "parentTopicId": "TOPIC_0000001533386553",
+        "position": "3.1.5.4.7.1",
+        "parentPosition": "3.1.5.4.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

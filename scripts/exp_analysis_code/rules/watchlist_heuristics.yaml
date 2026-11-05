@@ -1,0 +1,37 @@
+# watchlist_heuristics.yaml — 可疑值启发式声明（UDG；通用模式）
+# 检测实现见 p6_watchlist.py。输出 watchlist[] {heuristic, cmd, param, value, why, seq}
+# 命中只进待审视候选（不判错），跨层推理类项明确标需 P2/P3（渲染段标注）。
+
+UDG:
+  - heuristic_id: placeholder_ip
+    name: 疑似占位 IP（全同段位）
+    detect: |
+      IP 形值四段/八组全同（1.1.1.1 / 2:2:2:2:2:2:2:2），
+      或落入文档示例段（192.0.2.0/24、198.51.100.0/24、203.0.113.0/24）。
+      豁免：参数名含 MASK（掩码 255.255.255.255 合法）；v4 全同段位若在
+      allowlist（公共保活/探测目标，行业通用惯例）则视为合法探测地址。
+      v6 八组全同无合法场景 → 强判占位。
+    allowlist: [1.1.1.1, 8.8.8.8, 114.114.114.114, 223.5.5.5, 119.29.29.29]
+    why: 真实网元地址不会全同段位——疑似导出占位/模板残留，需人工确认后下发
+
+  - heuristic_id: style-mismatch
+    name: 同族风格不一致（虚拟地址 vs 族内服务地址）
+    detect: |
+      同一 ADD IPFARM 内 VIRTUALIP 与 SERVERIP 集：值网段/前缀
+      与族内 SERVERIP 众数前缀显著不一致
+    why: VIP 应落在同族服务器可达网段；显著偏离疑似占位或规划变更未收口
+
+  - heuristic_id: echo-all-off
+    name: 非 N4 GTP-U Echo 全关
+    detect: |
+      SET UPGTPPATH 的 V0ECHOSW / V1DATAECHOSW / ECHOLISTSWITCH 全 DISABLE
+    why: N3/S1-U/N6 数据面本端不发 Echo、无黑白名单，路径活性完全依赖对端(R)AN/UPF
+         发起或 PFCP/N4 联动——需确认对端 Echo 开启（双向机制一端即可）
+
+  - heuristic_id: apn-v4v6-asym
+    name: APN v4/v6 地址属性不对称
+    detect: |
+      ADD APN 的 HASVPN=DISABLE（v4 无 VPN 实例）与 SET APNADDRESSATTR 的
+      SUPPORTIPV4=ENABLE 并存（按 APN 名关联）
+    why: v4 地址分配来源不明（无 v4 池/VRF 支撑）——若存在 v4 会话需确认由 SMF/
+         其它 UPF 承载或属预期豁免

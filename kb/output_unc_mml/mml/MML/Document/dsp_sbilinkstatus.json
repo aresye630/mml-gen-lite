@@ -1,0 +1,126 @@
+{
+  "command_name": "DSP SBILINKSTATUS",
+  "command_name_zh": "查询服务化接口链路状态",
+  "command_name_full": "查询服务化接口链路状态（DSP SBILINKSTATUS）",
+  "command_function": "**须知** \n\n当链路数较多时，执行该命令会占用运维平台较长时间，进而导致用户无法继续使用该运维平台。对于业务负载较高的设备，建议查询时加上网元类型、链路状态、全局进程标识、POD名称等参数减少命令查询的链路数，避免对设备造成冲击影响业务。\n\n该命令用于查询服务化接口的链路状态。可支持服务端和客户端链路查询。当系统角色为服务端时，可在系统中查询由客户端发起建立的链路的基本信息。当系统为客户端时，可在系统中查询由本端发起建立的链路的详细信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001183867166",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.12",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001229106859",
+        "topicUrl": "MML/LinkedDoc/sbilinkexecsvc_n_sbi_management.html",
+        "name": "SBI管理",
+        "parentTopicId": "TOPIC_0000001183867166",
+        "position": "1.12.6",
+        "parentPosition": "1.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001229506801",
+        "topicUrl": "MML/LinkedDoc/sbilinkexecsvc_n_sbi_link_management.html",
+        "name": "服务化接口链路管理",
+        "parentTopicId": "TOPIC_0000001229106859",
+        "position": "1.12.6.4",
+        "parentPosition": "1.12.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001229213281",
+        "topicUrl": "MML/Document/dsp_sbilinkstatus.html",
+        "name": "查询服务化接口链路状态（DSP SBILINKSTATUS）",
+        "parentTopicId": "TOPIC_0000001229506801",
+        "position": "1.12.6.4.1",
+        "parentPosition": "1.12.6.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

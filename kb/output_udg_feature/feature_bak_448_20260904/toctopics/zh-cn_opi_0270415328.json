@@ -1,0 +1,103 @@
+{
+  "feature_name": "激活基于服务PLMN的NB-IoT终端接入速率控制",
+  "feature_description": "在UDG上激活基于服务PLMN的NB-IoT终端接入速率控制，PGW-U根据MME发来的速率控制信息，对数据包的转发速率进行控制。对于超过门限的数据包，PGW-U进行丢包处理，未超过门限的数据包进行正常的转发处理。\n\n**说明** \n\n适用于SGW-U、PGW-U。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0272289604",
+        "topicUrl": "toctopics/zh-cn_topic_0272289604.html",
+        "name": "物联网功能",
+        "parentTopicId": "",
+        "position": "21",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0273148348",
+        "topicUrl": "toctopics/zh-cn_topic_0273148348.html",
+        "name": "NB-IoT",
+        "parentTopicId": "TOPIC_0272289604",
+        "position": "21.1",
+        "parentPosition": "21",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0270415325",
+        "topicUrl": "toctopics/zh-cn_topic_0270415325.html",
+        "name": "GWFD-110612 基于服务PLMN的NB-IoT终端接入速率控制",
+        "parentTopicId": "TOPIC_0273148348",
+        "position": "21.1.6",
+        "parentPosition": "21.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0270415328",
+        "topicUrl": "toctopics/zh-cn_opi_0270415328.html",
+        "name": "激活基于服务PLMN的NB-IoT终端接入速率控制",
+        "parentTopicId": "TOPIC_0270415325",
+        "position": "21.1.6.2",
+        "parentPosition": "21.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

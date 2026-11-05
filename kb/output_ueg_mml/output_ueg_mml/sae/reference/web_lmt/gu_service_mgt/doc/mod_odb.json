@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD ODB",
+  "command_name_zh": "修改呼叫ODB业务",
+  "command_name_full": "修改呼叫ODB业务(MOD ODB)",
+  "command_function": "ODB（Operator Determined Barring）即运营商决定的闭锁，是指用户接入网络的业务能力，是由PLMN网络运营商来决定的。\n\n- 当用户接入WCDMA/TD-SCDMA、GSM或LTE网络时，此操作用来同时签约或同时去签约运营商决定的闭锁业务（ODBSS、ODBIC、ODBOC、ODBPB1、ODBPB2、ODBPB3、ODBPB4、ODBENTE、ODBINFO、ODBROAM、ODBRCF、ODBECT、ODBDECT、ODBMECT、ODBPOS、ODBPOSTYPE、ODBENTEROAM和ODBINFOROAM）。\n\n  如果UDM支持签约管理优化（执行**SET MAPCONF**命令将“用户被锁后是否允许操作相关补充业务”设置为“TRUE”）。\n  - 即使已执行**MOD LCK**命令禁止用户呼入，仍可以执行该命令修改用户的“ODB-闭锁入呼叫”业务。\n  - 即使已执行**MOD LCK**命令禁止用户呼出，仍可以执行该命令修改用户的“ODB-闭锁出呼叫”业务。\n\n  执行此命令后，系统将向VLR/SGSN/MME/S4-SGSN下发插入用户数据消息。\n- 当用户接入5GC网络时，此操作用来同时签约或同时去签约运营商决定的闭锁业务（ODBROAM、ODBPOS）。\n\n  可以通过**SET UDMSERV**命令中的“NGS闭锁漫游生效方式”和“NGS下ODBPOS控制方式”参数来控制5GC网络下闭锁漫游和闭锁分组业务的生效方式。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803734",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/odb_management.html",
+        "name": "ODB业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.10",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803640",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_odb.html",
+        "name": "修改呼叫ODB业务(MOD ODB)",
+        "parentTopicId": "MMLREF_0190803734",
+        "position": "4.2.3.10.1",
+        "parentPosition": "4.2.3.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

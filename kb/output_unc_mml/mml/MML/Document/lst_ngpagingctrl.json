@@ -1,0 +1,138 @@
+{
+  "command_name": "LST NGPAGINGCTRL",
+  "command_name_zh": "查询5G寻呼策略控制表",
+  "command_name_full": "查询5G寻呼策略控制表（LST NGPAGINGCTRL）",
+  "command_function": "**适用NF：AMF**\n\n此命令用于查询当前配置的S1寻呼策略。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319989",
+        "topicUrl": "MML/LinkedDoc/unc_n_n2_interface_management.html",
+        "name": "N2接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.5",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320636",
+        "topicUrl": "MML/LinkedDoc/unc_n_ngap_interface_paing_management.html",
+        "name": "NGAP接口寻呼管理",
+        "parentTopicId": "TOPIC_0234319989",
+        "position": "2.10.5.6",
+        "parentPosition": "2.10.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321040",
+        "topicUrl": "MML/LinkedDoc/unc_n_ng_paging_policy_management.html",
+        "name": "NG寻呼策略管理",
+        "parentTopicId": "TOPIC_0234320636",
+        "position": "2.10.5.6.6",
+        "parentPosition": "2.10.5.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209653141",
+        "topicUrl": "MML/Document/lst_ngpagingctrl.html",
+        "name": "查询5G寻呼策略控制表（LST NGPAGINGCTRL）",
+        "parentTopicId": "TOPIC_0234321040",
+        "position": "2.10.5.6.6.2",
+        "parentPosition": "2.10.5.6.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

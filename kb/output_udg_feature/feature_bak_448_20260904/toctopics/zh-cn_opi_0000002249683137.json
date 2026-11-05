@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置媒体中继业务及UPF选择规则（基于upfSelectRules）",
+  "feature_description": "本操作指导完成在部署媒体中继业务时，如何配置通过upfSelectRules下发UPF选择规则及业务规则。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF3E973F9A7A24393805B169F26A77E72",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002243122044",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 媒体中继解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002415996849",
+        "topicUrl": "toctopics/zh-cn_topic_0000002415996849.html",
+        "name": "媒体中继业务配置",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002184693166",
+        "topicUrl": "toctopics/zh-cn_topic_0000002184693166.html",
+        "name": "新建媒体中继基础配置",
+        "parentTopicId": "TOPIC_0000002415996849",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "TOPIC_0000002255931269",
+        "topicUrl": "toctopics/zh-cn_topic_0000002255931269.html",
+        "name": "配置PCF",
+        "parentTopicId": "TOPIC_0000002184693166",
+        "position": "3.4.1",
+        "parentPosition": "3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002243122044",
+        "topicId": "OPI_0000002249683137",
+        "topicUrl": "toctopics/zh-cn_opi_0000002249683137.html",
+        "name": "配置媒体中继业务及UPF选择规则（基于upfSelectRules）",
+        "parentTopicId": "TOPIC_0000002255931269",
+        "position": "3.4.1.1",
+        "parentPosition": "3.4.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

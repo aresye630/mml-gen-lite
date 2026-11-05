@@ -1,0 +1,119 @@
+{
+  "command_name": "LST NEFROAMNTFPLMNWBLIST",
+  "command_name_zh": "查询NEF漫游状态事件通知PLMN黑白名单",
+  "command_name_full": "查询NEF漫游状态事件通知PLMN黑白名单(LST NEFROAMNTFPLMNWBLIST)",
+  "command_function": "该命令用于查询系统配置的NEF漫游状态事件通知PLMN黑白名单数据记录。\n\n- 当不输入“PLMNID”参数时，系统显示指定“HLR序列号”下所有NEF漫游状态事件通知PLMN黑白名单数据记录。\n- 当输入“PLMNID”参数时，系统显示一条具体NEF漫游状态事件通知PLMN黑白名单数据记录。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0282059147",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/NEF_subscription_event_management.html",
+        "name": "NEF订阅事件管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.46",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001810526250",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/nef_plmn_wbList_notifications_management.html",
+        "name": "NEF漫游状态事件通知PLMN黑白名单管理",
+        "parentTopicId": "CONCEPT_0282059147",
+        "position": "4.2.3.46.1",
+        "parentPosition": "4.2.3.46",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001857284901",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_nefroamnefplmnwblist.html",
+        "name": "查询NEF漫游状态事件通知PLMN黑白名单(LST NEFROAMNTFPLMNWBLIST)",
+        "parentTopicId": "CONCEPT_0000001810526250",
+        "position": "4.2.3.46.1.4",
+        "parentPosition": "4.2.3.46.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

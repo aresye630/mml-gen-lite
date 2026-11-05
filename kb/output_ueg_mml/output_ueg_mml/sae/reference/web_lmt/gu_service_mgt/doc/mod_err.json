@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD ERR",
+  "command_name_zh": "设置增强VLR/SGSN漫游限制",
+  "command_name_full": "设置增强VLR/SGSN漫游限制(MOD ERR)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会导致用户漫游限制数据被修改，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于对已签约RZONE业务用户的VLR/SGSN漫游范围进行限制，可通过设置本命令的“VLR/SGSN号码前缀”、“限制区域”参数实现与用户签约的RZONE业务相关联。\n\n**说明** \n\n用户可以通过**ADD SUB**命令在开户时为用户签约RZONE业务；如果开户时没有签约，则可以使用**MOD RZONE**命令为用户签约RZONE业务。\n\n当已签约RZONE业务的用户进行位置更新时：\n\n- 如果用户所在VLR/SGSN在增强漫游限制表中有匹配记录，即通过使用本命令在增强漫游限制表中添加“VLR/SGSN号码前缀”和对应的增强漫游限制业务的“RZONE索引”，且用户签约的增强漫游限制业务的区域码和表中该VLR/SGSN对应的区域码相同，则允许用户在该VLR/SGSN漫游。\n- 如果用户所在VLR/SGSN在增强漫游限制表中无匹配的记录或增强漫游限制业务的区域码和表中该VLR/SGSN对应的区域码不同，则限制用户在该VLR/SGSN漫游。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803719",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/err_management.html",
+        "name": "增强VLR/SGSN漫游限制",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.23",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803583",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_err.html",
+        "name": "设置增强VLR/SGSN漫游限制(MOD ERR)",
+        "parentTopicId": "MMLREF_0190803719",
+        "position": "4.2.3.2.23.2",
+        "parentPosition": "4.2.3.2.23",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

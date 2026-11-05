@@ -1,0 +1,36 @@
+# 修改GUSS数据(MOD HGUSS)
+
+- 命令功能
+- 注意事项
+- 参数说明
+- 使用实例
+
+## 命令功能
+
+该命令用于在HSS的业务数据库中修改指定IMPI的GUSS数据。
+
+## 注意事项
+
+- “GAA服务类型”、“可产生密钥种类”和“密钥有效时间”必须至少存在一个。
+- 当携带“GAA服务类型”参数时，“S-GAA鉴权标志”、“NAF群组”和“认证密钥选择策略”三个参数必须存在一个。
+- 当不携带“GAA服务类型”参数时，“NAF群组”和“认证密钥选择策略”不能存在。
+
+## 参数说明
+
+| 参数标识        | 参数名称      | 参数说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|:------------|:----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| IMPI        | IMPI      | 用于指定一个用来修改GUSS数据的IMPI，要求输入的IMPI值符合NAI格式，字母区分大小写。 取值范围：长度不超过127的字符串 默认值：无 说明：必选参数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| GSID        | GAA服务类型   | 用于修改一个GUSS数据的“GAA服务类型”。 取值范围： UNSPECIFIC_SERVICE(Unspecific service)：表示系统取值为0。PKI-PORTAL(PKI-Portal)：表示系统取值为1。AUTHENTICATION_PROXY(Authentication Proxy)：表示系统取值为2。PRESENCE(Presence)：表示系统取值为3。MBMS(MBMS)：表示系统取值为4。LIBERTY_ALLIANCE_PROJECT(Liberty Alliance Project)：表示系统取值为5。UICC-TERMINAL_KEY_ESTABLISHMENT(UICC-Terminal Key Establishment)：表示系统取值为6。TERMINAL-REMOTE_DEVICE_KEY_ESTABLISHMENT(Terminal-Remote Device Key Establishment)：表示系统取值为7。ANDSF(ANDSF)：表示系统取值为8。GBA_PUSH(GBA Push)：表示系统取值为9。IMS_BASED_PSS_MBMS(IMS based PSS MBMS)：表示系统取值为10。OPENID_GBA_INTERWORKING(OpenID GBA Interworking)：表示系统取值为11。GENERIC_PUSH_LAYER(Generic Push Layer)：表示系统取值为12。OPENID_INTERWORKING(OpenID Interworking)：表示系统取值为13。 默认值：无。 说明：可选参数。 |
+| GAAAUTHFLAG | S-GAA鉴权标志 | 用于修改一个GUSS数据的“S-GAA鉴权标志”信息。 取值范围：0–2之间的整数 默认值：无 说明：当参数“GAA服务类型”为“PKI-PORTAL”、“ANDSF”或“OPENID_INTERWORKING”时，该参数才可以修改。该参数的取值规定如下：当参数“GAA服务类型”为“PKI-PORTAL”时，取值范围： 1（Authentication allowed） 2（Non-repudiation allowed） 当参数“GAA服务类型”为“ANDSF”时，取值范围： 0（Not authorized） 1（Authorized according to policy stored in ANDSF server） 当参数“GAA服务类型”为“OPENID_INTERWORKING”时，取值范围： 0（Not authorized） 1（Authorized）                                                                                                                                                                                                                                                                                                                                 |
+| NAFGROUP    | NAF群组     | 用于修改一个GUSS数据的网络应用功能群组信息。 取值范围：长度不超过127的字符串 默认值：无 说明：可选参数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| UICCTYPE    | 可产生密钥种类   | 用于标识在IMS-HSS的业务数据库中修改GUSS数据用于管理用户在进行AS业务操作时可产生哪种类型的密钥。 取值范围： GBA(GBA)：仅能产生Ks_NAF类型的密钥。GBA_U(GBA_U)：可产生Ks_NAF类型和Ks_int_NAF类型的密钥。 默认值：无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| KEYCHOICE   | 认证密钥选择策略  | 用于标识在IMS-HSS的业务数据库中修改GUSS数据用于管理用户在进行AS业务操作时的密钥认证策略。 取值范围： ME-based-key(ME-based-key)：仅可选取Ks_NAF类型的密钥。UICC-based-key(UICC-based-key)：仅可选取Ks_int_NAF类型的密钥。ME-UICC-based-keys(ME-UICC-based-keys)：可选取Ks_NAF或Ks_int_NAF类型的密钥。 默认值：无。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| LIFETIME    | 密钥有效时间    | 用于标识IMS-HSS通过Zh接口向BSF下发GUSS信息管理用户进行AS业务操作时，GUSS信息携带的密钥信息的有效时间。UIM按照此参数对用户密钥信息的有效性进行判断。 取值范围：0～4294967295，单位为秒。 默认值：无。  说明： 当该参数取值为“0”时，表示IMS-HSS不下发LIFETIME数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+## 使用实例
+
+修改GUSS数据。“IMPI”为“impiinfo”，“GAA服务类型”为“PKI-PORTAL”，“S-GAA鉴权标志”为“1”，“NAF群组”为“nafgroup”。
+
+```
+MOD HGUSS: IMPI="impiinfo", GSID=PKI-PORTAL, GAAAUTHFLAG=1, NAFGROUP="nafgroup";
+```

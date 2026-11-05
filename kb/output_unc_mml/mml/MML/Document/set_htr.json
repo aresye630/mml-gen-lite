@@ -1,0 +1,198 @@
+{
+  "command_name": "SET HTR",
+  "command_name_zh": "设置HTR功能",
+  "command_name_full": "设置HTR功能(SET HTR)",
+  "command_function": "**适用网元：SGSN**\n\n此命令用于设置HTR（Hard to Reach）流控功能的相关参数。当Gr或者Ge口出现拥塞时需要进行流控。\n\nGr口拥塞的表现和控制场景：\n\n- 场景1：SGSN与HLR之间直连链路拥塞，此时进行自动启控。\n- 场景2：HLR过载，此时进行手工启控。\n- 场景3：STP到HLR链路拥塞，此时进行手工启控。\n- 场景4：STP过载，此时进行手工启控。\n- 场景5：SGSN与STP之间直连链路拥塞，此时进行自动启控。\n\nHTR功能提供如下配置功能：\n\n- 运营商可以通过调整HTR流控启动阈值决定低于什么样的成功率启动HTR流控，通过调整HTR流控恢复阈值决定流控目标成功率。\n- 在非SGSN直连链路拥塞场景下如果要进行HTR流控可以打开HTR功能手工开关。\n- HTR流控的对象可以使用配置的HTR局向（使用命令**ADD HTROFC**）也可以使用系统自动生成的HTR局向，HTR功能手工开关关闭时必须使用系统自动生成局向，HTR功能手工开关打开时可以使用配置局向或系统自动生成局向，但不能既使用配置局向又使用系统自动生成局向。自动生成的局向是指SGSN通过SCCP GT翻译后获取的局向，例如，如果SGSN通过STP和多个HLR连接，而STP采用GT寻址转发消息则自动局向只能生成到STP的局向，通过配置局向可以精确到每个HLR，流控对象更准确，流控效果会更好。\n- HTR流控功能同时适用于Gr和Ge接口，Ge接口不支持运营商配置HTR局向，即不支持命令**ADD HTROFC**配置Ge接口的HTR局向。\n- 只有在直连场景下，HTR流控功能才适用于Ge接口。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319924",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_and_maintenance000.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.15",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320259",
+        "topicUrl": "MML/LinkedDoc/unc_n_equipment_management.html",
+        "name": "设备管理",
+        "parentTopicId": "TOPIC_0234319924",
+        "position": "2.5.3.15.1",
+        "parentPosition": "2.5.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321375",
+        "topicUrl": "MML/LinkedDoc/unc_n_flowctrl_management.html",
+        "name": "流控管理",
+        "parentTopicId": "TOPIC_0234320259",
+        "position": "2.5.3.15.1.1",
+        "parentPosition": "2.5.3.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320710",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_flow_control_management.html",
+        "name": "业务流控管理",
+        "parentTopicId": "TOPIC_0234321375",
+        "position": "2.5.3.15.1.1.1",
+        "parentPosition": "2.5.3.15.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320625",
+        "topicUrl": "MML/LinkedDoc/unc_n_htr_flowctrl_office_management.html",
+        "name": "HTR流控局向管理",
+        "parentTopicId": "TOPIC_0234320710",
+        "position": "2.5.3.15.1.1.1.2",
+        "parentPosition": "2.5.3.15.1.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321269",
+        "topicUrl": "MML/LinkedDoc/unc_n_gr_htr_flowctrl_office_management.html",
+        "name": "Gr HTR流控局向管理",
+        "parentTopicId": "TOPIC_0234320625",
+        "position": "2.5.3.15.1.1.1.2.3",
+        "parentPosition": "2.5.3.15.1.1.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321019",
+        "topicUrl": "MML/LinkedDoc/unc_n_flowctrl_office_function_management.html",
+        "name": "流控功能管理",
+        "parentTopicId": "TOPIC_0234321269",
+        "position": "2.5.3.15.1.1.1.2.3.1",
+        "parentPosition": "2.5.3.15.1.1.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345749",
+        "topicUrl": "MML/Document/set_htr.html",
+        "name": "设置HTR功能(SET HTR)",
+        "parentTopicId": "TOPIC_0234321019",
+        "position": "2.5.3.15.1.1.1.2.3.1.1",
+        "parentPosition": "2.5.3.15.1.1.1.2.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

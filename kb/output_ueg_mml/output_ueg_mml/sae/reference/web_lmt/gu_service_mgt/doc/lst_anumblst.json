@@ -1,0 +1,119 @@
+{
+  "command_name": "LST ANUMBLST",
+  "command_name_zh": "查询主叫号码黑名单",
+  "command_name_full": "查询主叫号码黑名单（LST ANUMBLST）",
+  "command_function": "**须知** \n\n本命令属于高危命令，当未携带主叫号码参数进行查询时，会增加数据库的负荷，引起系统过载，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于查询指定主叫号码的黑名单记录或者一个虚拟HLR中的所有主叫号码黑名单记录。\n\n- 若需要查询一条主叫号码黑名单记录，请输入参数“HLR序列号”和“主叫号码”。\n- 若需要查询一个虚拟HLR中所有的主叫号码黑名单记录，请输入参数“HLR序列号”。\n\n当本命令中“主叫号码类型”未设置或设置为“NUMBER”时，系统通过与**SET MAPCONF**命令中“是否支持主叫黑名单精确记录存储DSU”参数配合使用对黑名单进行查询操作。\n\n- 当“是否支持主叫黑名单精确记录存储DSU”为“FALSE”，系统仅支持访问并查询DRU中记录。\n- 当“是否支持主叫黑名单精确记录存储DSU”为“TRUE”，根据本命令中“存储模式”参数取值，系统支持访问并查询DRU或DSU中记录。\n\n  **说明** \n\n  当本命令中“存储模式”参数未设置时，无论**SET MAPCONF**命令中“是否支持主叫黑名单精确记录存储DSU”参数如何设置，系统默认都访问并查询DRU中记录。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802580",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/anumblst.html",
+        "name": "主叫号码黑名单管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.62",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803711",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_anumblst.html",
+        "name": "查询主叫号码黑名单（LST ANUMBLST）",
+        "parentTopicId": "CONCEPT_0190802580",
+        "position": "4.2.3.2.62.3",
+        "parentPosition": "4.2.3.2.62",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD GTPUPATHDP",
+  "command_name_zh": "增加GTP-U路径管理自定义策略",
+  "command_name_full": "增加GTP-U路径管理自定义策略(ADD GTPUPATHDP)",
+  "command_function": "**适用网元：SGSN**\n\n该命令用于增加GTP-U路径管理自定义策略。\n\n该命令引入一个系数钝化GTP-U路径故障的判定，每次T3\\*N3探测为一个判定周期，需要连续X个判定周期的Echo探测都没有响应后，才判定为GTP-U路径故障。\n\n引入的这个系数会较大地钝化GTP-U路径故障的判定，若闪断频繁发生，钝化GTP-U路径故障判定条件会掩盖闪断的问题，此时GTP-U路径故障告警定位为反映对端长时间故障不通的问题。若未出现GTP-U路径故障告警但出现激活成功率下降，可以通过GTP-U接口跟踪，或者将故障判定条件调得更加灵敏来临时定位。\n\n使用场景举例：\n\n漫游路径的GTP-U路径故障告警较多，故障状态的GTP-U路径持续时长90%在4~10分钟内分布。通过调大漫游路径的故障判定条件高于10分钟，减少GTP-U路径故障告警。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320901",
+        "topicUrl": "MML/LinkedDoc/unc_n_data_transfer_management.html",
+        "name": "数据转发管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.7",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320777",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_u.html",
+        "name": "GTP-U",
+        "parentTopicId": "TOPIC_0234320901",
+        "position": "2.5.3.7.1",
+        "parentPosition": "2.5.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322636",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_u_path_management_policy.html",
+        "name": "GTP-U路径管理自定义策略",
+        "parentTopicId": "TOPIC_0234320777",
+        "position": "2.5.3.7.1.3",
+        "parentPosition": "2.5.3.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172225521",
+        "topicUrl": "MML/Document/add_gtpupathdp.html",
+        "name": "增加GTP-U路径管理自定义策略(ADD GTPUPATHDP)",
+        "parentTopicId": "TOPIC_0234322636",
+        "position": "2.5.3.7.1.3.1",
+        "parentPosition": "2.5.3.7.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

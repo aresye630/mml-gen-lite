@@ -1,0 +1,486 @@
+---
+id: ''
+name: PCF侧业务配置
+ne_type: UNC
+type: feature
+description: 该场景根据整体方案设计需配置1个业务，该业务挂载在1个策略，该策略包含2个规则：  * 规则1（Rule\_Normal）：   + 条件：QuotaStatus=Normal   + 动作：下发预定义规则标识“Rule\_Normal”。 * 规则2（Rule\_Exhaust）：   + 条件：QuotaStatus=Exhaust   + 动作：下发预定义规则标识“up\_Exhaust”。
+risk_level: ''
+doc_source: ["网络部署","业务专题","5G PCC之SM策略解决方案","典型业务场景E2E方案设计","业务重定向方案（预定义+动态）","E2E业务配置","E2E预定义规则配置","PCF侧业务配置"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+该场景根据整体方案设计需配置1个业务，该业务挂载在1个策略，该策略包含2个规则：* 规则1（Rule\_Normal）：  + 条件：QuotaStatus=Normal  + 动作：下发预定义规则标识“Rule\_Normal”。* 规则2（Rule\_Exhaust）：  + 条件：QuotaStatus=Exhaust  + 动作：下发预定义规则标识“up\_Exhaust”。
+
+## 必备事项
+前提条件
+
+已通过学习SM策略E2E实现原理、业务配置方法及业务调测方法了解了SM策略的配置原理及方法。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties:
+    add_psub_list:
+      type: items
+      properties:
+        USRIDENTIFIER:
+          name: 'USRIDENTIFIER'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRMSISDN:
+          name: 'USRMSISDN'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSTATE:
+          name: 'USRSTATE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRPAIDTYPE:
+          name: 'USRPAIDTYPE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSTATION:
+          name: 'USRSTATION'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRCONTACTMETHOD:
+          name: 'USRCONTACTMETHOD'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRBILLCYCLEDATE:
+          name: 'USRBILLCYCLEDATE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSUBNETTYPE:
+          name: 'USRSUBNETTYPE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRLANGUAGE:
+          name: 'USRLANGUAGE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRSMSRECEIVEFLAG:
+          name: 'USRSMSRECEIVEFLAG'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        USRVERSTATUS:
+          name: 'USRVERSTATUS'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_psrv_list:
+      type: items
+      properties:
+        USRIDENTIFIER:
+          name: 'USRIDENTIFIER'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVNAME:
+          name: 'SRVNAME'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVUSAGESTATE:
+          name: 'SRVUSAGESTATE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVROAMINGTYPE:
+          name: 'SRVROAMINGTYPE'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+  examples:
+    add_psub_list:
+    - USRIDENTIFIER: 46001122334****
+      USRMSISDN: 861358700****
+      USRSTATE: Normal
+      USRPAIDTYPE: 'NULL'
+      USRSTATION: Master
+      USRCONTACTMETHOD: SMS
+      USRBILLCYCLEDATE: 'NULL'
+      USRSUBNETTYPE: eMBB-SA
+      USRLANGUAGE: 'NULL'
+      USRSMSRECEIVEFLAG: All
+      USRVERSTATUS: Normal
+    add_psrv_list:
+    - USRIDENTIFIER: 46001122334****
+      SRVNAME: Redirection_Service
+      SRVUSAGESTATE: Normal
+      SRVROAMINGTYPE: 'NULL'
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 登录**“UPCF Web UI”**界面。
+
+### 2 配置“配额”。
+
+### 导航入口为“业务管理 > 业务 > 配额”。
+
+### 配额（Quota）是指一个指定周期内供用户使用的流量或时长额度，也可指单个会话内供用户使用的时长额度。当业务的使用与流量、时长相关时，需要配置配额。
+
+### 配额的数据规划如表1所示，详细参数说明请参见“UPCF产品文档>UPCF WebUI GUI参考>业务管理>配额”帮助页面。
+
+### **表1** 配额
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 配额 | 基本信息 | 名称 | Quota\_20GB |
+
+### |  |  | 配额管理归属 | UPCC |
+
+### |  |  | 配额类型 | 流量 |
+
+### |  |  | 类型 | 会话级 |
+
+### |  |  | 监控键值 | 101 |
+
+### |  |  | 值(KB) | 20,971,520 |
+
+### |  |  | 分片类型 | 百分比 |
+
+### |  |  | 分片(%) | 100 |
+
+### |  | 复位设置 | 结帐模式 | 自然日历 |
+
+### |  |  | 复位周期类型 | 月 |
+
+### |  |  | 复位日 | 1 |
+
+### |  |  | 复位时间 | 01:00:00 |
+
+### |  |  | 剩余额处理方式 | 清零 |
+
+### 3 配置“短信/邮件模板”。
+
+### 导航入口为“通知管理 > 消息配置 > 短信/邮件模板”。
+
+### 短信/邮件模版的数据规划如表2所示，详细参数说明请参见“UPCF产品文档>UPCF WebUI GUI参考>通知管理>消息配置”帮助页面。
+
+#### 3.1 短信/邮件模板的内容由字符和系统提供的变量组成，使用这些变量时，请单击“添加属性”，选择相应对象的属性。最多支持添加6个属性。
+
+#### 3.2 实际短信发送时，会用这些属性的签约数据值替换属性，如果没有相应的值，则替换为空。
+
+### **表2** 短信/邮件模板
+
+### | 类别 | 参数 | 取值样例 |
+
+### | --- | --- | --- |
+
+### | 短信/邮件模板 | 名称 | Notification\_Template |
+
+### |  | 标题 | 流量变化通知 |
+
+### |  | 类型 | 短信/邮件 |
+
+### |  | 内容 | 尊敬的{OBJ.Subscriber.MSISDN}用户，截止{OBJ.System.DateTime}，您订购的业务{OBJ.Subscription.ServiceName}已经耗尽，如您继续使用网络上网带宽将被限制在1Kbps。如有需要请到http://www.example.com充值，即刻恢复100Mbps高速带宽。 |
+
+### 4 配置“消息通知”。
+
+### 导航入口为“策略管理 > 策略 > 消息通知”。
+
+### “唯一键”为抑制发送消息通知的条件。例如，在配额状态不改变时，则抑制发送相同的消息通知，“唯一键”选择对象“Quota”下的属性“QuotaStatus”。
+
+### 消息通知的数据规划如表3所示，详细参数说明请参见“UPCF产品文档>UPCF WebUI GUI参考>通知管理>消息配置”帮助页面。
+
+### **表3** 消息通知
+
+### | 类别 | 参数 | 取值样例 |
+
+### | --- | --- | --- |
+
+### | 消息通知 | 名称 | Notification |
+
+### |  | 短信 | Notification\_Template  说明：  已在表2中定义。 |
+
+### |  | 发送抑制 | Yes |
+
+### |  | 抑制类型 | 天  说明：  业务规划，在发送消息通知后，若当天内配额状态不再改变，则不再重复发送消息通知。 |
+
+### |  | 唯一键 | * 对象：Quota * 属性：QuotaStatus |
+
+### |  | 对象实例 | Quota\_20GB  说明：  已在表1中定义。 |
+
+### 5 配置“条件组”。
+
+### 导航入口为“策略管理 > 策略 > 条件组”。
+
+#### 5.1 当业务的使用需要设置控制条件时，需要配置条件组。若某规则不配置条件组，表示在同一业务里其他条件都匹配不上时，才触发此规则。
+
+#### 5.2 条件组是一个或多个条件的组合。条件组中的各条件之间可以是“与”的关系，也可以是“或”的关系。条件之间的与/或关系由参数“关系”的取值决定。
+
+### 此业务场景下需要配置2个条件组，用于判断用户的配额使用状态。条件组的数据规划如表4和表5所示，详细参数说明请参见“UPCF产品文档>UPCF WebUI GUI参考>策略管理>条件组”帮助页面。
+
+### **表4** 条件组（配额未耗尽）
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 条件组1 | 基本信息 | 名称 | CG\_Normal |
+
+### |  |  | 关系 | AND |
+
+### |  | 条件 | 名称 | CG\_Normal |
+
+### |  |  | 对象属性 | * 对象：Quota * 属性：QuotaStatus |
+
+### |  |  | 对象实例 | Quota\_20GB  说明：  已在表1中定义。 |
+
+### |  |  | 操作符 | Equal |
+
+### |  |  | 右值类型 | Value |
+
+### |  |  | 右值 | Normal  说明：  “Normal”：表示配额未耗尽。 |
+
+### **表5** 条件组（配额耗尽）
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 条件组2 | 基本信息 | 名称 | CG\_Exhaust |
+
+### |  |  | 关系 | AND |
+
+### |  | 条件 | 名称 | CG\_Exhaust |
+
+### |  |  | 对象属性 | * 对象：Quota * 属性：QuotaStatus |
+
+### |  |  | 对象实例 | Quota\_20GB  说明：  已在表1中定义。 |
+
+### |  |  | 操作符 | Equal |
+
+### |  |  | 右值类型 | Value |
+
+### |  |  | 右值 | Exhaust  说明：  “Exhaust”：表示配额耗尽。 |
+
+### 6 配置“5G动作组”。
+
+### 导航入口为“策略管理 > 策略 > 5G动作组”。
+
+### 此场景须配置两个预定义规则，规则标识分别为“Rule\_Normal”、“up\_Exhaust”。
+
+### **表6** 5G动作组之UsageMonitoringData配置
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 5G动作组1 | 基本信息 | 名称 | AG\_usg |
+
+### |  |  | 类型 | UsageMonitoringData |
+
+### |  | 属性 | umId | * 类型：Value * 值：101  说明：  已在表1中定义。该取值必须与配额中定义的监控键值保持一致。 |
+
+### **表7** 5G动作组之“配额未耗尽”的预定义规则“Rule\_Normal”标识配置
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 5G动作组2 | 基本信息 | 名称 | AG\_Normal |
+
+### |  |  | 类型 | PredefinedPccRule |
+
+### |  | 属性 | pccRuleId | * 类型：Value * 值：Rule\_Normal 说明：  该取值须与SMF/UPF协商一致。 |
+
+### |  |  | refUmData | * 类型：Reference ActionGroup * 值：AG\_usg 说明：  已在表6中定义。 |
+
+### **表8** 5G动作组之“配额耗尽”的预定义规则“up\_Exhaust”标识配置
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 5G动作组3 | 基本信息 | 名称 | AG\_Exhaust |
+
+### |  |  | 类型 | PredefinedPccRule |
+
+### |  | 属性 | pccRuleId | * 类型：Value * 值：up\_Exhaust 说明：  该取值须与SMF/UPF协商一致。 |
+
+### |  |  | refUmData | * 类型：Reference ActionGroup * 值：AG\_usg 说明：  已在表6中定义。 |
+
+### 7 配置“规则”。
+
+### 导航入口为“策略管理 > 策略 > 规则”。
+
+### 规则的数据规划如表9和表10所示，详细参数说明请参见“UPCF产品文档>UPCF WebUI GUI参考>策略管理>规则”。
+
+### **表9** 规则(“配额未耗尽”)
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 规则1 | 基本信息 | 名称 | Rule\_Normal |
+
+### |  |  | 操作类型 | Change Rule |
+
+### |  |  | 类型 | 5G Smf Pcc Rule |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | CG\_Normal  说明：  已在表4中定义。 |
+
+### |  | 5G动作组 | 5G动作组 | AG\_Normal  说明：  已在表7中定义。 |
+
+### **表10** 规则(“配额耗尽”)
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 规则2 | 基本信息 | 名称 | up\_Exhaust |
+
+### |  |  | 操作类型 | Change Rule |
+
+### |  |  | 类型 | 5G Smf Pcc Rule |
+
+### |  |  | 消息通知 | Notification  说明：  已在表3中定义。 |
+
+### |  | 条件组 | 关系 | AND  说明：  当规则中只有一个条件组时，“关系”可设置为任意值。 |
+
+### |  |  | 条件组 | CG\_Exhaust  说明：  已在表5中定义。 |
+
+### |  | 5G动作组 | 5G动作组 | AG\_Exhaust  说明：  已在表8中定义。 |
+
+### 8 配置“策略”。
+
+### 导航入口为“策略管理 > 策略 > 策略”。
+
+### 策略的数据规划如表11所示，详细参数说明请参见“UPCF产品文档>UPCF WebUI GUI参考>策略管理>策略”。
+
+### **表11** 策略
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 策略 | 基本信息 | 名称 | Policy\_Redirection |
+
+### |  |  | 策略类型 | N7 Policy |
+
+### |  | 触发器 | 名称 | IPCAN\_EST  US\_RE |
+
+### |  | 规则 | 名称 | * Rule\_Normal * up\_Exhaust 说明：  已在表9和表10中定义。 |
+
+### 9 配置“业务”。
+
+### 导航入口为“业务管理 > 业务 > 业务”。
+
+### 完成业务配置后，可以配置套餐，即对一组业务进行逻辑组合，统一包装。用户可以订购套餐，订购了套餐即把该套餐下的所有业务都订购，套餐的配置步骤请参见“UPCF产品文档>UPCF WebUI GUI参考>业务管理>套餐”。
+
+### 业务的数据规划如表12所示。
+
+### **表12** 业务
+
+### | 类别 | 参数 |  | 取值样例 |
+
+### | --- | --- | --- | --- |
+
+### | 业务 | 基本信息 | 名称 | Redirection\_Service |
+
+### |  |  | 类型 | VALUE\_ADDED\_SERVICE |
+
+### |  |  | 是否记入基本配额 | 是 |
+
+### |  |  | 激活方式 | PCEF |
+
+### |  |  | 优先级 | 0  说明：  运营商统一规划，用于设置该业务在互斥组中的优先级。当此业务不需配置相关互斥组时，此值可任意取值。 |
+
+### |  |  | QoS模式 | 替换 |
+
+### |  |  | 签约后才能使用 | 是 |
+
+### |  | 策略 | 名称 | Policy\_Redirection  说明：  已在表11中定义。 |
+
+### |  | 配额 | 名称 | Quota\_20GB  说明：  已在表1中定义。 |
+
+### 10 **开户。**
+
+### **登录“UPCF PGW Web LMT>UPCF 业务管理”窗口**，将配置完成的业务通过UPCF开户签约系统进行下发。
+
+### 执行**ADD PSUB**增加一个用户。
+
+```jinja2
+{#- 需人工查询macro中是否存在该command并且包含parameters参数的命令，确认后人工填写jinja模板并优化该add_psub_list的变量区（command: ADD PSUB） -#}
+<!-- MISSING_MACRO: command=ADD PSUB list_name=add_psub_list step_id=10 -->
+```
+
+### 11 **业务发放。**
+
+### 在“UPCF PGW Web LMT>UPCF 业务管理”窗口继续执行**ADD PSRV**给用户签约业务。
+
+```jinja2
+{#- 需人工查询macro中是否存在该command并且包含parameters参数的命令，确认后人工填写jinja模板并优化该add_psrv_list的变量区（command: ADD PSRV） -#}
+<!-- MISSING_MACRO: command=ADD PSRV list_name=add_psrv_list step_id=11 -->
+```
+

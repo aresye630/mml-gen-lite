@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD PERFDNAI",
+  "command_name_zh": "增加用于性能统计的数据网络访问标识信息",
+  "command_name_full": "增加用于性能统计的数据网络访问标识信息（ADD PERFDNAI）",
+  "command_function": "**适用NF：SMF**\n\n该命令用于配置性能统计的数据网络访问标识信息。当激活一个ULCL会话时，SMF会判断该ULCL会话的数据网络访问标识信息是否与该命令中的数据网络访问标识信息一致。如果一致，则会对该数据网络访问标识信息进行性能统计。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278825148",
+        "topicUrl": "MML/LinkedDoc/operation_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.1",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320479",
+        "topicUrl": "MML/LinkedDoc/unc_n_performance_statistics_management.html",
+        "name": "性能统计管理",
+        "parentTopicId": "CONCEPT_0000203278825148",
+        "position": "2.2.3.1.1.14",
+        "parentPosition": "2.2.3.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322707",
+        "topicUrl": "MML/LinkedDoc/unc_n_smf_performance_measurement_object_management.html",
+        "name": "SMF性能对象管理",
+        "parentTopicId": "TOPIC_0234320479",
+        "position": "2.2.3.1.1.14.3",
+        "parentPosition": "2.2.3.1.1.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001317233242",
+        "topicUrl": "MML/Document/add_perfdnai.html",
+        "name": "增加用于性能统计的数据网络访问标识信息（ADD PERFDNAI）",
+        "parentTopicId": "TOPIC_0234322707",
+        "position": "2.2.3.1.1.14.3.35",
+        "parentPosition": "2.2.3.1.1.14.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

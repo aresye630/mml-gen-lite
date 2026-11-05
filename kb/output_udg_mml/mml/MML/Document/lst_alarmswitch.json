@@ -1,0 +1,119 @@
+{
+  "command_name": "LST ALARMSWITCH",
+  "command_name_zh": "查询安全事件告警开关",
+  "command_name_full": "查询安全事件告警开关（LST ALARMSWITCH）",
+  "command_function": "此命令用于查询安全事件告警开关状态。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315563",
+        "topicUrl": "MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.6",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355822",
+        "topicUrl": "MML/LinkedDoc/csp_n_security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "CONCEPT_0000202289315563",
+        "position": "4.6.10",
+        "parentPosition": "4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915533",
+        "topicUrl": "MML/LinkedDoc/csp_n_security_event_alarm_management.html",
+        "name": "安全事件告警管理",
+        "parentTopicId": "CONCEPT_0000202103355822",
+        "position": "4.6.10.6",
+        "parentPosition": "4.6.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0242999599",
+        "topicUrl": "MML/Document/lst_alarmswitch.html",
+        "name": "查询安全事件告警开关（LST ALARMSWITCH）",
+        "parentTopicId": "CONCEPT_0000202288915533",
+        "position": "4.6.10.6.1",
+        "parentPosition": "4.6.10.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

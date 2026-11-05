@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置到3GPP AAA Server的数据",
+  "feature_description": "当UNC支持Non-3GPP GW接入或部署CDMA2000与LTE、WLAN与LTE互操作网络时，需要配置UNC到3GPP AAA Server的互通数据，用于更新PGW-C的IP地址和APN信息，并获取用户的授权信息。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450902",
+        "topicUrl": "toctopics/zh-cn_topic_0248450902.html",
+        "name": "基本接入功能",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0280511024",
+        "topicUrl": "desc/desc/cn_81_0_010301.html",
+        "name": "WSFD-010102 Untrusted Non-3GPP网络用户接入",
+        "parentTopicId": "TOPIC_0248450902",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0280511607",
+        "topicUrl": "desc/ic/cn_81_010301_11_01.html",
+        "name": "激活Untrusted Non-3GPP网络用户接入功能",
+        "parentTopicId": "CONCEPT_0280511024",
+        "position": "5.4.3",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0280511835",
+        "topicUrl": "desc/ic/cn_81_1_820000_02.html",
+        "name": "配置到3GPP AAA Server的数据",
+        "parentTopicId": "OPI_0280511607",
+        "position": "5.4.3.1",
+        "parentPosition": "5.4.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

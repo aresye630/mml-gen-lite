@@ -1,0 +1,107 @@
+{
+  "command_name": "DSP NTPSFTD",
+  "command_name_zh": "查询NTP软参",
+  "command_name_full": "查询NTP软参(DSP NTPSFTD)",
+  "command_function": "该命令为专家维护命令，用于查询NTP软参值。\n\n该命令仅适用于开局阶段调测或者维护的操作场景，当需要查询NTP软参配置信息时，操作员可以使用该命令实现这一目的。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203788529730",
+        "topicUrl": "MML/LinkedDoc/cpm_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595612",
+        "topicUrl": "MML/LinkedDoc/csp_n_ntp_debug_parameter_management.html",
+        "name": "NTP软参管理",
+        "parentTopicId": "CONCEPT_0000203788529730",
+        "position": "4.3.3",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000001196379735",
+        "topicUrl": "MML/Document/dsp_ntpsftd.html",
+        "name": "查询NTP软参(DSP NTPSFTD)",
+        "parentTopicId": "CONCEPT_0000202103595612",
+        "position": "4.3.3.2",
+        "parentPosition": "4.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

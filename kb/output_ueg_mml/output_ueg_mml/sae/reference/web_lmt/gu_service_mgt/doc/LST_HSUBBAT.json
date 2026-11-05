@@ -1,0 +1,119 @@
+{
+  "command_name": "LST HSUBBAT",
+  "command_name_zh": "批量查询SUB签约信息",
+  "command_name_full": "批量查询SUB签约信息(LST HSUBBAT)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会增加数据库的负荷，引起系统过载，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在HSS的内存库中使用模糊IMPU查询签约用户的“SUBID”、“IMPI”和“IMPU”数据记录，模糊查询采用前向匹配方式。\n\n- 若需要查询全部SUB签约信息，请不要输入任何参数。\n- 若需要查询某个SUB签约的详细信息，请输入“模糊IMPU”参数。\n\n**说明** \n\n- 查询结果包含用户的个人数据，如：IMSI、MSISDN等，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护，并严格控制查询结果文件的访问权限。\n- 在从运营商网络获取数据前，必须要获得运营商的授权。\n- 若需从运营商网络中获取必要的数据，需要运营商维护人员对其中的个人数据进行匿名化处理，匿名化后的数据由运营商维护人员审核后提供，以防止个人数据泄露。匿名化处理工具可以在http://support.huawei.com/网站获取，获取方法请参见产品手册“匿名化工具安全策略”页面。\n\n查询结果的文件名格式为“命令名称-时间-序列号.txt”，例如：LST\\_HSUBBAT-2018-07-02-18-23-51-831.txt。\n\n**SET MAPSERV**命令中的“LST命令导出文件压缩控制”取值不为“0”且**LST HSUBBAT**查询结果大于或者等于“LST命令导出文件压缩控制”设置的取值时，通过“文件管理器”查询结果的文件格式为命令名称-时间-序列号.tar.gz。**LST HSUBBAT**命令报文中查询结果的文件格式固定显示为“命令名称-时间-序列号.txt”\n\n执行该命令返回成功结果后，系统下发导出任务开始导出查询结果文件，可通过**DSP EXPTASK**命令查询导出任务状态。\n\n文件存放在PGW的“/opt/pgw/pgwtmpfile/SYSHLRSN+OPNAME”目录中。其中，SYSHLRSN默认为3位数字，不足3位时前面位需要用0补全，如：SYSHLRSN为1，OPNAME为admin时，最后一层目录的名称为001admin。文件可以通过“PGW Web LMT”界面上的“文件管理器”下载到本地。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732488",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Subscriber_Data_Management.html",
+        "name": "用户数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.3",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732421",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Batch_Search.html",
+        "name": "批量查询",
+        "parentTopicId": "MMLREF_0191732488",
+        "position": "4.2.4.3.12",
+        "parentPosition": "4.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732566",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/LST_HSUBBAT.html",
+        "name": "批量查询SUB签约信息(LST HSUBBAT)",
+        "parentTopicId": "MMLREF_0191732421",
+        "position": "4.2.4.3.12.1",
+        "parentPosition": "4.2.4.3.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

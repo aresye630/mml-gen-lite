@@ -1,0 +1,119 @@
+{
+  "command_name": "LST AUIDTPL",
+  "command_name_zh": "查询AUID模板",
+  "command_name_full": "查询AUID模板(LST AUIDTPL)",
+  "command_function": "该命令用于在配置数据库中查询AUID（application unique ID ）模板配置信息。\n\n- 若需要查询全部AUID模板配置信息，请不要输入任何参数。\n- 若需要查询某个AUID模板配置信息，请输入“索引”参数或“应用区分标识”参数或这两个参数的组合。\n\n  **说明** \n\n  该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206722167519",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_UIM_Management.html",
+        "name": "UIM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.12",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206570689578",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_auid_template_management.html",
+        "name": "AUID模板配置",
+        "parentTopicId": "CONCEPT_0000206722167519",
+        "position": "2.2.3.12.12",
+        "parentPosition": "2.2.3.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002034388336",
+        "topicUrl": "reference/mml/ueg/Document/lst_auidtpl.html",
+        "name": "查询AUID模板(LST AUIDTPL)",
+        "parentTopicId": "CONCEPT_0000206570689578",
+        "position": "2.2.3.12.12.4",
+        "parentPosition": "2.2.3.12.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

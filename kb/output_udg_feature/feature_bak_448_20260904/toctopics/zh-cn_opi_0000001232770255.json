@@ -1,0 +1,98 @@
+{
+  "feature_name": "配置BGP over 静态路由+BFD（网络加速卡, IPv6）",
+  "feature_description": "高密度框式服务器 8U的刀片上带有网络加速卡且采用IPv6地址时，需要参考本页面进行配置。\n\n如图1和图2所示为VNF与周边网元的BGP over 静态路由+BFD互通组网示意图。VNF与网关（EOR/DC-GW）之间运行BGP over 静态路由+BFD路由协议而接入运营商网络（IP骨干网），网关使用交换机设备。交换机的配置请参考对应型号设备的产品文档。\n\nBGP over 静态路由 + BFD互通组网，即VNF和网关（EOR/DC-GW）间通过Loopback IP建立eBGP邻居，用于业务路由的学习和发布。Loopback IP之间通过静态路由互通。BFD和静态路由绑定。\n\n不论是EOR做网关还是DC-GW做网关，VNF的配置都相同。如下描述以DC-GW做网关为例。\n\n**图1** BGP over 静态路由+BFD组网（NP100）\n\n**图2** BGP over 静态路由+BFD组网（NP121）",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0175096802",
+        "topicUrl": "installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0000001232651719",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232651719.html",
+        "name": "配置VNF侧IP路由数据（网络加速卡直连DC-GW）",
+        "parentTopicId": "TOPIC_0175096802",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0000001232770255",
+        "topicUrl": "toctopics/zh-cn_opi_0000001232770255.html",
+        "name": "配置BGP over 静态路由+BFD（网络加速卡, IPv6）",
+        "parentTopicId": "TOPIC_0000001232651719",
+        "position": "5.2.3",
+        "parentPosition": "5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

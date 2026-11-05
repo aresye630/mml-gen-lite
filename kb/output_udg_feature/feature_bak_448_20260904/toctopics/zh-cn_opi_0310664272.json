@@ -1,0 +1,105 @@
+{
+  "feature_name": "激活个人应用防护",
+  "feature_description": "为保护用户上网安全，免受网络恶意报文攻击，需要激活NAT个人应用防护功能。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVB2AF32EDC6AE4B628AB979659F08C088",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222264625",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG NAT功能专题",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_868fe9b3-b7e9-4196-bdea-cc21ee5531fb",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_868fe9b3-b7e9-4196-bdea-cc21ee5531fb"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "pid_shortdesc": "介绍NAT基本功能、NAT插件安装、数据配置调测以及操作维护等内容。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222264625",
+        "topicId": "TOPIC_0260796379",
+        "topicUrl": "toctopics/zh-cn_topic_0260796379.html",
+        "name": "数据配置与调测",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222264625",
+        "topicId": "TOPIC_0260796374",
+        "topicUrl": "toctopics/zh-cn_topic_0260796374.html",
+        "name": "数据配置",
+        "parentTopicId": "TOPIC_0260796379",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222264625",
+        "topicId": "TOPIC_0260796331",
+        "topicUrl": "toctopics/zh-cn_topic_0260796331.html",
+        "name": "配置NAT基本功能",
+        "parentTopicId": "TOPIC_0260796374",
+        "position": "3.1.2",
+        "parentPosition": "3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222264625",
+        "topicId": "OPI_0310664272",
+        "topicUrl": "toctopics/zh-cn_opi_0310664272.html",
+        "name": "激活个人应用防护",
+        "parentTopicId": "TOPIC_0260796331",
+        "position": "3.1.2.7",
+        "parentPosition": "3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

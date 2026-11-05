@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活基于ARP的差异化服务（适用于GGSN、SGW-C、PGW-C）",
+  "feature_description": "通过配置差异化服务功能，可实现以下需求：\n\n- 在资源紧缺时，运营商为高优先级用户优先分配资源。\n- 在资源相对富余时，更充分地发挥网络资源的效益，提高客户满意度。\n\n**说明** \n\n适用于GGSN、SGW-C、PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450964",
+        "topicUrl": "toctopics/zh-cn_topic_0248450964.html",
+        "name": "差异化服务管理",
+        "parentTopicId": "",
+        "position": "26",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0184683751",
+        "topicUrl": "desc/unc_2000_feature_desc_Differential_Services.html",
+        "name": "WSFD-106303 基于ARP的差异化服务",
+        "parentTopicId": "TOPIC_0248450964",
+        "position": "26.2",
+        "parentPosition": "26",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001440640273",
+        "topicUrl": "toctopics/zh-cn_topic_0000001440640273.html",
+        "name": "WSFD-106303 基于ARP的差异化服务（适用于GGSN、SGW-C、PGW-C）",
+        "parentTopicId": "CONCEPT_0184683751",
+        "position": "26.2.2",
+        "parentPosition": "26.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001388712956",
+        "topicUrl": "toctopics/zh-cn_opi_0000001388712956.html",
+        "name": "激活基于ARP的差异化服务（适用于GGSN、SGW-C、PGW-C）",
+        "parentTopicId": "TOPIC_0000001440640273",
+        "position": "26.2.2.2",
+        "parentPosition": "26.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

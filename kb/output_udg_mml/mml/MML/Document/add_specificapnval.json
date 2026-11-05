@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD SPECIFICAPNVAL",
+  "command_name_zh": "增加用户APN与消息交互使用APN的映射关系",
+  "command_name_full": "增加用户APN与消息交互使用APN的映射关系（ADD SPECIFICAPNVAL）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于新增用户使用的别名APN、虚拟APN或真实APN与交互消息中使用的指定的APN之间的映射关系。其中交互消息包括：头增强交互消息。在用户需要设置新的APN映射关系时使用该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876442",
+        "topicUrl": "MML/LinkedDoc/udg_n_dn_management.html",
+        "name": "DN管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555249",
+        "topicUrl": "MML/LinkedDoc/udg_n_apn_management.html",
+        "name": "APN管理",
+        "parentTopicId": "CONCEPT_0000202102876442",
+        "position": "5.1.2",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315761",
+        "topicUrl": "MML/LinkedDoc/udg_n_specific_apn_value.html",
+        "name": "指定上报的APN",
+        "parentTopicId": "CONCEPT_0000202289555249",
+        "position": "5.1.2.1",
+        "parentPosition": "5.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0207016800",
+        "topicUrl": "MML/Document/add_specificapnval.html",
+        "name": "增加用户APN与消息交互使用APN的映射关系（ADD SPECIFICAPNVAL）",
+        "parentTopicId": "CONCEPT_0000202289315761",
+        "position": "5.1.2.1.1",
+        "parentPosition": "5.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

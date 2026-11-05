@@ -1,0 +1,131 @@
+{
+  "command_name": "LOD VERIF",
+  "command_name_zh": "加载证书文件",
+  "command_name_full": "加载证书文件(LOD VERIF)",
+  "command_function": "**说明** \n\n- 当**SET NEWCERTSWITCH**的参数“证书开关”取值为“OFF（关闭）”时，**LOD VERIF**命令功能有效，此时PGW作为客户端和服务端的数字证书以及ClickHouse TLS数字证书使用该命令进行加载和更新。\n- 当**SET NEWCERTSWITCH**的参数“证书开关”取值为“ON（打开）”时，**LOD VERIF**命令功能无效，此时ClickHouse TLS证书为内部证书，无需加载和更新，PGW作为客户端和服务端数字证书的加载和更新方法请参考产品手册“通过网管MAE-Access加载或更新证书”或“通过OM Portal加载或更新证书”章节。\n\n**SET NEWCERTSWITCH**的参数“证书开关”取值可通过在“CSP MML命令”界面执行**LST NEWCERTSWITCH**命令查询。\n\n该命令用于加载HTTPS安全证书文件或者ClickHouse TLS数字证书文件。\n\n本命令的使用场景为：\n\n- 当客户端（业务发放系统）需要使用HTTPS协议和服务端进行安全通信时，使用此命令对“连接类型”为“SOAP”、“MML”、“HTTP”、THIRDNOTIFY或“REST”的相关数字证书进行加载。\n\n  **说明** \n\n  - 当客户端通过PGW Web LMT或DMS WebUI使用HTTPS协议与服务端通信，和网元内使用FTPS进行文件传输时，需要使用“连接类型”为“WEBLMT”的“CAVERIF(CA证书)”或“ROOTVERIF(根证书)”、“DEVVERIF(设备证书)”和“KEYFILE(密钥文件)”。\n  - 安装USCDB网元时已不再默认加载华为证书文件，客户需要自行申请并部署商用证书文件。\n- 当PGW作为客户端需要使用HTTPS协议与服务端（远端站点）进行安全通信时，使用此命令对“连接类型”为“SOAP”或“MML”的相关数字证书进行加载。\n- 当ClickHouse服务端和NDF、PGW、DMA和DBG模块使用TLS协议进行通信时，使用此命令对“连接类型”为“PHYDB”的相关字证书进行加载。\n- 当需要对证书文件进行替换时，需要先通过**CLR VERIF**清除旧证书后，再使用本命令进行新证书的加载。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774529",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.1",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774164",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/https_certificate_management.html",
+        "name": "HTTPS认证管理",
+        "parentTopicId": "MMLREF_0172774529",
+        "position": "2.2.4.3.1.8",
+        "parentPosition": "2.2.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774598",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/lod_verif.html",
+        "name": "加载证书文件(LOD VERIF)",
+        "parentTopicId": "CONCEPT_0172774164",
+        "position": "2.2.4.3.1.8.1",
+        "parentPosition": "2.2.4.3.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

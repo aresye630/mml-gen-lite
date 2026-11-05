@@ -1,0 +1,107 @@
+{
+  "command_name": "SET MSFAULTALARM",
+  "command_name_zh": "设置告警开关",
+  "command_name_full": "设置告警开关（SET MSFAULTALARM）",
+  "command_function": "该命令功能不可用，\"ALM-100001进程故障告警\"是否抑制及抑制时长，请使用OM Portal上“告警配置”进行相关抑制配置操作。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203997008379_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/cmfsvc_n_high_available_management.html",
+        "name": "可靠性管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.1",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203997689393_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/cmfsvc_n_microservice_available_management.html",
+        "name": "微服务可靠性管理",
+        "parentTopicId": "CONCEPT_0000203997008379_2",
+        "position": "3.2.1.1",
+        "parentPosition": "3.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0209587862_2",
+        "topicUrl": "kite_s_bm/MML/Document/set_msfaultalarm.html",
+        "name": "设置告警开关（SET MSFAULTALARM）",
+        "parentTopicId": "CONCEPT_0000203997689393_2",
+        "position": "3.2.1.1.26",
+        "parentPosition": "3.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

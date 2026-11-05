@@ -1,0 +1,119 @@
+{
+  "command_name": "SET SPECTRAFURRGRP",
+  "command_name_zh": "设置全局缺省费率的流量使用量上报规则组",
+  "command_name_full": "设置全局缺省费率的流量使用量上报规则组（SET SPECTRAFURRGRP）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，修改URRGROUPNAME参数会导致计费使用的全局缺省费率变化或业务不计费，造成运营商计费损失。\n\n本命令用于设置全局缺省费率的流量使用量上报规则组。\n\n1、BIT1232软参值设置为1时，特殊流量通过该规则组进行计费。\n\n特殊流量是指当某些业务报文丢失，未能完成七层精确匹配时，已经转发的流量。\n\n例如，在线计费用户下线时，业务流只有信令报文，没有业务报文。在这种场景下，已经转发的信令报文的流量称为特殊流量。\n\n2、对于没有配置任何费率的业务场景，通过该规则组进行计费。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315825",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.5",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116414",
+        "topicUrl": "MML/LinkedDoc/udg_n_charging_control.html",
+        "name": "计费控制",
+        "parentTopicId": "CONCEPT_0000202289315825",
+        "position": "5.5.6",
+        "parentPosition": "5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915807",
+        "topicUrl": "MML/LinkedDoc/udg_n_special_traffic_usage_reporting_rule_group.html",
+        "name": "特殊流量使用量上报规则组",
+        "parentTopicId": "CONCEPT_0000202103116414",
+        "position": "5.5.6.9",
+        "parentPosition": "5.5.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0236146715",
+        "topicUrl": "MML/Document/set_spectrafurrgrp.html",
+        "name": "设置全局缺省费率的流量使用量上报规则组（SET SPECTRAFURRGRP）",
+        "parentTopicId": "CONCEPT_0000202288915807",
+        "position": "5.5.6.9.1",
+        "parentPosition": "5.5.6.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

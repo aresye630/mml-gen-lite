@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活基于用户群的灵活鉴权",
+  "feature_description": "本操作指导介绍在运行网络中激活基于用户群的灵活鉴权特性的操作过程。\n\n通过基于用户群的灵活鉴权功能，UEG可以针对不同的用户群的属性使用差异化的安全策略。\n\n**说明** \n\n适用于SGSN、MME。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375120453",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375120453.html",
+        "name": "MME特性指南",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001229883435",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001229883435.html",
+        "name": "GWFD-021500 数据安全管理",
+        "parentTopicId": "TOPIC_0000001375120453",
+        "position": "4.9",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0163510670",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_Flexible_Aut_Based_on_Sub_Group.html",
+        "name": "GWFD-021510 基于用户群的灵活鉴权",
+        "parentTopicId": "TOPIC_0000001229883435",
+        "position": "4.9.7",
+        "parentPosition": "4.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0166313816",
+        "topicUrl": "kite_ml/om/unc_2000_feature_om_Flexible_Aut_Based_on_Sub_Group.html",
+        "name": "激活基于用户群的灵活鉴权",
+        "parentTopicId": "CONCEPT_0163510670",
+        "position": "4.9.7.3",
+        "parentPosition": "4.9.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

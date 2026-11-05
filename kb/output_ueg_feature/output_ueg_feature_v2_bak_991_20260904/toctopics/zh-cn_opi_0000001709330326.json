@@ -1,0 +1,104 @@
+{
+  "feature_name": "去使能热备容灾功能",
+  "feature_description": "去使能热备容灾功能时（比如进行网元卸载、容灾模式改造等），需要参考本页面进行配置。\n\n**注意** \n\n- 本页面中的命令均为高危命令，请在华为工程师指导下执行。否则可能导致业务受损。\n- 按照本章节操作去使能热备容灾功能后，由于2台UEG的业务IP依然相同，备用UEG重启后，会导致主用UEG无法正常工作。因此必须先规划好备用UEG的目标业务IP，在运行状态为“备用”的UEG上去使能热备容灾功能后，必须将该UEG的业务IP更改成目标业务IP，才能重启备用UEG。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD3E60845ED694AE892C80CB10570D5AE",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289298685",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "UEG容灾方案介绍（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "TOPIC_0000001709330314",
+        "topicUrl": "toctopics/zh-cn_topic_0000001709330314.html",
+        "name": "热备容灾",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "TOPIC_0000001709330322",
+        "topicUrl": "toctopics/zh-cn_topic_0000001709330322.html",
+        "name": "热备容灾部署与调测",
+        "parentTopicId": "TOPIC_0000001709330314",
+        "position": "5.6",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "OPI_0000001709330326",
+        "topicUrl": "toctopics/zh-cn_opi_0000001709330326.html",
+        "name": "去使能热备容灾功能",
+        "parentTopicId": "TOPIC_0000001709330322",
+        "position": "5.6.4",
+        "parentPosition": "5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

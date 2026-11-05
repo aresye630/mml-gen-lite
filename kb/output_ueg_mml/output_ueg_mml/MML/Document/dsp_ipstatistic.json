@@ -1,0 +1,167 @@
+{
+  "command_name": "DSP IPSTATISTIC",
+  "command_name_zh": "查询IP报文统计",
+  "command_name_full": "查询IP报文统计（DSP IPSTATISTIC）",
+  "command_function": "该命令用于查看IP报文统计信息。\n\n通过该命令的显示信息可以查看包括接收报文（其中包括被丢弃的带源路由选项的报文）、发送报文、分片报文、重组报文的统计信息。\n\n在传输报文的过程中，当源端对报文进行了分片，可以通过该命令查看分片成功的IP报文总数和发送的分片报文总数，然后再在目的端查看接收到的分片报文数是否正确。\n\n通过DSP IPSTATISTIC命令可以用来查看IP流量统计详细信息，从而帮助用户定位到具体应用在报文收发过程中的丢包问题。\n\n不指定参数时，查询所有接口的统计信息；当指定参数时，可以查询指定接口的统计信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0294748369",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.8",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000002183810726",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0294748369",
+        "position": "2.2.3.1.8.4",
+        "parentPosition": "2.2.3.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000002183970470",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_stack.html",
+        "name": "IP协议栈",
+        "parentTopicId": "TOPIC_0000002183810726",
+        "position": "2.2.3.1.8.4.6",
+        "parentPosition": "2.2.3.1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000002219211017",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_protocol_statistics.html",
+        "name": "IP协议统计",
+        "parentTopicId": "TOPIC_0000002183970470",
+        "position": "2.2.3.1.8.4.6.3",
+        "parentPosition": "2.2.3.1.8.4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000002183970490",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_packet_statistics.html",
+        "name": "IP报文统计",
+        "parentTopicId": "TOPIC_0000002219211017",
+        "position": "2.2.3.1.8.4.6.3.5",
+        "parentPosition": "2.2.3.1.8.4.6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001550121210_3",
+        "topicUrl": "MML/Document/dsp_ipstatistic.html",
+        "name": "查询IP报文统计（DSP IPSTATISTIC）",
+        "parentTopicId": "TOPIC_0000002183970490",
+        "position": "2.2.3.1.8.4.6.3.5.1",
+        "parentPosition": "2.2.3.1.8.4.6.3.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

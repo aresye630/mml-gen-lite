@@ -1,0 +1,119 @@
+{
+  "command_name": "LST ALMLOG",
+  "command_name_zh": "查询告警日志",
+  "command_name_full": "查询告警日志(LST ALMLOG)",
+  "command_function": "本命令用于查询告警日志信息：\n\n- 若需要查询全部告警日志的概要信息，请不要输入任何参数。\n- 若需要查询某条告警日志的详细信息，请输入“事件类型”或其他参数或这些参数的组合。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299370344",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299370344.html",
+        "name": "CSP机机接口命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604902",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001299370344",
+        "position": "2.3.2.2",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604907",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/LinkedDoc/monitor_and_control_management.html",
+        "name": "监控任务管理",
+        "parentTopicId": "CONCEPT_0246604902",
+        "position": "2.3.2.2.12",
+        "parentPosition": "2.3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0246604997",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp/Document/lst_almlog.html",
+        "name": "查询告警日志(LST ALMLOG)",
+        "parentTopicId": "CONCEPT_0246604907",
+        "position": "2.3.2.2.12.1",
+        "parentPosition": "2.3.2.2.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

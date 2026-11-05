@@ -1,0 +1,103 @@
+{
+  "feature_name": "激活国密IPsec支持IKEv1功能（普通IPv4 IPsec隧道）",
+  "feature_description": "如图1所示，网络A和网络B之间采用网关对网关组网模式进行资源传输。网络A和网络B分别通过Device A和Device B连接到Internet，要求通过配置IPsec隧道实现PCA与PCB之间可以安全地互访。\n\n**图1** IPv4 IPsec组网图\n\n网络环境描述如下：\n\n- 网络A属于10.1.1.0/24子网，通过接口interface2与Device A连接。\n- 网络B属于10.1.2.0/24子网，通过接口interface2与Device B连接。\n- Device A和Device B路由可达，假设Device A往Device B方向下一跳地址为172.16.163.2/24，Device B往Device A方向下一跳地址为172.16.169.2/24。\n\n| 设备名称              | 接口             | IP地址                             |\n|:------------------|:---------------|:---------------------------------|\n| Device A VNRS微服务  | Ethernet66/0/5 | 10.1.1.1/24                      |\n| Device A VNRS微服务  | Ethernet66/0/6 | 172.16.163.1/24（IPsec报文的本端物理出接口） |\n| Device A VNRS微服务  | Tunnel10       | 192.168.1.1/32（需要双配）             |\n| Device B VNRS微服务  | Ethernet66/0/5 | 10.1.2.1/24                      |\n| Device B VNRS微服务  | Ethernet66/0/6 | 172.16.169.1/24（IPsec报文的本端物理出接口） |\n| Device B VNRS微服务  | Tunnel10       | 192.168.1.2/32（需要双配）             |\n| Device A IPsec微服务 | Tunnel10       | 192.168.1.1/32（IKE协商IP地址）        |\n| Device B IPsec微服务 | Tunnel10       | 192.168.1.2/32（IKE协商IP地址）        |\n| PCA               | -              | 10.1.1.2/24                      |\n| PCB               | -              | 10.1.2.2/24                      |\n| -                 | Device A侧网关接口  | 172.16.163.2/24                  |\n| -                 | Device B侧网关接口  | 172.16.169.2/24                  |",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0241442101",
+        "topicUrl": "toctopics/zh-cn_topic_0241442101.html",
+        "name": "IP基本特性",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0251174365",
+        "topicUrl": "toctopics/zh-cn_topic_0251174365.html",
+        "name": "IPFD-015004 IPSec功能",
+        "parentTopicId": "TOPIC_0241442101",
+        "position": "2.6",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0278996150",
+        "topicUrl": "toctopics/zh-cn_topic_0278996150.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251174365",
+        "position": "2.6.4",
+        "parentPosition": "2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001503728909",
+        "topicUrl": "toctopics/zh-cn_opi_0000001503728909.html",
+        "name": "激活国密IPsec支持IKEv1功能（普通IPv4 IPsec隧道）",
+        "parentTopicId": "TOPIC_0278996150",
+        "position": "2.6.4.11",
+        "parentPosition": "2.6.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

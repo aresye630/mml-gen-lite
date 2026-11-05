@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD NCCTPL",
+  "command_name_zh": "增加NCC模板",
+  "command_name_full": "增加NCC模板(ADD NCCTPL)",
+  "command_function": "该命令用于在UDM中增加一条NCC（Network Capability Configuration）模板数据记录。在开局时，完成硬件安装、软件安装之后，需要通过华为操作维护系统完成本局数据和对接数据的配置。其中，在进行本局数据的配置时，需要使用**ADD VLRTYP**/**ADD SGSNTYP**命令增加VLR/SGSN类型数据相关的“NCC模板ID”，其目的是使UDM能够根据VLR/SGSN实际所支持的业务和MAP版本，进行相关业务与相关MAP流程的处理，提高UDM与VLR/SGSN在网络中的兼容性。\n\n上述所说的“NCC模板ID”，是通过该命令进行定义的，每个NCC模板对应一套业务和MAP流程的处理规则，这些规则的制定是根据VLR/SGSN实际所支持的业务和MAP版本的情况来进行。如果不按照VLR/SGSN实际的支持情况进行配置，就会导致UDM与VLR/SGSN的网络兼容性差。例如：\n\n- VLR实际不支持对Cancel location消息中的私有信元进行处理，使用该命令增加NCC模板时，参数“Cancel location中的私有信元”应设置为“NR（CancelLocation请求中的私有信元不下发到VLR）”，在UDM上使用**ADD VLRTYP**命令对VLR增加该NCC模板ID后，UDM在下发业务数据时，Cancel location消息中的私有信元不下发到该VLR。否则，VLR会收到Cancel location消息中的私有信元，但由于无法处理，会向UDM返回无法处理的相关消息。这种UDM和VLR之间进行的无效消息传输，占用了网络资源。\n- UDM支持比较高的MAP版本，如MAP Phase 3，而VLR只支持比较低的MAP版本，如MAP Phase 2。当UDM按照MAP Phase 3的能力发起独立插入用户数据、Cancel location、提供漫游号码等操作时，由于VLR不支持该MAP版本，就会进行版本协商（即要求UDM按照MAP Phase 2的能力重新发起相关操作），导致消息量倍增，增加了链路资源的消耗。\n\n综上，如果能根据VLR/SGSN对相关业务和MAP版本的实际支持情况对NCC模板进行定义，并在VLR/SGSN类型数据配置过程中使用该模板，就能使UDM向VLR/SGSN发起MAP消息时，按照NCC模板中设定的VLR/SGSN实际支持的MAP版本发起MAP操作，避免进行版本协商，或使UDM不向VLR/SGSN下发VLR/SGSN无法处理的消息，减少链路资源消耗，从而提高UDM与VLR/SGSN在网络中的兼容性。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0182808054",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ncc_management.html",
+        "name": "NCC模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.18",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0182808055",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_ncctpl.html",
+        "name": "增加NCC模板(ADD NCCTPL)",
+        "parentTopicId": "CONCEPT_0182808054",
+        "position": "4.2.3.6.18.1",
+        "parentPosition": "4.2.3.6.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "SET LSPVGLOBALCFG",
+  "command_name_zh": "设置LSPV全局属性",
+  "command_name_full": "设置LSPV全局属性（SET LSPVGLOBALCFG）",
+  "command_function": "该命令用于配置LSPV全局属性。\n\n当设备作为标签转发路径检测的响应端时，可能收到大量MPLS ECHO-REQUEST报文需要处理，可以执行SET LSPVGLOBALCFG命令使能设备LSPV模块和配置LSPV模块的MPLS ECHO-REQUEST报文处理速率，从而保证设备能够接收MPLS ECHO-REQUEST报文，并回应MPLS ECHO-REPLY报文。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595640",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.3",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116182",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_maintenance.html",
+        "name": "系统维护",
+        "parentTopicId": "CONCEPT_0000202103595640",
+        "position": "4.14.3.2",
+        "parentPosition": "4.14.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915571",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ping_and_tracert.html",
+        "name": "Ping和Tracert",
+        "parentTopicId": "CONCEPT_0000202103116182",
+        "position": "4.14.3.2.1",
+        "parentPosition": "4.14.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355862",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_lspv.html",
+        "name": "LSPV",
+        "parentTopicId": "CONCEPT_0000202288915571",
+        "position": "4.14.3.2.1.3",
+        "parentPosition": "4.14.3.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001550280878",
+        "topicUrl": "MML/Document/set_lspvglobalcfg.html",
+        "name": "设置LSPV全局属性（SET LSPVGLOBALCFG）",
+        "parentTopicId": "CONCEPT_0000202103355862",
+        "position": "4.14.3.2.1.3.3",
+        "parentPosition": "4.14.3.2.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

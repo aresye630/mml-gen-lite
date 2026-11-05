@@ -1,0 +1,180 @@
+{
+  "feature_name": "配置容灾模式（负荷分担）",
+  "feature_description": "为避免单点故障，园区需部署两套UEG实现容灾。\n\n两套UEG采用负荷分担容灾时，需要参考本页面进行配置。\n\n**注意** \n\n本页面中的命令均为高危命令，请在华为工程师指导下执行。否则可能导致业务受损。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001241729473",
+        "topicUrl": "toctopics/zh-cn_topic_0000001241729473.html",
+        "name": "配置实例（裸机容器）",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.4",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001759734109",
+        "topicUrl": "toctopics/zh-cn_topic_0000001759734109.html",
+        "name": "配置容灾模式",
+        "parentTopicId": "TOPIC_0000001241729473",
+        "position": "4.4.8",
+        "parentPosition": "4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001379319557",
+        "topicUrl": "toctopics/zh-cn_opi_0000001379319557.html",
+        "name": "配置容灾模式（负荷分担）",
+        "parentTopicId": "TOPIC_0000001759734109",
+        "position": "4.4.8.1",
+        "parentPosition": "4.4.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001241729473",
+        "topicUrl": "toctopics/zh-cn_topic_0000001241729473.html",
+        "name": "配置实例（裸机容器）",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.4",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001759734109",
+        "topicUrl": "toctopics/zh-cn_topic_0000001759734109.html",
+        "name": "配置容灾模式",
+        "parentTopicId": "TOPIC_0000001241729473",
+        "position": "4.4.8",
+        "parentPosition": "4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001379319557",
+        "topicUrl": "toctopics/zh-cn_opi_0000001379319557.html",
+        "name": "配置容灾模式（负荷分担）",
+        "parentTopicId": "TOPIC_0000001759734109",
+        "position": "4.4.8.1",
+        "parentPosition": "4.4.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD RULEBINDING",
+  "command_name_zh": "增加用户模板和规则的绑定关系",
+  "command_name_full": "增加用户模板和规则的绑定关系（ADD RULEBINDING）",
+  "command_function": "**适用NF：MPF**\n\n该命令用于增加用户模板与规则绑定关系，当用户数据报文可以匹配到多个规则时，需要将多个规则绑定到用户模板下。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441906",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_mec_data_plane_management.html",
+        "name": "MEC数据面管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.8",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201442962197",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000201255441906",
+        "position": "1.8.4",
+        "parentPosition": "1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255207598",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_matching_common_configuration.html",
+        "name": "业务匹配公共配置",
+        "parentTopicId": "CONCEPT_0000201442962197",
+        "position": "1.8.4.2",
+        "parentPosition": "1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441916",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_service_rule_management.html",
+        "name": "业务规则管理",
+        "parentTopicId": "CONCEPT_0000201255207598",
+        "position": "1.8.4.2.1",
+        "parentPosition": "1.8.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201254728864",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_rule_binding.html",
+        "name": "规则绑定",
+        "parentTopicId": "CONCEPT_0000201255441916",
+        "position": "1.8.4.2.1.2",
+        "parentPosition": "1.8.4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201259822014",
+        "topicUrl": "kite_s_vm/mpf_om/MML/Document/add_rulebinding.html",
+        "name": "增加用户模板和规则的绑定关系（ADD RULEBINDING）",
+        "parentTopicId": "CONCEPT_0000201254728864",
+        "position": "1.8.4.2.1.2.1",
+        "parentPosition": "1.8.4.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

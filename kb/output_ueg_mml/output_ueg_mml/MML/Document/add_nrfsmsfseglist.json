@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD NRFSMSFSEGLIST",
+  "command_name_zh": "增加SMSF号段白名单",
+  "command_name_full": "增加SMSF号段白名单（ADD NRFSMSFSEGLIST）",
+  "command_function": "**须知** \n\n该命令与SET NRFSMSFSEGSW配合使用，在白名单未设置完成时请勿打开此开关，否则携带非白名单中的号段来发现SMSF时，该号段发现参数在匹配时将会被NRF忽略。\n\n**适用NF：NRF**\n\n该命令用于向SMSF号段白名单内增加号段。 若希望使用号段来匹配选择SMSF时，需要将这些号段加入到白名单中，否则未加入的号段请求参数将会被忽略。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.8",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320337",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_service_parameters.html",
+        "name": "NRF业务参数",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.2.3.3.8.1",
+        "parentPosition": "2.2.3.3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001282244064",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_processing_policy_in_smsf_cutover.html",
+        "name": "SMSF割接场景NRF处理策略",
+        "parentTopicId": "TOPIC_0234320337",
+        "position": "2.2.3.3.8.1.6",
+        "parentPosition": "2.2.3.3.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001321823525",
+        "topicUrl": "MML/Document/add_nrfsmsfseglist.html",
+        "name": "增加SMSF号段白名单（ADD NRFSMSFSEGLIST）",
+        "parentTopicId": "TOPIC_0000001282244064",
+        "position": "2.2.3.3.8.1.6.10",
+        "parentPosition": "2.2.3.3.8.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

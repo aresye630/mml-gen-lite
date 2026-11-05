@@ -1,0 +1,131 @@
+{
+  "command_name": "MOD SEGSTATE",
+  "command_name_zh": "修改隔离状态",
+  "command_name_full": "修改隔离状态(MOD SEGSTATE)",
+  "command_function": "**须知** \n\n本命令属于高危命令，该操作将隔离业务处理模块，操作不当将导致负载不均、业务损失等严重问题。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n本命令用于配置是否对业务进程（DRU或DSU）进行隔离。\n\n本命令的相关介绍：\n\n- 当系统需要缩容时，使用该命令隔离需要调整的DRU/DSU进程。如果某个DRU/DSU进程被隔离，则后续的业务将会被转发到其他DRU/DSU进程进行处理。\n- 在网元扩容场景下，当希望新扩容的业务模块暂时不处理业务时，可执行本命令将业务模块设置为隔离状态。\n- 本命令只在扩容缩容和处理异常模块时需要主动隔离业务的场景下使用。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774218",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.2",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774239",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/segregate_state_management.html",
+        "name": "隔离状态管理",
+        "parentTopicId": "MMLREF_0172774218",
+        "position": "2.2.4.3.2.10",
+        "parentPosition": "2.2.4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774252",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/mod_segstate.html",
+        "name": "修改隔离状态(MOD SEGSTATE)",
+        "parentTopicId": "CONCEPT_0172774239",
+        "position": "2.2.4.3.2.10.1",
+        "parentPosition": "2.2.4.3.2.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "command_name": "SET N2OVERLOAD",
+  "command_name_zh": "设置N2过载控制信息",
+  "command_name_full": "设置N2过载控制信息（SET N2OVERLOAD）",
+  "command_function": "**须知** \n\n如果(R)AN仅与一个AMF互联，那么当该(R)AN从AMF收到OVERLOAD START消息后，将会拒绝UE的RRC连接建立请求，从而影响UE的正常业务。\n\n**适用NF：AMF**\n\n此命令用于设置N2接口过载控制信息。当AMF过载时向gNodeB发送OVERLOAD START（3GPP TS 38.413），指示gNodeB是否允许接受UE的RRC连接，以减轻对网络的信令冲击；当AMF从过载状态恢复到正常状态后向gNodeB发送OVERLOAD STOP消息，指示gNodeB允许UE接入。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319989",
+        "topicUrl": "MML/LinkedDoc/unc_n_n2_interface_management.html",
+        "name": "N2接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.5",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321347",
+        "topicUrl": "MML/LinkedDoc/unc_n_n2_interface_overload_control.html",
+        "name": "N2接口过载控制",
+        "parentTopicId": "TOPIC_0234319989",
+        "position": "2.10.5.16",
+        "parentPosition": "2.10.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209654395",
+        "topicUrl": "MML/Document/set_n2overload.html",
+        "name": "设置N2过载控制信息（SET N2OVERLOAD）",
+        "parentTopicId": "TOPIC_0234321347",
+        "position": "2.10.5.16.1",
+        "parentPosition": "2.10.5.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

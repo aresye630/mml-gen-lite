@@ -1,0 +1,171 @@
+# 配置防攻击功能
+
+* 操作场景
+* 对系统的影响
+* 必备事项
+* 操作流程
+* 操作步骤
+
+## 操作场景
+
+通过配置TCP/IP攻击防范、ARP攻击防范、CP-CAR、ACL、黑白名单、应用层联动等功能保护UEG。
+
+## 对系统的影响
+
+该操作对系统正常运行没有影响。
+
+## 必备事项
+
+前提条件
+
+* 风筝M/L场景，请仔细阅读TCP/IP攻击防御、ARP攻击防御和防攻击。
+
+数据
+
+**表1** 需要准备的数据
+
+| 类别 | 参数 | 取值样例 | 获取方法 | 相关命令 |
+| --- | --- | --- | --- | --- |
+| 防攻击策略 | 安全策略编号（POLICYID） | 1 | 本端规划 | **ADD SECPOLICY** |
+|  | 策略描述（DESCRIPTION） | policyabc | 本端规划 |  |
+| 总体报文限速 | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **SET SECPOLICYALLPKTVALUE** |
+|  | 上报速率值（pps）（SECRATEVALUE） | 8000 | 本端规划 |  |
+|  | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **SET SECPOLICYALLPKTLEVEL** |
+|  | 上报速率等级（SECRATELEVEL） | low | 本端规划 |  |
+| 协议CAR | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **ADD SECPOLICYCAR** |
+|  | 安全策略类型（SECPOLICYTYPE） | Tcpip | 本端规划 |  |
+|  | 安全策略承诺信息速率（SECPOLICYCIR） | 2333 | 本端规划 |  |
+|  | 安全策略承诺突发尺寸（SECPOLICYCBS4SH） | 6000 | 本端规划 |  |
+|  | 安全最小包补偿长度（SECMINPKTLEN） | 128 | 本端规划 |  |
+|  | 安全TCP/IP类型（SUBTCPIPTYPE） | TCPSYN | 本端规划 |  |
+| 策略ACL | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **ADD SECPOLICYACL** |
+|  | 安全策略类型（SECPOLICYTYPE） | whitelist | 本端规划 |  |
+|  | 安全策略类型编号（SECPOLICYTYPEID） | 1 | 本端规划 |  |
+|  | 安全ACL规则编号（SECACLNUM） | 2000 | 本端规划 |  |
+| 策略匹配顺序 | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **ADD SECPOLICYPROSEQ** |
+|  | 安全白名单匹配顺序(SECPROSEQWL) | Third | 本端规划 |  |
+|  | 安全黑名单匹配顺序（SECPROSEQBL） | Second | 本端规划 |  |
+|  | 安全用户流匹配顺序（SECPROSEQUF） | First | 本端规划 |  |
+| 优先级 | 安全策略号（SECPOLICYID） | 1 | 本端规划 | **SET SECPOLICYPRIO** |
+|  | 安全策略类型（SECPOLICYTYPE） | Tcpip | 本端规划 |  |
+|  | 安全策略类型号（SECPOLICYTYPEID） | 10 | 本端规划 |  |
+|  | 安全协议类型（SUBPROTOTYPE） | bfd | 本端规划 |  |
+|  | 安全TCP/IP类型（SUBTCPIPTYPE） | TCPSYN | 本端规划 |  |
+|  | 安全优先级（SECPRIORITY） | low | 本端规划 |  |
+| 告警 | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **ADD SECPOLICYALARM** |
+|  | 安全策略类型（SECPOLICYTYPE） | Tcpip | 本端规划 |  |
+|  | 安全策略类型编号（SECPOLICYTYPEID） | 1 | 本端规划 |  |
+|  | 安全告警阈值（SECALARMTHLD） | 1 | 本端规划 |  |
+|  | 安全告警时间间隔（秒）（SECALARMINT） | 60 | 本端规划 |  |
+|  | 安全告警使能（SECALARMFLAG） | TRUE | 本端规划 |  |
+| 设备URPF | 策略编号（SECPOLICYID） | 1 | 本端规划 | **SET SECDEVURPF** |
+|  | 安全URPF检查类型（SECURPFLOOSETYPE） | strict | 本端规划 |  |
+|  | 是否允许缺省路由（SECENABLEDEFAULTROUTE） | TRUE | 本端规划 |  |
+|  | 是否允许URPF（SECURPFENABLE） | TRUE | 本端规划 |  |
+| 策略使能开关 | 安全策略编号（SECPOLICYID） | 1 | 本端规划 | **SET SECPOLICYSWITCH** |
+|  | 安全策略类型（SECPOLICYTYPE） | Tcpip | 本端规划 |  |
+|  | 安全策略类型编号（SECPOLICYTYPEID） | 32 | 本端规划 |  |
+|  | TCP/IP防攻击类型（SUBTCPIPTYPE） | TCPSYN | 本端规划 |  |
+|  | 安全策略使能标记（SECPOLICYENABLE） | TRUE | 本端规划 |  |
+| 设置应用联动默认动作 | 策略编号（SECPOLICYID） | 1 | 本端规划 | **SET SECPOLICYAPPLNK** |
+|  | 默认处理方式（SECDFTACTION） | Min\_to\_cp | 本端规划 |  |
+| 应用防攻击策略 | 安全策略编号（POLICYID） | 1 | 本端规划 | **ADD SECPOLICYCFG** |
+|  | RU名称（RUNAME） | VNODE\_VNRS\_VNFC\_IPU\_0064 | 本端规划 |  |
+| 接口免费ARP | 接口名称（IFNAME） | Ethernet64/0/2 | 本端规划 | **SET SECARPGRAT** |
+|  | 使能标记（SECENABLE） | TRUE | 本端规划 |  |
+| ARP快回 | RU名称（RUNAME） | VNODE\_VNRS\_VNFC\_IPU\_0064 | 本端规划 | **SET SECARP** |
+|  | 使能标记（FASTRLYEN） | TRUE | 本端规划 |  |
+| ICMP快回 | RU名称（RUNAME） | VNODE\_VNRS\_VNFC\_IPU\_0064 | 本端规划 | **SET SECICMPREPLY** |
+|  | 使能标记（FASTRLYEN） | TRUE | 本端规划 |  |
+| ND快回 | 使能标记（FASTRLYEN） | TRUE | 本端规划 | **SET SECND** |
+
+## 操作流程
+
+配置防攻击功能操作流程如图1所示。
+
+**图1** 配置防攻击功能操作流程
+
+## 操作步骤
+
+1. 创建防攻击策略。
+
+   在“MML命令行-UEG”窗口上执行：
+
+   **ADD SECPOLICY**：POLICYID=安全策略编号, DESCRIPTION="策略描述";
+2. 配置防攻击策略参数
+   1. 配置上送报文总体速率值和速率等级。
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **SET SECPOLICYALLPKTVALUE**：SECPOLICYID=安全策略编号, SECRATEVALUE=上报速率值(pps);
+
+      **SET SECPOLICYALLPKTLEVEL**：SECPOLICYID=安全策略编号, SECRATELEVEL=上报速率等级;
+   2. 增加安全防攻击CAR规则
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **ADD SECPOLICYCAR**: SECPOLICYID=安全策略编号, SECPOLICYTYPE=安全策略类型, SUBTCPIPTYPE=安全TCP/IP类型, SECPOLICYCIR=安全策略承诺信息速率, SECPOLICYCBS4SH=安全策略承诺突发尺寸, SECMINPKTLEN=安全协议最小包补偿长度;
+
+      只有SECPOLICYTYPE=Tcpip的时候SUBTCPIPTYPE才有意义。
+   3. 增加安全策略ACL规则
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **ADD SECPOLICYACL**: SECPOLICYID=安全策略编号, SECPOLICYTYPE=安全策略类型, SECACLNUM="安全ACL规则编号";
+   4. 配置安全策略匹配顺序
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **ADD SECPOLICYPROSEQ**: SECPOLICYID=安全策略编号, SECPROSEQWL=安全白名单匹配顺序, SECPROSEQBL=安全黑名单匹配顺序, SECPROSEQUF=安全用户自定义流匹配顺序;
+   5. 配置报文上送优先级
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **SET SECPOLICYPRIO**: SECPOLICYID=安全策略号, SECPOLICYTYPE=安全策略类型,SUBTCPIPTYPE=安全TCP/IP类型,SECPRIORITY=安全优先级;
+   6. 增加安全策略告警
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **ADD SECPOLICYALARM**: SECPOLICYID=安全策略编号, SECPOLICYTYPE=安全策略类型, SECALARMFLAG=安全告警使能, SECALARMTHLD=安全告警阈值, SECALARMINT=安全告警时间间隔;
+   7. 使能设备URPF
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **SET SECDEVURPF**: SECPOLICYID=策略编号, SECURPFLOOSETYPE=安全URPF检查类型, SECENABLEDEFAULTROUTE=是否允许缺省路由,SECURPFENABLE=是否允许URPF;
+   8. 使能非法报文以及黑名单、白名单防御机制
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **SET SECPOLICYSWITCH**: SECPOLICYID=安全策略编号,SECPOLICYTYPE=安全策略类型,SECPOLICYENABLE=安全策略使能标记,SECPOLICYTYPEID=安全策略类型编号,SUBTCPIPTYPE=TCP/IP防攻击类型;
+   9. 设置应用联动默认动作
+
+      在“MML命令行-UEG”窗口上执行：
+
+      **SET SECPOLICYAPPLNK**: SECPOLICYID=策略编号, SECDFTACTION=默认处理方式;
+3. 将防攻击策略绑定到对应的资源单元上。
+
+   在“MML命令行-UEG”窗口上执行：
+
+   **ADD SECPOLICYCFG**：POLICYID=安全策略编号, RUNAME="RU名称";
+4. （可选）使能免费ARP报文过滤。
+
+   在“MML命令行-UEG”窗口上执行：
+
+   **SET SECARPGRAT**：IFNAME="接口名称", SECENABLE=使能标记;
+5. （可选）使能ARP快回。
+
+   在“MML命令行-UEG”窗口上执行：
+
+   **SET SECARP**: RUNAME="RU名称", FASTRLYEN=使能标记;
+6. （可选）使能ICMP快回
+
+   在“MML命令行-UEG”窗口上执行：
+
+   **SET SECICMPREPLY**: RUNAME="RU名称", FASTRLYEN=使能标记;
+7. （可选）使能ND快回。
+
+   在“MML命令行-UEG”窗口上执行：
+
+   **SET SECND**: FASTRLYEN=使能标记;
+
+版权所有 © 华为技术有限公司

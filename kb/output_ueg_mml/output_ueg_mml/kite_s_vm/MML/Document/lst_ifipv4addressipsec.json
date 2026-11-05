@@ -1,0 +1,131 @@
+{
+  "command_name": "LST IFIPV4ADDRESSIPSEC",
+  "command_name_zh": "查询接口IPv4地址",
+  "command_name_full": "查询接口IPv4地址（LST IFIPV4ADDRESSIPSEC）",
+  "command_function": "该命令用于查询接口的配置地址，借用地址以及被借用地址。配置地址类型包括主地址和从地址。借用地址代表本接口借用了另一个接口的主地址，被借用地址代表本接口的主地址被另一个接口借用。请使用**ADD IFIPV4UNNUMIPSEC**命令配置地址借用关系。\n\n不指定IFNAME参数时，查询设备上所有接口的信息；当指定IFNAME参数时，可以查询指定接口的配置信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595786_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/ipsecccell_n_internet_protocol_security_management.html",
+        "name": "IPSEC功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.20",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289155109_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/ipsecccell_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103595786_1",
+        "position": "1.2.20.1",
+        "parentPosition": "1.2.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315753_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/ipsecccell_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0000202289155109_1",
+        "position": "1.2.20.1.3",
+        "parentPosition": "1.2.20.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915717_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/ipsecccell_n_ipv4_address.html",
+        "name": "IPv4地址",
+        "parentTopicId": "CONCEPT_0000202289315753_1",
+        "position": "1.2.20.1.3.2",
+        "parentPosition": "1.2.20.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001180751064_1",
+        "topicUrl": "kite_s_vm/MML/Document/lst_ifipv4addressipsec.html",
+        "name": "查询接口IPv4地址（LST IFIPV4ADDRESSIPSEC）",
+        "parentTopicId": "CONCEPT_0000202288915717_1",
+        "position": "1.2.20.1.3.2.4",
+        "parentPosition": "1.2.20.1.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

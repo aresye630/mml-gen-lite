@@ -1,0 +1,795 @@
+{
+  "feature_name": "加载网元内服务间证书",
+  "feature_description": "网元实例化前，必须先通过Fusionstage配置网元内服务间的证书，保证网元内各服务间的通信安全。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284911170",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284911170.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284911170",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001243438611_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_manda_vm.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.1",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198598724_1",
+        "topicUrl": "kite_ml/kitem_netw_secu_c_man_vm.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_1",
+        "position": "6.1.2.1.2",
+        "parentPosition": "6.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001198598724_1",
+        "position": "6.1.2.1.2.2",
+        "parentPosition": "6.1.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001246207979",
+        "topicUrl": "toctopics/zh-cn_topic_0000001246207979.html",
+        "name": "配置安全数据（风筝L）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001201867658",
+        "topicUrl": "toctopics/zh-cn_topic_0000001201867658.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001246207979",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001243438609",
+        "topicUrl": "toctopics/zh-cn_topic_0000001243438609.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001201867658",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001243438611_3",
+        "topicUrl": "kite_ml/kite_l_vm_Security_Cnf/kitel_mand_conf_manda_vm.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001243438609",
+        "position": "6.1.2.1",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198598724_3",
+        "topicUrl": "kite_ml/kite_l_vm_Security_Cnf/kitel_netw_secu_c_man_vm.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_3",
+        "position": "6.1.2.1.2",
+        "parentPosition": "6.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001198598724_3",
+        "position": "6.1.2.1.2.2",
+        "parentPosition": "6.1.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105238422",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105238422.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105924248",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105924248.html",
+        "name": "配置UEG安全数据",
+        "parentTopicId": "TOPIC_0000001105238422",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001258325619",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001258325619.html",
+        "name": "MPF安全数据",
+        "parentTopicId": "TOPIC_0000001105924248",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001150229962",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229962.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258325619",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001189630249",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189630249.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001150229962",
+        "position": "6.2.2.2.1",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143630366",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143630366.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001189630249",
+        "position": "6.2.2.2.1.2",
+        "parentPosition": "6.2.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001143630366",
+        "position": "6.2.2.2.1.2.2",
+        "parentPosition": "6.2.2.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105238422",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105238422.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105924248",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105924248.html",
+        "name": "配置UEG安全数据",
+        "parentTopicId": "TOPIC_0000001105238422",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001258325619",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001258325619.html",
+        "name": "MPF安全数据",
+        "parentTopicId": "TOPIC_0000001105924248",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001150229962",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229962.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258325619",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001189630249",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189630249.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001150229962",
+        "position": "6.2.2.2.1",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143630366",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143630366.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001189630249",
+        "position": "6.2.2.2.1.2",
+        "parentPosition": "6.2.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001143630366",
+        "position": "6.2.2.2.1.2.2",
+        "parentPosition": "6.2.2.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001462442398",
+        "topicUrl": "toctopics/zh-cn_topic_0000001462442398.html",
+        "name": "虚机容器模式",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001149677773",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001149677773.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "TOPIC_0000001462442398",
+        "position": "1.5",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001486300028",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001486300028.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001149677773",
+        "position": "1.5.2",
+        "parentPosition": "1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001144599103",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001144599103.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001486300028",
+        "position": "1.5.2.1",
+        "parentPosition": "1.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001098119166",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001098119166.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001144599103",
+        "position": "1.5.2.1.2",
+        "parentPosition": "1.5.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001098119166",
+        "position": "1.5.2.1.2.2",
+        "parentPosition": "1.5.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146460135",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146460135.html",
+        "name": "配置安全数据（风筝S）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001150229780",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001150229780.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001146460135",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001189629731",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001189629731.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001150229780",
+        "position": "6.2.1",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001143789638",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143789638.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001189629731",
+        "position": "6.2.1.2",
+        "parentPosition": "6.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001143789638",
+        "position": "6.2.1.2.2",
+        "parentPosition": "6.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391524709",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391524709.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001445470597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001445470597.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001391524709",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001382800852_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001382800852.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001445470597",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001243438611_1",
+        "topicUrl": "kite_ml/kitem_mand_conf_manda_vm.html",
+        "name": "必选配置",
+        "parentTopicId": "TOPIC_0000001382800852_2",
+        "position": "6.1.2.1",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001198598724_1",
+        "topicUrl": "kite_ml/kitem_netw_secu_c_man_vm.html",
+        "name": "网络安全配置",
+        "parentTopicId": "TOPIC_0000001243438611_1",
+        "position": "6.1.2.1.2",
+        "parentPosition": "6.1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001182760479_3",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001182760479.html",
+        "name": "加载网元内服务间证书",
+        "parentTopicId": "TOPIC_0000001198598724_1",
+        "position": "6.1.2.1.2.2",
+        "parentPosition": "6.1.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

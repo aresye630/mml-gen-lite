@@ -1,0 +1,150 @@
+{
+  "command_name": "DSP PROCESSCG",
+  "command_name_zh": "查询CG进程信息",
+  "command_name_full": "查询CG进程信息（DSP PROCESSCG）",
+  "command_function": "该命令用于请求系统显示CG\\_VNFC下进程的状态信息和静态配置信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319747",
+        "topicUrl": "MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.6",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321151",
+        "topicUrl": "MML/LinkedDoc/unc_n_virtualized_network_function_component_management.html",
+        "name": "VNFC公共功能管理",
+        "parentTopicId": "TOPIC_0234319747",
+        "position": "1.6.29",
+        "parentPosition": "1.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319700",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0234321151",
+        "position": "1.6.29.1",
+        "parentPosition": "1.6.29",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319742",
+        "topicUrl": "MML/LinkedDoc/unc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0234319700",
+        "position": "1.6.29.1.1",
+        "parentPosition": "1.6.29.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319931",
+        "topicUrl": "MML/LinkedDoc/unc_n_process_management.html",
+        "name": "进程管理",
+        "parentTopicId": "TOPIC_0234319742",
+        "position": "1.6.29.1.1.1",
+        "parentPosition": "1.6.29.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0252418146",
+        "topicUrl": "MML/Document/dsp_processcg.html",
+        "name": "查询CG进程信息（DSP PROCESSCG）",
+        "parentTopicId": "TOPIC_0234319931",
+        "position": "1.6.29.1.1.1.4",
+        "parentPosition": "1.6.29.1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

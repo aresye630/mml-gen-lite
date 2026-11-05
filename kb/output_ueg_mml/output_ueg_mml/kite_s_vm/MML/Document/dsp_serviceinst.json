@@ -1,0 +1,107 @@
+{
+  "command_name": "DSP SERVICEINST",
+  "command_name_zh": "显示注册的服务实例信息",
+  "command_name_full": "显示注册的服务实例信息（DSP SERVICEINST）",
+  "command_function": "该命令用于查询在CMF上注册的服务实例信息。\n\n若需要查询指定网元在CMF上注册的服务实例信息，请输入“网元ID”参数。若不输入“网元ID”参数，表示查询所有网元在CMF上注册的服务实例信息。\n\n若需要查询在CMF上注册的所有服务实例信息，请将输入参数中的“查询类型”选择为“所有”。\n\n若需要通过服务名称查询在CMF上注册的服务实例信息，请将输入参数中的“查询类型”选择为“通过服务名称”，并输入“服务名称”参数。\n\n若需要通过服务实例ID查询在CMF上注册的服务实例信息，请将输入参数中的“查询类型”选择为“通过服务实例ID”，并输入“服务实例ID”参数。\n\n若需要通过服务实例标签查询在CMF上注册的服务实例信息，请将输入参数中的“查询类型”选择为“通过服务实例标签”，并输入“服务实例标签键”和“服务实例标签值”参数。其中，键为必选参数，值为可选参数。\n\n若需要根据节点ID、Pod ID或进程ID查询在CMF上注册的服务实例信息，请将输入参数中的“查询类型”选择为“通过服务实例标签”，然后在“服务实例标签键”参数中输入“Node ID”、“Pod ID”或“Cell ID”，并输入“服务实例标签值”，注意此时“服务实例标签值”不能为空。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203997008379_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/cmfsvc_n_high_available_management.html",
+        "name": "可靠性管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.1",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203997689393_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/cmfsvc_n_microservice_available_management.html",
+        "name": "微服务可靠性管理",
+        "parentTopicId": "CONCEPT_0000203997008379_1",
+        "position": "1.2.1.1",
+        "parentPosition": "1.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001501926552_1",
+        "topicUrl": "kite_s_vm/MML/Document/dsp_serviceinst.html",
+        "name": "显示注册的服务实例信息（DSP SERVICEINST）",
+        "parentTopicId": "CONCEPT_0000203997689393_1",
+        "position": "1.2.1.1.2",
+        "parentPosition": "1.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD LASFLOWCTRL",
+  "command_name_zh": "修改流控参数",
+  "command_name_full": "修改流控参数（MOD LASFLOWCTRL）",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作将修改流控参数，操作不当将导致流控不能触发或过早触发，并导致业务严重呼损。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于对流控参数信息进行修改或调整。\n\n流控即消息的流量控制，是系统的一种自我保护机制。当系统在大话务量冲击下，通过流控特性保持健康的运行状态，始终提供最大能力的消息响应服务，防止由于负载过大而导致设备瘫痪。流控功能开启后，LDAP接口流量控制可对第三方FE通过LDAP接口发送的请求消息进行控制，负责流控功能的软件模块会根据当前LAS的负荷状态和配置的流控参数信息，自动开启流控和解除流控。\n\n该命令的使用场景：用于异常场景下的调测，当出现系统不稳定，如频繁起控解控，操作员可以使用本命令修改流控参数以使系统保持健康的运行状态，始终提供最大能力的消息响应服务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001136640911",
+        "topicUrl": "USCDB/reference/mml/UDRLas/LinkedDoc/udrlas_management.html",
+        "name": "LAS管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.2",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001092814282",
+        "topicUrl": "USCDB/MML/LinkedDoc/las_flow_control_management.html",
+        "name": "LAS流控参数管理",
+        "parentTopicId": "CONCEPT_0000001136640911",
+        "position": "2.2.4.2.5",
+        "parentPosition": "2.2.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001093133880_2",
+        "topicUrl": "USCDB/MML/Document/mod_lasflowctrl.html",
+        "name": "修改流控参数（MOD LASFLOWCTRL）",
+        "parentTopicId": "CONCEPT_0000001092814282",
+        "position": "2.2.4.2.5.1",
+        "parentPosition": "2.2.4.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

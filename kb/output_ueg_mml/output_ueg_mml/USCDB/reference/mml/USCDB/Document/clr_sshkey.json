@@ -1,0 +1,131 @@
+{
+  "command_name": "CLR SSHKEY",
+  "command_name_zh": "清除SSH Key配置",
+  "command_name_full": "清除SSH Key配置（CLR SSHKEY）",
+  "command_function": "**须知** \n\n该命令属于高危命令，执行该命令后将导致该模块类型不能进行公钥认证。因此执行该命令前，请确认待删除SSH Key文件是否已经被使用，若已经被使用则不允许删除。\n\n本命令用于清除指定模块的SSH Key文件，以下两种情况下需要执行该命令清除SSH Key文件：\n\n- 不再需要对指定模块进行公钥认证。\n- 更换指定模块SSH Key文件的Key类型。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774529",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.1",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774175",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/ssh_client_key_management.html",
+        "name": "SSH客户端key管理",
+        "parentTopicId": "MMLREF_0172774529",
+        "position": "2.2.4.3.1.14",
+        "parentPosition": "2.2.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774425",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/clr_sshkey.html",
+        "name": "清除SSH Key配置（CLR SSHKEY）",
+        "parentTopicId": "MMLREF_0172774175",
+        "position": "2.2.4.3.1.14.4",
+        "parentPosition": "2.2.4.3.1.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

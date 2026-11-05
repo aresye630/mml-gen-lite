@@ -1,0 +1,131 @@
+{
+  "command_name": "SET BAKMODE",
+  "command_name_zh": "设置备份模式",
+  "command_name_full": "设置备份模式(SET BAKMODE)",
+  "command_function": "**须知** \n\n该命令的操作对系统影响极大。关闭备份开关，可能造成主用模块和备用模块之间数据不一致，会影响主备模块倒换的平滑进行，请慎重使用该命令。\n\n本命令用于请求系统对指定网元的模块的备份开关执行打开或者关闭操作。本命令主要用于打开或关闭某个主备模块间的备份开关，控制主用模块是否将动态数据备份到备用模块。本命令的使用场景为：\n\n- 在开局、扩容或者升级的场景中，经常需要通过复位模块使某些设置生效（例如，模块加载了新的节点软件或修改了系统参数等），特别是在主备用工作方式的模块复位操作中，若主用模块复位，备用模块将承担原主模块所有的业务，这就要求主备用模块的数据时刻保持一致，操作员可以执行本命令设置模块的备份开关，使主用模块的数据实时的备份到备用模块。\n- 系统在无损升级时，使用备模块进行版本升级。升级过程中需要保持主模块的备份开关为打开状态。操作员可以执行本命令设置模块的备份开关，使主用模块的数据实时的备份到备用模块。\n- 当主用模块的备份开关打开时，主用模块数据备份到备用模块；当主用模块的备份开关关闭时，则主模块数据不备份到备用模块。\n\n本命令支持对业务网元下的模块的备份开关进行批量和单独设置。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299138150",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299138150.html",
+        "name": "CSP MML命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234699",
+        "topicUrl": "uen/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001299138150",
+        "position": "2.2.2.2",
+        "parentPosition": "2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234789",
+        "topicUrl": "uen/csp/MML/LinkedDoc/module_management.html",
+        "name": "模块管理",
+        "parentTopicId": "CONCEPT_0243234699",
+        "position": "2.2.2.2.6",
+        "parentPosition": "2.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243234661",
+        "topicUrl": "uen/csp/MML/LinkedDoc/module_backup.html",
+        "name": "模块备份管理",
+        "parentTopicId": "CONCEPT_0243234789",
+        "position": "2.2.2.2.6.5",
+        "parentPosition": "2.2.2.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0243234658_2",
+        "topicUrl": "uen/csp/MML/Document/set_bakmode.html",
+        "name": "设置备份模式(SET BAKMODE)",
+        "parentTopicId": "CONCEPT_0243234661",
+        "position": "2.2.2.2.6.5.1",
+        "parentPosition": "2.2.2.2.6.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

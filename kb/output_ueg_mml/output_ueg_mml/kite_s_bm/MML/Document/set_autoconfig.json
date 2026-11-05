@@ -1,0 +1,131 @@
+{
+  "command_name": "SET AUTOCONFIG",
+  "command_name_zh": "设置自动配置开关",
+  "command_name_full": "设置自动配置开关（SET AUTOCONFIG）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会导致自动化配置相关业务失败，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于设置自动配置开关，开关打开自动化配置会运行，开关未关闭的情况下如果执行主备倒换、VNRS重启或扩缩容，自动化配置会运行。\n\n1、自动化配置在系统初始配置或设备扩容时使用。相比手工配置，自动化配置只需用户预先指定业务规划参数（IP地址段分配、目的地址、下一跳网关等），即可在系统初始化或新增资源时自动生成接口IP路由等配置，无需再依次为每个接口手动配置。\n\n2、使用自动化配置，需要先部署自动化配置接口模板（ADD AUTOSCALINGSERVICE），再根据需求部署其他自动化配置模板（如静态路由自动化配置ADD AUTOSCALINGSRROUTE、BFD会话自动化配置ADD AUTOSCALINGBFD等），然后执行SET AUTOCONFIG命令打开自动化配置开关。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.12",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595642_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156_2",
+        "position": "3.2.12.4",
+        "parentPosition": "3.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876386_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_auto_scaling.html",
+        "name": "自动部署",
+        "parentTopicId": "CONCEPT_0000202103595642_2",
+        "position": "3.2.12.4.13",
+        "parentPosition": "3.2.12.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289155065_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_automatic_configuration_switch.html",
+        "name": "自动配置开关",
+        "parentTopicId": "CONCEPT_0000202102876386_2",
+        "position": "3.2.12.4.13.3",
+        "parentPosition": "3.2.12.4.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001600840833_3",
+        "topicUrl": "kite_s_bm/MML/Document/set_autoconfig.html",
+        "name": "设置自动配置开关（SET AUTOCONFIG）",
+        "parentTopicId": "CONCEPT_0000202289155065_2",
+        "position": "3.2.12.4.13.3.1",
+        "parentPosition": "3.2.12.4.13.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "SET TCPSTATRTTRANGE",
+  "command_name_zh": "设置TCP统计功能的RTT区间",
+  "command_name_full": "设置TCP统计功能的RTT区间（SET TCPSTATRTTRANGE）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于设置TCP统计功能中的UE侧、SP侧RTT区间。通过观察网络中TCP业务流的UE侧、SP侧RTT比例分布，可以评估网络的传输质量。基于业务的TCP统计功能支持根据UE侧RTT区间、SP侧RTT区间统计TCP流数；如UE侧RTT区间为0到20ms的TCP流数，SP侧RTT区间为0到3ms的TCP流数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555353",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_o_m.html",
+        "name": "业务运维",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.12",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876548",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_performance_mangement.html",
+        "name": "业务性能统计管理",
+        "parentTopicId": "CONCEPT_0000202289555353",
+        "position": "5.12.1",
+        "parentPosition": "5.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116446",
+        "topicUrl": "MML/LinkedDoc/udg_n_tcpstatrttrange.html",
+        "name": "TcpStatRttRange",
+        "parentTopicId": "CONCEPT_0000202102876548",
+        "position": "5.12.1.13",
+        "parentPosition": "5.12.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201287938410",
+        "topicUrl": "MML/Document/set_tcpstatrttrange.html",
+        "name": "设置TCP统计功能的RTT区间（SET TCPSTATRTTRANGE）",
+        "parentTopicId": "CONCEPT_0000202103116446",
+        "position": "5.12.1.13.1",
+        "parentPosition": "5.12.1.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

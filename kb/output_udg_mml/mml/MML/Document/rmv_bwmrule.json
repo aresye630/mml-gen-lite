@@ -1,0 +1,119 @@
+{
+  "command_name": "RMV BWMRULE",
+  "command_name_zh": "删除带宽管理规则",
+  "command_name_full": "删除带宽管理规则（RMV BWMRULE）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令,执行本命令后将删除默认用户组或具体用户组的指定或所有带宽管理规则，可能导致用户无法进行带宽控制，请谨慎使用。\n\n该命令用于删除默认用户组、或具体用户组的带宽管理规则。当运营商希望删除某个或全部带宽控制规则时，则执行该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315825",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.5",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356086",
+        "topicUrl": "MML/LinkedDoc/udg_n_bandwidth_control.html",
+        "name": "带宽控制",
+        "parentTopicId": "CONCEPT_0000202289315825",
+        "position": "5.5.2",
+        "parentPosition": "5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915791",
+        "topicUrl": "MML/LinkedDoc/udg_n_bwm_rule.html",
+        "name": "带宽管理规则",
+        "parentTopicId": "CONCEPT_0000202103356086",
+        "position": "5.5.2.5",
+        "parentPosition": "5.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837480",
+        "topicUrl": "MML/Document/rmv_bwmrule.html",
+        "name": "删除带宽管理规则（RMV BWMRULE）",
+        "parentTopicId": "CONCEPT_0000202288915791",
+        "position": "5.5.2.5.3",
+        "parentPosition": "5.5.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

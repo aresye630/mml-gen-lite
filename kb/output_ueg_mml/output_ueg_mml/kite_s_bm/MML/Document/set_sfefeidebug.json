@@ -1,0 +1,143 @@
+{
+  "command_name": "SET SFEFEIDEBUG",
+  "command_name_zh": "FEI报文、进程日志开关",
+  "command_name_full": "FEI报文、进程日志开关（SET SFEFEIDEBUG）",
+  "command_function": "该命令用来开关fei报文日志或进程日志功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.12",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555071_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202103116156_2",
+        "position": "3.2.12.2",
+        "parentPosition": "3.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876260_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_system_debugging.html",
+        "name": "系统调测",
+        "parentTopicId": "CONCEPT_0000202289555071_2",
+        "position": "3.2.12.2.1",
+        "parentPosition": "3.2.12.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915555_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_forwarding_engine_instance.html",
+        "name": "转发引擎实例FEI",
+        "parentTopicId": "CONCEPT_0000202102876260_2",
+        "position": "3.2.12.2.1.19",
+        "parentPosition": "3.2.12.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876274_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_fei_message_statistics.html",
+        "name": "FEI消息统计",
+        "parentTopicId": "CONCEPT_0000202288915555_2",
+        "position": "3.2.12.2.1.19.18",
+        "parentPosition": "3.2.12.2.1.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001600865613_2",
+        "topicUrl": "kite_s_bm/MML/Document/set_sfefeidebug.html",
+        "name": "FEI报文、进程日志开关（SET SFEFEIDEBUG）",
+        "parentTopicId": "CONCEPT_0000202102876274_2",
+        "position": "3.2.12.2.1.19.18.10",
+        "parentPosition": "3.2.12.2.1.19.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

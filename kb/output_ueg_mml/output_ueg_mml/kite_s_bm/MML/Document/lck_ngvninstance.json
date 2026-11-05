@@ -1,0 +1,230 @@
+{
+  "command_name": "LCK NGVNINSTANCE",
+  "command_name_zh": "设置VnInstance锁定配置",
+  "command_name_full": "设置VnInstance锁定配置（LCK NGVNINSTANCE）",
+  "command_function": "**适用NF：UPF**\n\n**须知** \n\n本命令属于高危命令，正在改变VnInstance的锁定状态，如果配置为锁定，会导致用户接入失败。\n\n该命令用来配置对指定VnInstance进行锁定操作。当VnInstance锁定后，对于后续使用该VnInstance激活的用户激活失败，对于已经在线的用户无影响。缺省情况下VnInstance未锁定。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202800629671_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_management.html",
+        "name": "5G LAN管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.13",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000207079902637_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_basic_configuration.html",
+        "name": "5G LAN基础配置",
+        "parentTopicId": "CONCEPT_0000202800629671_2",
+        "position": "3.3.13.1",
+        "parentPosition": "3.3.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202600430064_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_instance_configuration.html",
+        "name": "5G LAN实例配置",
+        "parentTopicId": "CONCEPT_0000207079902637_2",
+        "position": "3.3.13.1.2",
+        "parentPosition": "3.3.13.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201912743363_2",
+        "topicUrl": "kite_s_bm/MML/Document/lck_ngvninstance.html",
+        "name": "设置VnInstance锁定配置（LCK NGVNINSTANCE）",
+        "parentTopicId": "CONCEPT_0000202600430064_2",
+        "position": "3.3.13.1.2.3",
+        "parentPosition": "3.3.13.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202800629671_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_management.html",
+        "name": "5G LAN管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.13",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000207079902637_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_basic_configuration.html",
+        "name": "5G LAN基础配置",
+        "parentTopicId": "CONCEPT_0000202800629671_2",
+        "position": "3.3.13.1",
+        "parentPosition": "3.3.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202600430064_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_instance_configuration.html",
+        "name": "5G LAN实例配置",
+        "parentTopicId": "CONCEPT_0000207079902637_2",
+        "position": "3.3.13.1.2",
+        "parentPosition": "3.3.13.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201912743363_2",
+        "topicUrl": "kite_s_bm/MML/Document/lck_ngvninstance.html",
+        "name": "设置VnInstance锁定配置（LCK NGVNINSTANCE）",
+        "parentTopicId": "CONCEPT_0000202600430064_2",
+        "position": "3.3.13.1.2.3",
+        "parentPosition": "3.3.13.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

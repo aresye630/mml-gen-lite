@@ -1,0 +1,226 @@
+{
+  "feature_name": "激活CHR功能",
+  "feature_description": "本操作指导介绍配置UEG和CHR服务器的对接，以及激活CHR功能的操作过程。\n\n- 完成UEG上IP路由数据的配置，具体流程参见《UEG初始配置与调测》手册>配置VNF侧IP路由数据。\n- (可选)安装部署IPsec，建议部署IPSec保证传输通道安全、数据安全。\n- 配置UCF与CHR服务器对接数据。\n- 开启CHR功能，配置CHR服务器类型以及发送策略。操作过程\n\n**图1** 操作过程",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184766034",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184766034.html",
+        "name": "GWFD-023200  超高带宽业务质量保障",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.19",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0250287959",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0250287959.html",
+        "name": "GWFD-023203 CHR功能",
+        "parentTopicId": "TOPIC_0000001184766034",
+        "position": "6.19.1",
+        "parentPosition": "6.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0250287962",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0250287962.html",
+        "name": "激活CHR功能",
+        "parentTopicId": "TOPIC_0250287959",
+        "position": "5.17.1.2",
+        "parentPosition": "5.17.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184766034",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184766034.html",
+        "name": "GWFD-023200  超高带宽业务质量保障",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.19",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0250287959",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0250287959.html",
+        "name": "GWFD-023203 CHR功能",
+        "parentTopicId": "TOPIC_0000001184766034",
+        "position": "6.19.1",
+        "parentPosition": "6.19",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0250287962",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0250287962.html",
+        "name": "激活CHR功能",
+        "parentTopicId": "TOPIC_0250287959",
+        "position": "5.17.1.2",
+        "parentPosition": "5.17.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

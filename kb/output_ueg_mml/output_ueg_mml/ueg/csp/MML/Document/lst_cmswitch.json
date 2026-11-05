@@ -1,0 +1,131 @@
+{
+  "command_name": "LST CMSWITCH",
+  "command_name_zh": "查询跨网元命令开关",
+  "command_name_full": "查询跨网元命令开关(LST CMSWITCH)",
+  "command_function": "该命令用于查询当前系统配置的跨网元命令开关状态。\n\n在升级观察期内，执行跨网元命令可能会影响升级回退，因此系统对这些命令做了限制，默认状态下不允许执行跨网元命令，只有开关打开时才允许执行。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855185",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/system_commissioning.html",
+        "name": "系统调测",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.7",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854876",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/software_management_sc.html",
+        "name": "软件管理",
+        "parentTopicId": "CONCEPT_0165855185",
+        "position": "2.2.1.7.1",
+        "parentPosition": "2.2.1.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855200",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/command_statistics_sc.html",
+        "name": "命令统计",
+        "parentTopicId": "CONCEPT_0165854876",
+        "position": "2.2.1.7.1.4",
+        "parentPosition": "2.2.1.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854423",
+        "topicUrl": "ueg/csp/MML/Document/lst_cmswitch.html",
+        "name": "查询跨网元命令开关(LST CMSWITCH)",
+        "parentTopicId": "CONCEPT_0165855200",
+        "position": "2.2.1.7.1.4.1",
+        "parentPosition": "2.2.1.7.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

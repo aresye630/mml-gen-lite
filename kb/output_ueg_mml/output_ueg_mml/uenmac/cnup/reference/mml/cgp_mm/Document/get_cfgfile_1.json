@@ -1,0 +1,119 @@
+{
+  "command_name": "GET LITECFGFILE",
+  "command_name_zh": "网管配置同步",
+  "command_name_full": "网管配置同步（GET LITECFGFILE）",
+  "command_function": "本命令是网管下发的配置数据同步命令，网元把配置对象数据生成XML文件，通过FTP协议把XML同步到网管，保证网管与网元之间配置数据一致。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001299370344",
+        "topicUrl": "toctopics/zh-cn_topic_0000001299370344.html",
+        "name": "CSP机机接口命令（裸机容器）",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604945",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/LinkedDoc/configuration_management_cgp.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0000001299370344",
+        "position": "2.3.2.3",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246604898",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/LinkedDoc/configuration_synchronization.html",
+        "name": "配置同步",
+        "parentTopicId": "CONCEPT_0246604945",
+        "position": "2.3.2.3.2",
+        "parentPosition": "2.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0246604942",
+        "topicUrl": "uenmac/cnup/reference/mml/cgp_mm/Document/get_cfgfile_1.html",
+        "name": "网管配置同步（GET LITECFGFILE）",
+        "parentTopicId": "CONCEPT_0246604898",
+        "position": "2.3.2.3.2.2",
+        "parentPosition": "2.3.2.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

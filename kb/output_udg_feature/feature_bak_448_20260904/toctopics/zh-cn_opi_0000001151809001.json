@@ -1,0 +1,127 @@
+{
+  "feature_name": "激活CU Full Mesh组网（UPF）",
+  "feature_description": "运营商考虑可靠性，规划SMF和UPF采用Full Mesh组网时，可激活本特性。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317437",
+        "topicUrl": "toctopics/zh-cn_topic_0239317437.html",
+        "name": "分布式网络功能",
+        "parentTopicId": "",
+        "position": "12",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0172866255",
+        "topicUrl": "cdgw/desc/cn_81_0_1103611.html",
+        "name": "GWFD-020161 CU Full Mesh组网",
+        "parentTopicId": "TOPIC_0239317437",
+        "position": "12.4",
+        "parentPosition": "12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001101470590",
+        "topicUrl": "toctopics/zh-cn_topic_0000001101470590.html",
+        "name": "SMF&UPF容灾方案",
+        "parentTopicId": "CONCEPT_0172866255",
+        "position": "12.4.2",
+        "parentPosition": "12.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001101470586",
+        "topicUrl": "toctopics/zh-cn_topic_0000001101470586.html",
+        "name": "新建部署",
+        "parentTopicId": "TOPIC_0000001101470590",
+        "position": "12.4.2.3",
+        "parentPosition": "12.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001104969258",
+        "topicUrl": "toctopics/zh-cn_topic_0000001104969258.html",
+        "name": "激活CU Full Mesh组网（适用于UPF）",
+        "parentTopicId": "TOPIC_0000001101470586",
+        "position": "12.4.2.3.4",
+        "parentPosition": "12.4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000001151809001",
+        "topicUrl": "toctopics/zh-cn_opi_0000001151809001.html",
+        "name": "激活CU Full Mesh组网（UPF）",
+        "parentTopicId": "TOPIC_0000001104969258",
+        "position": "12.4.2.3.4.1",
+        "parentPosition": "12.4.2.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

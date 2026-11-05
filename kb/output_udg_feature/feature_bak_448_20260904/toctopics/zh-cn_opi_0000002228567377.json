@@ -1,0 +1,86 @@
+{
+  "feature_name": "安装RELAY服务",
+  "feature_description": "仅当UDG网元需要部署媒体中继功能时，才需要安装RELAY服务。媒体中继相关功能介绍及业务配置请参考：5G Core 媒体中继解决方案。\n\n**说明** \n\n仅部分VNFD模板支持RELAY服务。如需安装RELAY服务，请先联系华为技术支持确认使用的VNFD模板是否支持。\n\n版本配套需满足以下版本才能支持RELAY服务功能：\n\n| 部件名称         | 依赖版本                                     |\n|:-------------|:-----------------------------------------|\n| MAE-CN       | V100R024C10SPC220及以后版本                   |\n| VNFM-Agent   | MAE-CN VNFM-Agent V100R025C10SPC120及以后版本 |\n| FusionSphere | 24.1.0 + SPH35及以后版本                      |\n| FusionStage  | 25.1.0及以后版本                              |\n| UDG          | 20.15.2及以后版本                             |\n\n安装RELAY服务场景：\n\n**场景一**\n\n**（静态上线）**\n\n：UDG网元和RELAY服务\n\n**同时实例化**\n\n。实例化UDG\n\n前\n\n填写如下VNFD参数。\n\n- 配置媒体中继主机所在机框与连接板所在机框互联参数：\n  - NP卡场景：配置“Inter-Subrack NP Direct Connect Port”。\n  - 标卡场景：配置“NPFabricTrunkCfg”。\n\n- 配置RELAY服务的独立业务主机组：配置Cluster\\_Relay\\_Id，参考“网设工具 > NFV LLD文档 > **计算资源设计** > DC配置规划 > Host Aggregate名称”。\n\n- 配置PBU\\_P-N\\_C4N1\\_ARM虚机指定NUMA1部署：配置NUMA\\_ID\\_PBU\\_P-N\\_C4N1\\_ARM值，指定为1。\n\n- 配置VM：基于ARM虚拟机，PBU\\_E-R\\_ARM\\_Num和PBU\\_P-N\\_C4N1\\_ARM\\_Num)。\n\n- 配置Pod：“RELAY\\_Instance\\_Num”，“RELAYCTRL\\_Instance\\_Num”，“PBU\\_P-N\\_C4N1\\_Instance\\_Num”，“NPCTRL\\_Instance\\_Num”（仅ARM标卡模版需要配置该参数，NP卡模版不涉及该参数）。\n\n配置NF：\n\n- FunctionSet List参数需添加“RELAY”。例如：添加后为\"UDG/RELAY\"；当多个可选服务一起静态上线时，服务之间以“/”拼接，例如：\"UDG/RPT/RELAY\"。\n\nwhether to initialize relay\\_stack设置为true。\n\n| Pod名称         | 功能说明                                 | 所属微服务                              | 运行VM（ARM）            |\n|:--------------|:-------------------------------------|:-----------------------------------|:---------------------|\n| relay-pod     | 提供媒体中继业务服务功能。                        | RELAY                              | PBU_E-R_ARM          |\n| relayctrl-pod | 提供媒体中继业务服务的管理功能。                     | RELAY                              | PBU_E-R_ARM          |\n| femu-c4n1-pod | 提供NP卡管理功能。                           | NPM (Network Processor Management) | PBU_P-N_C4N1_ARM     |\n| npctrl-pod    | 提供NP卡引擎的统一管理功能。 说明：仅ARM标卡场景需要部署该Pod。 | NPM (Network Processor Management) | PBU_A_ARM/PBU_Ax_ARM |\n\n| 参数                        | 备注                                                                            |\n|:--------------------------|:------------------------------------------------------------------------------|\n| PBU_P-N_C4N1_ARM_Num      | 每个媒体中继单板上，部署虚机PBU_P-N_C4N1_ARM 1个。 如果媒体中继单板数为N，则该参数值设置为N。                     |\n| PBU_P-N_C4N1_Instance_Num | 每个媒体中继单板上，部署femu-c4n1-pod 1个。 如果媒体中继单板数为N，则该参数值设置为N。                          |\n| NPCTRL_Instance_Num       | 仅ARM标卡模版需要配置该参数，NP卡模版不涉及该参数。                                                  |\n| PBU_E-R_ARM_Num           | 每个媒体中继单板上，部署虚机PBU_E-R_ARM 2个。 如果媒体中继单板数为N，则该参数值设置为2*N。                        |\n| RELAY_Instance_Num        | 每个媒体中继单板上，部署relay-pod 2个。 如果媒体中继单板数为N，则该参数值设置为2*N。                            |\n| RELAYCTRL_Instance_Num    | 每个媒体中继单板上，最大部署relayctrl-pod 2个。 如果媒体中继单板数为1，则该参数值设置为2；如果媒体中继单板数大于1，则该参数值设置为3。 |\n\n基于以上表格中参数值设置规则，对《NFV LLD文档》中对应的虚机、Pod数量进行确认。如果不一致，请联系华为技术支持处理。\n\n- **场景二****（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线RELAY服务。\n\n如VNF软件安装工具说明，MAE-VNF LCM/U2020 VNF LCM的界面菜单相似，安装网元的操作步骤相似。本文以MAE-VNF LCM为例说明VNF安装过程。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "软件安装",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV0AFD9FCF2A9B487B871C707019F1CD67",
+        "parentNaviId": "DOCNAVE27DF58A811F4B96AF3FE424841EFFB5",
+        "pidId": "pid_bookmap_0000002222378745",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "基于VNF LCM安装UDG（非SDN）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7999",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7999"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "TOPIC_0222251328",
+        "topicUrl": "common/software-fs/1_5_0_Install_optional_service.html",
+        "name": "安装可选服务",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378745",
+        "topicId": "OPI_0000002228567377",
+        "topicUrl": "toctopics/zh-cn_opi_0000002228567377.html",
+        "name": "安装RELAY服务",
+        "parentTopicId": "TOPIC_0222251328",
+        "position": "7.13",
+        "parentPosition": "7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "FIN ROUTETRANS",
+  "command_name_zh": "结束路由数据迁移任务",
+  "command_name_full": "结束路由数据迁移任务(FIN ROUTETRANS)",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作将删除路由数据，操作不当将导致数据无法访问、业务严重呼损。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n结束路由数据迁移只能在路由数据迁移成功或路由数据回滚失败二种状态下执行，DRU扩容或缩容触发的数据迁移完成后，需要通过**FIN ROUTETRANS**结束本次结束路由数据迁移。\n\n- DRU扩容场景主要操作包括：迁移路由数据、删除冗余路由数据和查询路由数据维护状态。\n- DRU缩容场景主要操作包括：设置隔离模块、迁移路由数据和查询路由数据维护状态。DRU缩容流程中不涉及路由数据删除。\n\n**说明** \n\n路由数据迁移成功后，迁出DRU和迁入Cluster都存在冗余的路由数据并未删除，需要执行**CLR JUNKROUTE**命令清理冗余路由。\n\n该命令的使用场景：在扩容场景下，扩容结束并稳定运行一周后，删除备份路由数据。\n\n该命令用于结束路由数据迁移，结束路由数据迁移处理流程如图1所示。\n\n**图1** 结束路由数据迁移处理流程",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774583",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/data_service_management.html",
+        "name": "数据服务管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.1",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774461_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/routing_data_migration_management.html",
+        "name": "路由数据迁移管理",
+        "parentTopicId": "MMLREF_0172774583",
+        "position": "2.2.4.3.3.1.8",
+        "parentPosition": "2.2.4.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774413_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/fin_routetrans.html",
+        "name": "结束路由数据迁移任务(FIN ROUTETRANS)",
+        "parentTopicId": "CONCEPT_0172774461_2",
+        "position": "2.2.4.3.3.1.8.2",
+        "parentPosition": "2.2.4.3.3.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "SWP CELLSERVICE",
+  "command_name_zh": "微服务主备实例倒换",
+  "command_name_full": "微服务主备实例倒换（SWP CELLSERVICE）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会导致业务故障，请谨慎使用并联系华为技术支持协助操作。\n\n多实例主备部署的微服务，当微服务主实例发生异常时，手动执行该命令实现微服务主备实例倒换。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203997008379_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/cmfsvc_n_high_available_management.html",
+        "name": "可靠性管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.1",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203997689393_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/cmfsvc_n_microservice_available_management.html",
+        "name": "微服务可靠性管理",
+        "parentTopicId": "CONCEPT_0000203997008379_2",
+        "position": "3.2.1.1",
+        "parentPosition": "3.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001284680846_2",
+        "topicUrl": "kite_s_bm/MML/Document/swp_cellservice.html",
+        "name": "微服务主备实例倒换（SWP CELLSERVICE）",
+        "parentTopicId": "CONCEPT_0000203997689393_2",
+        "position": "3.2.1.1.23",
+        "parentPosition": "3.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

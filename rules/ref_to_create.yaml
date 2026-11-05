@@ -1,0 +1,33 @@
+# 引用参数 → 创建该对象用的命令族 + 主键参数名
+# 用途：引用悬空时，为"补建"建议生成对应命令（2026-10-30）
+# 只用于生成**注释掉的**建议命令，不自动执行。
+
+mapping:
+  APN:            {create: "ADD APN",          key: "APN"}
+  APNNAME:        {create: "ADD APN",          key: "APN"}
+  VRFNAME:        {create: "ADD L3VPNINST",    key: "VRFNAME"}
+  VPNINSTANCE:    {create: "ADD VPNINST",      key: "VPNINSTANCE"}
+  VPNNAME:        {create: "ADD VPNINST",      key: "VPNINSTANCE"}
+  DFTURRGRPNAME:  {create: "ADD URRGROUP",     key: "URRGROUPNAME"}
+  URRNAME:        {create: "ADD URR",          key: "URRNAME"}
+  PCSCFGROUP:     {create: "ADD PCSCFGROUP",   key: "GROUPNAME"}
+  GROUPNAME:      {create: "ADD PCSCFGROUP",   key: "GROUPNAME"}
+  IFNAME:         {create: "ADD INTERFACE",    key: "IFNAME"}
+  POOLNAME:       {create: "ADD POOL",         key: "POOLNAME"}
+  SECTIONNAME:    {create: "ADD SECTION",      key: "SECTIONNAME"}
+  POOLGROUPNAME:  {create: "ADD POOLGROUP",    key: "GROUPNAME"}
+  FILTERNAME:     {create: "ADD FILTER",       key: "FILTERNAME"}
+  FLOWFILTERNAME: {create: "ADD FLOWFILTER",   key: "FLOWFILTERNAME"}
+  USERPROFILENAME: {create: "ADD USERPROFILE", key: "USERPROFILENAME"}
+  PCCPOLICYNAME:  {create: "ADD PCCPOLICYGRP", key: "PCCPOLICYGRPNAME"}
+  PCCPOLICYGRPNAME: {create: "ADD PCCPOLICYGRP", key: "PCCPOLICYGRPNAME"}
+  RULENAME:       {create: "ADD RULE",         key: "RULENAME"}
+  VNINSTANCE:     {create: "ADD NGVNINSTANCE", key: "VNINSTANCE"}
+  DESTVRFNAME:    {create: "ADD L3VPNINST",    key: "VRFNAME"}
+  DNN:            {create: "ADD APN",          key: "APN"}
+  NSIDX:          {create: "ADD NSDNN",        key: "NSIDX"}
+  INDEX:          {create: "ADD INTERFACE",    key: "IFNAME"}
+  VRFNAME6:       {create: "ADD L3VPNINST",    key: "VRFNAME"}
+  SRCVRFNAME:     {create: "ADD L3VPNINST",    key: "VRFNAME"}
+  PCSCFGROUPNAME: {create: "ADD PCSCFGROUP",   key: "GROUPNAME"}
+  URGRGROUPNAME:  {create: "ADD URRGROUP",     key: "URRGROUPNAME"}

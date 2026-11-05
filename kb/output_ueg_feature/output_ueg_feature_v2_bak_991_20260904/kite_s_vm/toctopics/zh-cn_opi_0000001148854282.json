@@ -1,0 +1,116 @@
+{
+  "feature_name": "部署基于PCF静态签约的分流（SMF）",
+  "feature_description": "本章节用于指导部署基于PCF静态签约的分流方案，主要包括分流策略以及DNAI等相关配置。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "公共业务",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV1410A39969174FC4B2DEAFAF0969E031",
+        "parentNaviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "pidId": "pid_bookmap_0000002254761502",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC ULCL专题（公共）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761502",
+        "topicId": "TOPIC_0000001149003350",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001149003350.html",
+        "name": "分流业务部署",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761502",
+        "topicId": "TOPIC_0000001194923141",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001194923141.html",
+        "name": "基于PCF静态签约的分流",
+        "parentTopicId": "TOPIC_0000001149003350",
+        "position": "6.3",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761502",
+        "topicId": "TOPIC_0000001195053863",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001195053863.html",
+        "name": "功能部署",
+        "parentTopicId": "TOPIC_0000001194923141",
+        "position": "6.3.6",
+        "parentPosition": "6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761502",
+        "topicId": "OPI_0000001148854282",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001148854282.html",
+        "name": "部署基于PCF静态签约的分流（SMF）",
+        "parentTopicId": "TOPIC_0000001195053863",
+        "position": "6.3.6.1",
+        "parentPosition": "6.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

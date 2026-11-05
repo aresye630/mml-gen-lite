@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活 EN-DC SON信息传送功能",
+  "feature_description": "本操作指导介绍在运行网络中激活eNodeB与en-gNodeB之间通过EN-DC SON信息传送功能特性的操作过程。\n\nEN-DC自组织网络SON（Self Organization Network）信息传送即eNodeB与相邻en-gNodeB之间通过MME消息交互，实现配置信息的传递。\n\n**说明** \n\n适用于MME。\n\n本场景应用于eNodeB与en-gNodeB之间通过EN-DC SON流程自动发现X2地址的组网。\n\n如图1所示，eNodeB2和en-gNodeB连接于同一个MME即MME2；eNodeB1连接于独立的MME1。eNodeB1与en-gNodeB，en-gNodeB与eNodeB2之间互为相邻，之间通过X2接口传递切换和eNodeB/en-gNodeB状态信息。\n\n**图1** Intra MME地址学习场景下的EN-DC SON组网图\n\n**图2** Inter MME地址学习场景下的EN-DC SON组网图",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450906",
+        "topicUrl": "toctopics/zh-cn_topic_0248450906.html",
+        "name": "组网功能",
+        "parentTopicId": "",
+        "position": "9",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0163530667",
+        "topicUrl": "desc/unc_2000_feature_desc_eNodeB_SON_Configuration_Transfer.html",
+        "name": "WSFD-104402 eNodeB SON信息传送功能",
+        "parentTopicId": "TOPIC_0248450906",
+        "position": "9.2",
+        "parentPosition": "9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001514577321",
+        "topicUrl": "toctopics/zh-cn_topic_0000001514577321.html",
+        "name": "激活信息传送功能",
+        "parentTopicId": "CONCEPT_0163530667",
+        "position": "9.2.3",
+        "parentPosition": "9.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001464014514",
+        "topicUrl": "toctopics/zh-cn_opi_0000001464014514.html",
+        "name": "激活 EN-DC SON信息传送功能",
+        "parentTopicId": "TOPIC_0000001514577321",
+        "position": "9.2.3.2",
+        "parentPosition": "9.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

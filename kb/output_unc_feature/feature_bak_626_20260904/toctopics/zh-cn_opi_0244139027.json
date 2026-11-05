@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置VNF侧IP路由数据（SDN+IPv4）",
+  "feature_description": "SDN场景，VNF和DC-GW间通过Loopback IP建立eBGP邻居，用于业务路由的学习和发布。Loopback IP之间通过静态/默认路由互通。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001824779181",
+        "topicUrl": "toctopics/zh-cn_topic_0000001824779181.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0245606309",
+        "topicUrl": "toctopics/zh-cn_topic_0245606309.html",
+        "name": "配置VNF侧IP路由数据(SDN)",
+        "parentTopicId": "TOPIC_0000001824779181",
+        "position": "7.3",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0244139027",
+        "topicUrl": "toctopics/zh-cn_opi_0244139027.html",
+        "name": "配置VNF侧IP路由数据（SDN+IPv4）",
+        "parentTopicId": "TOPIC_0245606309",
+        "position": "7.3.2",
+        "parentPosition": "7.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

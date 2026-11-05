@@ -1,0 +1,372 @@
+{
+  "feature_name": "部署UPF",
+  "feature_description": "当网络中有PCRF/PCF，用户需要激活为PCC用户，为用户或用户业务提供灵活策略控制时，需要配置动态PCC功能。\n\n配置动态PCC功能时，规则分为动态规则和预定义规则：\n\n- 动态规则：PCRF/PCF下发该规则对应的业务流特征及业务的精细化管理动作。SMF和UPF不需要特殊配置。PCF可以随时删除旧规则，安装新规则。\n- 预定义规则：UPF/SMF/PCF上需定义相同的规则标识（即**ADD RULE**命令中的“规则名称（RULENAME）”参数值），UPF上定义该规则对应的业务流特征及业务的精细化管理动作。用户注册过程中，由PCF下发规则标识，PCF通过规则标识的方式激活SMF/UPF本地静态配置的规则来实现计费和策略的控制。PCF可以随时删除旧规则，安装新规则。\n\n  预定义规则组与预定义规则类似，区别在于UPF/SMF/PCF上需定义相同的规则组标识（即**ADD USERPROFILE**命令中的“用户模板名称（USERPROFILENAME）”参数值）。\n\n**说明** \n\n适用于PGW-U、UPF。\n\n配置预定义规则时，UEG上需要配置rule和UserProfile，本页面不关注具体规则内容配置，具体规则内容需要根据具体业务策略确定。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001323880782",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001323880782.html",
+        "name": "PCRF&PCF特性指南",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001303745952",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001303745952.html",
+        "name": "GWFD-022200 智能策略控制基本功能",
+        "parentTopicId": "TOPIC_0000001323880782",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0142369272_3",
+        "topicUrl": "kite_ml/cdgw/desc/cn_20_0_480100.html",
+        "name": "GWFD-022201 PCC基本功能",
+        "parentTopicId": "TOPIC_0000001303745952",
+        "position": "8.5.1",
+        "parentPosition": "8.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TASK_0000001416195597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_task_0000001416195597.html",
+        "name": "激活PCC基本功能（动态PCC）",
+        "parentTopicId": "CONCEPT_0142369272_3",
+        "position": "8.5.1.4",
+        "parentPosition": "8.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001365966906",
+        "topicUrl": "kite_ml/cdgw/ic/cn_81_110206_11_03_cf.html",
+        "name": "部署UPF",
+        "parentTopicId": "TASK_0000001416195597",
+        "position": "8.5.1.4.3",
+        "parentPosition": "8.5.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001323880782",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001323880782.html",
+        "name": "PCRF&PCF特性指南",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001303745952",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001303745952.html",
+        "name": "GWFD-022200 智能策略控制基本功能",
+        "parentTopicId": "TOPIC_0000001323880782",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0142369272_3",
+        "topicUrl": "kite_ml/cdgw/desc/cn_20_0_480100.html",
+        "name": "GWFD-022201 PCC基本功能",
+        "parentTopicId": "TOPIC_0000001303745952",
+        "position": "8.5.1",
+        "parentPosition": "8.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TASK_0000001416195597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_task_0000001416195597.html",
+        "name": "激活PCC基本功能（动态PCC）",
+        "parentTopicId": "CONCEPT_0142369272_3",
+        "position": "8.5.1.4",
+        "parentPosition": "8.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001365966906",
+        "topicUrl": "kite_ml/cdgw/ic/cn_81_110206_11_03_cf.html",
+        "name": "部署UPF",
+        "parentTopicId": "TASK_0000001416195597",
+        "position": "8.5.1.4.3",
+        "parentPosition": "8.5.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001323880782",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001323880782.html",
+        "name": "PCRF&PCF特性指南",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001303745952",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001303745952.html",
+        "name": "GWFD-022200 智能策略控制基本功能",
+        "parentTopicId": "TOPIC_0000001323880782",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0142369272_3",
+        "topicUrl": "kite_ml/cdgw/desc/cn_20_0_480100.html",
+        "name": "GWFD-022201 PCC基本功能",
+        "parentTopicId": "TOPIC_0000001303745952",
+        "position": "8.5.1",
+        "parentPosition": "8.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TASK_0000001416195597",
+        "topicUrl": "kite_ml/toctopics/zh-cn_task_0000001416195597.html",
+        "name": "激活PCC基本功能（动态PCC）",
+        "parentTopicId": "CONCEPT_0142369272_3",
+        "position": "8.5.1.4",
+        "parentPosition": "8.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0000001365966906",
+        "topicUrl": "kite_ml/cdgw/ic/cn_81_110206_11_03_cf.html",
+        "name": "部署UPF",
+        "parentTopicId": "TASK_0000001416195597",
+        "position": "8.5.1.4.3",
+        "parentPosition": "8.5.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

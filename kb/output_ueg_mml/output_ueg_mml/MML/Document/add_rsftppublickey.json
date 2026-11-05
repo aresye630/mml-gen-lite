@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD RSFTPPUBLICKEY",
+  "command_name_zh": "创建数据同步服务器公钥",
+  "command_name_full": "创建数据同步服务器公钥（ADD RSFTPPUBLICKEY）",
+  "command_function": "**适用NF：UDM**\n\n该命令用于创建数据同步服务器公钥。客户端需要对服务端进行公钥认证时，使用该命令配置绑定服务端对端公钥。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207053954030",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_campus_service_management.html",
+        "name": "园区业务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.10",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207204292395",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_local_subscriber_data_synchronization.html",
+        "name": "本地用户数据同步",
+        "parentTopicId": "CONCEPT_0000207053954030",
+        "position": "2.2.3.10.1",
+        "parentPosition": "2.2.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207204527775",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_sftp_public_key.html",
+        "name": "服务器公钥",
+        "parentTopicId": "CONCEPT_0000207204292395",
+        "position": "2.2.3.10.1.10",
+        "parentPosition": "2.2.3.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202520937493",
+        "topicUrl": "MML/Document/add_rsftppublickey.html",
+        "name": "创建数据同步服务器公钥（ADD RSFTPPUBLICKEY）",
+        "parentTopicId": "CONCEPT_0000207204527775",
+        "position": "2.2.3.10.1.10.1",
+        "parentPosition": "2.2.3.10.1.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

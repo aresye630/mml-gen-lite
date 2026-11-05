@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置5G用户位置和状态查询特性",
+  "feature_description": "该任务指导操作人员配置5G用户位置与状态查询功能。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001308864973",
+        "topicUrl": "toctopics/zh-cn_topic_0000001308864973.html",
+        "name": "语音功能配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001261304926",
+        "topicUrl": "toctopics/zh-cn_topic_0000001261304926.html",
+        "name": "HSS&UDM配置",
+        "parentTopicId": "TOPIC_0000001308864973",
+        "position": "5.2.3",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001311333673",
+        "topicUrl": "kite_ml/kite_l_service_Conf/udm/feature_guide/feature_desc/cn_udm_05_460503_3_uegl.html",
+        "name": "配置5G用户位置和状态查询特性",
+        "parentTopicId": "TOPIC_0000001261304926",
+        "position": "5.2.3.10",
+        "parentPosition": "5.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

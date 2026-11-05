@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD NTPSVR",
+  "command_name_zh": "增加NTP服务器",
+  "command_name_full": "增加NTP服务器(ADD NTPSVR)",
+  "command_function": "本命令用于增加一条NTP服务器数据记录。\n\n本命令的使用场景为：日常维护活动中，使用本命令增加NTP服务器。NTP服务器用于提供时钟同步源，各类设备通过外接NTP服务器来同步修正自身的时间，使其自身的时间更准确、精度更高。\n\n在本命令中，以下参数需要与NTP服务器端协商：\n\n- IP地址\n- 身份验证标志\n- 身份验证密钥号\n- 密钥类型\n- 密钥串\n\n**说明** \n\n执行命令新增NTP服务器后，同步状态更新需等待约三个同步周期（默认一个同步周期为一分钟）。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876254_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.9",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555067_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_ntp_server_management.html",
+        "name": "NTP服务器管理",
+        "parentTopicId": "CONCEPT_0000202102876254_2",
+        "position": "3.2.9.4",
+        "parentPosition": "3.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001231195080_1",
+        "topicUrl": "kite_s_bm/MML/Document/add_ntpsvr.html",
+        "name": "增加NTP服务器(ADD NTPSVR)",
+        "parentTopicId": "CONCEPT_0000202289555067_2",
+        "position": "3.2.9.4.1",
+        "parentPosition": "3.2.9.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

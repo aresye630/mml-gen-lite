@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD VRLOCATION",
+  "command_name_zh": "增加虚拟远端Location信息",
+  "command_name_full": "增加虚拟远端Location信息(ADD VRLOCATION)",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作添加不当的虚拟远端Location映射信息会导致FE访问BE失败。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于增加虚拟远端Location标识，用于标记各远端Location到虚拟远端Location的映射信息。\n\n该命令的使用场景：应用于混合组网演进场景，如果已有多个SP分区的BE的Location标识相同时，在vRSP/vRP上将远端Location标识与虚拟远端Location标识进行唯一映射配置，实现跨区查找时区分实际的远端Location。\n\n该命令的参数索引关系如图1所示。\n\n图1中，SP1和SP2中，BE的Location标识相同(主BE Location标识均为81，备BE Location标识均为82)，为了实现跨区查找时区分实际的远端Location，需要在vRSP上执行该命令将远端Location标识与虚拟远端Location标识进行唯一映射配置。配置参数示例如图中右侧表格所示。\n\n**图1** 虚拟远端Location标识和远端Location标识映射示例",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774485",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/dsg_management.html",
+        "name": "DSG管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.3",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0227064894",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/virtual_remote_location_management.html",
+        "name": "Virtual Remote Location管理",
+        "parentTopicId": "MMLREF_0172774485",
+        "position": "2.2.4.3.3.3.3",
+        "parentPosition": "2.2.4.3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0227051990",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/add_vrlocation.html",
+        "name": "增加虚拟远端Location信息(ADD VRLOCATION)",
+        "parentTopicId": "CONCEPT_0227064894",
+        "position": "2.2.4.3.3.3.3.1",
+        "parentPosition": "2.2.4.3.3.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

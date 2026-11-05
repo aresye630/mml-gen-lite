@@ -1,0 +1,1474 @@
+---
+id: ''
+name: SBI接口（N20）配置
+ne_type: UNC
+type: feature
+description: SMSF的服务化接口为Nsmsf，与参考点的对应关系如下。参考点是指5G系统服务化架构映射到传统架构后，对应传统网元之间点对点的接口，用来代表NF之间交互的参考模型，并不是真实的接口。  **图1** Nsmsf接口示意图  **图2** 服务化接口协议栈图  服务化接口间采用相同的协议栈，传输层统一采用HTTP/2协议，应用层携带不同的服务消息。因为底层的传输方式相同，所有的服务化接口就可以在同一总线上进行传输，支撑业务灵活上线。  HTTP/2（HyperText Transport Protocol 2.0）：下一代超文本传输协议。基于HTTP协议的信息交换分为四个过程：建立连接、发送请求信息、发送响应信息、关闭连接。  TLS（Transport Layer Security）：安全传输层协议。在两个通信应用程序之间提供保密性和数据完整性。
+risk_level: ''
+doc_source: ["网络部署","业务专题","5G Core SMSF解决方案","SMSF功能部署","部署基础网络","部署UNC网元数据","部署SMSF对接数据","SBI接口（N20）配置"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+SMSF的服务化接口为Nsmsf，与参考点的对应关系如下。参考点是指5G系统服务化架构映射到传统架构后，对应传统网元之间点对点的接口，用来代表NF之间交互的参考模型，并不是真实的接口。**图1** Nsmsf接口示意图**图2** 服务化接口协议栈图服务化接口间采用相同的协议栈，传输层统一采用HTTP/2协议，应用层携带不同的服务消息。因为底层的传输方式相同，所有的服务化接口就可以在同一总线上进行传输，支撑业务灵活上线。HTTP/2（HyperText Transport Protocol 2.0）：下一代超文本传输协议。基于HTTP协议的信息交换分为四个过程：建立连接、发送请求信息、发送响应信息、关闭连接。TLS（Transport Layer Security）：安全传输层协议。在两个通信应用程序之间提供保密性和数据完整性。
+
+## 必备事项
+前提条件
+
+* 具备管理员权限的操作人员已经登录华为操作维护系统（登录U2020/MAE客户端或登录OM Portal）。
+
+* UNC软件安装已完成。
+* 已经获取网设LLD文档。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties:
+    add_logicip_list:
+      type: items
+      properties:
+        IPVERSION:
+          name: 'IP地址类型'
+          type: string
+          enum:
+          - IPv4
+          - IPv6
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        LOGICIPV4:
+          name: 'IPv4地址'
+          type: string
+          maxLength: 15
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        VPNINSTNAME:
+          name: 'VPN实例名称'
+          type: string
+          minLength: 1
+          maxLength: 31
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        DESC:
+          name: '描述'
+          type: string
+          minLength: 0
+          maxLength: 255
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV4MTU:
+          name: 'IPv4 MTU'
+          type: integer
+          minimum: 328
+          maximum: 9600
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 1500
+        IPV6MTU:
+          name: 'IPv6 MTU值'
+          type: integer
+          minimum: 1280
+          maximum: 9600
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 1500
+        LOGICIPV6:
+          name: 'IPv6地址'
+          type: string
+          maxLength: 39
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_httplegrp_list:
+      type: items
+      properties:
+        INDEX:
+          name: '索引'
+          type: integer
+          minimum: 1
+          maximum: 64
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        DESC:
+          name: '描述'
+          type: string
+          minLength: 0
+          maxLength: 255
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_httple_list:
+      type: items
+      properties:
+        INDEX:
+          name: 'HTTPLE本端实体索引'
+          type: integer
+          minimum: 1
+          maximum: 128
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        HTTPLEGRPIDX:
+          name: 'HTTP本端实体组标识'
+          type: integer
+          minimum: 1
+          maximum: 64
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        LETYPE:
+          name: '本端实体类型'
+          type: string
+          enum:
+          - SERVER
+          - CLIENT
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPTYPE:
+          name: 'IP类型'
+          type: string
+          enum:
+          - IPv4
+          - IPv6
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV4:
+          name: 'IPv4地址'
+          type: string
+          maxLength: 15
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PORT:
+          name: '端口号'
+          type: integer
+          minimum: 1
+          maximum: 65535
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        VPNNAME:
+          name: 'VPN名称'
+          type: string
+          minLength: 0
+          maxLength: 31
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        TLSFLG:
+          name: '是否启用TLS'
+          type: string
+          enum:
+          - NO
+          - YES
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: YES
+        DESC:
+          name: '描述'
+          type: string
+          minLength: 0
+          maxLength: 255
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV6:
+          name: 'IPv6地址'
+          type: string
+          maxLength: 39
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        TLSIDX:
+          name: 'TLS索引'
+          type: integer
+          minimum: 1
+          maximum: 128
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_sbiaple_list:
+      type: items
+      properties:
+        INDEX:
+          name: '索引'
+          type: integer
+          minimum: 1
+          maximum: 128
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        HTTPLEGRPIDX:
+          name: 'HTTP本端实体组标识'
+          type: integer
+          minimum: 1
+          maximum: 64
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        NFTYPE:
+          name: '本端NF类型'
+          type: string
+          enum:
+          - INVALID
+          - NFTypeNRF
+          - NFTypeUDM
+          - NFTypeAMF
+          - NFTypeSMF
+          - NFTypeAUSF
+          - NFTypeNEF
+          - NFTypePCF
+          - NFTypeSMSF
+          - NFTypeNSSF
+          - NFTypeUDR
+          - NFTypeLMF
+          - NFTypeGMLC
+          - NFType5GEIR
+          - NFTypeSEPP
+          - NFTypeUPF
+          - NFTypeN3IWF
+          - NFTypeAF
+          - NFTypeUDSF
+          - NFTypeBSF
+          - NFTypeCHF
+          - NFTypeCUSTOM_OCS
+          - NFTypeSCP
+          - NFTypeMBSMF
+          - NFTypeNWDAF
+          - NFTypeUDN
+          - NFTypeSFC
+          - NFTypeUCBC
+          - NFTypeCBE
+          - NFTypeNEFEx
+          - NFTypeSCF
+          - NFTypeKMC
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        DESCRIPTION:
+          name: '描述'
+          type: string
+          minLength: 0
+          maxLength: 255
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CHFPEERNFTYPE:
+          name: 'CHF的目的NF类型'
+          type: string
+          enum:
+          - Nnrf
+          - Nocs
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PEERNFTYPE:
+          name: '目的NF类型'
+          type: string
+          enum:
+          - Nchf
+          - Nupf
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nfuuid_list:
+      type: items
+      properties:
+        NFTYPE:
+          name: 'NF类型'
+          type: string
+          enum:
+          - NfInvalid
+          - NfNRF
+          - NfUDM
+          - NfAMF
+          - NfSMF
+          - NfAUSF
+          - NfNEF
+          - NfPCF
+          - NfSMSF
+          - NfNSSF
+          - NfUDR
+          - NfLMF
+          - NfGMLC
+          - Nf5G_EIR
+          - NfSEPP
+          - NfUPF
+          - NfN3IWF
+          - NfAF
+          - NfUDSF
+          - NfBSF
+          - NfCHF
+          - NfNWDAF
+          - NfTypeMAX
+          - NfMBSMF
+          - NfCBCF
+          - NfSCF
+          - NfSPF
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        NFINSTANCENAME:
+          name: 'NF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 64
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nfprofile_list:
+      type: items
+      properties:
+        NFINSTANCENAME:
+          name: 'NF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        NFTYPE:
+          name: 'NF类型'
+          type: string
+          enum:
+          - NfInvalid
+          - NfNRF
+          - NfUDM
+          - NfAMF
+          - NfSMF
+          - NfAUSF
+          - NfNEF
+          - NfPCF
+          - NfSMSF
+          - NfNSSF
+          - NfUDR
+          - NfLMF
+          - NfGMLC
+          - Nf5G_EIR
+          - NfSEPP
+          - NfUPF
+          - NfN3IWF
+          - NfAF
+          - NfUDSF
+          - NfBSF
+          - NfCHF
+          - NfNWDAF
+          - NfTypeMAX
+          - NfMBSMF
+          - NfCBCF
+          - NfSCF
+          - NfSPF
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        NFSTATUS:
+          name: 'NF状态'
+          type: string
+          enum:
+          - Invalid
+          - Registered
+          - Suspend
+          - Undiscoverable
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: Registered
+    add_nfservice_list:
+      type: items
+      properties:
+        NFINSTANCENAME:
+          name: 'NF实例名称'
+          type: string
+          minLength: 1
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVINSTANCEID:
+          name: '服务实例标识'
+          type: string
+          minLength: 1
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SERVICENAME:
+          name: '服务名称'
+          type: string
+          enum:
+          - SrvNameINVALID
+          - NrfNfm
+          - NnrfDisc
+          - NudmSdm
+          - NudmUecm
+          - NudmUeau
+          - NudmEe
+          - NudmPp
+          - NamfComm
+          - NamfEvts
+          - NamfMt
+          - NamfLoc
+          - NsmfPduSes
+          - NsmfEventExp
+          - NausfAuth
+          - NausfSorprot
+          - NnefPfdMgnt
+          - NpcfAmPlcCtrl
+          - NpcfSmPlcCtrl
+          - NpcfPlcauth
+          - NpcfBdtplcCtrl
+          - NpcfEventEx
+          - NpcfUePcy
+          - NsmsfSms
+          - NnssfNsSel
+          - NnssfNssaiAvai
+          - NudrDr
+          - NlmfLoc
+          - N5gEirEic
+          - NbsfMgmt
+          - NchfSpdlmtCtrl
+          - NchfConvCharg
+          - NnwdafEvntSubs
+          - NnwdafAnalInfo
+          - SrvNameMAX
+          - NamfMbsBroadcast
+          - NmbSmfTmgi
+          - NmbSmfMbssession
+          - Nnef3gppAsSessionWithQos
+          - Nnef3gppMonEvent
+          - NnwdafDataManagement
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nfservicever_list:
+      type: items
+      properties:
+        NFINSTANCENAME:
+          name: 'NF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        SRVINSTANCEID:
+          name: '服务实例标识'
+          type: string
+          minLength: 0
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        APIFULLVERSION:
+          name: 'API版本信息'
+          type: string
+          minLength: 0
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nrf_list:
+      type: items
+      properties:
+        NRFINSTANCENAME:
+          name: 'NRF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 38
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        TLS:
+          name: 'TLS'
+          type: string
+          enum:
+          - TRUE
+          - FALSE
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PRIORITY:
+          name: '优先级'
+          type: integer
+          minimum: 0
+          maximum: 255
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 0
+    add_nrfaddr_list:
+      type: items
+      properties:
+        NRFINSTANCENAME:
+          name: 'NRF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 38
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPADDRESSTYPE:
+          name: 'IP地址类型'
+          type: string
+          enum:
+          - IPTypeV4
+          - IPTypeV6
+          - NoneIP
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV4ADDRESS:
+          name: 'IPV4地址'
+          type: string
+          maxLength: 15
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PORT:
+          name: '端口'
+          type: integer
+          minimum: 0
+          maximum: 65535
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV6ADDRESS:
+          name: 'IPV6地址'
+          type: string
+          maxLength: 39
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nrfpara_list:
+      type: items
+      properties:
+        NRFINSTANCENAME:
+          name: 'NRF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 38
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        WAITINTERVAL:
+          name: '等待时长'
+          type: integer
+          minimum: 0
+          maximum: 60
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 5
+        MAXRETRYTIMES:
+          name: '最大重传次数'
+          type: integer
+          minimum: 0
+          maximum: 65535
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 3
+        LOADCARRYINHB:
+          name: '心跳是否携带Load信息'
+          type: string
+          enum:
+          - TRUE
+          - FALSE
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: FALSE
+        SUBSCRISWITCH:
+          name: '订阅流程开关'
+          type: string
+          enum:
+          - OFF
+          - ON
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: OFF
+        OAUTH2SWITCH:
+          name: 'OAUTH2鉴权开关'
+          type: string
+          enum:
+          - OFF
+          - ON
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ON
+    add_subcondition_list:
+      type: items
+      properties:
+        NFTYPE:
+          name: 'NF类型'
+          type: string
+          enum:
+          - NfInvalid
+          - NfNRF
+          - NfUDM
+          - NfAMF
+          - NfSMF
+          - NfAUSF
+          - NfNEF
+          - NfPCF
+          - NfSMSF
+          - NfNSSF
+          - NfUDR
+          - NfLMF
+          - NfGMLC
+          - Nf5G_EIR
+          - NfSEPP
+          - NfUPF
+          - NfN3IWF
+          - NfAF
+          - NfUDSF
+          - NfBSF
+          - NfCHF
+          - NfCUSTOM_OCS
+          - NfSCP
+          - NfPCSCF
+          - NfMBSMF
+          - NfUDN
+          - NfNWDAF
+          - NfSCF
+          - NfKMC
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CONDITION:
+          name: '订阅条件'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        REQNOTIFEVENT:
+          name: '通知事件'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nrf_list_1:
+      type: items
+      properties:
+        NRFINSTANCENAME:
+          name: 'NRF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 38
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        TLS:
+          name: 'TLS'
+          type: string
+          enum:
+          - TRUE
+          - FALSE
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PRIORITY:
+          name: '优先级'
+          type: integer
+          minimum: 0
+          maximum: 255
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 0
+    add_nrfaddr_list_1:
+      type: items
+      properties:
+        NRFINSTANCENAME:
+          name: 'NRF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 38
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPADDRESSTYPE:
+          name: 'IP地址类型'
+          type: string
+          enum:
+          - IPTypeV4
+          - IPTypeV6
+          - NoneIP
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV4ADDRESS:
+          name: 'IPV4地址'
+          type: string
+          maxLength: 15
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        PORT:
+          name: '端口'
+          type: integer
+          minimum: 0
+          maximum: 65535
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        IPV6ADDRESS:
+          name: 'IPV6地址'
+          type: string
+          maxLength: 39
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    add_nrfpara_list_1:
+      type: items
+      properties:
+        NRFINSTANCENAME:
+          name: 'NRF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 38
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        WAITINTERVAL:
+          name: '等待时长'
+          type: integer
+          minimum: 0
+          maximum: 60
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 5
+        MAXRETRYTIMES:
+          name: '最大重传次数'
+          type: integer
+          minimum: 0
+          maximum: 65535
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: 3
+        LOADCARRYINHB:
+          name: '心跳是否携带Load信息'
+          type: string
+          enum:
+          - TRUE
+          - FALSE
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: FALSE
+        SUBSCRISWITCH:
+          name: '订阅流程开关'
+          type: string
+          enum:
+          - OFF
+          - ON
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: OFF
+        OAUTH2SWITCH:
+          name: 'OAUTH2鉴权开关'
+          type: string
+          enum:
+          - OFF
+          - ON
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ON
+    add_subcondition_list_1:
+      type: items
+      properties:
+        NFTYPE:
+          name: 'NF类型'
+          type: string
+          enum:
+          - NfInvalid
+          - NfNRF
+          - NfUDM
+          - NfAMF
+          - NfSMF
+          - NfAUSF
+          - NfNEF
+          - NfPCF
+          - NfSMSF
+          - NfNSSF
+          - NfUDR
+          - NfLMF
+          - NfGMLC
+          - Nf5G_EIR
+          - NfSEPP
+          - NfUPF
+          - NfN3IWF
+          - NfAF
+          - NfUDSF
+          - NfBSF
+          - NfCHF
+          - NfCUSTOM_OCS
+          - NfSCP
+          - NfPCSCF
+          - NfMBSMF
+          - NfUDN
+          - NfNWDAF
+          - NfSCF
+          - NfKMC
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        CONDITION:
+          name: '订阅条件'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        REQNOTIFEVENT:
+          name: '通知事件'
+          type: string
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+    act_nfonline_list:
+      type: items
+      properties:
+        NFINSTANCENAME:
+          name: 'NF实例名称'
+          type: string
+          minLength: 0
+          maxLength: 50
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+  examples:
+    add_logicip_list:
+    - IPVERSION: IPv4
+      LOGICIPV4: '10.2.180.15'
+      VPNINSTNAME: '_public_'
+      DESC: 'FOR SBI'
+      IPV4MTU: 1500
+      IPV6MTU: 1500
+      LOGICIPV6: ''
+    add_httplegrp_list:
+    - INDEX: 6
+      DESC: 'SMSF'
+    add_httple_list:
+    - INDEX: 11
+      HTTPLEGRPIDX: 6
+      LETYPE: SERVER
+      IPTYPE: IPv4
+      IPV4: '10.2.180.15'
+      PORT: 8080
+      VPNNAME: '_public_'
+      TLSFLG: NO
+      DESC: 'SMSF_Server'
+      IPV6: ''
+      TLSIDX: ''
+    add_sbiaple_list:
+    - INDEX: 6
+      HTTPLEGRPIDX: 6
+      NFTYPE: NFTypeSMSF
+      DESCRIPTION: 'SMSF'
+      CHFPEERNFTYPE: ''
+      PEERNFTYPE: ''
+    add_nfuuid_list:
+    - NFTYPE: NfSMSF
+      NFINSTANCENAME: 'SMSF_Instance_0'
+    add_nfprofile_list:
+    - NFINSTANCENAME: 'SMSF_Instance_0'
+      NFTYPE: NfSMSF
+      NFSTATUS: Registered
+    add_nfservice_list:
+    - NFINSTANCENAME: 'SMSF_Instance_0'
+      SRVINSTANCEID: 'Service_Instance_0'
+      SERVICENAME: NsmsfSms
+    add_nfservicever_list:
+    - NFINSTANCENAME: 'SMSF_Instance_0'
+      SRVINSTANCEID: 'Service_Instance_0'
+      APIFULLVERSION: '1.R15.0.0'
+    add_nrf_list:
+    - NRFINSTANCENAME: 'NRF_Instance_0'
+      TLS: FALSE
+      PRIORITY: 0
+    add_nrfaddr_list:
+    - NRFINSTANCENAME: 'NRF_Instance_0'
+      IPADDRESSTYPE: IPTypeV4
+      IPV4ADDRESS: '10.16.0.7'
+      PORT: 31000
+      IPV6ADDRESS: ''
+    add_nrfpara_list:
+    - NRFINSTANCENAME: 'NRF_Instance_0'
+      WAITINTERVAL: 5
+      MAXRETRYTIMES: 3
+      LOADCARRYINHB: FALSE
+      SUBSCRISWITCH: ON
+      OAUTH2SWITCH: OFF
+    add_subcondition_list:
+    - NFTYPE: NfAMF
+      CONDITION: NfInstanceId-1
+      REQNOTIFEVENT: NF_REGISTERED-1
+    add_nrf_list_1:
+    - NRFINSTANCENAME: 'NRF_Instance_1'
+      TLS: FALSE
+      PRIORITY: 1
+    add_nrfaddr_list_1:
+    - NRFINSTANCENAME: 'NRF_Instance_1'
+      IPADDRESSTYPE: IPTypeV4
+      IPV4ADDRESS: '10.26.0.7'
+      PORT: 31000
+      IPV6ADDRESS: ''
+    add_nrfpara_list_1:
+    - NRFINSTANCENAME: 'NRF_Instance_1'
+      WAITINTERVAL: 5
+      MAXRETRYTIMES: 3
+      LOADCARRYINHB: FALSE
+      SUBSCRISWITCH: OFF
+      OAUTH2SWITCH: OFF
+    add_subcondition_list_1:
+    - NFTYPE: NfAMF
+      CONDITION: NfInstanceId-1
+      REQNOTIFEVENT: NF_REGISTERED-1
+    act_nfonline_list:
+    - NFINSTANCENAME: 'SMSF_Instance_0'
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 增加SMSF服务化接口数据。
+
+#### 1.1 进入“MML命令行-UNC”窗口。
+
+#### 1.2 增加SMSF服务化接口的IP地址，用于和AMF、UDM等NF的对接。
+
+```jinja2
+{%- for item in add_logicip_list -%}
+    ADD LOGICIP:
+    {#- --- 必选参数 --- -#}
+    IPVERSION={{item.IPVERSION}},
+    {#- --- 可选参数 --- -#}
+    {%- if item.VPNINSTNAME is not none -%}
+        VPNINSTNAME="{{item.VPNINSTNAME}}",
+    {%- endif -%}
+    {%- if item.DESC is not none -%}
+        DESC="{{item.DESC}}",
+    {%- endif -%}
+    {#- --- 条件必选参数 --- -#}
+    {#- --- 条件必选：IPVERSION=IPv4 时必选 --- -#}
+    {%- if item.IPVERSION == 'IPv4' -%}
+        LOGICIPV4="{{item.LOGICIPV4}}",
+    {%- endif -%}
+    {#- --- 条件必选：IPVERSION=IPv6 时必选 --- -#}
+    {%- if item.IPVERSION == 'IPv6' -%}
+        LOGICIPV6="{{item.LOGICIPV6}}",
+    {%- endif -%}
+    {#- --- 条件可选参数 --- -#}
+    {#- --- 条件可选：IPVERSION=IPv4 时可选 --- -#}
+    {%- if item.IPVERSION == 'IPv4' -%}
+        {%- if item.IPV4MTU is not none -%}
+            IPV4MTU={{item.IPV4MTU}},
+        {%- endif -%}
+    {%- endif -%}
+    {#- --- 条件可选：IPVERSION=IPv6 时可选 --- -#}
+    {%- if item.IPVERSION == 'IPv6' -%}
+        {%- if item.IPV6MTU is not none -%}
+            IPV6MTU={{item.IPV6MTU}},
+        {%- endif -%}
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+#### 1.3 配置SMSF服务化接口的HTTP信息。
+
+```jinja2
+{%- for item in add_httplegrp_list -%}
+    ADD HTTPLEGRP:
+    {#- --- 必选参数 --- -#}
+    INDEX={{item.INDEX}},
+    {#- --- 可选参数 --- -#}
+    {%- if item.DESC is not none -%}
+        DESC="{{item.DESC}}",
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+#### 1.4 配置SMSF分别作为HTTP服务的服务端和客户端的本端端点信息。
+
+```jinja2
+{%- for item in add_httple_list -%}
+    ADD HTTPLE:
+    {#- --- 必选参数 --- -#}
+    INDEX={{item.INDEX}},
+    HTTPLEGRPIDX={{item.HTTPLEGRPIDX}},
+    LETYPE={{item.LETYPE}},
+    IPTYPE={{item.IPTYPE}},
+    {#- --- 可选参数 --- -#}
+    {%- if item.VPNNAME is not none -%}
+        VPNNAME="{{item.VPNNAME}}",
+    {%- endif -%}
+    {%- if item.DESC is not none -%}
+        DESC="{{item.DESC}}",
+    {%- endif -%}
+    {#- --- 条件必选参数 --- -#}
+    {#- --- 条件必选：IPTYPE=IPv4 时必选 --- -#}
+    {%- if item.IPTYPE == 'IPv4' -%}
+        IPV4="{{item.IPV4}}",
+    {%- endif -%}
+    {#- --- 条件必选：LETYPE=SERVER 时必选 --- -#}
+    {%- if item.LETYPE == 'SERVER' -%}
+        TLSFLG={{item.TLSFLG}},
+    {%- endif -%}
+    {#- --- 条件必选：IPTYPE=IPv6 时必选 --- -#}
+    {%- if item.IPTYPE == 'IPv6' -%}
+        IPV6="{{item.IPV6}}",
+    {%- endif -%}
+    {#- --- 条件可选参数 --- -#}
+    {#- --- 条件可选：LETYPE=SERVER 时可选 --- -#}
+    {%- if item.LETYPE == 'SERVER' -%}
+        {%- if item.PORT is not none -%}
+            PORT={{item.PORT}},
+        {%- endif -%}
+    {%- endif -%}
+    {#- --- 条件必选/可选参数 --- -#}
+    {#- --- TLS索引: 条件必选(是否启用TLS=YES) / 条件可选(本端实体类型=CLIENT) --- -#}
+    {%- if (item.TLSFLG == 'YES') -%}
+        TLSIDX={{item.TLSIDX}},
+    {%- elif (item.LETYPE == 'CLIENT') -%}
+        {%- if item.TLSIDX is not none -%}
+            TLSIDX={{item.TLSIDX}},
+        {%- endif -%}
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+#### 1.5 配置SMSF服务化接口的接入点信息。
+
+```jinja2
+{%- for item in add_sbiaple_list -%}
+    ADD SBIAPLE:
+    {#- --- 必选参数 --- -#}
+    INDEX={{item.INDEX}},
+    HTTPLEGRPIDX={{item.HTTPLEGRPIDX}},
+    NFTYPE={{item.NFTYPE}},
+    {#- --- 可选参数 --- -#}
+    {%- if item.DESCRIPTION is not none -%}
+        DESCRIPTION="{{item.DESCRIPTION}}",
+    {%- endif -%}
+    {#- --- 条件可选参数 --- -#}
+    {#- --- 条件可选：NFTYPE=NFTypeCHF 时可选 --- -#}
+    {%- if item.NFTYPE == 'NFTypeCHF' -%}
+        {%- if item.CHFPEERNFTYPE is not none -%}
+            CHFPEERNFTYPE={{item.CHFPEERNFTYPE}},
+        {%- endif -%}
+    {%- endif -%}
+    {#- --- 条件可选：NFTYPE=NFTypeSMF/NFTypeSMSF/NFTypeNWDAF/NFTypeUDN 时可选 --- -#}
+    {%- if item.NFTYPE in ['NFTypeSMF', 'NFTypeSMSF', 'NFTypeNWDAF', 'NFTypeUDN'] -%}
+        {%- if item.PEERNFTYPE is not none -%}
+            PEERNFTYPE={{item.PEERNFTYPE}},
+        {%- endif -%}
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+### 2 配置SMSF实例信息，用于后续向NRF注册。
+
+#### 2.1 配置SMSF的实例名称，配置后系统会为SMSF自动分配InstanceID信息。
+
+```jinja2
+{%- for item in add_nfuuid_list -%}
+    ADD NFUUID:
+    {#- --- 必选参数 --- -#}
+    NFTYPE={{item.NFTYPE}},
+    NFINSTANCENAME="{{item.NFINSTANCENAME}}",
+    ;
+{%- endfor -%}
+```
+
+#### 2.2 配置SMSF实例的Profile信息，在SMSF向NRF进行注册/更新时携带。
+
+```jinja2
+{%- for item in add_nfprofile_list -%}
+    ADD NFPROFILE:
+    {#- --- 必选参数 --- -#}
+    NFINSTANCENAME="{{item.NFINSTANCENAME}}",
+    NFTYPE={{item.NFTYPE}},
+    {#- --- 可选参数 --- -#}
+    {%- if item.NFSTATUS is not none -%}
+        NFSTATUS={{item.NFSTATUS}},
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+#### 2.3 配置SMSF提供的服务实例及其版本信息。
+
+```jinja2
+{%- for item in add_nfservice_list -%}
+    ADD NFSERVICE:
+    {#- --- 必选参数 --- -#}
+    NFINSTANCENAME="{{item.NFINSTANCENAME}}",
+    SRVINSTANCEID="{{item.SRVINSTANCEID}}",
+    SERVICENAME={{item.SERVICENAME}},
+    ;
+{%- endfor -%}
+```
+
+```jinja2
+{%- for item in add_nfservicever_list -%}
+    ADD NFSERVICEVER:
+    {#- --- 必选参数 --- -#}
+    NFINSTANCENAME="{{item.NFINSTANCENAME}}",
+    SRVINSTANCEID="{{item.SRVINSTANCEID}}",
+    APIFULLVERSION="{{item.APIFULLVERSION}}",
+    ;
+{%- endfor -%}
+```
+
+### 3 配置NRF数据。
+
+#### 3.1 配置NRF信息。
+
+```jinja2
+{%- for item in add_nrf_list -%}
+    ADD NRF:
+    {#- --- 必选参数 --- -#}
+    NRFINSTANCENAME="{{item.NRFINSTANCENAME}}",
+    TLS={{item.TLS}},
+    {#- --- 可选参数 --- -#}
+    {%- if item.PRIORITY is not none -%}
+        PRIORITY={{item.PRIORITY}},
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+#### 3.2 配置NRF的地址信息。
+
+```jinja2
+{%- for item in add_nrfaddr_list -%}
+    ADD NRFADDR:
+    {#- --- 必选参数 --- -#}
+    NRFINSTANCENAME="{{item.NRFINSTANCENAME}}",
+    IPADDRESSTYPE={{item.IPADDRESSTYPE}},
+    {#- --- 条件必选参数 --- -#}
+    {#- --- 条件必选：IPADDRESSTYPE=IPTypeV4 时必选 --- -#}
+    {%- if item.IPADDRESSTYPE == 'IPTypeV4' -%}
+        IPV4ADDRESS="{{item.IPV4ADDRESS}}",
+    {%- endif -%}
+    {#- --- 条件必选：IPADDRESSTYPE=IPTypeV6 时必选 --- -#}
+    {%- if item.IPADDRESSTYPE == 'IPTypeV6' -%}
+        IPV6ADDRESS="{{item.IPV6ADDRESS}}",
+    {%- endif -%}
+    {#- --- 条件必选/可选参数 --- -#}
+    {#- --- 端口: 条件必选(IP地址类型=NoneIP) / 条件可选(IP地址类型=IPTypeV4|IPTypeV6) --- -#}
+    {%- if (item.IPADDRESSTYPE == 'NoneIP') -%}
+        PORT={{item.PORT}},
+    {%- elif (item.IPADDRESSTYPE in ['IPTypeV4', 'IPTypeV6']) -%}
+        {%- if item.PORT is not none -%}
+            PORT={{item.PORT}},
+        {%- endif -%}
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+#### 3.3 **可选**：配置NRF协议参数。当开启订阅功能开关时，可以增加订阅条件。当目标NF触发订阅条件和通知事件时，NRF向源NF发送通知。
+
+```jinja2
+{%- if is_optional_configure_nrf_protocol_parameters -%}
+    {%- for item in add_nrfpara_list -%}
+        ADD NRFPARA:
+        {#- --- 必选参数 --- -#}
+        NRFINSTANCENAME="{{item.NRFINSTANCENAME}}",
+        {#- --- 可选参数 --- -#}
+        {%- if item.WAITINTERVAL is not none -%}
+            WAITINTERVAL={{item.WAITINTERVAL}},
+        {%- endif -%}
+        {%- if item.MAXRETRYTIMES is not none -%}
+            MAXRETRYTIMES={{item.MAXRETRYTIMES}},
+        {%- endif -%}
+        {%- if item.LOADCARRYINHB is not none -%}
+            LOADCARRYINHB={{item.LOADCARRYINHB}},
+        {%- endif -%}
+        {%- if item.SUBSCRISWITCH is not none -%}
+            SUBSCRISWITCH={{item.SUBSCRISWITCH}},
+        {%- endif -%}
+        {%- if item.OAUTH2SWITCH is not none -%}
+            OAUTH2SWITCH={{item.OAUTH2SWITCH}},
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+```jinja2
+{%- if is_optional_configure_nrf_protocol_parameters -%}
+    {%- for item in add_subcondition_list -%}
+        ADD SUBCONDITION:
+        {#- --- 必选参数 --- -#}
+        NFTYPE={{item.NFTYPE}},
+        {#- --- 可选参数 --- -#}
+        {%- if item.CONDITION is not none -%}
+            CONDITION={{item.CONDITION}},
+        {%- endif -%}
+        {%- if item.REQNOTIFEVENT is not none -%}
+            REQNOTIFEVENT={{item.REQNOTIFEVENT}},
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+#### 3.4 **可选**：当网络中规划了双主或者主备NRF时，需要配置本步骤。双主NRF场景下，NF对接的优先级高的NRF为本地DC的NRF；主备NRF场景下，NF对接的优先级高的NRF为主NRF。
+
+```jinja2
+{%- if is_optional_dual_active_standby_nrf -%}
+    {%- for item in add_nrf_list_1 -%}
+        ADD NRF:
+        {#- --- 必选参数 --- -#}
+        NRFINSTANCENAME="{{item.NRFINSTANCENAME}}",
+        TLS={{item.TLS}},
+        {#- --- 可选参数 --- -#}
+        {%- if item.PRIORITY is not none -%}
+            PRIORITY={{item.PRIORITY}},
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+```jinja2
+{%- if is_optional_dual_active_standby_nrf -%}
+    {%- for item in add_nrfaddr_list_1 -%}
+        ADD NRFADDR:
+        {#- --- 必选参数 --- -#}
+        NRFINSTANCENAME="{{item.NRFINSTANCENAME}}",
+        IPADDRESSTYPE={{item.IPADDRESSTYPE}},
+        {#- --- 条件必选参数 --- -#}
+        {#- --- 条件必选：IPADDRESSTYPE=IPTypeV4 时必选 --- -#}
+        {%- if item.IPADDRESSTYPE == 'IPTypeV4' -%}
+            IPV4ADDRESS="{{item.IPV4ADDRESS}}",
+        {%- endif -%}
+        {#- --- 条件必选：IPADDRESSTYPE=IPTypeV6 时必选 --- -#}
+        {%- if item.IPADDRESSTYPE == 'IPTypeV6' -%}
+            IPV6ADDRESS="{{item.IPV6ADDRESS}}",
+        {%- endif -%}
+        {#- --- 条件必选/可选参数 --- -#}
+        {#- --- 端口: 条件必选(IP地址类型=NoneIP) / 条件可选(IP地址类型=IPTypeV4|IPTypeV6) --- -#}
+        {%- if (item.IPADDRESSTYPE == 'NoneIP') -%}
+            PORT={{item.PORT}},
+        {%- elif (item.IPADDRESSTYPE in ['IPTypeV4', 'IPTypeV6']) -%}
+            {%- if item.PORT is not none -%}
+                PORT={{item.PORT}},
+            {%- endif -%}
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+```jinja2
+{%- if is_optional_dual_active_standby_nrf -%}
+    {%- for item in add_nrfpara_list_1 -%}
+        ADD NRFPARA:
+        {#- --- 必选参数 --- -#}
+        NRFINSTANCENAME="{{item.NRFINSTANCENAME}}",
+        {#- --- 可选参数 --- -#}
+        {%- if item.WAITINTERVAL is not none -%}
+            WAITINTERVAL={{item.WAITINTERVAL}},
+        {%- endif -%}
+        {%- if item.MAXRETRYTIMES is not none -%}
+            MAXRETRYTIMES={{item.MAXRETRYTIMES}},
+        {%- endif -%}
+        {%- if item.LOADCARRYINHB is not none -%}
+            LOADCARRYINHB={{item.LOADCARRYINHB}},
+        {%- endif -%}
+        {%- if item.SUBSCRISWITCH is not none -%}
+            SUBSCRISWITCH={{item.SUBSCRISWITCH}},
+        {%- endif -%}
+        {%- if item.OAUTH2SWITCH is not none -%}
+            OAUTH2SWITCH={{item.OAUTH2SWITCH}},
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+```jinja2
+{%- if is_optional_dual_active_standby_nrf -%}
+    {%- for item in add_subcondition_list_1 -%}
+        ADD SUBCONDITION:
+        {#- --- 必选参数 --- -#}
+        NFTYPE={{item.NFTYPE}},
+        {#- --- 可选参数 --- -#}
+        {%- if item.CONDITION is not none -%}
+            CONDITION={{item.CONDITION}},
+        {%- endif -%}
+        {%- if item.REQNOTIFEVENT is not none -%}
+            REQNOTIFEVENT={{item.REQNOTIFEVENT}},
+        {%- endif -%}
+        ;
+    {%- endfor -%}
+{%- endif -%}
+```
+
+#### 3.5 SMSF向NRF发起注册，激活SMSF注册状态。
+
+```jinja2
+{%- for item in act_nfonline_list -%}
+    ACT NFONLINE:
+    {#- --- 必选参数 --- -#}
+    NFINSTANCENAME="{{item.NFINSTANCENAME}}",
+    ;
+{%- endfor -%}
+```
+

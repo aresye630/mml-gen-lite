@@ -1,0 +1,107 @@
+{
+  "command_name": "SET APNAFFUNC",
+  "command_name_zh": "设置APN防欺诈功能",
+  "command_name_full": "设置APN防欺诈功能（SET APNAFFUNC）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，误配后会影响系统性能，和具体规则匹配到的用户数有关。执行命令前请评估对性能的影响，如果无法评估请联系华为技术支持。\n\n此命令用于在指定APN下配置是否启用防欺诈功能。当用户需要开启或关闭指定APN下的防欺诈开关时配置。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876540",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_anti_fraud.html",
+        "name": "业务防欺诈",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.8",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116436",
+        "topicUrl": "MML/LinkedDoc/udg_n_apn_anti_fraud_function.html",
+        "name": "APN防欺诈功能",
+        "parentTopicId": "CONCEPT_0000202102876540",
+        "position": "5.8.5",
+        "parentPosition": "5.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837800",
+        "topicUrl": "MML/Document/set_apnaffunc.html",
+        "name": "设置APN防欺诈功能（SET APNAFFUNC）",
+        "parentTopicId": "CONCEPT_0000202103116436",
+        "position": "5.8.5.1",
+        "parentPosition": "5.8.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

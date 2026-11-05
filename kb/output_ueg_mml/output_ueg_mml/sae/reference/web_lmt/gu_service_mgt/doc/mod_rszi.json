@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD RSZI",
+  "command_name_zh": "修改区域漫游限制业务",
+  "command_name_full": "修改区域漫游限制业务(MOD RSZI)",
+  "command_function": "该命令用于修改用户的区域漫游限制业务。\n\n- 当用户在网，执行该命令在如下情况可以引起UDM向VLR/SGSN发送独立插入用户数据消息（Insert Subscriber Data）。\n\n  - 由非模板方式修改为模板方式，并且用户漫游所在的VLR/SGSN的CC（Country Code）和NDC（National Destination Code）与签约模板中的数据匹配。\n  - 修改模板方式签约的模板号，并且用户漫游所在的VLR/SGSN的CC和NDC与修改后模板的数据匹配。\n- 当用户在网，执行该命令在如下情况可以引起UDM向VLR/SGSN发送Cancel Location消息。\n\n  - 由非模板方式修改为模板方式，并且用户漫游所在的VLR/SGSN的CC和NDC与签约模板中的数据不匹配。\n  - 修改非模板方式签约的漫游属性，并且用户的漫游属性不在修改后属性的网络范围内。\n  - 由模板方式修改为非模板方式，并且用户的漫游属性不在修改后属性的网络范围内。\n- 当用户不在网，执行该命令仅更新用户在数据库中的数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802881",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/roaming_restricted_management.html",
+        "name": "漫游限制业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.31",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803181",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/rszi_management.html",
+        "name": "区域漫游限制业务",
+        "parentTopicId": "MMLREF_0190802881",
+        "position": "4.2.3.31.2",
+        "parentPosition": "4.2.3.31",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803007",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_rszi.html",
+        "name": "修改区域漫游限制业务(MOD RSZI)",
+        "parentTopicId": "CONCEPT_0190803181",
+        "position": "4.2.3.31.2.1",
+        "parentPosition": "4.2.3.31.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

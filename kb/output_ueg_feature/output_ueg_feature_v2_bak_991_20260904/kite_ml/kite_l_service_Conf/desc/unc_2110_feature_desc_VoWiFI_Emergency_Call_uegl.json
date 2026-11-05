@@ -1,0 +1,105 @@
+{
+  "feature_name": "激活VoWIFI紧急呼叫",
+  "feature_description": "在UEG上激活VoWiFi紧急呼叫功能，将紧急呼叫的用户接入WIFI网络。\n\n目前UEG支持VoWiFi紧急呼叫功能，可以通过**ADD APN**的“EMERGENCYSWITCH”和“S6BEMERGCYSERVICE”参数分别配置开关和AAR消息是否携带Emergency Service标识。在Wi-Fi覆盖范围内且UE支持的情况下，针对VoWiFi紧急呼叫业务的处理方式是：在3GPP网络覆盖下，UE发起紧急呼叫时优先回落CS域进行处理。\n\n**说明** \n\n适用于PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001308864973",
+        "topicUrl": "toctopics/zh-cn_topic_0000001308864973.html",
+        "name": "语音功能配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001261145046",
+        "topicUrl": "toctopics/zh-cn_topic_0000001261145046.html",
+        "name": "MME&AMF&GW-C&SMF配置",
+        "parentTopicId": "TOPIC_0000001308864973",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001264133540",
+        "topicUrl": "toctopics/zh-cn_topic_0000001264133540.html",
+        "name": "VoLTE基本功能",
+        "parentTopicId": "TOPIC_0000001261145046",
+        "position": "5.2.2.1",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001311253653",
+        "topicUrl": "kite_ml/kite_l_service_Conf/desc/unc_2110_feature_desc_VoWiFI_Emergency_Call_uegl.html",
+        "name": "激活VoWIFI紧急呼叫",
+        "parentTopicId": "TOPIC_0000001264133540",
+        "position": "5.2.2.1.8",
+        "parentPosition": "5.2.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

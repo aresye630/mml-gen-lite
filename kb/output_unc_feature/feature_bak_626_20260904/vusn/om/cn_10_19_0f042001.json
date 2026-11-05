@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活支持基于终端能力接入管理",
+  "feature_description": "本操作指导介绍在运行网络中激活支持基于终端能力接入管理的操作过程。\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450907",
+        "topicUrl": "toctopics/zh-cn_topic_0248450907.html",
+        "name": "NSA业务基本功能",
+        "parentTopicId": "",
+        "position": "10",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0193270615",
+        "topicUrl": "vusn/desc/cn_10_07_0f042001.html",
+        "name": "WSFD-011503 支持基于终端能力接入管理",
+        "parentTopicId": "TOPIC_0248450907",
+        "position": "10.4",
+        "parentPosition": "10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0193270617",
+        "topicUrl": "vusn/om/cn_10_19_0f042001.html",
+        "name": "激活支持基于终端能力接入管理",
+        "parentTopicId": "CONCEPT_0193270615",
+        "position": "10.4.2",
+        "parentPosition": "10.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

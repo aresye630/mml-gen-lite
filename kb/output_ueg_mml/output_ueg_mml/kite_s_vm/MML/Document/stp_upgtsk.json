@@ -1,0 +1,119 @@
+{
+  "command_name": "STP UPGTSK",
+  "command_name_zh": "停止升级/补丁任务",
+  "command_name_full": "停止升级/补丁任务(STP UPGTSK)",
+  "command_function": "**须知** \n\n- “快速失败”参数为空时，执行该命令会中止当前正在正常执行的升级/补丁任务，并重启后台升级工具服务，请谨慎操作。\n- “快速失败”参数非空时，执行该命令会打开/关闭原子快速失败能力。\n- 该命令会中止当前正在执行的升级/补丁任务，升级工具服务会重启（快速失败参数取值为ON/OFF时不会重启），请谨慎操作。\n- 升级/补丁过程中执行mml命令时，若mml命令执行依赖的微服务状态异常、节点复位等阶段可能会导致命令不生效或者失败，执行命令时请尽量避开这些阶段。\n\n- “快速失败”参数为空时，该命令用于停止正在执行的升级/补丁任务，并且在升级界面弹窗提示，用户可在界面上根据提示选择“继续”或“回退”。\n- “快速失败”参数非空时，该命令仅用于打开/关闭原子快速失败能力。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315563_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.6",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876248_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_upgrade_patch_management.html",
+        "name": "升级补丁管理",
+        "parentTopicId": "CONCEPT_0000202289315563_1",
+        "position": "1.2.6.12",
+        "parentPosition": "1.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000204936382865_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/csp_n_task_management.html",
+        "name": "任务管理",
+        "parentTopicId": "CONCEPT_0000202102876248_1",
+        "position": "1.2.6.12.3",
+        "parentPosition": "1.2.6.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001729989793_1",
+        "topicUrl": "kite_s_vm/MML/Document/stp_upgtsk.html",
+        "name": "停止升级/补丁任务(STP UPGTSK)",
+        "parentTopicId": "CONCEPT_0000204936382865_1",
+        "position": "1.2.6.12.3.1",
+        "parentPosition": "1.2.6.12.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

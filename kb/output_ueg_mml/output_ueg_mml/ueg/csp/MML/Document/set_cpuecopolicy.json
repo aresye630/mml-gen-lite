@@ -1,0 +1,131 @@
+{
+  "command_name": "SET CPUECOPOLICY",
+  "command_name_zh": "设置全局的CPU调频和休眠策略",
+  "command_name_full": "设置全局的CPU调频和休眠策略（SET CPUECOPOLICY）",
+  "command_function": "使用虚拟机CPU节能功能时，通过此命令可以设置全局的虚拟机CPU调频和休眠策略：\n\n- 虚拟机的CPU调频策略，是指允许虚拟机根据CPU核的负载状态自动地调节CPU核的运行频率，达到在低负载时节约能源的目的。\n- 虚拟机的CPU休眠策略，是指当CPU核在较长时间（秒级）没有中断请求时，允许虚拟机进入休眠状态，以获得更多的节能效果。\n\n  CPU休眠的深浅程度，表示CPU核参与休眠的部件范围大小，影响节能效果。是否支持休眠和参与休眠的部件范围与CPU类型和BIOS设置有关，休眠部件一般包括软件时钟、频率、缓存等。例如，ARM CPU不支持CPU休眠；X86 CPU支持浅休眠、深休眠；X86浅休眠主要包括软件时钟挂起/待机、降低倍频和电压，深休眠还包括清除L1/L2缓存等。一般来说，深休眠的节能效果比浅休眠好，不过CPU核从深休眠状态唤醒的所需时间要比浅休眠略长。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421818",
+        "topicUrl": "toctopics/zh-cn_topic_0225421818.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.8",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421814",
+        "topicUrl": "toctopics/zh-cn_topic_0225421814.html",
+        "name": "操作维护",
+        "parentTopicId": "TOPIC_0225421818",
+        "position": "2.2.1.8.1",
+        "parentPosition": "2.2.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001987832961",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/cpu_power_saving_policy.html",
+        "name": "CPU节能策略",
+        "parentTopicId": "TOPIC_0225421814",
+        "position": "2.2.1.8.1.15",
+        "parentPosition": "2.2.1.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001987832965_2",
+        "topicUrl": "ueg/csp/MML/Document/set_cpuecopolicy.html",
+        "name": "设置全局的CPU调频和休眠策略（SET CPUECOPOLICY）",
+        "parentTopicId": "TOPIC_0000001987832961",
+        "position": "2.2.1.8.1.15.1",
+        "parentPosition": "2.2.1.8.1.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

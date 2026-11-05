@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD HPUSITPL",
+  "command_name_zh": "增加PUSI基本信息模板",
+  "command_name_full": "增加PUSI基本信息模板(ADD HPUSITPL)",
+  "command_function": "该操作用于在HSS的业务数据库中添加一个PUSI基本信息模板。在该操作中，以下关键参数需要与对端网元（AS）协商： PUSI的AS地址。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732509",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Service_Data_Template_Management.html",
+        "name": "业务数据模板管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.6",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732675",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/PUSI_Template_Management.html",
+        "name": "PUSI模板管理",
+        "parentTopicId": "MMLREF_0191732509",
+        "position": "4.2.4.6.2",
+        "parentPosition": "4.2.4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732480",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/ADD_HPUSITPL.html",
+        "name": "增加PUSI基本信息模板(ADD HPUSITPL)",
+        "parentTopicId": "MMLREF_0191732675",
+        "position": "4.2.4.6.2.1",
+        "parentPosition": "4.2.4.6.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

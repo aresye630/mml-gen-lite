@@ -1,0 +1,105 @@
+{
+  "feature_name": "配置SWm接口对接数据（DRA转接）",
+  "feature_description": "UPF与Non-SIM AAA UDM-UIM间存在直连、非直连路径。图1表示经DRA的非直连路径。\n\n**图1** DRA组网\n\n当UPF与Non-SIM AAA之间直连路径故障或者未配置直连路径时，可以配置到DRA，DRA在UPF与Non-SIM AAA间转交消息，提供非3GPP鉴权认证功能。UPF与Non-SIM AAA交互时，优先选择直连路径发送消息。\n\n**说明** \n\n- SWm接口当前版本仅支持IPv4栈类型。\n- 专网UPF配置SWm接口时，不支持开启入不转板功能特性。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV7677237BD2914195B5B78B8034579F54",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222379409",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 智家随行解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002309353497",
+        "topicUrl": "toctopics/zh-cn_topic_0000002309353497.html",
+        "name": "一跳入家解决方案（基于非3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001912622529",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912622529.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002309353497",
+        "position": "2.4",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001992972333",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992972333.html",
+        "name": "部署一跳入家",
+        "parentTopicId": "TOPIC_0000001912622529",
+        "position": "2.4.5",
+        "parentPosition": "2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001912662877",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912662877.html",
+        "name": "配置一跳入家专网UPF",
+        "parentTopicId": "TOPIC_0000001992972333",
+        "position": "2.4.5.1",
+        "parentPosition": "2.4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "OPI_0000002089045152",
+        "topicUrl": "toctopics/zh-cn_opi_0000002089045152.html",
+        "name": "配置SWm接口对接数据（DRA转接）",
+        "parentTopicId": "TOPIC_0000001912662877",
+        "position": "2.4.5.1.3",
+        "parentPosition": "2.4.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

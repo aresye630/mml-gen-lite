@@ -1,0 +1,40 @@
+# ============================================================
+# 产品注册表（products.yaml）
+#
+# 数据驱动：每个核心网产品一条记录。新增产品 = 在此加一条 + 提供
+# 特性文档库，不改任何代码。匹配器按 exp 文件名关键字自动探测产品
+# 并选用对应指纹库；探测失败可 --product 显式指定。
+#
+# 字段：
+#   name        产品名（大写，与 exp 文件名网元关键字一致）
+#   feat_dir    特性文档库根目录（相对 ~ 展开）
+#   fingerprint 指纹库输出路径（相对 exp-groundtruth-verify 根）
+#   nav_dir     NAV 目录树根（相对 ~ 展开）；同名文档的标题后缀来源
+#               ⚠ 三产品形态不同：UDG/UNC 是 2~3 个大目录树文件；
+#                 UEG 是 9578 个碎片文件（在 output_ueg_nav_v2/ 子目录下）
+#               ⇒ 解析一律 rglob 递归（用 glob 会静默解析出 0 条）
+#   detect      exp 文件名/路径关键字列表（顺序即优先级）
+#   desc        产品说明
+# ============================================================
+
+products:
+  UEG:
+    desc: UEG 融合网元（UPF 用户面，21.x 新架构）
+    feat_dir: ~/workspace/zhijian/output_ueg_feature/output_ueg_feature_v3
+    fingerprint: rules/features_ueg.yaml
+    nav_dir: ~/workspace/zhijian/output_ueg_nav
+    detect: [UEG]
+
+  UDG:
+    desc: UDG UPF（传统 UPF 用户面）
+    feat_dir: ~/workspace/zhijian/output_udg_feature/feature_v3
+    fingerprint: rules/features_udg.yaml
+    nav_dir: ~/workspace/zhijian/output_udg_nav
+    detect: [UDG]
+
+  UNC:
+    desc: UNC SMF（控制面）
+    feat_dir: ~/workspace/zhijian/output_unc_feature/feature_v3
+    fingerprint: rules/features_unc.yaml
+    nav_dir: ~/workspace/zhijian/output_unc_nav
+    detect: [UNC]

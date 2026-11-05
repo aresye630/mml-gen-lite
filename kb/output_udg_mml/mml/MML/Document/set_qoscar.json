@@ -1,0 +1,131 @@
+{
+  "command_name": "SET QOSCAR",
+  "command_name_zh": "设置QosCar配置",
+  "command_name_full": "设置QosCar配置（SET QOSCAR）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于配置用户上下行QoSCar功能的全局开关。可以指定无线接入类型、漫游属性来配置用户上下行CAR功能。当使能CAR功能后，对于E-UTRAN接入的非GBR承载，系统会根据用户协商后的APN-AMBR对用户的报文发送速率做控制；对于E-UTRAN接入的GBR承载和其他接入方式下的承载，系统会根据用户协商后的上下行最大带宽和保证带宽对用户的报文发送速率做控制。当用户的报文发送速率超过最大带宽或APN-AMBR允许的值后，超过部分的数据包会被系统丢弃。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315825",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.5",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915795",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_qos_control.html",
+        "name": "用户QOS控制",
+        "parentTopicId": "CONCEPT_0000202289315825",
+        "position": "5.5.3",
+        "parentPosition": "5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315833",
+        "topicUrl": "MML/LinkedDoc/udg_n_traffic_management.html",
+        "name": "流量管理",
+        "parentTopicId": "CONCEPT_0000202288915795",
+        "position": "5.5.3.2",
+        "parentPosition": "5.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915797",
+        "topicUrl": "MML/LinkedDoc/udg_n_qos_car_configuation.html",
+        "name": "QoS CAR配置",
+        "parentTopicId": "CONCEPT_0000202289315833",
+        "position": "5.5.3.2.2",
+        "parentPosition": "5.5.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837668",
+        "topicUrl": "MML/Document/set_qoscar.html",
+        "name": "设置QosCar配置（SET QOSCAR）",
+        "parentTopicId": "CONCEPT_0000202288915797",
+        "position": "5.5.3.2.2.1",
+        "parentPosition": "5.5.3.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

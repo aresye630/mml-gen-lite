@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD UPAPNDIAMAAAG",
+  "command_name_zh": "增加APN的Diameter AAA服务器组",
+  "command_name_full": "增加APN的Diameter AAA服务器组（ADD UPAPNDIAMAAAG）",
+  "command_function": "**适用NF：UPF**\n\n此命令用于将Diameter AAA组绑定到指定APN上。当指定APN下需要建立会话时，操作员可以执行此命令将Diameter AAA组绑定到APN上，当该APN的用户激活时，系统选择将该分组下的Diameter AAA进行业务处理。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206136561392",
+        "topicUrl": "MML/LinkedDoc/udg_n_diameter_aaa_management.html",
+        "name": "Diameter AAA管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.20",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206288486681",
+        "topicUrl": "MML/LinkedDoc/udg_n_server_configuration.html",
+        "name": "服务器配置",
+        "parentTopicId": "CONCEPT_0000206136561392",
+        "position": "5.20.1",
+        "parentPosition": "5.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206288486683",
+        "topicUrl": "MML/LinkedDoc/udg_n_apn_specific_diameter_aaa_group.html",
+        "name": "APN的Diameter AAA组",
+        "parentTopicId": "CONCEPT_0000206288486681",
+        "position": "5.20.1.4",
+        "parentPosition": "5.20.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206145195206",
+        "topicUrl": "MML/Document/add_upapndiamaaag.html",
+        "name": "增加APN的Diameter AAA服务器组（ADD UPAPNDIAMAAAG）",
+        "parentTopicId": "CONCEPT_0000206288486683",
+        "position": "5.20.1.4.1",
+        "parentPosition": "5.20.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

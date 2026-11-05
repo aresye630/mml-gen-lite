@@ -1,0 +1,126 @@
+{
+  "command_name": "EXP MML",
+  "command_name_zh": "导出MML文件",
+  "command_name_full": "导出MML文件（EXP MML）",
+  "command_function": "本命令可以对系统中的所有配置数据进行备份，并以特定的数据格式将系统配置数据导出，提升系统可靠性。\n\n- 若要导出某一网元的配置数据，请输入“网元ID”。\n- 若要导出全部网元的配置数据，请不要输入任何参数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319747",
+        "topicUrl": "MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.6",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320399",
+        "topicUrl": "MML/LinkedDoc/csp_n_configuration_management.html",
+        "name": "配置管理",
+        "parentTopicId": "TOPIC_0234319747",
+        "position": "1.6.2",
+        "parentPosition": "1.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321145",
+        "topicUrl": "MML/LinkedDoc/csp_n_configuration_export_management.html",
+        "name": "配置导出管理",
+        "parentTopicId": "TOPIC_0234320399",
+        "position": "1.6.2.1",
+        "parentPosition": "1.6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001147200033",
+        "topicUrl": "MML/Document/exp_mml.html",
+        "name": "导出MML文件（EXP MML）",
+        "parentTopicId": "TOPIC_0234321145",
+        "position": "1.6.2.1.1",
+        "parentPosition": "1.6.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

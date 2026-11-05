@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD LUCSITPL",
+  "command_name_zh": "增加LU-CSI模板",
+  "command_name_full": "增加LU-CSI模板(ADD LUCSITPL)",
+  "command_function": "该命令用于为HLR在配置数据库中增加一条LU-CSI（Location Upgrade Services CAMEL Subscription Information）模板数据记录，根据运营商CAMEL网络的实际情况进行配置，相关参数由运营商提供。用户通过签约LU-CSI模板ID签约LU-CSI业务。\n\nLU-CSI是一种CAMEL签约数据，目前只用于LBS（Location Based Services）业务。VLR支持DP3或DP4时，处理逻辑如下：\n\n- 用户签约的“DP类型”为“DP3”，NCCTPL模板的“LU是否支持DP3”参数为“SR”，用户在进行位置更新时，MSC在插入用户信息消息中下发签约了DP3的LU-CSI信息给VLR，由MSC触发INAP（Intelligent Network Application Part）消息到智能网络。\n- 用户签约的“DP类型”为“DP4”，NCCTPL模板的“LU是否支持DP4”参数为“SR”，HLR收到位置更新请求时，判断MAP协议版本为V3且VLR发生变化，给VLR回位置更新响应前，HLR触发INAP（Intelligent Network Application Part）消息到智能网络。\n\n智能网络基于INAP消息实现不同业务逻辑，譬如欢迎短消息、OTA Roaming list更新和欢迎消息可以包含套餐资费宣传信息等。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803320",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/camel_template_configuration.html",
+        "name": "CAMEL模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.15",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803364",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/lu_csi_template.html",
+        "name": "LU-CSI模板",
+        "parentTopicId": "CONCEPT_0190803320",
+        "position": "4.2.3.6.15.10",
+        "parentPosition": "4.2.3.6.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803143_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_lucsitpl.html",
+        "name": "增加LU-CSI模板(ADD LUCSITPL)",
+        "parentTopicId": "CONCEPT_0190803364",
+        "position": "4.2.3.6.15.10.1",
+        "parentPosition": "4.2.3.6.15.10",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

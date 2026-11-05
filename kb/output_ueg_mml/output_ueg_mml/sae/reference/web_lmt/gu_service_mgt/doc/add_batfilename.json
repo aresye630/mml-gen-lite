@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD BATFILENAME",
+  "command_name_zh": "添加自动批操作文件名称",
+  "command_name_full": "添加自动批操作文件名称(ADD BATFILENAME)",
+  "command_function": "该命令用于在UDM增加自动批操作文件及各类结果名称的前缀。\n\n批操作文件通过FTP服务器上传到PGW模板的“/opt/pgw/upload/HSS9860”目录下，UDM从FTP上传目录中根据最大前缀匹配的方式获取匹配的文件名，将该文件作为待执行的批操作文件。再根据定义的自动批操作文件名称获取各类结果文件名称前缀，使用该前缀与待执行的批操作文件名称进行拼接组装，并将组装后的名称返回给PGW。\n\n**说明** \n\n- 自动批操作文件包含多个待执行的MML命令行，为文本编辑器编辑的文本文件。FTP方式上传的批操作文件，不能是.lst或.SFTPPARTFILE后缀的文件。\n- FTP方式上传的批操作文件名是1～124位由字母、十进制数字、“\\_”、“-”或“.”组成的字符串。\n\n例如：待执行的“批操作文件名称”为“Bat.txt”，“结果文件名前缀”为“Rst”，“成功结果文件名前缀”为“succRst”、“失败结果文件名前缀”为“errRst”、“详细结果文件名前缀”为“detailRst”，组装后的文件名如下所示。\n\n- 结果文件：不进行拆分处理，组装后的文件名为“RstBat.txt”。\n- 成功结果文件、失败结果文件、详细结果文件：文件拆分逻辑为每100MB拆分一次，在组装后的文件名后增加“\\_序号”。\n  - “succRstBat.txt\\_1”、“succRstBat.txt\\_2”\n  - “errRstBat.txt\\_1”、“errRstBat.txt\\_2”\n  - “detailRstBat.txt\\_1”、“detailRstBat.txt\\_2”\n\n通过该命令新增自动批操作文件名称时，系统支持在文件名的最后添加时间，定义格式为“Prefix\\_YYYYMMDD\\_HH\\_MM\\_SS\\_NNNNNN.dat”，实现定时批操作功能。\n\n**说明** \n\n- Prefix为前缀，由客户自定义。\n- YYYYMMDD\\_HH\\_MM\\_SS是文件创建的时间(年月日时分秒)，NNNNNN是从0开始循环累加的6位序号，.dat是固定的后缀。\n\n当匹配到该命令定义的文件名前缀时，系统检查文件名中的时间，并和系统时间作比较。\n\n- 当未匹配上时间格式的文件名时，系统直接执行批处理操作。\n- 当匹配上时间格式的文件名时:\n  - 对于小于或等于系统时间的文件系统直接执行批操作。\n    - 当存在多条时间前缀小于或等于系统时间的文件，则按照时间先后顺序，优先返回时间最早的一个文件进行批操作。\n    - 当存在多条时间前缀小于或等于系统时间，且时间前缀相同的文件，则按照序号大小顺序，优先返回序号最小的一个文件进行批操作。\n  - 对于均大于系统时间的文件，需要等待系统时间与文件名中时间前缀一致时再执行批操作。\n\n批操作文件执行结束后，系统自动删除FTP上传目录“/opt/pgw/upload/HSS9860”中的批操作文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803075",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/gu_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.1",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0258644816",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/bat_filename_management.html",
+        "name": "自动批操作文件名称管理",
+        "parentTopicId": "MMLREF_0190803075",
+        "position": "4.2.3.1.4",
+        "parentPosition": "4.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0258644817",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_batfilename.html",
+        "name": "添加自动批操作文件名称(ADD BATFILENAME)",
+        "parentTopicId": "CONCEPT_0258644816",
+        "position": "4.2.3.1.4.1",
+        "parentPosition": "4.2.3.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

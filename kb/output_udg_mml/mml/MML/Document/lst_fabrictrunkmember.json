@@ -1,0 +1,131 @@
+{
+  "command_name": "LST FABRICTRUNKMEMBER",
+  "command_name_zh": "查询Fabric-Trunk成员接口",
+  "command_name_full": "查询Fabric-Trunk成员接口（LST FABRICTRUNKMEMBER）",
+  "command_function": "该命令用于查询NP卡Fabric-Trunk成员接口的基本信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595640",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.3",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202477964648",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_np_fabric_management.html",
+        "name": "NP Fabric链路管理",
+        "parentTopicId": "CONCEPT_0000202103595640",
+        "position": "4.14.3.3",
+        "parentPosition": "4.14.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000207153426498",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_fabric_trunk_member_management.html",
+        "name": "Fabric-Trunk成员接口管理",
+        "parentTopicId": "CONCEPT_0000202477964648",
+        "position": "4.14.3.3.4",
+        "parentPosition": "4.14.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000002184640500",
+        "topicUrl": "MML/Document/lst_fabrictrunkmember.html",
+        "name": "查询Fabric-Trunk成员接口（LST FABRICTRUNKMEMBER）",
+        "parentTopicId": "CONCEPT_0000207153426498",
+        "position": "4.14.3.3.4.3",
+        "parentPosition": "4.14.3.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

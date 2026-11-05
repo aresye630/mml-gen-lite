@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD IWFIMSI",
+  "command_name_zh": "增加IMSI号段属性",
+  "command_name_full": "增加IMSI号段属性(ADD IWFIMSI)",
+  "command_function": "该命令用于添加某个IMSI号段的工作模式和其他属性。\n\n该命令的使用场景：为了避免5G部署初期对已有的4G网络稳定性造成影响，通过本命令可以为不同的IMSI号段分别配置IWF、UDM或者UDM和HSS融合模式的工作模式属性，减少对用户使用现有业务的影响，灵活的配置工作模式方便客户选择，使得用户5G业务可以按需部署，提升用户体验。\n\n**说明** \n\n1. 局向流控和局向话统是基于对端主机名称（通过本命令中“分区ID”参数可以配置IMSI号段和对端HSS的对应关系）进行控制和统计。\n2. 实际号段配置：如果本命令配置的IMSI号段是实际号段，则参数“分区ID”（该参数由**ADD SPRTINFO**命令定义）标识的对端主机名配置为实际对端HSS主机名，局向流控和局向话统按照实际的对端主机名进行控制和统计。\n3. 大号段配置：如果本命令配置的IMSI号段是大号段，则参数“分区ID”（该参数由**ADD SPRTINFO**命令定义）标识的对端主机名配置为虚拟的HSS主机名，局向流控和局向话统按照虚拟的HSS主机名进行控制和统计，实际控制大号段范围内的所有HSS局点。\n4. 建议使用实际号段配置。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0207368722",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/imsi_prefix_properties.html",
+        "name": "IWF IMSI号段属性配置",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.78",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0207368167",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_iwfimsi.html",
+        "name": "增加IMSI号段属性(ADD IWFIMSI)",
+        "parentTopicId": "TOPIC_0207368722",
+        "position": "4.2.3.2.78.1",
+        "parentPosition": "4.2.3.2.78",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

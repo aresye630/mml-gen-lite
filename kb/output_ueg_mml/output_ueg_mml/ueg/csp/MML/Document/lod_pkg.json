@@ -1,0 +1,119 @@
+{
+  "command_name": "LOD PKG",
+  "command_name_zh": "加载包",
+  "command_name_full": "加载包(LOD PKG)",
+  "command_function": "本命令用于将指定的包文件加载到CGPLite的主用Pod上。\n\n本命令支持的包文件类型有：\n\n- 版本包：即网元包，在增加网元时使用。\n- 补丁包：网元打补丁时使用。\n- 升级包：网元升级时使用。\n- 软件包：操作系统和数据库安装包，用于给Pod安装操作系统或数据库。\n- 维护功能包：给网元做特定维护时使用。\n\n本命令的使用场景为：当用户需要安装网元版本、对网元版本进行升级、为版本打补丁或为Pod安装软件时，必须先使用本命令加载相应的包文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854898",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.2",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855029",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/package_management.html",
+        "name": "包管理",
+        "parentTopicId": "CONCEPT_0165854898",
+        "position": "2.2.1.2.1",
+        "parentPosition": "2.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165855449_4",
+        "topicUrl": "ueg/csp/MML/Document/lod_pkg.html",
+        "name": "加载包(LOD PKG)",
+        "parentTopicId": "CONCEPT_0165855029",
+        "position": "2.2.1.2.1.1",
+        "parentPosition": "2.2.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

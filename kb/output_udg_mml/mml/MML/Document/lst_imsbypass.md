@@ -1,0 +1,46 @@
+﻿# 显示IMS Bypass功能的相关参数（LST IMSBYPASS）
+
+- 命令功能
+- 注意事项
+- 操作用户权限
+- 参数说明
+- 使用实例
+
+#### 命令功能
+
+**适用NF：PGW-U、UPF**
+
+该命令用于查询IMS Bypass功能的相关参数。
+
+#### 注意事项
+
+无。
+
+#### 操作用户权限
+
+G\_1，管理员级别命令组；G\_2，操作员级别命令组；G\_3，用户级别命令组
+
+#### 参数说明
+
+无。
+
+#### 使用实例
+
+使用LST IMSBYPASS命令查询IMS Bypass功能的相关参数：
+
+```
+LST IMSBYPASS:;
+```
+
+```
+RETCODE = 0  Operation succeeded
+
+List IMS QoS URR reporting parameters
+-------------------------------------
+                        IMS Bypass switch  =  Disable
+         URR-based QoS Flow Report Method  =  FLOW
+Hysteresis Time for QoS type URR Stop (s)  =  0
+(Number of results = 1)
+
+---    END
+```

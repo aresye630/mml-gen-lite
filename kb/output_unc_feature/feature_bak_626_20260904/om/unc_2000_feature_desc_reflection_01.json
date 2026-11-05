@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活支持用户属性反射",
+  "feature_description": "当需要将用户接入属性映射到话单信息中时，需要激活接入用户属性反射功能。\n\n**说明** \n\n适用于GGSN、PGW-C、SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450955",
+        "topicUrl": "toctopics/zh-cn_topic_0248450955.html",
+        "name": "计费管理功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0228361024",
+        "topicUrl": "desc/unc_2000_feature_desc_reflection_01.html",
+        "name": "WSFD-011309 支持用户属性反射",
+        "parentTopicId": "TOPIC_0248450955",
+        "position": "18.12",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0228361026",
+        "topicUrl": "om/unc_2000_feature_desc_reflection_01.html",
+        "name": "激活支持用户属性反射",
+        "parentTopicId": "CONCEPT_0228361024",
+        "position": "18.12.2",
+        "parentPosition": "18.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

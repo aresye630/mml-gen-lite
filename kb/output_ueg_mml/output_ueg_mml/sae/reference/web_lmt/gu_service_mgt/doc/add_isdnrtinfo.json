@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD ISDNRTINFO",
+  "command_name_zh": "增加MSISDN全局路由数据",
+  "command_name_full": "增加MSISDN全局路由数据(ADD ISDNRTINFO)",
+  "command_function": "该操作用来增加MSISDN全局路由数据。\n\n- 当收到以MSISDN路由的消息(如SRI)并且查询不到用户的开户信息时，则会查询全局的MSISDN的全局路由数据，根据号码最大前缀匹配的原则匹配一条全局路由数据，将消息转发到此号段归属的HLR中。\n- 当UDM收到业务流程请求消息，消息中的用户未在该UDM开户也未开卡并且**SET MAPCONF**命令中“是否支持异厂商Proxy转发功能”参数为“TRUE”时，UDM查询MSISDN全局路由数据配置信息，根据消息中携带的号码最大前缀匹配原则获取PID（如果未查询到对应数据，则获取**SET MAPSERV**配置的“默认转发分区ID”），然后根据PID从**ADD SPRTINFO**配置的云分区路由数据记录中获取对端，进行消息的转发。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802980",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/isdnrtinfo_config.html",
+        "name": "MSISDN全局路由配置",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.32",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803654",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_isdnrtinfo.html",
+        "name": "增加MSISDN全局路由数据(ADD ISDNRTINFO)",
+        "parentTopicId": "MMLREF_0190802980",
+        "position": "4.2.3.2.32.1",
+        "parentPosition": "4.2.3.2.32",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

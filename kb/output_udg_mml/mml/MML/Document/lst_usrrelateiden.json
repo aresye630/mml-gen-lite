@@ -1,0 +1,131 @@
+{
+  "command_name": "LST USRRELATEIDEN",
+  "command_name_zh": "查询用户关联识别",
+  "command_name_full": "查询用户关联识别（LST USRRELATEIDEN）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n当运营商需要查询特定协议的用户关联功能，显示指定protocol的用户关联识别配置时配置该命令，该命令支持显示所有的用户关联识别配置。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356062",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595844",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_filter_management.html",
+        "name": "业务过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103356062",
+        "position": "5.4.1",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155167",
+        "topicUrl": "MML/LinkedDoc/udg_n_l34_layer_rule_management.html",
+        "name": "三四层规则管理",
+        "parentTopicId": "CONCEPT_0000202103595844",
+        "position": "5.4.1.1",
+        "parentPosition": "5.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356064",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_relate_identify.html",
+        "name": "用户关联识别",
+        "parentTopicId": "CONCEPT_0000202289155167",
+        "position": "5.4.1.1.6",
+        "parentPosition": "5.4.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0186526961",
+        "topicUrl": "MML/Document/lst_usrrelateiden.html",
+        "name": "查询用户关联识别（LST USRRELATEIDEN）",
+        "parentTopicId": "CONCEPT_0000202103356064",
+        "position": "5.4.1.1.6.4",
+        "parentPosition": "5.4.1.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

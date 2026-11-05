@@ -1,0 +1,126 @@
+{
+  "command_name": "MOD OMNWCONF",
+  "command_name_zh": "配置OM网络探测参数",
+  "command_name_full": "配置OM网络探测参数（MOD OMNWCONF）",
+  "command_function": "**须知** \n\n网络探测参数修改可能导致OMLB服务主备倒换，可能**导致网管或VNFM断链**；关闭网络探测时，会导致OM网络故障无法检测。\n\n用于配置OM网络故障探测参数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321101",
+        "topicUrl": "MML/LinkedDoc/csp_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.7",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321536",
+        "topicUrl": "MML/LinkedDoc/csp_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "TOPIC_0234321101",
+        "position": "1.7.2",
+        "parentPosition": "1.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001152907892",
+        "topicUrl": "MML/LinkedDoc/csp_n_network_management.html",
+        "name": "网络管理",
+        "parentTopicId": "TOPIC_0234321536",
+        "position": "1.7.2.3",
+        "parentPosition": "1.7.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001158550741",
+        "topicUrl": "MML/Document/mod_omnwconf.html",
+        "name": "配置OM网络探测参数（MOD OMNWCONF）",
+        "parentTopicId": "TOPIC_0000001152907892",
+        "position": "1.7.2.3.4",
+        "parentPosition": "1.7.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

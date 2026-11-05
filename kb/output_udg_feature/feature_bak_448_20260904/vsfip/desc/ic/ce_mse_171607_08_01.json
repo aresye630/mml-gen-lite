@@ -1,0 +1,81 @@
+{
+  "feature_name": "激活第三方应用实例可靠性增强",
+  "feature_description": "当运营商为保障终端用户更好的享受增值业务时，会根据检测周期定时对第三方app进行故障检测，开启激活第三方实例可靠性增强功能。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVE7DED619A08B413DA0C5CCA095666C6D",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222265013",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG SFIP功能专题",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "TOPIC_0000001282145608",
+        "topicUrl": "toctopics/zh-cn_topic_0000001282145608.html",
+        "name": "功能描述",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "CONCEPT_0000001334108265",
+        "topicUrl": "vsfip/desc/ce_mse_171607_08.html",
+        "name": "第三方应用实例可靠性增强",
+        "parentTopicId": "TOPIC_0000001282145608",
+        "position": "3.4",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222265013",
+        "topicId": "OPI_0000001333988381",
+        "topicUrl": "vsfip/desc/ic/ce_mse_171607_08_01.html",
+        "name": "激活第三方应用实例可靠性增强",
+        "parentTopicId": "CONCEPT_0000001334108265",
+        "position": "3.4.1",
+        "parentPosition": "3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

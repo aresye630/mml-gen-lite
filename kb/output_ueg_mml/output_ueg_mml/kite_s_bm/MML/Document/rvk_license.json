@@ -1,0 +1,107 @@
+{
+  "command_name": "RVK LICENSE",
+  "command_name_zh": "失效License",
+  "command_name_full": "失效License(RVK LICENSE)",
+  "command_function": "**须知** \n\n该命令会使License失效，请确认是否要进行操作。\n\n该命令用于使License失效，当前系统激活的License失效后，会进入宽限期阶段，失效的License不能被激活和回退。\n\n- 如果不设置“License文件名称”，则失效当前系统激活的License，失效后会进入宽限期阶段。\n- 如果设置了“License文件名称”，且不是当前系统激活的License，则只会使此License失效，不会对系统激活的License产生影响，此License不能再用于激活和回退。\n\n该命令的使用场景为：在ESN变更、容量调整等场景下，使用本命令使License文件失效并获取失效码，用于重新获取新的License文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315563_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.6",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555061_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_license_management.html",
+        "name": "License管理",
+        "parentTopicId": "CONCEPT_0000202289315563_2",
+        "position": "3.2.6.16",
+        "parentPosition": "3.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001100061904_2",
+        "topicUrl": "kite_s_bm/MML/Document/rvk_license.html",
+        "name": "失效License(RVK LICENSE)",
+        "parentTopicId": "CONCEPT_0000202289555061_2",
+        "position": "3.2.6.16.7",
+        "parentPosition": "3.2.6.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

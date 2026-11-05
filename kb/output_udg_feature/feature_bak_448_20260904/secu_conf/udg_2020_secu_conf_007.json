@@ -1,0 +1,110 @@
+{
+  "feature_name": "配置ACL防止UE或用户PDN/DN对运营商网络设备攻击",
+  "feature_description": "如果UE所属APN绑定的VPN与UDG的PDN/DN侧接口绑定的VPN相同，UE激活后存在攻击UDG以及与UDG的PDN/DN侧接口相连的路由器设备的可能性。另外如果VPN配置错误，恶意用户了解运营商网络设备IP地址的情况下，可能发起非法行访问或恶意攻击。组网如图1所示。\n\n**图1** 防止UE对运营商网络设备的攻击示意图\n\n禁止UE访问的运营商网络设备范围包括：\n\n- UPF周边对接网元，网络数据参考水平网设文档。\n- NFVI基础设施层，网络数据参考垂直网设文档。\n- 日志服务器、NTP服务器等其他网络设备，网络数据需要根据运营商实际部署情况确定。\n\n为防止恶意用户的以上攻击行为，收集以上运营商网络设备的网络数据，需要采取如下至少一种措施阻断恶意用户访问行为。\n\n- 在外部PDN/DN网络和运营商网络设备之间部署防火墙，禁止用户访问运营商网络设备。\n- 在UDG上配置包过滤策略，禁止用户访问运营商网络设备。过滤报文目的地址为：本运营商范围内与UE所属APN绑定同一VPN的接口可达的所有网段。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "安全配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVC3FF3F5E20874B47B52929C1F1C33140",
+        "parentNaviId": "DOCNAV617B978E9E49438CA246F9906B469793",
+        "pidId": "pid_bookmap_0000002187138142",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG安全配置",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8003",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8003"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001144684195",
+        "topicUrl": "toctopics/zh-cn_topic_0000001144684195.html",
+        "name": "安全配置建议",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091631538",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091631538.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001144684195",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "TOPIC_0000001091791208",
+        "topicUrl": "toctopics/zh-cn_topic_0000001091791208.html",
+        "name": "业务安全配置",
+        "parentTopicId": "TOPIC_0000001091631538",
+        "position": "2.2.5",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138142",
+        "topicId": "OPI_0231927620",
+        "topicUrl": "secu_conf/udg_2020_secu_conf_007.html",
+        "name": "配置ACL防止UE或用户PDN/DN对运营商网络设备攻击",
+        "parentTopicId": "TOPIC_0000001091791208",
+        "position": "2.2.5.9",
+        "parentPosition": "2.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

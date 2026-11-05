@@ -1,0 +1,131 @@
+{
+  "command_name": "SET SBIFILTERPARA",
+  "command_name_zh": "设置服务接口过滤参数",
+  "command_name_full": "设置服务接口过滤参数(SET SBIFILTERPARA)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致链路中断，影响业务处理，需联系华为技术支持确认后再执行。\n\n该命令用于设置服务接口过滤参数。\n\n使用场景：在安全加固场景下，通过**ADD SBIFILTERLST**可以设置允许接入或者禁止访问的每个服务的IP地址列表。然后通过该命令参数的“StatCheck(静态检查参数)”来设置系统的黑名单过滤或白名单过滤。从而实现在UPCF提供服务前，对白名单内的服务访问者进行静态授权检查，对黑名单内的服务访问者禁止接入和授权。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167444231",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_hlb_management.html",
+        "name": "HLB管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.5",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173914189",
+        "topicUrl": "MML/LinkedDoc/pcfhttploadbalanceservice_n_sbi_filter_para.html",
+        "name": "服务化接口过滤参数",
+        "parentTopicId": "CONCEPT_0167444231",
+        "position": "2.2.3.5.5.7",
+        "parentPosition": "2.2.3.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173914190_2",
+        "topicUrl": "MML/Document/set_sbifilterpara.html",
+        "name": "设置服务接口过滤参数(SET SBIFILTERPARA)",
+        "parentTopicId": "CONCEPT_0173914189",
+        "position": "2.2.3.5.5.7.1",
+        "parentPosition": "2.2.3.5.5.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

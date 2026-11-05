@@ -1,0 +1,109 @@
+{
+  "feature_name": "配置到SMC的数据（Over IP）",
+  "feature_description": "当运营商在部署分组交换网，新增SMC或SGSN时，在配置完成SGSN到SMC的路由数据后，可通过配置M3UA链路数据建立SGSN到SMC的逻辑连接。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782619724",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782619724.html",
+        "name": "配置AMF&MME&SGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.1",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001782626752",
+        "topicUrl": "toctopics/zh-cn_opi_0000001782626752.html",
+        "name": "配置SGSN",
+        "parentTopicId": "TOPIC_0000001782619724",
+        "position": "8.1.3",
+        "parentPosition": "8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782467132",
+        "topicUrl": "init_install/unc_2000_init_sgsn_07.html",
+        "name": "配置到SMC的数据",
+        "parentTopicId": "OPI_0000001782626752",
+        "position": "8.1.3.8",
+        "parentPosition": "8.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001829306557",
+        "topicUrl": "init_install/unc_2000_init_sgsn_07_01.html",
+        "name": "配置到SMC的数据（Over IP）",
+        "parentTopicId": "TOPIC_0000001782467132",
+        "position": "8.1.3.8.1",
+        "parentPosition": "8.1.3.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

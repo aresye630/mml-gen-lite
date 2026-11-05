@@ -1,0 +1,143 @@
+{
+  "command_name": "MOD MEMALLOCTESTCFG",
+  "command_name_zh": "修改内存申请测试配置信息",
+  "command_name_full": "修改内存申请测试配置信息(MOD MEMALLOCTESTCFG)",
+  "command_function": "该命令用于修改或调整UDM注册给CSP的内存申请测试配置信息。UDM注册CSP的接口如下：\n\n- 内存申请测试大小接口\n- 内存申请周期接口\n- 内存申请测试次数接口\n\nUDM在所有进程初始化时，调用平台接口将对应进程类型的内存申请测试大小、内存申请测试周期以及内存申请测试次数取值设置给平台。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782893",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_expert_maintenance_command.html",
+        "name": "专家维护命令",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.4",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203279063372",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management_command.html",
+        "name": "系统管理命令",
+        "parentTopicId": "CONCEPT_0000203481782893",
+        "position": "2.2.3.4.4.1",
+        "parentPosition": "2.2.3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206456920461",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_management_of_memory_request_configuration_for_test.html",
+        "name": "内存申请测试配置管理",
+        "parentTopicId": "CONCEPT_0000203279063372",
+        "position": "2.2.3.4.4.1.6",
+        "parentPosition": "2.2.3.4.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0279537372",
+        "topicUrl": "reference/mml/ueg/Document/mod_memalloctestcfg.html",
+        "name": "修改内存申请测试配置信息(MOD MEMALLOCTESTCFG)",
+        "parentTopicId": "CONCEPT_0000206456920461",
+        "position": "2.2.3.4.4.1.6.2",
+        "parentPosition": "2.2.3.4.4.1.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

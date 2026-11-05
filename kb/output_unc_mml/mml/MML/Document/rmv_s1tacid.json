@@ -1,0 +1,150 @@
+{
+  "command_name": "RMV S1TACID",
+  "command_name_zh": "删除TAC组内绑定的S1TAC号段",
+  "command_name_full": "删除TAC组内绑定的S1TAC号段（RMV S1TACID）",
+  "command_function": "**适用NF：PGW-C**\n\n该命令用来删除TAC组内绑定的TAC号段。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001227622729",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management000.html",
+        "name": "接入管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321129",
+        "topicUrl": "MML/LinkedDoc/unc_n_virtual_apn_mapping_policy_management.html",
+        "name": "虚拟APN映射管理",
+        "parentTopicId": "TOPIC_0000001227622729",
+        "position": "2.7.1.2",
+        "parentPosition": "2.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321152",
+        "topicUrl": "MML/LinkedDoc/unc_n_virtual_apn_mapping_management_based_on_tac_location.html",
+        "name": "基于TAC位置的虚拟APN映射管理",
+        "parentTopicId": "TOPIC_0234321129",
+        "position": "2.7.1.2.3",
+        "parentPosition": "2.7.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320744",
+        "topicUrl": "MML/LinkedDoc/unc_n_s1_tac_segment_of_a_tac_group.html",
+        "name": "TAC组的S1 TAC段",
+        "parentTopicId": "TOPIC_0234321152",
+        "position": "2.7.1.2.3.3",
+        "parentPosition": "2.7.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209654426",
+        "topicUrl": "MML/Document/rmv_s1tacid.html",
+        "name": "删除TAC组内绑定的S1TAC号段（RMV S1TACID）",
+        "parentTopicId": "TOPIC_0234320744",
+        "position": "2.7.1.2.3.3.2",
+        "parentPosition": "2.7.1.2.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

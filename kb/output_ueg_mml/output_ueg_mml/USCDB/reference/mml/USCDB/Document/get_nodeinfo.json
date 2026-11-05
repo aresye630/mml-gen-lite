@@ -1,0 +1,131 @@
+{
+  "command_name": "GET NODEINFO",
+  "command_name_zh": "获取节点信息",
+  "command_name_full": "获取节点信息(GET NODEINFO)",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作可能产生短时间内Pod CPU使用率较高，导致业务受损。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令主要用于维护和故障处理场景下获取节点的相关信息，便于故障定位。\n\n- 系统根据模块信息获取相关节点信息，不同类型的模块支持获取的不同类型的节点信息。\n  - DRU模块支持获取除全局数据、全局数据刷新状态以外的节点信息。\n  - DSU模块支持获取除全局数据、全局数据刷新状态以外的节点信息。\n  - DSG模块支持获取心跳、CHANNEL、本地日志、流控日志类型的节点信息。\n  - NDF模块支持获取本地日志类型的节点信息，检查OS和物理库用户的默认密码是否修改。\n  - PGW模块支持获取本地日志、全局数据、全局数据刷新状态和模块资源的节点信息。\n  - DBG模块支持获取各节点间的用户数据校验结果信息和分布式批量修改用户数据失败的日志信息。\n  - DPU模块只支持获取本地日志类型的节点信息。\n  - CAG模块只支持获取心跳类型的节点信息，相关原理请参见心跳消息管理。\n  - DMA模块支持获取GMDB状态和模块资源的节点信息。\n  - 其它类型的模块不支持通过该命令获取节点信息。\n- 系统根据用户信息一键式获取指定用户的分析日志，分析日志包括：\n  - 指定用户所在DRU/DSU的模块日志。\n  - 指定用户的校验日志。\n  - 指定用户的用户轨迹日志。\n  - 指定用户的营帐日志。\n  - 指定用户的历史FDB备份数据日志。\n  - 指定用户的OMU主机日志。\n  - 指定用户的分布式批量修改用户数据失败日志。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774529",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.1",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774314_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/information_collection.html",
+        "name": "信息收集",
+        "parentTopicId": "MMLREF_0172774529",
+        "position": "2.2.4.3.1.13",
+        "parentPosition": "2.2.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774324_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/get_nodeinfo.html",
+        "name": "获取节点信息(GET NODEINFO)",
+        "parentTopicId": "CONCEPT_0172774314_2",
+        "position": "2.2.4.3.1.13.1",
+        "parentPosition": "2.2.4.3.1.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

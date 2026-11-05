@@ -1,0 +1,49 @@
+# notice_rules.yaml — 注意点检测规则声明（UDG；通用模式，禁止局点实例值）
+# detect 为检测算法描述；实现见 p5_notices.py（按 rule_id 分发）。
+# 输出 notice {rule_id, kind: fact|warning|info|high, text(含现网证据值), evidence}
+
+UDG:
+  - rule_id: policitype-match
+    name: RULEBINDING POLICYTYPE 与 RULE 定义一致性
+    severity: high
+    render: "RULEBINDING 的 POLICYTYPE 必须与 RULE 定义一致（UDG 全带 POLICYTYPE 参数，混用将不生效）"
+
+  - rule_id: metering-pair
+    name: URRGROUP 内 offline/online 计量同值
+    severity: high
+    render: "URRGROUP 内引用的 URR 计量必须同值（防 FREE+VOLUME 混搭；新增组不得引入 VOLUME 混搭）"
+
+  - rule_id: refresh-srv
+    name: 生效刷新 SET REFRESHSRV 覆盖性
+    severity: info
+    render: "Filter/Rule/ACL 类变更后需 SET REFRESHSRV:REFRESHTYPE=ALL（导出态覆盖性核对）"
+
+  - rule_id: urltype-host
+    name: L7 URL 过滤前置条件
+    severity: high
+    render: "L7FILTER URL 匹配必须 URLTYPE=URL（默认 OTHER 不生效）；FILTER SVRIPMODE=HOSTNAME 必须引用已建 ADD HOST"
+
+  - rule_id: urrid-segment
+    name: URRID 段语义隔离
+    severity: high
+    render: "PCC offline/online 成对共段、QOS/监控用独立段（Pitfall#5）；跨段混用/区间重叠即冲突"
+
+  - rule_id: lic-instance
+    name: 许可 DISABLE 与功能实例并存
+    severity: info
+    render: "授权 DISABLE 但同链功能实例活跃——核对授权规划（基础功能不阻塞，增强能力未开）"
+
+  - rule_id: rule-priority
+    name: RULE PRIORITY 分层
+    severity: info
+    render: "RULE PRIORITY 全网分层（高段主规则 > 低段细规则）；新增规则按同业务段取间隙，勿跨段"
+
+  - rule_id: pool-apn-vrf
+    name: 地址池/APN/VRF 三处绑定一致
+    severity: high
+    render: "地址池 VPNINSTANCE = APN VPNINSTANCE = 外联口 VRF 三处一致；引用不存在的 VRF 将导致选址失败"
+
+  - rule_id: ipalloc-twolevel
+    name: 位置分配两级控制
+    severity: info
+    render: "位置分配两级：全局 IPALLOCRULE（一级 APN）vs APNIPALLOCRULE（两级 APN+LOC+SMF）；改 APN 级规则影响选址"

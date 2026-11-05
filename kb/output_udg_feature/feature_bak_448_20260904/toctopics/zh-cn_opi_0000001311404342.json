@@ -1,0 +1,84 @@
+{
+  "feature_name": "检查漫游用户数",
+  "feature_description": "通过检查NF上漫游用户数，以确认国际漫游功能运行正常。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV4FADFB045F8847A09B402BF3C6840B7F",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002186978478",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 国际漫游解决方案",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8419",
+          "application_type_20"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_20"
+          ],
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "TOPIC_0000001311084526",
+        "topicUrl": "toctopics/zh-cn_topic_0000001311084526.html",
+        "name": "例行维护",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "OPI_0000001311404342",
+        "topicUrl": "toctopics/zh-cn_opi_0000001311404342.html",
+        "name": "检查漫游用户数",
+        "parentTopicId": "TOPIC_0000001311084526",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "command_name": "RST NODE",
+  "command_name_zh": "节点复位",
+  "command_name_full": "节点复位（RST NODE）",
+  "command_function": "**须知** \n\n- 执行该命令会影响所有运行在该节点上的业务，请慎重使用该命令。\n- 在存储故障期间，执行该命令复位节点后，该节点以及节点中的容器和进程，在存储恢复前都无法启动。\n- 硬复位可能导致文件系统损坏，强烈建议优先使用软复位。\n- 本地盘形态下在主机异常时（如故障或下电）不建议下发此操作。\n- 如果需要复位OMU多节点，在复位一个节点后需要等待节点重启成功且服务正常后再执行重启下一个节点的命令。\n\n本命令用于复位指定网元ID下指定名称的节点。复位方式分为软复位和硬复位，软复位操作方式是由操作系统执行的安全复位，硬复位操作方式为强制下电复位。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320742",
+        "topicUrl": "MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.10",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001317233170",
+        "topicUrl": "MML/LinkedDoc/csp_n_node_management.html",
+        "name": "节点管理",
+        "parentTopicId": "TOPIC_0234320742",
+        "position": "1.10.1",
+        "parentPosition": "1.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0171765322",
+        "topicUrl": "MML/Document/rst_node.html",
+        "name": "节点复位（RST NODE）",
+        "parentTopicId": "TOPIC_0000001317233170",
+        "position": "1.10.1.4",
+        "parentPosition": "1.10.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

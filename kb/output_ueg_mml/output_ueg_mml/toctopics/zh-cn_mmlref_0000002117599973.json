@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD SEGSTATEBYPOD",
+  "command_name_zh": "修改Pod隔离状态",
+  "command_name_full": "修改Pod隔离状态（MOD SEGSTATEBYPOD）",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作将隔离业务处理模块，操作不当将导致负载不均、业务损失等严重问题。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该用命令用于将指定Pod上、指定模块类型的模块进行隔离。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001321367933",
+        "topicUrl": "toctopics/zh-cn_topic_0000001321367933.html",
+        "name": "USCDB 机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.4",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169787",
+        "topicUrl": "toctopics/zh-cn_concept_0173169787.html",
+        "name": "USCDB机机接口命令",
+        "parentTopicId": "TOPIC_0000001321367933",
+        "position": "2.3.4.1",
+        "parentPosition": "2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000002141156745",
+        "topicUrl": "toctopics/zh-cn_concept_0000002141156745.html",
+        "name": "隔离状态管理",
+        "parentTopicId": "CONCEPT_0173169787",
+        "position": "2.3.4.1.20",
+        "parentPosition": "2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002117599973_2",
+        "topicUrl": "toctopics/zh-cn_mmlref_0000002117599973.html",
+        "name": "修改Pod隔离状态（MOD SEGSTATEBYPOD）",
+        "parentTopicId": "CONCEPT_0000002141156745",
+        "position": "2.3.4.1.20.1",
+        "parentPosition": "2.3.4.1.20",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD EXPLOGTASK",
+  "command_name_zh": "添加导出日志任务",
+  "command_name_full": "添加导出日志任务(ADD EXPLOGTASK)",
+  "command_function": "**须知** \n\n数据导出文件包含用户的个人数据，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护。\n\n该命令用于增加业务发放系统操作日志导出任务的配置数据。\n\n**说明** \n\n数据导出文件包含用户的个人数据，如：IMSI、MSISDN等，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护。例如：\n\n1. 采用安全的文件传输协议（如SFTP）传输导出文件。\n2. 严格控制导出文件的访问权限。\n3. 及时清理数据导出文件。\n\n在从运营商网络获取数据前，必须要获得运营商的授权。\n\n若需从运营商网络中获取必要的数据，需要运营商维护人员对其中的个人数据进行匿名化处理，匿名化后的数据由运营商维护人员审核后提供，以防止个人数据泄露。匿名化处理工具可以在https://support.huawei.com/获取，获取方法请参见产品手册“匿名化工具安全策略”页面。\n\n主PGW每分钟扫描一次用户导出任务状态表，发现有需要执行的日志导出任务则启动导出任务。\n\n启动导出任务必须满足以下条件：\n\n- 已到达任务开始时间。\n- 任务状态是NOTSTART。\n- 不存在任务状态是RUNNING的任务。\n\n**说明** \n\n任务状态可通过**DSP EXPLOGTASK**命令查询。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169312",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/explogtask_management.html",
+        "name": "导出日志任务管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.14",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169313_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/add_explogtask.html",
+        "name": "添加导出日志任务(ADD EXPLOGTASK)",
+        "parentTopicId": "CONCEPT_0173169312",
+        "position": "4.2.1.14.1",
+        "parentPosition": "4.2.1.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

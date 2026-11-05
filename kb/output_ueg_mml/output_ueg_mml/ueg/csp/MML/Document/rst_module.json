@@ -1,0 +1,131 @@
+{
+  "command_name": "RST MODULE",
+  "command_name_zh": "复位模块",
+  "command_name_full": "复位模块(RST MODULE)",
+  "command_function": "**须知** \n\n该命令会使模块复位，可能会影响运行在模块上的业务，请慎重使用该命令。\n\n本命令用于指示系统对指定的模块执行复位操作。\n\n本命令的使用场景为：\n\n- 在开局、扩容或升级的过程中，需要为指定的模块加载新版本的节点软件。\n- 在开局、扩容或升级的过程中，当系统配置出现重大修改（如修改表最大元组数）时，可能需要对相关模块执行复位操作使得修改生效。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854898",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/software_management.html",
+        "name": "软件管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.2",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165854456",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/module_management.html",
+        "name": "模块管理",
+        "parentTopicId": "CONCEPT_0165854898",
+        "position": "2.2.1.2.6",
+        "parentPosition": "2.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0165855162",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/module.html",
+        "name": "模块",
+        "parentTopicId": "CONCEPT_0165854456",
+        "position": "2.2.1.2.6.1",
+        "parentPosition": "2.2.1.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0165854669_4",
+        "topicUrl": "ueg/csp/MML/Document/rst_module.html",
+        "name": "复位模块(RST MODULE)",
+        "parentTopicId": "CONCEPT_0165855162",
+        "position": "2.2.1.2.6.1.3",
+        "parentPosition": "2.2.1.2.6.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活NB-IoT用户面传输通道保活",
+  "feature_description": "本操作指导介绍在运行网络中激活NB-IoT用户面传输通道保活的操作过程。\n\nNB-IoT终端数据收发频率低、数据包较小且多数情况为单向发送（例如智能抄表），建立、释放S1–U连接和数据无线承载信令开销大，需要一种高效的小数据传输解决方案。3GPP协议针对此类业务定义了用户面优化功能UP-CIoT（User Plane CIoT EPS Optimization）。UP-CIoT的方式是当终端进入ECM-IDLE态时，UE、eNodeB和MME保存用于恢复连接的S1-AP关联、UE上下文和承载上下文数据。当需要恢复数传时，无需进行频繁的E-RAB重建，提升数传效率，节省信令开销。\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375120453",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375120453.html",
+        "name": "MME特性指南",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001257972542",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001257972542.html",
+        "name": "GWFD-026100 NB-IoT基本功能",
+        "parentTopicId": "TOPIC_0000001375120453",
+        "position": "4.22",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0275821880",
+        "topicUrl": "kite_ml/desc/unc_2110_feature_desc_NB-IoT_User_Plane_Transmission_Holding.html",
+        "name": "GWFD-026106 NB-IoT用户面传输通道保活",
+        "parentTopicId": "TOPIC_0000001257972542",
+        "position": "4.22.6",
+        "parentPosition": "4.22",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0276015638",
+        "topicUrl": "kite_ml/om/unc_2110_feature_om_NB-IoT_User_Plane_Transmission_Holding01.html",
+        "name": "激活NB-IoT用户面传输通道保活",
+        "parentTopicId": "CONCEPT_0275821880",
+        "position": "4.22.6.3",
+        "parentPosition": "4.22.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

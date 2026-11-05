@@ -1,0 +1,124 @@
+{
+  "feature_name": "激活Mp2接口链路探测",
+  "feature_description": "MPF通过Mp2接口向UPF推送动态DNS Rule和动态Traffic Rule，可以在推送过程中根据消息处理确认Mp2接口链路是否正常。当没有Traffic Rule、DNS Rule消息时，为了避免MPF无法及时感知Mp2链路状态，MPF通过****SET MPFMP2ATTR****命令支持在无Traffic Rule、DNS Rule相关消息时的Mp2链路状态检测处理。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "公共业务",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDB5AD83D6FAE4A4995945FC2C4999F99",
+        "parentNaviId": "DOCNAV0A27E4F0E5A045E4AB83DE88AC809675",
+        "pidId": "pid_bookmap_0000002222267905",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC APP业务访问控制（公共）",
+        "nameIdList": [
+          "release",
+          "application_type",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "application_type_6655",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_6655"
+          ],
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "动态分流",
+          "pid_shortdesc": "介绍APP业务在本产品中如何进行动态分流、数据转发以及带宽控制的。"
+        }
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "TOPIC_0000001098279832",
+        "topicUrl": "toctopics/zh-cn_topic_0000001098279832.html",
+        "name": "动态分流（MPF/UPF）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "TOPIC_0000001100093578",
+        "topicUrl": "toctopics/zh-cn_topic_0000001100093578.html",
+        "name": "配置动态分流",
+        "parentTopicId": "TOPIC_0000001098279832",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "OPI_0000001110608496_2",
+        "topicUrl": "toctopics/zh-cn_opi_0000001110608496.html",
+        "name": "激活动态分流规则下发（MPF）",
+        "parentTopicId": "TOPIC_0000001100093578",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002222267905",
+        "topicId": "OPI_0000001194878887",
+        "topicUrl": "toctopics/zh-cn_opi_0000001194878887.html",
+        "name": "激活Mp2接口链路探测",
+        "parentTopicId": "OPI_0000001110608496_2",
+        "position": "4.2.1.3",
+        "parentPosition": "4.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

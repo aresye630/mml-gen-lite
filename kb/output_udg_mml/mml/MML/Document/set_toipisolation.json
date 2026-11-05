@@ -1,0 +1,95 @@
+{
+  "command_name": "SET TOIPISOLATION",
+  "command_name_zh": "设置IP地址隔离开关",
+  "command_name_full": "设置IP地址隔离开关（SET TOIPISOLATION）",
+  "command_function": "**适用NF：UPF**\n\n该命令用于设置IP地址隔离开关。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356138",
+        "topicUrl": "MML/LinkedDoc/udg_n_tcp_optimization_management.html",
+        "name": "TCP优化服务管理",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204267122473",
+        "topicUrl": "MML/LinkedDoc/to_n_ip_address_isolation_function.html",
+        "name": "IP地址隔离功能",
+        "parentTopicId": "CONCEPT_0000202103356138",
+        "position": "7.18",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204059028942",
+        "topicUrl": "MML/Document/set_toipisolation.html",
+        "name": "设置IP地址隔离开关（SET TOIPISOLATION）",
+        "parentTopicId": "CONCEPT_0000204267122473",
+        "position": "7.18.1",
+        "parentPosition": "7.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

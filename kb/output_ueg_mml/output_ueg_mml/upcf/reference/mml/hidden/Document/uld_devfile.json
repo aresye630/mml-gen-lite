@@ -1,0 +1,131 @@
+{
+  "command_name": "ULD DEVFILE",
+  "command_name_zh": "上传设备档案文件",
+  "command_name_full": "上传设备档案文件(ULD DEVFILE)",
+  "command_function": "该命令用于上传设备档案文件到网管服务器，是提供给网管的机机命令接口，仅能在网管上执行。\n\n该命令的使用场景为：网管下发EXP DEVFILE导出设备档案文件后，执行该命令上传设备档案文件到网管服务器。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001228906137",
+        "topicUrl": "toctopics/zh-cn_topic_0000001228906137.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001266260722",
+        "topicUrl": "toctopics/zh-cn_topic_0000001266260722.html",
+        "name": "PCF机机接口命令",
+        "parentTopicId": "TOPIC_0000001228906137",
+        "position": "2.3.3.5",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167463871",
+        "topicUrl": "upcf/reference/mml/hidden/LinkedDoc/mml_system_upcc.html",
+        "name": "UPCF机机接口MML命令",
+        "parentTopicId": "TOPIC_0000001266260722",
+        "position": "2.3.3.5.1",
+        "parentPosition": "2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167463870",
+        "topicUrl": "upcf/reference/mml/hidden/LinkedDoc/systemcommand.html",
+        "name": "设备档案",
+        "parentTopicId": "CONCEPT_0167463871",
+        "position": "2.3.3.5.1.1",
+        "parentPosition": "2.3.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0261145624",
+        "topicUrl": "upcf/reference/mml/hidden/Document/uld_devfile.html",
+        "name": "上传设备档案文件(ULD DEVFILE)",
+        "parentTopicId": "CONCEPT_0167463870",
+        "position": "2.3.3.5.1.1.1",
+        "parentPosition": "2.3.3.5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

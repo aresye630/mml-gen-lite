@@ -1,0 +1,70 @@
+# 激活NAS信令加密与完整性保护（适用于5G）
+
+- 操作场景
+- 必备事项
+- 操作步骤
+- 任务示例
+
+## 操作场景
+
+新建部署后配置指定用户支持的保护算法以及算法优先级，或运维阶段需要修改保护算法及优先级时，执行本操作。
+
+**说明** 
+
+适用于AMF。
+
+## 必备事项
+
+前提条件
+
+请仔细阅读GWFD-021505 NAS信令加密与完整性保护特性概述（适用于5G）。
+
+数据
+
+| 类别                | 参数名称   | 取值样例                              | 获取方法   | 说明   |
+|:------------------|:-------|:----------------------------------|:-------|:-----|
+| ADD NGUSRSECPARA  | 用户范围   | ALL_USER                          | 全网规划   | -    |
+| ADD NGUSRSECPARA  | 完整性算法  | NIA1-1&NIA2-1&NIA3-1              | 全网规划   | -    |
+| ADD NGUSRSECPARA  | 加密算法   | NEA0-1&NEA1-1&NEA2-1&NEA3-1       | 全网规划   | -    |
+| ADD NGALGPRIORITY | 算法类型   | INTE、CIPH                         | 全网规划   | -    |
+| ADD NGALGPRIORITY | 加密算法   | NEA1(SNOW 3G加密算法)、NEA2(AES加密算法)   | 全网规划   | -    |
+| ADD NGALGPRIORITY | 完整性算法  | NIA1(SNOW 3G完整性算法)、NIA2(AES完整性算法) | 全网规划   | -    |
+| ADD NGALGPRIORITY | 算法优先级  | 0、1                               | 全网规划   | -    |
+
+## 操作步骤
+
+1. 进入“MML命令行-UEG”窗口。
+2. 配置指定用户支持的保护算法。
+
+   **ADD NGUSRSECPARA**
+3. 配置算法优先级。
+
+   **ADD NGALGPRIORITY**
+
+## 任务示例
+
+任务描述
+
+配置所有用户支持所有保护算法，完整性算法中指定NIA1(SNOW 3G完整性算法)的优先级为0、NIA2(AES完整性算法)的优先级为1，加密算法中指定NEA1(SNOW 3G加密算法)的优先级为0、NEA2(AES加密算法)的优先级为1。
+
+脚本
+
+//配置所有用户支持所有保护算法
+
+```
+ADD NGUSRSECPARA: SUBRANGE=ALL_USER, INTEGALG=NIA1-1&NIA2-1&NIA3-1, ENCRYALG=NEA0-1&NEA1-1&NEA2-1&NEA3-1;
+```
+
+//在完整性算法中指定NIA1(SNOW 3G完整性算法)的优先级为0、NIA2(AES完整性算法)的优先级为1
+
+```
+ADD NGALGPRIORITY: ALGTYPE=INTE, ALGINTE=NIA1, ALGPRI=0;
+ADD NGALGPRIORITY: ALGTYPE=INTE, ALGINTE=NIA2, ALGPRI=1;
+```
+
+//在加密算法中指定NEA1(SNOW 3G加密算法)的优先级为0、NEA2(AES加密算法)的优先级为1
+
+```
+ADD NGALGPRIORITY: ALGTYPE=CIPH, ALGCIPH=NEA1, ALGPRI=0;
+ADD NGALGPRIORITY: ALGTYPE=CIPH, ALGCIPH=NEA2, ALGPRI=1;
+```

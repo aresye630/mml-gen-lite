@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD CAMELINTERTPL",
+  "command_name_zh": "增加CAMEL查询模板",
+  "command_name_full": "增加CAMEL查询模板(ADD CAMELINTERTPL)",
+  "command_function": "该命令用于在HLR中增加支持CAMEL（Customized Applications for Mobile network Enhanced Logic）查询协议的GMSC（Gateway Mobile Switching Center）号码前缀。\n\n当需要限制用户在某些GMSC区域内使用CAMEL业务时，操作员可以先通过该命令预先设置GSMC号码前缀（通过该命令将GMSC的号码前缀添加到CAMEL查询协议模板中，就认为该GMSC与HLR有CAMEL查询协议），然后通过**ADD OCSITPL**和**ADD TCSITPL**命令设置CAMEL业务的支持能力，包括与某GMSC是否有CAMEL查询协议。对于已签约O-CSI和T-CSI业务的用户，HLR在进行CAMEL业务处理时，根据SRI请求消息带上的GMSC地址，结合系统配置的CAMEL查询协议表来确定GMSC与HLR是否有CAMEL查询协议，根据支持能力下发相应的CAMEL业务规则。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802704",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/camelinter_template.html",
+        "name": "CAMEL查询协议模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.21",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803109",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_camelintertpl.html",
+        "name": "增加CAMEL查询模板(ADD CAMELINTERTPL)",
+        "parentTopicId": "CONCEPT_0190802704",
+        "position": "4.2.3.6.21.1",
+        "parentPosition": "4.2.3.6.21",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

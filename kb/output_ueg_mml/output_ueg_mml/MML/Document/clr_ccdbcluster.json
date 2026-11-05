@@ -1,0 +1,131 @@
+{
+  "command_name": "CLR CCDBCLUSTER",
+  "command_name_zh": "清除集群数据",
+  "command_name_full": "清除集群数据（CLR CCDBCLUSTER）",
+  "command_function": "**须知** \n\n- 该命令属于高危命令，数据清理后将无法进行恢复。因此操作前请务必联系华为技术支持确认。\n- 该操作为系统高危操作，需要第二个具有二次授权权限的用户授权后才能执行该操作。请输入授权用户名和密码。\n\n该命令用于无需重启CCDB完成在线清理CCDB用户数据的清库动作。\n\n该命令的使用场景如下：\n\n- 当需要清除某个应用类型下的用户数据时，选择对应的“应用类型”。\n- 当需要清除某个集群内的用户数据，输入对应的“集群标识”，“集群标识”的信息可以通过**DSP DUSSTAT**命令进行查看。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001455421381",
+        "topicUrl": "MML/LinkedDoc/udrdus_n_ccdb_management.html",
+        "name": "CCDB管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.15",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001453172781",
+        "topicUrl": "MML/LinkedDoc/udrdus_n_dus_management.html",
+        "name": "DUS管理",
+        "parentTopicId": "CONCEPT_0000001455421381",
+        "position": "2.2.3.15.2",
+        "parentPosition": "2.2.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001405101464",
+        "topicUrl": "MML/LinkedDoc/udrdus_n_in_memory_database_management.html",
+        "name": "内存数据库管理",
+        "parentTopicId": "MMLREF_0000001453172781",
+        "position": "2.2.3.15.2.1",
+        "parentPosition": "2.2.3.15.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001425169466_2",
+        "topicUrl": "MML/Document/clr_ccdbcluster.html",
+        "name": "清除集群数据（CLR CCDBCLUSTER）",
+        "parentTopicId": "CONCEPT_0000001405101464",
+        "position": "2.2.3.15.2.1.2",
+        "parentPosition": "2.2.3.15.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

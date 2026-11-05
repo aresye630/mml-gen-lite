@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD MIMSIVM",
+  "command_name_zh": "修改语音邮箱",
+  "command_name_full": "修改语音邮箱(MOD MIMSIVM)",
+  "command_function": "该命令用于给一号多卡用户修改语音邮箱业务，包括签约、去签约语音邮箱业务。\n\n对于顺振类型的一号多卡用户，当某主叫用户呼叫被叫MSISDN号码的时候，系统会根据用户IMSI号码的呼叫序号顺序振铃，直到IMSI号码的呼叫序号较高用户通话成功，有可能9个在网的IMSI对应的用户都不接听电话，这时UDM支持把本次入呼叫转移到指定的语音邮箱中。当前UDM只支持2个语音邮箱号码。\n\n对于在网用户执行该命令后，如果是给用户签约该业务，则UDM会向MSC/VLR/MME/S4SGSN下发插入用户数据消息；如果是给用户去签约该业务，则UDM会向MSC/VLR/MME/S4SGSN下发删除用户数据消息。对于不在网用户执行该命令后，则仅会更新用户在数据库中的数据，当用户进行位置更新时UDM将用户的一卡多号业务数据下发给MSC/VLR/MME/S4SGSN。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802846",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/mimsi_management.html",
+        "name": "多IMSI业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.29",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803350",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_mimsivm.html",
+        "name": "修改语音邮箱(MOD MIMSIVM)",
+        "parentTopicId": "CONCEPT_0190802846",
+        "position": "4.2.3.29.3",
+        "parentPosition": "4.2.3.29",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

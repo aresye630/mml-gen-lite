@@ -1,0 +1,143 @@
+{
+  "command_name": "LST SCCPDSP",
+  "command_name_zh": "查询SCCP目的信令点",
+  "command_name_full": "查询SCCP目的信令点(LST SCCPDSP)",
+  "command_function": "该命令为配置类命令，用于在配置数据库中查询SCCP目的信令点数据的配置信息：\n\n- 若需要查询全部SCCP目的信令点数据记录的概要信息，请不要输入任何参数。\n- 若需要查询某条SCCP目的信令点数据记录的详细信息，请输入相关参数或参数组合。\n- 若需要指定查询结果以哪种排序方式显示，请输入“新排序方式”参数。\n\n该命令的“目的信令点名称”参数支持模糊查询功能。模糊查询功能是指操作员在客户端输入查询参数时，对于字符串或BCD码类型的查询参数而言，如果操作员输入的是一个完整的字符串或BCD码，则表示系统将按照完全匹配的方式执行查询操作；如果操作员在输入的某个字符串或BCD码的末尾添加通配字符“%”，则表示系统将按照模糊匹配的方式执行查询操作。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202866130459",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_sccp_signaling.html",
+        "name": "SCCP信令",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.9",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206305482460",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_sccp_dsp.html",
+        "name": "SCCP目的信令点",
+        "parentTopicId": "CONCEPT_0000202866130459",
+        "position": "2.2.3.4.1.9.1",
+        "parentPosition": "2.2.3.4.1.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284968",
+        "topicUrl": "reference/mml/ueg/Document/lst_sccpdsp.html",
+        "name": "查询SCCP目的信令点(LST SCCPDSP)",
+        "parentTopicId": "CONCEPT_0000206305482460",
+        "position": "2.2.3.4.1.9.1.4",
+        "parentPosition": "2.2.3.4.1.9.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

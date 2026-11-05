@@ -1,0 +1,633 @@
+{
+  "feature_name": "配置BGP/MPLS VPN（非SDN_自动）",
+  "feature_description": "非SDN场景，UEG与企业网对接时，由于企业APN数量多，且各个企业APN之间有业务隔离诉求，故可采用BGP/MPLS VPN组网。UEG作为PE设备接入MPLS骨干网，通过MP-EBGP（Multi-protocol Extensions for Border Gateway Protocol）与其他PE之间传播VPN信息和VPN-IPv4路由。UEG采用OptionB方式实现跨域VPN。\n\n如图1所示，UEG和PE间通过Loopback IP建立eBGP邻居，用于交换私网VPN路由。Loopback IP之间通过静态路由/OSPF互通。\n\n**图1** BGP/MPLS VPN组网",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199180892_2",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199180892.html",
+        "name": "组网路由配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.7",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001484765430",
+        "topicUrl": "toctopics/zh-cn_opi_0000001484765430.html",
+        "name": "配置VNF侧IP路由数据",
+        "parentTopicId": "TOPIC_0000001199180892_2",
+        "position": "4.5.7.1",
+        "parentPosition": "4.5.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0216653305_3",
+        "topicUrl": "kite_ml/kite_l_vm_Initial_Conf/installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001484765430",
+        "position": "4.5.7.1.1",
+        "parentPosition": "4.5.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001420746526",
+        "topicUrl": "init_comm/cn_udg2310_0002.html",
+        "name": "配置BGP/MPLS VPN（非SDN_自动）",
+        "parentTopicId": "TOPIC_0216653305_3",
+        "position": "4.5.7.1.1.9",
+        "parentPosition": "4.5.7.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339532552",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339532552.html",
+        "name": "初始配置与调测（MPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390052521",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390052521.html",
+        "name": "初始配置与调测（MPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339532552",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188659569",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188659569.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001390052521",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001371170093",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001371170093.html",
+        "name": "组网路由配置（共部署）",
+        "parentTopicId": "TOPIC_0000001188659569",
+        "position": "4.3.1.4.6",
+        "parentPosition": "4.3.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0216653295",
+        "topicUrl": "kite_s_vm/installation/cu_com_010016_07.html",
+        "name": "配置VNF侧IP路由数据（无NP卡）",
+        "parentTopicId": "TOPIC_0000001371170093",
+        "position": "4.3.1.4.6.1",
+        "parentPosition": "4.3.1.4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0216653305_1",
+        "topicUrl": "kite_s_vm/installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0216653295",
+        "position": "4.3.1.4.6.1.2",
+        "parentPosition": "4.3.1.4.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001420746526",
+        "topicUrl": "init_comm/cn_udg2310_0002.html",
+        "name": "配置BGP/MPLS VPN（非SDN_自动）",
+        "parentTopicId": "TOPIC_0216653305_1",
+        "position": "4.3.1.4.6.1.2.7",
+        "parentPosition": "4.3.1.4.6.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339532552",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339532552.html",
+        "name": "初始配置与调测（MPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001390052521",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001390052521.html",
+        "name": "初始配置与调测（MPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339532552",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188659569",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188659569.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001390052521",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001371170093",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001371170093.html",
+        "name": "组网路由配置（共部署）",
+        "parentTopicId": "TOPIC_0000001188659569",
+        "position": "4.3.1.4.6",
+        "parentPosition": "4.3.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0216653295",
+        "topicUrl": "kite_s_vm/installation/cu_com_010016_07.html",
+        "name": "配置VNF侧IP路由数据（无NP卡）",
+        "parentTopicId": "TOPIC_0000001371170093",
+        "position": "4.3.1.4.6.1",
+        "parentPosition": "4.3.1.4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0216653305_1",
+        "topicUrl": "kite_s_vm/installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0216653295",
+        "position": "4.3.1.4.6.1.2",
+        "parentPosition": "4.3.1.4.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001420746526",
+        "topicUrl": "init_comm/cn_udg2310_0002.html",
+        "name": "配置BGP/MPLS VPN（非SDN_自动）",
+        "parentTopicId": "TOPIC_0216653305_1",
+        "position": "4.3.1.4.6.1.2.7",
+        "parentPosition": "4.3.1.4.6.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146420245",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146420245.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001188591741_1",
+        "topicUrl": "kite_s_vm/vm_shared_ref_nonsdn.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001146420245",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0175096802_1",
+        "topicUrl": "kite_s_vm/installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "TOPIC_0000001188591741_1",
+        "position": "4.3.5",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0216653295",
+        "topicUrl": "kite_s_vm/installation/cu_com_010016_07.html",
+        "name": "配置VNF侧IP路由数据（无NP卡）",
+        "parentTopicId": "TOPIC_0175096802_1",
+        "position": "4.3.5.1",
+        "parentPosition": "4.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0216653305_1",
+        "topicUrl": "kite_s_vm/installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0216653295",
+        "position": "4.3.5.1.2",
+        "parentPosition": "4.3.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0000001420746526",
+        "topicUrl": "init_comm/cn_udg2310_0002.html",
+        "name": "配置BGP/MPLS VPN（非SDN_自动）",
+        "parentTopicId": "TOPIC_0216653305_1",
+        "position": "4.3.5.1.2.7",
+        "parentPosition": "4.3.5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001911980889",
+        "topicUrl": "toctopics/zh-cn_topic_0000001911980889.html",
+        "name": "软件安装与开站",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001866101090",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866101090.html",
+        "name": "UEG软件安装与开站",
+        "parentTopicId": "TOPIC_0000001911980889",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001913296141",
+        "topicUrl": "toctopics/zh-cn_topic_0000001913296141.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001866101090",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001867441084",
+        "topicUrl": "toctopics/zh-cn_topic_0000001867441084.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001913296141",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001867281216",
+        "topicUrl": "toctopics/zh-cn_topic_0000001867281216.html",
+        "name": "组网路由配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001867441084",
+        "position": "2.2.3.3.4",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000001913480789",
+        "topicUrl": "toctopics/zh-cn_opi_0000001913480789.html",
+        "name": "配置VNF侧IP路由数据",
+        "parentTopicId": "TOPIC_0000001867281216",
+        "position": "2.2.3.3.4.1",
+        "parentPosition": "2.2.3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001867281228",
+        "topicUrl": "installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001913480789",
+        "position": "2.2.3.3.4.1.1",
+        "parentPosition": "2.2.3.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000001420746526",
+        "topicUrl": "init_comm/cn_udg2310_0002.html",
+        "name": "配置BGP/MPLS VPN（非SDN_自动）",
+        "parentTopicId": "TOPIC_0000001867281228",
+        "position": "2.2.3.3.4.1.1.9",
+        "parentPosition": "2.2.3.3.4.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

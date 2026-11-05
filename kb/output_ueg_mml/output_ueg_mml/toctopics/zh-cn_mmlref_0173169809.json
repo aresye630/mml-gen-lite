@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP MODULESTAT",
+  "command_name_zh": "显示模块状态",
+  "command_name_full": "显示模块状态（DSP MODULESTAT）",
+  "command_function": "该命令为维护类命令，用于查询某个平面的CAG模块的状态。LDAP服务启动和视图包加载完成后，CAG模块状态为“激活态”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355443868",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355443868.html",
+        "name": "UEG机机接口命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001321367933",
+        "topicUrl": "toctopics/zh-cn_topic_0000001321367933.html",
+        "name": "USCDB 机机接口命令",
+        "parentTopicId": "TOPIC_0000001355443868",
+        "position": "2.3.4",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169787",
+        "topicUrl": "toctopics/zh-cn_concept_0173169787.html",
+        "name": "USCDB机机接口命令",
+        "parentTopicId": "TOPIC_0000001321367933",
+        "position": "2.3.4.1",
+        "parentPosition": "2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169800",
+        "topicUrl": "toctopics/zh-cn_concept_0173169800.html",
+        "name": "升级相关命令",
+        "parentTopicId": "CONCEPT_0173169787",
+        "position": "2.3.4.1.8",
+        "parentPosition": "2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169809",
+        "topicUrl": "toctopics/zh-cn_mmlref_0173169809.html",
+        "name": "显示模块状态（DSP MODULESTAT）",
+        "parentTopicId": "CONCEPT_0173169800",
+        "position": "2.3.4.1.8.14",
+        "parentPosition": "2.3.4.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

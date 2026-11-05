@@ -1,0 +1,107 @@
+{
+  "command_name": "STP NODE",
+  "command_name_zh": "停止节点",
+  "command_name_full": "停止节点（STP NODE）",
+  "command_function": "**须知** \n\n停止节点，节点上数据可能会丢失，导致业务受到影响。停止节点后，节点在存储故障期间无法启动。\n\n本命令用于关闭网元下指定名称的节点。\n\n**说明** \n\n- 该命令仅在Full-stack虚机场景下支持。\n- 执行该命令会影响所有运行在该节点上的业务，同时会造成部分数据丢失，请慎重使用该命令。\n- 执行该命令可能会提示操作异常，需要通过执行DSP NODE命令来查看节点是否成功关闭。\n- 在存储故障期间，执行该命令停止节点后，若再执行STR NODE命令启动节点，该节点以及节点中的容器和进程，在存储故障恢复前都无法启动。\n- 执行该命令返回成功，表明命令成功下发到MANO，节点下电是否成功需要稍后执行DSP NODE命令来查看。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876254",
+        "topicUrl": "MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.10",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202770523466",
+        "topicUrl": "MML/LinkedDoc/csp_n_node_management.html",
+        "name": "节点管理",
+        "parentTopicId": "CONCEPT_0000202102876254",
+        "position": "4.10.1",
+        "parentPosition": "4.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001345545153",
+        "topicUrl": "MML/Document/stp_node.html",
+        "name": "停止节点（STP NODE）",
+        "parentTopicId": "CONCEPT_0000202770523466",
+        "position": "4.10.1.16",
+        "parentPosition": "4.10.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

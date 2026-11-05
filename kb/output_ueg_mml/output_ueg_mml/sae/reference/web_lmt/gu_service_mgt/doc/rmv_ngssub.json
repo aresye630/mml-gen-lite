@@ -1,0 +1,107 @@
+{
+  "command_name": "RMV NGSSUB",
+  "command_name_zh": "取消5G融合用户的5G业务",
+  "command_name_full": "取消5G融合用户的5G业务（RMV NGSSUB）",
+  "command_function": "**须知** \n\n本命令属于高危命令。操作前请务必确认指定的用户为本UDM中已不再使用或测试的用户。否则执行不当将删除正常用户的5G业务数据，导致正常用户无法使用5G业务，且删除后该用户的相关数据无法恢复。\n\n该命令用于为单个5G用户或多个5G用户删除5G业务和数据。\n\n该命令的使用场景：当用户为本UDM中已不再使用或测试的用户时，执行本命令取消用户的5G业务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0166300333",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/5G_subscriber_management.html",
+        "name": "5G用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.44",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0166307172_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/rmv_ngssub.html",
+        "name": "取消5G融合用户的5G业务（RMV NGSSUB）",
+        "parentTopicId": "TOPIC_0166300333",
+        "position": "4.2.3.44.3",
+        "parentPosition": "4.2.3.44",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

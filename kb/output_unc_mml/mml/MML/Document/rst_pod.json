@@ -1,0 +1,114 @@
+{
+  "command_name": "RST POD",
+  "command_name_zh": "POD复位",
+  "command_name_full": "POD复位（RST POD）",
+  "command_function": "**须知** \n\n- Pod复位命令会删除并重建Pod，可能会导致业务受损，请确认是否继续操作。\n- 下文所有的“复位”，表示对Pod进行重建。\n- 按照Pod名称进行非强制复位时，建议同类型下的Pod需要间隔一分钟再执行，否则上次执行创建的POD未Running导致本次可能不生效。\n- 按照Pod名称进行Super Pod复位时，该Super Pod下的所有Mini Pod都会被复位。\n- 按照Pod类型进行强制复位时，当类型是“vnode”时，该网元下属于vnode类型的Super Pod都会被复位，即该网元下的所有Mini Pod都会被复位。\n\n本命令用于对指定的Pod进行复位。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319747",
+        "topicUrl": "MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.6",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321343",
+        "topicUrl": "MML/LinkedDoc/csp_n_pod_management.html",
+        "name": "Pod管理",
+        "parentTopicId": "TOPIC_0234319747",
+        "position": "1.6.14",
+        "parentPosition": "1.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0269830278",
+        "topicUrl": "MML/Document/rst_pod.html",
+        "name": "POD复位（RST POD）",
+        "parentTopicId": "TOPIC_0234321343",
+        "position": "1.6.14.2",
+        "parentPosition": "1.6.14",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

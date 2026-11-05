@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD PDPFILTERAPN",
+  "command_name_zh": "增加APN优先级配置",
+  "command_name_full": "增加APN优先级配置(ADD PDPFILTERAPN)",
+  "command_function": "**适用网元：SGSN**\n\n该命令用于增加APN优先级配置。APN优先级可以用于在RAU或者RELOCATION流程中指示新侧保留PDP的顺序。高优先级APN对应的PDP会优先保留，低优先级APN对应的PDP会在切换后主动删掉。\n\n在GU网络存在无线侧PDP能力不足的情况下，可通过此命令配置APN优先级，当系统通过RAU或者Relocation流程切换到GU网络后主动去激活低优先级的PDP，从而确保高优先级PDP业务不受影响。如不配置APN优先级，无线侧将可能随机删除重要的PDP，造成重要业务中断。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320652",
+        "topicUrl": "MML/LinkedDoc/unc_n_operation_security_management.html",
+        "name": "业务安全管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.6",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321242",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "TOPIC_0234320652",
+        "position": "2.5.3.6.3",
+        "parentPosition": "2.5.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320752",
+        "topicUrl": "MML/LinkedDoc/unc_n_pdp_filter_function.html",
+        "name": "PDP过滤功能",
+        "parentTopicId": "TOPIC_0234321242",
+        "position": "2.5.3.6.3.15",
+        "parentPosition": "2.5.3.6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001126305498",
+        "topicUrl": "MML/Document/add_pdpfilterapn.html",
+        "name": "增加APN优先级配置(ADD PDPFILTERAPN)",
+        "parentTopicId": "TOPIC_0234320752",
+        "position": "2.5.3.6.3.15.3",
+        "parentPosition": "2.5.3.6.3.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

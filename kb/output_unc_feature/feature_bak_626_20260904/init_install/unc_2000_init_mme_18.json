@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置Hostfile的数据",
+  "feature_description": "当运营商在部署分组交换网，新增MME时，可通过配置Hostfile数据，用于MME在以下流程中进行域名解析：\n\n- 在Attach流程、PDN连接建立流程、Handover/TAU流程及GUL互操作流程中，根据DNS数据解析S-GW、P-GW、对等MME、SGSN网元的IP地址。\n- 在基于Sv接口部署SRVCC的场景下，根据DNS数据解析MSC的IP地址。\n\n**说明** \n\n进行域名解析可以使用三种手段：使用DNS服务器、通过Cache查询或使用本地主机信息表（Hostfile），通常主要使用DNS服务器进行域名解析，Hostfile作为辅助手段。其中：\n\n- DNS服务器是网络中专门提供域名解析服务的服务器。\n- DNS Cache是DNS服务器解析到的域名和IP地址在UNC的缓存，用于快速解析域名，以减少访问DNS服务器的次数，其记录具有一定的生命周期，生命周期结束后，该记录失效。生命周期由DNS响应消息中的TTL携带。\n- 本地主机信息表Hostfile则保存在本地MME中，包含的记录比较少。\n\nMME进行域名解析时默认按照以下顺序进行：首先查找HOSTFILE中的主机信息记录；如果没有相应的记录，则查找DNS Cache中的记录。如果没有相应的记录，向DNS服务器发送解析请求进行解析。\n\nHostfile数据包含网元的FQDN（Fully Qualified Domain Name，标准规范域名）和HOSTNAME（主机名称），如下表所示。\n\n| 网元         | 域名解析使用场景                                                                                                                                                                                                         | HOSTNAME格式定义                                                                                                                                                                                                                                                   | FQDN格式定义                                                                                                                                                                                                                                                                           |\n|:-----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| S-GW       | 在Attach/TAU/Handover流程中，根据TAI选择S-GW。                                                                                                                                                                             | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME> TOPON：代表优选拓扑最近的节点。TOPOFF：代表不优选拓扑最近的节点。 SINGLE-LABEL-INTERFACE-NAME：用于命名一个节点的特定接口。 CANONICAL-NODE-NAME：一个节点的规范命名。                                                                        | TAC-LB<TAC-LOW-BYTE>.TAC-HB<TAC-HIGH-BYTE>.TAC.EPC.MNC<MNC>.MCC<MCC>.3GPPNETWORK.ORG                                                                                                                                                                                               |\n| P-GW       | 签约了动态P-GW时，在Attach/PDN连接建立流程中，根据APN选择P-GW。                                                                                                                                                                       | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | <APNNI>.APN.EPC.MNC<MNC>.MCC<MCC>.3GPPNETWORK.ORG                                                                                                                                                                                                                                  |\n| P-GW       | 签约了静态P-GW时，在Attach/PDN连接建立流程中，根据Hostname查找已签约的P-GW。                                                                                                                                                              | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | -                                                                                                                                                                                                                                                                                  |\n| MME        | 在Inter MME的Handover流程中，根据TAI选择MME。                                                                                                                                                                               | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | TAC-LB<TAC-LOW-BYTE>.TAC-HB<TAC-HIGH-BYTE>.TAC.EPC.MNC<MNC>.MCC<MCC>.3GPPNETWORK.ORG                                                                                                                                                                                               |\n| MME        | 在Inter MME的Attach/TAU流程中，根据GUTI选择MME。                                                                                                                                                                            | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | MMEC<MMEC>.MMEGI<MMEGI>.MME.EPC.MNC<MNC>.MCC<MCC>.3GPPNETWORK.ORG                                                                                                                                                                                                                  |\n| Gn/Gp SGSN | 在Inter RAT的Attach/TAU/NACC流程中，根据RAI/LAI选择Gn/Gp SGSN。                                                                                                                                                             | RACAAAA.LACBBBB.MNCYYY.MCCZZZ.GPRSAAAA: 对端SGSN的RAC，16进制，以0补全高位，例如RAC=0x2B，AAAA输入为“002B”。 BBBB: 对端SGSN的LAC，16进制，以0补全高位，例如LAC=0x2D9，BBBB输入为“02D9”。 YYY: 对端SGSN的PLMN中MNC，10进制，以0补全高位，例如MNC=0，YYY输入为“000”。 ZZZ: 对端SGSN的PLMN中MCC，10进制，以0补全高位，例如MCC=123，ZZZ输入为“123”。 | -  说明： 配置对端Gn/Gp SGSN的IP地址时，不需要配置NAPTR记录。如果在Hostfile中查询不到Gn/Gp SGSN的记录，则向DNS Server查询记录。                                                                                                                                                                                           |\n| Gn/Gp SGSN | 在Inter RAT的Handover流程中，根据RNC选择Gn/Gp SGSN。                                                                                                                                                                        | RNCXXXX.MNCYYY.MCCZZZ.GPRSXXXX: 对端SGSN下属RNC，16进制，以0补全高位，例如RAC=0x25B，XXXX输入为“025B”。 YYY: 对端SGSN下属RNC的PLMN中MNC，10进制，以0补全高位，例如MNC=0，YYY输入为“000”。 ZZZ: 对端SGSN下属RNC的PLMN中MCC，10进制，以0补全高位，例如MCC=123，ZZZ输入为“123”。                                                     | -  说明： 配置对端Gn/Gp SGSN的IP地址时，不需要配置NAPTR记录。如果在Hostfile中查询不到Gn/Gp SGSN的记录，则向DNS Server查询记录。                                                                                                                                                                                           |\n| S4 SGSN    | 在Inter RAT的Attach/TAU流程中，根据RAI/LAI选择S4 SGSN。  说明： Inter RAT的NACC/Handover流程中，根据RNC ID还是根据RAI/LAI选择S4 SGSN取决于命令设置SGSN/MME选择策略（SET PESELPLCY）的参数“使用RNC ID域名 （RNCID）”设置，如果不使用“ RNCID（RNC ID域名）”，系统会组装RAI/LAI域名进行查询。 | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | RACAAAA.LACBBBB.RAC.EPC.MNCYYY.MCCZZZ.3GPPNETWORK.ORG AAAA: 对端SGSN的RAC，16进制，以0补全高位，例如RAC=0x2B，AAAA输入为“002B”。 BBBB: 对端SGSN的LAC，16进制，以0补全高位，例如LAC=0x2D9，BBBB输入为“02D9”。 YYY: 对端SGSN的PLMN中MNC，10进制，以0补全高位，例如MNC=0，YYY输入为“000”。 ZZZ: 对端SGSN的PLMN中MCC，10进制，以0补全高位，例如MCC=123，ZZZ输入为“123”。 |\n| S4 SGSN    | 在Inter RAT的NACC/Handover流程中，根据RNC ID选择S4 SGSN。                                                                                                                                                                   | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | RNCXXXX.RNC.EPC.MNCYYY.MCCZZZ.3GPPNETWORK.ORG XXXX: 对端SGSN下属RNC，16进制，以0补全高位，例如RNC ID=0x25B，XXXX输入为“025B”。 YYY: 对端SGSN的PLMN中MNC，10进制，以0补全高位，例如MNC=0，YYY输入为“000”。 ZZZ: 对端SGSN的PLMN中MCC，10进制，以0补全高位，例如MCC=123，ZZZ输入为“123”。                                                            |\n| MSC        | 在SRVCC语音切换流程中，根据RAI选择MSC。                                                                                                                                                                                        | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | RACAAAA.LACBBBB.RAC.EPC.MNCYYY.MCCZZZ.3GPPNETWORK.ORGAAAA: 对端MSC的RAC，16进制，以0补全高位，例如RAC=0x2B，AAAA输入为“002B”。 BBBB: 对端MSC的LAC，16进制，以0补全高位，例如LAC=0x2D9，BBBB输入为“02D9”。 YYY: 对端MSC的PLMN中MNC，10进制，以0补全高位，例如MNC=0，YYY输入为“000”。 ZZZ: 对端MSC的PLMN中MCC，10进制，以0补全高位，例如MCC=123，ZZZ输入为“123”。      |\n| MSC        | 在SRVCC语音切换流程中，根据LAI选择MSC。                                                                                                                                                                                        | <\"TOPON\"|\"TOPOFF\">.<SINGLE-LABEL-INTERFACE-NAME>.<CANONICAL-NODE-NAME>                                                                                                                                                                                         | LACBBBB.LAC.EPC.MNCYYY.MCCZZZ.3GPPNETWORK.ORGBBBB: 对端MSC的LAC，16进制，以0补全高位，例如LAC=0x2D9，BBBB输入为“02D9”。 YYY: 对端MSC的PLMN中MNC，10进制，以0补全高位，例如MNC=0，YYY输入为“000”。 ZZZ: 对端MSC的PLMN中MCC，10进制，以0补全高位，例如MCC=123，ZZZ输入为“123”。                                                                    |",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782619724",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782619724.html",
+        "name": "配置AMF&MME&SGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.1",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001829306461",
+        "topicUrl": "toctopics/zh-cn_opi_0000001829306461.html",
+        "name": "配置MME",
+        "parentTopicId": "TOPIC_0000001782619724",
+        "position": "8.1.2",
+        "parentPosition": "8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001782467088",
+        "topicUrl": "init_install/unc_2000_init_mme_18.html",
+        "name": "配置Hostfile的数据",
+        "parentTopicId": "OPI_0000001829306461",
+        "position": "8.1.2.15",
+        "parentPosition": "8.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

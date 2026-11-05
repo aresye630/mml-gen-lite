@@ -1,0 +1,126 @@
+{
+  "command_name": "MOD SBILINKSETPROP",
+  "command_name_zh": "修改SBI链路集策略",
+  "command_name_full": "修改SBI链路集策略（MOD SBILINKSETPROP）",
+  "command_function": "**须知** \n\n该命令中LINKNUMPERPROC参数用于设置每HTTP进程到同一对端可建立的链路数量，该数量如果配置过多，会导致系统作为客户端时和对端建立的链路数量过多，可能导致对端异常；如果配置过少，可能导致单链路上负载过大，一旦网络传输质量变化，容易出现该链路上的传输拥塞导致丢包，可能影响业务。\n\n该命令用于修改服务化接口链路集策略的配置。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001183867166",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.12",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001229106859",
+        "topicUrl": "MML/LinkedDoc/sbilinkexecsvc_n_sbi_management.html",
+        "name": "SBI管理",
+        "parentTopicId": "TOPIC_0000001183867166",
+        "position": "1.12.6",
+        "parentPosition": "1.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001184185636",
+        "topicUrl": "MML/LinkedDoc/sbilinkexecsvc_n_sbi_linkset_policy_management.html",
+        "name": "服务化接口链路集策略管理",
+        "parentTopicId": "TOPIC_0000001229106859",
+        "position": "1.12.6.3",
+        "parentPosition": "1.12.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001229053335",
+        "topicUrl": "MML/Document/mod_sbilinksetprop.html",
+        "name": "修改SBI链路集策略（MOD SBILINKSETPROP）",
+        "parentTopicId": "TOPIC_0000001184185636",
+        "position": "1.12.6.3.3",
+        "parentPosition": "1.12.6.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

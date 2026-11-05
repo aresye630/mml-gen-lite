@@ -1,0 +1,131 @@
+{
+  "command_name": "VRY PCFNRFDATA",
+  "command_name_zh": "校验内存数据",
+  "command_name_full": "校验内存数据（VRY PCFNRFDATA）",
+  "command_function": "本命令用于手动校验NCS内存数据和CSP内存数据的一致性。\n\n系统支持一致性校验的数据包括：NRF信息、网元实例信息、网元服务信息、网元公共信息、网元信息、网元PLMN信息、网元切片信息、网元号段信息、网元服务版本信息、网元订阅通知信息、网元服务范围信息、网元DNN组信息、网元SCP域、网元集合。\n\n日常维护过程中，为了进行NRF注册相关的问题定位，可执行该命令校验NCS内存数据和CSP内存数据是否一致。\n\n**说明** \n\n除了支持通过该命令进行手动校验内存数据之外，还可以通过NCS系统软参“VRM\\_NRFAUTOVRYSWITCH”来设置NRF自动校验开关。“VRM\\_NRFAUTOVRYSWITCH”软参取值为“1”时，系统在每天07:17:00自动启动NCS内存数据和CSP内存数据的一致性校验。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0175053740",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_ncs_management.html",
+        "name": "NCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.9",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0295928932",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_cache_management.html",
+        "name": "网元缓存管理",
+        "parentTopicId": "TOPIC_0175053740",
+        "position": "2.2.3.5.9.8",
+        "parentPosition": "2.2.3.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000203279806674",
+        "topicUrl": "MML/Document/vry_pcfnrfdata.html",
+        "name": "校验内存数据（VRY PCFNRFDATA）",
+        "parentTopicId": "CONCEPT_0295928932",
+        "position": "2.2.3.5.9.8.3",
+        "parentPosition": "2.2.3.5.9.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

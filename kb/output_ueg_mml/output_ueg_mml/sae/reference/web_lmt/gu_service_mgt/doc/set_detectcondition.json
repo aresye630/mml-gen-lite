@@ -1,0 +1,119 @@
+{
+  "command_name": "SET DETECTCONDITION",
+  "command_name_zh": "设置检测条件",
+  "command_name_full": "设置检测条件(SET DETECTCONDITION)",
+  "command_function": "当系统配置为支持在线检测增强IMEI轨迹记录的异常用户时，该命令用于配置IMEI轨迹变化异常用户筛选条件。\n\n**说明** \n\n系统支持在线监测增强IMEI轨迹记录异常用户，需要通过**SET MAPCONF**命令将“增强IMEI轨迹记录是否判断位置变化”和“是否支持在线检测增强IMEI轨迹记录的异常用户”参数均设置为“TRUE”。\n\n系统根据配置将指定时间内，位置信息发生多次变化的用户视为可疑用户，并记录该用户信息（包含位置信息）到IMEI变化轨迹异常用户记录结果文件。方便运营商快速识别定位可疑用户，提高客户网络安全能力。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001850155576",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/detect_condition_management.html",
+        "name": "IMEI变化轨迹异常用户检测条件管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.81",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001850155572",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_detectcondition.html",
+        "name": "设置检测条件(SET DETECTCONDITION)",
+        "parentTopicId": "CONCEPT_0000001850155576",
+        "position": "4.2.3.2.81.1",
+        "parentPosition": "4.2.3.2.81",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

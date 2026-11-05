@@ -1,0 +1,143 @@
+{
+  "command_name": "BKP MTNIMDB",
+  "command_name_zh": "备份DSG模块的内存数据库",
+  "command_name_full": "备份DSG模块的内存数据库(BKP MTNIMDB)",
+  "command_function": "该命令用于备份DSG模块的channel数据。该channel数据保存在于DSG模块所在Pod的“/opt/uscdb/snp”目录，文件命名为“MtnCenter\\_Location ID\\_模块号.txt”。备份时，会将“/opt/uscdb/snp”目录下的channel数据备份到“/opt/uscdb/upgBakSnp”目录。在升级场景下，升级工具自动调用该命令备份DSG模块中的Channel数据。非升级场景下，用户可以根据实际需要使用该命令来备份DSG的channel数据。例如，进行DRU模块扩容之前需要备份channel数据。\n\n- 若需要备份所有DSG模块的channel数据，请不要输入任何参数。\n- 若需要备份指定的某一个DSG模块的channel数据，请输入“模块号”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774583",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/data_service_management.html",
+        "name": "数据服务管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.1",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774533",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/channel_data_management.html",
+        "name": "Channel数据管理",
+        "parentTopicId": "MMLREF_0172774583",
+        "position": "2.2.4.3.3.1.13",
+        "parentPosition": "2.2.4.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774519",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/bkp_mtnimdb.html",
+        "name": "备份DSG模块的内存数据库(BKP MTNIMDB)",
+        "parentTopicId": "CONCEPT_0172774533",
+        "position": "2.2.4.3.3.1.13.1",
+        "parentPosition": "2.2.4.3.3.1.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

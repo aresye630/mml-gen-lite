@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活基于VoLTE的优先语音服务（适用于MME）",
+  "feature_description": "本操作指导介绍在运行网络中激活基于VoLTE的优先语音服务业务特性的操作过程，包括两种方案，配置MPS业务功能和配置语音寻呼优先业务功能。\n\n| 方案           | 是否需要用户签约   | 应用业务场景            | 部署建议                                        |\n|:-------------|:-----------|:------------------|:--------------------------------------------|\n| 语音寻呼优先业务（推荐） | 否          | 仅针对VoLTE/CSFB被叫业务 | VoLTE组网场景下推荐部署本方案，以提升被叫寻呼成功率，提升用户语音业务体验。    |\n| MPS业务        | 是          | 针对所有业务            | MPS业务的优先级高于语音寻呼优先业务，该方案可提升特定签约用户享用网络资源的优先级。 |\n\n**说明** \n\n适用于MME。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001308307317",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001308307317.html",
+        "name": "GWFD-025400 VoLTE基本功能",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.21",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0170010133",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_VoLTE_Extended_Package.html",
+        "name": "GWFD-025402 基于VoLTE的优先语音服务",
+        "parentTopicId": "TOPIC_0000001308307317",
+        "position": "6.21.2",
+        "parentPosition": "6.21",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0168230386_2",
+        "topicUrl": "kite_ml/om/unc_2000_feature_om_VoLTE_Extended_Package.html",
+        "name": "激活基于VoLTE的优先语音服务（适用于MME）",
+        "parentTopicId": "TOPIC_0170010133",
+        "position": "4.17.2.3",
+        "parentPosition": "4.17.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

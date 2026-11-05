@@ -1,0 +1,131 @@
+{
+  "command_name": "GET CCDBSRVINFO",
+  "command_name_zh": "获取CCDB的关键资源信息",
+  "command_name_full": "获取CCDB的关键资源信息（GET CCDBSRVINFO）",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作可能产生短时间内进程CPU使用率较高，导致业务受损。建议避免在高峰业务场景下执行该命令。\n\n该命令主要用于维护和故障场景下获取CCDB的关键资源信息与内部辅助定位信息等，便于故障定位。\n\n不同类型的服务支持获取不同类型的服务实例信息，具体可获取的信息包含如下：\n\n- 支持获取CUS的Channel备份文件信息。\n- 支持获取CUS当前所有服务的心跳内存信息。\n- 支持获取CUS当前FE加载的应用插件配置信息。\n- 支持获取CUS/DUS本地日志信息（包含运行日志，初始化日志，内核日志）。\n- 支持获取DUS的GMDB内核关键资源信息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001455421381",
+        "topicUrl": "MML/LinkedDoc/udrdus_n_ccdb_management.html",
+        "name": "CCDB管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.15",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001402613170",
+        "topicUrl": "MML/LinkedDoc/udrdus_n_common_management.html",
+        "name": "通用管理",
+        "parentTopicId": "CONCEPT_0000001455421381",
+        "position": "2.2.3.15.1",
+        "parentPosition": "2.2.3.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001405261388",
+        "topicUrl": "MML/LinkedDoc/udrdus_n_information_collection.html",
+        "name": "信息收集",
+        "parentTopicId": "MMLREF_0000001402613170",
+        "position": "2.2.3.15.1.3",
+        "parentPosition": "2.2.3.15.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001475366957",
+        "topicUrl": "MML/Document/get_ccdbsrvinfo.html",
+        "name": "获取CCDB的关键资源信息（GET CCDBSRVINFO）",
+        "parentTopicId": "CONCEPT_0000001405261388",
+        "position": "2.2.3.15.1.3.1",
+        "parentPosition": "2.2.3.15.1.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

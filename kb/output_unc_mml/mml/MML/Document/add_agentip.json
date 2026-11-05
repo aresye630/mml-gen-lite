@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD AGENTIP",
+  "command_name_zh": "增加远端地址池代理IP信息",
+  "command_name_full": "增加远端地址池代理IP信息（ADD AGENTIP）",
+  "command_function": "**适用NF：PGW-C、SMF、GGSN**\n\n该命令用于添加远端地址池的代理IP地址和IP地址请求消息中必须携带的代理IP地址。\n\nDHCP服务器查找包含该代理IP地址的地址池，按照DHCP服务器上的地址分配策略分配IP地址给UNC，再由UNC下发给UE。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001227622729",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management000.html",
+        "name": "接入管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320706",
+        "topicUrl": "MML/LinkedDoc/unc_n_ue_address_management.html",
+        "name": "UE地址管理",
+        "parentTopicId": "TOPIC_0000001227622729",
+        "position": "2.7.1.3",
+        "parentPosition": "2.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319733",
+        "topicUrl": "MML/LinkedDoc/unc_n_ue_address_pool_management.html",
+        "name": "UE地址池管理",
+        "parentTopicId": "TOPIC_0234320706",
+        "position": "2.7.1.3.1",
+        "parentPosition": "2.7.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001187871726",
+        "topicUrl": "MML/LinkedDoc/unc_n_agent_ip_management.html",
+        "name": "代理IP管理",
+        "parentTopicId": "TOPIC_0234319733",
+        "position": "2.7.1.3.1.16",
+        "parentPosition": "2.7.1.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001232224047",
+        "topicUrl": "MML/Document/add_agentip.html",
+        "name": "增加远端地址池代理IP信息（ADD AGENTIP）",
+        "parentTopicId": "TOPIC_0000001187871726",
+        "position": "2.7.1.3.1.16.1",
+        "parentPosition": "2.7.1.3.1.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

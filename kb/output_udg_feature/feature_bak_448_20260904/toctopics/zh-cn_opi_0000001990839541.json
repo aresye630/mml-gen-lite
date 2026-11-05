@@ -1,0 +1,135 @@
+{
+  "feature_name": "配置计费属性",
+  "feature_description": "本指导描述计费属性的相关配置过程。\n\n计费属性Charging Characteristics（CC）是3GPP协议定义的一种用户签约付费属性，不属于计费功能。计费属性的取值有热计费(Hot Billing 0x0100)、统一费率（Flat Rate 0x0200）、预付费（Prepaid Service 0x0400）、普通计费(Normal Billing 0x0800)和自定义取值。\n\n计费属性可以由RADIUS Server下发，可以在UDM\\HSS\\HLR上签约，也可以在UNC上本地配置，UNC支持基于User Profile、DNN、全局配置三种计费属性。其中，RADIUS Server下发计费属性优先级高于UNC本地配置（通过配置可以决定使用签约的计费属性还是本地配置的计费属性），UNC上配置的计费属性的优先级从高到低依次是：UserProflie下的配置 > DNN下的配置 > 全局配置 > normal（缺省：普通计费）。如果高级别的计费属性没有配置，则依次使用低一级别的计费属性。\n\n图1呈现了计费属性的选择逻辑图。\n\n**图1** Charging Characteristics选择图\n\n- 当UDM下发签约计费属性（或者2/3/4G会话激活请求中携带了计费属性）、并且本地基于User Profile、DNN配置计费属性场景下，由**ADD CHARGECHAR**命令的HOMESGSN、ROAMSGSN、VISITSGSN控制本地、漫游、拜访用户是否使用签约的计费属性。当对应参数配置为ENABLE时，表示使用UDM签约下发的计费属性（或者2/3/4G会话激活请求中携带了计费属性）；当配置为DISABLE时，表示使用本地配置的计费属性。\n- 当UDM下发签约计费属性（或者2/3/4G会话激活请求中携带了计费属性）、并且本地基于全局配置计费属性场景下，由**SET GLBCHARGECHAR**命令的HOMESGSN、ROAMSGSN、VISITSGSN控制本地、漫游、拜访用户是否使用签约的计费属性。当对应参数配置为ENABLE时，表示使用UDM签约下发的计费属性（或者2/3/4G会话激活请求中携带了计费属性）；当配置为DISABLE时，表示使用本地全局配置的计费属性。\n\n**说明** \n\n- SMF根据本地配置的计费属性选择NCG/CHF(OCS)时，需要配置计费属性。\n- 4G网络中，在SP合设场景，即UNC作为SGW-C和PGW-C时，由左侧MME携带计费属性（MME从HSS获取的签约计费属性）；在SP分离部署场景，当UNC单独作为SGW-C时由左侧MME携带计费属性（MME从HSS获取的签约计费属性），当UNC单独作为PGW-C时由左侧SGW-C携带计费属性（SGW-C通过MME得到签约计费属性）。即4G网络中签约计费属性由左侧MME/SGW-C携带。\n- 2/3G网络中，UNC作为GGSN，由左侧SGSN携带签约计费属性（SGSN从HLR获取得签约计费属性）。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVEF27ED6640F347AAB2947C13B7996017",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222378793",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_3193c93d-ba9a-44a2-8cd2-9ae7371cd0a3"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001990679693",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679693.html",
+        "name": "方案五：部署NCG且融合接口计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.5",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001955040352",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040352.html",
+        "name": "SMF配置",
+        "parentTopicId": "TOPIC_0000001990679693",
+        "position": "1.3.5.2",
+        "parentPosition": "1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "TOPIC_0000001990679697",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679697.html",
+        "name": "公共配置",
+        "parentTopicId": "TOPIC_0000001955040352",
+        "position": "1.3.5.2.1",
+        "parentPosition": "1.3.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222378793",
+        "topicId": "OPI_0000001990839541",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990839541.html",
+        "name": "配置计费属性",
+        "parentTopicId": "TOPIC_0000001990679697",
+        "position": "1.3.5.2.1.4",
+        "parentPosition": "1.3.5.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

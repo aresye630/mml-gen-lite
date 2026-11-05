@@ -1,0 +1,131 @@
+{
+  "command_name": "LOD RDATASYNUSERKEY",
+  "command_name_zh": "加载远端用户数据同步用户密钥文件",
+  "command_name_full": "加载远端用户数据同步用户密钥文件（LOD RDATASYNUSERKEY）",
+  "command_function": "该命令用于为远端用户数据同步服务器用户加载身份认证密钥文件。当用户开启公钥认证方式时，需要使用本命令加载此用户使用的密钥文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207053954030",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_campus_service_management.html",
+        "name": "园区业务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.10",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207204292395",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_local_subscriber_data_synchronization.html",
+        "name": "本地用户数据同步",
+        "parentTopicId": "CONCEPT_0000207053954030",
+        "position": "2.2.3.10.1",
+        "parentPosition": "2.2.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207053954036",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_rdatasynuser.html",
+        "name": "远端数据同步用户",
+        "parentTopicId": "CONCEPT_0000207204292395",
+        "position": "2.2.3.10.1.13",
+        "parentPosition": "2.2.3.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202804150634",
+        "topicUrl": "MML/Document/lod_rdatasynuserkey.html",
+        "name": "加载远端用户数据同步用户密钥文件（LOD RDATASYNUSERKEY）",
+        "parentTopicId": "CONCEPT_0000207053954036",
+        "position": "2.2.3.10.1.13.1",
+        "parentPosition": "2.2.3.10.1.13",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

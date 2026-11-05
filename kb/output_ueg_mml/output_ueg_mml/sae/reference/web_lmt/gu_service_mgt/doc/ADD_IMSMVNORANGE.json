@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD IMSMVNORANGE",
+  "command_name_zh": "添加IMS用户标识的号段前缀信息",
+  "command_name_full": "添加IMS用户标识的号段前缀信息(ADD IMSMVNORANGE)",
+  "command_function": "**须知** \n\n本命令属于高危命令，增加MVNO对应的IMPI或IMPU号段前缀会扩大既有操作员的号段范围，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于添加IMS用户标识的号段前缀信息记录，对IMPI或IMPU号段进行管理。\n\n当系统需要进行IMPI或IMPU号段检查时配置，用于检查当前操作员是否拥有当前执行命令中携带IMPI或IMPU的操作权限。\n\n1. 系统在号段匹配时，先对IMPI和IMPU进行如下处理：\n   - 若为IMPI，则将用户IMPI的域名部分剥离。\n   - 若为IMPU，则将SIP URI格式的IMPU的“sip:+”或“sip:”以及域名部分剥离；TEL URI格式的IMPU的“tel:+”部分剥离。\n2. 根据处理结果来判断是否进行号段匹配：\n   - 若剥离后的部分全部为数字，系统将此部分与配置的IMPI或IMPU号段前缀进行匹配。\n     - 如果匹配成功，则既有操作员可通过该命令配置的“虚拟运营商号码”对该IMPI或IMPU进行操作。\n     - 如果匹配失败，则既有操作员不能通过该命令配置的“虚拟运营商号码”对该IMPI或IMPU进行操作。\n   - 若剥离后的部分包含非数字，系统不进行号段前缀匹配，该命令配置的“虚拟运营商号码”不能对此类IMPI或IMPU进行权限管理控制。\n\n例如：使用本命令配置“号段前缀”为“86755”，“虚拟运营商号码”为“1”，“号段类型”为“IMPU”后：\n\n- 若用户的IMPU为“sip:+8675528714565@huawei.com”，则该IMPU与“号段前缀”匹配成功，既有操作员可通过虚拟运营商号码“1”对该IMPU进行操作。\n- 若用户的IMPU为“sip:+8675688714565@huawei.com”，则该IMPU与“号段前缀”匹配失败，既有操作员不能通过虚拟运营商号码“1”对该IMPI进行操作。\n- 若用户的IMPU为“sip:+86755287abcde@huawei.com”，则不对该IMPU进行“号段前缀”匹配，该IMPU不能通过虚拟运营商号码“1”来进行权限控制管理。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732533",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/System_Para_Management.html",
+        "name": "系统参数管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.10",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732757",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/MVNO_Subscriber_Segment_Management.html",
+        "name": "MVNO用户号段管理",
+        "parentTopicId": "CONCEPT_0191732533",
+        "position": "4.2.4.10.2",
+        "parentPosition": "4.2.4.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732786",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/ADD_IMSMVNORANGE.html",
+        "name": "添加IMS用户标识的号段前缀信息(ADD IMSMVNORANGE)",
+        "parentTopicId": "CONCEPT_0191732757",
+        "position": "4.2.4.10.2.1",
+        "parentPosition": "4.2.4.10.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

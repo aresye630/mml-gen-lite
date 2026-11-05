@@ -1,0 +1,230 @@
+{
+  "command_name": "MOD MEPREVERSEPROXY",
+  "command_name_zh": "修改MEP反向代理",
+  "command_name_full": "修改MEP反向代理（MOD MEPREVERSEPROXY）",
+  "command_function": "**适用NF：UPF、MPF**\n\n该命令用于修改反向代理对象，根据该对象所关联的HTTP服务端和HTTP客户端类型不同提供不同功能，包含：\n\nAPI GW对外部网元提供访问内部服务的代理功能。\n\nAPI GW对外部网元提供访问外部网元的代理功能。\n\nAPI GW对内部服务提供通知外部网元相关事件的代理功能。\n\nAPI GW对内部服务提供向外部网元如UPF提供规则下发的代理功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201297342118_3",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_mec_control_plane_management.html",
+        "name": "MEC控制面管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.7",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201293478215_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_basic_configuration.html",
+        "name": "基础配置",
+        "parentTopicId": "CONCEPT_0000201297342118_3",
+        "position": "3.7.1",
+        "parentPosition": "3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201918502618_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_api_gw_basic_parameter_configuration.html",
+        "name": "API GW基本参数配置",
+        "parentTopicId": "CONCEPT_0000201293478215_2",
+        "position": "3.7.1.28",
+        "parentPosition": "3.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202105299011_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_mep_reverse_proxy.html",
+        "name": "MEP反向代理",
+        "parentTopicId": "CONCEPT_0000201918502618_2",
+        "position": "3.7.1.28.2",
+        "parentPosition": "3.7.1.28",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202013772436_2",
+        "topicUrl": "kite_s_bm/MML/Document/mod_mepreverseproxy.html",
+        "name": "修改MEP反向代理（MOD MEPREVERSEPROXY）",
+        "parentTopicId": "CONCEPT_0000202105299011_2",
+        "position": "3.7.1.28.2.2",
+        "parentPosition": "3.7.1.28.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201297342118_3",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_mec_control_plane_management.html",
+        "name": "MEC控制面管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.7",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201293478215_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_basic_configuration.html",
+        "name": "基础配置",
+        "parentTopicId": "CONCEPT_0000201297342118_3",
+        "position": "3.7.1",
+        "parentPosition": "3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201918502618_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_api_gw_basic_parameter_configuration.html",
+        "name": "API GW基本参数配置",
+        "parentTopicId": "CONCEPT_0000201293478215_2",
+        "position": "3.7.1.28",
+        "parentPosition": "3.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202105299011_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_mep_reverse_proxy.html",
+        "name": "MEP反向代理",
+        "parentTopicId": "CONCEPT_0000201918502618_2",
+        "position": "3.7.1.28.2",
+        "parentPosition": "3.7.1.28",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202013772436_2",
+        "topicUrl": "kite_s_bm/MML/Document/mod_mepreverseproxy.html",
+        "name": "修改MEP反向代理（MOD MEPREVERSEPROXY）",
+        "parentTopicId": "CONCEPT_0000202105299011_2",
+        "position": "3.7.1.28.2.2",
+        "parentPosition": "3.7.1.28.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

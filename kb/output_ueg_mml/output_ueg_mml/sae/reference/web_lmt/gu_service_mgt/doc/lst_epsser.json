@@ -1,0 +1,107 @@
+{
+  "command_name": "LST EPSSER",
+  "command_name_zh": "查询EPS业务",
+  "command_name_full": "查询EPS业务（LST EPSSER）",
+  "command_function": "该命令用于查询用户EPS业务数据的配置信息。\n\n- 若需要查询某个用户的EPS业务数据，请输入“IMSI”或“MSISDN”参数中的任意一个。\n- 若需要查询连续多个用户的EPS业务数据，请输入以下两组的任意一个：\n  - “IMSI”、“用户个数”和“IMSI文件名”。\n  - “MSISDN”、“用户个数”和“MSISDN文件名”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803293",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/eps_service_management.html",
+        "name": "EPS业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.16",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0175388446",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_epsser.html",
+        "name": "查询EPS业务（LST EPSSER）",
+        "parentTopicId": "CONCEPT_0190803293",
+        "position": "4.2.3.16.2",
+        "parentPosition": "4.2.3.16",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

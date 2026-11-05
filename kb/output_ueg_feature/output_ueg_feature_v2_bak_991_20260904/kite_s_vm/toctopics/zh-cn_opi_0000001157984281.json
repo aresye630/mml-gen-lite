@@ -1,0 +1,105 @@
+{
+  "feature_name": "激活动态分流规则状态",
+  "feature_description": "动态Traffic Rule和动态DNS Rule在MPF上存在两种状态：ACTIVE（激活状态）、INACTIVE（去激活状态）。在不同场景下或针对不同运营商，支持如下两种方式下发动态Traffic Rule和动态DNS Rule：\n\n1. 第三方管理平台通过MEPM向MPF动态Traffic Rule时，下发的动态Traffic Rule全部是ACTIVE状态。\n2. 管理面MEAO/MEPM下发的动态Traffic Rule保存在MPF上时初始状态均被置为INACTIVE。\n\n上述两种下发方式下，MPF均支持通过MPF本地配置的命令修改动态Traffic Rule和动态DNS Rule状态：\n\n- 通过**ACT TRAFFICRULE**命令将动态Traffic Rule的状态从INACTIVE修改为ACTIVE；通过**DEA TRAFFICRULE**命令将动态Traffic Rule的状态从ACTIVE修改为INACTIVE。\n- 通过**ACT DNSRULE**命令将动态DNS Rule的状态从INACTIVE修改为ACTIVE；通过**DEA DNSRULE**命令将动态DNS Rule的状态从ACTIVE修改为INACTIVE。\n\n**说明** \n\n适用于MPF。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001105558238",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001105558238.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001152577089",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152577089.html",
+        "name": "APP集成管理功能",
+        "parentTopicId": "TOPIC_0000001105558238",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001157865041",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001157865041.html",
+        "name": "配置MPF",
+        "parentTopicId": "TOPIC_0000001152577089",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001157864297",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001157864297.html",
+        "name": "激活动态分流规则下发（MPF）",
+        "parentTopicId": "TOPIC_0000001157865041",
+        "position": "5.4.2.3",
+        "parentPosition": "5.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001157984281",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_opi_0000001157984281.html",
+        "name": "激活动态分流规则状态",
+        "parentTopicId": "OPI_0000001157864297",
+        "position": "5.4.2.3.2",
+        "parentPosition": "5.4.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "feature_name": "配置动态PCC功能",
+  "feature_description": "当网络中有PCRF，用户激活为PCC用户，需要为用户或用户业务提供灵活策略控制时，需要开启动态PCC功能，并根据业务情况来部署预定义规则/预定义规则组或动态规则。\n\n- 预定义规则/预定义规则组\n\n  当需要对报文进行七层解析或业务规划时针对用户的规则内容在用户激活前可以预先确定，建议采用预定义规则方式，以减少GGSN/PGW-C与PCRF之间的交互和对缓存资源的占用。即相应的QoS管理、计费控制策略等在GGSN/PGW-C上通过rule或者UserProfile配置，PCRF上只配置预定义规则名称/预定义规则组名称。\n- 动态规则\n\n  当用户激活前用户的规则内容无法确定，需要根据用户访问业务时的协商结果由AF（应用服务器）或其他网元发送请求给PCRF，请求建立动态规则时，建议采用动态规则方式。即GGSN/PGW-C上只需开启PCC功能开关，相应的QoS管理、计费控制策略等均在PCRF上配置。\n\nGGSN/PGW-C可以基于APN、特定号段、全局选择PCRF组，并触发PCC功能，GGSN/PGW-C上基于不同粒度开启PCC功能的规划如表1所示。\n\n| 选择的PCRF组       | 全局PCC功能（SET PCCFUNC）   | APN下的PCC功能（SET APNPCCFUNC）   | 说明                          |\n|:---------------|:-----------------------|:-----------------------------|:----------------------------|\n| 选择APN下绑定的PCRF组 | ENABLE                 | ENABLE                       | 指定APN下绑定PCRF组。              |\n| 选择指定号段绑定的PCRF组 | ENABLE                 | INHERIT                      | 指定号段绑定PCRF组。                |\n| 选择全局缺省的PCRF组   | ENABLE                 | INHERIT                      | 指定全局缺省的PCRF组，且指定号段未绑定PCRF组。 |\n\n**说明** \n\n适用于GGSN、PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450967",
+        "topicUrl": "toctopics/zh-cn_topic_0248450967.html",
+        "name": "智能PCC解决方案",
+        "parentTopicId": "",
+        "position": "30",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0160374767",
+        "topicUrl": "desc/unc_2000_feature_desc_Basic_PCC_Function.html",
+        "name": "WSFD-109101 PCC基本功能",
+        "parentTopicId": "TOPIC_0248450967",
+        "position": "30.1",
+        "parentPosition": "30",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0229056156",
+        "topicUrl": "toctopics/zh-cn_topic_0229056156.html",
+        "name": "PCC基本功能（2G/3G/4G，基于Gx接口）",
+        "parentTopicId": "CONCEPT_0160374767",
+        "position": "30.1.2",
+        "parentPosition": "30.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0229056159",
+        "topicUrl": "toctopics/zh-cn_opi_0229056159.html",
+        "name": "激活PCC基本功能",
+        "parentTopicId": "TOPIC_0229056156",
+        "position": "30.1.2.3",
+        "parentPosition": "30.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0230805098",
+        "topicUrl": "toctopics/zh-cn_opi_0230805098.html",
+        "name": "配置动态PCC功能",
+        "parentTopicId": "OPI_0229056159",
+        "position": "30.1.2.3.3",
+        "parentPosition": "30.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置移动性管理",
+  "feature_description": "本操作指导介绍在运行网络中配置移动性管理特性的操作过程。\n\n移动性管理功能EMM（EPS Mobility Management）用来控制UE（User Equipment）在LTE/EPC的接入及跟踪UE当前的位置信息，即UE当前所在的TA(Tracking Area)/TA List、当前所在的MME（Mobilit Management Entity）等信息。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782619724",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782619724.html",
+        "name": "配置AMF&MME&SGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.1",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001829306461",
+        "topicUrl": "toctopics/zh-cn_opi_0000001829306461.html",
+        "name": "配置MME",
+        "parentTopicId": "TOPIC_0000001782619724",
+        "position": "8.1.2",
+        "parentPosition": "8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001829306529",
+        "topicUrl": "init_install/unc_2000_init_mme_16.html",
+        "name": "配置移动性管理",
+        "parentTopicId": "OPI_0000001829306461",
+        "position": "8.1.2.20",
+        "parentPosition": "8.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

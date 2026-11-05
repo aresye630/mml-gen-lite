@@ -1,0 +1,339 @@
+{
+  "feature_name": "配置Sa/N3/S1-U接口数据",
+  "feature_description": "部署MEC解决方案时，新增UEG作为UL CL UPF+辅锚点UPF或主锚点UPF时，在完成配置UEG到无线(R)AN侧的路由数据后，可在UEG上配置Sa/N3/S1-U接口数据使UEG与无线(R)AN侧建立逻辑连接。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339692528",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339692528.html",
+        "name": "初始配置与调测（入驻式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389812585",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389812585.html",
+        "name": "初始配置与调测（入驻式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339692528",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001142675370_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001142675370.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001389812585",
+        "position": "4.2.2.3",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143495720_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143495720.html",
+        "name": "配置主锚点UPF",
+        "parentTopicId": "TOPIC_0000001142675370_3",
+        "position": "4.2.2.3.6",
+        "parentPosition": "4.2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001143335944_1",
+        "topicUrl": "kite_s_vm/cdgw/installation/cu_ugw_010016_13_c2_pri1.html",
+        "name": "配置Sa/N3/S1-U接口数据",
+        "parentTopicId": "TOPIC_0000001143495720_3",
+        "position": "4.2.2.3.6.1",
+        "parentPosition": "4.2.2.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339692528",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339692528.html",
+        "name": "初始配置与调测（入驻式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389812585",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389812585.html",
+        "name": "初始配置与调测（入驻式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001339692528",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001142675370_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001142675370.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001389812585",
+        "position": "4.2.2.3",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001143495720_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001143495720.html",
+        "name": "配置主锚点UPF",
+        "parentTopicId": "TOPIC_0000001142675370_3",
+        "position": "4.2.2.3.6",
+        "parentPosition": "4.2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0000001143335944_1",
+        "topicUrl": "kite_s_vm/cdgw/installation/cu_ugw_010016_13_c2_pri1.html",
+        "name": "配置Sa/N3/S1-U接口数据",
+        "parentTopicId": "TOPIC_0000001143495720_3",
+        "position": "4.2.2.3.6.1",
+        "parentPosition": "4.2.2.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001462442398",
+        "topicUrl": "toctopics/zh-cn_topic_0000001462442398.html",
+        "name": "虚机容器模式",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001149557839",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001149557839.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "TOPIC_0000001462442398",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000002084236249",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000002084236249.html",
+        "name": "UEG初始配置",
+        "parentTopicId": "TOPIC_0000001149557839",
+        "position": "1.3.1",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001142675370_1",
+        "topicUrl": "kite_s_vm/vm_on_pre_ref_nonsdn.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000002084236249",
+        "position": "1.3.1.3",
+        "parentPosition": "1.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001143495720_1",
+        "topicUrl": "kite_s_vm/vm_on_pre_psa1_nonsdn.html",
+        "name": "配置主锚点UPF",
+        "parentTopicId": "TOPIC_0000001142675370_1",
+        "position": "1.3.1.3.6",
+        "parentPosition": "1.3.1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001143335944_1",
+        "topicUrl": "kite_s_vm/cdgw/installation/cu_ugw_010016_13_c2_pri1.html",
+        "name": "配置Sa/N3/S1-U接口数据",
+        "parentTopicId": "TOPIC_0000001143495720_1",
+        "position": "1.3.1.3.6.1",
+        "parentPosition": "1.3.1.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+---
+id: ''
+name: 安装vTCP_OPT服务
+ne_type: UDG
+type: feature
+description: vTCP\_OPT特性是通过采用TCP透明代理、提高慢启动阶段初始拥塞窗口、快速重传与快速恢复、TCP发送端算法优化来提升TCP协议的传输效率。UDG通过集成vTCP\_OPT，可提供TCP协议传输效率的提升。  仅当UDG网元需要部署vTCP\_OPT功能，才需要安装vTCP\_OPT服务。  安装vTCP\_OPT服务场景：  * **场景一（静态上线）**：vTCP\_OPT服务和UDG网元**同时实例化**。实例化UDG前填写如下VNFD参数。   + 配置VM：基于X86虚拟机（PBU\_B1\_Num，PBU\_E-T\_Num，PBU\_E-T Redundancy Num）。基于ARM虚拟机(PBU\_B1\_ARM\_Num，PBU\_E-T\_ARM\_Num或PBU\_E-T\_C56\_ARM\_Num或PBU\_E-T\_C56\_M\_ARM\_Num，PBU\_E-T\_ARM Redundancy Num或PBU\_E-T\_C56\_ARM Redundancy Num或PBU\_E-T\_C56\_M\_ARM Redundancy Num)。   + 配置Pod：“TO\_Instance\_Num”，“TOC56\_Instance\_Num”，“TOC56M\_Instance\_Num”，“TO\_ARM\_Instance\_Num”，“TOCTRL\_Instance\_Num”。 * **场景二**（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线vTCP\_OPT服务。
+risk_level: ''
+doc_source: ["网络部署","软件安装","基于NFVO安装UDG（SDN）","安装可选服务","安装vTCP_OPT服务"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+vTCP\_OPT特性是通过采用TCP透明代理、提高慢启动阶段初始拥塞窗口、快速重传与快速恢复、TCP发送端算法优化来提升TCP协议的传输效率。UDG通过集成vTCP\_OPT，可提供TCP协议传输效率的提升。仅当UDG网元需要部署vTCP\_OPT功能，才需要安装vTCP\_OPT服务。安装vTCP\_OPT服务场景：* **场景一（静态上线）**：vTCP\_OPT服务和UDG网元**同时实例化**。实例化UDG前填写如下VNFD参数。  + 配置VM：基于X86虚拟机（PBU\_B1\_Num，PBU\_E-T\_Num，PBU\_E-T Redundancy Num）。基于ARM虚拟机(PBU\_B1\_ARM\_Num，PBU\_E-T\_ARM\_Num或PBU\_E-T\_C56\_ARM\_Num或PBU\_E-T\_C56\_M\_ARM\_Num，PBU\_E-T\_ARM Redundancy Num或PBU\_E-T\_C56\_ARM Redundancy Num或PBU\_E-T\_C56\_M\_ARM Redundancy Num)。  + 配置Pod：“TO\_Instance\_Num”，“TOC56\_Instance\_Num”，“TOC56M\_Instance\_Num”，“TO\_ARM\_Instance\_Num”，“TOCTRL\_Instance\_Num”。* **场景二**（动态上线）**：**先**实例化UDG，**然后**再参考本章节，动态上线vTCP\_OPT服务。
+
+## 必备事项
+前提条件
+
+前提条件
+
+* 已经实例化UDG。已经安装后检查，UDG正常工作。
+* 准备好部署所需要的镜像文件：X86为“5G-UP-VASs-vTCP-OPT\_xx.x.x\_X86.zip ” 。ARM为“5G-UP-VASs-vTCP-OPT\_xx.x.x\_ARM.zip”。
+* 已经完成检查软件包完整性。
+
+* 当系统进行动态上下线操作期间，不允许再同时进行扩缩容操作。同理，当系统进行扩缩容期间，不允许再进行动态上下线操作。
+* 上下线本服务时，不能同时上下线其他部件。
+* 当动态上线一个服务的任务失败；必须先动态下线此服务，再重新触发动态上线任务。如果是动态下线失败，只能继续重新触发动态下线任务。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties:
+    opr_featureenable_list:
+      type: items
+      properties:
+        PODINSTANCENUM:
+          name: 'Pod实例个数列表'
+          type: string
+          minLength: 0
+          maxLength: 1024
+          required: true
+          description: ''
+          data_source: '本端规划'
+          pattern: ''
+          default: ''
+        FUNCTIONSETNAME:
+          name: '网络功能集名称'
+          type: string
+          minLength: 0
+          maxLength: 1024
+          required: false
+          description: ''
+          data_source: '固定取值'
+          pattern: ''
+          default: ''
+  examples:
+    opr_featureenable_list:
+    - PODINSTANCENUM: 'to-pod:2/toctrl-pod:2'
+      FUNCTIONSETNAME: 'TO'
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 动态上线本服务前，必须根据客户的业务容量和设备现状进行严格的**扩容评估**。
+
+### 确保上线服务所需的I层资源、License资源、各类网络资源（如外联口网络）是充足的，如果不充足，则要**先扩容这些资源**，然后**再上线本服务**。
+
+### 由华为网设工程师进行网络设计，规划计算资源、存储资源、网络资源。
+
+### 将规划数据合入《NFV LLD文档》，作为后续操作的输入。
+
+### **计算资源**：承载虚拟机的主机（服务器）、主机组、虚拟机名称、虚拟机个数、容器名称、容器个数。
+
+### **存储资源**：承载本服务的磁盘空间。
+
+### **网络资源**：承载虚拟机的网络。承载容器的网络。承载业务的物理网口、业务网络。例如虚拟机的Base网络、容器Base网络、外联口网络、外联口Subport。
+
+### 2 检查**软件包**，确保已经上传依赖的软件包。
+
+### 登录MAE-VNF LCM/U2020 VNF LCM，单击“包管理 > VNFD > 单击VNFD模板，查看VNFD模板详情 > 依赖的服务镜像”。
+
+### 若“5G-UP-VASs-vTCP-OPT\_xx.x.x\_ARM.zip” “5G-UP-VASs-vTCP-OPT\_xx.x.x\_X86.zip ”的状态为“已经存在”，说明已经上传软件包，则跳过步骤 3，执行后续步骤。
+
+### 若软件包的状态为“等待上传”，则需要执行步骤 3。
+
+### 3 **上传服务镜像文件**。
+
+### 如果执行LST ME命令查询的架构模式为X86，且LCM上提示ARM的包为必选时，可以忽略“是否必需上传”的提示，无需上传ARM后缀的依赖的服务镜像。
+
+#### 3.1 在“依赖的服务镜像”区域，单击“上传”，弹出“上传服务镜像”窗口。
+
+#### 3.2 在“单包”页面，单击“选择文件”，选择依赖的服务镜像包和对应的cms文件。
+
+#### 3.3 单击“完成”。
+
+#### 3.4 上传完成后，“状态”均显示为“已经存在”。上传时长依赖于现场网络情况。
+
+### 上传镜像后需要同步镜像包到边缘站点。
+
+#### 3.5 在“VNFD”窗口中，**选择已导入的VNFD**。
+
+#### 3.6 单击图标。
+
+#### 3.7 在“边缘站点列表”区域中选择目标站点。
+
+#### 3.8 单击“确定”。
+
+#### **图1** 同步文件到边缘站点
+
+### 4 参考《UDG中心侧扩缩容指导书(基于LCM)》或《UDG中心侧扩缩容指导书(基于NFVO)》，完成扩容操作，扩容出计算资源、存储资源、网络资源、VM和POD。上线可选服务时可只扩容VM，无需扩容POD。可选服务所用VM可参见扩容指导书内非基础业务扩容规格确定章节**。**
+
+### 由华为工程师登录华为Support网站，在技术支持>知识库>云核心网>Mobile Packet Core>5G Packet Core>UDG>技术指导，中搜索《UDG中心侧扩缩容指导书(基于LCM)》或《UDG中心侧扩缩容指导书(基于NFVO)》。
+
+### 非SDN组网模式下使用《UDG中心侧扩缩容指导书(基于LCM)》，SDN组网模式请使用《UDG中心侧扩缩容指导书(基于NFVO)》。
+
+### 5 登录UDG OM Portal。
+
+### 6 执行命令，动态上线vTCP\_OPT Pod。以PBU\_E-T虚拟机为例，PBU\_E-T\_C56\_ARM或PBU\_E-T\_C56\_M\_ARM虚拟机请替换为配套pod。
+
+```jinja2
+{%- for item in opr_featureenable_list -%}
+    OPR FEATUREENABLE:
+    {#- --- 必选参数 --- -#}
+    PODINSTANCENUM="{{item.PODINSTANCENUM}}",
+    {#- --- 可选参数 --- -#}
+    {%- if item.FUNCTIONSETNAME is not none -%}
+        FUNCTIONSETNAME="{{item.FUNCTIONSETNAME}}",
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+
+### 无需配置“EXTENDEDATTR(扩展属性)”参数，参数“FUNCTIONSETNAME”填写为“TO”。
+
+### 7 执行命令，确认已经成功实例化vTCP\_OPT Pod。
+
+### 回显为“处理结果=处理成功”。
+
+### 回显pod个数和规划一致，且“Pod状态”为“Running”。
+
+### 8 执行命令，查询进程的状态。
+
+### 预期结果：“未就绪进程数”和“故障进程数”均为0。
+

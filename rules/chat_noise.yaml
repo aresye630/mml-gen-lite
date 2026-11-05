@@ -1,0 +1,54 @@
+# 对话回复噪音剥离表（P2-1）
+#
+# 用途：app._strip_env_noise() 剔除 hermes 对话输出中的**环境/安装噪音**。
+#
+# 背景（问题#10 实测）：hermes 首跑会自行安装依赖（Node.js/npm/pip），
+#   这些安装日志混进 stdout ⇒ 用户问「你好」，收到的回复里夹着一屏
+#   「added N packages / downloading node…」。
+# 口径（用户明确）：安装/依赖管理属部署期内部行为，**不外露给用户**。
+#   降级/内部逻辑不外露，UI 只呈现业务澄清 + 明确成败。
+#
+# 匹配：逐行 re.search（忽略大小写），命中即丢该行。
+# 维护：只改此文件（代码有同构兜底，文件缺失不致命）。
+
+# ⚠ 模式一律用 re.search 且**不加 ^ 行首锚点**：
+#   hermes 的安装日志行常带箭头/勾号前缀（→ / ✓ / ⚠），
+#   实测 '→ Checking Node.js (for browser tools)...'、'✓ Detected: linux (debian)'
+#   ⇒ '^\s*Checking' 匹配不到（→ 不是空白）→ 剥离失效（首版即踩此坑）。
+patterns:
+  # ── Node.js / npm 安装 ──
+  - 'added\s+\d+\s+packages?'
+  - '(npm|yarn|pnpm)\s+(warn|notice|info|http)\b'
+  - 'npm\s+ERR!'
+  - 'npm install\b'
+  - 'Installing Node|Downloading Node|Node\.js not found'
+  # ★ 2026-11-05 实测：hermes 正常启动时的检测行（带 ✓/✗ 前缀 + ANSI 色码）
+  #   原文 '\x1b[0;32m✓\x1b[0m Node.js  found' / '\x1b[0;31m✗\x1b[0m npm not found'
+  #   原来只挡 'not found'，挡不住 'found' 和 'npm not found'（中间有空格）
+  - 'Node\.js\s+(found|not\s+found)'
+  - 'npm\s+(not\s+)?found'
+  - 'Checking Node\.js'
+  - 'changed \d+ packages|audited \d+ packages'
+  - 'found \d+ vulnerabilities|run `npm audit'
+  - '\[hermes\]\s*(Installing|Setting up|Preparing|Fetching|Downloading)'
+  # hermes 首跑自检行（带箭头前缀）
+  - 'Detected:\s*(linux|darwin|win)'
+  - 'Checking Node\.js'
+  - 'Extracting to ~?/?\.hermes/node'
+  - 'Ignoring inherited PYTHONPATH'
+  - 'tirith security scanner enabled but not available'
+  - 'Normalized model .* to .* for '
+
+  # ── pip / python 安装 ──
+  - 'Requirement already satisfied'
+  - 'Collecting \S+'
+  - 'Installing collected packages'
+  - 'Successfully installed\b'
+
+  # ── 下载进度条 / 构建啰嗦行 ──
+  - '[█▉▊▋▌▍▎▏░▓]{4,}'
+  - '(Bundling|Building|Compiling|Resolving)\b.*\.\.\.$'
+  - '(⠋|⠙|⠹|⠸|⠼|⠴|⠦|⠧|⠇|⠏)'
+
+# 说明：不用块级 start/end 配对（YAML 表达笨重且易误伤正文）；
+# 逐行模式已覆盖实测案例。若将来出现多行块噪音，再引入块级规则。

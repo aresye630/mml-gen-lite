@@ -1,0 +1,116 @@
+{
+  "feature_name": "配置容灾参数",
+  "feature_description": "风筝L双DC部署，需要参考本页面配置容灾参数。\n\n**说明** \n\n园区UEG中规划同时部署UDM和PCF实体功能时，本页面不需要重复配置。如已完成配置容灾参数，则此处不需要重复配置。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD3E60845ED694AE892C80CB10570D5AE",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289298685",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "UEG容灾方案介绍（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "TOPIC_0000001399478270",
+        "topicUrl": "toctopics/zh-cn_topic_0000001399478270.html",
+        "name": "1+1主备容灾原理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "TOPIC_0000001757169957",
+        "topicUrl": "toctopics/zh-cn_topic_0000001757169957.html",
+        "name": "1+1主备容灾部署与调测",
+        "parentTopicId": "TOPIC_0000001399478270",
+        "position": "4.4",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "TOPIC_0000001399478266",
+        "topicUrl": "toctopics/zh-cn_topic_0000001399478266.html",
+        "name": "1+1主备容灾模式",
+        "parentTopicId": "TOPIC_0000001757169957",
+        "position": "4.4.2",
+        "parentPosition": "4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298685",
+        "topicId": "OPI_0000001399923632",
+        "topicUrl": "toctopics/zh-cn_opi_0000001399923632.html",
+        "name": "配置容灾参数",
+        "parentTopicId": "TOPIC_0000001399478266",
+        "position": "4.4.2.3",
+        "parentPosition": "4.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

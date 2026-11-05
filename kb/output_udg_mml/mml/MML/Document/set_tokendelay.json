@@ -1,0 +1,119 @@
+{
+  "command_name": "SET TOKENDELAY",
+  "command_name_zh": "设置Token延时迁移时间",
+  "command_name_full": "设置Token延时迁移时间（SET TOKENDELAY）",
+  "command_function": "**须知** \n\n执行此命令可能导致系统没有可用的实例。\n\n执行此命令可能导致扩容、服务实例故障恢复的时间延长。\n\n本次命令将修改TokenDelay，请务必在华为技术支持人员的指导下使用该命令。\n\n该命令用于修改Token的延时迁移时间，对整系统生效。可以用于在某个服务实例状态转为Normal，并准备分配或迁移Token时，实现延时定时器功能。当超过定时器时长时，再将Token迁入到该实例。\n\nToken可以理解为NF内部服务使用的短期令牌，当且仅当手持令牌时，才能获取所需服务。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202477724732",
+        "topicUrl": "MML/LinkedDoc/dcfctrl_n_dcf_function_management.html",
+        "name": "DCF功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.11",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202668484687",
+        "topicUrl": "MML/LinkedDoc/dcfctrl_n_dcf_management.html",
+        "name": "DCF管理",
+        "parentTopicId": "CONCEPT_0000202477724732",
+        "position": "4.11.1",
+        "parentPosition": "4.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202477964646",
+        "topicUrl": "MML/LinkedDoc/dcfctrl_n_dcfparameter_management.html",
+        "name": "DCF参数管理",
+        "parentTopicId": "CONCEPT_0000202668484687",
+        "position": "4.11.1.1",
+        "parentPosition": "4.11.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001279244269",
+        "topicUrl": "MML/Document/set_tokendelay.html",
+        "name": "设置Token延时迁移时间（SET TOKENDELAY）",
+        "parentTopicId": "CONCEPT_0000202477964646",
+        "position": "4.11.1.1.1",
+        "parentPosition": "4.11.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

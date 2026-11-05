@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD ACLRULEADV4IPSEC",
+  "command_name_zh": "增加高级ACL规则",
+  "command_name_full": "增加高级ACL规则（ADD ACLRULEADV4IPSEC）",
+  "command_function": "该命令用于创建高级ACL规则。\n\n高级ACL可以基于五元组（源目的IP，源目的端口号，协议号）进行报文匹配。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203303868644",
+        "topicUrl": "MML/LinkedDoc/framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.1",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001224256683",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_internet_protocol_security_management.html",
+        "name": "IPSEC功能管理",
+        "parentTopicId": "CONCEPT_0000203303868644",
+        "position": "2.2.3.1.21",
+        "parentPosition": "2.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001224578113",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001224256683",
+        "position": "2.2.3.1.21.1",
+        "parentPosition": "2.2.3.1.21",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001178618446",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_acl_management.html",
+        "name": "ACL管理",
+        "parentTopicId": "TOPIC_0000001224578113",
+        "position": "2.2.3.1.21.1.2",
+        "parentPosition": "2.2.3.1.21.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001178936958",
+        "topicUrl": "MML/LinkedDoc/ipsecccell_n_acl_advance_rule.html",
+        "name": "高级ACL规则",
+        "parentTopicId": "TOPIC_0000001178618446",
+        "position": "2.2.3.1.21.1.2.2",
+        "parentPosition": "2.2.3.1.21.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001180751058_3",
+        "topicUrl": "MML/Document/add_aclruleadv4ipsec.html",
+        "name": "增加高级ACL规则（ADD ACLRULEADV4IPSEC）",
+        "parentTopicId": "TOPIC_0000001178936958",
+        "position": "2.2.3.1.21.1.2.2.1",
+        "parentPosition": "2.2.3.1.21.1.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

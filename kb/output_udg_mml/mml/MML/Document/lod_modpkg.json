@@ -1,0 +1,95 @@
+{
+  "command_name": "LOD MODPKG",
+  "command_name_zh": "加载模型包",
+  "command_name_full": "加载模型包（LOD MODPKG）",
+  "command_function": "对于注册了推理场景的网元服务，执行此命令完成对应场景的模型包、模型文件的加载和更新。\n\n**须知** \n\n此命令为高危命令，加载模型包期间对应的业务服务推理能力不可用，请谨慎操作。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000001861214302",
+        "topicUrl": "toctopics/zh-cn_topic_0000001861214302.html",
+        "name": "CoreMind操作维护命令",
+        "parentTopicId": "",
+        "position": "12",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000002266957545",
+        "topicUrl": "toctopics/zh-cn_topic_0000002266957545.html",
+        "name": "智能模型管理",
+        "parentTopicId": "TOPIC_0000001861214302",
+        "position": "12.1",
+        "parentPosition": "12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "TOPIC_0000002218271534",
+        "topicUrl": "MML/Document/lod_modpkg.html",
+        "name": "加载模型包（LOD MODPKG）",
+        "parentTopicId": "TOPIC_0000002266957545",
+        "position": "12.1.5",
+        "parentPosition": "12.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

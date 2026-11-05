@@ -1,0 +1,107 @@
+{
+  "command_name": "BAT",
+  "command_name_zh": "批操作",
+  "command_name_full": "批操作（BAT）",
+  "command_function": "**须知** \n\n- 该命令不允许进行批操作。\n- 在执行批操作的过程中，如果主备PGW发生双机倒换或复位，可能导致批操作详细结果文件中部分信息丢失。\n- 执行定时批操作的时间点不能设置在夏令时跳变的时间段内，否则可能会造成定时批操作延期等异常。\n- 批操作中包含涉及全局数据增加/修改/删除的命令时，为防止引起FE模块大量加载全局数据，导致全局DRU流控，请联系华为技术支持确认。全局数据命令请参见产品手册中“PGW Web LMT命令”页面。\n- 批操作中包含涉及全局数据查询的命令时，为防止引起PGW模块大量加载全局数据，导致PGW流控，请联系华为技术支持确认。全局数据命令请参见产品手册中“PGW Web LMT命令”页面。\n- 执行本命令时，将不可避免的涉及到用户的个人数据，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护，并在操作完成后及时清理结果文件。\n\n该命令用于批操作处理MML命令。PGW的MML命令用于实现整个PGW的操作维护功能，批操作处理MML命令可提高运营商业务发放的效率，减少人工维护成本，降低了运营商的运营成本。\n\n批操作分为立即执行和定时执行：\n\n批操作定时执行原理如图1所示。\n\n**图1** 批操作定时执行流程\n\n1. 在USCDB中预先配置FTP服务器信息及从FTP服务器获取批操作文件的预定时间。\n2. 运营商需要定时进行业务发放操作时，预先制作批操作文件并将文件上传到FTP服务器。\n3. 当预定的时间到达时，USCDB从FTP服务器中获取批操作文件。\n4. USCDB获取到批操作文件后，自动执行该批操作文件。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169394",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/system_management.html",
+        "name": "系统管理（MVNO）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169363_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/batch_management.html",
+        "name": "批操作管理",
+        "parentTopicId": "MMLREF_0173169394",
+        "position": "4.2.2.8",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169365_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/doc/bat.html",
+        "name": "批操作（BAT）",
+        "parentTopicId": "CONCEPT_0173169363_2",
+        "position": "4.2.2.8.1",
+        "parentPosition": "4.2.2.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

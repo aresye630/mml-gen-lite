@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD NGSRRS",
+  "command_name_zh": "修改5GS漫游限制业务",
+  "command_name_full": "修改5GS漫游限制业务(MOD NGSRRS)",
+  "command_function": "该命令用于在UDM中为用户提供或撤销基于5GS的漫游限制业务。5GS漫游限制业务会根据运营商、网络或用户的要求，对用户移动性进行管理，设置用户允许漫游的范围。\n\n在通过该命令为用户签约5GS漫游限制业务之前，需要先用**ADD NGCRRAREATPL**命令定义NGC漫游限制区域模板，再通过**ADD NGCRRNODETPL**命令定义NGC漫游限制模板，最后通过该命令引用对应的模板为用户提供业务。\n\n该命令的参数关系索引图如图1所示。\n\n**图1** 命令参数的索引关系图",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0163185913",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/5GC_service_management.html",
+        "name": "5GC业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.43",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0166290025",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ngsrrs_management.html",
+        "name": "5GS漫游限制业务管理",
+        "parentTopicId": "MMLREF_0163185913",
+        "position": "4.2.3.43.7",
+        "parentPosition": "4.2.3.43",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0166290026",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_ngsrrs.html",
+        "name": "修改5GS漫游限制业务(MOD NGSRRS)",
+        "parentTopicId": "CONCEPT_0166290025",
+        "position": "4.2.3.43.7.1",
+        "parentPosition": "4.2.3.43.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

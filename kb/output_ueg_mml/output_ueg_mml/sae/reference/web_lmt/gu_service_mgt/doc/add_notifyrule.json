@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD NOTIFYRULE",
+  "command_name_zh": "增加数据变更通知分发的规则",
+  "command_name_full": "增加数据变更通知分发的规则(ADD NOTIFYRULE)",
+  "command_function": "该命令用于在UDM中增加一条数据变更通知分发规则的数据记录。\n\n订阅通知是USCDB的基本能力，在MCI（Message Call Interface）订阅通知机制中，对于用户数据的变化，在多个FE公用一个BE时，BE会将所有的通知消息都发送到高优先级的FE，导致高优先级的FE和信令资源消耗过高。为了减轻高优先级的FE承载压力，BE提供了一套新的通知机制，可以将特定号段/HLRSN用户的订阅通知消息以不同优先级发送到特定的FE。该命令用于在新的通知机制下增加特定号段对应多个不同优先级的FE标识信息以便于后续BE通过调用这些信息完成新的订阅通知消息下发。\n\n在同时配置了“第一优先级Location标识”，“第二优先级Location标识”和“第三优先级Location标识”时，USCDB按照优先级发送给不同优先级的FE，如果发送高优先级FE失败后，则发送到次优先级的FE。这样USCDB可以按照优先级分发到不同FE实现容灾功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802895_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/notifyrule.html",
+        "name": "数据变更通知分发管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.45",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802642_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_notifyrule.html",
+        "name": "增加数据变更通知分发的规则(ADD NOTIFYRULE)",
+        "parentTopicId": "CONCEPT_0190802895_2",
+        "position": "4.2.3.2.45.1",
+        "parentPosition": "4.2.3.2.45",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

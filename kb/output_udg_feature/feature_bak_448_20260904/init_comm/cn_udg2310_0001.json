@@ -1,0 +1,98 @@
+{
+  "feature_name": "配置BGP/MPLS VPN（SDN）",
+  "feature_description": "SDN场景，UDG与企业网对接时，由于企业APN数量多，且各个企业APN之间有业务隔离诉求，故可采用BGP/MPLS VPN组网。UDG作为PE设备接入MPLS骨干网，通过MP-EBGP（Multi-protocol Extensions for Border Gateway Protocol）与其他PE之间传播VPN信息和VPN-IPv4路由。UDG采用OptionB方式实现跨域VPN。\n\n如图1所示，UDG和PE间通过Loopback IP建立eBGP邻居，用于交换私网VPN路由。Loopback IP之间通过静态路由/OSPF互通。\n\n**图1** BGP/MPLS VPN组网",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0175096802",
+        "topicUrl": "installation/5g_com_init_comm_008.html",
+        "name": "组网路由配置",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0280548319",
+        "topicUrl": "toctopics/zh-cn_topic_0280548319.html",
+        "name": "配置VNF侧IP路由（SDN）",
+        "parentTopicId": "TOPIC_0175096802",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0000001420748722",
+        "topicUrl": "init_comm/cn_udg2310_0001.html",
+        "name": "配置BGP/MPLS VPN（SDN）",
+        "parentTopicId": "TOPIC_0280548319",
+        "position": "5.4.5",
+        "parentPosition": "5.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

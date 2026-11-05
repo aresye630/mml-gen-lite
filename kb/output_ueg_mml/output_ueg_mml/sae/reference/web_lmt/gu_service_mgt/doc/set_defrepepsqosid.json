@@ -1,0 +1,119 @@
+{
+  "command_name": "SET DEFREPEPSQOSID",
+  "command_name_zh": "设置缺省EPS QoS模板替代配置",
+  "command_name_full": "设置缺省EPS QoS模板替代配置(SET DEFREPEPSQOSID)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会导致HSS下发错误的EPS QoS数据，因此执行本命令前，需要和运营商的EPS QoS模板替代配置表进行仔细核对，并详细阅读本命令的联机帮助和注意事项，确保添加的EPS QoS模板替代配置完全正确。如运营商无法给出具体的配置表或有其他疑问，请与华为技术支持联系制定操作的实施方案、测试方案和回退方案后才可以实施。\n\n该命令用于在UDM中设置缺省的EPS QoS模板替代配置记录，将一个EPS QoS模板默认替换为另一个EPS QoS模板进行下发。增加了一条缺省替代配置记录之后，如果需要下发EPS QoS数据，UDM将根据缺省的EPS QoS模板替代配置，使用替代模板代替用户签约的EPS QoS模板进行下发。\n\n如果同一EPS QoS模板通过**ADD REPEPSQOSID**设置了指定Diameter节点下的替代配置，且用户漫游在相应的MME/S4-SGSN/3GPP AAA Server下时，则缺省EPS QoS模板替代配置将不生效，UDM使用**ADD REPEPSQOSID**命令签约的替代配置进行下发。\n\n在该命令中，系统通过以下关键参数的组合来唯一标识一条缺省EPS QoS模板替代配置记录，实现对替代配置的增加和删除：\n\n- HLR序列号\n- 用户签约的EPS QoS模板ID",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802979",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/defrepepsqosid_config.html",
+        "name": "缺省EPS QoS模板替代配置",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.66",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803463",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/set_defrepepsqosid.html",
+        "name": "设置缺省EPS QoS模板替代配置(SET DEFREPEPSQOSID)",
+        "parentTopicId": "CONCEPT_0190802979",
+        "position": "4.2.3.2.66.1",
+        "parentPosition": "4.2.3.2.66",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

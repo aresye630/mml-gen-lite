@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD POOLBINDGROUP",
+  "command_name_zh": "修改地址池绑定地址池组中的地址池优先级",
+  "command_name_full": "修改地址池绑定地址池组中的地址池优先级（MOD POOLBINDGROUP）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于修改指定地址池组中指定地址池的优先级。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155129",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555261",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_address_management.html",
+        "name": "会话地址管理",
+        "parentTopicId": "CONCEPT_0000202289155129",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876458",
+        "topicUrl": "MML/LinkedDoc/udg_n_pool_bind_pool_group.html",
+        "name": "地址池绑定地址池组",
+        "parentTopicId": "CONCEPT_0000202289555261",
+        "position": "5.2.2.7",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837144",
+        "topicUrl": "MML/Document/mod_poolbindgroup.html",
+        "name": "修改地址池绑定地址池组中的地址池优先级（MOD POOLBINDGROUP）",
+        "parentTopicId": "CONCEPT_0000202102876458",
+        "position": "5.2.2.7.2",
+        "parentPosition": "5.2.2.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

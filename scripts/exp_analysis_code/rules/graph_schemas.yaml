@@ -1,0 +1,40 @@
+# graph_schemas.yaml — 图谱走链配置（数据驱动，零局点实例值）
+#
+# 每条 graph = 一个「业务链」走链：入口命令 + 维度参数白名单 + 跨参数同值说明。
+# 入口值 = entry_cmd 的 entry_param 参数在 EXP 中的去重值集合（运行时提取，不硬编码局点值）。
+# param_scope = 维度参数名列表（产品级通用 MML 参数知识，非局点实例值）。
+#              只桥接这些参数的值，避免从 RULE 同时沿「过滤维度」(FLOWFILTERNAME)
+#              和「计费维度」(PCCPOLICYGRPNM/SIGURRGRPNAME) 走通整个 PCC 域。
+# cross_params = 跨参数同值映射（HEADERENNAME 值 = POLICYNAME 值，跨网元服务聚合），
+#               仅作渲染说明；走链天然支持「同值跨参数」（val_index 收集所有含 v 的实例）。
+#
+# 定位：与特性匹配解耦。特性匹配回答「特性模式是否落地」（黄金规则核对），
+#       图谱走链回答「业务链是否完整闭环」（连通分量）。见 rules/图谱分析测试case.md。
+
+UDG:
+  - graph_id: service_chain
+    name: 服务→规则→绑定→流过滤→过滤对象（头增强服务链）
+    entry_cmd: ADD HEADEN
+    entry_param: HEADERENNAME
+    param_scope:
+      - HEADERENNAME
+      - POLICYNAME
+      - RULENAME
+      - FLOWFILTERNAME
+      - L7FILTERNAME
+      - SUBL7FLTNAME
+    cross_params:
+      HEADERENNAME: [POLICYNAME]
+    note: 头增强服务（he_service 等）从服务名走通规则/绑定/流过滤/过滤对象完整闭环。
+          跨网元对象名（服务名）在 UPF 侧由 HEADEN 定义、RULE.POLICYNAME 引用聚合。
+
+  - graph_id: filter_chain
+    name: 过滤器→桥接绑定（1:1 干净链）
+    entry_cmd: ADD FILTER
+    entry_param: FILTERNAME
+    auto_discover: false
+    param_scope:
+      - FILTERNAME
+    cross_params: {}
+    note: FILTER 对象的消费链：FILTERNAME 定义方 → FLTBINDFLOWF 引用方。
+          入口值多（全 EXP 过滤器），完整处理默认不自动展开，供指定入口走链验证。

@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD UCSITPL",
+  "command_name_zh": "增加U-CSI模板",
+  "command_name_full": "增加U-CSI模板(ADD UCSITPL)",
+  "command_function": "该命令用于为HLR在配置数据库中增加一条U-CSI（USSD CAMEL Subscription Information）模板数据记录，根据运营商CAMEL网络的实际情况进行配置，相关参数由运营商提供。用户通过签约U-CSI模板ID签约U-CSI业务。\n\nU-CSI是USSD（Unstructured Supplementary Service Data） CAMEL签约信息，该数据由HLR保存，不发送给其他网元。U-CSI包含用来为服务的用户调用USSD应用的触发信息。USSD智能应用时，MSC将USSD请求路由到用户归属的HLR，由HLR路由到相应的SCP进行处理。\n\n非结构化补充业务数据USSD即非结构化的补充业务数据，它允许用户通过移动终端输入符合USSD格式的非标准的补充业务操作命令向网络发起特定的业务请求，或者由网络侧向移动终端发起USSD命令以完成某种特定的业务。\n\nUSSD业务与短消息业务相比，主要是移动终端与网络能实时交互信息，非常适合于开展股票查询、天气预报、航班信息等增值业务。CAMEL业务与USSD业务相结合可以满足用户多方面的信息查询需求。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803320",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/camel_template_configuration.html",
+        "name": "CAMEL模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.15",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803736",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/u_csi_template.html",
+        "name": "U-CSI模板",
+        "parentTopicId": "CONCEPT_0190803320",
+        "position": "4.2.3.6.15.4",
+        "parentPosition": "4.2.3.6.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803433",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_ucsitpl.html",
+        "name": "增加U-CSI模板(ADD UCSITPL)",
+        "parentTopicId": "CONCEPT_0190803736",
+        "position": "4.2.3.6.15.4.1",
+        "parentPosition": "4.2.3.6.15.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

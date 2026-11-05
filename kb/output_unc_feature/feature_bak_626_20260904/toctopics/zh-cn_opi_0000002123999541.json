@@ -1,0 +1,109 @@
+{
+  "feature_name": "Diameter定制字典加载",
+  "feature_description": "当系统启动后，Diameter接口应用会自动加载一套标准字典。如果用户有定制规范的需要，而现有标准Diameter字典无法满足定制需求，则需要通过定制字典方式进行适配。\n\n该章节主要介绍定制字典文件的加载方式。若不需要加载定制字典，请跳过本章节。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC401B065206E4CD18AD97FA1A9D3DB86",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002337228226",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 一跳入家解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5748",
+          "release_5749",
+          "release_5729"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5748",
+            "release_5749",
+            "release_5729"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000002309353497",
+        "topicUrl": "toctopics/zh-cn_topic_0000002309353497.html",
+        "name": "一跳入家解决方案（基于非3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000001912622529",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912622529.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002309353497",
+        "position": "2.4",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000001992972333",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992972333.html",
+        "name": "部署一跳入家",
+        "parentTopicId": "TOPIC_0000001912622529",
+        "position": "2.4.5",
+        "parentPosition": "2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "TOPIC_0000001912662877",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912662877.html",
+        "name": "配置一跳入家专网UPF",
+        "parentTopicId": "TOPIC_0000001992972333",
+        "position": "2.4.5.1",
+        "parentPosition": "2.4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002337228226",
+        "topicId": "OPI_0000002123999541",
+        "topicUrl": "toctopics/zh-cn_opi_0000002123999541.html",
+        "name": "Diameter定制字典加载",
+        "parentTopicId": "TOPIC_0000001912662877",
+        "position": "2.4.5.1.1",
+        "parentPosition": "2.4.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

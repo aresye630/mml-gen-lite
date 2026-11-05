@@ -1,0 +1,119 @@
+{
+  "command_name": "SET BANDWIDTHMNG",
+  "command_name_zh": "设置带宽管理参数",
+  "command_name_full": "设置带宽管理参数（SET BANDWIDTHMNG）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，Range发生变化后，其他带宽管理命令（bwmcontroller，bwmservice等）也需要同步修改。\n\n该命令用于设置带宽控制器中用户组级业务带宽和连接数配置的生效范围，以及带宽资源动态统计和调整周期。\n\n系统由多个业务处理单元组成，每个处理单元都是独立运行，如果带宽控制器中用户组级业务带宽和连接数是整机配置，就需要周期性统计汇总各业务处理单元的业务使用状态，然后统计结果，动态调整每个单元可以使用的资源，如CAR桶参数、连接数阈值等。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315825",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.5",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356086",
+        "topicUrl": "MML/LinkedDoc/udg_n_bandwidth_control.html",
+        "name": "带宽控制",
+        "parentTopicId": "CONCEPT_0000202289315825",
+        "position": "5.5.2",
+        "parentPosition": "5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289155189",
+        "topicUrl": "MML/LinkedDoc/udg_n_bandwidth_management_parameter.html",
+        "name": "带宽管理参数",
+        "parentTopicId": "CONCEPT_0000202103356086",
+        "position": "5.5.2.2",
+        "parentPosition": "5.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837465",
+        "topicUrl": "MML/Document/set_bandwidthmng.html",
+        "name": "设置带宽管理参数（SET BANDWIDTHMNG）",
+        "parentTopicId": "CONCEPT_0000202289155189",
+        "position": "5.5.2.2.1",
+        "parentPosition": "5.5.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

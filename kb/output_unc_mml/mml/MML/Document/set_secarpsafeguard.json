@@ -1,0 +1,150 @@
+{
+  "command_name": "SET SECARPSAFEGUARD",
+  "command_name_zh": "设置ARP双向分离",
+  "command_name_full": "设置ARP双向分离（SET SECARPSAFEGUARD）",
+  "command_function": "该命令用于设置ARP双向分离。\n\n应答报文是本机向其他设备发出的ARP请求报文得到的正常应答，所以只要能够判定其是本机发出的，可以认定并不是攻击报文。所以要解决瞬时超过设备处理能力范围的大流量ARP攻击问题，可以将ARP请求和ARP应答分开处理。\n\n针对ARP请求进行“无状态应答”，即直接在转发层面进行ARP应答，之后不产生ARP表项及相关的状态，不上送CPU进行处理。\n\n针对ARP应答只上送CPU请求过的ARP报文，CPU没有发出的ARP请求产生的ARP应答报文将被丢弃，可以有效保证CPU请求过的正常主机的ARP请求报文正常处理。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414752",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.3",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385574984",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_security_management.html",
+        "name": "安全管理",
+        "parentTopicId": "TOPIC_0000002385414752",
+        "position": "1.20.3.12",
+        "parentPosition": "1.20.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385415096",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_host_defend.html",
+        "name": "主机防攻击",
+        "parentTopicId": "TOPIC_0000002385574984",
+        "position": "1.20.3.12.1",
+        "parentPosition": "1.20.3.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385575004",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_arp_bidirectional_isolation.html",
+        "name": "ARP双向分离",
+        "parentTopicId": "TOPIC_0000002385415096",
+        "position": "1.20.3.12.1.19",
+        "parentPosition": "1.20.3.12.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001600440345",
+        "topicUrl": "MML/Document/set_secarpsafeguard.html",
+        "name": "设置ARP双向分离（SET SECARPSAFEGUARD）",
+        "parentTopicId": "TOPIC_0000002385575004",
+        "position": "1.20.3.12.1.19.1",
+        "parentPosition": "1.20.3.12.1.19",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

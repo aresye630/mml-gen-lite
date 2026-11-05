@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD RULE",
+  "command_name_zh": "增加规则",
+  "command_name_full": "增加规则（ADD RULE）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于在配置业务策略的时候增加规则，其中包含策略类型、流过滤器、流过滤器组、策略信息、生效时间段以及优先级等。通过运营商的报文匹配流过滤器获取相应规则的策略信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356062",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.4",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315817",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_matching_common_configuration.html",
+        "name": "业务匹配公共配置",
+        "parentTopicId": "CONCEPT_0000202103356062",
+        "position": "5.4.2",
+        "parentPosition": "5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116390",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_rule_management.html",
+        "name": "业务规则管理",
+        "parentTopicId": "CONCEPT_0000202289315817",
+        "position": "5.4.2.1",
+        "parentPosition": "5.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202288915777",
+        "topicUrl": "MML/LinkedDoc/udg_n_rule.html",
+        "name": "规则",
+        "parentTopicId": "CONCEPT_0000202103116390",
+        "position": "5.4.2.1.1",
+        "parentPosition": "5.4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0182837266",
+        "topicUrl": "MML/Document/add_rule.html",
+        "name": "增加规则（ADD RULE）",
+        "parentTopicId": "CONCEPT_0000202288915777",
+        "position": "5.4.2.1.1.1",
+        "parentPosition": "5.4.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

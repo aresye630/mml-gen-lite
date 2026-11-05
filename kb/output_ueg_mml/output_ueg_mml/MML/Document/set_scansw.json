@@ -1,0 +1,131 @@
+{
+  "command_name": "SET SCANSW",
+  "command_name_zh": "设置离线业务参数",
+  "command_name_full": "设置离线业务参数(SET SCANSW)",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致离线业务功能失效，需联系华为技术支持确认后再执行。\n\n该命令用于设置离线业务的参数，用于启动或关闭离线场景下的如下功能：\n\n- 离线配额复位：对离线状态下的用户进行配额复位。\n- 离线帐户复位：对离线状态下的用户进行帐户复位。\n- 离线业务生效发通知：用户在离线状态下签约业务/套餐生效向用户发送通知。\n- 离线业务失效发通知：用户在离线状态下已签约业务/套餐失效向用户发送通知。\n- 默认PCC临时数据清理：清除过期的动态开户用户。\n- 抑制短信记录超期清理：清除超期的短信抑制记录。\n- 业务或套餐过期前通知：用户在离线状态下已签约业务/套餐过期前向用户发送通知。\n- 静态用户清理：清除长期不活动通过Pre-Sy开户的静态用户。\n- 无签约用户清理: 清除无签约的静态开户的用户数据。\n- 已耗尽配额实例清理：清理已耗尽的配额实例。\n- 离线配额初始值刷新：离线遍历用户配额并刷新用户配额表的配额初始值和配额剩余值。\n- 清理过期的sponsor业务：清理用户所有SPONSOR\\_SERVICE类型的业务中“绝对有效时间段”过期的业务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0249996549",
+        "topicUrl": "MML/LinkedDoc/pcfofflinetaskctrlservice_n_ots_management.html",
+        "name": "OTS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.10",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0246924226",
+        "topicUrl": "MML/LinkedDoc/pcfofflinetaskctrlservice_n_offl_service_parameter_configuration.html",
+        "name": "离线业务参数配置",
+        "parentTopicId": "TOPIC_0249996549",
+        "position": "2.2.3.5.10.1",
+        "parentPosition": "2.2.3.5.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0246903319_2",
+        "topicUrl": "MML/Document/set_scansw.html",
+        "name": "设置离线业务参数(SET SCANSW)",
+        "parentTopicId": "CONCEPT_0246924226",
+        "position": "2.2.3.5.10.1.1",
+        "parentPosition": "2.2.3.5.10.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

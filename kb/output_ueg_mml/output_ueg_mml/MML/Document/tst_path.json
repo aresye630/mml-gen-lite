@@ -1,0 +1,155 @@
+{
+  "command_name": "TST PATH",
+  "command_name_zh": "探测路径",
+  "command_name_full": "探测路径（TST PATH）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于手动控制系统向对端网元（eNodeB、gNodeB、UPF、SGSN、SGW-U、PGW-U、SMF、SGW-C、PGW-C或可信非3GPP接入网关）发送心跳检测消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202102876476_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_path_management.html",
+        "name": "路径管理",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.3",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103356050_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_gtp_path_management.html",
+        "name": "GTP路径管理",
+        "parentTopicId": "CONCEPT_0000202102876476_3",
+        "position": "2.2.3.2.3.1",
+        "parentPosition": "2.2.3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103356052_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_gtp_path_test.html",
+        "name": "GTP路径测试",
+        "parentTopicId": "CONCEPT_0000202103356050_3",
+        "position": "2.2.3.2.3.1.2",
+        "parentPosition": "2.2.3.2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103595836_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_test_path.html",
+        "name": "探测路径",
+        "parentTopicId": "CONCEPT_0000202103356052_3",
+        "position": "2.2.3.2.3.1.2.1",
+        "parentPosition": "2.2.3.2.3.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0182837231_2",
+        "topicUrl": "MML/Document/tst_path.html",
+        "name": "探测路径（TST PATH）",
+        "parentTopicId": "CONCEPT_0000202103595836_3",
+        "position": "2.2.3.2.3.1.2.1.1",
+        "parentPosition": "2.2.3.2.3.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

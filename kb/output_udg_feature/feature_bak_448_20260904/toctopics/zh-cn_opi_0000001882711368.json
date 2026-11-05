@@ -1,0 +1,105 @@
+{
+  "feature_name": "配置SWu接口对接数据（VxLAN隧道，信令面和数据面合一部署）",
+  "feature_description": "专网UPF对接家庭网关、信令面和数据面合一部署场景下，信令面和数据面均采用swuif逻辑接口。该任务旨在指导操作人员完成UPF的SWu接口对接。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV7677237BD2914195B5B78B8034579F54",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002222379409",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 智家随行解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000002309353497",
+        "topicUrl": "toctopics/zh-cn_topic_0000002309353497.html",
+        "name": "一跳入家解决方案（基于非3GPP接入方案）",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001912622529",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912622529.html",
+        "name": "业务初始部署与调测",
+        "parentTopicId": "TOPIC_0000002309353497",
+        "position": "2.4",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001992972333",
+        "topicUrl": "toctopics/zh-cn_topic_0000001992972333.html",
+        "name": "部署一跳入家",
+        "parentTopicId": "TOPIC_0000001912622529",
+        "position": "2.4.5",
+        "parentPosition": "2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "TOPIC_0000001912662877",
+        "topicUrl": "toctopics/zh-cn_topic_0000001912662877.html",
+        "name": "配置一跳入家专网UPF",
+        "parentTopicId": "TOPIC_0000001992972333",
+        "position": "2.4.5.1",
+        "parentPosition": "2.4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002222379409",
+        "topicId": "OPI_0000001882711368",
+        "topicUrl": "toctopics/zh-cn_opi_0000001882711368.html",
+        "name": "配置SWu接口对接数据（VxLAN隧道，信令面和数据面合一部署）",
+        "parentTopicId": "TOPIC_0000001912662877",
+        "position": "2.4.5.1.5",
+        "parentPosition": "2.4.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

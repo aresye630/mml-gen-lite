@@ -1,0 +1,85 @@
+{
+  "feature_name": "基于APN/DNN分配IP地址",
+  "feature_description": "运营商规划UPF为UE分配IP地址，可基于APN/DNN、位置、SMF或其任意组合分配地址，基于APN/DNN分配IP地址的配置方法可参考本章节。\n\n**说明** \n\n适用于GGSN、PGW-C、SMF、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVBDE573AB7BF04F09936457AFD382F46F",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229233453",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 用户IP地址管理解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "TOPIC_0000001110513886",
+        "topicUrl": "toctopics/zh-cn_topic_0000001110513886.html",
+        "name": "UPF分配IP地址",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "OPI_0000001110513900",
+        "topicUrl": "toctopics/zh-cn_opi_0000001110513900.html",
+        "name": "激活UPF分配IP地址功能",
+        "parentTopicId": "TOPIC_0000001110513886",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229233453",
+        "topicId": "OPI_0000001110673792",
+        "topicUrl": "toctopics/zh-cn_opi_0000001110673792.html",
+        "name": "基于APN/DNN分配IP地址",
+        "parentTopicId": "OPI_0000001110513900",
+        "position": "3.3.1",
+        "parentPosition": "3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

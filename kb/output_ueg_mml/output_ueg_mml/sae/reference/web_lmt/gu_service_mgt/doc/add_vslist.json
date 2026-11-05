@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD VSLIST",
+  "command_name_zh": "增加VLR/SGSN漫游限制模板",
+  "command_name_full": "增加VLR/SGSN漫游限制模板(ADD VSLIST)",
+  "command_function": "该命令用于在HLR中增加VLR/SGSN限制模板数据记录，主要包括：\n\n- 定义VLR/SGSN号码前缀，用于标识有相同前缀的VLR/SGSN号码的区域范围。\n\n  当一个VLR/SGSN区域的移动用户向网络发起位置更新请求时，根据位置更新请求消息中携带的VLR/SGSN号码是否能匹配（最大前缀匹配）用户已签约VLR/SGSN漫游限制模板中的某个VLR/SGSN：\n  - 如果能匹配，则根据该VLR/SGSN对应的漫游限制标志来判断允许该用户漫游还是禁止该用户漫游。\n  - 如果不能匹配，则根据该模板中的缺省漫游限制标志来判断允许该用户漫游还是禁止该用户漫游。\n- 定义用户在指定VLR/SGSN中的定制业务和超级接入限制数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803691_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/configuration_management.html",
+        "name": "模板管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.6",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803461",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/vlr_sgsn_list.html",
+        "name": "VLR/SGSN漫游限制模板",
+        "parentTopicId": "MMLREF_0190803691_2",
+        "position": "4.2.3.6.17",
+        "parentPosition": "4.2.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803588",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_vslist.html",
+        "name": "增加VLR/SGSN漫游限制模板(ADD VSLIST)",
+        "parentTopicId": "CONCEPT_0190803461",
+        "position": "4.2.3.6.17.1",
+        "parentPosition": "4.2.3.6.17",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

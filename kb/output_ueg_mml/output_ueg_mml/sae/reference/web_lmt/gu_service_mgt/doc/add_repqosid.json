@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD REPQOSID",
+  "command_name_zh": "增加QoS模板替代配置",
+  "command_name_full": "增加QoS模板替代配置(ADD REPQOSID)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会导致用户漫游到指定的SGSN时下发错误的QoS，因此执行该命令前，需要和运营商的QoS模板替代配置表进行仔细核对，并详细阅读本命令的联机帮助和注意事项，确保添加的QoS模板替代配置完全正确。如运营商无法给出具体的配置表或有其他疑问，请与华为技术支持联系制定操作的实施方案、测试方案和回退方案后才可以实施。\n\n该命令用于在UDM中增加一条QoS模板替代配置记录。增加了该QoS模板之后，当用户漫游在指定的SGSN下时，如果需要下发QoS数据，UDM将根据QoS模板替代关系，使用替代模板代替用户签约的QoS模板进行下发。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803623",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/repqosid_config.html",
+        "name": "QoS模板替代配置",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.58",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803710",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_repqosid.html",
+        "name": "增加QoS模板替代配置(ADD REPQOSID)",
+        "parentTopicId": "CONCEPT_0190803623",
+        "position": "4.2.3.2.58.1",
+        "parentPosition": "4.2.3.2.58",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

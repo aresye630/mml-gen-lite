@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活QoS与流量管理（适用于GGSN）",
+  "feature_description": "通过配置QoS与流量管理，可实现以下需求：\n\n- 为了保证在资源紧缺时，运营商能够为高优先级用户优先分配资源。\n- 在资源相对富余时，更充分地发挥网络资源的效益，提高客户满意度。\n\nQoS与流量管理指UNC支持3GPP QoS，按照QoS等级对用户报文进行分类，还可以提供DiffServ，从而支持流量监管、拥塞管理、拥塞避免等多种QoS实现技术。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450958",
+        "topicUrl": "toctopics/zh-cn_topic_0248450958.html",
+        "name": "QoS功能",
+        "parentTopicId": "",
+        "position": "21",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0165076395",
+        "topicUrl": "desc/unc_2000_feature_desc_QoS_and_Traffic_Management_01.html",
+        "name": "WSFD-010701 QoS与流量管理",
+        "parentTopicId": "TOPIC_0248450958",
+        "position": "21.1",
+        "parentPosition": "21",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0229724911",
+        "topicUrl": "toctopics/zh-cn_opi_0229724911.html",
+        "name": "激活QoS与流量管理（适用于GGSN）",
+        "parentTopicId": "TOPIC_0165076395",
+        "position": "21.1.6",
+        "parentPosition": "21.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

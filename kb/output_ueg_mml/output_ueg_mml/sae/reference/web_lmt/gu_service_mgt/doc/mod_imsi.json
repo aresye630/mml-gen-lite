@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD IMSI",
+  "command_name_zh": "补卡",
+  "command_name_full": "补卡(MOD IMSI)",
+  "command_function": "该命令用于为单个用户或多个用户进行补卡。\n\n**说明** \n\n该命令仅支持2G/3G/4G用户数据修改。\n\nSIM卡或USIM卡丢失或损坏后，用户通过补卡可以使用和原来相同的手机号码（即MSISDN号码），补卡的前提是新IMSI号码在操作员管理的IMSI号段中，并且新IMSI对应的KI（Individual Subscriber Authentication Key）已经加载（使用**ADD KI**命令加载KI），同时新IMSI号码与原IMSI号码必须归属于同一个“虚拟HLR序列号”。查询操作员管理的IMSI号段的方法如下：\n\n登录System Management界面，执行**LST OPRHLRSN**命令查询出该操作员所能操作的虚拟HLR，然后通过**LST VHLRRANGE**命令查询出该虚拟HLR对应的IMSI号段，此号段即该操作员管理的IMSI号段。\n\n如果用户是M2M用户，系统会做如下处理：\n\n- 修改MSISDN-Less用户的IMSI，则该用户的MSISDN会同步修改，修改值与IMSI保持一致。\n- 修改非MSISDN-Less用户的IMSI，存在以下两种情况：\n  - 若修改后的IMSI和MSISDN一致，则系统自动将该用户置为MSISDN-Less用户。\n  - 若修改后的IMSI和MSISDN不一致，则该用户依然为非MSISDN-Less用户。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803216",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/card_reissue.html",
+        "name": "补卡",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.3",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0193939688",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_imsi.html",
+        "name": "补卡(MOD IMSI)",
+        "parentTopicId": "CONCEPT_0190803216",
+        "position": "4.2.3.5.3.1",
+        "parentPosition": "4.2.3.5.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

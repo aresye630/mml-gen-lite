@@ -1,0 +1,126 @@
+{
+  "command_name": "OPR AMFCAP",
+  "command_name_zh": "操作AMF相对容量",
+  "command_name_full": "操作AMF相对容量（OPR AMFCAP）",
+  "command_function": "**须知** \n\n该命令仅适用于存储bypass场景，通过该命令修改的AMF相对容量信息不会进行持久化。如果修改AMF相对容量时，当前系统未处于存储bypass状态，请使用MOD AMFINFO修改AMF相对容量信息。\n\n**适用NF：AMF**\n\n该命令用于系统进入存储bypass状态下，修改AMF相对容量信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0296233729",
+        "topicUrl": "MML/LinkedDoc/unc_n_reliability_management.html",
+        "name": "可靠性管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.3.9",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001231818951",
+        "topicUrl": "MML/LinkedDoc/unc_n_amf_processing_policy_upon_storage_bypass.html",
+        "name": "AMF存储BYPASS处理策略",
+        "parentTopicId": "TOPIC_0296233729",
+        "position": "2.3.9.7",
+        "parentPosition": "2.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001184726346",
+        "topicUrl": "MML/Document/opr_amfcap.html",
+        "name": "操作AMF相对容量（OPR AMFCAP）",
+        "parentTopicId": "TOPIC_0000001231818951",
+        "position": "2.3.9.7.1",
+        "parentPosition": "2.3.9.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

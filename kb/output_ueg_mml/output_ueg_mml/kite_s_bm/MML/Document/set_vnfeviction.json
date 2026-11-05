@@ -1,0 +1,107 @@
+{
+  "command_name": "SET VNFEVICTION",
+  "command_name_zh": "设置网元重调度开关",
+  "command_name_full": "设置网元重调度开关（SET VNFEVICTION）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当可能会导致业务受损，请谨慎使用并联系华为支持协助操作。\n\n该命令用于设置网元的重调度开关。\n\n开启重调度开关，在虚拟机故障、升级、资源不足等场景下，该虚拟机上的容器会被调度到其他虚拟机节点上。\n\n在I层分批升级时，通过关闭网元的重调度开关，在升级完成后，重新打开网元的重调度开关，保证升级前后的容器仍在原虚拟机节点。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315563_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_operation_and_maintenance.html",
+        "name": "操作维护",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.6",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876250_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/csp_n_vnf_management.html",
+        "name": "网元管理",
+        "parentTopicId": "CONCEPT_0000202289315563_2",
+        "position": "3.2.6.17",
+        "parentPosition": "3.2.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001180329792_1",
+        "topicUrl": "kite_s_bm/MML/Document/set_vnfeviction.html",
+        "name": "设置网元重调度开关（SET VNFEVICTION）",
+        "parentTopicId": "CONCEPT_0000202102876250_2",
+        "position": "3.2.6.17.1",
+        "parentPosition": "3.2.6.17",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

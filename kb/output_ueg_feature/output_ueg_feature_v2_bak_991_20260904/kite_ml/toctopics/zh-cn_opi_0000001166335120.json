@@ -1,0 +1,180 @@
+{
+  "feature_name": "配置静态地址用户路由冗余功能",
+  "feature_description": "**对于风筝S**：\n\n如下两种场景下，终端采用静态签约的IP时，需要配置静态地址用户用户路由冗余功能。\n\n- 1+1主备容灾场景，需要在园区的两个UPF之间部署静态地址用户路由冗余功能，保证主用UPF故障恢复时，备用UPF上激活的用户业务连续。\n- 主备跨级容灾场景，需要在园区的UPF和地市的UPF之间部署静态地址用户路由冗余功能，保证主用UPF故障恢复时，备用UPF上的用户业务连续。\n\n**对于风筝M/风筝L**：\n\n两套UEG间采用负荷分担模式容灾场景，终端采用静态签约的IP时，需要在园区的两个UPF之间部署静态地址用户路由冗余功能，保证两个UPF都正常时，SGi/N6侧发布低优先级路由的UPF上激活的用户业务连续。\n\n对于风筝S/风筝M/风筝L，配置举例如图1所示。\n\n**图1** 静态地址路由冗余GRE数据规划图",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001571001277",
+        "topicUrl": "kitem_example_vm.html",
+        "name": "配置实例（虚机容器）",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001214927515_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001214927515.html",
+        "name": "配置UPF",
+        "parentTopicId": "TOPIC_0000001571001277",
+        "position": "4.3.2",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001166335120_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001166335120.html",
+        "name": "配置静态地址用户路由冗余功能",
+        "parentTopicId": "TOPIC_0000001214927515_2",
+        "position": "4.3.2.3",
+        "parentPosition": "4.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001341564366",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001341564366.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001627082158",
+        "topicUrl": "kite_ml/kitem_example_vm_cloud.html",
+        "name": "配置实例（虚机容器）",
+        "parentTopicId": "TOPIC_0000001341564366",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001214927515_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001214927515.html",
+        "name": "配置UPF",
+        "parentTopicId": "TOPIC_0000001627082158",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001166335120_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0000001166335120.html",
+        "name": "配置静态地址用户路由冗余功能",
+        "parentTopicId": "TOPIC_0000001214927515_2",
+        "position": "4.2.2.3",
+        "parentPosition": "4.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

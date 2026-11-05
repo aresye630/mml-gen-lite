@@ -1,0 +1,98 @@
+{
+  "feature_name": "配置Pa(N9a/S5-P/S8-P/S2b/Gn-U/Gp-U)接口数据",
+  "feature_description": "运营商在部署2/3/4/5融合组网时新增PSA UPF/PGW-U中的任一独立设备或融合设备，在完成配置UDG到ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG的路由数据后，可在UDG上配置Pa（N9a/S5-P/S8-P/S2b/Gn-U/Gp-U）接口数据使UDG与ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG/SGSN建立逻辑连接。\n\n**说明** \n\n- 考虑到4G/5G互操作和平滑演进，5GC需要支持4G/5G融合接入和互操作，因此协议规定了三类网元需要原生融合部署。\n  - 用户数据：HSS+UDM融合，保证用户数据一致性。\n  - 策略数据：PCRF+PCF融合，保证策略一致性、连续性。\n  - 会话管理锚点：SMF+PGW-C融合，UPF+PGW-U融合，锚点不变保证数据连续性。从简化网络拓扑，优化转发路径考虑，一般建议EPC侧SGW-C融合到SMF+PGW-C、SGW-U融合到UPF+PGW-U。\n\n  因此部署4G/5G互操作的网络时，PSA UPF、PGW-U需要融合部署在同一VNF上。\n- 考虑到4G/5G互操作时数据锚点不变，PSA UPF+PGW-U融合部署时N9a、S5-P/S8-P的接口地址必须相同，因此UDG上只支持使用合一抽象接口配置Paif，不支持独立配置N9a、S5-P/S8-P接口。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0262868642",
+        "topicUrl": "toctopics/zh-cn_topic_0262868642.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0168634146",
+        "topicUrl": "cdgw/installation/cu_ugw_010016_11.html",
+        "name": "配置业务接口数据",
+        "parentTopicId": "TOPIC_0262868642",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0168634202",
+        "topicUrl": "cdgw/installation/cu_ugw_010016_15.html",
+        "name": "配置Pa(N9a/S5-P/S8-P/S2b/Gn-U/Gp-U)接口数据",
+        "parentTopicId": "OPI_0168634146",
+        "position": "6.1.3",
+        "parentPosition": "6.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

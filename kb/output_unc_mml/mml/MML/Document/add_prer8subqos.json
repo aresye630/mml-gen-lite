@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD PRER8SUBQOS",
+  "command_name_zh": "增加Pre-R8签约QoS配置",
+  "command_name_full": "增加Pre-R8签约QoS配置（ADD PRER8SUBQOS）",
+  "command_function": "**适用NF：GGSN**\n\n该命令用于配置用户的签约QoS属性。当APN下使能COA功能时，RADIUS鉴权服务器会下发用户QoS索引，UNC根据索引匹配到subscriber-qos配置，用来进行用户QoS的协商控制，主动调整带宽等。如果RADIUS鉴权服务器没有下发用户QoS索引，则根据APN下绑定的qos-profile下的用户QoS索引进行用户QoS的协商控制、调整带宽等。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001227622729",
+        "topicUrl": "MML/LinkedDoc/unc_n_access_management000.html",
+        "name": "接入管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.1",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321177",
+        "topicUrl": "MML/LinkedDoc/unc_n_qos.html",
+        "name": "QoS",
+        "parentTopicId": "TOPIC_0000001227622729",
+        "position": "2.7.1.5",
+        "parentPosition": "2.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320081",
+        "topicUrl": "MML/LinkedDoc/unc_n_prer8_qos_configuration.html",
+        "name": "PreR8 QoS配置",
+        "parentTopicId": "TOPIC_0234321177",
+        "position": "2.7.1.5.5",
+        "parentPosition": "2.7.1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320603",
+        "topicUrl": "MML/LinkedDoc/unc_n_local_pre_r8_qos_parameters.html",
+        "name": "本地PreR8 QoS",
+        "parentTopicId": "TOPIC_0234320081",
+        "position": "2.7.1.5.5.1",
+        "parentPosition": "2.7.1.5.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209653616",
+        "topicUrl": "MML/Document/add_prer8subqos.html",
+        "name": "增加Pre-R8签约QoS配置（ADD PRER8SUBQOS）",
+        "parentTopicId": "TOPIC_0234320603",
+        "position": "2.7.1.5.5.1.1",
+        "parentPosition": "2.7.1.5.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

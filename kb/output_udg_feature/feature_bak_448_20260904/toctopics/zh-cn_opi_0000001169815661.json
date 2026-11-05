@@ -1,0 +1,81 @@
+{
+  "feature_name": "激活HTTP头防欺诈",
+  "feature_description": "当运营商部署了HTTP头增强功能，为了保证HTTP报文头中增强的字段值正确，可以激活HTTP头防欺诈功能。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVB89C6AC3CD3C4C5FA9DC2D27CA3F022F",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002186980862",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG防欺诈功能专题",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_4b1a70c9-d16e-4041-8d39-dd92a40c6e36",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_4b1a70c9-d16e-4041-8d39-dd92a40c6e36"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "pid_shortdesc": "介绍防欺诈功能产生背景、应用场景、计费防欺诈方式及配置调测。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "TOPIC_0000001113198106",
+        "topicUrl": "toctopics/zh-cn_topic_0000001113198106.html",
+        "name": "HTTP头防欺诈",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186980862",
+        "topicId": "OPI_0000001169815661",
+        "topicUrl": "toctopics/zh-cn_opi_0000001169815661.html",
+        "name": "激活HTTP头防欺诈",
+        "parentTopicId": "TOPIC_0000001113198106",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD PSITERULE",
+  "command_name_zh": "添加号段配置",
+  "command_name_full": "添加号段配置(ADD PSITERULE)",
+  "command_function": "**须知** \n\n该命令属于高危命令，增加号段配置会造成营帐命令转发到其他设备。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于在配置数据库中增加一条号段数据记录。\n\n业务发放系统指令通过系统向远端业务发放站点转发的过程如远端业务发放站点规则管理中的图1所示。\n\n当出现如下场景时，系统需要通过本命令增加用户号码（包括号段类型、号段前缀等）和远端业务发放站点之间的关联关系。\n\n- 新增一条用户号段和远端业务发放站点之间的对应关系。\n- 修改已有的用户号段和远端业务发放站点之间的对应关系。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774292",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/pgw_management.html",
+        "name": "业务发放网关管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.4",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774381",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/remote_provisioning_site_rule_management.html",
+        "name": "远端Provisioning站点规则管理",
+        "parentTopicId": "MMLREF_0172774292",
+        "position": "2.2.4.3.3.4.12",
+        "parentPosition": "2.2.4.3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774426",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/add_psiterule.html",
+        "name": "添加号段配置(ADD PSITERULE)",
+        "parentTopicId": "CONCEPT_0172774381",
+        "position": "2.2.4.3.3.4.12.1",
+        "parentPosition": "2.2.4.3.3.4.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

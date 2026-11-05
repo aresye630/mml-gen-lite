@@ -1,0 +1,131 @@
+{
+  "command_name": "SET DISCNFTYPECFG",
+  "command_name_zh": "设置服务发现网元类型信息",
+  "command_name_full": "设置服务发现网元类型信息（SET DISCNFTYPECFG）",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致系统异常，影响业务处理，需联系华为技术支持确认后再执行。\n\n该命令用于设置PCF到CHF/BSF/UDR/NWDAF的服务发现网元类型信息。当PCF通过指定网元类型发现远端服务时，需要配置此命令。\n\nUPCF支持基于条件的服务发现（通过命令ADD DISCCONDCFG配置）和基于网元类型的服务发现（通过本命令配置），若同时配置系统会优先做基于条件的服务发现，而服务发现缓存清理依赖于服务发现，清理不进行服务发现的缓存信息。服务发现和服务发现缓存清理的处理逻辑详细可参见表1。\n\n- 若系统做基于条件的服务发现，则会清理基于网元类型服务发现的缓存数据。\n- 若系统做基于网元类型的服务发现，则会清理基于条件服务发现的缓存数据。\n- 若系统不做服务发现，则会清理所有的服务发现缓存数据。\n\n| CHF/BSF/UDR/NWDAF业务功能   | 条件服务发现   | 网元类型服务发现   | 服务发现处理逻辑    | 服务发现缓存清理逻辑       |\n|:------------------------|:---------|:-----------|:------------|:-----------------|\n| 关闭                      | 打开/关闭    | 打开/关闭      | 不做服务发现      | 清理所有的服务发现缓存      |\n| 开启                      | 打开       | 打开         | 基于条件做服务发现   | 清理基于网元类型做服务发现的缓存 |\n| 开启                      | 关闭       | 打开         | 基于网元类型做服务发现 | 清理基于条件做服务发现的缓存   |\n| 开启                      | 打开       | 关闭         | 基于条件做服务发现   | 清理基于网元类型做服务发现的缓存 |\n| 开启                      | 关闭       | 关闭         | 不做服务发现      | 清理所有的服务发现缓存      |\n\n**说明** \n\n- CHF功能开启/关闭方式：\n  - 业务功能通过软参“VRM\\_SYSWITCH”设置。开启时设置为非“0”值，关闭时设置为“0”。\n  - 条件服务发现通过ADD DISCCONDCFG命令设置。将“网元类型”设置为“CHF”，打开时“CHF参数”设置为“GPSI”，关闭时“CHF参数”不为“GPSI”或ADD DISCCONDCFG命令不存在“网元类型”设置为“CHF”的记录。\n  - 网元类型服务发现通过本命令设置。将“网元类型”设置为“CHF”，打开时“开关”设置为“ON”，关闭时“开关”设置为“OFF”。\n- BSF功能开启/关闭方式：\n  - 业务功能通过命令SET BSFCFG设置。开启时“Switch”设置为“Support”，关闭时“Switch”设置为“Unsupport”。\n  - 条件服务发现通过ADD DISCCONDCFG命令设置。将“网元类型”设置为“BSF”，打开时“BSF参数”设置为“IPV4ADDR”，“IPV4DNN”，“IPV4IPDOMAIN”或“IPV6PREFIX”，关闭时“BSF参数”不为“IPV4ADDR”，“IPV4DNN”，“IPV4IPDOMAIN”或“IPV6PREFIX”，或ADD DISCCONDCFG命令不存在“网元类型”设置为“BSF”的记录。\n  - 网元类型服务发现通过本命令设置。将“网元类型”设置为“BSF”，打开时“开关”设置为“ON”，关闭时“开关”设置为“OFF”。\n- UDR功能开启/关闭方式：\n  - 业务功能通过软参“VRM\\_N36INTERFACESW”设置。开启时设置为“1”，关闭时设置为“0”。\n  - 当前版本只支持按网元类型服务发现UDR，暂不支持条件服务发现UDR。\n  - 网元类型服务发现通过本命令设置。将“网元类型”设置为“UDR”，打开时“开关”设置为“ON”，关闭时“开关”设置为“OFF”。\n- NWDAF功能开启/关闭方式：\n  - 业务功能通过软参“VRM\\_N23SWITCH”设置。开启时设置为“1”，关闭时设置为“0”。\n  - 条件服务发现通过ADD DISCCONDCFG命令设置。将“网元类型”设置为“NWDAF”，打开时“NWDAF参数”设置为“TAI”或“EVENT”，关闭时“NWDAF参数”不为“TAI”或“EVENT”，或ADD DISCCONDCFG命令不存在“网元类型”设置为“NWDAF”的记录。\n  - 网元类型服务发现通过本命令设置。将“网元类型”设置为“NWDAF”，打开时“开关”设置为“ON”，关闭时“开关”设置为“OFF”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0175053740",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_ncs_management.html",
+        "name": "NCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.9",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001276810589",
+        "topicUrl": "MML/LinkedDoc/pcfnrfclientservice_n_nf_type_configuration_for_service_discovery.html",
+        "name": "网元服务发现网元类型配置",
+        "parentTopicId": "TOPIC_0175053740",
+        "position": "2.2.3.5.9.7",
+        "parentPosition": "2.2.3.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001225914076_2",
+        "topicUrl": "MML/Document/set_discnftypecfg.html",
+        "name": "设置服务发现网元类型信息（SET DISCNFTYPECFG）",
+        "parentTopicId": "TOPIC_0000001276810589",
+        "position": "2.2.3.5.9.7.1",
+        "parentPosition": "2.2.3.5.9.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "command_name": "LST SCPBINDGRP",
+  "command_name_zh": "查询SCP绑定组关系",
+  "command_name_full": "查询SCP绑定组关系（LST SCPBINDGRP）",
+  "command_function": "**适用NF：AMF、SMF**\n\n该命令用于查询SCP绑定组关系。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320040",
+        "topicUrl": "MML/LinkedDoc/unc_n_sbi_management.html",
+        "name": "服务化接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.1",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001230000665",
+        "topicUrl": "MML/LinkedDoc/unc_n_communication_mode_management.html",
+        "name": "通信模式管理",
+        "parentTopicId": "TOPIC_0234320040",
+        "position": "2.10.1.2",
+        "parentPosition": "2.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002404910377",
+        "topicUrl": "MML/LinkedDoc/unc_n_scp_group_management.html",
+        "name": "SCP组管理",
+        "parentTopicId": "TOPIC_0000001230000665",
+        "position": "2.10.1.2.2",
+        "parentPosition": "2.10.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000002405041285",
+        "topicUrl": "MML/Document/lst_scpbindgrp.html",
+        "name": "查询SCP绑定组关系（LST SCPBINDGRP）",
+        "parentTopicId": "TOPIC_0000002404910377",
+        "position": "2.10.1.2.2.3",
+        "parentPosition": "2.10.1.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

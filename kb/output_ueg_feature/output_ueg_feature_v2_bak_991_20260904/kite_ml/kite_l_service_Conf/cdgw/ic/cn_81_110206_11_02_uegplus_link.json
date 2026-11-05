@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置本地PCC功能（UPF）",
+  "feature_description": "当网络中无PCRF/PCF，若通过特定APN激活的用户需要激活为PCC用户，则需要配置本地PCC功能。\n\n对于本地PCC功能（本地规则），UPF/SMF上需定义相同的规则组标识（即**ADD USERPROFILE**命令中的“用户模板名称（USERPROFILENAME）”参数值），UPF上定义该规则对应的业务流特征及业务的精细化管理动作。用户注册过程中，由SMF下发规则组标识，SMF通过规则组标识的方式激活UPF本地静态配置的规则来实现计费和策略的控制。SMF不支持实时更新规则。\n\n**说明** \n\n适用于PGW-U、UPF。\n\n配置本地PCC时，UEG上需要配置rule和UserProfile，本页面不关注具体规则内容配置，具体规则内容需要根据具体业务策略确定。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001163494996_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001365836232",
+        "topicUrl": "toctopics/zh-cn_topic_0000001365836232.html",
+        "name": "配置本地PCC",
+        "parentTopicId": "TOPIC_0000001163494996_1",
+        "position": "5.1.1",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001526027062",
+        "topicUrl": "kite_ml/kite_l_service_Conf/cdgw/ic/cn_81_110206_11_02_uegplus_link.html",
+        "name": "配置本地PCC功能（UPF）",
+        "parentTopicId": "TOPIC_0000001365836232",
+        "position": "5.1.1.2",
+        "parentPosition": "5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "command_name": "TRACERT",
+  "command_name_zh": "IP Tracert",
+  "command_name_full": "IP Tracert（TRACERT）",
+  "command_function": "TRACERT命令用来测试数据包从发送主机到目的地所经过的路径节点。对于网络中出现的故障，可以执行PING命令，根据回应的报文查看网络连通的情况，然后进一步使用该命令查看网络中出现故障的位置，为故障诊断提供依据。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189867685",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.2",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419173729",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_system_maintenance.html",
+        "name": "系统维护",
+        "parentTopicId": "TOPIC_0000001189867685",
+        "position": "1.20.2.2",
+        "parentPosition": "1.20.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002419053889",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ping_and_tracert.html",
+        "name": "Ping和Tracert",
+        "parentTopicId": "TOPIC_0000002419173729",
+        "position": "1.20.2.2.1",
+        "parentPosition": "1.20.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414644",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_tracert.html",
+        "name": "Tracert",
+        "parentTopicId": "TOPIC_0000002419053889",
+        "position": "1.20.2.2.1.2",
+        "parentPosition": "1.20.2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0218268818",
+        "topicUrl": "MML/Document/tracert.html",
+        "name": "IP Tracert（TRACERT）",
+        "parentTopicId": "TOPIC_0000002385414644",
+        "position": "1.20.2.2.1.2.1",
+        "parentPosition": "1.20.2.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "STR ROUTETRANS",
+  "command_name_zh": "启动路由数据迁移任务",
+  "command_name_full": "启动路由数据迁移任务(STR ROUTETRANS)",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作将启动路由数据迁移，操作不当将导致数据无法访问、业务严重呼损。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n路由数据迁移使用的场景如下：\n\n- DRU扩容\n\n  当运营商需要对现有局点设备进行DRU扩容时，操作员需要在增加了新的DRU cluster之后，使用本命令完成原有DRU cluster和新增DRU cluster之间的路由数据迁移操作，以保持原有DRU cluster和新增DRU cluster节点之间的负载均衡。\n- DRU缩容\n\n  当运营商局点话务量长期降低，为有效利用资源，经过评估确认需要对局点业务模块进行缩容时，先执行**MOD SEGSTATE**对缩容的模块进行隔离，再启动本命令进行路由数据迁移。\n- DRU cluster路由数据均衡\n\n  当DRU cluster间用户路由数据出现严重的负载失衡情况时，系统会产生ALM-12016 DRU Cluster间channel个数量失衡告警，操作员需要使用该命令完成各DRU cluster之间的路由数据迁移操作，以保持各DRU cluster之间的负载均衡。\n\n该命令用于DRU扩/缩容或者DRU cluster负载失衡时启动DRU cluster之间的路由数据迁移操作。迁移路由数据处理流程如图1所示。\n\n**图1** 迁移路由数据处理流程",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774583",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/data_service_management.html",
+        "name": "数据服务管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.1",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774461_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/routing_data_migration_management.html",
+        "name": "路由数据迁移管理",
+        "parentTopicId": "MMLREF_0172774583",
+        "position": "2.2.4.3.3.1.8",
+        "parentPosition": "2.2.4.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774460_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/str_routetrans.html",
+        "name": "启动路由数据迁移任务(STR ROUTETRANS)",
+        "parentTopicId": "CONCEPT_0172774461_2",
+        "position": "2.2.4.3.3.1.8.1",
+        "parentPosition": "2.2.4.3.3.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

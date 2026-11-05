@@ -1,0 +1,131 @@
+{
+  "command_name": "ADD LDAPDEVADDR",
+  "command_name_zh": "添加LDAP设备地址",
+  "command_name_full": "添加LDAP设备地址（ADD LDAPDEVADDR）",
+  "command_function": "该命令用于在配置数据库中增加一条LDAP（Lightweight Directory Access Protocol）设备地址数据记录。\n\n该命令的使用场景：\n\n当运营商的一些数据信息（例如全部用户数据和签约数据）存储在外置SPR时，UPCF支持通过基于LDAP协议的Sp接口与外置SPR对接，从而获取用户数据。\n\n获取用户数据前，必须配置UPCF与外置SPR的对接数据。操作员可通过执行本命令增加UPCF负责获取用户数据服务的设备地址。\n\n**说明** \n\nLDAP是轻量级目录访问协议的简称，是用于访问目录服务的一个标准可扩展的Internet协议。LDAP协议中部分协议是基于X.500标准，更简单、更精炼，可扩展性更好。\n\nLDAP特点如下：\n\n- 数据按目录结构组织\n- 对外提供一个统一的访问点\n- 支持数据的分布式存储\n- 数据读取快",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170890737",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_dcs_management.html",
+        "name": "DCS管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.4",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0312269161",
+        "topicUrl": "MML/LinkedDoc/pcfdisctrlservice_n_ldap_device_address_management.html",
+        "name": "LDAP设备地址管理",
+        "parentTopicId": "TOPIC_0170890737",
+        "position": "2.2.3.5.4.31",
+        "parentPosition": "2.2.3.5.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0312269162_2",
+        "topicUrl": "MML/Document/add_ldapdevaddr.html",
+        "name": "添加LDAP设备地址（ADD LDAPDEVADDR）",
+        "parentTopicId": "CONCEPT_0312269161",
+        "position": "2.2.3.5.4.31.1",
+        "parentPosition": "2.2.3.5.4.31",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

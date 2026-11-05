@@ -1,0 +1,103 @@
+{
+  "feature_name": "修改Captive模式时间的间隔",
+  "feature_description": "captive模式时间的间隔需要修改。\n\n**说明** \n\n适用于PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317442",
+        "topicUrl": "toctopics/zh-cn_topic_0239317442.html",
+        "name": "智能策略控制功能",
+        "parentTopicId": "",
+        "position": "17",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0166620113",
+        "topicUrl": "cdgw/desc/cn_20_0_400200.html",
+        "name": "GWFD-110281 用户Portal",
+        "parentTopicId": "TOPIC_0239317442",
+        "position": "17.1",
+        "parentPosition": "17",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TASK_0166620116",
+        "topicUrl": "cdgw/om/cn_20_1_5480.html",
+        "name": "调整用户Portal参数",
+        "parentTopicId": "CONCEPT_0166620113",
+        "position": "17.1.5",
+        "parentPosition": "17.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0166620143",
+        "topicUrl": "cdgw/om/cn_20_1_5477.html",
+        "name": "修改Captive模式时间的间隔",
+        "parentTopicId": "TASK_0166620116",
+        "position": "17.1.5.7",
+        "parentPosition": "17.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

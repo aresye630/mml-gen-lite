@@ -1,0 +1,114 @@
+{
+  "command_name": "SET NTPCFG",
+  "command_name_zh": "配置NTP时间同步参数",
+  "command_name_full": "配置NTP时间同步参数(SET NTPCFG)",
+  "command_function": "**须知** \n\n修改时间同步告警阈值参数可能会导致“ALM-135901 NTP连接状态异常”或“ALM-135905 系统无法与NTP服务器同步时间”的上报。\n\n系统开启自动同步策略后，每个同步周期（默认60秒）会无条件与NTP服务器同步一次时间。\n\n本命令用于设置NTP时间同步参数。\n\n本命令的使用场景为：在开局或日常的操作维护活动中，操作员可使用本命令配置NTP服务器时间同步参数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320742",
+        "topicUrl": "MML/LinkedDoc/csp_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.10",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0296232968",
+        "topicUrl": "MML/LinkedDoc/csp_n_ntp_parameter_management.html",
+        "name": "NTP参数管理",
+        "parentTopicId": "TOPIC_0234320742",
+        "position": "1.10.8",
+        "parentPosition": "1.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0267679933",
+        "topicUrl": "MML/Document/set_ntpcfg.html",
+        "name": "配置NTP时间同步参数(SET NTPCFG)",
+        "parentTopicId": "TOPIC_0296232968",
+        "position": "1.10.8.1",
+        "parentPosition": "1.10.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "command_name": "DSP GLBCDRFLDCFG",
+  "command_name_zh": "查询全局生效CDR字段配置",
+  "command_name_full": "查询全局生效CDR字段配置（DSP GLBCDRFLDCFG）",
+  "command_function": "**适用NF：SGW-C、PGW-C、SMF**\n\n该命令用来显示全局生效的各类型的话单字段的具体配置。\n\n如果全局模板下某话单类型未绑定模板，则显示该话单类型的缺省配置信息。显示信息中如果模板名字为NULL，则表示是缺省配置信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.7",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320642",
+        "topicUrl": "MML/LinkedDoc/unc_n_charging_management000.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.7.4",
+        "parentPosition": "2.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319972",
+        "topicUrl": "MML/LinkedDoc/unc_n_offline_charging.html",
+        "name": "离线计费",
+        "parentTopicId": "TOPIC_0234320642",
+        "position": "2.7.4.3",
+        "parentPosition": "2.7.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234319766",
+        "topicUrl": "MML/LinkedDoc/unc_n_offline_charging_maintenance.html",
+        "name": "离线计费维护",
+        "parentTopicId": "TOPIC_0234319972",
+        "position": "2.7.4.3.6",
+        "parentPosition": "2.7.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320457",
+        "topicUrl": "MML/LinkedDoc/unc_n_globally_effective_cdr_field_configuration_query.html",
+        "name": "全局生效话单字段配置查询",
+        "parentTopicId": "TOPIC_0234319766",
+        "position": "2.7.4.3.6.2",
+        "parentPosition": "2.7.4.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0209897014",
+        "topicUrl": "MML/Document/dsp_glbcdrfldcfg.html",
+        "name": "查询全局生效CDR字段配置（DSP GLBCDRFLDCFG）",
+        "parentTopicId": "TOPIC_0234320457",
+        "position": "2.7.4.3.6.2.1",
+        "parentPosition": "2.7.4.3.6.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

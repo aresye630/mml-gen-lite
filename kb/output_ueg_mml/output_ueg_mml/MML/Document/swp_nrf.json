@@ -1,0 +1,143 @@
+{
+  "command_name": "SWP NRF",
+  "command_name_zh": "倒换NRF",
+  "command_name_full": "倒换NRF(SWP NRF)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成业务呼损或系统严重过载甚至崩溃，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于倒换NRF。\n\nUDM支持配置对接多个NRF，按照优先级顺序先从优先级最高的NRF开始尝试注册，注册成功则该节点为主节点。如果该主节点故障，UDM则会尝试到优先级低的NRF注册，如果注册成功，则完成在UDM侧的NRF倒换。此时，如果第一次的主节点（即优先级最高的节点）恢复正常，UDM仍使用低优先级的节点，当**NRFAutoSwitchBack(NRF自动倒回)**软参取值为0时，则需要通过执行该命令手动倒换回优先级最高的节点。主用NRFClient收到倒换NRF指令后，在对应NRF组内将指定的NRF切换为主用，即立即到指令指定的NRF重新注册。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170586176",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_http_management.html",
+        "name": "HTTP管理",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.1",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0226110370",
+        "topicUrl": "MML/LinkedDoc/nrfclient_n_nrf_swap_management.html",
+        "name": "NRF倒换管理",
+        "parentTopicId": "TOPIC_0170586176",
+        "position": "2.2.3.4.1.1.8",
+        "parentPosition": "2.2.3.4.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000202673572748",
+        "topicUrl": "MML/Document/swp_nrf.html",
+        "name": "倒换NRF(SWP NRF)",
+        "parentTopicId": "CONCEPT_0226110370",
+        "position": "2.2.3.4.1.1.8.1",
+        "parentPosition": "2.2.3.4.1.1.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

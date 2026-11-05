@@ -1,0 +1,50 @@
+# 配置5G UE可达性订阅和通知特性
+
+* 操作场景
+* 必备事项
+* 操作步骤
+* 任务示例
+
+## 操作场景
+
+该任务指导操作人员配置UEG支持UE可达性订阅和通知特性。
+
+## 必备事项
+
+前提条件
+
+请仔细阅读GWFD-025809 5G UE可达性订阅和通知。
+
+数据
+
+| 类别 | 参数名称 | 取值样例 | 获取方式 | 说明 |
+| --- | --- | --- | --- | --- |
+| **SET DMPECAP** | 实体名称(PEERNAME) | AS | 全网规划 | 该参数必须先由**ADD DMPE**命令定义，然后才能在此处引用。 |
+|  | 操作类型(OPTYPE) | ADD | 固定取值。 | - |
+|  | Diameter对端实体类型(PEERTYPE) | AS | 固定取值 | - |
+|  | 允许Sh-sub-notify的数据类型(NR) | UEREACHABILITYFORIP-1 | 固定取值 | 表示允许订阅终端IP可达性数据。 |
+|  | 主机名(HN) | as.huawei.com | 全网规划 | - |
+|  | 域名(DN) | huawei.com | 全网规划 | - |
+
+## 操作步骤
+
+1. 登录“UEG MML命令”界面。
+2. 执行**SET DMPECAP**命令配置对端AS可获取数据权限。
+
+## 任务示例
+
+任务描述
+
+在UEG上设置支持UE可达性订阅和通知功能。
+
+脚本
+
+/\*登录“UEG MML命令”界面\*/
+
+/\*配置对端AS获取数据权限\*/
+
+```
+SET DMPECAP: PEERNAME="AS", OPTYPE=ADD, PEERTYPE=AS, NR=UEREACHABILITYFORIP-1, HN="as.huawei.com", DN="huawei.com";
+```
+
+版权所有 © 华为技术有限公司

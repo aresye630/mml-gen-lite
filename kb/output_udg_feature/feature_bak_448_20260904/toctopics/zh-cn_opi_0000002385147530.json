@@ -1,0 +1,91 @@
+{
+  "feature_name": "激活用户QoE智能信息采集特性",
+  "feature_description": "当运营商需要采集签约了业务体验感知套餐的重点用户和普通抽样用户这两类用户群的智能业务体验感知信息时，需要配置本页面。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000001920552392",
+        "topicUrl": "toctopics/zh-cn_topic_0000001920552392.html",
+        "name": "重点业务体验保障功能",
+        "parentTopicId": "",
+        "position": "27",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0000002410032954",
+        "topicUrl": "toctopics/zh-cn_topic_0000002410032954.html",
+        "name": "GWFD-111526 用户QoE智能信息采集",
+        "parentTopicId": "TOPIC_0000001920552392",
+        "position": "27.4",
+        "parentPosition": "27",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0000002385147530",
+        "topicUrl": "toctopics/zh-cn_opi_0000002385147530.html",
+        "name": "激活用户QoE智能信息采集特性",
+        "parentTopicId": "TOPIC_0000002410032954",
+        "position": "27.4.2",
+        "parentPosition": "27.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

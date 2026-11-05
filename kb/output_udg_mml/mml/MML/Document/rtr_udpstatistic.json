@@ -1,0 +1,143 @@
+{
+  "command_name": "RTR UDPSTATISTIC",
+  "command_name_zh": "清除UDP报文统计",
+  "command_name_full": "清除UDP报文统计（RTR UDPSTATISTIC）",
+  "command_function": "该命令用于清除UDP报文统计信息。\n\n如果需要统计在某一时间内的UDP报文统计信息，这时必须在统计开始前清除原有的UDP报文统计信息后，使用DSP UDPSTATISTIC命令查看UDP报文统计信息。不。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116156",
+        "topicUrl": "MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.14",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595642",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156",
+        "position": "4.14.4",
+        "parentPosition": "4.14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289154983",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_stack.html",
+        "name": "IP协议栈",
+        "parentTopicId": "CONCEPT_0000202103595642",
+        "position": "4.14.4.6",
+        "parentPosition": "4.14.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595662",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_protocol_statistics.html",
+        "name": "IP协议统计",
+        "parentTopicId": "CONCEPT_0000202289154983",
+        "position": "4.14.4.6.3",
+        "parentPosition": "4.14.4.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315627",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_udp_packet_statistics.html",
+        "name": "UDP报文统计",
+        "parentTopicId": "CONCEPT_0000202103595662",
+        "position": "4.14.4.6.3.2",
+        "parentPosition": "4.14.4.6.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000001549961478",
+        "topicUrl": "MML/Document/rtr_udpstatistic.html",
+        "name": "清除UDP报文统计（RTR UDPSTATISTIC）",
+        "parentTopicId": "CONCEPT_0000202289315627",
+        "position": "4.14.4.6.3.2.2",
+        "parentPosition": "4.14.4.6.3.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "feature_name": "配置UDM与UEG用户数据协同高可用",
+  "feature_description": "该任务实现如下操作：\n\n- 大网UDM实现园区数据管理功能。\n- 大网UDM实现用户数据的分拣功能。\n- USCDB实现园区定制导出功能。\n- 添加SFTP用户，用于与PGW、DMA的交互功能。\n- 实现定时导出功能。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217538279",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217538279.html",
+        "name": "配置业务数据（风筝M）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001178439694",
+        "topicUrl": "toctopics/zh-cn_topic_0000001178439694.html",
+        "name": "惯性运行配置（5G Core）",
+        "parentTopicId": "TOPIC_0000001217538279",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001155755466_2",
+        "topicUrl": "kite_ml/sae/installation/feature_guide/cn_28_34_000830.html",
+        "name": "配置UDM与UEG用户数据协同高可用",
+        "parentTopicId": "TOPIC_0000001178439694",
+        "position": "5.2.4",
+        "parentPosition": "5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV197F9712D57E4C4F87F7D451EFB62224",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002289298721",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391444389",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391444389.html",
+        "name": "配置业务数据（风筝M）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "TOPIC_0000001391524705",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001391524705.html",
+        "name": "惯性运行及数据同步配置（5G Core）",
+        "parentTopicId": "TOPIC_0000001391444389",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298721",
+        "topicId": "OPI_0000001155755466_2",
+        "topicUrl": "kite_ml/sae/installation/feature_guide/cn_28_34_000830.html",
+        "name": "配置UDM与UEG用户数据协同高可用",
+        "parentTopicId": "TOPIC_0000001391524705",
+        "position": "5.2.4",
+        "parentPosition": "5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV008F1171F9BE43FAAE8F5C1639845C0B",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝M",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV3510B4BE54D648A4B2B3BC7DD51474F9",
+        "parentNaviId": "DOCNAV008F1171F9BE43FAAE8F5C1639845C0B",
+        "pidId": "pid_bookmap_0000002289411681",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝M）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "TOPIC_0000001178416280",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001178416280.html",
+        "name": "UDM特性指南",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "TOPIC_0000001198493813",
+        "topicUrl": "kite_ml/sae/description/feature_desc/cn_28_06_000338.html",
+        "name": "WHFD-800031 UDM与UEG用户数据协同高可用",
+        "parentTopicId": "TOPIC_0000001178416280",
+        "position": "2.1",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "OPI_0000001155755466_2",
+        "topicUrl": "kite_ml/sae/installation/feature_guide/cn_28_34_000830.html",
+        "name": "配置UDM与UEG用户数据协同高可用",
+        "parentTopicId": "TOPIC_0000001198493813",
+        "position": "2.1.2",
+        "parentPosition": "2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

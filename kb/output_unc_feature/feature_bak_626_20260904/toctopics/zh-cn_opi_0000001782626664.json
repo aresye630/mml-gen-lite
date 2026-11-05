@@ -1,0 +1,121 @@
+{
+  "feature_name": "配置到对端SMSF的信息",
+  "feature_description": "在AMF本地配置到对端SMSF网元的连接。AMF拜访SMSF网元的主要目的是为了支持用户短消息的相关服务。添加信息主要包含：\n\n- 添加对端SMSF网元的基本信息。\n- 添加对端SMSF网元的PLMN信息。\n- 添加对端SMSF网元的实例服务信息。\n- 添加对端SMSF网元的SUPI信息。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782619724",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782619724.html",
+        "name": "配置AMF&MME&SGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.1",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829301201",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829301201.html",
+        "name": "配置AMF",
+        "parentTopicId": "TOPIC_0000001782619724",
+        "position": "8.1.1",
+        "parentPosition": "8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782467016",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782467016.html",
+        "name": "配置SBI接口",
+        "parentTopicId": "TOPIC_0000001829301201",
+        "position": "8.1.1.4",
+        "parentPosition": "8.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782626660",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782626660.html",
+        "name": "配置和对端NF直连",
+        "parentTopicId": "TOPIC_0000001782467016",
+        "position": "8.1.1.4.4",
+        "parentPosition": "8.1.1.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001782626664",
+        "topicUrl": "toctopics/zh-cn_opi_0000001782626664.html",
+        "name": "配置到对端SMSF的信息",
+        "parentTopicId": "TOPIC_0000001782626660",
+        "position": "8.1.1.4.4.4",
+        "parentPosition": "8.1.1.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "SET IPFRR",
+  "command_name_zh": "设置IP FRR",
+  "command_name_full": "设置IP FRR（SET IPFRR）",
+  "command_function": "该命令用来使能IP FRR功能。\n\n在设备上存在多种路由协议生成的路由时，如果想在部分路由故障后能够快速切换以使报文转发顺畅，可以通过配置此命令使能协议路由间的IP FRR功能。\n\n例如，在设备上存在OSPF协议生成的一条目的地址为10.1.1.1的OSPF路由，优先级为15。同时再配置一条到目的地址10.1.1.1的静态路由，优先级为60。在未使能IP FRR的情况下，优选OSPF路由。在使能IP FRR后，会生成一条新的路由，OSPF路由作为主路由，静态路由作为备份路由。这样，在OSPF路由故障时，系统可以快速切换到静态路由，保证转发畅通。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.12",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595642_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156_2",
+        "position": "3.2.12.4",
+        "parentPosition": "3.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289154999_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "CONCEPT_0000202103595642_2",
+        "position": "3.2.12.4.10",
+        "parentPosition": "3.2.12.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915615_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_routing_basics.html",
+        "name": "路由基础",
+        "parentTopicId": "CONCEPT_0000202289154999_2",
+        "position": "3.2.12.4.10.2",
+        "parentPosition": "3.2.12.4.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289155013_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_route_control_function_list.html",
+        "name": "路由管控功能列表",
+        "parentTopicId": "CONCEPT_0000202288915615_2",
+        "position": "3.2.12.4.10.2.5",
+        "parentPosition": "3.2.12.4.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001600841149_2",
+        "topicUrl": "kite_s_bm/MML/Document/set_ipfrr.html",
+        "name": "设置IP FRR（SET IPFRR）",
+        "parentTopicId": "CONCEPT_0000202289155013_2",
+        "position": "3.2.12.4.10.2.5.3",
+        "parentPosition": "3.2.12.4.10.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "command_name": "ADD APIGWADDR",
+  "command_name_zh": "新增API GW地址",
+  "command_name_full": "新增API GW地址（ADD APIGWADDR）",
+  "command_function": "**适用NF：UPF、MPF**\n\n**须知** \n\n本命令属于高危命令，执行该命令后，会修改API GW的访问地址，请确认配置的IP地址是正确规划的地址。\n\n该命令仅在使用主机型网络时，配置API GW的IP地址。建议使用MPF逻辑接口配置，MPF逻辑接口配置要求按照路由型网络组网。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201297342118_3",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_mec_control_plane_management.html",
+        "name": "MEC控制面管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.7",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201293478215_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_basic_configuration.html",
+        "name": "基础配置",
+        "parentTopicId": "CONCEPT_0000201297342118_3",
+        "position": "3.7.1",
+        "parentPosition": "3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201294158581_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_api_gw_service_network_address.html",
+        "name": "API GW主机型网络访问地址",
+        "parentTopicId": "CONCEPT_0000201293478215_2",
+        "position": "3.7.1.15",
+        "parentPosition": "3.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201106171582_2",
+        "topicUrl": "kite_s_bm/MML/Document/add_apigwaddr.html",
+        "name": "新增API GW地址（ADD APIGWADDR）",
+        "parentTopicId": "CONCEPT_0000201294158581_2",
+        "position": "3.7.1.15.1",
+        "parentPosition": "3.7.1.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201297342118_3",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_mec_control_plane_management.html",
+        "name": "MEC控制面管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.7",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201293478215_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_basic_configuration.html",
+        "name": "基础配置",
+        "parentTopicId": "CONCEPT_0000201297342118_3",
+        "position": "3.7.1",
+        "parentPosition": "3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201294158581_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mpf_n_api_gw_service_network_address.html",
+        "name": "API GW主机型网络访问地址",
+        "parentTopicId": "CONCEPT_0000201293478215_2",
+        "position": "3.7.1.15",
+        "parentPosition": "3.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201106171582_2",
+        "topicUrl": "kite_s_bm/MML/Document/add_apigwaddr.html",
+        "name": "新增API GW地址（ADD APIGWADDR）",
+        "parentTopicId": "CONCEPT_0000201294158581_2",
+        "position": "3.7.1.15.1",
+        "parentPosition": "3.7.1.15",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

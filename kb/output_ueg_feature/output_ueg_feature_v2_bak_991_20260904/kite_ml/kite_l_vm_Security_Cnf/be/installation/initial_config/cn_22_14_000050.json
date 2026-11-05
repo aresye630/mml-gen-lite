@@ -1,0 +1,117 @@
+{
+  "feature_name": "配置USCDB管理弱口令",
+  "feature_description": "在用户创建或修改口令时，为了防止口令过于简单而被盗窃和破解，系统会对其进行检查，如果当前设置的口令与某条被设置的弱口令信息相匹配，则不允许用户设置该弱口令。\n\n弱口令是禁止使用的口令，它通常包括：系统默认的口令、简单数字组合、和用户名相同的口令、长度很短的口令等。\n\n**说明** \n\n弱口令检查只影响新设置的账号口令，不影响已经存在的账号口令。例如：先设置一个账号口令，再将该口令设置为弱口令，此时不会影响已经设置的账号口令的使用。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001246207979",
+        "topicUrl": "toctopics/zh-cn_topic_0000001246207979.html",
+        "name": "配置安全数据（风筝L）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001201867658",
+        "topicUrl": "toctopics/zh-cn_topic_0000001201867658.html",
+        "name": "安全配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001246207979",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001243438609",
+        "topicUrl": "toctopics/zh-cn_topic_0000001243438609.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001201867658",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198758702_3",
+        "topicUrl": "kite_ml/kite_l_vm_Security_Cnf/kitel_mand_conf_opt_vm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001243438609",
+        "position": "6.1.2.2",
+        "parentPosition": "6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0317758838_3",
+        "topicUrl": "kite_ml/kite_l_vm_Security_Cnf/kitel_netw_om_c_opt_vm.html",
+        "name": "运维安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_3",
+        "position": "6.1.2.2.3",
+        "parentPosition": "6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0278553331_2",
+        "topicUrl": "kite_ml/kite_l_vm_Security_Cnf/be/installation/initial_config/cn_22_14_000050.html",
+        "name": "配置USCDB管理弱口令",
+        "parentTopicId": "TOPIC_0317758838_3",
+        "position": "6.1.2.2.3.10",
+        "parentPosition": "6.1.2.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

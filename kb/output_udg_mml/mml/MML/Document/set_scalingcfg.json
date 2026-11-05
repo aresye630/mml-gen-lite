@@ -1,0 +1,107 @@
+{
+  "command_name": "SET SCALINGCFG",
+  "command_name_zh": "设置自动扩缩容配置",
+  "command_name_full": "设置自动扩缩容配置（SET SCALINGCFG）",
+  "command_function": "此命令用于设置扩缩容的各项参数，扩缩容方式、以及扩缩容步长、设置扩缩容阈值上下限，超过阈值上限，进行扩容，低于阈值下限进行缩容。扩缩容触发方式依赖**SET SCALINGSWITCH**命令。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355988",
+        "topicUrl": "MML/LinkedDoc/scfm_n_orchestration_management.html",
+        "name": "编排管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.20",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595770",
+        "topicUrl": "MML/LinkedDoc/scfm_n_flexible_switch.html",
+        "name": "弹性开关",
+        "parentTopicId": "CONCEPT_0000202103355988",
+        "position": "4.20.2",
+        "parentPosition": "4.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0209587850",
+        "topicUrl": "MML/Document/set_scalingcfg.html",
+        "name": "设置自动扩缩容配置（SET SCALINGCFG）",
+        "parentTopicId": "CONCEPT_0000202103595770",
+        "position": "4.20.2.3",
+        "parentPosition": "4.20.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

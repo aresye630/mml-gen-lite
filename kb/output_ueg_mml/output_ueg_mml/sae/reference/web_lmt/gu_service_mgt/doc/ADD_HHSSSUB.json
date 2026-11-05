@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD HHSSSUB",
+  "command_name_zh": "一键式开户",
+  "command_name_full": "一键式开户(ADD HHSSSUB)",
+  "command_function": "该操作用于在HSS的业务数据库中增加一个IMS用户的信息，包括：\n\n1. 唯一标识该IMS用户的SUBID，可以使用能力集模板为该IMS用户的签约能力集信息，也可以设置该用户的“一致性标识”。\n2. 1个到2个支持HTTP Digest鉴权、SIP Digest鉴权、Early AKA鉴权或者Trusted Access鉴权模式的IMPI，可以使用计费地址模板为IMPI签约计费地址信息。\n3. 1个到10个IMPU，可以使用IMPU模板和ServiceProfile模板为这些IMPU设置签约业务信息，并将这些IMPU设置为同一个隐式注册集和别名组。\n\n当HSS用户模型同时满足以上特征时，操作员可以使用该命令进行一键式开户，以提升开户效率。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732488",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Subscriber_Data_Management.html",
+        "name": "用户数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.3",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732419",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Subscription_Management.html",
+        "name": "IMS用户管理",
+        "parentTopicId": "MMLREF_0191732488",
+        "position": "4.2.4.3.1",
+        "parentPosition": "4.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732558",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/ADD_HHSSSUB.html",
+        "name": "一键式开户(ADD HHSSSUB)",
+        "parentTopicId": "CONCEPT_0191732419",
+        "position": "4.2.4.3.1.2",
+        "parentPosition": "4.2.4.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

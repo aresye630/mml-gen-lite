@@ -1,0 +1,126 @@
+{
+  "command_name": "RMV CPGTPUADDR",
+  "command_name_zh": "删除CP GTP-U地址",
+  "command_name_full": "删除CP GTP-U地址（RMV CPGTPUADDR）",
+  "command_function": "**须知** \n\n删除CPGTPUADDR会导致用户激活失败，请确认要删除的CPGTPUADDR不会被使用。\n\n与UPF对接启用GTP-U时，删除CPGTPUADDR会导致已经激活的用户无法和UPF传递信息（比如RS/RA）。\n\n**适用NF：SGW-C、PGW-C、SMF、GGSN**\n\n该命令用于删除与UPF对接的本端用户面地址。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001262341141",
+        "topicUrl": "MML/LinkedDoc/unc_n_n4_gtp_u_management.html",
+        "name": "N4 GTP-U管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.3",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001235960478",
+        "topicUrl": "MML/LinkedDoc/unc_n_n4_gtp_u_address_management.html",
+        "name": "N4 GTP-U地址管理",
+        "parentTopicId": "TOPIC_0000001262341141",
+        "position": "2.10.3.1",
+        "parentPosition": "2.10.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0296805498",
+        "topicUrl": "MML/Document/rmv_cpgtpuaddr.html",
+        "name": "删除CP GTP-U地址（RMV CPGTPUADDR）",
+        "parentTopicId": "TOPIC_0000001235960478",
+        "position": "2.10.3.1.2",
+        "parentPosition": "2.10.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

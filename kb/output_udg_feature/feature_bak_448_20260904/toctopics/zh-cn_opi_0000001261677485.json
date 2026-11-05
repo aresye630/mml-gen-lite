@@ -1,0 +1,94 @@
+{
+  "feature_name": "激活DHCPv6地址分配",
+  "feature_description": "DHCP属于网络层协议，它采用Client/Server模式。DHCP Server负责客户端IP地址的管理和分配，SMF作为Client端，代替UE向DHCP Server申请和租用IP地址。\n\n**说明** \n\n适用于GGSN、SGW-C、PGW-C、SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV5EDE565D71884B54B441B767C23ACB0C",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002187138762",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 用户IP地址管理解决方案",
+        "nameIdList": [
+          "release",
+          "Sub-function",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "Sub-function_b69482b8-b462-421a-84a8-94ad427a44f9",
+          "pid_type_8419"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "Sub-function": [
+            "Sub-function_b69482b8-b462-421a-84a8-94ad427a44f9"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {
+          "keywords": "用户面IP地址管理;用户IP地址分配",
+          "pid_shortdesc": "介绍什么是IP地址分配、IP地址分配方式以及对应地址分配方式的配置。"
+        }
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138762",
+        "topicId": "TOPIC_0000001216298312",
+        "topicUrl": "toctopics/zh-cn_topic_0000001216298312.html",
+        "name": "DHCPv6分配IP地址",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138762",
+        "topicId": "OPI_0000001261258111",
+        "topicUrl": "toctopics/zh-cn_opi_0000001261258111.html",
+        "name": "激活DHCPv6分配IP地址功能",
+        "parentTopicId": "TOPIC_0000001216298312",
+        "position": "8.2",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187138762",
+        "topicId": "OPI_0000001261677485",
+        "topicUrl": "toctopics/zh-cn_opi_0000001261677485.html",
+        "name": "激活DHCPv6地址分配",
+        "parentTopicId": "OPI_0000001261258111",
+        "position": "8.2.1",
+        "parentPosition": "8.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

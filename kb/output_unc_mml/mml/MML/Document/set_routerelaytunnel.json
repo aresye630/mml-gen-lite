@@ -1,0 +1,150 @@
+{
+  "command_name": "SET ROUTERELAYTUNNEL",
+  "command_name_zh": "设置路由迭代隧道功能开关",
+  "command_name_full": "设置路由迭代隧道功能开关（SET ROUTERELAYTUNNEL）",
+  "command_function": "该命令用于设置路由迭代隧道功能开关。\n\n缺省情况下，非标签公网BGP路由、静态路由只能迭代到出接口和下一跳，不会迭代到隧道。配置了该特性后，上述路由将优先迭代到LSP隧道，如果没有LSP隧道，上述路由也可以迭代到出接口和下一跳。\n\n该命令和SET SRROUTERELAYTUNNEL命令迭代隧道使能开关不能同时配置为TRUE。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001189787485",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.20",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414752",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "TOPIC_0000001189787485",
+        "position": "1.20.3",
+        "parentPosition": "1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414880",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "TOPIC_0000002385414752",
+        "position": "1.20.3.10",
+        "parentPosition": "1.20.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385414932",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_routing_basics.html",
+        "name": "路由基础",
+        "parentTopicId": "TOPIC_0000002385414880",
+        "position": "1.20.3.10.2",
+        "parentPosition": "1.20.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000002385574828",
+        "topicUrl": "MML/LinkedDoc/vnrs_vnfc_n_enable_route_relay_tunnel.html",
+        "name": "使能路由迭代隧道",
+        "parentTopicId": "TOPIC_0000002385414932",
+        "position": "1.20.3.10.2.7",
+        "parentPosition": "1.20.3.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0000001600865701",
+        "topicUrl": "MML/Document/set_routerelaytunnel.html",
+        "name": "设置路由迭代隧道功能开关（SET ROUTERELAYTUNNEL）",
+        "parentTopicId": "TOPIC_0000002385574828",
+        "position": "1.20.3.10.2.7.1",
+        "parentPosition": "1.20.3.10.2.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

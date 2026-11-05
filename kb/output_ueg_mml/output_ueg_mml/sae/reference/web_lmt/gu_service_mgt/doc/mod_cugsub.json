@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD CUGSUB",
+  "command_name_zh": "修改CUG业务",
+  "command_name_full": "修改CUG业务(MOD CUGSUB)",
+  "command_function": "此操作用来提供、撤销或修改用户的CUG（Closed User Group）业务。\n\n执行**MOD CUGSUB**签约CUG业务后，用户可以进行群内呼叫。如果用户需要进行CUG群间呼叫，还需要执行MOD CUGFTR命令签约CUG特征数据。\n\n执行此命令后，如果是给用户签约该业务，则会下发插入用户数据消息；如果是给用户去签约该业务，则会下发删除用户数据消息。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802801",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/supplimentary_service_management.html",
+        "name": "补充业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.9",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802978",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/cug_management.html",
+        "name": "闭合用户群",
+        "parentTopicId": "MMLREF_0190802801",
+        "position": "4.2.3.9.6",
+        "parentPosition": "4.2.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802887",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_cugsub.html",
+        "name": "修改CUG业务(MOD CUGSUB)",
+        "parentTopicId": "MMLREF_0190802978",
+        "position": "4.2.3.9.6.1",
+        "parentPosition": "4.2.3.9.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

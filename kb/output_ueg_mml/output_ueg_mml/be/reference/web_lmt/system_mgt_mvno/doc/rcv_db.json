@@ -1,0 +1,107 @@
+{
+  "command_name": "RCV DB",
+  "command_name_zh": "内存库数据在线恢复",
+  "command_name_full": "内存库数据在线恢复(RCV DB)",
+  "command_function": "**须知** \n\n该命令属于高危命令，指定用户数据在线恢复属于高危动作，如果指定用户数据有误会导致用户数据脏写。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令为维护命令，用于在线恢复指定用户或指定用户列表的内存库数据。管理员可通过**DSP DB**命令查看内存库数据在线恢复任务，**STP RCVDB**终止内存库数据在线恢复任务。\n\n该命令主要用于紧急数据恢复场景，当现网存在用户数据异常或脏读脏写的情况时，为内存库数据紧急恢复提供在线恢复手段。\n\n**说明** \n\n该命令支持恢复由于误操作删除的用户数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169394",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/system_management.html",
+        "name": "系统管理（MVNO）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0286405112",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/backup_management.html",
+        "name": "备份恢复管理",
+        "parentTopicId": "MMLREF_0173169394",
+        "position": "4.2.2.18",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0276503991_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/doc/rcv_db.html",
+        "name": "内存库数据在线恢复(RCV DB)",
+        "parentTopicId": "CONCEPT_0286405112",
+        "position": "4.2.2.18.3",
+        "parentPosition": "4.2.2.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

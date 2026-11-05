@@ -1,0 +1,73 @@
+{
+  "feature_name": "修改网元基本信息",
+  "feature_description": "软件安装阶段，已完成网元名称和浮动IP地址的配置。在生产预安装场景或者现网使用时，如果需要修改，可参考本页面调整登录网元OM Portal的网元名称和浮动IP地址。\n\n**说明** \n\n- 网元名称、浮动IP地址需要与网管上配置的名称和IP地址属性一致，如果本端修改了网元名称和浮动IP地址，需要在网管上同步修改该网元的名称和IP地址属性。\n- 修改浮动IP时，请参考网元的改造OM网络方案改造OM网络。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001777939710",
+        "topicUrl": "toctopics/zh-cn_topic_0000001777939710.html",
+        "name": "基础数据配置",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000002262350333",
+        "topicUrl": "toctopics/zh-cn_opi_0000002262350333.html",
+        "name": "修改网元基本信息",
+        "parentTopicId": "TOPIC_0000001777939710",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

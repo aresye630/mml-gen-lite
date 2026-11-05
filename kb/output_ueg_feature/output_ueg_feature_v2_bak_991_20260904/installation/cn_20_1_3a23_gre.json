@@ -1,0 +1,117 @@
+{
+  "feature_name": "配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道",
+  "feature_description": "- 当用户通过WAP（Wireless Application Protocol）访问PDN/DN时，可以采用PGW-U/UPF与WAP网关之间建立GRE隧道的方式构建VPN。\n\n具体组网如图1所示。\n\n**图1** GRE隧道连通与PDN/DN组网图\n\n- PGW-U/UPF与WAP网关之间建立GRE VPN，实现用户的业务访问。\n- PGW-U/UPF与WAP网关之间必须支持Loopback接口建立GRE隧道。\n- 当PGW-U/UPF外联口之间采用BGP/OSPF动态路由时，PGW-U/UPF的Loopback接口的IP地址网段必须对外发布。\n- 用户的上行数据采用静态路由，出接口为Tunnel接口，对端接入设备必须配置到用户终端网段的静态路由。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001217338323",
+        "topicUrl": "toctopics/zh-cn_topic_0000001217338323.html",
+        "name": "UEG初始配置（风筝M）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001142675370_2",
+        "topicUrl": "kitem_conf_ref.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001217338323",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001199180892_1",
+        "topicUrl": "kitem_network_conf_vm.html",
+        "name": "组网路由配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001142675370_2",
+        "position": "4.5.7",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001155247816",
+        "topicUrl": "installation/cu_com_010016_07_kiteM.html",
+        "name": "配置VNF侧IP路由数据",
+        "parentTopicId": "TOPIC_0000001199180892_1",
+        "position": "4.5.7.1",
+        "parentPosition": "4.5.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0216653305_2",
+        "topicUrl": "installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001155247816",
+        "position": "4.5.7.1.1",
+        "parentPosition": "4.5.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0284316409_3",
+        "topicUrl": "installation/cn_20_1_3a23_gre.html",
+        "name": "配置PGW-U/UPF与PDN/DN/UDG之间的GRE隧道",
+        "parentTopicId": "TOPIC_0216653305_2",
+        "position": "4.5.7.1.1.6",
+        "parentPosition": "4.5.7.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

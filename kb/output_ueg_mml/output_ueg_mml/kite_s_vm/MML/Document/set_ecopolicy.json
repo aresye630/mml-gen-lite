@@ -1,0 +1,107 @@
+{
+  "command_name": "SET ECOPOLICY",
+  "command_name_zh": "设置全局的CPU调频和休眠策略",
+  "command_name_full": "设置全局的CPU调频和休眠策略（SET ECOPOLICY）",
+  "command_function": "使用虚拟机CPU节能功能时，通过此命令可以设置全局的虚拟机CPU调频和休眠策略。\n\n虚拟机的CPU调频策略，是指允许虚拟机根据CPU核的负载状态自动地调节CPU核的运行频率，达到在低负载时节约能源的目的。\n\n虚拟机的CPU休眠策略，是指当CPU核在较长时间（秒级）没有中断请求时，允许虚拟机进入休眠状态，以获得更多的节能效果。\n\nCPU休眠的深浅程度，表示CPU核参与休眠的部件范围大小，影响节能效果。是否支持休眠和参与休眠的部件范围与CPU类型和BIOS设置有关，休眠部件一般包括软件时钟、频率、缓存等。例如，ARM CPU不支持CPU休眠；X86 CPU支持浅休眠、深休眠；X86浅休眠主要包括软件时钟挂起/待机、降低倍频和电压，深休眠还包括清除L1/L2缓存等。一般来说，深休眠的节能效果比浅休眠好，不过CPU核从深休眠状态唤醒的所需时间要比浅休眠略长。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103355988_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/scfm_n_orchestration_management.html",
+        "name": "编排管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.16",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203931508394_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/scfm_n_cpu_energy_saving_policy.html",
+        "name": "CPU节能策略",
+        "parentTopicId": "CONCEPT_0000202103355988_1",
+        "position": "1.2.16.11",
+        "parentPosition": "1.2.16",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "MMLREF_0000001597016349_1",
+        "topicUrl": "kite_s_vm/MML/Document/set_ecopolicy.html",
+        "name": "设置全局的CPU调频和休眠策略（SET ECOPOLICY）",
+        "parentTopicId": "CONCEPT_0000203931508394_1",
+        "position": "1.2.16.11.1",
+        "parentPosition": "1.2.16.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

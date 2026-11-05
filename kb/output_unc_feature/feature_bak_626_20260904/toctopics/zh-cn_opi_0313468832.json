@@ -1,0 +1,109 @@
+{
+  "feature_name": "SMSF典型配置实例",
+  "feature_description": "本任务实例实现以下场景配置：\n\nUNC（作为SMSF）与周边NF（本例中包含AMF、NRF、UDM、SMSC）通过OSPF动态路由绑定动态BFD实现网络互通。\n\n- 网络形态：5G网络\n- 网元形态：SMSF\n- 路由协议：OSPF动态路由\n- 组网IP格式：IPv4组网\n- 接入用户：IPv4单栈用户",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVC54A726B5F7946E1AFEDC2D90E4DD82D",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193952334",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core SMSF解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468810",
+        "topicUrl": "toctopics/zh-cn_topic_0313468810.html",
+        "name": "SMSF功能部署",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468773",
+        "topicUrl": "toctopics/zh-cn_topic_0313468773.html",
+        "name": "部署基础网络",
+        "parentTopicId": "TOPIC_0313468810",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468818",
+        "topicUrl": "toctopics/zh-cn_topic_0313468818.html",
+        "name": "部署UNC网元数据",
+        "parentTopicId": "TOPIC_0313468773",
+        "position": "2.3.1",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "TOPIC_0313468784",
+        "topicUrl": "toctopics/zh-cn_topic_0313468784.html",
+        "name": "部署SMSF对接数据",
+        "parentTopicId": "TOPIC_0313468818",
+        "position": "2.3.1.2",
+        "parentPosition": "2.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952334",
+        "topicId": "OPI_0313468832",
+        "topicUrl": "toctopics/zh-cn_opi_0313468832.html",
+        "name": "SMSF典型配置实例",
+        "parentTopicId": "TOPIC_0313468784",
+        "position": "2.3.1.2.6",
+        "parentPosition": "2.3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

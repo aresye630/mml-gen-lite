@@ -1,0 +1,143 @@
+{
+  "command_name": "SET GLOBALL2TP",
+  "command_name_zh": "设置L2TP配置",
+  "command_name_full": "设置L2TP配置（SET GLOBALL2TP）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于设置L2TP的缺省属性，包括：L2TP隧道本端名称、HELLO报文发送开关、HELLO报文重发间隔和报文重发次数。创建L2TP隧道有两种方式：一是根据鉴权服务器返回的L2TP属性创建；二是根据本地配置的L2TP组创建。\n\n当用户接入系统时，系统向鉴权服务器发起对用户的鉴权。当鉴权服务器上为用户设置了L2TP的相关属性，则会返回给系统，系统根据鉴权服务器（AAA）返回的属性创建L2TP隧道。AAA返回的L2TP属性中不包含Client-Auth-ID（即LAC名称）属性场景，系统将使用本命令设置的缺省本端名称发起隧道连接；隧道创建后将使用本命令设置的缺省HELLO报文重发间隔发送HELLO报文以检测隧道的连通性。\n\n当鉴权服务器上没有为用户设置L2TP的相关属性，但用户所在APN已使能L2TP功能，并且用户名中携带的域名匹配L2TP组中配置的域名时，将根据由ADD L2TPGROUP命令进行本地配置的L2TP组创建L2TP隧道。L2TP组中没有配置本端名称场景，系统将使用本命令设置的缺省本端名称发起隧道连接。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289155129_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_session_management.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.2",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289155143_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_l2tp_tunnel_management.html",
+        "name": "L2TP隧道管理",
+        "parentTopicId": "CONCEPT_0000202289155129_3",
+        "position": "2.2.3.2.2.4",
+        "parentPosition": "2.2.3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103116358_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_default_l2tp_configuration.html",
+        "name": "L2TP缺省配置",
+        "parentTopicId": "CONCEPT_0000202289155143_3",
+        "position": "2.2.3.2.2.4.2",
+        "parentPosition": "2.2.3.2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0235373521_2",
+        "topicUrl": "MML/Document/set_globall2tp.html",
+        "name": "设置L2TP配置（SET GLOBALL2TP）",
+        "parentTopicId": "CONCEPT_0000202103116358_3",
+        "position": "2.2.3.2.2.4.2.1",
+        "parentPosition": "2.2.3.2.2.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "command_name": "DSP RPTSVRSTATUS",
+  "command_name_zh": "查询报表服务器状态",
+  "command_name_full": "查询报表服务器状态（DSP RPTSVRSTATUS）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n此命令用于查询报表服务器状态。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356134",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_report_management.html",
+        "name": "业务报表管理",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595914",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_report_server_management.html",
+        "name": "报表服务器管理",
+        "parentTopicId": "CONCEPT_0000202103356134",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315877",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_report_server_address.html",
+        "name": "报表服务器地址",
+        "parentTopicId": "CONCEPT_0000202103595914",
+        "position": "6.1.2",
+        "parentPosition": "6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201293753147",
+        "topicUrl": "MML/Document/dsp_rptsvrstatus.html",
+        "name": "查询报表服务器状态（DSP RPTSVRSTATUS）",
+        "parentTopicId": "CONCEPT_0000202289315877",
+        "position": "6.1.2.5",
+        "parentPosition": "6.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "command_name": "ADD NRFTAIRT",
+  "command_name_zh": "增加TAI路由",
+  "command_name_full": "增加TAI路由（ADD NRFTAIRT）",
+  "command_function": "**适用NF：NRF**\n\n跨NRF的NF查询，当基于不同属性选择NF时，需要在NRF（多层NRF组网中的H-NRF或PLMN-NRF，单层NRF组网中存在东西向NRF的NRF）上配置下一跳路由，以便NRF能够寻址到其下一级NRF上所管理的NF。\n\n该命令用于新增基于TAI的路由信息。当跨NRF对某个NF进行寻址时，通过本命令配置的信息可以找到当前NRF的下一级NRF路由，即目标NF所归属的NRF。\n\n若服务发现过程中，NF携带TAI发现参数，匹配到的多个TAI配置指向不同的下一跳NRF组，那么当前NRF会选取下一跳所有归属NRF组中优先级最高的NRF，若优先级相同，NRF随机选取一个下一跳归属NRF组中的NRF。\n\n若此命令与ADD NRFWILDCARDATTR命令配置了多个不同的下一跳归属NRF组名称，那么当前NRF会选取下一跳所有归属NRF组中优先级最高的NRF。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.8",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320850",
+        "topicUrl": "MML/LinkedDoc/unc_n_hierarchical_nrf_management.html",
+        "name": "分层NRF管理",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.8.4",
+        "parentPosition": "2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321157",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_route_configuration.html",
+        "name": "NRF路由配置",
+        "parentTopicId": "TOPIC_0234320850",
+        "position": "2.8.4.2",
+        "parentPosition": "2.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321005",
+        "topicUrl": "MML/LinkedDoc/unc_n_tai_route_management.html",
+        "name": "TAI路由管理",
+        "parentTopicId": "TOPIC_0234321157",
+        "position": "2.8.4.2.12",
+        "parentPosition": "2.8.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209652595",
+        "topicUrl": "MML/Document/add_nrftairt.html",
+        "name": "增加TAI路由（ADD NRFTAIRT）",
+        "parentTopicId": "TOPIC_0234321005",
+        "position": "2.8.4.2.12.1",
+        "parentPosition": "2.8.4.2.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

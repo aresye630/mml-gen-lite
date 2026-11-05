@@ -1,0 +1,119 @@
+{
+  "command_name": "LST HLRRR",
+  "command_name_zh": "查询用户漫游限制",
+  "command_name_full": "查询用户漫游限制(LST HLRRR)",
+  "command_function": "该命令用于查询HLR中用户的漫游限制状态：\n\n- 若需要查询缺省漫游限制状态，则输入“HLR序列号”，“操作类型”选择“DEFRULE”。\n- 若需要查询用户在所有“VLR或SGSN号码前缀”对应端局下的漫游限制状态，则输入“HLR序列号”，“操作类型”选择“ALL”。\n- 若需要查询用户在指定的“VLR或SGSN号码前缀”对应的端局下的漫游限制状态，则输入“HLR序列号”，“操作类型”选择“ONE”，并且输入指定的“VLR或SGSN号码前缀”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803190",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_roaming_restriction.html",
+        "name": "用户漫游限制",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.22",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803101",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_hlrrr.html",
+        "name": "查询用户漫游限制(LST HLRRR)",
+        "parentTopicId": "CONCEPT_0190803190",
+        "position": "4.2.3.2.22.4",
+        "parentPosition": "4.2.3.2.22",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

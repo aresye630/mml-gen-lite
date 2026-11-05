@@ -1,0 +1,119 @@
+{
+  "command_name": "ULD TRACELOCFILE",
+  "command_name_zh": "上传跟踪本地文件",
+  "command_name_full": "上传跟踪本地文件（ULD TRACELOCFILE）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，命令执行成功会将FileSver已经存在的文件删除\n\n该命令用于上传指定pod下用户跟踪存盘文件到文件服务器上。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555353",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_o_m.html",
+        "name": "业务运维",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.12",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555359",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_trace_management.html",
+        "name": "业务跟踪管理",
+        "parentTopicId": "CONCEPT_0000202289555353",
+        "position": "5.12.4",
+        "parentPosition": "5.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103356132",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_trace_local_file_management.html",
+        "name": "用户跟踪本地存盘文件管理",
+        "parentTopicId": "CONCEPT_0000202289555359",
+        "position": "5.12.4.2",
+        "parentPosition": "5.12.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201678310840",
+        "topicUrl": "MML/Document/uld_tracelocfile.html",
+        "name": "上传跟踪本地文件（ULD TRACELOCFILE）",
+        "parentTopicId": "CONCEPT_0000202103356132",
+        "position": "5.12.4.2.2",
+        "parentPosition": "5.12.4.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

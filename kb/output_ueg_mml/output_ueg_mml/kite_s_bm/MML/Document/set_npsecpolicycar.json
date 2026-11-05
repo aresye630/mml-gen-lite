@@ -1,0 +1,119 @@
+{
+  "command_name": "SET NPSECPOLICYCAR",
+  "command_name_zh": "设置NP安全防攻击CAR规则",
+  "command_name_full": "设置NP安全防攻击CAR规则(SET NPSECPOLICYCAR)",
+  "command_function": "**须知** \n\n修改CAR参数，影响系统功能和可靠性。参数配置不合理，会导致路由协议等相关报文丢弃，或导致控制面过载。\n\n该命令用来设置IP的安全防攻击CAR规则。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_2",
+        "position": "3.2.12",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595640_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202103116156_2",
+        "position": "3.2.12.3",
+        "parentPosition": "3.2.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202668884723_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/vnrs_vnfc_n_np_security_policy_car.html",
+        "name": "NP安全策略CAR",
+        "parentTopicId": "CONCEPT_0000202103595640_2",
+        "position": "3.2.12.3.6",
+        "parentPosition": "3.2.12.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001215401278_1",
+        "topicUrl": "kite_s_bm/MML/Document/set_npsecpolicycar.html",
+        "name": "设置NP安全防攻击CAR规则(SET NPSECPOLICYCAR)",
+        "parentTopicId": "CONCEPT_0000202668884723_2",
+        "position": "3.2.12.3.6.1",
+        "parentPosition": "3.2.12.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

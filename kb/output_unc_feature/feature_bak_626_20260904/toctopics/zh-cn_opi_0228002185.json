@@ -1,0 +1,81 @@
+{
+  "feature_name": "检查NRF系统状态",
+  "feature_description": "通过检查虚拟机的资源单元的状态，检查微服务的容器状态以及进程状态，来确保NRF运行正常。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVE38493D5E5D04CF5B8C84462D873F375",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229279861",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NRF解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "NRF解决方案##网络自治##NRF",
+          "pid_shortdesc": "介绍5G core端到端网络自治解决方案的详细原理，具体部署及网络自治问题处理。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303341",
+        "topicUrl": "toctopics/zh-cn_topic_0166303341.html",
+        "name": "例行维护",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "OPI_0228002185",
+        "topicUrl": "toctopics/zh-cn_opi_0228002185.html",
+        "name": "检查NRF系统状态",
+        "parentTopicId": "TOPIC_0166303341",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

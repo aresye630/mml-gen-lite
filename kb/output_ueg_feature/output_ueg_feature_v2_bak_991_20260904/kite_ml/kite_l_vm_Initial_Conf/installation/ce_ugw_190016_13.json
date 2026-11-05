@@ -1,0 +1,117 @@
+{
+  "feature_name": "配置静态路由+BFD组网（IPv6）",
+  "feature_description": "VNF与对端设备可通过静态路由绑定静态BFD探测的方式进行组网连接。\n\n在网络拓扑结构比较简单时，通常使用静态路由方式组网，合理的静态路由可以改进网络性能，并为业务保证带宽。同时，利用BFD双向/单向转发检测机制为链路提供双向/单向、轻负荷且持续时间短的快速检测功能，提高链路可靠性。\n\n如图1所示为VNF与周边网元的静态路由互通组网示意图。VNF与网关运行静态路由协议而接入运营商网络/企业网络，PE（Provider Edge）或DC-GW作网关。VNF和DC-GW之间采用单臂BFD探测。PE的路由配置请参考运营商的网络规划配置，DC-GW的配置请参考对应型号设备的产品文档。\n\n**图1** 静态路由+BFD组网",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199180892_2",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199180892.html",
+        "name": "组网路由配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.7",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001484765430",
+        "topicUrl": "toctopics/zh-cn_opi_0000001484765430.html",
+        "name": "配置VNF侧IP路由数据",
+        "parentTopicId": "TOPIC_0000001199180892_2",
+        "position": "4.5.7.1",
+        "parentPosition": "4.5.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0216653305_3",
+        "topicUrl": "kite_ml/kite_l_vm_Initial_Conf/installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001484765430",
+        "position": "4.5.7.1.1",
+        "parentPosition": "4.5.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0216653298_3",
+        "topicUrl": "kite_ml/kite_l_vm_Initial_Conf/installation/ce_ugw_190016_13.html",
+        "name": "配置静态路由+BFD组网（IPv6）",
+        "parentTopicId": "TOPIC_0216653305_3",
+        "position": "4.5.7.1.1.5",
+        "parentPosition": "4.5.7.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

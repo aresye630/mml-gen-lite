@@ -1,0 +1,128 @@
+{
+  "feature_name": "修改AAA计费的3GPP扩展属性",
+  "feature_description": "当AAA Server的3GPP扩展属性发生变化时，UEG需要修改AAA计费的3GPP扩展属性以便和AAA Server保持一致。\n\n**说明** \n\n适用于PGW-C、SMF",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001184766032",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001184766032.html",
+        "name": "GWFD-024300 系统管理",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.9",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001163929660_2",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_RADIUS.html",
+        "name": "GWFD-024303 Radius功能",
+        "parentTopicId": "TOPIC_0000001184766032",
+        "position": "6.9.3",
+        "parentPosition": "6.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0233687022",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_RADIUS_19.html",
+        "name": "调整AAA计费参数",
+        "parentTopicId": "TOPIC_0000001163929660_2",
+        "position": "6.9.3.9",
+        "parentPosition": "6.9.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0233687024",
+        "topicUrl": "kite_ml/desc/unc_2000_feature_desc_RADIUS_21.html",
+        "name": "修改AAA计费的3GPP扩展属性",
+        "parentTopicId": "TOPIC_0233687022",
+        "position": "6.9.3.9.2",
+        "parentPosition": "6.9.3.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

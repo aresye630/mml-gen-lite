@@ -1,0 +1,119 @@
+{
+  "command_name": "LST HREPDATA",
+  "command_name_zh": "查询透明数据",
+  "command_name_full": "查询透明数据(LST HREPDATA)",
+  "command_function": "该操作用于在HSS的业务数据库中查询IMPU指定类型和指定ServiceIndication的透明数据或者查询PUSI中指定ServiceIndication的透明数据。\n\n通过**LST HREPDATA**命令查询的透明数据包含业务一致性同步的透明数据。\n\n**说明** \n\n- 业务数据一致性功能开启后，IMS侧的部分透明数据从HLR动态数据获取，转换后下发到IMS域，这部分数据不在IMS域存储，IMS导出数据时不会导出业务数据一致性同步的透明数据。因此，执行**LST HREPDATA**命令查询的透明数据与IMS导出数据获取的透明数据不完全一致。\n- 业务数据一致性功能是否开启通过如下命令查询：\n\n  ```\n  LST INSP: INSPT=HSS9860, INSPN=VOLTE_DATA_SYN_SWITCH;\n  ```",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732466",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Service_Data_Management.html",
+        "name": "业务数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.4",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732714",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Repository_Data_Management.html",
+        "name": "透明数据管理",
+        "parentTopicId": "MMLREF_0191732466",
+        "position": "4.2.4.4.20",
+        "parentPosition": "4.2.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732758",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/LST_HREPDATA.html",
+        "name": "查询透明数据(LST HREPDATA)",
+        "parentTopicId": "MMLREF_0191732714",
+        "position": "4.2.4.4.20.2",
+        "parentPosition": "4.2.4.4.20",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD SGWDNS",
+  "command_name_zh": "增加S-GW DNS域名策略",
+  "command_name_full": "增加S-GW DNS域名策略（ADD SGWDNS）",
+  "command_function": "**适用网元：SGSN、MME**\n\n该命令用于在多PLMN共享跟踪区域或者位置区域场景时，定制S-GW域名中的PLMN组装策略，从而可以简化**ADD DNSN**的配置信息。\n\n在E-UTRAN网络查询S-GW时使用的是TAI FQDN，在UTRAN网络查询S-GW时使用的是RAI FQDN。被多个PLMN共享的一组跟踪区域或者位置区域其对应的S-GW一般都是一样的，为了S-GW查询，则需要针对每一个PLMN配置一条DNSN记录。为了减少DNSN配置，UNC系统提供该命令，指定一个特定的PLMN代替所有的PLMN来组装FQDN，进行S-GW查询。\n\n场景举例：\n\n以E-UTRAN网络为例，如果RAN侧的跟踪区域码为0x1234，分别被五个PLMN共享，PLMN1（111222）、PLMN2（111333）、PLMN3（111444）、PLMN4（111555）和PLMN（111666）。 该跟踪区对应如下S-GW：\n\n```\nADD IPV4DNSH: HSINDEX=1, HOSTNAME=\"TOPON.S11.SGW1.PUDONG.3GPPNETWORK.ORG\", ADDRSECTION=SECTION1, IPV4ADDR1=\"10.10.10.10\";\n```\n\n- 当无此配置时，则需要配置如下五条查询DNSN记录，才可以满足在该跟踪区下选择不同PLMN的用户正常附着：\n\n  ```\n  ADD IPV4DNSH: HSINDEX=1, HOSTNAME=\"TOPON.S11.SGW1.PUDONG.3GPPNETWORK.ORG\", ADDRSECTION=SECTION1, IPV4ADDR1=\"10.10.10.10\";\n  ```\n\n  ```\n  ADD DNSN: FQDN=\"TAC-LB34.TAC-HB12.TAC.EPC.MNC222.MCC111.3GPPNETWORK.ORG\", HSINDEX=1, ENTITY=SGW, INTYPE=S11;\n  ```\n\n  ```\n  ADD DNSN: FQDN=\"TAC-LB34.TAC-HB12.TAC.EPC.MNC333.MCC111.3GPPNETWORK.ORG\", HSINDEX=1, ENTITY=SGW, INTYPE=S11;\n  ```\n\n  ```\n  ADD DNSN: FQDN=\"TAC-LB34.TAC-HB12.TAC.EPC.MNC444.MCC111.3GPPNETWORK.ORG\", HSINDEX=1, ENTITY=SGW, INTYPE=S11;\n  ```\n\n  ```\n  ADD DNSN: FQDN=\"TAC-LB34.TAC-HB12.TAC.EPC.MNC555.MCC111.3GPPNETWORK.ORG\", HSINDEX=1, ENTITY=SGW, INTYPE=S11;\n  ```\n\n  ```\n  ADD DNSN: FQDN=\"TAC-LB34.TAC-HB12.TAC.EPC.MNC666.MCC111.3GPPNETWORK.ORG\", HSINDEX=1, ENTITY=SGW, INTYPE=S11;\n  ```\n- 当有如下配置（指定TAC 0x1234在组装FQDN选择S-GW时使用特定的PLMN：555666，该PLMN可以为任意PLMN）存在时：\n\n  ```\n  ADD SGWDNS: DNTYPE=TAI, TAC=\"0x1234\", TACRANGE=\"0x1234\", MCC=\"555\", MNC=\"666\";\n  ```\n\n  则只需要配置如下一条DNSN来代替上面五条：\n\n  ```\n  ADD DNSN: FQDN=\"TAC-LB34.TAC-HB12.TAC.EPC.MNC666.MCC555.3GPPNETWORK.ORG\", HSINDEX=1, ENTITY=SGW, INTYPE=S11;\n  ```",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321016",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_c_interface_management.html",
+        "name": "GTP-C接口管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.9",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320099",
+        "topicUrl": "MML/LinkedDoc/unc_n_s11_interface_management.html",
+        "name": "S11接口管理",
+        "parentTopicId": "TOPIC_0234321016",
+        "position": "2.5.3.9.7",
+        "parentPosition": "2.5.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320190",
+        "topicUrl": "MML/LinkedDoc/unc_n_s_gw_domain_name_policy.html",
+        "name": "S-GW域名策略",
+        "parentTopicId": "TOPIC_0234320099",
+        "position": "2.5.3.9.7.2",
+        "parentPosition": "2.5.3.9.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001172345571",
+        "topicUrl": "MML/Document/add_sgwdns.html",
+        "name": "增加S-GW DNS域名策略（ADD SGWDNS）",
+        "parentTopicId": "TOPIC_0234320190",
+        "position": "2.5.3.9.7.2.1",
+        "parentPosition": "2.5.3.9.7.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

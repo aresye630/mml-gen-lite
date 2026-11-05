@@ -1,0 +1,109 @@
+{
+  "feature_name": "配置运营商信息",
+  "feature_description": "配置SMF/PGW-C/SGW-C/GGSN本局数据的基本流程包括：开始→配置移动运营商信息→配置PLMN和切片→配置本端NFUUID→配置NF信息→结束。国漫相关配置请参见5GC国际漫游解决方案功能部署。运营商信息详细原理请参见运营商信息是什么。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829339433",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829339433.html",
+        "name": "配置SMF&PGW-C&SGW-C&GGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.2",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001866127205",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866127205.html",
+        "name": "公共配置",
+        "parentTopicId": "TOPIC_0000001829339433",
+        "position": "8.2.1",
+        "parentPosition": "8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001830096845",
+        "topicUrl": "toctopics/zh-cn_topic_0000001830096845.html",
+        "name": "配置本局数据",
+        "parentTopicId": "TOPIC_0000001866127205",
+        "position": "8.2.1.1",
+        "parentPosition": "8.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001835562285",
+        "topicUrl": "toctopics/zh-cn_opi_0000001835562285.html",
+        "name": "配置运营商信息",
+        "parentTopicId": "TOPIC_0000001830096845",
+        "position": "8.2.1.1.1",
+        "parentPosition": "8.2.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

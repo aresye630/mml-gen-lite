@@ -1,0 +1,91 @@
+{
+  "feature_name": "配置HTTPS业务地址识别",
+  "feature_description": "**说明** \n\n适用于PGW-U、UPF。\n\n当用户访问的业务采用HTTPS协议承载时，需要部署HTTPS业务地址识别特性，对业务实施计费与策略控制。\n\n**说明** \n\nUDG SSL/TLS证书识别HTTPS应用不需要配置，版本默认支持。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0239317439",
+        "topicUrl": "toctopics/zh-cn_topic_0239317439.html",
+        "name": "业务感知功能",
+        "parentTopicId": "",
+        "position": "14",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0171023371",
+        "topicUrl": "cdgw/desc/cn_20_0_110203_00.html",
+        "name": "GWFD-110203 HTTPS业务地址识别",
+        "parentTopicId": "TOPIC_0239317439",
+        "position": "14.27",
+        "parentPosition": "14",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0124082599",
+        "topicUrl": "cdgw/ic/cn_81_110318_11_01_new.html",
+        "name": "配置HTTPS业务地址识别",
+        "parentTopicId": "CONCEPT_0171023371",
+        "position": "14.27.3",
+        "parentPosition": "14.27",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

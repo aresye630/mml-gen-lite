@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置SBI接口（N22）",
+  "feature_description": "**接口介绍**\n\nNSSF的服务化接口为Nnssf，与参考点的对应关系如下。参考点是指5G系统服务化架构映射到传统架构后，对应传统网元之间点对点的接口，用来代表NF之间交互的参考模型，并不是真实的接口。\n\n| 参考点   | 网元间的交互     | 服务化接口      |\n|:------|:-----------|:-----------|\n| N22   | AMF<->NSSF | Namf、Nnssf |\n\n**图1** 服务化接口协议栈图\n\n服务化接口间采用相同的协议栈，传输层统一采用HTTP/2协议，应用层携带不同的服务消息。因为底层的传输方式相同，所有的服务化接口就可以在同一总线上进行传输，支撑业务灵活上线。\n\n**说明** \n\nHTTP/2（HyperText Transport Protocol 2.0）：下一代超文本传输协议。基于HTTP协议的信息交换分为四个过程：建立连接、发送请求信息、发送响应信息、关闭连接。\n\nTLS（Transport Layer Security）：安全传输层协议。在两个通信应用程序之间提供保密性和数据完整性。\n\n**配置建议**\n\n- NSSF的服务化接口端口号没有明确时，使用HTTP知名端口号80。\n- 一个NF类型需要配置一个HTTP本端端点组和对应的HTTP本端端点，然后根据实际部署NF数量配置分别配置对应的SBI端点并绑定对应的HTTP本端端点组。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829347273",
+        "topicUrl": "init_install/unc_2000_init_nssf_03.html",
+        "name": "配置NSSF",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.4",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001782467892",
+        "topicUrl": "init_install/unc_2000_init_nssf_033.html",
+        "name": "配置SBI接口（N22）",
+        "parentTopicId": "TOPIC_0000001829347273",
+        "position": "8.4.3",
+        "parentPosition": "8.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

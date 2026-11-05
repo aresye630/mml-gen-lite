@@ -1,0 +1,143 @@
+# 查询QoS协商参数(LST IMSISMCHAR)
+
+- 命令功能
+- 注意事项
+- 本地用户权限
+- 网管用户权限
+- 参数说明
+- 使用实例
+- 输出结果说明
+
+#### 命令功能
+
+**适用网元：SGSN**
+
+该命令用于查询SM属性配置。
+
+- 当用户使用GPRS接入网接入并进行PDP激活时，分以下三种场景进行处理：
+  - 如果用户所在的IMSI号段或用户归属地在该表中配置，并且“是否配置2G QoS”参数配置为“是”，系统使用该表中配置的2G QoS参数对PDP上下文使用的QoS进行限制。
+  - 如果用户所在的IMSI号段或用户归属地在该表中配置，但是“是否配置2G QoS”参数配置为“否”，系统将为该条配置指定默认的2G QoS参数，系统使用匹配到“用户范围”为“ALL\_USER（所有用户）”记录中所配置的默认QoS参数对PDP上下文使用的QoS进行限制。
+  - 如果用户所在的IMSI号和用户归属地段未在该表中配置，系统使用该命令“用户范围”为“所有用户”记录中配置的QoS参数对PDP上下文使用的QoS进行限制。
+- 当用户使用UMTS接入网接入并进行PDP激活时，分以下三种场景进行处理：
+  - 如果用户所在的IMSI号段或用户归属地在该表中配置，并且“是否配置3G QoS”参数配置为“是”，系统使用该表中配置的3G QoS参数对PDP上下文使用的QoS进行限制。
+  - 如果用户所在的IMSI号段或用户归属地在该表中配置，但是“是否配置3G QoS”参数配置为“否”，系统将为该条配置指定默认的3G QoS参数，系统使用匹配到“用户范围”为“ALL\_USER（所有用户）”记录中所配置的默认QoS参数对PDP上下文使用的QoS进行限制。
+  - 如果用户所在的IMSI号段和用户归属地未在该表中配置，系统使用该命令“用户范围”为“所有用户”记录中配置的QoS参数对PDP上下文使用的QoS进行限制。
+- QoS各参数的取值及含义具体请参见3GPP TS 23107（QoS协议）。
+- 对于2G和3G QoS参数，当“协商方式”为“NET\_NEGO\_QOS（网络侧协商QoS）”时生效。
+
+#### 注意事项
+
+无。
+
+#### 本地用户权限
+
+manage-ug；system-ug；monitor-ug
+
+#### 网管用户权限
+
+G\_1，管理员级别命令组；G\_2，操作员级别命令组；G\_3，用户级别命令组
+
+#### 参数说明
+
+| 参数标识        | 参数名称    | 参数说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SUBRANGE    | 用户范围    | 可选必选说明：可选参数 参数含义：该参数用于指定所包含的用户范围。 数据来源：整网规划 取值范围：“ALL_USER（所有用户）”“IMSI_PREFIX（指定IMSI前缀）”“IMSI_RANGE（指定IMSI范围）”“FOREIGN_USER（外网用户）”“HOME_USER（本网用户）” 默认值：无                                                                                                                                                                                                                                                                                                             |
+| IMSIPRE     | IMSI前缀  | 可选必选说明：可选参数 参数含义：该参数用于系统对用户的IMSI进行匹配，从而区分不同的用户群。 前提条件：该参数在“用户范围”参数配置为“IMSI_PREFIX（指定IMSI前缀）”后生效。 数据来源：整网规划 取值范围：1～15位十进制字符串 默认值：无  说明： IMSI前缀的匹配方式采取由前向后的最长匹配，即若对于用户可以匹配到多个用户群，则使用IMSI前缀最长的用户群配置。                                                                                                                                                                                                                                                                     |
+| IMSI        | IMSI    | 可选必选说明：可选参数 参数含义：该参数用于指定所要查询的IMSI。 前提条件：该参数在“用户范围”配置为“IMSI_RANGE（指定IMSI范围）”时，该参数才有效。 数据来源：整网规划 取值围：1～15位十进制字符串 默认值：无                                                                                                                                                                                                                                                                                                                                                  |
+| NOID        | 运营商标识   | 可选必选说明：可选参数 参数含义：该参数用于指定运营商标识 前提条件：该参数在“SUBRANGE（用户范围）”配置为“FOREIGN_USER（外网用户）”或“HOME_USER（本网用户）”后生效。 对于外网用户，该参数是外网用户对应的签订互联PLMN漫游协议的运营商标识，对于本网用户，该参数是本网用户对应的运营商标识。 数据来源：整网规划 取值范围：0～64，128～254 默认值：无 配置原则：若该参数需要配置为0或128～254之间的值时，须先在ADD MNO中配置取值相同的“MNOID”参数若该参数需要配置为1～64之间的值时，须先在ADD MVNO中配置取值相同的“MVNOID”参数。                                                                                                                                                        |
+| USERSUBTYPE | 用户子类    | 可选必选说明：可选参数 参数含义：该参数用于指定本网用户子类，控制用户QoS参数。UNC将签约数据中获取的用户子类和本参数的配置进行匹配，选择匹配用户子类对应的QoS参数。 签约数据中心接口为Gr时，UNC能够获取HLR Number，通过HLR Number可以细分本网用户为本地用户或异地用户；当签约数据中心接口为S6d时，UNC不能对本网用户细分为本地用户或异地用户，统一确认为本网所有用户。 前提条件：该参数在“SUBRANGE（用户范围）”参数配置为“HOME_USER（本网用户）”时生效。 数据来源：整网规划 取值范围：“HOME_ALL_USER(本网所有用户)”“HOME_LOCAL_USER(本网本地用户)”“HOME_UNLOCAL_USER(本网异地用户)” 默认值：无  说明： 用户子类对应的QoS参数优先级从高到低为：“本网本地用户(Home Local User)”或“本网异地用户(Home Unlocal User)”，“本网所有用户(Home All User)”。 |
+| APNNI       | APN网络标识 | 可选必选说明：可选参数 参数含义：该参数用于指定APN网络标识。 数据来源：整网规划 长度范围：1～62 默认值：无  说明： “APNNI”（APN网络标识地址）由一个或多个LABEL构成，各LABEL间用“.”间隔。每个LABEL的构成字符只能是字母A～Z或a～z、数字0～9和中划线“-”，字母不区分大小写。APN网络标识地址不能以“rac”、“lac”、“sgsn”或“rnc”开头，不能以“.gprs”结尾。“*”表示通配符，如果根据用户使用的APNNI无法匹配到对应的记录，则使用根据IMSI、UE接入能力与通配符“*”查询到的配置记录。GGSN/P-GW采取何种PCC策略是以APN为粒度的，如果网关侧下发QoS策略使用PCRF，UNC建议用网络侧控制模式，以PCRF的策略优先；如果网关没有部署PCRF，UNC则建议用QoS协商模式。不支持输入*和其他字符组合。                                                                 |
+| UEACCCAP    | UE接入能力  | 可选必选说明：可选参数 参数含义：该参数用于指定UE接入能力 数据来源：整网规划 取值范围：“ALL_UE（所有UE）”“EUTRAN_INCAPABLE_UE（无E-UTRAN接入能力的UE）”“EUTRAN_CAPABLE_UE（有E-UTRAN接入能力的UE）” 默认值：无  说明： GERAN/UTRAN接入模式下SGSN通过GnGp接口连接到传统的GGSN，网络通常不部署PCRF，融合GGSN/P-GW通常会部署PCRF，UNC会根据UE接入能力参数配合网关不同的PCRF策略。                                                                                                                                                                                                                |
+
+#### 使用实例
+
+1. 查询所有的SM属性配置记录：
+
+   LST IMSISMCHAR:;
+
+   ```
+   %%LST IMSISMCHAR:;%%
+   RETCODE = 0  操作成功。
+
+   IMSI号段和SM属性的对应关系表
+   ----------------------------
+   用户范围        IMSI前缀    运营商标识    用户子类    APN网络标识    UE接入能力    使用演进ARP    协商方式         流程模式    Gb模式QoS协商           Iu模式QoS协商           覆盖签约QoS    是否配置2G QoS    2G QoS可靠性                       2G QoS优先级     2G QoS延迟等级    2G QoS最大吞吐量（octet/s）    2G QoS平均吞吐量（octet/h）    2G QoS流量等级          2G QoS最大SDU长度    2G QoS上行最大速率    2G QoS上行保证速率    2G QoS下行最大速率    2G QoS下行保证速率    2G QoS发送次序            2G QoS发送错误SDU    2G QoS保留BER    2G QoSSDU误码率    2G QoS发送控制优先级    2G QoS传递时延    2G QoS分配保留优先级    2G QoS无线优先级    是否配置3G QoS    3G QoS可靠性                       3G QoS优先级     3G QoS延迟等级    3G QoS最大吞吐量（octet/s）    3G QoS平均吞吐量（octet/h）    3G QoS流量等级          3G QoS最大SDU长度    3G QoS上行最大速率    3G QoS上行保证速率    3G QoS下行最大速率    3G QoS下行保证速率    3G QoS发送次序            3G QoS发送错误SDU    3G QoS保留BER    3G QoSSDU误码率    3G QoS发送控制优先级    3G QoS传递时延    3G QoS扩展下行最大速率    3G QoS扩展下行保证速率    3G QoS扩展上行最大速率    3G QoS扩展上行保证速率    3G QoS分配保留优先级    3G QoS无线优先级
+
+   所有用户        NULL        NULL          NULL        *              所有UE        是             网络侧协商QoS    NULL        CN节点更新 & RAT更新    CN节点更新 & RAT更新    否             是                Unack GTP/LLC Ack RLC Protected    High priority    Delay class 1     Up to 256000                   50000000                       Conversational class    151                  254                   254                   254                   254                   Without delivery order    No detect            6*10^-8          1*10^-4            Priority level 1        10                高端用户                2                   是                Unack GTP/LLC Ack RLC Protected    High priority    Delay class 1     Up to 256000                   50000000                       Conversational class    151                  254                   254                   254                   254                   Without delivery order    No detect            6*10^-8          1*10^-4            Priority level 1        10                0                         0                         0                         0                         高端用户                2               
+   指定IMSI前缀    123456      NULL          NULL        HUAWEI         所有UE        是             网络侧协商QoS    NULL        CN节点更新 & RAT更新    CN节点更新 & RAT更新    否             否                Unack GTP/LLC Ack RLC Protected    High priority    Delay class 1     Up to 256000                   50000000                       Conversational class    151                  254                   254                   254                   254                   Without delivery order    No detect            6*10^-8          1*10^-4            Priority level 1        10                高端用户                2                   否                Unack GTP/LLC Ack RLC Protected    High priority    Delay class 1     Up to 256000                   50000000                       Conversational class    151                  254                   254                   254                   254                   Without delivery order    No detect            6*10^-8          1*10^-4            Priority level 1        10                0                         0                         0                         0                         高端用户                2               
+   (结果个数 = 2)
+   ---    END
+   ```
+2. 查询特定IMSI前缀的SM属性配置记录：
+
+   LST IMSISMCHAR: SUBRANGE=IMSI\_PREFIX;
+
+   ```
+   %%LST IMSISMCHAR: SUBRANGE=IMSI_PREFIX;%%
+   RETCODE = 0  操作成功。
+
+   IMSI号段和SM属性的对应关系表
+   ----------------------------
+                      用户范围  =  指定IMSI前缀
+                      IMSI前缀  =  123456
+                    运营商标识  =  NULL
+                      用户子类  =  NULL
+                   APN网络标识  =  HUAWEI
+                    UE接入能力  =  所有UE
+                   使用演进ARP  =  是
+                      协商方式  =  网络侧协商QoS
+                      流程模式  =  NULL
+                 Gb模式QoS协商  =  CN节点更新 & RAT更新
+                 Iu模式QoS协商  =  CN节点更新 & RAT更新
+                   覆盖签约QoS  =  否
+                是否配置2G QoS  =  否
+                  2G QoS可靠性  =  Unack GTP/LLC Ack RLC Protected
+                  2G QoS优先级  =  High priority
+                2G QoS延迟等级  =  Delay class 1
+   2G QoS最大吞吐量（octet/s）  =  Up to 256000
+   2G QoS平均吞吐量（octet/h）  =  50000000
+                2G QoS流量等级  =  Conversational class
+             2G QoS最大SDU长度  =  151
+            2G QoS上行最大速率  =  254
+            2G QoS上行保证速率  =  254
+            2G QoS下行最大速率  =  254
+            2G QoS下行保证速率  =  254
+                2G QoS发送次序  =  Without delivery order
+             2G QoS发送错误SDU  =  No detect
+                 2G QoS保留BER  =  6*10^-8
+               2G QoSSDU误码率  =  1*10^-4
+          2G QoS发送控制优先级  =  Priority level 1
+                2G QoS传递时延  =  10
+          2G QoS分配保留优先级  =  高端用户
+              2G QoS无线优先级  =  2
+                是否配置3G QoS  =  否
+                  3G QoS可靠性  =  Unack GTP/LLC Ack RLC Protected
+                  3G QoS优先级  =  High priority
+                3G QoS延迟等级  =  Delay class 1
+   3G QoS最大吞吐量（octet/s）  =  Up to 256000
+   3G QoS平均吞吐量（octet/h）  =  50000000
+                3G QoS流量等级  =  Conversational class
+             3G QoS最大SDU长度  =  151
+            3G QoS上行最大速率  =  254
+            3G QoS上行保证速率  =  254
+            3G QoS下行最大速率  =  254
+            3G QoS下行保证速率  =  254
+                3G QoS发送次序  =  Without delivery order
+             3G QoS发送错误SDU  =  No detect
+                 3G QoS保留BER  =  6*10^-8
+               3G QoSSDU误码率  =  1*10^-4
+          3G QoS发送控制优先级  =  Priority level 1
+                3G QoS传递时延  =  10
+        3G QoS扩展下行最大速率  =  0
+        3G QoS扩展下行保证速率  =  0
+        3G QoS扩展上行最大速率  =  0
+        3G QoS扩展上行保证速率  =  0
+          3G QoS分配保留优先级  =  高端用户
+              3G QoS无线优先级  =  2
+   (结果个数 = 1)
+   ---    END
+   ```
+
+#### 输出结果说明
+
+参见**ADD IMSISMCHAR**的参数说明。

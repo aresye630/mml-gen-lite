@@ -1,0 +1,150 @@
+{
+  "command_name": "ADD PNFSUPI",
+  "command_name_zh": "增加对端NF的SUPI信息",
+  "command_name_full": "增加对端NF的SUPI信息（ADD PNFSUPI）",
+  "command_function": "**适用NF：AMF、SMF、NSSF、SMSF、NCG、CBC、CBCF**\n\n- 该命令用于增加本地配置对端NF实例支持的SUPI的信息。该命令用于在网络中没有部署NRF，或对端NF没有注册到NRF，或网络中存在NRF但需基于运营商策略本地配置周边NF的场景下，配置对端NF实例相关的信息。\n- 当NFINSTANCEID配置为\"sbidialtest\"时，该命令用于新增model-D或model-C间接路由拨测用户列表，通过起始SUPI和终止SUPI的方式，配置一组拨测用户，不支持PATTERN模式配置拨测用户。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320040",
+        "topicUrl": "MML/LinkedDoc/unc_n_sbi_management.html",
+        "name": "服务化接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.10.1",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321170",
+        "topicUrl": "MML/LinkedDoc/unc_n_registration_and_service_discovery.html",
+        "name": "注册与服务发现",
+        "parentTopicId": "TOPIC_0234320040",
+        "position": "2.10.1.1",
+        "parentPosition": "2.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320326",
+        "topicUrl": "MML/LinkedDoc/unc_n_local_nrf_function_management.html",
+        "name": "本地NRF功能管理",
+        "parentTopicId": "TOPIC_0234321170",
+        "position": "2.10.1.1.20",
+        "parentPosition": "2.10.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320068",
+        "topicUrl": "MML/LinkedDoc/unc_n_remote_nf_instance_supi_management.html",
+        "name": "对端NF实例SUPI信息管理",
+        "parentTopicId": "TOPIC_0234320326",
+        "position": "2.10.1.1.20.18",
+        "parentPosition": "2.10.1.1.20",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209651473",
+        "topicUrl": "MML/Document/add_pnfsupi.html",
+        "name": "增加对端NF的SUPI信息（ADD PNFSUPI）",
+        "parentTopicId": "TOPIC_0234320068",
+        "position": "2.10.1.1.20.18.1",
+        "parentPosition": "2.10.1.1.20.18",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

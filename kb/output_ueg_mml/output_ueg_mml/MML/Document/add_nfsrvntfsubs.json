@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD NFSRVNTFSUBS",
+  "command_name_zh": "添加服务回调信息",
+  "command_name_full": "添加服务回调信息（ADD NFSRVNTFSUBS）",
+  "command_function": "**适用NF：AMF、SMF、NRF、NSSF、NCG、NEF、NWDAF、SCF**\n\n该命令用于添加服务实例回调信息。在NF向NRF注册时，可以针对NF支持的每个服务实例提供默认的通知注册信息（defaultNotificationSubscription），供NF服务生产者向未在NF服务生产者中显式注册的NF服务消费者提供回调URI（Uniform Resource Identifier，通用资源标识符）信息。例如，作为隐式订阅的解决。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320718",
+        "topicUrl": "MML/LinkedDoc/unc_n_interface_management.html",
+        "name": "接口管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.10",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320040",
+        "topicUrl": "MML/LinkedDoc/unc_n_sbi_management.html",
+        "name": "服务化接口管理",
+        "parentTopicId": "TOPIC_0234320718",
+        "position": "2.2.3.3.10.1",
+        "parentPosition": "2.2.3.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321170",
+        "topicUrl": "MML/LinkedDoc/unc_n_registration_and_service_discovery.html",
+        "name": "注册与服务发现",
+        "parentTopicId": "TOPIC_0234320040",
+        "position": "2.2.3.3.10.1.1",
+        "parentPosition": "2.2.3.3.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234319718",
+        "topicUrl": "MML/LinkedDoc/unc_n_nf_service_subscription_management.html",
+        "name": "NF服务订阅管理",
+        "parentTopicId": "TOPIC_0234321170",
+        "position": "2.2.3.3.10.1.1.7",
+        "parentPosition": "2.2.3.3.10.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000202636439852",
+        "topicUrl": "MML/Document/add_nfsrvntfsubs.html",
+        "name": "添加服务回调信息（ADD NFSRVNTFSUBS）",
+        "parentTopicId": "TOPIC_0234319718",
+        "position": "2.2.3.3.10.1.1.7.1",
+        "parentPosition": "2.2.3.3.10.1.1.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

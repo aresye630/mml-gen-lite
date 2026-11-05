@@ -1,0 +1,112 @@
+{
+  "feature_name": "异常处理：双活NRF回退到单机NRF",
+  "feature_description": "单机改造双活后，双活NRF不能正常处理业务，也无法规避故障问题，希望通过回退到原单机的场景来保证NRF可以继续提供正常业务。\n\n本操作指导介绍在运行网络中将现网原有单机改造后的双活NRF，回退为单机NRF的操作过程。\n\n**说明** \n\n适用于NRF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450950",
+        "topicUrl": "toctopics/zh-cn_topic_0248450950.html",
+        "name": "容灾功能",
+        "parentTopicId": "",
+        "position": "13",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0240288603",
+        "topicUrl": "toctopics/zh-cn_topic_0240288603.html",
+        "name": "WSFD-114002 NRF双活容灾",
+        "parentTopicId": "TOPIC_0248450950",
+        "position": "13.15",
+        "parentPosition": "13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0248424544",
+        "topicUrl": "toctopics/zh-cn_opi_0248424544.html",
+        "name": "激活NRF双活容灾特性",
+        "parentTopicId": "TOPIC_0240288603",
+        "position": "13.15.3",
+        "parentPosition": "13.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0266718544",
+        "topicUrl": "toctopics/zh-cn_opi_0266718544.html",
+        "name": "异常处理：双活NRF回退到单机NRF",
+        "parentTopicId": "OPI_0248424544",
+        "position": "13.15.3.1",
+        "parentPosition": "13.15.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

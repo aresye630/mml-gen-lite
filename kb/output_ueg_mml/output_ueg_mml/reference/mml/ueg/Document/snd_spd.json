@@ -1,0 +1,143 @@
+{
+  "command_name": "SND SPD",
+  "command_name_zh": "发送整表数据",
+  "command_name_full": "发送整表数据(SND SPD)",
+  "command_function": "**须知** \n\n执行该命令发送整表的数据量大时，会导致CPU产生一定的波动，如在话务高峰期需慎重执行。\n\n本命令用于发送指定表中的数据到主机，使主机和OMU侧的数据一致。\n\n本命令的使用场景为：在维护过程中，当操作员使用**STR CRC**命令对所有的数据表进行CRC校验时，如果发现主机与OMU的数据不一致，可以执行本命令向主机发送主机数据库与OMU数据库中不一致的数据表，使主机数据库的数据与OMU数据库的数据保持一致。\n\n**说明** \n\n用户可以通过本命令发送某个模块实例中一张表的数据，也可以输入参数“开始记录号”和“结束记录号”发送一张表中的某部分数据。由于格式化文件中按最大元组数为每张表预留存储空间，因此“开始记录号”和“结束记录号”参数的范围检查是按照最大元组数进行的，例如某张表的最大元组数为1024，里面实际有10条记录，使用该命令时令STD=100，ETD=500的用法是正确的。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202866130467",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_database_management.html",
+        "name": "数据库管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.9",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206456920415",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_data_transferring.html",
+        "name": "数据发送",
+        "parentTopicId": "CONCEPT_0000202866130467",
+        "position": "2.2.3.4.2.9.3",
+        "parentPosition": "2.2.3.4.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0179427520_2",
+        "topicUrl": "reference/mml/ueg/Document/snd_spd.html",
+        "name": "发送整表数据(SND SPD)",
+        "parentTopicId": "CONCEPT_0000206456920415",
+        "position": "2.2.3.4.2.9.3.3",
+        "parentPosition": "2.2.3.4.2.9.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

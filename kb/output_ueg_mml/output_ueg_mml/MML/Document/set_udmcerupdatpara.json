@@ -1,0 +1,143 @@
+{
+  "command_name": "SET UDMCERUPDATPARA",
+  "command_name_zh": "设置证书更新流程参数",
+  "command_name_full": "设置证书更新流程参数（SET UDMCERUPDATPARA）",
+  "command_function": "本命令用于设置HLB服务的证书更新流程配置信息。\n\n为提升证书替换效率，减小证书替换对业务影响，网元在收到证书替换通知时，除获取证书外，需同步完成使用证书的通信链路拆链再建链，同时保证处理过程中链路中断时间在业务可接受范围内。当前UDM的证书主要是在HLB建链过程中使用，证书的更新会通过CSP下发到HLB服务，HLB完成证书更新及拆链、重建链等动作。\n\n最终更新时长 = [HLB链路数(系统中链路数最大的HLB) / 更新链路数量] \\* 更新间隔 + 平面更新等待时长\n\n**说明** \n\n系统最终更新时长不能超过40分钟，超时后系统会提示更新失败。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203482060409",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.2",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001690780300",
+        "topicUrl": "MML/LinkedDoc/udmhttpservice_n_certificate_management.html",
+        "name": "证书管理",
+        "parentTopicId": "CONCEPT_0000203482060409",
+        "position": "2.2.3.4.2.39",
+        "parentPosition": "2.2.3.4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001738739129",
+        "topicUrl": "MML/LinkedDoc/udmhttpservice_n_parameters_for_certificate_update.html",
+        "name": "证书更新参数",
+        "parentTopicId": "TOPIC_0000001690780300",
+        "position": "2.2.3.4.2.39.1",
+        "parentPosition": "2.2.3.4.2.39",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001738819265_2",
+        "topicUrl": "MML/Document/set_udmcerupdatpara.html",
+        "name": "设置证书更新流程参数（SET UDMCERUPDATPARA）",
+        "parentTopicId": "TOPIC_0000001738739129",
+        "position": "2.2.3.4.2.39.1.1",
+        "parentPosition": "2.2.3.4.2.39.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

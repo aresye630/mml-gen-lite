@@ -1,0 +1,106 @@
+---
+id: ''
+name: 激活支持FWA接入（AMF）
+ne_type: UNC
+type: feature
+description: 本操作指导介绍在运行网络中激活支持FWA接入特性的操作过程。  FWA（Fixed Wireless Access）是一种固定宽带的接入技术，指家庭或企业的各种终端设备通过CPE（Customer-Premises Equipment ）直接接入无线网络，提供用户宽带接入功能。根据接入方式可以将固定宽带的接入方式分为有线接入技术和无线接入技术两种，有线接入技术主要包括混合光纤同轴电缆（HFC）接入、铜线（xDSL）接入和光纤（FTTx）接入；无线接入技术主要就是固定无线接入（FWA）。
+risk_level: ''
+doc_source: ["网络部署","特性部署","UNC特性指南","基本接入功能","WSFD-010112 支持FWA接入","激活支持FWA接入（AMF）"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block=annotations -->
+```text
+## 操作场景
+本操作指导介绍在运行网络中激活支持FWA接入特性的操作过程。FWA（Fixed Wireless Access）是一种固定宽带的接入技术，指家庭或企业的各种终端设备通过CPE（Customer-Premises Equipment ）直接接入无线网络，提供用户宽带接入功能。根据接入方式可以将固定宽带的接入方式分为有线接入技术和无线接入技术两种，有线接入技术主要包括混合光纤同轴电缆（HFC）接入、铜线（xDSL）接入和光纤（FTTx）接入；无线接入技术主要就是固定无线接入（FWA）。
+
+## 必备事项
+前提条件
+
+* 请仔细阅读WSFD-010112 支持FWA接入特性概述。
+* 完成加载License，可以通过**DSP LICENSE**命令查询确认，如果本特性的License在查询列表中可见，即可认为本特性License已加载成功。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block=params -->
+```yaml
+schemas:
+  properties:
+    set_amfsoftparaofbit_list:
+      type: items
+      properties:
+        DT:
+          name: '数据类型'
+          type: string
+          enum:
+          - Dw
+          - Byte
+          required: true
+          description: 'DWORD55 BIT16 用于控制AMF是否支持FWA用户资源统计。'
+          data_source: '本端规划'
+          pattern: ''
+          default: ''
+        DWORDNUM:
+          name: 'Dword索引'
+          type: integer
+          minimum: 1
+          maximum: 1500
+          required: false
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        VALUE:
+          name: '软参记录值'
+          type: string
+          enum:
+          - VALUE_0
+          - VALUE_1
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+        POSITION:
+          name: '比特位'
+          type: integer
+          minimum: 1
+          maximum: 32
+          required: true
+          description: ''
+          data_source: ''
+          pattern: ''
+          default: ''
+  examples:
+    set_amfsoftparaofbit_list:
+    - DT: Dw
+      DWORDNUM: 55
+      VALUE: VALUE_1
+      POSITION: 16
+```
+
+## 3 命令模板定义
+<!-- @mml:block=commands -->
+
+### 1 进入“MML命令行-UNC”窗口。
+
+### 2 配置AMF统计当前接入的FWA用户数。
+
+```jinja2
+{%- for item in set_amfsoftparaofbit_list -%}
+    SET AMFSOFTPARAOFBIT:
+    {#- --- 必选参数 --- -#}
+    DT={{item.DT}},
+    VALUE={{item.VALUE}},
+    POSITION={{item.POSITION}},
+    {#- --- 条件必选参数 --- -#}
+    {#- --- 条件必选：DT=Dw 时必选 --- -#}
+    {%- if item.DT == 'Dw' -%}
+        DWORDNUM={{item.DWORDNUM}},
+    {%- endif -%}
+    ;
+{%- endfor -%}
+```
+

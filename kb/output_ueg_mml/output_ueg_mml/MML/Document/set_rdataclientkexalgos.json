@@ -1,0 +1,131 @@
+{
+  "command_name": "SET RDATACLIENTKEXALGOS",
+  "command_name_zh": "设置数据同步客户端支持的密钥交换算法",
+  "command_name_full": "设置数据同步客户端支持的密钥交换算法（SET RDATACLIENTKEXALGOS）",
+  "command_function": "该命令用于设置数据同步客户端支持的密钥交换算法。在登陆远端数据同步服务器时，本地客户端和对端服务器协商密钥交互算法。协商会选择服务器和客户端都支持的算法，优先级以客户端算法列表为准，算法列表中排列在前的优先级高。如果服务器和客户端没有相同的算法，则协商失败。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207053954030",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_campus_service_management.html",
+        "name": "园区业务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.10",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207204292395",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_local_subscriber_data_synchronization.html",
+        "name": "本地用户数据同步",
+        "parentTopicId": "CONCEPT_0000207053954030",
+        "position": "2.2.3.10.1",
+        "parentPosition": "2.2.3.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000207051506642",
+        "topicUrl": "MML/LinkedDoc/uegplus_n_rdataclient.html",
+        "name": "数据同步客户端",
+        "parentTopicId": "CONCEPT_0000207204292395",
+        "position": "2.2.3.10.1.12",
+        "parentPosition": "2.2.3.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202624002478",
+        "topicUrl": "MML/Document/set_rdataclientkexalgos.html",
+        "name": "设置数据同步客户端支持的密钥交换算法（SET RDATACLIENTKEXALGOS）",
+        "parentTopicId": "CONCEPT_0000207051506642",
+        "position": "2.2.3.10.1.12.1",
+        "parentPosition": "2.2.3.10.1.12",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

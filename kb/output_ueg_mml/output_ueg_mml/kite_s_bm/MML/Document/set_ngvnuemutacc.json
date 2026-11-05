@@ -1,0 +1,230 @@
+{
+  "command_name": "SET NGVNUEMUTACC",
+  "command_name_zh": "设置5G LAN用户互访控制配置",
+  "command_name_full": "设置5G LAN用户互访控制配置（SET NGVNUEMUTACC）",
+  "command_function": "**适用NF：UPF**\n\n**须知** \n\n本命令属于高危命令，5G LAN组下终端通过N9A接口互访策略配置为禁止转发时，组内终端通过N9A接口无法进行互访。\n\n该命令用于配置指定5G LAN组下用户互访策略。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202800629671_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_management.html",
+        "name": "5G LAN管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.13",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206342673363_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_ue_mutual_access_control.html",
+        "name": "5G LAN用户互访控制",
+        "parentTopicId": "CONCEPT_0000202800629671_2",
+        "position": "3.3.13.8",
+        "parentPosition": "3.3.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206342867777_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_ue_mutual_access.html",
+        "name": "5G LAN用户互访控制",
+        "parentTopicId": "CONCEPT_0000206342673363_2",
+        "position": "3.3.13.8.1",
+        "parentPosition": "3.3.13.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206197004598_3",
+        "topicUrl": "kite_s_bm/MML/Document/set_ngvnuemutacc.html",
+        "name": "设置5G LAN用户互访控制配置（SET NGVNUEMUTACC）",
+        "parentTopicId": "CONCEPT_0000206342867777_2",
+        "position": "3.3.13.8.1.1",
+        "parentPosition": "3.3.13.8.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202800629671_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_management.html",
+        "name": "5G LAN管理",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.13",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206342673363_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_ue_mutual_access_control.html",
+        "name": "5G LAN用户互访控制",
+        "parentTopicId": "CONCEPT_0000202800629671_2",
+        "position": "3.3.13.8",
+        "parentPosition": "3.3.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206342867777_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_5g_lan_ue_mutual_access.html",
+        "name": "5G LAN用户互访控制",
+        "parentTopicId": "CONCEPT_0000206342673363_2",
+        "position": "3.3.13.8.1",
+        "parentPosition": "3.3.13.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000206197004598_3",
+        "topicUrl": "kite_s_bm/MML/Document/set_ngvnuemutacc.html",
+        "name": "设置5G LAN用户互访控制配置（SET NGVNUEMUTACC）",
+        "parentTopicId": "CONCEPT_0000206342867777_2",
+        "position": "3.3.13.8.1.1",
+        "parentPosition": "3.3.13.8.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

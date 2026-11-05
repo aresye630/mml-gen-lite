@@ -1,0 +1,131 @@
+{
+  "command_name": "LST LBTNTSTPARA",
+  "command_name_zh": "查询CSLB隧道探测参数",
+  "command_name_full": "查询CSLB隧道探测参数（LST LBTNTSTPARA）",
+  "command_function": "该命令用于查询CSLB隧道探测参数。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595584",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_cloud_session_loadbalance_management.html",
+        "name": "CSLB功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315549",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_business_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0000202103595584",
+        "position": "4.5.2",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315555",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_tunnel_management.html",
+        "name": "隧道管理",
+        "parentTopicId": "CONCEPT_0000202289315549",
+        "position": "4.5.2.9",
+        "parentPosition": "4.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355812",
+        "topicUrl": "MML/LinkedDoc/cslb_vnfc_n_cslb_tunnel_detection_parameters.html",
+        "name": "CSLB隧道探测参数",
+        "parentTopicId": "CONCEPT_0000202289315555",
+        "position": "4.5.2.9.5",
+        "parentPosition": "4.5.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0150911923",
+        "topicUrl": "MML/Document/lst_lbtntstpara.html",
+        "name": "查询CSLB隧道探测参数（LST LBTNTSTPARA）",
+        "parentTopicId": "CONCEPT_0000202103355812",
+        "position": "4.5.2.9.5.2",
+        "parentPosition": "4.5.2.9.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

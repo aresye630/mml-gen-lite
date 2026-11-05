@@ -1,0 +1,115 @@
+{
+  "feature_name": "去激活支持ACL6",
+  "feature_description": "本操作指导介绍在运行网络中去激活ACL6功能特性的操作过程。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性指南",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVD012E95D3C3B475DA84AA74DD494459A",
+        "parentNaviId": "DOCNAV026862133D7A4FB28B3536E7B306BACD",
+        "pidId": "pid_bookmap_0000002187139218",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG特性指南",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0241442101",
+        "topicUrl": "toctopics/zh-cn_topic_0241442101.html",
+        "name": "IP基本特性",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "CONCEPT_0161317158",
+        "topicUrl": "common/fenix/dc_fenix_nls_ip_feature_ipreliab_0001.html",
+        "name": "IPFD-012000 IP可靠性",
+        "parentTopicId": "TOPIC_0241442101",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0251058870",
+        "topicUrl": "toctopics/zh-cn_topic_0251058870.html",
+        "name": "IPFD-012002 ACL",
+        "parentTopicId": "CONCEPT_0161317158",
+        "position": "2.3.2",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "TOPIC_0251172964",
+        "topicUrl": "toctopics/zh-cn_topic_0251172964.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251058870",
+        "position": "2.3.2.3",
+        "parentPosition": "2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002187139218",
+        "topicId": "OPI_0206381765",
+        "topicUrl": "common/fenix/dc_fenix_nls_ip_feature_acl_0009.html",
+        "name": "去激活支持ACL6",
+        "parentTopicId": "TOPIC_0251172964",
+        "position": "2.3.2.3.6",
+        "parentPosition": "2.3.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

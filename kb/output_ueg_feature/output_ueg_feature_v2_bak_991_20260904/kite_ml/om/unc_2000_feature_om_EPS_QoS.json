@@ -1,0 +1,116 @@
+{
+  "feature_name": "激活QoS与流量管理（适用于MME）",
+  "feature_description": "本操作指导介绍在运行网络中控制EPS QoS各项功能的启动和调整的操作过程。\n\n在E-UTRAN网络和GERAN/UTRAN网络互操作过程中，UEG支持EPS（Evolved Packet System） QoS参数和Pre-Rel-8 QoS参数之间的映射，实现网络间的切换和重选。UEG支持承载级别、APN级别、终端级别的EPS QoS控制。\n\nQoS与流量管理指UEG支持3GPP QoS，按照QoS等级对用户报文进行分类，还可以提供DiffServ，从而支持流量监管、拥塞管理、拥塞避免等多种QoS实现技术。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001375321085",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001375321085.html",
+        "name": "GW-C&SMF特性指南",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001229805693",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001229805693.html",
+        "name": "GWFD-021200 QoS与流量管理",
+        "parentTopicId": "TOPIC_0000001375321085",
+        "position": "6.6",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0124082178_2",
+        "topicUrl": "kite_ml/cdgw/desc/cn_20_0_051000.html",
+        "name": "GWFD-021201 QoS与流量管理",
+        "parentTopicId": "TOPIC_0000001229805693",
+        "position": "6.6.1",
+        "parentPosition": "6.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0170635541",
+        "topicUrl": "kite_ml/om/unc_2000_feature_om_EPS_QoS.html",
+        "name": "激活QoS与流量管理（适用于MME）",
+        "parentTopicId": "CONCEPT_0124082178_2",
+        "position": "4.5.1.3",
+        "parentPosition": "4.5.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

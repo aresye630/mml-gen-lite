@@ -1,0 +1,131 @@
+{
+  "command_name": "SET OSCONFIG",
+  "command_name_zh": "设置OS配置",
+  "command_name_full": "设置OS配置 (SET OSCONFIG)",
+  "command_function": "**须知** \n\n该命令为高危命令，此命令将修改节点配置，会造成部分业务暂时不可用，请务必在华为技术支持人员的指导下使用该命令。\n\n如果执行该命令，当命令的“操作类型”选择“MULTICAST（组播）”时，节点会在OS启动30分钟内自动同步网卡组播开关配置。\n\n如果执行该命令，当命令的“操作类型”选择“MEMSWAP（内存压缩）”时，节点会在OS启动5分钟内自动同步内存压缩开关配置，并需要等待一段时间才能完成内存压缩。多次打开内存压缩开关，由于内存压缩率不同，内存使用存在少量波动。\n\n如果执行该命令，当命令的“操作类型”选择“DHEALGORITHM（DHE算法）”时，节点会在OS启动10分钟内自动同步DHE密钥长度配置。\n\n该命令用于设置OS配置。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001229146993",
+        "topicUrl": "toctopics/zh-cn_topic_0000001229146993.html",
+        "name": "CSP MML命令（虚机容器）",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0225421818",
+        "topicUrl": "toctopics/zh-cn_topic_0225421818.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001229146993",
+        "position": "2.2.1.8",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0225421817",
+        "topicUrl": "toctopics/zh-cn_concept_0225421817.html",
+        "name": "设备管理",
+        "parentTopicId": "TOPIC_0225421818",
+        "position": "2.2.1.8.4",
+        "parentPosition": "2.2.1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0255923891",
+        "topicUrl": "ueg/csp/MML/LinkedDoc/ospatch_management.html",
+        "name": "OS管理",
+        "parentTopicId": "CONCEPT_0225421817",
+        "position": "2.2.1.8.4.5",
+        "parentPosition": "2.2.1.8.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001723147326_4",
+        "topicUrl": "ueg/csp/MML/Document/set_osconfig.html",
+        "name": "设置OS配置 (SET OSCONFIG)",
+        "parentTopicId": "TOPIC_0255923891",
+        "position": "2.2.1.8.4.5.2",
+        "parentPosition": "2.2.1.8.4.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

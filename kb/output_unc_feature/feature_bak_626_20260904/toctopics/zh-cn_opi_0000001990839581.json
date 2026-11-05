@@ -1,0 +1,153 @@
+{
+  "feature_name": "配置DCC处理动作",
+  "feature_description": "本指导描述UNC对于OCS故障或者OCS的响应消息携带的特定结果码配置相就的处理动作的配置过程。\n\n在线计费会话过程中，对于各种正常和异常场景，可以在UNC本地设置一些处理动作对DCC流程进行干预。这里的正常和异常场景，主要是指OCS响应UNC请求消息的状况，及响应消息的返回码值。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVFA8996DD884B4F1A8C2DE9A506A462BD",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229234053",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core 计费解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "计费解决方案##计费",
+          "pid_shortdesc": "介绍5G core端到端计费解决方案的详细原理，具体部署及计费问题处理，包括在线计费、离线计费、5G融合计费。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0190776649",
+        "topicUrl": "toctopics/zh-cn_topic_0190776649.html",
+        "name": "计费解决方案概述",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040128",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040128.html",
+        "name": "计费方案部署与调测",
+        "parentTopicId": "TOPIC_0190776649",
+        "position": "1.3",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679693",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679693.html",
+        "name": "方案五：部署NCG且融合接口计费组网方案",
+        "parentTopicId": "TOPIC_0000001955040128",
+        "position": "1.3.5",
+        "parentPosition": "1.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040352",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040352.html",
+        "name": "SMF配置",
+        "parentTopicId": "TOPIC_0000001990679693",
+        "position": "1.3.5.2",
+        "parentPosition": "1.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001955040388",
+        "topicUrl": "toctopics/zh-cn_topic_0000001955040388.html",
+        "name": "在线计费配置",
+        "parentTopicId": "TOPIC_0000001955040352",
+        "position": "1.3.5.2.4",
+        "parentPosition": "1.3.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "TOPIC_0000001990679733",
+        "topicUrl": "toctopics/zh-cn_topic_0000001990679733.html",
+        "name": "在线计费模板及交互配置",
+        "parentTopicId": "TOPIC_0000001955040388",
+        "position": "1.3.5.2.4.1",
+        "parentPosition": "1.3.5.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "OPI_0000001990839573",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990839573.html",
+        "name": "配置在线计费模板",
+        "parentTopicId": "TOPIC_0000001990679733",
+        "position": "1.3.5.2.4.1.1",
+        "parentPosition": "1.3.5.2.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229234053",
+        "topicId": "OPI_0000001990839581",
+        "topicUrl": "toctopics/zh-cn_opi_0000001990839581.html",
+        "name": "配置DCC处理动作",
+        "parentTopicId": "OPI_0000001990839573",
+        "position": "1.3.5.2.4.1.1.3",
+        "parentPosition": "1.3.5.2.4.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

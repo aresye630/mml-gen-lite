@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活UPF故障隔离",
+  "feature_description": "当网络中存在基站与UPF链路故障或者N4接口故障时，可以参考本章节激活UPF故障隔离特性，使SMF在选择UPF时屏蔽故障的用户面网元。\n\n**说明** \n\n适用于SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450950",
+        "topicUrl": "toctopics/zh-cn_topic_0248450950.html",
+        "name": "容灾功能",
+        "parentTopicId": "",
+        "position": "13",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001206740404",
+        "topicUrl": "toctopics/zh-cn_topic_0000001206740404.html",
+        "name": "WSFD-213005 UPF故障隔离",
+        "parentTopicId": "TOPIC_0248450950",
+        "position": "13.9",
+        "parentPosition": "13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001251740325",
+        "topicUrl": "toctopics/zh-cn_opi_0000001251740325.html",
+        "name": "激活UPF故障隔离",
+        "parentTopicId": "TOPIC_0000001206740404",
+        "position": "13.9.3",
+        "parentPosition": "13.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "command_name": "ADD NRFIMSDNN",
+  "command_name_zh": "增加IMS PCF的DNN",
+  "command_name_full": "增加IMS PCF的DNN（ADD NRFIMSDNN）",
+  "command_function": "**适用NF：NRF**\n\n该命令用于配置IMS PCF支持的DNN信息。\n\n独立部署的IMS PCF无号段信息（注册、配置和导入都无号段），即支持所有的号段。该PCF需使用此命令配置其支持的DNN，从而NRF认为PCF是独立部署的，可以正常处理业务。\n\n如果不配置此命令，NRF可能会认为此PCF不是独立部署，没有支持的号段信息，从而屏蔽此PCF不被其他NF发现或检索以及在发生变更时通知已订阅的NF，并上报“ALM-100249 号段类NF无号段告警”，影响PCF的正常业务处理。NRF的上述判断通过SET NRFFUNCSW命令中NFNOSEGALARMSW开关控制。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321188",
+        "topicUrl": "MML/LinkedDoc/unc_n_nrf_services_and_policy_management.html",
+        "name": "NRF业务及策略管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.8",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320521",
+        "topicUrl": "MML/LinkedDoc/unc_n_peer_nf_management.html",
+        "name": "对端NF管理",
+        "parentTopicId": "TOPIC_0234321188",
+        "position": "2.8.2",
+        "parentPosition": "2.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0296234755",
+        "topicUrl": "MML/LinkedDoc/unc_n_ims_pcf_dnn_management.html",
+        "name": "IMS PCF的DNN信息管理",
+        "parentTopicId": "TOPIC_0234320521",
+        "position": "2.8.2.3",
+        "parentPosition": "2.8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0296241770",
+        "topicUrl": "MML/Document/add_nrfimsdnn.html",
+        "name": "增加IMS PCF的DNN（ADD NRFIMSDNN）",
+        "parentTopicId": "TOPIC_0296234755",
+        "position": "2.8.2.3.1",
+        "parentPosition": "2.8.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "command_name": "ADD FILTERIPV6",
+  "command_name_zh": "增加IPv6过滤器",
+  "command_name_full": "增加IPv6过滤器（ADD FILTERIPV6）",
+  "command_function": "**适用NF：PGW-U、UPF**\n\n该命令用于增加过滤器，其中包含三、四层的协议、源端口号、目的端口号、源IPv6地址和目的IPv6地址等。数据报文通过时，系统会根据过滤器选择到对应的规则，然后执行选中规则对应的计费策略和动作策略。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356062_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595844_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_filter_management.html",
+        "name": "业务过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103356062_2",
+        "position": "3.3.4.1",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315809_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_flow_filter_management.html",
+        "name": "流过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103595844_2",
+        "position": "3.3.4.1.2",
+        "parentPosition": "3.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116382_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_filter.html",
+        "name": "过滤器",
+        "parentTopicId": "CONCEPT_0000202289315809_2",
+        "position": "3.3.4.1.2.1",
+        "parentPosition": "3.3.4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837350_2",
+        "topicUrl": "kite_s_bm/MML/Document/add_filteripv6.html",
+        "name": "增加IPv6过滤器（ADD FILTERIPV6）",
+        "parentTopicId": "CONCEPT_0000202103116382_2",
+        "position": "3.3.4.1.2.1.3",
+        "parentPosition": "3.3.4.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103356062_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_matching_policy.html",
+        "name": "业务匹配策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.4",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595844_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_filter_management.html",
+        "name": "业务过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103356062_2",
+        "position": "3.3.4.1",
+        "parentPosition": "3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315809_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_flow_filter_management.html",
+        "name": "流过滤器管理",
+        "parentTopicId": "CONCEPT_0000202103595844_2",
+        "position": "3.3.4.1.2",
+        "parentPosition": "3.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116382_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_filter.html",
+        "name": "过滤器",
+        "parentTopicId": "CONCEPT_0000202289315809_2",
+        "position": "3.3.4.1.2.1",
+        "parentPosition": "3.3.4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837350_2",
+        "topicUrl": "kite_s_bm/MML/Document/add_filteripv6.html",
+        "name": "增加IPv6过滤器（ADD FILTERIPV6）",
+        "parentTopicId": "CONCEPT_0000202103116382_2",
+        "position": "3.3.4.1.2.1.3",
+        "parentPosition": "3.3.4.1.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

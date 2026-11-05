@@ -1,0 +1,136 @@
+# 网络部署
+
+## 目录内容
+
+  - 初始配置
+    - UDG初始配置与调测
+      - 修改MTU值
+      - 典型配置实例
+        - 基于BGP over OSPFv3路由手动部署边缘UDG配置实例（IPv6）
+        - 基于BGP over 静态路由配置实例（SDN+IPv4v6）
+        - 基于BGP over 静态路由配置实例（SDN+IPv4）
+        - 基于BGP over 静态路由配置实例（SDN+IPv6）
+        - 基于OSPFv3路由自动部署锚点UDG配置实例（IPv6）
+        - 基于OSPF路由自动部署融合UDG配置实例（IPv4）
+        - 基于静态路由手动部署边缘UDG配置实例（IPv4）
+      - 基础数据配置
+        - 修改网元基本信息
+        - 公共参数配置
+      - 组网对接配置
+        - 配置业务接口数据
+          - 配置N4(N4/Sxa/Sxb)接口数据
+          - 配置Nupf接口数据
+          - 配置Pa(N9a/S5-P/S8-P/S2b/Gn-U/Gp-U)接口数据
+          - 配置S11-U接口数据
+          - 配置Sa/N3/S1-U接口数据
+          - 配置Sc/N9c/S5-S/S8-S接口数据
+        - 配置会话接入数据
+      - 组网路由配置
+        - 配置VNF侧IP路由数据（NP卡直连PE）
+          - 修改级联口数据（NP100）
+          - 配置BGP over OSPF/静态路由+BFD（IPv4）
+          - 配置BGP over OSPFv3/静态路由+BFD（IPv6）
+          - 配置PGW-U/UPF与PDN/DN之间的GRE隧道
+          - 配置动态路由OSPF+BFD组网（IPv4）
+          - 配置动态路由OSPFv3+BFD组网（IPv6）
+          - 配置静态路由+BFD组网（IPv4）
+          - 配置静态路由+BFD组网（IPv6）
+        - 配置VNF侧IP路由数据（无NP卡_非SDN）
+          - 手动部署
+            - 配置BGP over OSPF/静态路由+BFD（IPv4）
+            - 配置BGP over OSPFv3/静态路由+BFD（IPv6）
+            - 配置BGP/MPLS VPN（非SDN_手动）
+            - 配置PGW-U/UPF与PDN/DN之间的GRE隧道
+            - 配置动态路由OSPF+BFD组网（IPv4）
+            - 配置动态路由OSPFv3+BFD组网（IPv6）
+            - 配置静态路由+BFD组网（IPv4）
+            - 配置静态路由+BFD组网（IPv6）
+          - 自动部署（推荐）
+            - 配置BGP over OSPF/静态路由+BFD（IPv4）
+            - 配置BGP over OSPFv3/静态路由+BFD（IPv6）
+            - 配置BGP/MPLS VPN（非SDN_自动）
+            - 配置PGW-U/UPF与PDN/DN之间的GRE隧道
+            - 配置动态路由OSPF+BFD组网（IPv4）
+            - 配置动态路由OSPFv3+BFD组网（IPv6）
+            - 配置静态路由+BFD组网（IPv4）
+            - 配置静态路由+BFD组网（IPv6）
+        - 配置VNF侧IP路由数据（网络加速卡直连DC-GW）
+          - 修改级联口数据（NP100）
+          - 配置BGP over 静态路由+BFD（网络加速卡, IPv4v6）
+          - 配置BGP over 静态路由+BFD（网络加速卡, IPv4）
+          - 配置BGP over 静态路由+BFD（网络加速卡, IPv6）
+          - 配置BGP/MPLS VPN（网络加速卡）
+        - 配置VNF侧IP路由（SDN）
+          - BGP over静态路由+BFD(IPv4)
+          - BGP over静态路由+BFD(IPv4v6)
+          - BGP over静态路由+BFD(IPv6)
+          - 配置BGP/MPLS VPN（SDN）
+  - 安全配置
+    - UDG安全配置
+      - 安全配置建议
+        - 可选配置
+          - 业务安全配置
+            - 激活SBI接口加密(CERT)
+            - 激活SBI接口加密(PSK)
+            - 激活接入控制
+            - 激活防DDoS功能
+            - 配置ACL防止UE之间的互访
+            - 配置ACL防止UE或用户PDN/DN对运营商网络设备攻击
+            - 配置CP白名单功能
+            - 配置HTTP/RTSP头增强加密策略及防欺诈策略
+            - 配置HTTPS头增强加密策略及防欺诈策略
+            - 配置IP Spoofing防攻击
+            - 配置互访流量的重定向功能
+            - 配置大流量防攻击
+          - 数据安全配置
+            - 配置跟踪匿名化功能和CHR匿名化功能（通过OM Portal和软件参数）
+            - 配置跟踪匿名化功能和CHR匿名化功能（通过U2020/MAE）
+          - 网络安全配置
+            - 配置IPSec功能
+              - 上传IPsec证书
+              - 激活IPsec功能（GRE over IPsec）
+              - 激活IPsec功能（IPv4 IPsec主备隧道）
+              - 激活IPsec功能（IPv6 IPsec隧道主备方式）
+              - 激活IPsec功能（OSPF over IPsec）
+              - 激活IPsec功能（多Sequence的IPsec策略）
+              - 激活IPsec功能（指定本端接口建立IPsec隧道）
+              - 激活IPsec功能（普通IPv4 IPsec隧道）
+              - 激活IPsec功能（普通IPv6 IPsec隧道）
+        - 必选配置
+          - 业务安全配置
+            - 配置APN上下行防欺诈
+            - 配置禁止UE互访功能
+            - 配置禁止UE向逻辑接口发起PING报文
+  - 软件安装
+    - 基于NFVO安装UDG（SDN）
+      - 卸载UDG
+        - 卸载IPAPM服务
+        - 卸载SAPO服务
+        - 卸载SBIM服务
+        - 卸载vTCP_OPT服务
+      - 安装可选服务
+        - 安装IPAPM服务
+        - 安装SBIM服务
+        - 安装SSU服务
+        - 安装vTCP_OPT服务
+    - 基于VNF LCM安装UDG（非SDN）
+      - 卸载UDG
+        - 卸载IISA服务
+        - 卸载IPAPM服务
+        - 卸载IPSecUIKE服务
+        - 卸载RELAY服务
+        - 卸载SAPO服务
+        - 卸载SBIM服务
+        - 卸载UPDIAM服务
+        - 卸载vTCP_OPT服务
+      - 参考及FAQ
+        - 强制下线
+      - 安装可选服务
+        - 安装IISA服务
+        - 安装IPAPM服务
+        - 安装IPSecUIKE服务
+        - 安装RELAY服务
+        - 安装SBIM服务
+        - 安装SSU服务
+        - 安装UPDIAM服务
+        - 安装vTCP_OPT服务

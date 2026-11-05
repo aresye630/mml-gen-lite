@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP SBILINKSET",
+  "command_name_zh": "显示服务化接口链路集信息",
+  "command_name_full": "显示服务化接口链路集信息（DSP SBILINKSET）",
+  "command_function": "该命令用于显示服务化接口的链路集信息，链路集是指到对端NF的多条链路的集合。显示信息包括了链路集的本对端信息和该链路集下的链路的ID信息。指定链路集下的链路详细信息可以通过查看链路状态获取。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899264543",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.15",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204693666430",
+        "topicUrl": "MML/LinkedDoc/sbilinkexecsvc_n_sbi_management.html",
+        "name": "SBI管理",
+        "parentTopicId": "CONCEPT_0000204899264543",
+        "position": "4.15.6",
+        "parentPosition": "4.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204693905256",
+        "topicUrl": "MML/LinkedDoc/sbilinkexecsvc_n_sbi_linkset_management.html",
+        "name": "服务化接口链路集管理",
+        "parentTopicId": "CONCEPT_0000204693666430",
+        "position": "4.15.6.5",
+        "parentPosition": "4.15.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001184132098",
+        "topicUrl": "MML/Document/dsp_sbilinkset.html",
+        "name": "显示服务化接口链路集信息（DSP SBILINKSET）",
+        "parentTopicId": "CONCEPT_0000204693905256",
+        "position": "4.15.6.5.4",
+        "parentPosition": "4.15.6.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

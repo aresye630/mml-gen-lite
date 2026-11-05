@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD NGCAUTOIMSI",
+  "command_name_zh": "修改5G自动开户用户粒度黑白名单",
+  "command_name_full": "修改5G自动开户用户粒度黑白名单(MOD NGCAUTOIMSI)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会影响用户自动开户业务，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于增加或删除需要进行自动开户控制的黑白名单数据记录，业务处理时根据黑白名单数据判断是否允许对用户进行自动开户操作。\n\n该命令的使用场景：当为用户设置是否需要启动自动开户特性时执行该命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0166300333",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/5G_subscriber_management.html",
+        "name": "5G用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.44",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0243277699",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ngcautoimsi_management.html",
+        "name": "开户管理",
+        "parentTopicId": "TOPIC_0166300333",
+        "position": "4.2.3.44.1",
+        "parentPosition": "4.2.3.44",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0243277700_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_ngcautoimsi.html",
+        "name": "修改5G自动开户用户粒度黑白名单(MOD NGCAUTOIMSI)",
+        "parentTopicId": "CONCEPT_0243277699",
+        "position": "4.2.3.44.1.1",
+        "parentPosition": "4.2.3.44.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

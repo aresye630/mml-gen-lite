@@ -1,0 +1,143 @@
+{
+  "command_name": "STR TLBRELBLINK",
+  "command_name_zh": "启动触发HTTP服务端TCP链路重均衡检测及调整",
+  "command_name_full": "启动触发HTTP服务端TCP链路重均衡检测及调整（STR TLBRELBLINK）",
+  "command_function": "**须知** \n\n执行重均衡命令可能会拆链导致消息呼损。\n\n该命令用于触发HTTP服务端TCP链路重均衡检测及调整。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899264543",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.15",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204899025455",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_management.html",
+        "name": "HTTP管理",
+        "parentTopicId": "CONCEPT_0000204899264543",
+        "position": "4.15.2",
+        "parentPosition": "4.15",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000204693905248",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_server_load_management.html",
+        "name": "HTTP服务端负载管理",
+        "parentTopicId": "CONCEPT_0000204899025455",
+        "position": "4.15.2.9",
+        "parentPosition": "4.15.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000205644691642",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_entire_system_load_management.html",
+        "name": "整系统负载管理",
+        "parentTopicId": "CONCEPT_0000204693905248",
+        "position": "4.15.2.9.2",
+        "parentPosition": "4.15.2.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000205847929055",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_rebalancing_adjustment.html",
+        "name": "重均衡调整",
+        "parentTopicId": "CONCEPT_0000205644691642",
+        "position": "4.15.2.9.2.2",
+        "parentPosition": "4.15.2.9.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0000001915914281",
+        "topicUrl": "MML/Document/str_tlbrelblink.html",
+        "name": "启动触发HTTP服务端TCP链路重均衡检测及调整（STR TLBRELBLINK）",
+        "parentTopicId": "CONCEPT_0000205847929055",
+        "position": "4.15.2.9.2.2.1",
+        "parentPosition": "4.15.2.9.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "command_name": "SET GBLOCPORTRGE",
+  "command_name_zh": "设置本端端口号选择范围",
+  "command_name_full": "设置本端端口号选择范围(SET GBLOCPORTRGE)",
+  "command_function": "**适用网元：SGSN**\n\n此命令用于设置自动上报NSE的本端端点选择端口号的范围。\n\n当自动配置的NSE分配本端端点时，如果NSEI值在本配置命令配置的端口范围内并且没有被其他NSE（包括知名端口：3386、2123、2152、4784、53、123、3784、3785、4500）占用，则分配端口号为NSEI。否则从本配置命令配置的端口范围内随机选择一个未被占用的端口号（携带不同ip地址的NSE可以使用同一端口）。新分配的端口使用新的范围配置，对已分配的无影响。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.5",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.5.3",
+        "parentPosition": "2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321027",
+        "topicUrl": "MML/LinkedDoc/unc_n_gb_interface_management.html",
+        "name": "Gb接口管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.5.3.11",
+        "parentPosition": "2.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321216",
+        "topicUrl": "MML/LinkedDoc/unc_n_gb_automatic_configuration_management.html",
+        "name": "Gb自动配置管理",
+        "parentTopicId": "TOPIC_0234321027",
+        "position": "2.5.3.11.4",
+        "parentPosition": "2.5.3.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320745",
+        "topicUrl": "MML/LinkedDoc/unc_n_local_port_endpoint_management.html",
+        "name": "本端端点端口号管理",
+        "parentTopicId": "TOPIC_0234321216",
+        "position": "2.5.3.11.4.4",
+        "parentPosition": "2.5.3.11.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001126146000",
+        "topicUrl": "MML/Document/set_gblocportrge.html",
+        "name": "设置本端端口号选择范围(SET GBLOCPORTRGE)",
+        "parentTopicId": "TOPIC_0234320745",
+        "position": "2.5.3.11.4.4.1",
+        "parentPosition": "2.5.3.11.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

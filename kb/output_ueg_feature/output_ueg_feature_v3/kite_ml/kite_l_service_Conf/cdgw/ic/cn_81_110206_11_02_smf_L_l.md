@@ -1,0 +1,139 @@
+# 配置本地PCC功能（SMF）
+
+* 操作场景
+* 必备事项
+* 操作步骤
+* 任务示例
+* 附加信息
+
+## 操作场景
+
+园区入驻场景下，本地SMF与中心网络的PCF没有交互。园区UEG中未部署PCF/PCRF实体功能或部署数据业务时，需要开启本地PCC功能。
+
+本页面中描述的SMF，均指园区SMF（风筝L）。
+
+## 必备事项
+
+前提条件
+
+* 请仔细阅读特性概述（风筝L）。
+* 完成加载License（如果有需求，请联系华为技术支持工程师处理）。
+
+数据
+
+| 类别 | 参数名称 | 取值样例 | 获取方法 | 说明 |
+| --- | --- | --- | --- | --- |
+| **SET PCCFUNC** | 本地用户动态PCC功能（HOMEPCCSWITCH） | DISABLE | 固定取值 | 关闭SMF上全局粒度的动态PCC功能。  关闭后，SMF上开启的是全局粒度的本地PCC功能。 |
+|  | 漫游用户动态PCC功能（ROAMPCCSWITCH） | DISABLE |  |  |
+|  | 拜访用户动态PCC功能（VISITPCCSWITCH） | DISABLE |  |  |
+| **SET APNPCCFUNC** | APN名称（APN） | huawei.com | 全网规划 | 关闭SMF上APN粒度的动态PCC功能。  关闭后，SMF上开启的是APN粒度的本地PCC功能。  APN粒度的优先级高于全局粒度。 |
+|  | 本地用户动态PCC功能（HOMEPCCSWITCH） | DISABLE | 对端协商 |  |
+|  | 漫游用户动态PCC功能（ROAMPCCSWITCH） | DISABLE |  |  |
+|  | 拜访用户动态PCC功能（VISITPCCSWITCH） | DISABLE |  |  |
+| **ADD CPPCCPOLICYGRP** | PCC策略组名称（PCCPOLICYGRPNM） | pccpolicygrp\_01 | 本端规划 | 存在多条记录时，该参数不能重复。 |
+| **ADD CPRULE** | 规则名称（RULENAME） | rule\_test | 本端规划 | 存在多条数据时，该参数+策略类型不能完全相同。 |
+|  | 策略类型（POLICYTYPE） | PCC | 本端规划 | 需根据业务策略选择相应的策略类型。 |
+|  | 全局优先级（PRIORITY） | 65535 | 本端规划 | 值越小，优先级越高。 |
+|  | 策略名称（POLICYNAME） | pccpolicygrp\_01 | 已配置数据中获取 | 使用**ADD CPPCCPOLICYGRP**定义的PCCPOLICYGRPNM。 |
+| **ADD CPUSERPROFILE** | 用户模板名称（USERPROFILENAME） | up\_test | 全网规划 | 配置SMF上的UserProfile。 |
+|  | 用户模板类型（UPTYPE） | PCC | 固定取值 |  |
+| **ADD CPRULEBINDING** | 用户模板名称(USERPROFILENAME) | up\_test | 已配置数据中获取 | 将rule/绑定到UserProfile。 |
+|  | 规则名称(RULENAME) | rule\_test | 已配置数据中获取 |  |
+|  | 策略类型 | PCC | 本端规划 | 如果不指定策略类型，则把规则名称相同的所有策略类型的规则绑定到用户模板上。 |
+| **ADD USRPROFGROUP** | 用户模板组名称（USERPROFGNAME） | upg\_test | 本端规划 | 配置UserProfile Group。 |
+| **ADD UPBINDUPG** | 用户模板组名称（USERPROFGNAME） | upg\_test | 全网规划 | 将UserProfile绑定到UserProfile Group。 |
+|  | 用户模板绑定类型（UPBINDTYPE） | DEFAULT |  |  |
+|  | 用户模板名称（USERPROFILENAME） | up\_test | 本端规划 |  |
+| **ADD APNUSRPROFG** | APN（APN） | huawei.com | 全网规划 | 将UserProfile Group绑定到APN。 |
+|  | 用户模板组名称（USERPROFGNAME） | upg\_test |  |  |
+
+## 操作步骤
+
+1. 进入“MML命令行-UEG”窗口。
+2. 打开License配置开关。
+
+   **SET LICENSESWITCH**
+3. 使能SMF上的全局用户的PCC功能。
+
+   **SET PCCFUNC**
+4. 使能SMF上基于APN的PCC功能。如果有多个APN，则可以多次执行本步骤。
+
+   **SET APNPCCFUNC**
+5. 配置PCC策略组。用于本地PCC时的静态规则。
+
+   **ADD CPPCCPOLICYGRP**
+6. 配置SMF上的本地rule。用于本地PCC时的静态规则。
+
+   **ADD CPRULE**
+7. 配置SMF上的UserProfile，将本地rule绑定到UserProfile上。用于本地PCC时的静态规则组。
+   1. 配置UserProfile。
+
+      **ADD CPUSERPROFILE**
+   2. 将rule绑定到UserProfile。
+
+      **ADD CPRULEBINDING**
+8. 配置UserProfile组，将UserProfile绑定到UserProfile组，再将UserProfile组绑定到APN。用于回落到本地PCC。
+   1. 配置UserProfile Group。
+
+      **ADD USRPROFGROUP**
+   2. 将UserProfile绑定到UserProfile Group。
+
+      **ADD UPBINDUPG**
+   3. 将UserProfile Group绑定到APN。
+
+      **ADD APNUSRPROFG**
+
+## 任务示例
+
+任务描述
+
+SMF上全局和指定APN使能本地PCC功能。当用户使用APN为huawei.com激活时触发本地PCC功能，用户激活为本地PCC用户。
+
+脚本
+
+//打开License配置开关。
+
+```
+SET LICENSESWITCH: LICITEM="LKV3W9SPCC11", SWITCH=ENABLE;
+```
+
+//配置SMF的全局的本地PCC开关。
+
+```
+SET PCCFUNC:HOMEPCCSWITCH=DISABLE,ROAMPCCSWITCH=DISABLE,VISITPCCSWITCH=DISABLE;
+```
+
+//配置指定APN“huawei.com”的本地PCC开关。
+
+```
+SET APNPCCFUNC:APN="huawei.com",HOMEPCCSWITCH=DISABLE,ROAMPCCSWITCH=DISABLE,VISITPCCSWITCH=DISABLE;
+```
+
+//配置PCC业务规则。此处以配置默认规则为例。
+
+```
+ADD CPPCCPOLICYGRP:PCCPOLICYGRPNM="pccpolicy_group";
+ADD CPRULE:RULENAME="rule_test",POLICYTYPE=PCC,PRIORITY=65535,POLICYNAME="pccpolicy_group";
+```
+
+//配置业务策略组合。
+
+```
+ADD CPUSERPROFILE:USERPROFILENAME="up_test",UPTYPE=PCC;
+ADD CPRULEBINDING:USERPROFILENAME="up_test",RULENAME="rule_test";
+ADD USRPROFGROUP:USERPROFGNAME="upg_test";
+ADD UPBINDUPG:USERPROFGNAME="upg_test",UPBINDTYPE=DEFAULT,USERPROFILENAME="up_test";
+ADD APNUSRPROFG:APN="huawei.com",USERPROFGNAME="upg_test";
+```
+
+## 附加信息
+
+相关任务
+
+在SMF上配置本地PCC功能后，还需要在UPF上配置本地PCC功能。
+
+相关概念
+
+无。
+
+版权所有 © 华为技术有限公司

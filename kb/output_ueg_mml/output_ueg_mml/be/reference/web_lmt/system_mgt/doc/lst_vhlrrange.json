@@ -1,0 +1,107 @@
+{
+  "command_name": "LST VHLRRANGE",
+  "command_name_zh": "查询虚拟HLR号段",
+  "command_name_full": "查询虚拟HLR号段（LST VHLRRANGE）",
+  "command_function": "该命令用于查询虚拟HLR的号段。\n\n- 若需要查询全部虚拟HLR号段的概要信息，请输入“系统HLR序列号”和“可操作范围类型”参数，其它不需要输入任何参数。\n- 若需要查询某个虚拟HLR号段的详细信息，请输入“系统HLR序列号”和“可操作范围类型”与其它另外一个参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169305_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/virtual_HLR_prefix_management.html",
+        "name": "虚拟HLR号段管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.4",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169307_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/lst_vhlrrange.html",
+        "name": "查询虚拟HLR号段（LST VHLRRANGE）",
+        "parentTopicId": "CONCEPT_0173169305_2",
+        "position": "4.2.1.4.3",
+        "parentPosition": "4.2.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

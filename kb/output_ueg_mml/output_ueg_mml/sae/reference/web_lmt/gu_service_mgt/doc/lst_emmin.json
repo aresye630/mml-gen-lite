@@ -1,0 +1,107 @@
+{
+  "command_name": "LST EMMIN",
+  "command_name_zh": "查询EMMIN业务",
+  "command_name_full": "查询EMMIN业务(LST EMMIN)",
+  "command_function": "该命令用于查询用户签约的MMINT(Mobility Management IN Triggering)业务信息，执行时可分为查询所有状态和查询激活或去激活状态，以下为六种情况下对应的查询场景：\n\n- 若要查询所有状态下单个用户签约的MMINT业务信息，请输入“IMSI”或“MSISDN”参数。\n- 若要查询激活或去激活状态下单个用户签约的MMINT业务信息，请输入“IMSI”或“MSISDN”和“激活状态”参数的组合。\n- 若要查询所有状态下连续用户签约的MMINT业务信息，输入“IMSI”或“MSISDN”参数的同时输入“用户个数”参数。\n- 若要查询激活或去激活状态下连续用户签约的MMINT业务信息，输入“IMSI”或“MSISDN”参数的同时输入“用户个数”与“激活状态”参数。\n\n- 若要查询所有状态下不连续用户签约的MMINT业务信息，请输入参数“IMSI文件名”或“MSISDN文件名”。\n- 若要查询激活或去激活状态下不连续用户签约的MMINT业务信息，输入“IMSI文件名”或“MSISDN文件名”参数同时输入“激活状态”参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803437",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/enhanced_intelligent_management.html",
+        "name": "增强智能业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.22",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803448",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/lst_emmin.html",
+        "name": "查询EMMIN业务(LST EMMIN)",
+        "parentTopicId": "CONCEPT_0190803437",
+        "position": "4.2.3.22.4",
+        "parentPosition": "4.2.3.22",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

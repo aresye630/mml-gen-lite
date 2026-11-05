@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置计费和策略模式",
+  "feature_description": "UNC支持配置在不同类型终端接入不同网络时选择计费接口，计费接口选择有三种方式，优先级从高到低为：基于用户漫游属性选择计费接口 （对应指令为**ADD ROAMCHGMODE**）> 基于APN/DNN选择计费接口 （对应指令为**ADD APNCHGMODE**）> 全局配置计费接口（对应指令为**SET CHGMODE**）。图1绘制了不同类型终端接入不同网络时计费接口选择。\n\n**图1** 不同类型终端接入不同网络时计费接口选择逻辑图\n\n**说明** \n\nSGW独立部署的场景下，需要SGW发起计费会话。在这种场景下，通过设置SGW上**ADD ROAMCHGMODE**/**ADD APNCHGMODE**/**SET CHGMODE**指令中**FORSGWONLY**的值可以手动指定计费接口。\n\nUNC支持配置在不同类型终端接入不同网络时选择策略接口，策略接口选择有两种方式，优先级从高到低为：基于APN/DNN选择策略接口 > 全局配置策略接口。图2绘制了不同类型终端接入不同网络时策略接口选择。\n\n**图2** 不同类型终端接入不同网络时策略接口选择逻辑图\n\n当UNC在上述计费接口和策略接口决策下，为指定用户选择Gx策略接口进行策略处理时，计费接口和策略接口选择完成。\n\n当UNC上述计费接口和策略接口决策下，需要基于PCF实例标识调整用户最终使用的计费接口时，可以通过**ADD PCCCHGMODEBYPCFID**命令配置。此时，用户的计费接口类型以**ADD APNCHGMODE**或**SET CHGMODE**为初选结果，在此基础上，可以通过本命令决策是否由N40回落GaGy，或者是否由GaGy升级为N40。\n\n**说明** \n\n适用于SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450955",
+        "topicUrl": "toctopics/zh-cn_topic_0248450955.html",
+        "name": "计费管理功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0162745898",
+        "topicUrl": "desc/unc_2000_feature_desc_Convergent_Billing.html",
+        "name": "WSFD-011206 支持融合计费",
+        "parentTopicId": "TOPIC_0248450955",
+        "position": "18.4",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0173659885",
+        "topicUrl": "om/unc_2000_feature_om_Convergent_Billing.html",
+        "name": "激活支持融合计费",
+        "parentTopicId": "TOPIC_0162745898",
+        "position": "18.4.4",
+        "parentPosition": "18.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0277825710",
+        "topicUrl": "toctopics/zh-cn_opi_0277825710.html",
+        "name": "配置计费和策略模式",
+        "parentTopicId": "TOPIC_0173659885",
+        "position": "18.4.4.1",
+        "parentPosition": "18.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

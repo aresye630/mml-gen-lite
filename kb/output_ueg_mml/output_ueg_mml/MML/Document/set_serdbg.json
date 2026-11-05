@@ -1,0 +1,143 @@
+{
+  "command_name": "SET SERDBG",
+  "command_name_zh": "业务模块调试",
+  "command_name_full": "业务模块调试（SET SERDBG）",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会影响系统性能与业务处理，需联系华为技术支持确认后再执行。\n\n该命令主要用于业务模块调测与维护。具有以下功能：\n\n- 输出PES实例的用户数据、承载会话数据、应用会话数据。\n- 清除PES服务数据文件。\n- 导出全局数据，即：从PES内存中导出全局数据。\n- 支持Session备份维护能力，包括：\n  - 根据用户ID查询或删除该用户关联的Gx/Rx/Sd/Sy/N7/N15 AM/N15 UE/N28/N5/N23接口会话备份数据。\n  - 根据用户IP/APN/IPDOMAIN标识查询或删除关联用户的Gx/Rx/Sd/Sy/N7/N28/N5/N23接口会话备份数据。\n  - 根据SUBID和接口类型查询或删除该会话备份数据。\n  - 根据用户IP+SUBID查询或删除会话备份数据。\n\n  **说明** \n\n  - 查询会话时，支持模糊查询，系统会自动查询出所有和当前会话有关联关系的会话数据。\n  - 删除会话时，系统将遵循以下删除规则：\n    - 当用户只存在一个Gx/N7会话，用指定Gx/N7接口的会话标识删除会话数据时，系统会同步把用户关联的Rx、Sy、N28、N5和N23接口会话数据删除。\n    - 当用户存在多个Gx/N7会话，用指定的Gx/N7接口的会话标识删除会话数据时，则系统只会删除指定的会话标识的Gx/N7会话。\n    - 当用户删除Rx/Sy/N15 AM/N15 UE/N28/N5接口会话数据时，系统只会删除指定会话标识的Rx/Sy/N15 AM/N15 UE/N28/N5接口会话。\n    - 当用户同时存在Gx和Sd会话，根据SESSIONID会话标识删除某Gx会话时，不会同时删除其关联的Sd会话。\n    - 当用户同时存在N7和N23会话，不支持单独删除N23会话，仅支持删除某N7会话时，同时删除其关联的N23会话。\n    - 当用户上线N15 AM会话触发了N24会话时，不支持单独删除N24会话，仅支持删除该N15 AM会话时，同时删除其关联的N24会话。\n    - 当用户上线N24会话时，可以通过参数“接口类型”取值为“N15AM”和参数“会话标识”取值为“N24会话”删除该N24会话数据。\n  - 查询到的备份数据字段的具体含义请参见备份文件末尾的“Reference Information”。\n- 统计所有PES实例的2G会话数、3G会话数、4G会话数（不含VoLTE）、VoLTE会话数以及5G会话数。\n\n  **说明** \n\n  - 对于执行命令输出结果文件输出到本地目录：/opt/csplog/{appID}/{service name}/export/log的，可以通过OM Portal下载。\n  - 日志下载步骤参考服务日志收集，勾选“PcfPolicyEngineService”服务创建日志收集任务后进行下载。\n- 输出共享关联关系。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173218603",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_maintain_management.html",
+        "name": "维护管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.1",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167449253",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_service_debugging_management.html",
+        "name": "业务调试管理",
+        "parentTopicId": "CONCEPT_0173218603",
+        "position": "2.2.3.5.11.1.7",
+        "parentPosition": "2.2.3.5.11.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167449598_2",
+        "topicUrl": "MML/Document/set_serdbg.html",
+        "name": "业务模块调试（SET SERDBG）",
+        "parentTopicId": "CONCEPT_0167449253",
+        "position": "2.2.3.5.11.1.7.1",
+        "parentPosition": "2.2.3.5.11.1.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

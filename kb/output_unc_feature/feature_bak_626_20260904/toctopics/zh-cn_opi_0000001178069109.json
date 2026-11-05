@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置与NSSF对接数据",
+  "feature_description": "- 如果网络中部署了NRF，则需执行配置到NRF的数据。\n- 如果网络中无NRF，或网络中存在NRF但需基于运营商策略本地配置周边NF，则执行可选：本地配置到NSSF的对接数据。\n\n  **说明** \n\n  当网络中既部署了NRF，又本地配置了本地配置到NSSF的对接数据时，可以通过**SET NFDISCPLCY**命令配置服务发现流程的策略，默认为优先选择本地配置的NSSF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV52CAE4FA98344028939466D4EF9D0C12",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002193953230",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NSSF解决方案",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "TOPIC_0000001178069105",
+        "topicUrl": "toctopics/zh-cn_topic_0000001178069105.html",
+        "name": "NSSF功能部署",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "TOPIC_0000001131909694",
+        "topicUrl": "toctopics/zh-cn_topic_0000001131909694.html",
+        "name": "NSSF非容灾组网",
+        "parentTopicId": "TOPIC_0000001178069105",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "TOPIC_0000001131909704",
+        "topicUrl": "toctopics/zh-cn_topic_0000001131909704.html",
+        "name": "AMF配置",
+        "parentTopicId": "TOPIC_0000001131909694",
+        "position": "2.2.2",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953230",
+        "topicId": "OPI_0000001178069109",
+        "topicUrl": "toctopics/zh-cn_opi_0000001178069109.html",
+        "name": "配置与NSSF对接数据",
+        "parentTopicId": "TOPIC_0000001131909704",
+        "position": "2.2.2.1",
+        "parentPosition": "2.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

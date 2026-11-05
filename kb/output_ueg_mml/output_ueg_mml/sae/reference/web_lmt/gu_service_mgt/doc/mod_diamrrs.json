@@ -1,0 +1,119 @@
+{
+  "command_name": "MOD DIAMRRS",
+  "command_name_zh": "修改Diameter漫游限制业务",
+  "command_name_full": "修改Diameter漫游限制业务(MOD DIAMRRS)",
+  "command_function": "该命令用于给EPS用户以模板方式提供或撤销Diameter漫游限制业务。\n\n在用户业务流程中，Diameter漫游限制业务数据作用如下：\n\n- 在S6a/S6d位置更新流程中，UDM根据用户签约的Diameter服务节点漫游限制模板数据判断是否允许用户访问当前服务的MME/S4-SGSN。如果不允许访问，则位置更新拒绝，否则继续位置更新流程。\n- 在SWx的鉴权流程中，UDM根据用户签约的Diameter服务节点漫游限制模板数据判断是否允许用户访问当前服务的3GPP AAA Server。如果不允许访问，则鉴权拒绝，否则继续鉴权流程。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802881",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/roaming_restricted_management.html",
+        "name": "漫游限制业务管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.31",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190803244",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/diamrrs_management.html",
+        "name": "Diameter漫游限制业务管理",
+        "parentTopicId": "MMLREF_0190802881",
+        "position": "4.2.3.31.5",
+        "parentPosition": "4.2.3.31",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803707",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_diamrrs.html",
+        "name": "修改Diameter漫游限制业务(MOD DIAMRRS)",
+        "parentTopicId": "CONCEPT_0190803244",
+        "position": "4.2.3.31.5.1",
+        "parentPosition": "4.2.3.31.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

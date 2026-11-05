@@ -1,0 +1,131 @@
+# MML 对象名（主键）自动推导规则
+#
+# 用途：mmm.txt 里 ADD 类命令的主键名无法从特性文档获得时，
+#       按**现网 EXP 的既有命名规律**自动生成真名，而不是留占位符。
+#
+# 设计原则（用户口径）：
+#   · 数据驱动：规则写在这里（YAML），不硬编码进 Python
+#   · 依据现网：所有模式均从真实 EXP 统计得出（见 name_stats.py）
+#   · 可追溯：每条推导结果都记录「依据了哪个现网值/哪条规则」
+#
+# 统计依据（2026-09-18，UDG 现网 EXP，14.95MB / 101232 命令）：
+#   命令类型前缀约定（同一命令族共享前缀）：
+#     BWMSERVICE    → bs_<业务>   实测 bs_wecall_4g / bs-p2p-subs
+#     BWMCONTROLLER → bc_<业务>   实测 bc_wecall_4g / bc-p2p-subs
+#     BWMRULE       → br_<业务>   实测 br_wecall_4g / br-p2p-subs
+#   序号形态：<业务标识>_<两位序号>_<功能后缀>_<三位序号>
+#     实测 12530_01_f_f_001 / 139yxlj_00_r_l3l7_001 / jrtt_00_l7_f_003
+
+version: 5
+updated: '2026-09-18'
+
+# ── 推导策略（按优先级顺序尝试，命中即用）──
+# 每种策略说明：id / 说明 / 适用条件 / 取值来源
+strategies:
+  # ① 同一功能链内已有兄弟对象 → 复用其「业务标识」主体
+  #    例：同 gen 里已有 bs_wecall_4g，则 BWMCONTROLLER 推 bc_wecall_4g
+  - id: sibling_business_id
+    enabled: true
+    desc: 从同链兄弟命令的对象名提取业务标识，替换本命令族的前缀
+    # 业务标识 = 对象名去掉本族前缀后的主体
+    # 例：bs_wecall_4g → wecall_4g → bc_wecall_4g
+
+  # ② 现网 EXP 中同类命令的既有命名 → 提取其「主体」直接套用
+  #    例：EXP 里 BWMSERVICE 只有 bs_wecall_*，则新 BWMSERVICE 推 bs_wecall_<新序号>
+  - id: exp_same_command
+    enabled: true
+    desc: 从现网 EXP 同命令的既有对象名提取主体（公共前缀）
+    min_samples: 1
+
+  # ③ 现网 EXP 中同功能链（引用同一参数值）的对象 → 取主体
+  #    例：BWMRULE 引用了 BWMSERVICENAME="bs_wecall_4g" → 主体 wecall_4g
+  - id: exp_ref_chain
+    enabled: true
+    desc: 沿参数引用链找到被引用对象，取其对象名主体
+
+  # ④ 命令族 + 特性名兜底（确定性，但语义弱）
+  #    例：无任何线索时，用 <cmd小写>_<特性ID>_01
+  - id: cmd_plus_feature
+    enabled: true
+    desc: 兜底——用命令族后缀 + 特性标识 + 序号
+
+# ── 命令族前缀表（从现网 EXP 实测归纳）──
+# key = 命令名，value = {prefix: 前缀模板, base_param: 主键参数名}
+command_families:
+  BWMSERVICE:
+    key_param: BWMSERVICENAME
+    prefix: 'bs_'
+    separator: '_'          # bs_wecall_4g（下划线）
+    exp_samples: ['bs_wecall_2g', 'bs_wecall_3g', 'bs_wecall_4g', 'bs-p2p-subs']
+    body_pattern: '{biz}'   # 主体直接拼前缀
+  BWMCONTROLLER:
+    key_param: BWMCNAME
+    prefix: 'bc_'
+    separator: '_'
+    exp_samples: ['bc_wecall_2g', 'bc_wecall_3g', 'bc_wecall_4g', 'bc-p2p-subs',
+                  'bc-uplink_100k', 'bc-downlink_100k']
+    body_pattern: '{biz}'
+  BWMRULE:
+    key_param: BWMRULENAME
+    prefix: 'br_'
+    separator: '_'
+    exp_samples: ['br_wecall_2g', 'br_wecall_3g', 'br_wecall_4g', 'br-p2p-subs']
+    body_pattern: '{biz}'
+  BWMUSERGROUP:
+    key_param: USERGROUPNAME
+    prefix: ''
+    exp_samples: ['p2p-all']
+    body_pattern: '{biz}'
+  APNBINDBWMUSRG:
+    key_param: USERGROUPNAME
+    prefix: ''
+    # 引用 BWMUSERGROUP 的 USERGROUPNAME（引用链）
+    ref_from: BWMUSERGROUP
+    exp_samples: []
+
+  # ── 通用族（无特定前缀约定的，按现网主体规律拼）──
+  URR:
+    key_param: URRNAME
+    body_pattern: '{biz}_{suffix}'
+    exp_samples: ['12530_01_cbb_online', '12530_01_cbb_offline']
+  URRGROUP:
+    key_param: URRGROUPNAME
+    body_pattern: '{biz}_{suffix}'
+    exp_samples: ['&mk_1001003_khqy_video__1001003']
+  FILTER:
+    key_param: FILTERNAME
+    body_pattern: '{biz}_{suffix}_{nnn}'
+    exp_samples: ['12530_01_f_f_001', '12530_01_f_h_001']
+  FILTERIPV6:
+    key_param: FILTERNAME
+    body_pattern: '{biz}_{suffix}_{nnn}'
+    exp_samples: ['f_to_sig_ipv6_grp']
+  FLOWFILTER:
+    key_param: FLOWFILTERNAME
+    body_pattern: '{biz}_{suffix}'
+    exp_samples: ['12530_01_f_f', '139yxlj_00_f_f']
+  HOST:
+    key_param: HOSTNAME
+    body_pattern: '{biz}_h_{nnn}'
+    exp_samples: ['12530_01_h_001', '12530_01_h_002']
+
+# ── 功能后缀语义表（现网实测归纳）──
+suffix_semantics:
+  f_f: 全量过滤（full filter）
+  f_h: 主机过滤（host filter）
+  l7_f: L7 过滤
+  cbb: 承载（carrying bearer）
+  h: 主机（host）
+  r: 规则（rule）
+  online: 在线
+  offline: 离线
+  _nnn: 三位序号（同族内递增）
+
+# ── 序号规则 ──
+numbering:
+  width: 2                # 两位序号（01 / 00）
+  pad: '0'
+  # 同族已有值时从最大值 +1 递增（实测 139yxlj_07 → 139yxlj_08）
+  increment: true
+  # 找不到任何已有值时从 00 开始（实测现网大量 'xx_00_yy'）
+  start: '00'

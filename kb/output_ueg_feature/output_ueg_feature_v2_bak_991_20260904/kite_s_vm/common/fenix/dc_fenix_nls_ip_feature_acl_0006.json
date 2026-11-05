@@ -1,0 +1,140 @@
+{
+  "feature_name": "去激活支持ACL",
+  "feature_description": "本操作指导介绍在运行网络中去激活ACL功能特性的操作过程。\n\nACL是一种IP包过滤技术，通过对IP报文的源地址、报文目的地址、协议号、源端口号、目的端口号（上述5个字段一般称为五元组，其中源端口号和目的端口号只对TCP和UDP协议有意义）等信息对照ACL规则数据库进行匹配，符合某一规则集合的数据包视为同一数据流，将按照ACL规则集合中规定的动作采取相同的处理策略，动作包括：允许（Permit）、拒绝（Deny）等。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0241442101",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0241442101.html",
+        "name": "IP基本特性",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "CONCEPT_0161317158",
+        "topicUrl": "kite_s_vm/common/fenix/dc_fenix_nls_ip_feature_ipreliab_0001.html",
+        "name": "IPFD-020400 IP可靠性",
+        "parentTopicId": "TOPIC_0241442101",
+        "position": "3.2.3",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0251058870_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0251058870.html",
+        "name": "IPFD-020402 ACL",
+        "parentTopicId": "CONCEPT_0161317158",
+        "position": "3.2.3.2",
+        "parentPosition": "3.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0251172964_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0251172964.html",
+        "name": "特性配置",
+        "parentTopicId": "TOPIC_0251058870_1",
+        "position": "3.2.3.2.3",
+        "parentPosition": "3.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0206381762_1",
+        "topicUrl": "kite_s_vm/common/fenix/dc_fenix_nls_ip_feature_acl_0006.html",
+        "name": "去激活支持ACL",
+        "parentTopicId": "TOPIC_0251172964_1",
+        "position": "3.2.3.2.3.3",
+        "parentPosition": "3.2.3.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

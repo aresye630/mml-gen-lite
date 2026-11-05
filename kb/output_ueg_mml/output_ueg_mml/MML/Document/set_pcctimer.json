@@ -1,0 +1,155 @@
+{
+  "command_name": "SET PCCTIMER",
+  "command_name_zh": "设置PCC定时器",
+  "command_name_full": "设置PCC定时器（SET PCCTIMER）",
+  "command_function": "**适用NF：PGW-C、SMF**\n\n**须知** \n\n本命令属于高危命令，执行命令配置超时时长不合理可能导致在超时场景下，激活响应的总时长过长，这可能会导致用户激活失败。在前期规划时，建议1：产品配置的等待右侧网元的最大时长小于产品ADD GTPCT3N3命令配置的T3N3时长及左侧（MME/SGSN等）的T3N3时长。建议2：产品配置的等待右侧网元的最大时长小于产品SET SMCOMMTIMER命令配置的TPOLICY(等待策略响应定时器)的时长。\n\n此命令用于PCC定时器控制。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.7",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320065",
+        "topicUrl": "MML/LinkedDoc/unc_n_pcc_management.html",
+        "name": "PCC管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.2.3.3.7.5",
+        "parentPosition": "2.2.3.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321273",
+        "topicUrl": "MML/LinkedDoc/unc_n_pcc_signaling_control.html",
+        "name": "信令控制",
+        "parentTopicId": "TOPIC_0234320065",
+        "position": "2.2.3.3.7.5.2",
+        "parentPosition": "2.2.3.3.7.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322671",
+        "topicUrl": "MML/LinkedDoc/unc_n_timer.html",
+        "name": "定时器",
+        "parentTopicId": "TOPIC_0234321273",
+        "position": "2.2.3.3.7.5.2.1",
+        "parentPosition": "2.2.3.3.7.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0209897082",
+        "topicUrl": "MML/Document/set_pcctimer.html",
+        "name": "设置PCC定时器（SET PCCTIMER）",
+        "parentTopicId": "TOPIC_0234322671",
+        "position": "2.2.3.3.7.5.2.1.1",
+        "parentPosition": "2.2.3.3.7.5.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

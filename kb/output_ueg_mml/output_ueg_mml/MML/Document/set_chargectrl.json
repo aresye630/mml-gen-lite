@@ -1,0 +1,155 @@
+{
+  "command_name": "SET CHARGECTRL",
+  "command_name_zh": "设置计费控制配置",
+  "command_name_full": "设置计费控制配置（SET CHARGECTRL）",
+  "command_function": "**适用NF：PGW-C、SMF**\n\n**须知** \n\n本命令属于高危命令，此操作会影响新激活用户的计费方式(在线、离线、融合)，可能导致用户无法计费。\n\n本命令用来控制是否基于用户漫游、拜访、本地属性来提供在线计费、离线计费和融合计费功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.7",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320642",
+        "topicUrl": "MML/LinkedDoc/unc_n_charging_management000.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.2.3.3.7.4",
+        "parentPosition": "2.2.3.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320864",
+        "topicUrl": "MML/LinkedDoc/unc_n_charging_control000.html",
+        "name": "计费控制",
+        "parentTopicId": "TOPIC_0234320642",
+        "position": "2.2.3.3.7.4.1",
+        "parentPosition": "2.2.3.3.7.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321382",
+        "topicUrl": "MML/LinkedDoc/unc_n_subscriber_attribute_specific_charging_control.html",
+        "name": "用户属性计费控制",
+        "parentTopicId": "TOPIC_0234320864",
+        "position": "2.2.3.3.7.4.1.1",
+        "parentPosition": "2.2.3.3.7.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0209896792",
+        "topicUrl": "MML/Document/set_chargectrl.html",
+        "name": "设置计费控制配置（SET CHARGECTRL）",
+        "parentTopicId": "TOPIC_0234321382",
+        "position": "2.2.3.3.7.4.1.1.1",
+        "parentPosition": "2.2.3.3.7.4.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

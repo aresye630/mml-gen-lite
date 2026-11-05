@@ -1,0 +1,138 @@
+{
+  "command_name": "SET HTTPCCACONF",
+  "command_name_zh": "设置HTTP CCA属性",
+  "command_name_full": "设置HTTP CCA属性（SET HTTPCCACONF）",
+  "command_function": "**须知** \n\n开启CCA校验以及修改CCA的有效时长，会影响消息的合法性校验结果，导致消息被丢弃。\n\n该命令用于设置HTTP CCA属性，该属性设置后整系统生效。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031069_2",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001183867166",
+        "topicUrl": "MML/LinkedDoc/httpctrlsvc_n_http_function_management.html",
+        "name": "HTTP功能管理",
+        "parentTopicId": "CONCEPT_0234031069_2",
+        "position": "1.12",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001953482898",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_management.html",
+        "name": "HTTP管理",
+        "parentTopicId": "TOPIC_0000001183867166",
+        "position": "1.12.2",
+        "parentPosition": "1.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001987762337",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_security_management.html",
+        "name": "HTTP安全管理",
+        "parentTopicId": "TOPIC_0000001953482898",
+        "position": "1.12.2.4",
+        "parentPosition": "1.12.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0000001987682169",
+        "topicUrl": "MML/LinkedDoc/httpexecsvc_n_http_cca_security_management.html",
+        "name": "HTTP CCA安全管理",
+        "parentTopicId": "TOPIC_0000001987762337",
+        "position": "1.12.2.4.4",
+        "parentPosition": "1.12.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0000001354538297",
+        "topicUrl": "MML/Document/set_httpccaconf.html",
+        "name": "设置HTTP CCA属性（SET HTTPCCACONF）",
+        "parentTopicId": "TOPIC_0000001987682169",
+        "position": "1.12.2.4.4.1",
+        "parentPosition": "1.12.2.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置计费属性CC（GGSN/SGW-C/PGW-C）",
+  "feature_description": "CC可以由RADIUS Server下发，可以在HLR/HSS上签约，也可以在UNC上本地配置，UNC支持基于UserProfile、APN、全局配置三种计费属性Charging Characteristics（CC）。其中，RADIUS Server下发CC优先级大于UNC本地配置，UNC上CC的优先级从高到低依次是：UserProflie下的配置 > APN下的配置 > 全局配置 > normal（缺省：普通计费）。如果高级别的参数没有配置，则依次向下使用低一级别的参数取值。图1呈现了CC的选择逻辑图。\n\n- 当左侧网元携带签约CC、并且本地基于UserProfile、APN配置CC场景下，本地、漫游、拜访用户选择CC由**ADD CHARGECHAR**命令的HOMESGSN、ROAMSGSN、VISITSGSN控制，当对应参数配置为ENABLE时，表示使用签约下发的CC，当配置为DISABLE时，表示使用本地配置的CC。\n- 当左侧网元携带签约CC、并且本地基于全局配置CC场景下，本地、漫游、拜访用户选择CC由**SET GLBCHARGECHAR**命令的HOMESGSN、ROAMSGSN、VISITSGSN控制，当对应参数配置为ENABLE时，表示使用签约下发的CC，当配置为DISABLE时，表示使用本地全局配置的CC。\n\n  **说明** \n\n  - 4G网络中，在SP合设场景，即UNC作为SGW-C和PGW-C时，由左侧MME携带CC（MME从HSS获取的签约CC）；在SP分离部署场景，当UNC单独作为SGW-C时由左侧MME携带CC（MME从HSS获取的签约CC），当UNC单独作为PGW-C时由左侧SGW-C携带CC（SGW-C通过MME得到签约CC）。即4G网络中签约CC由左侧MME/SGW-C携带。\n  - 2/3G网络中，UNC作为GGSN，由左侧SGSN携带签约CC（SGSN从HLR获取得签约CC）。\n\n**图1** Charging Characteristics选择图\n\n**说明** \n\n- 在线计费适用于GGSN、PGW-C。\n- 离线计费适用于SGW-C、PGW-C、GGSN。\n- 对于特定用户，无论是只做在线计费、离线计费，还是离线计费和在线计费都做，一个用户只会对应一个计费属性CC。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450955",
+        "topicUrl": "toctopics/zh-cn_topic_0248450955.html",
+        "name": "计费管理功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0225745813",
+        "topicUrl": "desc/unc_2030_feature_desc_Offline_Billing.html",
+        "name": "WSFD-011201 支持离线计费",
+        "parentTopicId": "TOPIC_0248450955",
+        "position": "18.2",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0225768943",
+        "topicUrl": "om/unc_2030_feature_om_Offline_Billing.html",
+        "name": "激活离线计费",
+        "parentTopicId": "CONCEPT_0225745813",
+        "position": "18.2.4",
+        "parentPosition": "18.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0295923501",
+        "topicUrl": "toctopics/zh-cn_opi_0295923501.html",
+        "name": "配置计费属性CC（GGSN/SGW-C/PGW-C）",
+        "parentTopicId": "TOPIC_0225768943",
+        "position": "18.2.4.5",
+        "parentPosition": "18.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

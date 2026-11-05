@@ -1,0 +1,121 @@
+{
+  "feature_name": "配置N4接口本端信息",
+  "feature_description": "当前UPF不支持NRF服务发现，需要配置Local NRF。本小节仅配置UPF基本信息，配置后SMF会发起与UPF之间的PFCP偶连建立，但还需要进行配置N4接口对端UPF信息小节相关的UPF业务能力配置，SMF才能够在业务流程中正确发现UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829339433",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829339433.html",
+        "name": "配置SMF&PGW-C&SGW-C&GGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.2",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001866127205",
+        "topicUrl": "toctopics/zh-cn_topic_0000001866127205.html",
+        "name": "公共配置",
+        "parentTopicId": "TOPIC_0000001829339433",
+        "position": "8.2.1",
+        "parentPosition": "8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001830121129",
+        "topicUrl": "toctopics/zh-cn_opi_0000001830121129.html",
+        "name": "配置和UPF的对接（N4/Sxa/Sxb）",
+        "parentTopicId": "TOPIC_0000001866127205",
+        "position": "8.2.1.2",
+        "parentPosition": "8.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001783361748",
+        "topicUrl": "toctopics/zh-cn_topic_0000001783361748.html",
+        "name": "配置N4接口",
+        "parentTopicId": "OPI_0000001830121129",
+        "position": "8.2.1.2.2",
+        "parentPosition": "8.2.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001830161113",
+        "topicUrl": "toctopics/zh-cn_opi_0000001830161113.html",
+        "name": "配置N4接口本端信息",
+        "parentTopicId": "TOPIC_0000001783361748",
+        "position": "8.2.1.2.2.1",
+        "parentPosition": "8.2.1.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

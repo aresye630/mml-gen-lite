@@ -1,0 +1,206 @@
+{
+  "command_name": "MOD LCSCLIENTINFO",
+  "command_name_zh": "修改LCS客户端信息",
+  "command_name_full": "修改LCS客户端信息（MOD LCSCLIENTINFO）",
+  "command_function": "**适用NF：UPF**\n\n**须知** \n\n本命令属于高危命令，仅当LCS Client号段配置在白名单MSISDN号段组时，业务才能接入\n\n该命令用于修改LCS Client与黑名单MSISDN号段组的绑定关系。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202105272553_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mes_n_location_service_management.html",
+        "name": "位置服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.8",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201918476150_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mes_n_gmlc_configuration_management.html",
+        "name": "GMLC配置管理",
+        "parentTopicId": "CONCEPT_0000202105272553_2",
+        "position": "3.8.3",
+        "parentPosition": "3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201918929396_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mes_n_lcs_client_information.html",
+        "name": "LCS客户端信息",
+        "parentTopicId": "CONCEPT_0000201918476150_2",
+        "position": "3.8.3.4",
+        "parentPosition": "3.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203849733570_2",
+        "topicUrl": "kite_s_bm/MML/Document/mod_lcsclientinfo.html",
+        "name": "修改LCS客户端信息（MOD LCSCLIENTINFO）",
+        "parentTopicId": "CONCEPT_0000201918929396_2",
+        "position": "3.8.3.4.2",
+        "parentPosition": "3.8.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202105272553_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mes_n_location_service_management.html",
+        "name": "位置服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.8",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201918476150_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mes_n_gmlc_configuration_management.html",
+        "name": "GMLC配置管理",
+        "parentTopicId": "CONCEPT_0000202105272553_2",
+        "position": "3.8.3",
+        "parentPosition": "3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201918929396_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/mes_n_lcs_client_information.html",
+        "name": "LCS客户端信息",
+        "parentTopicId": "CONCEPT_0000201918476150_2",
+        "position": "3.8.3.4",
+        "parentPosition": "3.8.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000203849733570_2",
+        "topicUrl": "kite_s_bm/MML/Document/mod_lcsclientinfo.html",
+        "name": "修改LCS客户端信息（MOD LCSCLIENTINFO）",
+        "parentTopicId": "CONCEPT_0000201918929396_2",
+        "position": "3.8.3.4.2",
+        "parentPosition": "3.8.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

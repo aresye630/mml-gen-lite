@@ -1,0 +1,107 @@
+{
+  "command_name": "MOD AAAINFO",
+  "command_name_zh": "修改AAA动态信息",
+  "command_name_full": "修改AAA动态信息（MOD AAAINFO）",
+  "command_function": "该命令用于在用户的AAA（Authentication，Authorization and Accounting）动态数据未正常注销而引起用户注册失败的情况下，修改或清除已注册的AAA动态数据，以保证用户可以注册成功。\n\n当用户向网络发起注册流程时，用户向AAA发送认证、授权和计费请求消息，AAA收到该消息后向UDM发起注册请求流程，消息中携带AAA主机名信息，UDM记录并回复响应消息，完成用户注册。如果用户未正常注销，UDM所记录的AAA主机名信息不会改变，此后用户再次注册时，UDM根据协议会比较消息中的AAA主机名和此前注册的主机名是否一致。\n\n- 如果一致，用户正常注册。\n- 如果不一致，则UDM在向AAA返回的响应消息中携带UDM所记录的AAA主机名信息与本次请求消息中的主机名信息不一致的错误提示“DIAMETER\\_ERROR\\_IDENTITY\\_ALREADY\\_REGISTERED”，需要执行本命令修改或清除已注册的AAA动态数据，以保证用户可以注册成功。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802702",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/network_maintenance.html",
+        "name": "网络维护管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.34",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802570",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/mod_aaainfo.html",
+        "name": "修改AAA动态信息（MOD AAAINFO）",
+        "parentTopicId": "CONCEPT_0190802702",
+        "position": "4.2.3.34.9",
+        "parentPosition": "4.2.3.34",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

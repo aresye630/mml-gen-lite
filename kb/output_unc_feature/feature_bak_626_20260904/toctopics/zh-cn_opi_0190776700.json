@@ -1,0 +1,112 @@
+{
+  "feature_name": "配置计费属性CC",
+  "feature_description": "Charging Characteristics（CC）是3GPP协议定义的一种用户签约付费属性，不属于计费功能。CC的取值有热计费(Hot Billing 0x0100)、统一费率（Flat Rate 0x0200）、预付费（Prepaid Service 0x0400）、普通计费(Normal Billing 0x0800)和自定义取值。CC可以由RADIUS Server下发，可以在UDM上签约，也可以在UNC上本地配置，UNC支持基于UserProfile、DNN、全局配置三种计费属性CC。其中，RADIUS Server下发CC优先级大于UNC本地配置，UNC上CC的优先级从高到低依次是：UserProflie下的配置 > DNN下的配置 > 全局配置 > normal（缺省：普通计费）。如果高级别的计费属性没有配置，则依次使用低一级别的计费属性。图1呈现了CC的选择逻辑图。\n\n- 当UDM下发签约CC、并且本地基于UserProfile、DNN配置CC场景下，由**ADD CHARGECHAR**命令的HOMESGSN、ROAMSGSN、VISITSGSN控制本地、漫游、拜访用户是否使用签约下发的计费属性CC。当对应参数配置为ENABLE时，表示使用UDM签约下发的CC；当配置为DISABLE时，表示使用本地配置的CC。从UDM获取签约CC时，SMF直接动态获取计费属性信息，与本地配置CC无关。\n- 当UDM下发签约CC、并且本地基于全局配置CC场景下，由**SET GLBCHARGECHAR**命令的HOMESGSN、ROAMSGSN、VISITSGSN控制本地、漫游、拜访用户是否使用签约下发的计费属性CC。当对应参数配置为ENABLE时，表示使用UDM签约下发的CC；当配置为DISABLE时，表示使用本地全局配置的CC。从UDM获取签约CC时，SMF直接动态获取计费属性信息，与本地配置CC无关。\n\n**图1** Charging Characteristics选择图\n\n**说明** \n\n- 适用于SMF。\n- SMF根据本地配置的CC选择CHF时，需要“配置CC”。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450955",
+        "topicUrl": "toctopics/zh-cn_topic_0248450955.html",
+        "name": "计费管理功能",
+        "parentTopicId": "",
+        "position": "18",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0162745898",
+        "topicUrl": "desc/unc_2000_feature_desc_Convergent_Billing.html",
+        "name": "WSFD-011206 支持融合计费",
+        "parentTopicId": "TOPIC_0248450955",
+        "position": "18.4",
+        "parentPosition": "18",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0173659885",
+        "topicUrl": "om/unc_2000_feature_om_Convergent_Billing.html",
+        "name": "激活支持融合计费",
+        "parentTopicId": "TOPIC_0162745898",
+        "position": "18.4.4",
+        "parentPosition": "18.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0190776700",
+        "topicUrl": "toctopics/zh-cn_opi_0190776700.html",
+        "name": "配置计费属性CC",
+        "parentTopicId": "TOPIC_0173659885",
+        "position": "18.4.4.3",
+        "parentPosition": "18.4.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "command_name": "ADD BACKUPGUAMI",
+  "command_name_zh": "增加供备GUAMI信息",
+  "command_name_full": "增加供备GUAMI信息（ADD BACKUPGUAMI）",
+  "command_function": "**适用NF：AMF**\n\n在5G核心网中，一个AMF逻辑上可以划分为多个实体，分别通过不同的GUAMI进行标识，并且支持以GUAMI为粒度选择Pool内其它AMF作为备用AMF。所谓备用AMF，即当前正在使用的AMF发生故障或者从网络中计划性退服时，可以接续主用AMF当前承载业务的AMF。\n\n每个GUAMI的备用AMF可通过ADD GUAMI进行指定。本AMF可被哪些GUAMI用作备用AMF，则通过本命令配置。将本AMF用作备用AMF的GUAMI列表需要在本AMF的注册流程中带给NRF。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV19388B7A623B459A8DF938EB1E76CB64",
+        "parentNaviId": "DOCNAV0299C129B128461DAB604577BF4AE134",
+        "pidId": "pid_bookmap_0000002229278993",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "DC.Audience.Job_91",
+          "pid_type_12",
+          "application_type_19"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "CONCEPT_0234031539",
+        "topicUrl": "MML/LinkedDoc/service_n_services_management.html",
+        "name": "业务服务管理",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321036",
+        "topicUrl": "MML/LinkedDoc/unc_n_local_office_information_management.html",
+        "name": "本局信息管理",
+        "parentTopicId": "CONCEPT_0234031539",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234321433",
+        "topicUrl": "MML/LinkedDoc/unc_n_amf.html",
+        "name": "AMF",
+        "parentTopicId": "TOPIC_0234321036",
+        "position": "2.2.1",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "TOPIC_0234320105",
+        "topicUrl": "MML/LinkedDoc/unc_n_backup_guami_list_management.html",
+        "name": "备用GUAMI列表管理",
+        "parentTopicId": "TOPIC_0234321433",
+        "position": "2.2.1.2",
+        "parentPosition": "2.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229278993",
+        "topicId": "MMLREF_0209654446",
+        "topicUrl": "MML/Document/add_backupguami.html",
+        "name": "增加供备GUAMI信息（ADD BACKUPGUAMI）",
+        "parentTopicId": "TOPIC_0234320105",
+        "position": "2.2.1.2.1",
+        "parentPosition": "2.2.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

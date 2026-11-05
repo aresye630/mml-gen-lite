@@ -1,0 +1,143 @@
+{
+  "command_name": "MOD AUTHSERV",
+  "command_name_zh": "修改授权服务",
+  "command_name_full": "修改授权服务（MOD AUTHSERV）",
+  "command_function": "**适用NF：UPF、MPF**\n\n**须知** \n\n本命令属于高危命令，如果该服务所在的授权服务列表已通过APPAUTHINFO相关命令授权给指定APP，修改本服务属性会导致MEP平台为指定APP所签发的token失效，其需要重新申请token才能继续访问，请谨慎修改。\n\n该命令用于修改指定授权服务列表中的指定授权服务，当APP被授予访问该授权服务列表的权限后，APP可访问该列表中的所有授权服务。授权服务指允许APP通过MEP平台访问的服务，包括1）通过MM5接口注册的服务；2）通过MP1接口注册的服务；3）MEP平台自身提供的服务。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757821",
+        "topicUrl": "MML/LinkedDoc/mpf_n_mec_control_plane_management.html",
+        "name": "MEC控制面管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.8",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000201293478215_3",
+        "topicUrl": "MML/LinkedDoc/mpf_n_basic_configuration.html",
+        "name": "基础配置",
+        "parentTopicId": "CONCEPT_0000202789757821",
+        "position": "2.2.3.8.1",
+        "parentPosition": "2.2.3.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202195518665_3",
+        "topicUrl": "MML/LinkedDoc/mpf_n_service_api_access_permission_control.html",
+        "name": "服务API访问权限控制",
+        "parentTopicId": "CONCEPT_0000201293478215_3",
+        "position": "2.2.3.8.1.29",
+        "parentPosition": "2.2.3.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202008959988_3",
+        "topicUrl": "MML/LinkedDoc/mpf_n_authorized_service.html",
+        "name": "授权服务",
+        "parentTopicId": "CONCEPT_0000202195518665_3",
+        "position": "2.2.3.8.1.29.2",
+        "parentPosition": "2.2.3.8.1.29",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202017506166_4",
+        "topicUrl": "MML/Document/mod_authserv.html",
+        "name": "修改授权服务（MOD AUTHSERV）",
+        "parentTopicId": "CONCEPT_0000202008959988_3",
+        "position": "2.2.3.8.1.29.2.2",
+        "parentPosition": "2.2.3.8.1.29.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

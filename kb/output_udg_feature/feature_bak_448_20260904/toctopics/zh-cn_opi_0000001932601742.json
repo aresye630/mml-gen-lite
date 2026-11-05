@@ -1,0 +1,120 @@
+{
+  "feature_name": "H-PCF（数据）",
+  "feature_description": "当用户在拜访地接入网络时，归属地UPCF侧通过归属地SMF侧在Npcf\\_SMPolicyControl\\_Create/Npcf\\_SMPolicyControl\\_Update请求消息中携带了vplmnQos信元判断此时用户需要进行SA国际漫游策略控制，随之归属地的UPCF通过更新下发已配置的关联了CmdSessionRule动作的规则来实现SA国际漫游策略控制功能，下发更新的带宽。\n\n本特性支持配置任意条件或不配置条件，只要购买了本特性license（即“82403309 LRM0PCFSAIR100 SA国际漫游策略控制”）且用户在拜访地接入网络时Npcf\\_SMPolicyControl\\_Create/Npcf\\_SMPolicyControl\\_Update请求消息中携带了vplmnQos信元，即可支持SA国际漫游策略控制。\n\n以用户在拜访地上线，不配置条件，UPCF对接华为UNC为例：\n\n- SMF发送给UPCF的Npcf\\_SMPolicyControl\\_Create请求消息中携带“vplmnQos”信元，最大上、下行带宽分别为1000 Kbps、1000 Kbps。\n- UPCF上配置的会话级最大上、下行带宽分别为50 Mbps、20 Mbps。\n- 系统比较用户请求的带宽和UPCF上配置的带宽，取带宽低的进行下发。",
+  "full_nav": [
+    [
+      {
+        "name": "特性部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "parentNaviId": "docnav3",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAV4FADFB045F8847A09B402BF3C6840B7F",
+        "parentNaviId": "DOCNAV6E850C585B794361B81081D1DB5AF6AB",
+        "pidId": "pid_bookmap_0000002186978478",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "5G Core 国际漫游解决方案",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8419",
+          "application_type_20"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_20"
+          ],
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8419"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "TOPIC_0000001364403925",
+        "topicUrl": "toctopics/zh-cn_topic_0000001364403925.html",
+        "name": "功能部署",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "TOPIC_0000001364324113",
+        "topicUrl": "toctopics/zh-cn_topic_0000001364324113.html",
+        "name": "业务部署",
+        "parentTopicId": "TOPIC_0000001364403925",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "TOPIC_0000001364123805",
+        "topicUrl": "toctopics/zh-cn_topic_0000001364123805.html",
+        "name": "运营商A（大型运营商）配置",
+        "parentTopicId": "TOPIC_0000001364324113",
+        "position": "3.2.2",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "TOPIC_0000001364243373",
+        "topicUrl": "toctopics/zh-cn_topic_0000001364243373.html",
+        "name": "现网NF配置",
+        "parentTopicId": "TOPIC_0000001364123805",
+        "position": "3.2.2.2",
+        "parentPosition": "3.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978478",
+        "topicId": "OPI_0000001932601742",
+        "topicUrl": "toctopics/zh-cn_opi_0000001932601742.html",
+        "name": "H-PCF（数据）",
+        "parentTopicId": "TOPIC_0000001364243373",
+        "position": "3.2.2.2.7",
+        "parentPosition": "3.2.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

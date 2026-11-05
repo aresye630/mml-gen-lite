@@ -1,0 +1,131 @@
+{
+  "command_name": "SET APTYPE",
+  "command_name_zh": "设置AP功能体本局信息",
+  "command_name_full": "设置AP功能体本局信息(SET APTYPE)",
+  "command_function": "该命令用于在配置数据库中设置AP（Authentication Proxy）功能体的本局信息。\n\n当UIM采用GBA架构对用户进行认证，BSF作为GBA认证流程中Bootstrapping流程的实现实体，在GBA认证过程中通过与UE和HSS之间消息的交互，完成UE合法性认证，并生成终端侧和网络侧的共享访问密钥；AP作为业务访问认证代理和转发实体，基于BSF和UE之间生成的共享访问密钥完成对用户业务访问认证，将通过认证的消息转发给AS（Application Server）。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206721529999",
+        "topicUrl": "MML/LinkedDoc/udmhttpservice_n_uim_service_management.html",
+        "name": "UIM服务管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.5",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002070785008",
+        "topicUrl": "MML/LinkedDoc/udmhttpservice_n_ap_configuration_management.html",
+        "name": "AP配置管理",
+        "parentTopicId": "CONCEPT_0000206721529999",
+        "position": "2.2.3.4.5.8",
+        "parentPosition": "2.2.3.4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002070785016",
+        "topicUrl": "MML/Document/set_aptype.html",
+        "name": "设置AP功能体本局信息(SET APTYPE)",
+        "parentTopicId": "MMLREF_0000002070785008",
+        "position": "2.2.3.4.5.8.1",
+        "parentPosition": "2.2.3.4.5.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

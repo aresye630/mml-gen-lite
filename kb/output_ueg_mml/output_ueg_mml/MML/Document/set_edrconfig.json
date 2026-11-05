@@ -1,0 +1,143 @@
+{
+  "command_name": "SET EDRCONFIG",
+  "command_name_zh": "设置EDR配置",
+  "command_name_full": "设置EDR配置（SET EDRCONFIG）",
+  "command_function": "该命令为配置类命令，用于配置EDR文件名的前缀、不同格式的校验文件以及EDR匿名化开关，以满足不同局点对EDR文件的定制需求。\n\n该命令的使用场景：\n\n- SF提供Restful接口，PCF通过该接口告知SF生成EDR文件名的格式和校验文件的格式，然后SF通过UCF服务上传EDR文件至第三方服务器。当不同局点对EDR文件名及校验文件有不同要求时，操作员可以使用该命令配置EDR文件名前缀及配置不同格式的校验文件。\n- 通过打开EDR匿名化开关，会对相关EDR字段（包括SubscriberIdentifier、IMSI、MSISDN、Trans-in Subscriber ID、GroupSubID和OldGroupSubID）进行匿名化处理，保护用户的个人数据。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0177625706",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_service_management.html",
+        "name": "服务管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.3",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0247976681",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_edr_configuration_management.html",
+        "name": "事件记录配置管理",
+        "parentTopicId": "TOPIC_0177625706",
+        "position": "2.2.3.5.11.3.3",
+        "parentPosition": "2.2.3.5.11.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001222987071_2",
+        "topicUrl": "MML/Document/set_edrconfig.html",
+        "name": "设置EDR配置（SET EDRCONFIG）",
+        "parentTopicId": "CONCEPT_0247976681",
+        "position": "2.2.3.5.11.3.3.3",
+        "parentPosition": "2.2.3.5.11.3.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

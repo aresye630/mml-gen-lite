@@ -1,0 +1,143 @@
+{
+  "command_name": "SET HTTPBCCFG",
+  "command_name_zh": "设置HTTP负载均衡配置",
+  "command_name_full": "设置HTTP负载均衡配置(SET HTTPBCCFG)",
+  "command_function": "**须知** \n\n本命令属于高危命令，执行不当会造成业务呼损，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于设置是否启用HTTP负载均衡功能开关。\n\n- 当“开关”取值为“ON(开启)”时，DCS、TCP、HTTP各服务需要做如下处理。\n  - 执行**ADD HTTPBCIP**或者**ADD HTTPLSERVER**命令触发DCS服务下发首包均衡策略，DCS服务的策略下发、策略校验、核查功能恢复。\n  - TCP、HTTP服务针对HTTP链路增强的功能恢复。\n- 当“开关”取值为“OFF(关闭)”时，DCS、TCP、HTTP各服务会做如下处理。\n  - DCS服务的处理策略如下：\n    - DCS服务删除五元组转发策略和首包均衡策略，并且在策略重启、策略校验、策略核查场景下不再下发首包均衡策略和五元组策略。\n    - DCS服务的定时链路信息收集以及DCS启动场景下的链路信息收集功能关闭。\n    - DCS不再做链路决策，异常场景下收到TCP SYN消息直接丢弃。\n  - TCP服务不再对TCP SYN消息进行解析，不做删除残留策略的动作。\n  - HTTP服务在链路状态开启时不再上报链路确认消息，链路状态关闭时不再通知DCS服务删除策略。\n\n链路均衡功能开启或者关闭的过程中，对业务功能有以下影响。\n\n- 链路均衡功能从开启到关闭过程中，DCS服务直接删除了相关策略，触发对端HTTP服务重新建链，导致原有链路残留，在此过程会有业务呼损现象。\n- 链路均衡功能从关闭到开启过程中，CSLB收到DCS服务提供的首包均衡策略的消息，此时CSLB会把收到的消息丢弃，CSLB等待对端HTTP服务重传后重新建链，此过程中也存在业务呼损。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278592478",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_signaling_and_protocol_management.html",
+        "name": "信令协议管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.1",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0170586176",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_http_management.html",
+        "name": "HTTP管理",
+        "parentTopicId": "CONCEPT_0000203278592478",
+        "position": "2.2.3.4.1.1",
+        "parentPosition": "2.2.3.4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001259002318",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_http_load_balancing_management.html",
+        "name": "HTTP均衡管理",
+        "parentTopicId": "TOPIC_0170586176",
+        "position": "2.2.3.4.1.1.5",
+        "parentPosition": "2.2.3.4.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001306478597",
+        "topicUrl": "MML/Document/set_httpbccfg.html",
+        "name": "设置HTTP负载均衡配置(SET HTTPBCCFG)",
+        "parentTopicId": "TOPIC_0000001259002318",
+        "position": "2.2.3.4.1.1.5.1",
+        "parentPosition": "2.2.3.4.1.1.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

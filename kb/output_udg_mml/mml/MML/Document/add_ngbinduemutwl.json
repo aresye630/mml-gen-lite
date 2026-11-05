@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD NGBINDUEMUTWL",
+  "command_name_zh": "增加5G LAN组绑定PA口UE互访白名单",
+  "command_name_full": "增加5G LAN组绑定PA口UE互访白名单（ADD NGBINDUEMUTWL）",
+  "command_function": "**适用NF：UPF**\n\n该命令用于添加5G LAN组与PA口UE互访白名单的绑定关系。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202800629671",
+        "topicUrl": "MML/LinkedDoc/udg_n_5g_lan_management.html",
+        "name": "5G LAN管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.13",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206342673363",
+        "topicUrl": "MML/LinkedDoc/udg_n_5g_lan_ue_mutual_access_control.html",
+        "name": "5G LAN用户互访控制",
+        "parentTopicId": "CONCEPT_0000202800629671",
+        "position": "5.13.8",
+        "parentPosition": "5.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206190789386",
+        "topicUrl": "MML/LinkedDoc/udg_n_ue_access_white_list_bound_to_5g_lan_group.html",
+        "name": "UE互访白名单绑定5G LAN组",
+        "parentTopicId": "CONCEPT_0000206342673363",
+        "position": "5.13.8.2",
+        "parentPosition": "5.13.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206197242208",
+        "topicUrl": "MML/Document/add_ngbinduemutwl.html",
+        "name": "增加5G LAN组绑定PA口UE互访白名单（ADD NGBINDUEMUTWL）",
+        "parentTopicId": "CONCEPT_0000206190789386",
+        "position": "5.13.8.2.1",
+        "parentPosition": "5.13.8.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

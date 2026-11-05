@@ -1,0 +1,155 @@
+{
+  "command_name": "FOC GENERATECDR",
+  "command_name_zh": "强制生成话单",
+  "command_name_full": "强制生成话单（FOC GENERATECDR）",
+  "command_function": "**适用NF：SGW-C、PGW-C、SMF**\n\n**须知** \n\n本命令属于高危命令，如果在大量用户的场景下执行该命令，可能导致CG侧收到大量的话单消息，对CG造成冲击，可能导致用户无法计费。\n\n该命令用来强制产生话单，主要用于测试计费系统是否正常。如果在测试过程中，UNC产生话单的各种阈值未到，还不具备自动产生话单的条件时，用户可采用本命令手动产生话单。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320916",
+        "topicUrl": "MML/LinkedDoc/unc_n_session_management000.html",
+        "name": "会话管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.7",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320642",
+        "topicUrl": "MML/LinkedDoc/unc_n_charging_management000.html",
+        "name": "计费管理",
+        "parentTopicId": "TOPIC_0234320916",
+        "position": "2.2.3.3.7.4",
+        "parentPosition": "2.2.3.3.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320229",
+        "topicUrl": "MML/LinkedDoc/unc_n_charging_maintenance.html",
+        "name": "计费维护",
+        "parentTopicId": "TOPIC_0234320642",
+        "position": "2.2.3.3.7.4.7",
+        "parentPosition": "2.2.3.3.7.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234319858",
+        "topicUrl": "MML/LinkedDoc/unc_n_forcible_cdr_generation.html",
+        "name": "强制生成话单",
+        "parentTopicId": "TOPIC_0234320229",
+        "position": "2.2.3.3.7.4.7.3",
+        "parentPosition": "2.2.3.3.7.4.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0209897016",
+        "topicUrl": "MML/Document/foc_generatecdr.html",
+        "name": "强制生成话单（FOC GENERATECDR）",
+        "parentTopicId": "TOPIC_0234319858",
+        "position": "2.2.3.3.7.4.7.3.1",
+        "parentPosition": "2.2.3.3.7.4.7.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

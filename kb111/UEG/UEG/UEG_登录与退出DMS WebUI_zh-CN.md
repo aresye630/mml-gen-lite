@@ -1,0 +1,105 @@
+---
+id: ''
+name: 登录与退出DMS WebUI
+ne_type: UEG
+type: feature
+description: 操作员必须在成功登录的情况下才能通过DMS WebUI执行相关的操作。如果登录失败，则请根据相应的报错信息正确处理后再次登录。  操作员在完成操作之后，可以通过单击“注销”退出命令界面。
+tags: []
+risk_level: ''
+doc_source: ["参考信息","UEG 命令参考（风筝M&L，虚机&裸机容器）","DMS Web LMT","DMS Web LMT GUI参考","DMS WebUI","登录与退出DMS WebUI"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block= annotations -->
+```text
+## 操作场景
+操作员必须在成功登录的情况下才能通过DMS WebUI执行相关的操作。如果登录失败，则请根据相应的报错信息正确处理后再次登录。操作员在完成操作之后，可以通过单击“注销”退出命令界面。
+
+## 必备事项
+前提条件
+
+* 使用DMS WebUI的计算机支持配置如下：
+  + Web浏览器：Google Chrome 84（64位）及以上版本或Microsoft Edge 98（64位）及以上版本。
+
+    避免影响使用体验效果，建议浏览器使用100%的缩放比例。
+  + 操作系统：Microsoft Windows 10 Professional。
+* OMU服务器正常运行。
+* PGW模块正常运行。
+* DMS WebUI与PGW Web LMT的证书共用，确认已加载“连接类型”为“WEBLMT”的“CAVERIF(CA证书)”或“ROOTVERIF(根证书)”、“DEVVERIF(设备证书)”和“KEYFILE(密钥文件)”的证书文件。可通过在“USCDB MML命令”界面执行**LST VERIF**命令查询。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block= params -->
+```yaml
+schemas:
+  properties: {}
+  examples: {}
+```
+
+## 3 命令模板定义
+<!-- @mml:block= commands -->
+
+### 1 在浏览器地址栏中输入**https://DMS的IP地址:31943**，按“Enter”键。
+
+### 系统弹出DMS WebUI的登录界面，如图1或图2所示。
+
+#### 1.1 当软参“MVNOSWITCH(MVNO开关)”取值为“0”时，登录界面如图1所示。
+
+#### 1.2 当软参“MVNOSWITCH(MVNO开关)”取值为“1”时，登录界面如图2所示。
+
+### **图1** DMS WebUI登录界面（HLRSN）
+
+### **图2** DMS WebUI登录界面（MVNO）
+
+#### 1.3 DMS WebUI的IP可以登录“USCDB MML命令”界面执行**LST SRVIPADDR**查询获取，为“业务IP类型”为“PGW”的“本地Location IPV4地址2”或“本地Location IPV6地址2”的取值。如果“本地Location IPV4地址2”或“本地Location IPV6地址2”的取值为“NULL”，则为“网关类型”为“PGW”的“本地Location IPV4地址1”或“本地Location IPV6地址1”的取值。
+
+#### 1.4 由于开放的Web Server的端口可配置，对于使用了非默认端口(31943)的局点，可以登录“USCDB MML命令”界面执行**LST PORT**查询获取，为“端口类型”为“PORT\_FOR\_DMSWEB”对应的端口号。
+
+### 2 选择“用户类型”。
+
+#### 2.1 Local
+
+#### 输入“HLRSN”或“MVNO”、“用户名”、“登录密码”、“验证码”后，单击“立即登录”。
+
+##### 2.1.1 首次登录DMS WebUI界面时不需要输入验证码，连续两次输入密码错误后再次登录需要输入验证码。
+
+##### 2.1.2 若验证码没有显示或难以辨认，可以单击刷新按钮获取或刷新验证码。
+
+##### 2.1.3 “HLRSN”或“MVNO”为可选参数：
+
+###### 2.1.3.1 - 当不输入该参数时，默认使用登录“USCDB MML命令”界面执行**SET SYSNO**命令设置的“系统序列号”。
+
+###### 2.1.3.2 - 当输入该参数时，“HLRSN”或“MVNO”必须为通过PGW Web LMT上的**ADD SYSHLRSN**或**ADD SYSNO**命令添加的“系统HLR序列号”或“系统序列号”或登录“USCDB MML命令”界面执行**SET SYSNO**命令设置的“系统序列号”。
+
+##### 2.1.4 系统配置了默认的“用户名”为“admin”，“登录密码”请从运营商的操作维护人员处获得，“默认密码”请参考《USCDB应用用户默认账号》。
+
+##### 2.1.5 当帐户的密码有效天数小于“密码过期前提示天数”，每次登录DMS WebUI系统时，系统将会提示修改密码。帐户的密码在到达“密码有效期天数”后将会失效，必须重新修改密码后才能重新登录DMS WebUI。超级管理员密码只能通过PGW Web LMT修改。普通操作员密码可以通过DMS WebUI或者PGW Web LMT进行修改。
+
+#### 2.2 SSO
+
+#### 单击“立即登录”后跳转到网管登录页面，输入“用户名”和“密码”后，单击“登录”。
+
+#### 使用SSO登录时，输入的“用户名”所属的系统序列号必须为在USCDB MML界面上执行**SET SYSNO**设置的“系统序列号”。
+
+### 当软参“GRANTIPSWITCH（IP限制开关）”取默认值“1”，登录DMS客户端时系统提示“IP地址不在允许登录的范围之内”，需要通过执行**ADD PROVISIONIP**添加的IP地址才能访问DMS。
+
+### 3 系统进入DMS WebUI主页面。
+
+### 系统默认不显示Banner信息界面，但如果用户通过**SET SECPOLICY**命令设置了“显示Banner”为“TRUE”且输入了要显示的“Banner信息”，则会首先出现Banner信息界面。以输入的“Banner信息”为“警告！本系统仅允许授权用户访问，严禁未经授权使用。”为例，出现的Banner信息界面如图3所示。
+
+### **图3** Banner信息
+
+### 单击“确认”后，系统显示DMS WebUI主页面，如图4所示。
+
+### **图4** DMS WebUI主页面
+
+### 4 单击主页面右上角的“注销”。
+
+### 出现如图5所示的“确认”窗口。
+
+### **图5** 注销DMS WebUI页面
+
+### 5 单击“是”，即可退出DMS WebUI。
+

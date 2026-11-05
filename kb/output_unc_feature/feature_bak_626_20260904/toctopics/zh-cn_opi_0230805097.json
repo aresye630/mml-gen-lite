@@ -1,0 +1,124 @@
+{
+  "feature_name": "配置本地PCC功能",
+  "feature_description": "当网络中无PCRF，而通过特定APN激活的用户需要激活为PCC用户，且为该PCC用户的特定业务创建专有承载以提供QoS保障，此时需要开启本地PCC功能，并在本地配置静态规则，策略匹配时按照rule的全局优先级进行匹配。\n\nUNC上开启本地PCC功能时，需要在UNC上配置rule和UserProfile，本处在UNC上仅开启PCC功能开关，不关注具体规则内容配置，具体规则内容需要根据具体业务策略确定。\n\n**说明** \n\n适用于GGSN、PGW-C。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450967",
+        "topicUrl": "toctopics/zh-cn_topic_0248450967.html",
+        "name": "智能PCC解决方案",
+        "parentTopicId": "",
+        "position": "30",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "CONCEPT_0160374767",
+        "topicUrl": "desc/unc_2000_feature_desc_Basic_PCC_Function.html",
+        "name": "WSFD-109101 PCC基本功能",
+        "parentTopicId": "TOPIC_0248450967",
+        "position": "30.1",
+        "parentPosition": "30",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0229056156",
+        "topicUrl": "toctopics/zh-cn_topic_0229056156.html",
+        "name": "PCC基本功能（2G/3G/4G，基于Gx接口）",
+        "parentTopicId": "CONCEPT_0160374767",
+        "position": "30.1.2",
+        "parentPosition": "30.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0229056159",
+        "topicUrl": "toctopics/zh-cn_opi_0229056159.html",
+        "name": "激活PCC基本功能",
+        "parentTopicId": "TOPIC_0229056156",
+        "position": "30.1.2.3",
+        "parentPosition": "30.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0230805097",
+        "topicUrl": "toctopics/zh-cn_opi_0230805097.html",
+        "name": "配置本地PCC功能",
+        "parentTopicId": "OPI_0229056159",
+        "position": "30.1.2.3.2",
+        "parentPosition": "30.1.2.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

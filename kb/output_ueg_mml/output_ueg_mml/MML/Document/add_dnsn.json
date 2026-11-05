@@ -1,0 +1,167 @@
+{
+  "command_name": "ADD DNSN",
+  "command_name_zh": "增加DNS NAPTR记录",
+  "command_name_full": "增加DNS NAPTR记录(ADD DNSN)",
+  "command_function": "**适用网元：SGSN、MME**\n\n该命令用于配置“FQDN”（全称标准规范域名）与网元接口的对应关系。\n\n在Attach、建立PDN连接、TAU、Handover等流程中，都会涉及到“S-GW”、“P-GW”、“MME”等网元的选择，并解析出网元的地址信息。以前采用的是域名到网元地址的一对一映射机制，为了提高组网运作性能，减少信令的传输延时，提出了智能网关选择的策略。比如按照组网方式，在Attach流程中尽量选择“S-GW”和“P-GW”合一的节点，可以减少信令的传输时延。\n\n该命令可以配置域名（FQDN）与网元节点间多对多的对应关系。当LICENSE支持激活智能网元选择功能且功能开关打开时，由于同一“FQDN”可以与多个“HSINDEX”配置对应关系，因此在查询过程中，同一“FQDN”对应的查询“HSINDEX”结果可能存在多个（“ENTITY”、“INTERFACETYPE”配置相同），这就需要利用智能网元选择策略（选择合一/选择拓扑关系最近）选择出最优的网元节点，而网元节点与IP地址的对应关系是在命令**ADD IPV4DNSH**、**ADD IPV6DNSH**中配置。当智能网元选择功能关闭或LICENSE不支持时，查询出的多个结果直接按照优先级/权重返回。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.5",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.2.3.3.5.3",
+        "parentPosition": "2.2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321016",
+        "topicUrl": "MML/LinkedDoc/unc_n_gtp_c_interface_management.html",
+        "name": "GTP-C接口管理",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.2.3.3.5.3.9",
+        "parentPosition": "2.2.3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320728",
+        "topicUrl": "MML/LinkedDoc/unc_n_dns.html",
+        "name": "DNS",
+        "parentTopicId": "TOPIC_0234321016",
+        "position": "2.2.3.3.5.3.9.1",
+        "parentPosition": "2.2.3.3.5.3.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234319717",
+        "topicUrl": "MML/LinkedDoc/unc_n_dns_naptr_management.html",
+        "name": "DNS NAPTR管理",
+        "parentTopicId": "TOPIC_0234320728",
+        "position": "2.2.3.3.5.3.9.1.4",
+        "parentPosition": "2.2.3.3.5.3.9.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001172225569",
+        "topicUrl": "MML/Document/add_dnsn.html",
+        "name": "增加DNS NAPTR记录(ADD DNSN)",
+        "parentTopicId": "TOPIC_0234319717",
+        "position": "2.2.3.3.5.3.9.1.4.1",
+        "parentPosition": "2.2.3.3.5.3.9.1.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

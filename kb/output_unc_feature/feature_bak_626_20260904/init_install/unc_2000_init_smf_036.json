@@ -1,0 +1,97 @@
+{
+  "feature_name": "配置和NF直连",
+  "feature_description": "- 如果网络中部署了NRF，则需执行配置到NRF的数据。\n- 如果网络中无NRF，或网络中存在NRF但需基于运营商策略本地配置周边NF，则执行本章节操作，手工配置SMF与周边NF的逻辑连接。\n- 当网络中既部署了NRF，又本地配置了周边NF时，可以通过**SET NFDISCPLCY**命令配置服务发现流程的策略，默认为优先选择本地配置的NF。\n- 下述以配置SMF到周边UDM、PCF、CHF及AMF为例，说明配置本地NRF功能的基本步骤。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829339433",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829339433.html",
+        "name": "配置SMF&PGW-C&SGW-C&GGSN",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.2",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829301205",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829301205.html",
+        "name": "配置SMF",
+        "parentTopicId": "TOPIC_0000001829339433",
+        "position": "8.2.2",
+        "parentPosition": "8.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001831443845",
+        "topicUrl": "init_install/unc_2000_init_smf_036.html",
+        "name": "配置和NF直连",
+        "parentTopicId": "TOPIC_0000001829301205",
+        "position": "8.2.2.5",
+        "parentPosition": "8.2.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

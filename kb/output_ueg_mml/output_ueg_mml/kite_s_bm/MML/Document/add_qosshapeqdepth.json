@@ -1,0 +1,254 @@
+{
+  "command_name": "ADD QOSSHAPEQDEPTH",
+  "command_name_zh": "添加Qos Shape缓存队列深度与流量速率的对应关系",
+  "command_name_full": "添加Qos Shape缓存队列深度与流量速率的对应关系（ADD QOSSHAPEQDEPTH）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用于配置流量做shaping时的缓存队列深度与流量速率的对应关系。用户流量速率与这个对应关系表进行比较得到缓存队列深度。队列深度，即最多缓存的报文个数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315825_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.5",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915795_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_qos_control.html",
+        "name": "用户QOS控制",
+        "parentTopicId": "CONCEPT_0000202289315825_2",
+        "position": "3.3.5.3",
+        "parentPosition": "3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315833_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_traffic_management.html",
+        "name": "流量管理",
+        "parentTopicId": "CONCEPT_0000202288915795_2",
+        "position": "3.3.5.3.2",
+        "parentPosition": "3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876514_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_shaping_queue_depth.html",
+        "name": "整形队列深度",
+        "parentTopicId": "CONCEPT_0000202289315833_2",
+        "position": "3.3.5.3.2.4",
+        "parentPosition": "3.3.5.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837674_2",
+        "topicUrl": "kite_s_bm/MML/Document/add_qosshapeqdepth.html",
+        "name": "添加Qos Shape缓存队列深度与流量速率的对应关系（ADD QOSSHAPEQDEPTH）",
+        "parentTopicId": "CONCEPT_0000202102876514_2",
+        "position": "3.3.5.3.2.4.1",
+        "parentPosition": "3.3.5.3.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001122430074",
+        "topicUrl": "toctopics/zh-cn_topic_0000001122430074.html",
+        "name": "UEG MML命令（裸机容器）",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289555247_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001122430074",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315825_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202289555247_2",
+        "position": "3.3.5",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202288915795_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_user_qos_control.html",
+        "name": "用户QOS控制",
+        "parentTopicId": "CONCEPT_0000202289315825_2",
+        "position": "3.3.5.3",
+        "parentPosition": "3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315833_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_traffic_management.html",
+        "name": "流量管理",
+        "parentTopicId": "CONCEPT_0000202288915795_2",
+        "position": "3.3.5.3.2",
+        "parentPosition": "3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876514_2",
+        "topicUrl": "kite_s_bm/MML/LinkedDoc/udg_n_shaping_queue_depth.html",
+        "name": "整形队列深度",
+        "parentTopicId": "CONCEPT_0000202289315833_2",
+        "position": "3.3.5.3.2.4",
+        "parentPosition": "3.3.5.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0182837674_2",
+        "topicUrl": "kite_s_bm/MML/Document/add_qosshapeqdepth.html",
+        "name": "添加Qos Shape缓存队列深度与流量速率的对应关系（ADD QOSSHAPEQDEPTH）",
+        "parentTopicId": "CONCEPT_0000202102876514_2",
+        "position": "3.3.5.3.2.4.1",
+        "parentPosition": "3.3.5.3.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

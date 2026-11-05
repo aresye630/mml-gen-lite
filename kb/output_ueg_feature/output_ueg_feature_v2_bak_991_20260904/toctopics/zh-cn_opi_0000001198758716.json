@@ -1,0 +1,942 @@
+{
+  "feature_name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+  "feature_description": "UEG支持通过MML命令设置CHR假名化本地策略。\n\n为保证个人隐私数据的安全性，建议开启该功能。请运营商遵从所在国家的相关法律开启该功能。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVD336E4E9A7014F418988D4B4B5A07194",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761214",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝M”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001284751246",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284751246.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001382798672",
+        "topicUrl": "toctopics/zh-cn_topic_0000001382798672.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284751246",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198758702_2",
+        "topicUrl": "kite_ml/kitem_mand_conf_opt_bm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382798672",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "TOPIC_0000001198918676_2",
+        "topicUrl": "kite_ml/kitem_netw_data_c_opt_bm.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_2",
+        "position": "6.2.2.2.4",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761214",
+        "topicId": "OPI_0000001198758716_1",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_2",
+        "position": "6.2.2.2.4.3",
+        "parentPosition": "6.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001246207979",
+        "topicUrl": "toctopics/zh-cn_topic_0000001246207979.html",
+        "name": "配置安全数据（风筝L）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001258602673",
+        "topicUrl": "toctopics/zh-cn_topic_0000001258602673.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001246207979",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244645701",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244645701.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258602673",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198758702_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198758702.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001244645701",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198918676_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198918676.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_4",
+        "position": "6.2.2.2.4",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001198758716_1",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_4",
+        "position": "6.2.2.2.4.3",
+        "parentPosition": "6.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001246207979",
+        "topicUrl": "toctopics/zh-cn_topic_0000001246207979.html",
+        "name": "配置安全数据（风筝L）",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001258602673",
+        "topicUrl": "toctopics/zh-cn_topic_0000001258602673.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001246207979",
+        "position": "6.2",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244645701",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244645701.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001258602673",
+        "position": "6.2.2",
+        "parentPosition": "6.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198758702_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198758702.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001244645701",
+        "position": "6.2.2.2",
+        "parentPosition": "6.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001198918676_4",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198918676.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_4",
+        "position": "6.2.2.2.4",
+        "parentPosition": "6.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001198758716_1",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_4",
+        "position": "6.2.2.2.4.3",
+        "parentPosition": "6.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV8CDE6753523641B8ACAD6C1F13BC16B5",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818298",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网煤矿场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429776745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429776745.html",
+        "name": "配置安全数据",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001429844805",
+        "topicUrl": "toctopics/zh-cn_topic_0000001429844805.html",
+        "name": "UEG安全加固",
+        "parentTopicId": "TOPIC_0000001429776745",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001244645701",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244645701.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001429844805",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001198758702_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198758702.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001244645701",
+        "position": "5.2.2.2",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "TOPIC_0000001198918676_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198918676.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_1",
+        "position": "5.2.2.2.4",
+        "parentPosition": "5.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002254818298",
+        "topicId": "OPI_0000001198758716",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_1",
+        "position": "5.2.2.2.4.3",
+        "parentPosition": "5.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV19696AEFD63C426CA29CF5688BE70CB8",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002289411669",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网核电场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001865941258",
+        "topicUrl": "toctopics/zh-cn_topic_0000001865941258.html",
+        "name": "配置安全数据",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001870384844",
+        "topicUrl": "toctopics/zh-cn_topic_0000001870384844.html",
+        "name": "UEG安全加固",
+        "parentTopicId": "TOPIC_0000001865941258",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001243438609",
+        "topicUrl": "toctopics/zh-cn_topic_0000001243438609.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001870384844",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001198758702_3",
+        "topicUrl": "kite_l_vm_Security_Cnf/kitel_mand_conf_opt_vm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001243438609",
+        "position": "5.2.2.2",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "TOPIC_0000001198918676_3",
+        "topicUrl": "kite_l_vm_Security_Cnf/kitel_netw_data_c_opt_vm.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_3",
+        "position": "5.2.2.2.4",
+        "parentPosition": "5.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002289411669",
+        "topicId": "OPI_0000001198758716",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_3",
+        "position": "5.2.2.2.4.3",
+        "parentPosition": "5.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.6",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001284751246",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284751246.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "3.3.6.1",
+        "parentPosition": "3.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001382798672",
+        "topicUrl": "toctopics/zh-cn_topic_0000001382798672.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284751246",
+        "position": "3.3.6.1.2",
+        "parentPosition": "3.3.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001198758702_4",
+        "topicUrl": "kitem_mand_conf_opt_bm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382798672",
+        "position": "3.3.6.1.2.2",
+        "parentPosition": "3.3.6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001198918676_4",
+        "topicUrl": "kitem_netw_data_c_opt_bm.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_4",
+        "position": "3.3.6.1.2.2.4",
+        "parentPosition": "3.3.6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001198758716",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_4",
+        "position": "3.3.6.1.2.2.4.3",
+        "parentPosition": "3.3.6.1.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV154A6C69C5A5420F9C3942C975A5DA1F",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002303839853",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（火电专网，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002304302441",
+        "topicUrl": "toctopics/zh-cn_topic_0000002304302441.html",
+        "name": "部署配置指导",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000002269622622",
+        "topicUrl": "toctopics/zh-cn_topic_0000002269622622.html",
+        "name": "子园区部署入驻式UEG-M",
+        "parentTopicId": "TOPIC_0000002304302441",
+        "position": "3.3",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001172058444",
+        "topicUrl": "toctopics/zh-cn_topic_0000001172058444.html",
+        "name": "配置安全数据（风筝M）",
+        "parentTopicId": "TOPIC_0000002269622622",
+        "position": "3.3.6",
+        "parentPosition": "3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001284751246",
+        "topicUrl": "toctopics/zh-cn_topic_0000001284751246.html",
+        "name": "安全配置（裸机容器）",
+        "parentTopicId": "TOPIC_0000001172058444",
+        "position": "3.3.6.1",
+        "parentPosition": "3.3.6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001382798672",
+        "topicUrl": "toctopics/zh-cn_topic_0000001382798672.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000001284751246",
+        "position": "3.3.6.1.2",
+        "parentPosition": "3.3.6.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001198758702_4",
+        "topicUrl": "kitem_mand_conf_opt_bm.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001382798672",
+        "position": "3.3.6.1.2.2",
+        "parentPosition": "3.3.6.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "TOPIC_0000001198918676_4",
+        "topicUrl": "kitem_netw_data_c_opt_bm.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_4",
+        "position": "3.3.6.1.2.2.4",
+        "parentPosition": "3.3.6.1.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002303839853",
+        "topicId": "OPI_0000001198758716",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_4",
+        "position": "3.3.6.1.2.2.4.3",
+        "parentPosition": "3.3.6.1.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "naviId": "DOCNAV22ED20D5F182466F9AD869A8636504B9",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002339866657",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 14:56:23",
+        "name": "5GC toB 部署边缘站点（一号通专网通用场景，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002305930032",
+        "topicUrl": "toctopics/zh-cn_topic_0000002305930032.html",
+        "name": "配置安全数据",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000002339769493",
+        "topicUrl": "toctopics/zh-cn_topic_0000002339769493.html",
+        "name": "UEG安全加固",
+        "parentTopicId": "TOPIC_0000002305930032",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000001244645701",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244645701.html",
+        "name": "安全配置建议",
+        "parentTopicId": "TOPIC_0000002339769493",
+        "position": "5.2.2",
+        "parentPosition": "5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000001198758702_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198758702.html",
+        "name": "可选配置",
+        "parentTopicId": "TOPIC_0000001244645701",
+        "position": "5.2.2.2",
+        "parentPosition": "5.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "TOPIC_0000001198918676_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001198918676.html",
+        "name": "数据安全配置",
+        "parentTopicId": "TOPIC_0000001198758702_1",
+        "position": "5.2.2.2.4",
+        "parentPosition": "5.2.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000005031",
+        "pidId": "pid_bookmap_0000002339866657",
+        "topicId": "OPI_0000001198758716",
+        "topicUrl": "toctopics/zh-cn_opi_0000001198758716.html",
+        "name": "配置CHR假名化本地策略（通过MML）（AMF/MME/SMF/GW-C）",
+        "parentTopicId": "TOPIC_0000001198918676_1",
+        "position": "5.2.2.2.4.3",
+        "parentPosition": "5.2.2.2.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

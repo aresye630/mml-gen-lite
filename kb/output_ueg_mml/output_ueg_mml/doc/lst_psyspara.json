@@ -1,0 +1,119 @@
+{
+  "command_name": "LST PSYSPARA",
+  "command_name_zh": "查询系统参数",
+  "command_name_full": "查询系统参数（LST PSYSPARA）",
+  "command_function": "本命令用于查询系统中的系统参数信息。\n\n- 若需要查询所有的系统参数信息，请不要输入任何参数。\n- 若需要查询指定的系统参数信息，请输入“系统参数名称”。\n\n命令参数“SYSPARAMETER”标识“系统参数名称”。\n\n命令参数“SYSPARAMETERVALUE”标识“系统参数值”。\n\n参数说明中“参数标识”列描述“系统参数名称”的枚举取值，“参数名称”列描述该枚举取值的参数描述，“参数说明”列描述该枚举取值的“系统参数值”的取值范围、取值功能。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001295986488",
+        "topicUrl": "toctopics/zh-cn_topic_0000001295986488.html",
+        "name": "UPCF业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.5",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167452586",
+        "topicUrl": "node/global_data_mml.html",
+        "name": "全局数据命令组",
+        "parentTopicId": "TOPIC_0000001295986488",
+        "position": "4.2.5.1",
+        "parentPosition": "4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452643",
+        "topicUrl": "node/syspara_management.html",
+        "name": "系统参数管理",
+        "parentTopicId": "CONCEPT_0167452586",
+        "position": "4.2.5.1.2",
+        "parentPosition": "4.2.5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452605",
+        "topicUrl": "doc/lst_psyspara.html",
+        "name": "查询系统参数（LST PSYSPARA）",
+        "parentTopicId": "MMLREF_0167452643",
+        "position": "4.2.5.1.2.2",
+        "parentPosition": "4.2.5.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

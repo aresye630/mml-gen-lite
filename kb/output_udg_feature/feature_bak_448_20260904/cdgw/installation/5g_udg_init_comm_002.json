@@ -1,0 +1,86 @@
+{
+  "feature_name": "基于OSPF路由自动部署融合UDG配置实例（IPv4）",
+  "feature_description": "本任务实例实现以下场景配置：\n\nUDG与对端设备（gNodeB/eNodeB、ULCL UPF/BP UPF/I-UPF/SGW-U/ePDG、SGSN、PSA UPF/PGW-U、SMF/PGW-C/SGW-C、DN/PDN）通过OSPF动态路由绑定动态BFD实现网络互通。\n\n- 网络形态：2/3/4/5G融合网络\n- 网元形态：UDG融合网元\n- 路由协议：OSPF动态路由自动部署\n- 组网IP格式：IPv4组网\n- 接入用户：IPv4单栈用户\n\n**说明** \n\n本文所描述的UDG为融合部署形态，融合I-UPF和PSA UPF，对于不同的组网用户接入时，其承担的角色不同。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0169093636",
+        "topicUrl": "cdgw/installation/5g_udg_init_comm_001.html",
+        "name": "典型配置实例",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0170196672",
+        "topicUrl": "cdgw/installation/5g_udg_init_comm_002.html",
+        "name": "基于OSPF路由自动部署融合UDG配置实例（IPv4）",
+        "parentTopicId": "TOPIC_0169093636",
+        "position": "8.1",
+        "parentPosition": "8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

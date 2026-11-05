@@ -1,0 +1,105 @@
+{
+  "feature_name": "NRF解决方案垂直分层组网+双活容灾部署配置实例",
+  "feature_description": "- NRF双活容灾组网的相关配置已完成，详细参考NRF解决方案基本功能配置实例（NRF双活容灾+ NF注册/更新/去注册、NF订阅/通知+NF发现）。\n- 主备NRF上的号段信息配置已完成，且主备配置一致。\n- 对于大型运营商网络，为了便于实现灵活自动化网络管理，需要分层部署NRF，最高层NRF实现运营商网络内所有NF/NFS管理。\n\n  本章节以双层组网为例，如图1所示。\n\n  **图1** 双层+容灾组网举例",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVE38493D5E5D04CF5B8C84462D873F375",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229279861",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NRF解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "NRF解决方案##网络自治##NRF",
+          "pid_shortdesc": "介绍5G core端到端网络自治解决方案的详细原理，具体部署及网络自治问题处理。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303319",
+        "topicUrl": "toctopics/zh-cn_topic_0166303319.html",
+        "name": "NRF功能部署",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303337",
+        "topicUrl": "toctopics/zh-cn_topic_0166303337.html",
+        "name": "4/5G融合部署",
+        "parentTopicId": "TOPIC_0166303319",
+        "position": "3.2",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0296805288",
+        "topicUrl": "toctopics/zh-cn_topic_0296805288.html",
+        "name": "NRF多层容灾组网",
+        "parentTopicId": "TOPIC_0166303337",
+        "position": "3.2.5",
+        "parentPosition": "3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "OPI_0296805292",
+        "topicUrl": "toctopics/zh-cn_opi_0296805292.html",
+        "name": "NRF解决方案垂直分层组网+双活容灾部署配置实例",
+        "parentTopicId": "TOPIC_0296805288",
+        "position": "3.2.5.3",
+        "parentPosition": "3.2.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

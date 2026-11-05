@@ -1,0 +1,107 @@
+{
+  "command_name": "GET MIGRATION",
+  "command_name_zh": "获取跨分区用户迁移文件",
+  "command_name_full": "获取跨分区用户迁移文件（GET MIGRATION）",
+  "command_function": "该命令用于获取迁移回退失败用户的列表文件或因异常原因终止的用户迁移任务的列表文件。\n\n- 当执行迁移回退任务时，如果存在迁移回退失败的用户，可以通过执行该命令收集回退失败用户列表文件并上传到PGW Web LMT“文件管理器”供工程师下载。\n- 当执行迁移任务时，如果存在异常场景，例如模块故障，重启等，可以通过执行该命令收集用户迁移任务的列表文件并上传到PGW Web LMT“文件管理器”供工程师下载。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169394",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/system_management.html",
+        "name": "系统管理（MVNO）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.2",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000001491136606",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/node/migration_management.html",
+        "name": "跨分区用户迁移管理",
+        "parentTopicId": "MMLREF_0173169394",
+        "position": "4.2.2.19",
+        "parentPosition": "4.2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001541576565",
+        "topicUrl": "be/reference/web_lmt/system_mgt_mvno/doc/get_migration.html",
+        "name": "获取跨分区用户迁移文件（GET MIGRATION）",
+        "parentTopicId": "CONCEPT_0000001491136606",
+        "position": "4.2.2.19.6",
+        "parentPosition": "4.2.2.19",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

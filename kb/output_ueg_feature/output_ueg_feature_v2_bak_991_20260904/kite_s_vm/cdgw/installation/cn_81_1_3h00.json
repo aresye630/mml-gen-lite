@@ -1,0 +1,315 @@
+{
+  "feature_name": "配置会话接入数据",
+  "feature_description": "客户部署MEC本地分流或4G/5G互操作网络时，UEG作为UL CL UPF + 辅锚点UPF或者主锚点UPF时均需要配置会话接入数据，才能使用户完成激活流程并接入网络。",
+  "full_nav": [
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389892933",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389892933.html",
+        "name": "初始配置与调测（共享式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.1",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339212992",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339212992.html",
+        "name": "初始配置与调测（共享式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001389892933",
+        "position": "4.1.2",
+        "parentPosition": "4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188591741_2",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188591741.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001339212992",
+        "position": "4.1.2.3",
+        "parentPosition": "4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001142671830_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001142671830.html",
+        "name": "配置主锚点UPF",
+        "parentTopicId": "TOPIC_0000001188591741_2",
+        "position": "4.1.2.3.6",
+        "parentPosition": "4.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0168634166_1",
+        "topicUrl": "kite_s_vm/cdgw/installation/cn_81_1_3h00.html",
+        "name": "配置会话接入数据",
+        "parentTopicId": "TOPIC_0000001142671830_1",
+        "position": "4.1.2.3.6.8",
+        "parentPosition": "4.1.2.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "云网（连接+计算，入驻式或共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVDFFD848DFCA24244AA2416C184D99B0E",
+        "parentNaviId": "DOCNAV9E56DA0C38344B2CA468076278F7D802",
+        "pidId": "pid_bookmap_0000002254761526",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，带计算）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001151998185",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001151998185.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001389892933",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001389892933.html",
+        "name": "初始配置与调测（共享式UPF）",
+        "parentTopicId": "TOPIC_0000001151998185",
+        "position": "4.1",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001339212992",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001339212992.html",
+        "name": "初始配置与调测（共享式边缘UPF，SDN）",
+        "parentTopicId": "TOPIC_0000001389892933",
+        "position": "4.1.2",
+        "parentPosition": "4.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001188591741_2",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001188591741.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001339212992",
+        "position": "4.1.2.3",
+        "parentPosition": "4.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "TOPIC_0000001142671830_1",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001142671830.html",
+        "name": "配置主锚点UPF",
+        "parentTopicId": "TOPIC_0000001188591741_2",
+        "position": "4.1.2.3.6",
+        "parentPosition": "4.1.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761526",
+        "topicId": "OPI_0168634166_1",
+        "topicUrl": "kite_s_vm/cdgw/installation/cn_81_1_3h00.html",
+        "name": "配置会话接入数据",
+        "parentTopicId": "TOPIC_0000001142671830_1",
+        "position": "4.1.2.3.6.8",
+        "parentPosition": "4.1.2.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146420245",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146420245.html",
+        "name": "UEG初始配置（风筝S）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001188591741_1",
+        "topicUrl": "kite_s_vm/vm_shared_ref_nonsdn.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001146420245",
+        "position": "4.3",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001142671830_3",
+        "topicUrl": "kite_s_vm/vm_shared_psa1_nonsdn.html",
+        "name": "配置主锚点UPF",
+        "parentTopicId": "TOPIC_0000001188591741_1",
+        "position": "4.3.6",
+        "parentPosition": "4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0168634166_1",
+        "topicUrl": "kite_s_vm/cdgw/installation/cn_81_1_3h00.html",
+        "name": "配置会话接入数据",
+        "parentTopicId": "TOPIC_0000001142671830_3",
+        "position": "4.3.6.8",
+        "parentPosition": "4.3.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

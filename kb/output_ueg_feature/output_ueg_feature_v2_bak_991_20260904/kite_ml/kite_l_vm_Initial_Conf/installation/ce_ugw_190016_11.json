@@ -1,0 +1,117 @@
+{
+  "feature_name": "配置动态路由OSPFv3+BFD组网（IPv6）",
+  "feature_description": "VNF与对端设备可通过OSPF动态路由绑定IPv6动态BFD探测的方式进行组网连接，该方式适用于IPv6组网的网络中。\n\n在网络拓扑结构复杂、设备与IP路由繁多的网络部署时，通常使用OSPF动态路由方式发布路由。同时，利用BFD双向转发检测机制为链路提供双向、轻负荷且持续时间短的快速检测功能，提高链路可靠性。\n\n如图1所示为VNF与周边网元的OSPF动态路由互通组网示意图。VNF和网关运行动态路由协议而接入运营商/企业网络。PE（Provider Edge）的路由配置请参考运营商的网络规划配置。\n\n**图1** OSPFv3动态路由+IPv6 BFD组网",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199587738",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199587738.html",
+        "name": "UEG初始配置（风筝L）",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001196529620",
+        "topicUrl": "toctopics/zh-cn_topic_0000001196529620.html",
+        "name": "参考：详细配置指导",
+        "parentTopicId": "TOPIC_0000001199587738",
+        "position": "4.5",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001199180892_2",
+        "topicUrl": "toctopics/zh-cn_topic_0000001199180892.html",
+        "name": "组网路由配置（虚机容器）",
+        "parentTopicId": "TOPIC_0000001196529620",
+        "position": "4.5.7",
+        "parentPosition": "4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001484765430",
+        "topicUrl": "toctopics/zh-cn_opi_0000001484765430.html",
+        "name": "配置VNF侧IP路由数据",
+        "parentTopicId": "TOPIC_0000001199180892_2",
+        "position": "4.5.7.1",
+        "parentPosition": "4.5.7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0216653305_3",
+        "topicUrl": "kite_ml/kite_l_vm_Initial_Conf/installation/ce_ugw_190009_81.html",
+        "name": "自动部署（推荐）",
+        "parentTopicId": "OPI_0000001484765430",
+        "position": "4.5.7.1.1",
+        "parentPosition": "4.5.7.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0216653296_2",
+        "topicUrl": "kite_ml/kite_l_vm_Initial_Conf/installation/ce_ugw_190016_11.html",
+        "name": "配置动态路由OSPFv3+BFD组网（IPv6）",
+        "parentTopicId": "TOPIC_0216653305_3",
+        "position": "4.5.7.1.1.4",
+        "parentPosition": "4.5.7.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

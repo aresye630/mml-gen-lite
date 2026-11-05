@@ -1,0 +1,143 @@
+{
+  "command_name": "RBL BGPPEER",
+  "command_name_zh": "复位BGP邻居",
+  "command_name_full": "复位BGP邻居（RBL BGPPEER）",
+  "command_function": "**须知** \n\n本命令属于高危命令，操作不当会导致邻居断连，请谨慎使用并联系华为技术支持协助操作。\n\n该命令用于重置某地址族下某地址邻居。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876210_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.2",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103116156_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/femf_n_virtualized_network_routing_management.html",
+        "name": "VNRS功能管理",
+        "parentTopicId": "CONCEPT_0000202102876210_1",
+        "position": "1.2.11",
+        "parentPosition": "1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202103595642_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_ip_service.html",
+        "name": "IP服务",
+        "parentTopicId": "CONCEPT_0000202103116156_1",
+        "position": "1.2.11.4",
+        "parentPosition": "1.2.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289154999_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_route_management.html",
+        "name": "路由管理",
+        "parentTopicId": "CONCEPT_0000202103595642_1",
+        "position": "1.2.11.4.10",
+        "parentPosition": "1.2.11.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202289315637_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_bgp_management.html",
+        "name": "BGP管理",
+        "parentTopicId": "CONCEPT_0000202289154999_1",
+        "position": "1.2.11.4.10.1",
+        "parentPosition": "1.2.11.4.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000202102876324_1",
+        "topicUrl": "kite_s_vm/MML/LinkedDoc/vnrs_vnfc_n_reset_bgp_peer.html",
+        "name": "复位BGP对等体",
+        "parentTopicId": "CONCEPT_0000202289315637_1",
+        "position": "1.2.11.4.10.1.28",
+        "parentPosition": "1.2.11.4.10.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000001549802162_2",
+        "topicUrl": "kite_s_vm/MML/Document/rbl_bgppeer.html",
+        "name": "复位BGP邻居（RBL BGPPEER）",
+        "parentTopicId": "CONCEPT_0000202102876324_1",
+        "position": "1.2.11.4.10.1.28.1",
+        "parentPosition": "1.2.11.4.10.1.28",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "feature_name": "部署基于位置信息的分流策略控制（SMF）",
+  "feature_description": "本操作用于指导基于位置信息的分流策略控制特性关于SMF上UL CL UPF选择及策略匹配配置的操作过程。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450966",
+        "topicUrl": "toctopics/zh-cn_topic_0248450966.html",
+        "name": "MEC解决方案",
+        "parentTopicId": "",
+        "position": "28",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001764064916",
+        "topicUrl": "toctopics/zh-cn_topic_0000001764064916.html",
+        "name": "WSFD-223001 基于位置信息的分流策略控制",
+        "parentTopicId": "TOPIC_0248450966",
+        "position": "28.3",
+        "parentPosition": "28",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001153995959",
+        "topicUrl": "toctopics/zh-cn_opi_0000001153995959.html",
+        "name": "部署基于位置信息的分流策略控制（SMF）",
+        "parentTopicId": "TOPIC_0000001764064916",
+        "position": "28.3.5",
+        "parentPosition": "28.3",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

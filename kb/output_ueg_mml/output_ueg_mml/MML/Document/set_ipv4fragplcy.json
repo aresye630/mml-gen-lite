@@ -1,0 +1,143 @@
+{
+  "command_name": "SET IPV4FRAGPLCY",
+  "command_name_zh": "设置IPv4报文分片策略",
+  "command_name_full": "设置IPv4报文分片策略（SET IPV4FRAGPLCY）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n该命令用来配置逻辑接口的分片处理策略。\n\n在逻辑接口IPv4组网场景下，报文入隧道加封装后，如果报文长度（根据FRAGLENGTHOPT的配置可以选择内层/外层IP报文长度）大于本端逻辑接口的IPv4 MTU，则做分片处理，可以使用该命令配置分片处理策略：\n\n1、对于加隧道封装后内层是IPv4的报文，存在两种分片策略：一是配置成做内层IPv4分片，二是做外层IPv4分片，若之前未配置过内层为IPv4的分片策略，默认是做外层IPv4分片。在判断是否对内层IPv4报文进行分片时，可以选择与MTU相比较的是内层还是外层IP报文长度，外层报文长度包括内层IP报文长度以及外层封装部分的长度，默认采用内层IP报文长度与MTU比较。\n\n2、对于加隧道封装后内层是IPv6的报文，存在两种策略可配置：一是做外层IPv4分片，二是回复Too Big报文，对于上行报文，给UE侧回复Too Big，对于下行报文，则给SERVER侧回复Too Big。若配置为回复Too Big，则需继续对原报文处理策略，对原报文可选择丢弃或继续按照外层分片转发，默认情况下回复Too Big报文。\n\n3、如果配置为外层IPv4分片策略，并且隧道封装类型是IPv4，按照物理口的MTU值进行分片。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202589477600",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.2",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289315825_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_service_control_policy.html",
+        "name": "业务控制策略",
+        "parentTopicId": "CONCEPT_0000202589477600",
+        "position": "2.2.3.2.5",
+        "parentPosition": "2.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202103356104_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_transport_layer_control.html",
+        "name": "传输层控制",
+        "parentTopicId": "CONCEPT_0000202289315825_3",
+        "position": "2.2.3.2.5.9",
+        "parentPosition": "2.2.3.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202289155207_3",
+        "topicUrl": "MML/LinkedDoc/udg_n_ipv4_frag_policy.html",
+        "name": "IPv4分片策略",
+        "parentTopicId": "CONCEPT_0000202103356104_3",
+        "position": "2.2.3.2.5.9.2",
+        "parentPosition": "2.2.3.2.5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0182837699_3",
+        "topicUrl": "MML/Document/set_ipv4fragplcy.html",
+        "name": "设置IPv4报文分片策略（SET IPV4FRAGPLCY）",
+        "parentTopicId": "CONCEPT_0000202289155207_3",
+        "position": "2.2.3.2.5.9.2.1",
+        "parentPosition": "2.2.3.2.5.9.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

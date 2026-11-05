@@ -1,0 +1,105 @@
+{
+  "feature_name": "NRF解决方案基本功能配置实例（NF发现）",
+  "feature_description": "NRF支持NF/NFS服务发现功能，当NF需要某些特定服务时，向NRF请求发现可用服务，NRF基于已注册的NF/NFS进行筛选，将可用NF/NFS发送给NF。NRF支持基于不同选择条件进行特定NF的选择，有助于不同组网方式下的NF选择。目前NRF主要支持：\n\n- AMF基于多维属性策略选择SMF、PCF、SMSF。\n- SMF基于多维属性策略选择UDM、PCF。\n\n**说明** \n\n- SMF基于SUPI或GPSI选择CHF系统直接支持，无需配置。\n- 当被选择的NF或NF服务注册了多个IP时，AMF随机选择其中一个IP进行业务，当此IP故障时，AMF再随机选择其他IP；当故障的IP恢复正常后，此IP地址继续作为备选IP进入后续随机选择的范围。\n- NF服务发现过程中，NF对查询发现结果列表有缓存功能，NF服务发现缓存时长可以自定义配置。配置方法请参考《UNC产品文档》“网络部署 > 初始配置与调测”。\n- NF注册到NRF时，如果注册信息中没有携带IP地址，只有FQDN，NF间交互时需要使用DNS查询获取对端NF的IP地址，DNS查询需要配置。配置方法请参考《UNC产品文档》“网络部署 > 初始配置与调测”。\n- 当AMF同时配置了多种选择策略时，NRF会同时基于所有选择条件选择符合的SMF；如果没有同时满足多种选择策略的SMF时，NRF返回空代表没有符合的SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务专题",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVE38493D5E5D04CF5B8C84462D873F375",
+        "parentNaviId": "DOCNAV99D4BDDACDAC4DB69549C6C6AA95D9C8",
+        "pidId": "pid_bookmap_0000002229279861",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "5G Core NRF解决方案",
+        "nameIdList": [
+          "release",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_8463"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "pid_type": [
+            "pid_type_8463"
+          ]
+        },
+        "properties": {
+          "keywords": "NRF解决方案##网络自治##NRF",
+          "pid_shortdesc": "介绍5G core端到端网络自治解决方案的详细原理，具体部署及网络自治问题处理。"
+        }
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303319",
+        "topicUrl": "toctopics/zh-cn_topic_0166303319.html",
+        "name": "NRF功能部署",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0166303320",
+        "topicUrl": "toctopics/zh-cn_topic_0166303320.html",
+        "name": "5G独立部署",
+        "parentTopicId": "TOPIC_0166303319",
+        "position": "3.1",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "TOPIC_0284982032",
+        "topicUrl": "toctopics/zh-cn_topic_0284982032.html",
+        "name": "NRF单层非容灾组网",
+        "parentTopicId": "TOPIC_0166303320",
+        "position": "3.1.2",
+        "parentPosition": "3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002229279861",
+        "topicId": "OPI_0296411389",
+        "topicUrl": "toctopics/zh-cn_opi_0296411389.html",
+        "name": "NRF解决方案基本功能配置实例（NF发现）",
+        "parentTopicId": "TOPIC_0284982032",
+        "position": "3.1.2.2",
+        "parentPosition": "3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

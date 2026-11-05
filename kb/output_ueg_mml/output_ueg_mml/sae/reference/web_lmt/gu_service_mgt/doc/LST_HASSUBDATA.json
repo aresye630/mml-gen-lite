@@ -1,0 +1,119 @@
+{
+  "command_name": "LST HASSUBDATA",
+  "command_name_zh": "查询用户的AS订阅数据信息",
+  "command_name_full": "查询用户的AS订阅数据信息(LST HASSUBDATA)",
+  "command_function": "该命令用于查询指定IMPU用户或PUSI用户中被AS订阅的数据信息。\n\nAS可以通过向HSS发送SNR消息订阅指定用户的某类签约数据，完成订阅后，该数据更新时HSS会通过PNR消息将更新的数据发送给订阅的AS。\n\n当命令的“参数标识”指定为“IMPU”时，可以查询：\n\n- 对IMSUserState的订阅数据。\n- 对S-CSCFName的订阅数据。\n- 对iFC的订阅数据。\n- 对RepositoryData的订阅数据。\n- 对别名RepositoryData的订阅数据。\n- 对别名IMPUs的订阅数据。\n- 对IMSI的订阅数据。\n- 对UE-SRVCC-Capability的订阅数据。\n- 对ChargingInformation的订阅数据。\n- 对IP-address-secure-binding-information的订阅数据。\n- 对IMSPrivateUserIdentity的订阅数据。\n- 对隐式注册集IMPUs的订阅数据。\n- 对注册IMPUs的订阅数据。\n- 对所有IMPUs的订阅数据。\n- 订阅数据失效日期。\n\n当命令的“参数标识”指定为“PUSI”时，可以查询：\n\n- 对S-CSCFName的订阅数据。\n- 对iFC的订阅数据。\n- 对RepositoryData的订阅数据。\n- PUSI的激活状态的订阅通知。\n- 对ChargingInformation的订阅数据。\n- 对隐式注册集IMPUs的订阅数据。\n- 对所有IMPUs的订阅数据。\n- 订阅数据失效日期。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732466",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/IMS_Service_Data_Management.html",
+        "name": "业务数据管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.4",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732542",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/Subscriber_Dynamic_Data_Management.html",
+        "name": "用户动态数据管理",
+        "parentTopicId": "MMLREF_0191732466",
+        "position": "4.2.4.4.25",
+        "parentPosition": "4.2.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732473",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/LST_HASSUBDATA.html",
+        "name": "查询用户的AS订阅数据信息(LST HASSUBDATA)",
+        "parentTopicId": "CONCEPT_0191732542",
+        "position": "4.2.4.4.25.2",
+        "parentPosition": "4.2.4.4.25",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

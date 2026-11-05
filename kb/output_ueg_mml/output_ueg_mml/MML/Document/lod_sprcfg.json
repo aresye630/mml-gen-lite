@@ -1,0 +1,143 @@
+{
+  "command_name": "LOD SPRCFG",
+  "command_name_zh": "加载外置SPR配置信息",
+  "command_name_full": "加载外置SPR配置信息（LOD SPRCFG）",
+  "command_function": "**须知** \n\n此命令是高危命令，如果执行不当会导致系统异常，需联系华为技术支持确认后再执行。\n\n该命令用于加载外置SPR配置信息。\n\n该命令的使用场景：当运营商的一些数据信息（例如全部用户数据和签约数据）存储在外置SPR时，UPCF支持通过基于LDAP协议的Sp接口与外置SPR对接和交互，从而获取用户数据。\n\nUPCF和外置SPR交互前，必须加载外置SPR配置文件。操作步骤如下：\n\n1. 从Tools.zip软件包中获取SPR\\_CFG.zip，解压SPR\\_CFG.zip后得到外置SPR配置文件。\n2. 维护人员登录“OM Portal”，选择“系统 > 文件传输”。\n3. 选择“应用文件”目录，单击“添加文件”后选择外置SPR配置文件上传。\n4. 上传外置SPR配置文件成功后，选择“应用管理 > MML”，在UPCF网元下执行该命令。\n\n   其中参数“配置文件名称”取值为外置SPR配置文件的名称。\n5. 当该命令执行后，需要执行命令DSP SPRCFG查看“配置数据加载状态”：\n   - 当“配置数据加载状态”为“加载成功”，则表示外置SPR配置文件加载成功。\n   - 当“配置数据加载状态”为“模板格式错误”，则表示外置SPR配置文件解码失败，请联系华为技术支持。\n   - 当“配置数据加载状态”为“加载中”，则表示外置SPR配置文件未加载完成，请等待全局数据刷新周期（通过执行**LST PCFINSP**命令可查询“GLOBALDATAREFRESHCYCLE（全局数据刷新周期）”）后重新执行命令DSP SPRCFG查看“配置数据加载状态”。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789757765",
+        "topicUrl": "MML/LinkedDoc/pcf_services_management.html",
+        "name": "PCF服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.5",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0173173188",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_pes_management.html",
+        "name": "PES管理",
+        "parentTopicId": "CONCEPT_0000202789757765",
+        "position": "2.2.3.5.11",
+        "parentPosition": "2.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0177625706",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_service_management.html",
+        "name": "服务管理",
+        "parentTopicId": "TOPIC_0173173188",
+        "position": "2.2.3.5.11.3",
+        "parentPosition": "2.2.3.5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0312754390",
+        "topicUrl": "MML/LinkedDoc/pcfpolicyengineservice_n_external_spr_configuration_information.html",
+        "name": "外置SPR配置信息",
+        "parentTopicId": "TOPIC_0177625706",
+        "position": "2.2.3.5.11.3.4",
+        "parentPosition": "2.2.3.5.11.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000204316009127",
+        "topicUrl": "MML/Document/lod_sprcfg.html",
+        "name": "加载外置SPR配置信息（LOD SPRCFG）",
+        "parentTopicId": "CONCEPT_0312754390",
+        "position": "2.2.3.5.11.3.4.1",
+        "parentPosition": "2.2.3.5.11.3.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

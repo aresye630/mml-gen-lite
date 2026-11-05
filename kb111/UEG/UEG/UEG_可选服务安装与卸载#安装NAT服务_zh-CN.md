@@ -1,0 +1,92 @@
+---
+id: ''
+name: 安装NAT服务
+ne_type: UEG
+type: feature
+description: NAT(Network Address Translation)服务应用场景：当用户从私有网络（私有IP地址）访问公有网络（公有IP地址）时，使用NAT功能将私有地址转换为公有地址，实现业务访问。  仅当UEG网元需要部署NAT功能，才需要安装NAT服务。  **在CSPedge裸机场景下，需要先**实例化UEG，**然后**再参考本章节，**动态上线**NAT服务。
+tags: []
+risk_level: ''
+doc_source: ["网络部署","园区入驻式（仅连接）","5GC toB 部署边缘站点（站点为“风筝S”，入驻式）","裸机容器模式","UEG软件安装（风筝S）","已预安装UEG","UEG软件安装（已预安装）","可选服务安装与卸载","安装NAT服务"]
+refs: []
+metadata:
+  DepOnLiveCfg: false
+allowed-tools: []
+---
+<!-- @mml:block= annotations -->
+```text
+## 操作场景
+NAT(Network Address Translation)服务应用场景：当用户从私有网络（私有IP地址）访问公有网络（公有IP地址）时，使用NAT功能将私有地址转换为公有地址，实现业务访问。仅当UEG网元需要部署NAT功能，才需要安装NAT服务。**在CSPedge裸机场景下，需要先**实例化UEG，**然后**再参考本章节，**动态上线**NAT服务。
+
+## 必备事项
+前提条件
+
+前提条件
+
+* 已经实例化UEG。已经检查系统运行状态，UEG正常工作。
+* 准备好部署所需要的镜像文件“5G-UP-VASs-UEG-NAT\_xx.x.x\_EDGE\_X86.zip ” 或“5G-UP-VASs-UEG-NAT\_xx.x.x\_EDGE\_ARM.zip ”。
+
+  NAT的镜像文件请从5G UP VASs下获取。
+* 如果NAT服务带补丁动态上线，需要准备好补丁包“5G-UP-VASs-UEG-NAT-Service\_xx.x.x\_PATCH\_EDGE\_X86.zip ” 或“5G-UP-VASs-UEG-NAT-Service\_xx.x.x\_PATCH\_EDGE\_ARM.zip ”。补丁包请从5G UP VASs下获取。
+* 准备好部署所需要的tosca模板：
+  + **UEG-S**的tosca模板为UEG-NAT\_xx.x.x\_TOSCA\_LITE-E9000H-2\_EDGE\_X86.zip或UEG-NAT\_xx.x.x\_TOSCA\_LITE-E9000H-2\_EDGE\_ARM.zip。
+  + tosca模板包请从UEG下获取。
+
+* 部署应用的同时禁止执行升级、补丁、备份恢复和扩缩容操作。
+* 部署应用的同时如果有备份任务正在执行，会导致部署失败。因此，部署应用前请选择“应用管理>备份恢复>自动备份”，单击“设置自动备份”进入自动备份设置界面，将“自动备份开关”置为关闭状态。等待部署应用完毕后，再将“自动备份开关”置为开启状态。
+* 上下线本服务时，不能同时上下线其他部件。
+* 当动态上线一个服务的任务失败；必须先动态下线此服务，再重新触发动态上线任务。如果是动态下线失败，只能继续重新触发动态下线任务。
+```
+
+## 2 输入参数变量定义
+<!-- @mml:block= params -->
+```yaml
+schemas:
+  properties: {}
+  examples: {}
+```
+
+## 3 命令模板定义
+<!-- @mml:block= commands -->
+
+### 1 检查**软件包**，确保已经上传依赖的软件包。
+
+#### 1.1 登录OM Portal，单击“软件中心> 软件仓库 > 应用仓库”单击“添加”进行软件包上传。
+
+#### 1.2 选择“5G-UP-VASs-UEG-NAT\_xx.x.x\_EDGE\_X86.zip ”、“5G-UP-VASs-UEG-NAT-Service\_xx.x.x\_PATCH\_EDGE\_X86.zip”（补丁包，可选），或者“5G-UP-VASs-UEG-NAT\_xx.x.x\_EDGE\_ARM.zip ”、“5G-UP-VASs-UEG-NAT-Service\_xx.x.x\_PATCH\_EDGE\_ARM.zip”（补丁包，可选）进行上传。当软件包状态变为“准备上传”，单击“上传”，完成NAT软件包上传过程。
+
+### 2 上传tosca模板。
+
+#### 2.1 选择“软件中心> 软件仓库 > 流程文件”单击“添加”。
+
+#### 2.2 单击“选择上传文件”，上传tosca模板，设置基本信息，包括“流程文件名称”、“版本”、“发布者”和“描述”，然后单击“创建”。
+
+### 3 创建NAT应用。
+
+#### 3.1 选择“应用管理> 应用部署”，单击“创建应用”。
+
+#### 3.2 在“资源准备”界面，选择“已添加服务器”，单击“下一步”。
+
+#### 3.3 在“流程文件和软件包准备”界面，选中NAT的tosca模板作为流程文件，单击“下一步”。
+
+#### 3.4 在“应用信息设置”界面，“通用参数”页签均保持默认值，“show”页签的“Language”参数需修改为与主网元语言一致（chinese或者english），“show”页签的其他所有参数均保持默认值，单击“下一步”，随后再单击“下一步”。
+
+#### 3.5 在“创建前检查”界面，先单击“开始检查”，检查完成后再单击“启动创建”。显示“应用创建成功”即创建服务任务成功。
+
+#### **图1** 开始检查
+
+#### **图2** 启动创建
+
+#### 3.6 选择“应用管理> 应用部署”，查看ueg-nat堆栈的“操作状态”，当“操作状态”显示为“创建成功”时即NAT服务创建完成。
+
+### 4 登录OM Portal的MML界面。执行命令（UEG-S在CSP视图），确认已经成功实例化NAT Pod。
+
+### **UEG-S****：**
+
+### 回显pod个数和规划一致，且“Pod状态”为“Running”。
+
+### 5 执行命令（UEG-S在UEG视图），查询进程的状态。
+
+### **UEG-S****：**
+
+### 预期结果：“未就绪进程数”和“故障进程数”均为0。
+

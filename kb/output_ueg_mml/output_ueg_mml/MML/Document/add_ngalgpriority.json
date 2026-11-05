@@ -1,0 +1,143 @@
+{
+  "command_name": "ADD NGALGPRIORITY",
+  "command_name_zh": "增加5G算法优先级属性",
+  "command_name_full": "增加5G算法优先级属性（ADD NGALGPRIORITY）",
+  "command_function": "**须知** \n\n执行该命令配置的加密性算法或者完整性算法优先级不合理，可能导致终端接入异常。\n\n**适用NF：AMF**\n\n该命令用于增加加密或完整性算法的优先级属性。\n\nAMF根据加密或完整性算法的优先级属性，在UE和AMF同时支持的前提下，选择优先级最高的算法发送给UE，用以对NAS消息的加密和完整性保护。如果所有算法均未设置优先级属性，系统会根据各算法的默认优先级属性（从高到低依次为AES、SNOW 3G、ZUC、空加密算法）和UE进行协商，最终确定采用的加密或完整性算法。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322624",
+        "topicUrl": "MML/LinkedDoc/unc_n_5g_access_service_management.html",
+        "name": "5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.3",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234322648",
+        "topicUrl": "MML/LinkedDoc/unc_n_service_security_management.html",
+        "name": "业务安全管理",
+        "parentTopicId": "TOPIC_0234322624",
+        "position": "2.2.3.3.3.1",
+        "parentPosition": "2.2.3.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234320737",
+        "topicUrl": "MML/LinkedDoc/unc_n_security_algorithm_priority_management.html",
+        "name": "安全算法优先级管理",
+        "parentTopicId": "TOPIC_0234322648",
+        "position": "2.2.3.3.3.1.1",
+        "parentPosition": "2.2.3.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0209652959",
+        "topicUrl": "MML/Document/add_ngalgpriority.html",
+        "name": "增加5G算法优先级属性（ADD NGALGPRIORITY）",
+        "parentTopicId": "TOPIC_0234320737",
+        "position": "2.2.3.3.3.1.1.1",
+        "parentPosition": "2.2.3.3.3.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

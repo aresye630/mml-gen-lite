@@ -1,0 +1,119 @@
+{
+  "command_name": "DSP INTERFACEPERF",
+  "command_name_zh": "查询逻辑口报文统计信息",
+  "command_name_full": "查询逻辑口报文统计信息（DSP INTERFACEPERF）",
+  "command_function": "**适用NF：MPF**\n\n该命令用来查看接口当前运行状态和接口统计信息。在监控接口的状态或检查接口的故障原因时，可执行该命令获取接口的状态信息和统计信息。用户可以根据这些信息进行流量统计和接口的故障诊断等。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAVECF1465056004682A646E16549E84799",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327317",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝S，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "TOPIC_0000001169029745",
+        "topicUrl": "toctopics/zh-cn_topic_0000001169029745.html",
+        "name": "UEG MML命令（虚机容器）",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201255441906",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_mec_data_plane_management.html",
+        "name": "MEC数据面管理",
+        "parentTopicId": "TOPIC_0000001169029745",
+        "position": "1.8",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201442576789",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_logic_interface_management.html",
+        "name": "逻辑接口管理",
+        "parentTopicId": "CONCEPT_0000201255441906",
+        "position": "1.8.1",
+        "parentPosition": "1.8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201254728854",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_logic_interface_statistic.html",
+        "name": "逻辑接口统计",
+        "parentTopicId": "CONCEPT_0000201442576789",
+        "position": "1.8.1.1",
+        "parentPosition": "1.8.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201443133901",
+        "topicUrl": "kite_s_vm/mpf_om/MML/LinkedDoc/mdp_n_interface_statistics.html",
+        "name": "接口统计",
+        "parentTopicId": "CONCEPT_0000201254728854",
+        "position": "1.8.1.1.1",
+        "parentPosition": "1.8.1.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327317",
+        "topicId": "CONCEPT_0000201260296096",
+        "topicUrl": "kite_s_vm/mpf_om/MML/Document/dsp_interfaceperf.html",
+        "name": "查询逻辑口报文统计信息（DSP INTERFACEPERF）",
+        "parentTopicId": "CONCEPT_0000201443133901",
+        "position": "1.8.1.1.1.1",
+        "parentPosition": "1.8.1.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

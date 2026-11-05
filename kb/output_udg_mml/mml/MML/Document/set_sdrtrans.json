@@ -1,0 +1,107 @@
+{
+  "command_name": "SET SDRTRANS",
+  "command_name_zh": "设置SDR传输能力",
+  "command_name_full": "设置SDR传输能力（SET SDRTRANS）",
+  "command_function": "**须知** \n\n该命令是高危命令，操作不当可能会导致业务受损，请谨慎使用并联系华为技术支持协助操作。可靠传输能力与安全传输能力有关联关系，操作前请参考联机帮助。\n\n该命令用于设置SDR传输能力。SDR传输能力包括可靠传输能力和安全传输能力。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202102876210",
+        "topicUrl": "MML/LinkedDoc/platform_n_framework_management.html",
+        "name": "平台服务管理",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555225",
+        "topicUrl": "MML/LinkedDoc/sdrs_n_service_communication_management.html",
+        "name": "服务通信管理",
+        "parentTopicId": "CONCEPT_0000202102876210",
+        "position": "4.21",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103355994",
+        "topicUrl": "MML/LinkedDoc/sdrs_n_transmission_ability_control.html",
+        "name": "传输能力控制",
+        "parentTopicId": "CONCEPT_0000202289555225",
+        "position": "4.21.2",
+        "parentPosition": "4.21",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "MMLREF_0230310143",
+        "topicUrl": "MML/Document/set_sdrtrans.html",
+        "name": "设置SDR传输能力（SET SDRTRANS）",
+        "parentTopicId": "CONCEPT_0000202103355994",
+        "position": "4.21.2.1",
+        "parentPosition": "4.21.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

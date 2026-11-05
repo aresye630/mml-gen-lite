@@ -1,0 +1,131 @@
+{
+  "command_name": "DSP SEGSTATE",
+  "command_name_zh": "查询隔离状态",
+  "command_name_full": "查询隔离状态(DSP SEGSTATE)",
+  "command_function": "该命令用于显示指定的业务模块的隔离状态。\n\n- 若需要请求系统显示指定Pod上的业务模块的状态信息，请首先输入“隔离模式”参数并取值为“POD(POD)”，然后输入“Pod名称”参数。\n- 若需要请求系统显示某个模块上的业务模块的状态信息，请首先输入“隔离模式”参数并取值为“MODULE(MODULE)”，然后输入“模块号”参数。\n- 若需要请求系统显示某个Pod下某种模块类型中模块号最大的业务模块的状态信息，请首先输入“隔离模式”参数并取值为“POD\\_MAX\\_MODULE(POD最大模块)”，然后输入“Pod名称”参数和“模块类型”参数。\n- 若需要请求系统显示某个平面上的业务模块的状态信息，请首先输入“隔离模式”参数并取值为“PLANE(平面)”，然后输入“平面信息”参数。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782891",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_device_management.html",
+        "name": "设备管理",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.3",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206457038285",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_process_isolation_management.html",
+        "name": "设置隔离状态",
+        "parentTopicId": "CONCEPT_0000203481782891",
+        "position": "2.2.3.4.3.46",
+        "parentPosition": "2.2.3.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170284665_2",
+        "topicUrl": "reference/mml/ueg/Document/dsp_segstate.html",
+        "name": "查询隔离状态(DSP SEGSTATE)",
+        "parentTopicId": "CONCEPT_0000206457038285",
+        "position": "2.2.3.4.3.46.2",
+        "parentPosition": "2.2.3.4.3.46",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

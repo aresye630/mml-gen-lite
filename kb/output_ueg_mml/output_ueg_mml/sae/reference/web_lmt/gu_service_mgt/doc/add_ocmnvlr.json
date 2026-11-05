@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD OCMNVLR",
+  "command_name_zh": "增加支持一卡多号的VLR信息",
+  "command_name_full": "增加支持一卡多号的VLR信息(ADD OCMNVLR)",
+  "command_function": "该命令用于增加虚拟HLR上的VLR号码前缀和MSISDN号码前缀的对应关系，该对应关系用于特殊一卡多号业务用户在漫游地进行CS域位置更新流程中，在下发用户数据时，UDM会先根据位置更新流程中携带的当前VLR号码与该命令配置的VLR前缀号码相比较，根据匹配结果再对本命令已配置的MSISDN号码前缀和用户签约的MSISDN（通过\n\n**SET MULTISDN**\n\n命令签约）进行匹配，根据最终匹配结果决定下发哪个MSISDN号码的数据到当前的MSC/VLR，匹配场景如表1所示：\n\n| 多号码业务用户类型   | 消息携带的VLR号码与该命令配置的VLR前缀是否匹配   | 用户签约的号码与该命令配置的MSISDN前缀是否匹配   | 下发号码           |\n|:------------|:-----------------------------|:-----------------------------|:---------------|\n| OCMN类型      | 不匹配                          | -                            | 下发主号           |\n| OCMN类型      | 匹配                           | 匹配                           | 下发和ISDN前缀匹配的号码 |\n| OCMN类型      | 匹配                           | 不匹配                          | 下发主号           |\n\n**说明** \n\n- 若用户为普通多MSISDN业务用户，则根据MSISDN号码处于的激活状态进行下发，若主MSISDN号码处于激活状态则下发主号，辅MSISDN号码处于激活状态则下发辅号。（用户的业务类型可通过**SET MULTISDN**命令中的“多MSISDN业务类型”参数设置，可通过**LST SUB**命令查询。MSISDN号码的激活状态可通过**MOD MNUG**设置，通过**LST MNUG**查询。）\n- PS/EPS位置更新时，所有场景都下发主号。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803184",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/global_data_management.html",
+        "name": "全局数据管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.2",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802710_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/ocmnvlr.html",
+        "name": "支持一卡多号的VLR信息管理",
+        "parentTopicId": "MMLREF_0190803184",
+        "position": "4.2.3.2.47",
+        "parentPosition": "4.2.3.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190803014_2",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/add_ocmnvlr.html",
+        "name": "增加支持一卡多号的VLR信息(ADD OCMNVLR)",
+        "parentTopicId": "CONCEPT_0190802710_2",
+        "position": "4.2.3.2.47.1",
+        "parentPosition": "4.2.3.2.47",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "command_name": "LST PDYNINFO",
+  "command_name_zh": "查询用户动态信息",
+  "command_name_full": "查询用户动态信息（LST PDYNINFO）",
+  "command_function": "该命令用于在配置数据库中查询用户动态信息。查询结果的第一行显示为用户动态信息，其余行显示为会话数据，具体行数根据实际情况显示。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001295986488",
+        "topicUrl": "toctopics/zh-cn_topic_0000001295986488.html",
+        "name": "UPCF业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.5",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0167452623",
+        "topicUrl": "node/user_data_mml.html",
+        "name": "用户数据命令组",
+        "parentTopicId": "TOPIC_0000001295986488",
+        "position": "4.2.5.2",
+        "parentPosition": "4.2.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452653",
+        "topicUrl": "node/sub_management.html",
+        "name": "用户管理",
+        "parentTopicId": "CONCEPT_0167452623",
+        "position": "4.2.5.2.1",
+        "parentPosition": "4.2.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0167452639",
+        "topicUrl": "doc/lst_pdyninfo.html",
+        "name": "查询用户动态信息（LST PDYNINFO）",
+        "parentTopicId": "MMLREF_0167452653",
+        "position": "4.2.5.2.1.6",
+        "parentPosition": "4.2.5.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

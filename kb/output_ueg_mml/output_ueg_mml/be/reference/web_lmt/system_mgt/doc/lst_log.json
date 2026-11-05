@@ -1,0 +1,107 @@
+{
+  "command_name": "LST LOG",
+  "command_name_zh": "查询操作日志",
+  "command_name_full": "查询操作日志（LST LOG）",
+  "command_function": "本命令用于查询PGW操作日志记录。\n\n- 若需要查询全部操作日志的概要信息，请不要输入任何参数。\n- 若需要查询某条操作日志的详细信息，请输入“系统HLR序列号”或其他参数或这些参数的组合。\n\n**说明** \n\n“保存文件名”参数指定的文件，可以通过“PGW Web LMT”界面左上角的“文件管理器”下载。\n\n“保存文件名”参数指定的文件存放在主备PGW模块所在容器上，容器目录为“/opt/pgw/pgwtmpfile/*SYSHLRSN+OPNAME*”。SYSHLRSN默认为3位数字，不足3位时前面补0。如：SYSHLRSN=1，OPNAME=admin时，最后一层目录为001admin。只有在使用操作员名称*OPNAME*登录过系统HLR序列号*SYSHLRSN*的PGW Web LMT并打开“文件管理器”界面后才会生成最后一层目录*SYSHLRSN+OPNAME*。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169321",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/system_management.html",
+        "name": "系统管理（HLR）",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.1",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0173169348_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/node/log_management.html",
+        "name": "日志管理",
+        "parentTopicId": "MMLREF_0173169321",
+        "position": "4.2.1.9",
+        "parentPosition": "4.2.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169279_2",
+        "topicUrl": "be/reference/web_lmt/system_mgt/doc/lst_log.html",
+        "name": "查询操作日志（LST LOG）",
+        "parentTopicId": "CONCEPT_0173169348_2",
+        "position": "4.2.1.9.1",
+        "parentPosition": "4.2.1.9",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

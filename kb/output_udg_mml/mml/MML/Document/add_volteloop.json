@@ -1,0 +1,107 @@
+{
+  "command_name": "ADD VOLTELOOP",
+  "command_name_zh": "配置VoLTE话路环回功能",
+  "command_name_full": "配置VoLTE话路环回功能（ADD VOLTELOOP）",
+  "command_function": "**适用NF：SGW-U、PGW-U、UPF**\n\n**须知** \n\n本命令属于高危命令，配置了话路环回功能的用户无法进行正常的语音业务。VoLTE话路环回功能主要用于拨测场景下定位语音质量故障问题，开启话路环回功能，会导致通话双方语音业务数据中断，实际部署当中，需要在遵循当地法律允许的目的和范围内启用相应的功能，以确保符合当地通信自由相关的法律要求。\n\n此命令用于配置VoLTE话路环回功能。VoLTE语音质量故障环回解决方案主要应用于拨测场景下的语音质量故障定位，此时需要使用该命令。\n\n语音环回就是在指定网元设备指定接口将指定用户发送语音通路上的数据报文转发到接收语音通路上。同时原有呼叫对端发送过来的语音数据报文也会进行环回。终端用户通过对比环回后自发自收的语音从而判断该段传输路径上的语音是否存在问题，可以逐段的界定语音问题所产生的环节。\n\n语音在系统中分为发送方向和接收方向，各有自己的通路。拨测场景下复现语音故障后，通过在语音媒体所经过的网元设备上进行语音环回，则可快速隔离定界语音故障问题。通过在网元设备的接入侧和核心网侧接口采用语音环回操作，则可基本把语音问题界定到三段范围内：接入侧、本端网元、核心网侧。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116438",
+        "topicUrl": "MML/LinkedDoc/udg_n_volte_management.html",
+        "name": "VOLTE管理",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.9",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103595902",
+        "topicUrl": "MML/LinkedDoc/udg_n_volte_loopback.html",
+        "name": "Volte环回",
+        "parentTopicId": "CONCEPT_0000202103116438",
+        "position": "5.9.5",
+        "parentPosition": "5.9",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0207016805",
+        "topicUrl": "MML/Document/add_volteloop.html",
+        "name": "配置VoLTE话路环回功能（ADD VOLTELOOP）",
+        "parentTopicId": "CONCEPT_0000202103595902",
+        "position": "5.9.5.1",
+        "parentPosition": "5.9.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

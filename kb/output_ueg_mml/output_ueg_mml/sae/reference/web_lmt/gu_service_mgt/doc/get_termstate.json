@@ -1,0 +1,119 @@
+{
+  "command_name": "GET TERMSTATE",
+  "command_name_zh": "查询终端状态及位置信息",
+  "command_name_full": "查询终端状态及位置信息(GET TERMSTATE)",
+  "command_function": "**须知** \n\n本命令属于高危命令，当批量查询终端用户信息时，会增加网络负荷，可能导致网络侧消息时延增大，因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令用于查询终端用户的状态、位置信息、注册时间、位置更新时间及Purge状态变更时间。包括：\n\n- 终端状态：用户在HLR或网络侧（VLR/MSC/MME/AMF）的状态信息。\n- 位置信息：用户的VLR号码、小区ID、EPS位置信息、5G终端信息或MME的主机地址。\n- 位置更新时间：用户位置更新时间。\n- 注册时间：用户在AMF的注册时间。\n- 清除时间：用户Purge状态变更时间。\n\n该命令支持如下三种查询方式：\n\n- 本地查询：从HLR查询终端用户信息，此时返回Purge状态或VLR号码。\n- 转接查询：从VLR、MME或AMF查询终端用户信息，此时返回VLR、MME或AMF中存储的用户终端状态。\n- 寻呼查询：从MSC、MME或AMF发起寻呼后获取终端最新的位置和状态信息。\n\n  **说明** \n\n  - 查询结果包含用户的个人数据，如：IMSI、MSISDN等，因此您需遵循所适用国家的法律或贵公司的用户隐私政策并采取足够的措施，以确保用户的个人数据受到充分的保护，并严格控制查询结果文件的访问权限。\n  - 在从运营商网络获取数据前，必须要获得运营商的授权。\n  - 若需从运营商网络中获取必要的数据，需要运营商维护人员对其中的个人数据进行匿名化处理，匿名化后的数据由运营商维护人员审核后提供，以防止个人数据泄露。匿名化处理工具可以在http://support.huawei.com/网站获取，获取方法请参见产品手册“匿名化工具安全策略”页面。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0162786140",
+        "topicUrl": "udm/reference/web_lmt/udm_web_lmt.html",
+        "name": "UDM业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.3",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802932",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_management.html",
+        "name": "用户管理",
+        "parentTopicId": "TOPIC_0162786140",
+        "position": "4.2.3.5",
+        "parentPosition": "4.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0190802995",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/node/subscriber_data_query.html",
+        "name": "用户数据查询",
+        "parentTopicId": "CONCEPT_0190802932",
+        "position": "4.2.3.5.6",
+        "parentPosition": "4.2.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0190802854",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/get_termstate.html",
+        "name": "查询终端状态及位置信息(GET TERMSTATE)",
+        "parentTopicId": "CONCEPT_0190802995",
+        "position": "4.2.3.5.6.3",
+        "parentPosition": "4.2.3.5.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

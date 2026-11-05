@@ -1,0 +1,116 @@
+{
+  "feature_name": "配置5G UE可达性订阅和通知特性",
+  "feature_description": "该任务指导操作人员配置UEG支持UE可达性订阅和通知特性。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324200410",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324200410.html",
+        "name": "HSS&UDM特性指南",
+        "parentTopicId": "",
+        "position": "7",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001258937700",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001258937700.html",
+        "name": "GWFD-025800 UDM语音基本功能",
+        "parentTopicId": "TOPIC_0000001324200410",
+        "position": "7.13",
+        "parentPosition": "7",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "CONCEPT_0173932897_2",
+        "topicUrl": "kite_ml/udm/feature_guide/feature_desc/cn_udm_05_460504.html",
+        "name": "GWFD-025809 5G UE可达性订阅和通知",
+        "parentTopicId": "TOPIC_0000001258937700",
+        "position": "7.13.8",
+        "parentPosition": "7.13",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0175314402_2",
+        "topicUrl": "kite_ml/udm/feature_guide/feature_desc/cn_udm_05_460504_3.html",
+        "name": "配置5G UE可达性订阅和通知特性",
+        "parentTopicId": "CONCEPT_0173932897_2",
+        "position": "7.13.8.3",
+        "parentPosition": "7.13.8",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

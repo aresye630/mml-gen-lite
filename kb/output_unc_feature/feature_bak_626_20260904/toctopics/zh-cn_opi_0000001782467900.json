@@ -1,0 +1,85 @@
+{
+  "feature_name": "配置和NF直连",
+  "feature_description": "- 如果网络中无NRF，或网络中存在NRF但需基于运营商策略本地配置周边NF，则执行本步骤，手工配置SMSF与周边NF的逻辑连接。\n- 当网络中既部署了NRF，又本地配置了周边NF时，可以通过**SET NFDISCPLCY**命令配置服务发现流程的策略，默认优先选择本地配置的NF。\n- 下述以配置SMSF到周边UDM、AMF为例，说明本地NRF功能的基本步骤，如有其他NF对接需要，请参考进行配置。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAV50F2616F53F94386BBAD5808394C2C40",
+        "parentNaviId": "DOCNAV470F1E5F487E4BD181E4D3EAEE9CA60D",
+        "pidId": "pid_bookmap_0000002193952366",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC初始配置与调测",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001829162821",
+        "topicUrl": "toctopics/zh-cn_topic_0000001829162821.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "TOPIC_0000001782467896",
+        "topicUrl": "toctopics/zh-cn_topic_0000001782467896.html",
+        "name": "配置SMSF",
+        "parentTopicId": "TOPIC_0000001829162821",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193952366",
+        "topicId": "OPI_0000001782467900",
+        "topicUrl": "toctopics/zh-cn_opi_0000001782467900.html",
+        "name": "配置和NF直连",
+        "parentTopicId": "TOPIC_0000001782467896",
+        "position": "8.5.4",
+        "parentPosition": "8.5",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,203 @@
+# rules/errors.yaml —— 业务错误码单一来源（方案 §16）
+# 原则：HTTP 状态码只表大类；业务码表精确语义；agent 只按 code 分支，不解析 message。
+# guide 与 openapi 均引用本文件。新增错误码 = 在此加一行，代码零改动。
+codes:
+  VALIDATION_FAILED:
+    http: 422
+    message: 请求体校验失败
+    retriable: false
+    agent: 按 details.field_errors 修正后重发
+  STAGE_CONFLICT:
+    http: 409
+    message: 当前 stage 不允许该动作
+    retriable: false
+    agent: 调 guide 看 blocked 原因，按序先做前置动作
+  EXP_REQUIRED:
+    http: 409
+    message: 动作需要 exp 而会话无 exp
+    retriable: false
+    agent: 先调 PUT /sessions/{sid}/exp（details.hint 给出上传路径）
+  PRODUCT_MISMATCH:
+    http: 409
+    message: exp 产品（UEG/UDG/UNC）与会话锁定产品不符
+    retriable: false
+    agent: 新建对应产品 session 或换文件
+  BASELINE_STALE:
+    http: 409
+    message: 引用的产物基线已过期
+    retriable: true
+    agent: 查 session 当前 exp_version，重跑受影响步骤
+  CONFLICT_VERSION:
+    http: 409
+    message: CSV 乐观锁冲突（他人/任务已改）
+    retriable: true
+    agent: GET csv 拿新版本后重放修改
+  CONFLICT_UNRESOLVED:
+    http: 409
+    message: 确认 gen 时尚有 error 级冲突未处理
+    retriable: false
+    agent: 先调 GET gens/{gid}/conflicts 处理（接受/忽略）
+  INTENT_AMBIGUOUS:
+    http: 422
+    message: 意图经检索无法唯一解析到特性
+    retriable: true
+    agent: 把 details.candidates 呈现给用户选择，以所选候选重发
+  INTENT_CHAT_REQUIRED:
+    http: 422
+    message: 该输入是对话/查询而非配置生成意图，请走对话通道
+    retriable: false
+    运维: 前端已自动分流（寒暄/提问走 /api/chat）；此码为绕过前端的直调兜底
+  LLM_AUTH_FAILED:
+    http: 502
+    message: 大模型 API Key 无效或未注入
+    retriable: false
+    运维: 检查部署时环境变量/密钥文件是否提供有效 Key
+  LLM_RATE_LIMITED:
+    http: 503
+    message: 大模型接口被限流
+    retriable: true
+  LLM_UPSTREAM_ERROR:
+    http: 502
+    message: 大模型服务端异常
+    retriable: true
+  LLM_TIMEOUT:
+    http: 504
+    message: 大模型调用超时
+    retriable: true
+  LLM_QUOTA_EXHAUSTED:
+    http: 402
+    message: 大模型账号余额/额度不足
+    retriable: false
+  AGENT_ENV_ERROR:
+    http: 500
+    message: agent 运行环境异常（缺依赖或路径）
+    retriable: false
+    运维: 检查镜像完整性
+  AGENT_PERM_ERROR:
+    http: 500
+    message: agent 运行权限异常
+    retriable: false
+  AGENT_DISK_FULL:
+    http: 507
+    message: 磁盘空间不足
+    retriable: true
+  KB_UNAVAILABLE:
+    http: 503
+    message: 知识库不可访问
+    retriable: true
+    运维: 检查向量库（milvus lite）状态
+  INTENT_AGENT_PROJECT_FAILED:
+    http: 500
+    message: agent 产物已保留，但方案结构收编失败
+    retriable: true
+  INTENT_AGENT_EMPTY_DRAFT:
+    http: 422
+    message: agent 草案无可提取的 MML 命令（md 无 ```mml 块且 csv 无数据行）
+    retriable: true
+    agent: 检查产物目录里的 md 是否含 ```mml 代码块；或让 agent 重新生成含命令示例的方案
+    运维: 登记节点（action=agent_dir）需 gj.artifact_paths 指向真实文件，否则会误判为空
+  AGENT_CSV_EXISTS:
+    http: 409
+    message: 该节点已收编为可编辑草案（schema 权威），无需重复反投影
+    retriable: false
+    agent: 直接进「参数收集表」页签编辑并保存（保存即同步 md 命令值区）
+  NOT_AGENT_DRAFT:
+    http: 400
+    message: 该节点不是 agent 草案（无 agent 标记），不支持反投影
+    retriable: false
+    agent: 装配型 gen 自带 schema，直接在 CSV 页签编辑
+  INTENT_UNRESOLVED:
+    http: 422
+    message: 意图检索无候选
+    retriable: false
+    agent: 提示改写意图或换产品确认
+  INTENT_AGENT_FAILED:
+    http: 500
+    message: agent 子进程执行失败
+    retriable: true
+    agent: 看 gen.json error.log_tail（hermes 输出尾），修正意图或重试；探针/环境问题见 capabilities
+  INTENT_AGENT_TIMEOUT:
+    http: 504
+    message: agent 子进程超时（>900s）已终止
+    retriable: true
+    agent: 意图范围收窄后重试（hermes 冷启动 + 多库检索通常 6-10 分钟）
+  AGENT_UNAVAILABLE:
+    http: 503
+    message: agent 运行环境不可用（hermes CLI / 知识库 / 向量库 任一缺失）
+    retriable: true
+    agent: 调 GET /api/v1/capabilities 查 checks 中 ok=false 的项（含 path），修复环境后重试
+  EXP_IMPACT_HIGH:
+    http: 409
+    message: 换 exp 对象域高差异，默认建议新建 session
+    retriable: false
+    agent: 呈现影响报告给用户决策；force=true 重发
+  IMPACT_TOKEN_INVALID:
+    http: 404
+    message: 影响评估 token 不存在或已过期/已消费
+    retriable: false
+    agent: 重新走 POST exp/impact 获取新 token（token 有效期 15 分钟，apply 后消费）
+  VERIFICATION_NOT_FOUND:
+    http: 404
+    message: 会话无验证记录
+    retriable: false
+    agent: 先 POST /sessions/{sid}/verifications 跑验证（details.hint 提示需 confirmed gen）
+  SESSION_NOT_FOUND:
+    http: 404
+    message: 会话不存在
+    retriable: false
+    agent: 查列表接口确认 id
+  TASK_NOT_FOUND:
+    http: 404
+    message: 任务不存在
+    retriable: false
+    agent: 查列表接口确认 id
+  GEN_NOT_FOUND:
+    http: 404
+    message: gen 节点不存在
+    retriable: false
+    agent: 查列表接口确认 id
+  FEATURE_NOT_FOUND:
+    http: 404
+    message: 特性不存在（groundtruth 产物中无此 fid）
+    retriable: false
+    agent: 查 /match/cards 确认 fid
+  ORIGIN_GUARD:
+    http: 409
+    message: 值来源守卫拒绝（prefill_exp 需显式 manual 覆盖；derived 引用不可直改）
+    retriable: true
+    agent: 按 details.field 处理（derived 先解除联动再改）
+  FINGERPRINT_NOT_FOUND:
+    http: 404
+    message: 指纹匹配结果不存在
+    retriable: false
+    agent: 先跑 fingerprint-match
+  ARTIFACT_NOT_FOUND:
+    http: 404
+    message: 产物不存在
+    retriable: false
+    agent: 查产物列表接口确认路径
+  ARTIFACT_PATH_REJECTED:
+    http: 400
+    message: 产物路径被拒绝（仅允许会话目录内相对路径）
+    retriable: false
+    agent: file 参数用 analysis-tabs 返回的相对路径，禁止 ../ 穿越
+  ARTIFACT_TYPE_UNSUPPORTED:
+    http: 415
+    message: 产物类型不支持
+    retriable: false
+    agent: 仅支持 .md / .csv 文本产物
+  QUEUE_BUSY:
+    http: 503
+    message: 任务池满或维护窗口
+    retriable: true
+    agent: 按 details.retry_after_sec 退避重试
+  ENRICH_SCOPE:
+    http: 409
+    message: 该 gen 超出 v2 enrich 作用域
+    retriable: false
+    agent: 多特性 gen（meta.features>1）的 cmd_step 为 Phase 分组标注，按命令重算会错位；仅单特性 gen 可 enrich
+  INTERNAL:
+    http: 500
+    message: 未预期错误
+    retriable: true
+    agent: 重试一次，仍败则报障

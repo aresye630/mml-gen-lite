@@ -1,0 +1,107 @@
+{
+  "command_name": "RMV SFIPSRVIP",
+  "command_name_zh": "删除SFIP业务IP",
+  "command_name_full": "删除SFIP业务IP（RMV SFIPSRVIP）",
+  "command_function": "该命令用于删除指定SFIP业务IP地址。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202547011696",
+        "topicUrl": "MML/LinkedDoc/udg_n_sfip_management.html",
+        "name": "SFIP管理",
+        "parentTopicId": "",
+        "position": "8",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203448209991",
+        "topicUrl": "MML/LinkedDoc/sfip_n_network_management.html",
+        "name": "网络管理",
+        "parentTopicId": "CONCEPT_0000202547011696",
+        "position": "8.5",
+        "parentPosition": "8",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000203448571597",
+        "topicUrl": "MML/LinkedDoc/sfip_n_sfip_service_ip.html",
+        "name": "SFIP业务IP",
+        "parentTopicId": "CONCEPT_0000203448209991",
+        "position": "8.5.2",
+        "parentPosition": "8.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000206961311558",
+        "topicUrl": "MML/Document/rmv_sfipsrvip.html",
+        "name": "删除SFIP业务IP（RMV SFIPSRVIP）",
+        "parentTopicId": "CONCEPT_0000203448571597",
+        "position": "8.5.2.3",
+        "parentPosition": "8.5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

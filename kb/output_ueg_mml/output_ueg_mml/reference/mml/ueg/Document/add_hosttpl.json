@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD HOSTTPL",
+  "command_name_zh": "增加HOST模板",
+  "command_name_full": "增加HOST模板(ADD HOSTTPL)",
+  "command_function": "该命令用于在配置数据库中增加一个HOST头域模板，HOST头域用于指定访问设备（转发AP或AS）的主机名称。\n\n操作员使用该命令添加HOST模板后，执行**ADD APRULE**命令配置AP转发规则时，只需要签约HOST模板ID即可，从而简化系统配置流程。\n\n**说明** \n\n该命令仅在Full-stack虚机场景下支持。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206722167519",
+        "topicUrl": "reference/mml/udm/LinkedDoc/udm_UIM_Management.html",
+        "name": "UIM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.12",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000206721530007",
+        "topicUrl": "reference/mml/ueg/LinkedDoc/udm_host_template_management.html",
+        "name": "HOST模板配置",
+        "parentTopicId": "CONCEPT_0000206722167519",
+        "position": "2.2.3.12.11",
+        "parentPosition": "2.2.3.12",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000002070467765",
+        "topicUrl": "reference/mml/ueg/Document/add_hosttpl.html",
+        "name": "增加HOST模板(ADD HOSTTPL)",
+        "parentTopicId": "CONCEPT_0000206721530007",
+        "position": "2.2.3.12.11.1",
+        "parentPosition": "2.2.3.12.11",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

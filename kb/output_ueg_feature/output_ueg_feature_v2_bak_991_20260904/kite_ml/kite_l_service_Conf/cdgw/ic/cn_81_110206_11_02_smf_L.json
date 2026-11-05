@@ -1,0 +1,93 @@
+{
+  "feature_name": "配置本地PCC功能（SMF）",
+  "feature_description": "园区入驻场景下，本地SMF与中心网络的PCF没有交互。园区UEG中未部署PCF/PCRF实体功能或部署数据业务时，需要开启本地PCC功能。\n\n**说明** \n\n本页面中描述的SMF，均指园区SMF（风筝L）。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV7BC2676379184A3DA4E33EBDFB8216A3",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254761466",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝L”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001244467637",
+        "topicUrl": "toctopics/zh-cn_topic_0000001244467637.html",
+        "name": "配置业务数据（风筝L）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001163494996_1",
+        "topicUrl": "toctopics/zh-cn_topic_0000001163494996.html",
+        "name": "PCC规则配置",
+        "parentTopicId": "TOPIC_0000001244467637",
+        "position": "5.1",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "TOPIC_0000001365836232",
+        "topicUrl": "toctopics/zh-cn_topic_0000001365836232.html",
+        "name": "配置本地PCC",
+        "parentTopicId": "TOPIC_0000001163494996_1",
+        "position": "5.1.1",
+        "parentPosition": "5.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254761466",
+        "topicId": "OPI_0000001163495310",
+        "topicUrl": "kite_ml/kite_l_service_Conf/cdgw/ic/cn_81_110206_11_02_smf_L.html",
+        "name": "配置本地PCC功能（SMF）",
+        "parentTopicId": "TOPIC_0000001365836232",
+        "position": "5.1.1.1",
+        "parentPosition": "5.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

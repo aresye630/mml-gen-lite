@@ -1,0 +1,119 @@
+{
+  "command_name": "ADD HNATPL",
+  "command_name_zh": "增加游牧模板",
+  "command_name_full": "增加游牧模板(ADD HNATPL)",
+  "command_function": "该命令用于在HSS的业务数据库中增加一个游牧地址模板。\n\n游牧模板由一个或多个游牧地址组成，操作员可以在使用**ADD HNATPL**增加游牧模板后，执行**SET HNATPLID**命令，设置此用户与游牧模板的对应关系，以对用户的游牧范围进行控制：\n\n- 当IMS固网用户进入游牧地址允许的区域时，将使用用户携带的接入位置信息与签约的游牧地址信息进行匹配，此时匹配成功，游牧地址信息中的NASS游牧地址类型是允许游牧，IMS系统将允许用户注册。\n- 当IMS固网用户进入游牧地址限制的区域时，将使用用户携带的接入位置信息与签约的游牧地址信息进行匹配，此时匹配成功，游牧地址信息中的NASS游牧地址类型是限制游牧，IMS系统将限制用户注册。\n- 当IMS固网用户进入的区域在游牧地址信息中不存在时，将使用用户携带的接入位置信息与签约的游牧地址信息进行匹配，此时匹配失败，根据游牧模板中的缺省游牧限制策略决定是否允许用户游牧，PERMISSION表示IMS系统将允许用户注册，RESTRICTION表示IMS系统将限制用户注册。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355763628",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355763628.html",
+        "name": "PGW Web LMT",
+        "parentTopicId": "",
+        "position": "4",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406243453",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406243453.html",
+        "name": "PGW Web LMT命令",
+        "parentTopicId": "TOPIC_0000001355763628",
+        "position": "4.2",
+        "parentPosition": "4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0124104391",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/smu_mml_ims-hss.html",
+        "name": "IMS-HSS业务管理",
+        "parentTopicId": "TOPIC_0000001406243453",
+        "position": "4.2.4",
+        "parentPosition": "4.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0191732778",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/System_Data_Template_Management.html",
+        "name": "系统数据模板管理",
+        "parentTopicId": "CONCEPT_0124104391",
+        "position": "4.2.4.5",
+        "parentPosition": "4.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732524",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/NASS_Nomadism_Template_Management.html",
+        "name": "游牧模板数据管理",
+        "parentTopicId": "CONCEPT_0191732778",
+        "position": "4.2.4.5.4",
+        "parentPosition": "4.2.4.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0191732612",
+        "topicUrl": "sae/reference/web_lmt/gu_service_mgt/doc/ADD_HNATPL.html",
+        "name": "增加游牧模板(ADD HNATPL)",
+        "parentTopicId": "MMLREF_0191732524",
+        "position": "4.2.4.5.4.1",
+        "parentPosition": "4.2.4.5.4",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

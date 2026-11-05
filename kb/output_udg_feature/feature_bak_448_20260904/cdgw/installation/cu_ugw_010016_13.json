@@ -1,0 +1,98 @@
+{
+  "feature_name": "配置Sa/N3/S1-U接口数据",
+  "feature_description": "运营商在部署5G或4G/5G互操作的分组交换网或2/3/4/5G融合组网时新增ULCL UPF/BP UPF/I-UPF/SGW-U中的任一独立设备或融合设备，在完成配置UDG到无线(R)AN侧的路由数据后，可在UDG上配置Sa/N3/S1-U接口数据使UDG与无线(R)AN侧建立逻辑连接。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "初始配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVF2E60F26142246C48834E66DFA44D291",
+        "parentNaviId": "DOCNAVCEAE3F88DE1941F2A35FBA0E91B6F9F5",
+        "pidId": "pid_bookmap_0000002186979474",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG初始配置与调测",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type",
+          "application_deployment_mode"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_8001",
+          "application_deployment_mode_8661",
+          "application_deployment_mode_8663"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_8001"
+          ],
+          "application_deployment_mode": [
+            "application_deployment_mode_8661",
+            "application_deployment_mode_8663"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "TOPIC_0262868642",
+        "topicUrl": "toctopics/zh-cn_topic_0262868642.html",
+        "name": "组网对接配置",
+        "parentTopicId": "",
+        "position": "6",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0168634146",
+        "topicUrl": "cdgw/installation/cu_ugw_010016_11.html",
+        "name": "配置业务接口数据",
+        "parentTopicId": "TOPIC_0262868642",
+        "position": "6.1",
+        "parentPosition": "6",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186979474",
+        "topicId": "OPI_0168634192",
+        "topicUrl": "cdgw/installation/cu_ugw_010016_13.html",
+        "name": "配置Sa/N3/S1-U接口数据",
+        "parentTopicId": "OPI_0168634146",
+        "position": "6.1.1",
+        "parentPosition": "6.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

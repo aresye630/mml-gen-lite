@@ -1,0 +1,143 @@
+{
+  "command_name": "STR INCREASEPROREC",
+  "command_name_zh": "启动增量营帐日志操作任务",
+  "command_name_full": "启动增量营帐日志操作任务(STR INCREASEPROREC)",
+  "command_function": "该命令用于查询并执行物理库中的增量营帐日志，也即从局点开始升级到该命令开始运行期间执行的营帐命令。\n\n当主用局升级导致数据异常，切换到数据层容灾局点后也无法恢复业务时，数据紧急修复工具自动在容灾局执行该命令。\n\n该命令运行后，会触发以下流程：\n\n1. 查询并读取增量营帐日志。\n2. 增量日志会根据各自FE的转化规则进行转化，若对应的FE没有实现适配接口，则使用默认的规则进行转化。默认规则会将日志中的命令字段提取出来，去掉前后空格。转化后的日志会保存到批操作文件中。“导出命令类型”为“正常导出”的批操作文件保存在/opt/pgw/recover目录下，“导出命令类型”为“加密字段导出”的批操作文件保存在/opt/pgw/EMGRST目录下，批操作文件的命名规则为recover\\_FE类型\\_yy\\_mm\\_dd\\_hh\\_mm\\_ss.dat，文件名中的时间对应文件生成时间。每个批操作文件最多保存10万条记录，超过10万条即创建新的批操作文件。\n3. 新建批操作处理任务，先后定时扫描/opt/pgw/recover和/opt/pgw/EMGRST目录下的批操作文件，并按照时间先后顺序执行营帐命令，/opt/pgw/recover目录下文件串行执行，/opt/pgw/EMGRST目录下文件并行执行，且最多能有3个任务并行。该批处理任务不受软参BATSEQLEN和BATSUSPENDSWITCH控制，执行该批操作任务的操作员应对所有命令和号段均有操作权限。除该批处理任务外，所有正在执行的批操作均会被暂停。\n4. 转化失败和执行失败的营帐命令都保存在/opt/uscdb/emgRst目录。转化失败的文件命名规则分两种情况，“导出命令类型”为“正常导出”时为recover\\_FE类型\\_trans\\_failed\\_MML\\_序列号，“导出命令类型”为“加密字段导出”时为recover\\_FE类型\\_encrypt\\_trans\\_failed\\_MML\\_序列号。执行失败的文件命名规则统一为recover\\_FE类型\\_exc\\_failed\\_MML\\_序列号，可使用**GET NODEINFO**命令获取执行失败的命令。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774591",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/service_management.html",
+        "name": "业务管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.3",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774292",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/pgw_management.html",
+        "name": "业务发放网关管理",
+        "parentTopicId": "MMLREF_0172774591",
+        "position": "2.2.4.3.3.4",
+        "parentPosition": "2.2.4.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774592",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/incremental_provisioning_log_operation_management.html",
+        "name": "增量营帐日志操作管理",
+        "parentTopicId": "MMLREF_0172774292",
+        "position": "2.2.4.3.3.4.30",
+        "parentPosition": "2.2.4.3.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0173169823_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/str_increaseprorec.html",
+        "name": "启动增量营帐日志操作任务(STR INCREASEPROREC)",
+        "parentTopicId": "MMLREF_0172774592",
+        "position": "2.2.4.3.3.4.30.1",
+        "parentPosition": "2.2.4.3.3.4.30",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

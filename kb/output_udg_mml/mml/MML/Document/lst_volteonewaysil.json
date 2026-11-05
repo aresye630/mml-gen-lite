@@ -1,0 +1,107 @@
+{
+  "command_name": "LST VOLTEONEWAYSIL",
+  "command_name_zh": "查询单通检测信息",
+  "command_name_full": "查询单通检测信息（LST VOLTEONEWAYSIL）",
+  "command_function": "**适用NF：PGW-U**\n\n该命令用于查询单通检测信息。",
+  "full_nav": [
+    [
+      {
+        "name": "OM参考"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "parentNaviId": "docnav5",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "命令",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "naviId": "DOCNAVA8B46134FA4B44EFA540AF3245169EE4",
+        "parentNaviId": "DOCNAV52A8CC0708F846CC889E368DB08E9A75",
+        "pidId": "pid_bookmap_0000002186978614",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 13:37:23",
+        "name": "UDG MML命令",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "DC.Audience.Job_91",
+          "pid_type_12"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383",
+            "DC.Audience.Job_91"
+          ],
+          "pid_type": [
+            "pid_type_12"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289555247",
+        "topicUrl": "MML/LinkedDoc/udg_n_user_plane_management.html",
+        "name": "用户面服务管理",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202103116440",
+        "topicUrl": "MML/LinkedDoc/udg_n_volte_monitoring_configuration.html",
+        "name": "VoLTE质量监控配置",
+        "parentTopicId": "CONCEPT_0000202289555247",
+        "position": "5.11",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000202289315867",
+        "topicUrl": "MML/LinkedDoc/udg_n_volte_one_way_audio_detection.html",
+        "name": "VoLTE单通检测",
+        "parentTopicId": "CONCEPT_0000202103116440",
+        "position": "5.11.7",
+        "parentPosition": "5.11",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004995",
+        "pidId": "pid_bookmap_0000002186978614",
+        "topicId": "CONCEPT_0000201269178846",
+        "topicUrl": "MML/Document/lst_volteonewaysil.html",
+        "name": "查询单通检测信息（LST VOLTEONEWAYSIL）",
+        "parentTopicId": "CONCEPT_0000202289315867",
+        "position": "5.11.7.2",
+        "parentPosition": "5.11.7",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "command_name": "CFM TST",
+  "command_name_zh": "确认试运行",
+  "command_name_full": "确认试运行(CFM TST)",
+  "command_function": "本命令用于确认试运行。试运行被确认后该网元转入正常模式运行，当前事务内执行的配置命令永久性生效。\n\n试运行是OMU的一种运行模式，事务提交后OMU自动进入该模式，此时主机网元暂时按照事务提交的新配置数据运行，用户可以在这种模式下验证配置数据的正确性，如果对运行结果满意就可以通过本命令使网元进入正常模式；如果不满意就可以通过回退操作回退到事务提交以前的状态。用户无法手动进入试运行模式。\n\n本命令的使用场景为：事务模式下进行的配置数据正确，结果符合预期时，可以使用本命令使事务内的配置永久性生效。\n\n有关“试运行”与“事务”的关系请参见**CMT TRAN**命令的相关解释。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001135807995",
+        "topicUrl": "toctopics/zh-cn_topic_0000001135807995.html",
+        "name": "USCDB操作维护命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.4",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0172774341",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/uscdb_management.html",
+        "name": "USCDB管理",
+        "parentTopicId": "TOPIC_0000001135807995",
+        "position": "2.2.4.3",
+        "parentPosition": "2.2.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774529",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/system_management.html",
+        "name": "系统管理",
+        "parentTopicId": "CONCEPT_0172774341",
+        "position": "2.2.4.3.1",
+        "parentPosition": "2.2.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0172774295",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/configuration_data_management.html",
+        "name": "配置数据管理",
+        "parentTopicId": "MMLREF_0172774529",
+        "position": "2.2.4.3.1.2",
+        "parentPosition": "2.2.4.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0170784593",
+        "topicUrl": "USCDB/reference/mml/USCDB/LinkedDoc/test_running_mode.html",
+        "name": "试运行模式",
+        "parentTopicId": "MMLREF_0172774295",
+        "position": "2.2.4.3.1.2.6",
+        "parentPosition": "2.2.4.3.1.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0170784620_2",
+        "topicUrl": "USCDB/reference/mml/USCDB/Document/cfm_tst.html",
+        "name": "确认试运行(CFM TST)",
+        "parentTopicId": "CONCEPT_0170784593",
+        "position": "2.2.4.3.1.2.6.3",
+        "parentPosition": "2.2.4.3.1.2.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

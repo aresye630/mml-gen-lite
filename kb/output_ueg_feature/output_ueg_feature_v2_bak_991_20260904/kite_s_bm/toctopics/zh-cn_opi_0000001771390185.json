@@ -1,0 +1,117 @@
+{
+  "feature_name": "一键式下线IPSec服务",
+  "feature_description": "当运营商不需要IPSec服务或IPSec服务一键式动态上线失败时，可以单独卸载IPSec pod，从而一键式下线IPSec服务。",
+  "full_nav": [
+    [
+      {
+        "name": "专网（仅连接，园区入驻式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "parentNaviId": "docnav",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV2089C9D0D5B14269814F6CC70E4D595C",
+        "parentNaviId": "DOCNAV7A82446FE3414211B7E080B90AB2732D",
+        "pidId": "pid_bookmap_0000002254818222",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，入驻式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001512283829",
+        "topicUrl": "toctopics/zh-cn_topic_0000001512283829.html",
+        "name": "裸机容器模式",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001103989162",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001103989162.html",
+        "name": "UEG软件安装（风筝S）",
+        "parentTopicId": "TOPIC_0000001512283829",
+        "position": "2.3",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000002236330412",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000002236330412.html",
+        "name": "UEG软件安装（基于Core Digital Engine-Client）",
+        "parentTopicId": "TOPIC_0000001103989162",
+        "position": "2.3.3",
+        "parentPosition": "2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001482112830",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001482112830.html",
+        "name": "UEG软件安装（基于Core Digital Engine-Client）",
+        "parentTopicId": "TOPIC_0000002236330412",
+        "position": "2.3.3.1",
+        "parentPosition": "2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "TOPIC_0000001482281594",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_topic_0000001482281594.html",
+        "name": "可选服务安装与卸载",
+        "parentTopicId": "TOPIC_0000001482112830",
+        "position": "2.3.3.1.1",
+        "parentPosition": "2.3.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002254818222",
+        "topicId": "OPI_0000001771390185",
+        "topicUrl": "kite_s_bm/toctopics/zh-cn_opi_0000001771390185.html",
+        "name": "一键式下线IPSec服务",
+        "parentTopicId": "TOPIC_0000001482281594",
+        "position": "2.3.3.1.1.6",
+        "parentPosition": "2.3.3.1.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

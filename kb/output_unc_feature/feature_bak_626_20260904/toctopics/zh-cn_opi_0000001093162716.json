@@ -1,0 +1,112 @@
+{
+  "feature_name": "激活CHR功能",
+  "feature_description": "本操作指导介绍配置UNC和CHR服务器的对接，以及激活CHR功能的操作过程。\n\n- 在激活CHR功能之前，当已实例化的UNC不带UCF服务时，需要上线UCF，具体流程参见《UNC软件安装》手册>安装UCF服务。\n- 完成UNC上IP路由数据的配置，具体流程参见《UNC初始配置与调测》手册>配置VNF侧IP路由数据。\n- (可选)安装部署IPsec，建议部署IPSec保证传输通道安全、数据安全。\n- 配置UCF与CHR服务器对接数据。\n- 开启CHR功能，配置CHR服务器类型以及发送策略。\n\n**图1** 操作过程",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450898",
+        "topicUrl": "toctopics/zh-cn_topic_0248450898.html",
+        "name": "运维功能",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0250287959",
+        "topicUrl": "toctopics/zh-cn_topic_0250287959.html",
+        "name": "WSFD-202001 CHR功能",
+        "parentTopicId": "TOPIC_0248450898",
+        "position": "1.22",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0000001093002782",
+        "topicUrl": "toctopics/zh-cn_topic_0000001093002782.html",
+        "name": "WSFD-202001 CHR功能（适用于GGSN/SGW-C/PGW-C/SMF）",
+        "parentTopicId": "TOPIC_0250287959",
+        "position": "1.22.2",
+        "parentPosition": "1.22",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0000001093162716",
+        "topicUrl": "toctopics/zh-cn_opi_0000001093162716.html",
+        "name": "激活CHR功能",
+        "parentTopicId": "TOPIC_0000001093002782",
+        "position": "1.22.2.2",
+        "parentPosition": "1.22.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

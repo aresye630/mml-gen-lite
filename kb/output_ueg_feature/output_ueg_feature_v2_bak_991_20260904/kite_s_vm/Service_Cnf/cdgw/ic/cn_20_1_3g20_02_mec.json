@@ -1,0 +1,81 @@
+{
+  "feature_name": "配置基于三四层过滤的内容计费",
+  "feature_description": "UEG通过对用户三四层数据报文进行分析和检测，对于匹配到规则的业务采取相应的计费策略。\n\n此配置实例以离线计费为例，进行三四层业务的内容计费配置。\n\n**说明** \n\n适用于SGW-U、PGW-U、UPF。",
+  "full_nav": [
+    [
+      {
+        "name": "专线（仅连接，地市共享式）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "parentNaviId": "docnav1",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "网络部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV5EC6EFF480004490A8CE4AF89638CA04",
+        "parentNaviId": "DOCNAVE96267867CDC4F9AB44344B201F3B74D",
+        "pidId": "pid_bookmap_0000002289298673",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "5GC toB 部署边缘站点（站点为“风筝S”，共享式）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5756"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001099620148",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001099620148.html",
+        "name": "配置业务数据（风筝S）",
+        "parentTopicId": "",
+        "position": "5",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "TOPIC_0000001146198189_3",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001146198189.html",
+        "name": "计费功能",
+        "parentTopicId": "TOPIC_0000001099620148",
+        "position": "5.2",
+        "parentPosition": "5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298673",
+        "topicId": "OPI_0000001111318512_2",
+        "topicUrl": "kite_s_vm/Service_Cnf/cdgw/ic/cn_20_1_3g20_02_mec.html",
+        "name": "配置基于三四层过滤的内容计费",
+        "parentTopicId": "TOPIC_0000001146198189_3",
+        "position": "5.2.1",
+        "parentPosition": "5.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

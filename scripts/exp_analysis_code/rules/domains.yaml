@@ -1,0 +1,119 @@
+# domains.yaml — 功能域 → 命令族声明（UDG；通用命令名，禁止局点实例值）
+# 用途：§2 命令族统计域表（域 stats）与链 schema 共享的域基础。
+# 域 = 知识分组（与 docs 配置分析 链A~H 对齐）；命令类型/参数名为产品级通用知识。
+# 扩展规则：新增域/命令族 = 改此 yaml，不动代码（数据驱动红线）。
+
+UDG:
+  license:
+    name: 许可
+    cmds: {SET LICENSESWITCH: [LICITEM]}
+  vrf:
+    name: VRF 基础设施
+    cmds:
+      ADD L3VPNINST: [VRFNAME]
+      ADD VPNINSTAF: [VRFNAME]
+      MOD VPNINSTAF: [VRFNAME]
+      ADD IPBINDVPN: [IFNAME, VRFNAME]
+      ADD INTERFACE: [IFNAME]
+      MOD INTERFACE: [IFNAME]
+      ADD ETHSUBIF: [IFNAME]
+      ADD IFIPV4ADDRESS: [IFNAME]
+      ADD IFIPV6ENABLE: [IFNAME]
+      ADD IFIPV6ADDRESS: [IFNAME]
+      SET IFIPV6ENABLE: [IFNAME]
+  routing:
+    name: 路由/可靠性
+    cmds:
+      ADD SRROUTE: [VRFNAME]
+      ADD SRROUTE6: [VRFNAME]
+      ADD AGGREGATEROUTE: [VRFNAME]
+      ADD BFDSESSION: [SESSNAME]
+      ADD BGPVRF: [VRFNAME]
+      ADD BGPPEER: [PEERNAME]
+      MOD BGPPEER: [PEERNAME]
+      ADD TRUNKMEMBER: [IFNAME]
+      ADD NETWORKROUTE: [VRFNAME]
+      ADD AUTOSCALINGSERVICE: [SERVICENAME]
+      ADD AUTOSCALINGBFD: [SERVICENAME]
+      ADD AUTOSCALINGSRROUTE: [SERVICENAME]
+  apn:
+    name: APN
+    cmds:
+      ADD APN: [APN]
+      SET APNADDRESSATTR: [APN]
+      SET APNIPALLOCRULE: [APN]
+  addr_pool:
+    name: 位置基地址池
+    cmds:
+      ADD POOL: [POOLNAME]
+      ADD SECTION: [POOLNAME]
+      ADD POOLGROUP: [POOLGROUPNAME]
+      ADD POOLBINDGROUP: [POOLGROUPNAME]
+      ADD POOLGRPMAP: [POOLGRPMAPNAME]
+      ADD TACGROUP: [TACGROUPNAME]
+      ADD N2TACID: [TACGROUPNAME]
+      ADD S1TACID: [TACGROUPNAME]
+      SET IPALLOCBYLOCSW: []
+      SET IPALLOCBYSMFSW: []
+      SET IPALLOCBYLOCGLBSW: []
+      SET IPALLOCRULE: []
+  filtering:
+    name: 数据面过滤
+    cmds:
+      ADD FILTER: [FILTERNAME]
+      ADD FILTERIPV6: [FILTERNAME]
+      ADD FLOWFILTER: [FLOWFILTERNAME]
+      ADD FLTBINDFLOWF: [FLOWFILTERNAME]
+      ADD L7FILTER: [L7FILTERNAME]
+      ADD HOST: [HOSTNAME]
+      ADD PROTBINDFLOWF: [FLOWFILTERNAME]
+      SET REFRESHSRV: []
+  pcc:
+    name: PCC 计费
+    cmds:
+      ADD URR: [URRNAME]
+      ADD URRGROUP: [URRGROUPNAME]
+      ADD PCCPOLICYGRP: [PCCPOLICYGRPNM]
+      ADD RULE: [RULENAME]
+      ADD RULEBINDING: [RULENAME]
+      ADD SPECURRGRPLIST: [URRGROUPNAME]
+      SET URRGRPBINDING: []
+      ADD USERPROFILE: [USERPROFILENAME]
+  qos_live:
+    name: SuperE5 QOS 直播
+    cmds:
+      ADD QOSPROP: [QOSPROPNAME]
+  ssu:
+    name: SSU/QoE 保障
+    cmds:
+      ADD POLICYCONDITION: [POLICYCONDITIONNAME]
+      ADD SSUPROTCOLGROUP: [SSUPROTCOLGROUPNAME]
+      ADD APPPOLICYCTRL: [APPPOLICYNAME]
+  path_mgmt:
+    name: N4/N6 路径管理
+    cmds:
+      SET UPPFCPPATH: []
+      SET UPN4UPATH: []
+      SET UPGTPPATH: []
+      SET APNTNLSTATUSRPT: [APN]
+      ADD DETECTPATH: []
+      ADD APNBINDPATH: [APN]
+  protection:
+    name: 保护/杂项业务
+    cmds:
+      ADD ACL: [ACLNAME]
+      ADD ACLNODE: [ACLNODENAME]
+      ADD ACLNODEBINDACL: [ACLNAME]
+      ADD IPFARM: [IPFARMNAME]
+      ADD IPFARMSERVER: [IPFARMNAME]
+      ADD EPRPSTA: []
+  sys:
+    name: 系统级
+    cmds:
+      SET SOFTPARA: []
+      SET UPGPATTIMER: []
+      SET ARPINTERFACE: [IFNAME]
+      SET ARPIFLIMIT: [IFNAME]
+      SET DBSTARTPARAS: []
+      SET RESCTRLQOSMAP: []
+      SET LBFRAGRSCFG: []

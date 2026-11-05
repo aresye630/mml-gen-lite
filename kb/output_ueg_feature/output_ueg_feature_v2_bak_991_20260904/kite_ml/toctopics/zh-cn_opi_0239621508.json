@@ -1,0 +1,616 @@
+{
+  "feature_name": "Pod间Base平面亚健康检测",
+  "feature_description": "Pod间Base平面亚健康检测是基于Pod间的点到点探测结果，进行的网络亚健康诊断。\n\n操作员可以开启网络亚健康检查开关，并设置检查参数和相关告警上报参数，使系统根据设置参数检查网络亚健康状态并上报相关告警。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0250182723",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0250182723.html",
+        "name": "Service Fabric特性（裸机）",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.31",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0170877000_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877000.html",
+        "name": "Service Fabric可靠性",
+        "parentTopicId": "TOPIC_0250182723",
+        "position": "3.31.2",
+        "parentPosition": "3.31",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0170877028_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877028.html",
+        "name": "SFFD-010008 通信亚健康自愈",
+        "parentTopicId": "TOPIC_0170877000_2",
+        "position": "3.31.2.1",
+        "parentPosition": "3.31.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0239621508_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0239621508.html",
+        "name": "Pod间Base平面亚健康检测",
+        "parentTopicId": "TOPIC_0170877028_2",
+        "position": "3.31.2.1.1",
+        "parentPosition": "3.31.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝S",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVB4F9537CF9634E94B32351CE26573131",
+        "parentNaviId": "DOCNAVDD01EE76E8CE4CF0BE106F55AD58F4E3",
+        "pidId": "pid_bookmap_0000002289298517",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝S）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0000001152042029",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0000001152042029.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "3",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0250182723",
+        "topicUrl": "kite_s_vm/toctopics/zh-cn_topic_0250182723.html",
+        "name": "Service Fabric特性（裸机）",
+        "parentTopicId": "TOPIC_0000001152042029",
+        "position": "3.31",
+        "parentPosition": "3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0170877000_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877000.html",
+        "name": "Service Fabric可靠性",
+        "parentTopicId": "TOPIC_0250182723",
+        "position": "3.31.2",
+        "parentPosition": "3.31",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "TOPIC_0170877028_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877028.html",
+        "name": "SFFD-010008 通信亚健康自愈",
+        "parentTopicId": "TOPIC_0170877000_2",
+        "position": "3.31.2.1",
+        "parentPosition": "3.31.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289298517",
+        "topicId": "OPI_0239621508_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0239621508.html",
+        "name": "Pod间Base平面亚健康检测",
+        "parentTopicId": "TOPIC_0170877028_2",
+        "position": "3.31.2.1.1",
+        "parentPosition": "3.31.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV008F1171F9BE43FAAE8F5C1639845C0B",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝M",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAV3510B4BE54D648A4B2B3BC7DD51474F9",
+        "parentNaviId": "DOCNAV008F1171F9BE43FAAE8F5C1639845C0B",
+        "pidId": "pid_bookmap_0000002289411681",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝M）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "TOPIC_0000001221226318",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001221226318.html",
+        "name": "UEG特性指南",
+        "parentTopicId": "",
+        "position": "1",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "TOPIC_0000001198131211",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001198131211.html",
+        "name": "Service Fabric特性",
+        "parentTopicId": "TOPIC_0000001221226318",
+        "position": "1.5",
+        "parentPosition": "1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "TOPIC_0170877000_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877000.html",
+        "name": "Service Fabric可靠性",
+        "parentTopicId": "TOPIC_0000001198131211",
+        "position": "1.5.2",
+        "parentPosition": "1.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "TOPIC_0170877028_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877028.html",
+        "name": "SFFD-010008 通信亚健康自愈",
+        "parentTopicId": "TOPIC_0170877000_2",
+        "position": "1.5.2.1",
+        "parentPosition": "1.5.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411681",
+        "topicId": "OPI_0239621508_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0239621508.html",
+        "name": "Pod间Base平面亚健康检测",
+        "parentTopicId": "TOPIC_0170877028_2",
+        "position": "1.5.2.1.1",
+        "parentPosition": "1.5.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324360342",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324360342.html",
+        "name": "UEG公共特性指南",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001233932864",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001233932864.html",
+        "name": "ServiceFabric特性（裸机容器）",
+        "parentTopicId": "TOPIC_0000001324360342",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0170877000_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877000.html",
+        "name": "Service Fabric可靠性",
+        "parentTopicId": "TOPIC_0000001233932864",
+        "position": "2.10.2",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0170877028_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877028.html",
+        "name": "SFFD-010008 通信亚健康自愈",
+        "parentTopicId": "TOPIC_0170877000_2",
+        "position": "2.10.2.1",
+        "parentPosition": "2.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0239621508_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0239621508.html",
+        "name": "Pod间Base平面亚健康检测",
+        "parentTopicId": "TOPIC_0170877028_2",
+        "position": "2.10.2.1.1",
+        "parentPosition": "2.10.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ],
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "业务配置",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "parentNaviId": "DOCNAVD55D5D8C3DA64D598484335CDFF905FE",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "风筝L",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "naviId": "DOCNAVFBC3FE12F61B4F16A5501843627C096E",
+        "parentNaviId": "DOCNAVC30305A59F9042609FCB93DE1807C0E4",
+        "pidId": "pid_bookmap_0000002289411725",
+        "naviTag": "doc",
+        "issuedate": "2026-04-30 05:00:45",
+        "name": "MEC 特性指南（风筝L）",
+        "nameIdList": [
+          "release",
+          "DC.Audience.Job",
+          "pid_type"
+        ],
+        "valueIdList": [
+          "release_5756",
+          "DC.Audience.Job_383",
+          "pid_type_7969"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5756"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7969"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001324360342",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001324360342.html",
+        "name": "UEG公共特性指南",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0000001233932864",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0000001233932864.html",
+        "name": "ServiceFabric特性（裸机容器）",
+        "parentTopicId": "TOPIC_0000001324360342",
+        "position": "2.10",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0170877000_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877000.html",
+        "name": "Service Fabric可靠性",
+        "parentTopicId": "TOPIC_0000001233932864",
+        "position": "2.10.2",
+        "parentPosition": "2.10",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "TOPIC_0170877028_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_topic_0170877028.html",
+        "name": "SFFD-010008 通信亚健康自愈",
+        "parentTopicId": "TOPIC_0170877000_2",
+        "position": "2.10.2.1",
+        "parentPosition": "2.10.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004423",
+        "pidId": "pid_bookmap_0000002289411725",
+        "topicId": "OPI_0239621508_2",
+        "topicUrl": "kite_ml/toctopics/zh-cn_opi_0239621508.html",
+        "name": "Pod间Base平面亚健康检测",
+        "parentTopicId": "TOPIC_0170877028_2",
+        "position": "2.10.2.1.1",
+        "parentPosition": "2.10.2.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

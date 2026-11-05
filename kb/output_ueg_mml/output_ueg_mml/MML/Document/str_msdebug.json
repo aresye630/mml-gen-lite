@@ -1,0 +1,143 @@
+{
+  "command_name": "STR MSDEBUG",
+  "command_name_zh": "微服务软件调试开关",
+  "command_name_full": "微服务软件调试开关(STR MSDEBUG)",
+  "command_function": "**须知** \n\n该命令属于高危命令，该操作可能会导致系统处理能力下降。因此执行该命令前，需要与华为技术支持确认后才可以实施。\n\n该命令为维护类命令，用于在系统运行过程中通过维护命令的方式查询和设置模块进程内部的变量，从而方便问题的跟踪定位，使得开发调试或者测试更具灵活性。\n\n**说明** \n\n- 该命令可以通过设置参数完成TCP(nStack)、HTTP2(Nginx)协议栈定位信息打印。\n- 用该命令删除残留的Token策略，当“微服务类型”取值为“UdmAppCtrlService(UdmAppCtrlService)”且以下参数取值为对应值时，业务有微量呼损。\n  - “参数0”取值为“4”\n  - “参数1”取值为“0”\n  - “参数2”取值为“1”",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595961",
+        "topicUrl": "MML/LinkedDoc/udm_services_management.html",
+        "name": "UDM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.4",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203481782893",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_expert_maintenance_command.html",
+        "name": "专家维护命令",
+        "parentTopicId": "CONCEPT_0000202789595961",
+        "position": "2.2.3.4.4",
+        "parentPosition": "2.2.3.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000203278352764",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_debugging_command.html",
+        "name": "调试命令",
+        "parentTopicId": "CONCEPT_0000203481782893",
+        "position": "2.2.3.4.4.3",
+        "parentPosition": "2.2.3.4.4",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0277156184",
+        "topicUrl": "MML/LinkedDoc/httpdisctrlservice_n_start_microservice_software_debugging.html",
+        "name": "微服务软件调试开关",
+        "parentTopicId": "CONCEPT_0000203278352764",
+        "position": "2.2.3.4.4.3.1",
+        "parentPosition": "2.2.3.4.4.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001098795822_2",
+        "topicUrl": "MML/Document/str_msdebug.html",
+        "name": "微服务软件调试开关(STR MSDEBUG)",
+        "parentTopicId": "TOPIC_0277156184",
+        "position": "2.2.3.4.4.3.1.1",
+        "parentPosition": "2.2.3.4.4.3.1",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

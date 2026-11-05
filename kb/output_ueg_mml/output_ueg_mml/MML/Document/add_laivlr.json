@@ -1,0 +1,155 @@
+{
+  "command_name": "ADD LAIVLR",
+  "command_name_zh": "增加LAI与VLR号对应关系",
+  "command_name_full": "增加LAI与VLR号对应关系(ADD LAIVLR)",
+  "command_function": "**适用网元：SGSN、MME**\n\n该命令用于增加LAI与MSC/VLR的对应关系。UNC将根据本命令配置的LAI和MSC/VLR对应关系，为UE选择提供服务的MSC/VLR。具体规则如下：\n\n不组Pool场景下，UNC直接根据LAI和MSC/VLR对应关系为UE选择提供服务的MSC/VLR，此种场景下不考虑链路状态。\n\n组Pool场景下，UNC首先根据**ADD LAIVLR**里LAI和MSC/VLR的映射关系，结合**ADD VLR**命令配置的“VLR号”和“MSC POOL名称”映射关系选择到MSC POOL，然后再根据用户IMSI V值与MSC/VLR的对应关系在Pool内选择一个链路状态正常的MSC/VLR为UE提供服务（IMSI V值与MSC/VLR的对应关系通过**ADD VLR**命令进行配置）。MSC POOL的作用是负荷分担和容灾的，因此MSC POOL内的各个MSC管辖的LAI范围是一样的，此步骤只需要配置MSC Pool中任意一个MSC/VLR与LAI的对应关系即可。",
+  "full_nav": [
+    [
+      {
+        "name": "风筝S/M/L（UEG）"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "parentNaviId": "docnav4",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "参考信息",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "naviId": "DOCNAV599614BF24A54CBFABC3E0E7FC48BDCC",
+        "parentNaviId": "DOCNAV9185FD439A9C4207A60708216E77D25B",
+        "pidId": "pid_bookmap_0000002090327913",
+        "naviTag": "doc",
+        "issuedate": "2025-06-10 20:29:16",
+        "name": "UEG 命令参考（风筝M&L，虚机&裸机容器）",
+        "nameIdList": [
+          "release"
+        ],
+        "valueIdList": [
+          "release_5480"
+        ],
+        "metaMap": {
+          "release": [
+            "release_5480"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001406123465",
+        "topicUrl": "toctopics/zh-cn_topic_0000001406123465.html",
+        "name": "CSP OM Portal",
+        "parentTopicId": "",
+        "position": "2",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001355284200",
+        "topicUrl": "toctopics/zh-cn_topic_0000001355284200.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001406123465",
+        "position": "2.2",
+        "parentPosition": "2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0000001232393425",
+        "topicUrl": "toctopics/zh-cn_topic_0000001232393425.html",
+        "name": "UEG MML命令",
+        "parentTopicId": "TOPIC_0000001355284200",
+        "position": "2.2.3",
+        "parentPosition": "2.2",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "CONCEPT_0000202789595581",
+        "topicUrl": "MML/LinkedDoc/unc_n_usm_uam_mangement.html",
+        "name": "USM_UAM服务管理",
+        "parentTopicId": "TOPIC_0000001232393425",
+        "position": "2.2.3.3",
+        "parentPosition": "2.2.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321089",
+        "topicUrl": "MML/LinkedDoc/unc_n_pre_5g_access_service_management.html",
+        "name": "Pre 5G接入业务管理",
+        "parentTopicId": "CONCEPT_0000202789595581",
+        "position": "2.2.3.3.5",
+        "parentPosition": "2.2.3.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321290",
+        "topicUrl": "MML/LinkedDoc/unc_n_control_plane_management.html",
+        "name": "控制面管理",
+        "parentTopicId": "TOPIC_0234321089",
+        "position": "2.2.3.3.5.3",
+        "parentPosition": "2.2.3.3.5",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321317",
+        "topicUrl": "MML/LinkedDoc/unc_n_cs_combination_service.html",
+        "name": "电路域联合业务",
+        "parentTopicId": "TOPIC_0234321290",
+        "position": "2.2.3.3.5.3.1",
+        "parentPosition": "2.2.3.3.5.3",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "TOPIC_0234321578",
+        "topicUrl": "MML/LinkedDoc/unc_n_corresponding_relation_between_la_and_vlr.html",
+        "name": "LAI与VLR号对应关系",
+        "parentTopicId": "TOPIC_0234321317",
+        "position": "2.2.3.3.5.3.1.2",
+        "parentPosition": "2.2.3.3.5.3.1",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000003525",
+        "pidId": "pid_bookmap_0000002090327913",
+        "topicId": "MMLREF_0000001172345015",
+        "topicUrl": "MML/Document/add_laivlr.html",
+        "name": "增加LAI与VLR号对应关系(ADD LAIVLR)",
+        "parentTopicId": "TOPIC_0234321578",
+        "position": "2.2.3.3.5.3.1.2.1",
+        "parentPosition": "2.2.3.3.5.3.1.2",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}

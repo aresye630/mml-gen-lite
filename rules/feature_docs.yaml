@@ -1,0 +1,134 @@
+# ============================================================
+# 特性配置 MD 生成清单（exp → 特性配置分析文档）
+#
+# 数据驱动：本文件定义"哪些特性要生成 MD、官方文档怎么匹配、
+# exp 配置从哪提取"。新增特性 = 新增一个 feature 块，不改代码。
+#
+# 官方文档匹配两种方式（任一命中即收录）：
+#   official_kws  —— 特性文档标题关键词（用于代表性文档，宁缺毋滥）
+#   script_cmds   —— 特性文档脚本/操作步骤中含该命令类型。
+#                     ⚠️ 只用于"特性专属命令"（如 ADD EPRPSTA / ADD AUTOSCALINGSRROUTE），
+#                    通用命令（L3VPNINST/POOL/APN/LOGICINF 等被大量文档使用）禁止
+#                    用 script_cmds，否则匹配爆炸。
+#
+# source 两种：
+#   groundtruth —— 从 groundtruth.json 的实例链提取（已规则覆盖特性）
+#   exp        —— 从 exp 原文按命令类型清单提取（未规则覆盖特性）
+# anchor_param —— 有锚点参数时按值分实例（多实例分开呈现）
+# ============================================================
+
+output_dir: 特性配置基线
+
+features:
+  # ── 已规则覆盖（groundtruth 实例）────────────────────────
+  - id: dual_domain_dnn
+    title: 双域专网企业 DNN
+    official_kws: ["ULCL", "UL CL UPF", "双主负荷分担"]
+    script_cmds: []
+    cmd_tree_cat: "DN管理 / 业务匹配策略"
+    source: groundtruth
+    gt_feature: dual_domain_dnn
+    note: "企业 VRF → GRE 隧道 → 地址池 → 过滤器 → 计费 → APN 附属 完整链"
+
+  - id: billing_chain
+    title: PCC 计费策略链
+    official_kws: ["配置本地PCC功能", "配置动态PCC功能", "带宽控制", "内容计费"]
+    script_cmds: []
+    cmd_tree_cat: "业务匹配策略 / 业务控制策略"
+    source: groundtruth
+    gt_feature: billing_chain
+    note: "URR/URRGROUP/PCCPOLICYGRP/USERPROFILE/RULE/过滤器 引用链"
+
+  - id: vrf_chain
+    title: VRF 基础设施链（VNRS）
+    official_kws: ["配置实例"]
+    script_cmds: []
+    cmd_tree_cat: "VNRS功能管理"
+    source: groundtruth
+    gt_feature: vrf_chain
+    note: "承载/业务 VRF 定义 → 地址族 → 接口绑定 → 地址 → 路由 → BGP（属 VNRS 承载网络）"
+
+  # ── 未规则覆盖（exp 命令类型提取）───────────────────────
+  - id: ep_ha
+    title: EPRP 热备容灾
+    official_kws: ["热备容灾", "容灾模式"]
+    script_cmds: ["ADD EPRPSTA"]
+    cmd_tree_cat: 业务运维
+    source: exp
+    cmds: ["ADD EPRPSTA"]
+    anchor_param: EPRPSTANAME
+    note: "SXA 接口主备热备状态点（双机容灾）"
+
+  - id: n4_logicinf
+    title: N4 接口 / 逻辑接口
+    official_kws: ["配置N4", "配置Mp"]
+    script_cmds: []
+    cmd_tree_cat: "DN管理"
+    source: exp
+    cmds: ["ADD LOGICINF"]
+    anchor_param: NAME
+    note: "N4/N6 用户面逻辑接口（n4if/paif），挂载承载 VRF"
+
+  - id: path_mgmt
+    title: GTP/PFCP 路径管理
+    official_kws: ["GTP/PFCP路径管理参数", "激活路径管理"]
+    script_cmds: ["SET UPPFCPPATH", "SET UPINFO"]
+    cmd_tree_cat: 路径管理
+    source: exp
+    cmds: ["SET UPPFCPPATH", "SET UPINFO", "SET UPSTATUS", "SET UPGTPPATH",
+           "SET UPINITSETUP", "SET UPFSTARTPARA", "SET CPACCESSLISTFUNC",
+           "SET PFCPOVERLOADRPT"]
+    note: "N4/N6 路径建立/保活/状态上报全局参数（全局配置，无实例）"
+
+  - id: qos_ctrl
+    title: 业务控制策略（QoS 整形）
+    official_kws: ["带宽控制", "QoS保证"]
+    script_cmds: ["SET QOSCAR", "SET QOSSHAPE"]
+    cmd_tree_cat: 业务控制策略
+    source: exp
+    cmds: ["SET QOSCAR", "SET QOSSHAPE", "SET QOSGLOBAL", "SET QOSURRRPTCTRL",
+           "SET SIGDSCP", "SET UDPCHECKSUM", "SET UPDEFAULTQUOTA"]
+    note: "QoS 整形/带宽控制全局参数（全局配置，无实例）"
+
+  - id: carrier_vrf
+    title: 承载网络 VRF（ADD VPNINST）
+    official_kws: ["配置实例"]
+    script_cmds: []
+    cmd_tree_cat: "DN管理"
+    source: exp
+    cmds: ["ADD VPNINST"]
+    anchor_param: VPNINSTANCE
+    note: "承载 VRF 定义（CBN_Gn/CBN_Internet 等，与 L3VPNINST 命令族不同）"
+
+  - id: autoscaling
+    title: 自动缩放（AUTOSCALING）
+    official_kws: []
+    script_cmds: ["ADD AUTOSCALINGSRROUTE", "ADD AUTOSCALINGBFD",
+                  "ADD AUTOSCALINGSERVICE", "ADD AUTOSCALINGETHTRUNK"]
+    cmd_tree_cat: "（特性概述页未收录）"
+    source: exp
+    cmds: ["ADD AUTOSCALINGSRROUTE", "ADD AUTOSCALINGSERVICE",
+           "ADD AUTOSCALINGBFD", "ADD AUTOSCALINGETHTRUNK"]
+    anchor_param: SRROUTENAME
+    note: "路由/业务/BFD/Trunk 弹性自动缩放（命令文档已收录，特性概述页无独立文档）"
+
+  - id: session_params
+    title: 会话管理全局参数
+    official_kws: []
+    script_cmds: []
+    cmd_tree_cat: 会话管理
+    source: exp
+    cmds: ["SET DDNCTRL", "SET CPTEIDUALLOC", "SET GLOBALL2TP", "SET DEACTIVERATE",
+           "SET SGLPASSPERIOD", "SET GLBDLLTBUFFER", "SET GLBDLBUFTIME",
+           "SET IPALLOCRULE", "SET GLOBUEMUTACC", "SET GIREDIRECTFUNC"]
+    note: "会话建立/保活/地址分配全局参数（全局配置，无实例）"
+
+  - id: vo_quality
+    title: VoNR/VoLTE 质量监控
+    official_kws: []
+    script_cmds: []
+    cmd_tree_cat: "VoNR/VoLTE质量监控配置"
+    source: exp
+    cmds: ["SET VONRMOSFACTOR", "SET VONRMOSCLASS", "SET VOLTEMOSFACTOR",
+           "SET VOLTEMOSCLASS", "SET VOLTEMOSEVAL", "SET VOLTEMOSALMTHD"]
+    note: "语音 MOS 质量评估/告警全局参数（全局配置，无实例）"

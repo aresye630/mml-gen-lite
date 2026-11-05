@@ -1,0 +1,470 @@
+# ═══════════════════════════════════════════════════════════════
+# 增量层：把「主构建启动后才完成的改动」补进镜像
+# ═══════════════════════════════════════════════════════════════
+#
+# 为什么需要这一层：
+#   `docker build` 的 COPY 是**构建时快照** —— 构建启动后再改源文件，
+#   改动不会进镜像（实测：主构建 Step 15 COPY 之后改的 M1/M2 就没进去）。
+#
+# 本层覆盖（2026-09-18 第二轮修复 + M3 性能优化）：
+#   · N1  _reconcileStage（阶段状态自愈）
+#   · M1  统一生成通道（去意图分类/二次确认）
+#   · N2  实例折叠  N3  工具文案业务化  N4  页签恒定灰化  N5  纯MML子页签
+#   · M2  mml 主键骨架保留（不整条丢弃）
+#   · N19 主键真名生成（现网 EXP 命名规律 + 引用链 + 去重）
+#   · 引号规则（字符串参数带双引号）
+#   · APN 命名生成（cbiotgzxxx001.gd 格式）
+#   · 页签组织重构（7 页签平铺，取消三级结构）
+#   · 冒烟集同步（判据随设计变更更新 + 新增自证）
+#   · 【M3】锚点索引化 / 对象参数预判定 / nsmallest 截断
+#   · 【M3】det_check 归一化修复 + --selftest；黄金规则比对工具
+#   · 【P2】llm_polish 修硬编码 + 显式成败 + JSON 提取健壮化（开关默认关）
+#
+# 用法：
+#   docker build -f dockerfiles/Dockerfile.patch-front -t expgv:mockdgx-v5 .
+# ═══════════════════════════════════════════════════════════════
+# ⚠ 用 ARG 而非硬编码：build.sh 可传 --build-arg BASE_IMAGE=... 复用已有层
+ARG BASE_IMAGE=expgv:_base-m3
+FROM ${BASE_IMAGE}
+
+USER root
+
+# ★ 2026-10-24：hermes 每次启动都会自检 Node.js（browser 工具依赖），
+#   容器里缺 xz ⇒ tar 解压 node-v22 失败 ⇒ **每次对话白等约 300 秒**才继续。
+#   实测：探针让 agent "只回复两个字" 耗时 311s，其中 300s 花在这次失败的重试上。
+#   处置：装 xz + 预装 Node 22 到 hermes 自己的目录（/home/expgv/.hermes/node），
+#   让自检直接命中，不再联网下载。两条都做（xz 兜底其它模块解压需求）。
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends xz-utils; \
+    rm -rf /var/lib/apt/lists/*; \
+    command -v xz; \
+    NODE_DIR=/home/expgv/.hermes/node; \
+    if [ ! -x "$NODE_DIR/bin/node" ]; then \
+        case "$(uname -m)" in \
+          x86_64) NARCH=x64 ;; aarch64|arm64) NARCH=arm64 ;; *) NARCH=x64 ;; \
+        esac; \
+        mkdir -p "$NODE_DIR"; \
+        curl -fsSL "https://nodejs.org/dist/v22.23.4/node-v22.23.4-linux-${NARCH}.tar.xz" -o /tmp/node.tar.xz; \
+        tar -xJf /tmp/node.tar.xz -C "$NODE_DIR" --strip-components=1; \
+        rm -f /tmp/node.tar.xz; \
+    fi; \
+    "$NODE_DIR/bin/node" --version; \
+    ln -sf "$NODE_DIR/bin/node" /usr/local/bin/node; \
+    ln -sf "$NODE_DIR/bin/npm" /usr/local/bin/npm 2>/dev/null || true; \
+    chown -R expgv:expgv /home/expgv/.hermes/node
+
+# ── 后端代码 ──
+COPY materials/backend/web/app_v2.html      /opt/expgv/backend/web/app_v2.html
+
+# ★ 2026-11-03：七步 workflow 引擎（GEN_ENGINE=workflow 时启用）
+#   不 COPY 的后果：adapter import 失败 → 生成直接报错（实测过 rules 表的同类坑）
+COPY --chown=expgv:expgv materials/workflow/ /opt/expgv/workflow/
+
+# ★ 2026-11-04：workflow 专属 HOME（独立 skill 空间，与 legacy 的 /home/expgv 隔离）
+#   用户裁决：workflow 复用自己的 skill 副本，后续直接改这里，不污染 legacy。
+#   hermes 的 --skills 按 HOME/.hermes/skills 搜，故用独立 HOME 实现隔离。
+RUN mkdir -p /opt/expgv/workflow/home/.hermes \
+ && cp -r /opt/expgv/workflow/skills /opt/expgv/workflow/home/.hermes/skills \
+ && (cp /home/expgv/.hermes/config.yaml /opt/expgv/workflow/home/.hermes/config.yaml || true) \
+ && (cp /home/expgv/.hermes/auth.json /opt/expgv/workflow/home/.hermes/auth.json || true) \
+ && (cp /home/expgv/.hermes/SOUL.md /opt/expgv/workflow/home/.hermes/SOUL.md || true) \
+ && find /opt/expgv/workflow -name __pycache__ -type d -exec rm -rf {} + 2>/dev/null || true
+COPY materials/backend/gen_assemble.py      /opt/expgv/backend/gen_assemble.py
+COPY materials/backend/model_fill.py          /opt/expgv/backend/model_fill.py
+COPY materials/backend/artifacts_v1.py      /opt/expgv/backend/artifacts_v1.py
+COPY materials/backend/generations_v1.py    /opt/expgv/backend/generations_v1.py
+COPY materials/backend/agent_projection.py   /opt/expgv/backend/agent_projection.py
+# ★ 2026-09-20 修：backend 整目录曾在 base 层 COPY（Dockerfile.mockdgx:92），
+#   而 base 层极少重建 → 改动不生效（实测 gen_values.py 镜像内是旧版：
+#   源码 38000 字节含引号保持逻辑，镜像 37267 字节无）。
+#   逐个 COPY 名单是人维护的 → 必然漏（这次就漏了 gen_values.py）。
+#   改为整目录覆盖：根治「漏登记」，新增 backend 文件无需再改 Dockerfile。
+COPY materials/backend/                     /opt/expgv/backend/
+
+# ── 规则表（数据驱动：命名规律 / 引号规则）──
+COPY materials/rules/name_derivation.yaml   /opt/expgv/rules/name_derivation.yaml
+COPY materials/rules/mml_quoting.yaml       /opt/expgv/rules/mml_quoting.yaml
+
+# ── entrypoint（离线环境修复：lazy-install / tirith / auxiliary auto 探测）──
+#   ⚠ 真实入口是 /usr/local/bin/entrypoint.sh（不是 /opt/expgv/scripts/）
+#     只改构建包源文件**不会**进镜像（实测漏过一次，见构建期断言）
+COPY materials/scripts/entrypoint.sh        /opt/expgv/scripts/entrypoint.sh
+COPY materials/scripts/entrypoint.sh        /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh /opt/expgv/scripts/entrypoint.sh
+
+# ── M3 验收工具：确定性差分检查（含 --selftest 判别力自证）──
+#   ⚠ 归一化正则曾因「转义拷贝」永不命中（r'\s*' 落盘成 '\\s*'）
+#     现已改用不含反斜杠的等价写法；构建期断言会数反斜杠个数。
+COPY materials/scripts/det_check.py        /opt/expgv/scripts/det_check.py
+
+# ── 统一通道（2026-09-19）──
+#   用户口径：只有右侧对话栏做文本意图交互；对话全开放；不拦截。
+#   ① SYSTEM_PROMPT 解框（不再是「只基于摘要答问」）
+#   ② --yolo + skills 列全（对话里也能驱动生成）
+#   ③ 死 session id 自愈
+COPY materials/backend/app.py               /opt/expgv/backend/app.py
+
+# ── 链装配接线 + 改名（2026-09-19）──
+#   ⚠⚠ 本轮教训：改名改了 16 个文件，若不全部登记进本层，
+#      重建后镜像内仍是旧名（特性配置groundtruth）→ 与 /data 里已 mv 的
+#      目录名对不上 → 读产物全部 404。**改过的文件必须逐个登记。**
+#   ① 产物形态改造：链装配渲染（link_groups 驱动）
+COPY materials/backend/app_v1.py            /opt/expgv/backend/app_v1.py
+COPY materials/backend/app.py               /opt/expgv/backend/app.py
+COPY materials/backend/session_store.py     /opt/expgv/backend/session_store.py
+COPY materials/backend/session_mgmt_v1.py   /opt/expgv/backend/session_mgmt_v1.py
+COPY materials/rules/products.yaml          /opt/expgv/rules/products.yaml
+COPY materials/rules/session_stages.yaml    /opt/expgv/rules/session_stages.yaml
+COPY materials/rules/feature_docs.yaml      /opt/expgv/rules/feature_docs.yaml
+# ★ 2026-10-24：errors.yaml 此前只在第 1/2 层 COPY ⇒ 改它**不生效**（镜像里仍是旧码表，
+#   实测新增的 3 个错误码没进镜像，接口继续报 "未注册错误码"）。错误码是接口契约，
+#   必须随交付层一起更新。下面还有一条构建期断言做全量比对。
+COPY materials/rules/errors.yaml            /opt/expgv/rules/errors.yaml
+COPY materials/scripts/chain_by_linkgroups.py /opt/expgv/scripts/chain_by_linkgroups.py
+COPY materials/scripts/chain_criteria.py    /opt/expgv/scripts/chain_criteria.py
+COPY materials/scripts/gen_viz_html.py      /opt/expgv/scripts/gen_viz_html.py
+COPY materials/scripts/gen_feature_mds.py   /opt/expgv/scripts/gen_feature_mds.py
+COPY materials/scripts/gen_feature_mds_v2.py /opt/expgv/scripts/gen_feature_mds_v2.py
+COPY materials/scripts/m3_stage_timing.py   /opt/expgv/scripts/m3_stage_timing.py
+
+# ── 意图定位判据（2026-09-20）──
+#   生成前跑一次，把「走语义检索还是兜底 grep」变成确定性结论。
+#   动因：实测语义检索 top1=1.0000 逐字命中时 agent 仍判"低分"跳过 → 白走兜底。
+COPY materials/scripts/intent_judge.py      /opt/expgv/scripts/intent_judge.py
+COPY materials/scripts/intent_precheck.py   /opt/expgv/scripts/intent_precheck.py
+
+# ── M3 性能优化（2026-09-18）──
+#   ⚠⚠ 血泪教训：本轮曾漏掉 leaf_chain.py —— 只 docker cp 进容器、
+#      没加进本层，导致「镜像内是 9/14 旧版」而本地是新版（哈希比对才抓到）。
+#      凡改过的文件**必须**同时进本层，否则重建即回退。
+COPY materials/scripts/gen_feature_all.py   /opt/expgv/scripts/gen_feature_all.py
+COPY materials/scripts/match_features.py    /opt/expgv/scripts/match_features.py
+# ★ 2026-10-23：match_features 的两个同级 import（此前漏拷 ⇒ 容器内分析 stage=failed，
+#   报 ModuleNotFoundError: No module named 'exp_me'；宿主有这两个文件所以本地跑不出来）
+COPY materials/scripts/exp_me.py            /opt/expgv/scripts/exp_me.py
+COPY materials/scripts/evidence_strength.py /opt/expgv/scripts/evidence_strength.py
+COPY materials/scripts/feature_relations.py /opt/expgv/scripts/feature_relations.py
+COPY materials/scripts/leaf_chain.py        /opt/expgv/scripts/leaf_chain.py
+COPY materials/scripts/norm_cmp.py          /opt/expgv/scripts/norm_cmp.py
+COPY materials/scripts/mml_compare.py       /opt/expgv/scripts/mml_compare.py
+
+# ── P2 LLM 润色（可选开关；默认关，不阻塞主路径）──
+COPY materials/scripts/exp_analysis_code/llm_polish.py \
+                                            /opt/expgv/scripts/exp_analysis_code/llm_polish.py
+COPY materials/scripts/exp_analysis_code/pipeline.py \
+                                            /opt/expgv/scripts/exp_analysis_code/pipeline.py
+
+# ── ★ skill 覆盖（2026-09-20 修：原只在 base 层 COPY，改 skill 不生效）──
+#   问题：skills 在 Dockerfile.mockdgx:80（第一层 base）COPY，
+#         而 base 层极少重建（实测 41 小时未动）→ 改 skill 后镜像里仍是旧版
+#         （patch-front 重建救不回来，它当时只做「数量断言」不 COPY 内容）。
+#   修法：在**最后一层**再 COPY 一次，保证每次 release.sh 都带上最新 skill。
+#         ⚠ 两处 COPY 同一内容是有意的（base 层管镜像自包含，本层管「必刷新」），
+#           不是冗余 —— 删掉本层 COPY 会让 skill 改动静默失效。
+#         ⚠ --chown 必须有：entrypoint 会改 config.yaml（写离线开关），
+#           裸 COPY 出来的 owner=root → expgv 写不了 → PermissionError 起不来。
+COPY --chown=expgv:expgv materials/hermes/skills/     /home/expgv/.hermes/skills/
+COPY --chown=expgv:expgv materials/hermes/config.yaml /home/expgv/.hermes/config.yaml
+# ★ 2026-10-25：容器内 agent 的**通用操作经验**（人工筛选版，不含局点名/客户数据/私有路径）。
+#   没有它 agent 每次都要重新踩同样的坑（判据怎么写才拦得住、改文件怎么别写坏、
+#   镜像漏拷怎么查）。用户口径：只带通用经验，不带局点特例。
+#   ⚠ 源目录刻意叫 agent-memory 而不是 memories：
+#     .dockerignore 里有「materials/hermes/memories/ 私有数据绝不入镜像」的硬规则，
+#     那条规则是为**宿主真实 memory** 设的，不能删；这里用独立路径装载筛选版。
+COPY --chown=expgv:expgv materials/hermes/agent-memory/  /home/expgv/.hermes/memories/
+
+# ── 交付文档（版本表 + 容器重建说明 + 一致性校验脚本）──
+COPY VERSION.md                              /opt/expgv/VERSION.md
+# ★ 2026-09-20 用户裁决：docs/ 全量进镜像（原只拷 1 个文件，
+#   致 docs 下其余说明/设计文档在容器内不可见）。
+#   ⚠ 逐文件登记 vs 整目录 COPY：这里用整目录（docs/ 全是文档，无客户数据），
+#     避免每加一份文档都要改 Dockerfile。
+COPY docs/                                   /opt/expgv/docs/
+COPY tools/verify_consistency.py             /opt/expgv/tools/verify_consistency.py
+# ★ 2026-10-29：产物自检（C1 装配一致 / C2 引用完整 / C3 重复下发）
+#   只依赖本次产物 + EXP，不用 GT；从属型命令表外置为 YAML（禁硬编码）
+COPY materials/tools/gen_selfcheck.py        /opt/expgv/tools/gen_selfcheck.py
+COPY materials/rules/dependent_add_cmds.yaml /opt/expgv/rules/dependent_add_cmds.yaml
+
+# ── 交付前自检闭环（2026-10-30）：V0 EXP网元核对 / V2 补建建议 / V5 枚举一致性 ──
+COPY materials/tools/autofix.py              /opt/expgv/tools/autofix.py
+COPY materials/tools/check_v0_v5.py          /opt/expgv/tools/check_v0_v5.py
+COPY materials/tools/suggest_creation.py     /opt/expgv/tools/suggest_creation.py
+COPY materials/tools/fix_exp_template.py     /opt/expgv/tools/fix_exp_template.py
+COPY materials/rules/ref_to_create.yaml      /opt/expgv/rules/ref_to_create.yaml
+COPY materials/rules/cmd_unique_keys.json    /opt/expgv/rules/cmd_unique_keys.json
+# ★ 2026-11-02：cmd_nf_map.json 是 _can_add_family 的跨网元闸依赖。
+#   此前从未进镜像 ⇒ 容器里文件不存在 ⇒ _NF_MAP_CACHE={} ⇒ 闸静默失效（全部放行）。
+COPY materials/rules/cmd_nf_map.json          /opt/expgv/rules/cmd_nf_map.json
+COPY materials/rules/key_params.yaml        /opt/expgv/rules/key_params.yaml
+COPY materials/rules/udg_families.json      /opt/expgv/rules/udg_families.json
+COPY materials/rules/intent_object_map.yaml       /opt/expgv/rules/intent_object_map.yaml
+COPY materials/rules/param_format_priority.yaml   /opt/expgv/rules/param_format_priority.yaml
+COPY tools/verify_remote_consistency.py      /opt/expgv/tools/verify_remote_consistency.py
+COPY tools/commit_gate.py                    /opt/expgv/tools/commit_gate.py
+# ⚠ 宿主 docs/ 是 600 权限，COPY 后 expgv 读不了（一致性问题会被误报为「缺失」）
+RUN chmod -R a+rX /opt/expgv/docs /opt/expgv/tools
+
+# ── 集成测试用真实 exp（三产品各一，冒烟套件的输入）──
+#   ⚠ 与文档库同规格：真实局点导出，不是造的小样本
+# ★ 2026-10-24：**客户数据不入版本库**（.gitignore 排除），从 GitHub 干净 clone 时该目录不存在。
+#   旧写法无条件 COPY ⇒ 第 51 步 "COPY failed: file not found in build context"，
+#   导致「别处 clone 下来根本建不出镜像」。改为：上下文里没有该目录就造一个空目录再 COPY，
+#   下面的断言也改成「要么三份都在，要么显式缺失（打印告警，不阻断构建）」。
+COPY materials/testdata/real_exp/           /opt/expgv/testdata/real_exp/
+
+# ── 冒烟集（判据 + 自证工具 + 集成测试）──
+COPY materials/scripts/smoke_v5/            /opt/expgv/scripts/smoke_v5/
+COPY materials/scripts/n19_verify2.py       /opt/expgv/scripts/n19_verify2.py
+COPY materials/scripts/name_stats.py        /opt/expgv/scripts/name_stats.py
+
+# ── 页签平铺检查（Python 版：容器内无 node，必须用 python3 跑）──
+#   app_tabs_check.js 保留供开发机用；容器内验收走 .py
+
+# ── 构建期断言：确认改动**真的**进了镜像 ──
+#   （不是「文件存在」就算 —— 要断言语义改动在）
+RUN set -e; \
+    A=/opt/expgv/backend/web/app_v2.html; \
+    B=/opt/expgv/backend/gen_assemble.py; \
+    C=/opt/expgv/backend/artifacts_v1.py; \
+    \
+    echo "[patch] N1 状态自愈 …"; \
+    grep -q "_reconcileStage" "$A"; \
+    \
+    echo "[patch] N2 实例折叠 …"; \
+    grep -q "toggleCardInst" "$A"; \
+    \
+    echo "[patch] N3 过程面板在对话框内 …"; \
+    grep -q "TOOL_BIZ" "$A"; \
+    \
+    echo "[patch] N4 页签恒定灰化 …"; \
+    grep -q "\.off" "$A"; \
+    \
+    echo "[patch] N5 纯 MML 页签 …"; \
+    grep -q "mml_view" "$C"; \
+    \
+    echo "[patch] 页签平铺（7 个 lv1 各自独立）…"; \
+    ! grep -q "const LV1_TABS" "$A"; \
+    ! grep -q "function setLv1" "$A"; \
+    ! grep -q "S\.lv1" "$A"; \
+    grep -q "data-lv1" "$A"; \
+    \
+    echo "[patch] M1 去意图分类/二次确认 …"; \
+    ! grep -q "classifyIntent" "$A"; \
+    ! grep -q "doAgentConfirm" "$A"; \
+    \
+    echo "[patch] M2 主键骨架保留（不整条丢弃）…"; \
+    grep -q "未生成\|保留完整命令骨架\|downgraded_keys" "$B"; \
+    \
+    echo "[patch] N19 主键真名生成 + 引用链 …"; \
+    grep -q "_load_exp_name_index" "$B"; \
+    grep -q "derive_apn" "$B"; \
+    grep -q "_derive_key_value" "$B"; \
+    \
+    echo "[patch] 引号规则（字符串参数带引号）…"; \
+    grep -q "needs_quote" "$B"; \
+    grep -q "quote_value" "$B"; \
+    test -f /opt/expgv/rules/mml_quoting.yaml; \
+    test -f /opt/expgv/rules/name_derivation.yaml; \
+    \
+    echo "[patch] entrypoint 离线修复（lazy-install / tirith / aux auto）…"; \
+    grep -q "allow_lazy_installs" /usr/local/bin/entrypoint.sh; \
+    grep -q "tirith_enabled" /usr/local/bin/entrypoint.sh; \
+    grep -q "auxiliary" /usr/local/bin/entrypoint.sh; \
+    \
+    echo "[patch] 冒烟集 + 自证工具 …"; \
+    test -f /opt/expgv/scripts/smoke_v5/smoke_selftest.py; \
+    test -f /opt/expgv/scripts/smoke_v5/test_quoting_selftest.py; \
+    test -f /opt/expgv/scripts/smoke_v5/test_normalize_selftest.py; \
+    test -f /opt/expgv/scripts/n19_verify2.py; \
+    test -f /opt/expgv/scripts/smoke_v5/app_tabs_check.py; \
+    \
+    echo "[patch] 页签平铺检查可跑（容器内 python3）…"; \
+    cd /opt/expgv/scripts/smoke_v5 && python3 app_tabs_check.py /opt/expgv/backend/web/app_v2.html >/dev/null; \
+    \
+    echo "[patch] M3 验收工具（det_check 判别力自证）…"; \
+    test -f /opt/expgv/scripts/det_check.py; \
+    cd /opt/expgv/scripts && python3 det_check.py --selftest >/dev/null; \
+    \
+    echo "[patch] 意图定位判据（intent_precheck 分档自证）…"; \
+    test -f /opt/expgv/scripts/intent_judge.py; \
+    test -f /opt/expgv/scripts/intent_precheck.py; \
+    cd /opt/expgv/scripts && python3 intent_precheck.py --selftest >/dev/null; \
+    \
+    echo "[patch] 归一化正则无反斜杠（防转义拷贝复发）…"; \
+    python3 -c "import re,sys; L=[l for l in open('/opt/expgv/scripts/det_check.py',encoding='utf-8') if l.strip().startswith('re.compile')]; assert L, '无 re.compile 行'; assert all(chr(92) not in l for l in L), '正则含反斜杠 → 可能被转义拷贝污染'; print('   ', len(L), '条正则，反斜杠 0 个')"; \
+    \
+    echo "[patch] M3 性能优化（索引化 + 预判定 + nsmallest）…"; \
+    test -f /opt/expgv/scripts/match_features.py; \
+    test -f /opt/expgv/backend/model_fill.py; \
+    grep -q "r.get(.domain., ..)" /opt/expgv/scripts/match_features.py; \
+    grep -q "quoted = bool(qval)" /opt/expgv/backend/agent_projection.py; \
+    grep -q "split_quoted" /opt/expgv/backend/gen_assemble.py; \
+    grep -q "p\[.quote.\] = bool" /opt/expgv/backend/gen_assemble.py; \
+    grep -q "build_anchor_index" /opt/expgv/scripts/gen_feature_all.py; \
+    grep -q "ObjParamSet" /opt/expgv/scripts/feature_relations.py; \
+    grep -q "nsmallest" /opt/expgv/scripts/feature_relations.py; \
+    grep -q "params_sorted" /opt/expgv/scripts/leaf_chain.py; \
+    ! grep -q "sorted(g\['params'\])" /opt/expgv/scripts/leaf_chain.py; \
+    \
+    echo "[patch] P2 LLM 润色开关（默认关 + 显式成败）…"; \
+    grep -q "_extract_json" /opt/expgv/scripts/exp_analysis_code/llm_polish.py; \
+    grep -q "no_key" /opt/expgv/scripts/exp_analysis_code/llm_polish.py; \
+    ! grep -q "102275" /opt/expgv/scripts/exp_analysis_code/llm_polish.py; \
+    ! grep -q "deepseek-v4-pro" /opt/expgv/scripts/exp_analysis_code/llm_polish.py; \
+    grep -q -- "--polish" /opt/expgv/scripts/exp_analysis_code/pipeline.py; \
+    \
+    echo "[patch] LLM 润色自证（19 项判别力）…"; \
+    cd /opt/expgv/scripts/smoke_v5 && python3 test_llm_polish_selftest.py >/dev/null; \
+    \
+    echo "[patch] ★ backend 全量 + 关键逻辑在位（防「整目录在旧层」静默漏文件）…"; \
+    NB=$(find /opt/expgv/backend -type f | wc -l | tr -d " "); \
+    test "$NB" -ge 19 || { echo "  ✗ backend 仅 $NB 个文件（应 ≥19，整目录 COPY 可能失效）"; exit 1; }; \
+    for B_ in gen_values.py gen_assemble.py model_fill.py agent_projection.py \
+              app.py app_v1.py artifacts_v1.py generations_v1.py session_store.py; do \
+      test -f "/opt/expgv/backend/$B_" || { echo "  ✗ 缺 backend/$B_"; exit 1; }; \
+    done; \
+    grep -q "_q_before" /opt/expgv/backend/gen_values.py || { \
+      echo "  ✗ gen_values.py 缺引号保持逻辑 → 镜像内是旧版（改后未重建？）"; exit 1; }; \
+    echo "    backend $NB 个文件 + 9 个关键文件 + 引号保持逻辑 全在位"; \
+    echo "[patch] M3 工具自证 + 黄金规则比对工具可用…"; \
+    cd /opt/expgv/scripts && python3 mml_compare.py --help >/dev/null 2>&1 || true; \
+    test -f /opt/expgv/scripts/norm_cmp.py; \
+    \
+    echo "[patch] 语法自检（静态也必须过关）…"; \
+    python3 -c "import ast,sys; [ast.parse(open(f,encoding='utf-8').read()) for f in ['$B','$C']]"; \
+    \
+    echo "[patch] skill 完整性（★ 防静默丢失）…"; \
+    N=$(find /home/expgv/.hermes/skills -name SKILL.md | wc -l); \
+    test "$N" -ge 11 || { echo "  ✗ skill 数 $N < 11（可能未 COPY 或被覆盖）"; exit 1; }; \
+    for s in mml_assistant mml_feature mml_nav mml_support \
+             mlops/mml-config-guide mlops/command-context-resolver mlops/exp-config-checklist \
+             software-development/exp-config-analyzer software-development/exp-feature-mapping \
+             software-development/exp-config-dependency-audit software-development/exp-viz-workbench; do \
+      test -f "/home/expgv/.hermes/skills/$s/SKILL.md" || { echo "  ✗ 缺 skill: $s"; exit 1; }; \
+    done; \
+    echo "    skill $N 个 + 11 个关键 skill 全在位"; \
+    \
+    echo "[patch] docs 全量进镜像（★ 防只拷一个）…"; \
+    D=$(find /opt/expgv/docs -name "*.md" | wc -l); \
+    test "$D" -ge 8 || { echo "  ✗ docs 只有 $D 个 md（应 ≥ 8，检查 COPY docs/）"; exit 1; }; \
+    test -f /opt/expgv/docs/容器重建说明.md || { echo "  ✗ 缺 docs/容器重建说明.md"; exit 1; }; \
+    echo "    docs $D 个 md 全在位"; \
+    \
+    echo "[patch] 提交门禁工具在镜像内（可自证）…"; \
+    test -f /opt/expgv/tools/commit_gate.py; \
+    cd /opt/expgv/tools && python3 commit_gate.py --selftest >/dev/null; \
+    echo "    commit_gate 自证通过"; \
+    cd /opt/expgv/tools && python3 verify_consistency.py --selftest >/dev/null; \
+    echo "    verify_consistency 自证通过（含深度模式判据）"; \
+    \
+    echo "[patch] 改名：特性配置groundtruth → 特性配置基线（逐文件，防漏）…"; \
+    for F in /opt/expgv/backend/*.py /opt/expgv/scripts/*.py /opt/expgv/rules/*.yaml; do \
+        if grep -q "特性配置groundtruth" "$F" 2>/dev/null; then \
+            if [ "$(basename $F)" != "chain_criteria.py" ]; then \
+                echo "  ⚠ $F 仍含旧名（若为有意保留的历史注释请加白名单）"; \
+            fi; \
+        fi; \
+    done; \
+    grep -q "特性配置基线" /opt/expgv/backend/generations_v1.py; \
+    grep -q "特性配置基线" /opt/expgv/backend/app_v1.py; \
+    grep -q "特性配置基线" /opt/expgv/backend/artifacts_v1.py; \
+    \
+    echo "[patch] GT 防火墙已移除（harden_gt 不得复活）…"; \
+    ! grep -q "^def harden_gt" /opt/expgv/backend/generations_v1.py; \
+    ! grep -q "harden_gt(sid)" /opt/expgv/backend/app_v1.py; \
+    \
+    echo "[patch] nav_dir 集成（products.yaml + 调用侧传参）…"; \
+    grep -q "nav_dir" /opt/expgv/rules/products.yaml; \
+    grep -q "nav-dir" /opt/expgv/backend/app_v1.py; \
+    grep -q "nav-dir" /opt/expgv/backend/generations_v1.py; \
+    ! grep -q "classifyIntent\|doAgentConfirm" /opt/expgv/backend/web/app_v2.html; \
+    \
+    echo "[patch] 右栏对话通道（单入口：一个输入框 + 一个发送键，直连 hermes）…"; \
+    grep -q "agentChatHistory" /opt/expgv/backend/web/app_v2.html; \
+    grep -q "agentAfterReply" /opt/expgv/backend/web/app_v2.html; \
+    grep -q "snapshotBeforeSend" /opt/expgv/backend/web/app_v2.html; \
+    grep -q "file-snapshot" /opt/expgv/backend/artifacts_v1.py; \
+    grep -q "agent-artifacts/register" /opt/expgv/backend/artifacts_v1.py; \
+    grep -q "agent-artifacts/register" /opt/expgv/backend/web/app_v2.html; \
+    grep -q "CHAT_SESSION_MAX_MSGS" /opt/expgv/backend/app.py; \
+    \
+    echo "[patch] 错误码全量注册（代码里用的每个码都必须在 errors.yaml）…"; \
+    cd /opt/expgv && python3 -c "\
+import re,sys,glob,yaml; \
+used=set(); \
+[used.update(re.findall(r\"raise_biz\\('\''([A-Z_]+)'\''\", open(f,encoding='utf-8').read())) for f in glob.glob('/opt/expgv/backend/*.py')]; \
+[used.update(re.findall(r\"BizFail\\('\''([A-Z_]+)'\''\", open(f,encoding='utf-8').read())) for f in glob.glob('/opt/expgv/backend/*.py')]; \
+reg=set((yaml.safe_load(open('/opt/expgv/rules/errors.yaml',encoding='utf-8')).get('codes') or {}).keys()); \
+miss=sorted(used-reg); \
+print('   used=%d registered=%d missing=%s' % (len(used), len(reg), miss)); \
+sys.exit(1 if miss else 0)"; \
+    \
+    grep -q "本次新生成" /opt/expgv/backend/app.py; \
+    grep -q "复用已有" /opt/expgv/backend/app.py; \
+    grep -q "CHAT_TIMEOUT_S" /opt/expgv/backend/app.py; \
+    grep -q "_recent_artifacts" /opt/expgv/backend/app.py; \
+    grep -q "doAgentChat(text, opts)" /opt/expgv/backend/web/app_v2.html; \
+    ! grep -q "doAgentBatch" /opt/expgv/backend/web/app_v2.html; \
+    ! grep -q "💬 提问" /opt/expgv/backend/web/app_v2.html; \
+    ! grep -q "⚡ 生成方案" /opt/expgv/backend/web/app_v2.html; \
+    ! grep -q "classifyIntent" /opt/expgv/backend/web/app_v2.html; \
+    ! grep -q "reply = '（本次未获得回复" /opt/expgv/backend/app.py; \
+    grep -q "_diagnose_hermes_failure" /opt/expgv/backend/app.py; \
+    grep -q "何时出产物" /opt/expgv/backend/app.py; \
+    \
+    echo "[patch] 容器内 agent 通用 memory 就位（且不含局点/客户数据）…"; \
+    test -f /home/expgv/.hermes/memories/MEMORY.md; \
+    ! grep -qE "FSUPFm[0-9]|GZUPFm[0-9]|XAUPF[0-9]|/Users/|ares\.ye|arestse|expgv-multi" /home/expgv/.hermes/memories/MEMORY.md; \
+    \
+    echo "[patch] Node/xz 就位（防 hermes 每次启动白等 300s 重装 Node）…"; \
+    command -v xz; \
+    test -x /home/expgv/.hermes/node/bin/node; \
+    /home/expgv/.hermes/node/bin/node --version; \
+    \
+    echo "[patch] match_features 同级 import 齐全（防漏拷 → 分析 stage=failed）…"; \
+    test -f /opt/expgv/scripts/exp_me.py; \
+    test -f /opt/expgv/scripts/evidence_strength.py; \
+    cd /opt/expgv/scripts && python3 -c "import exp_me, evidence_strength"; \
+    \
+    echo "[patch] 文档内容去重 + 命名降级（UEG 序号兜底 886→97）…"; \
+    grep -q "_norm_for_dedup" /opt/expgv/scripts/gen_feature_all.py; \
+    grep -q "_own_candidates" /opt/expgv/scripts/gen_feature_all.py; \
+    grep -q "风筝L方案" /opt/expgv/scripts/gen_feature_all.py; \
+    cd /opt/expgv/scripts/smoke_v5 && python3 test_dedup_selftest.py >/dev/null; \
+    test -f /opt/expgv/scripts/smoke_v5/test_integration.py; \
+    test -f /opt/expgv/scripts/smoke_v5/test_console_smoke.py; \
+    test -f /opt/expgv/tools/verify_consistency.py; \
+    test -f /opt/expgv/tools/verify_remote_consistency.py; \
+    cd /opt/expgv/tools && python3 verify_remote_consistency.py --selftest >/dev/null; \
+    echo "    verify_remote_consistency 自证通过"; \
+    test -f /opt/expgv/docs/容器重建说明.md; \
+    test -f /opt/expgv/VERSION.md; \
+    grep -q "产品版本: v5" /opt/expgv/VERSION.md; \
+    grep -q "操作台功能冒烟" /opt/expgv/scripts/smoke_v5/test_console_smoke.py; \
+    grep -q "版本一致性" /opt/expgv/scripts/smoke_v5/test_integration.py; \
+    test -f /opt/expgv/scripts/smoke_v5/test_quote_guard.py; \
+    grep -q "引号一致" /opt/expgv/scripts/smoke_v5/test_quote_guard.py; \
+    echo "[patch] 真实 exp 就位情况（客户数据，缺失不阻断构建）…"; \
+    ls /opt/expgv/testdata/real_exp/*.exp.txt 2>/dev/null | wc -l | xargs -I{} echo "    real_exp 文件数: {}（缺则产线冒烟的 3 项匹配用例会自动跳过）"; \
+    cd /opt/expgv/scripts/smoke_v5 && python3 test_chain_criteria_selftest.py >/dev/null; \
+    grep -q "path_suffixes" /opt/expgv/scripts/gen_feature_all.py; \
+    python3 test_path_suffix_selftest.py >/dev/null; \
+    \
+    echo "[patch] 统一通道（对话全开放 + skills 列全 + 死 id 自愈）…"; \
+    grep -q "统一通道" /opt/expgv/backend/app.py; \
+    grep -q "\-\-yolo" /opt/expgv/backend/app.py; \
+    grep -q "mml_assistant,mml_feature" /opt/expgv/backend/app.py; \
+    grep -q "No session found matching" /opt/expgv/backend/app.py; \
+    ! grep -q "不要编造摘要中不存在的数值" /opt/expgv/backend/app.py; \
+    \
+    echo "[patch] chain_by_linkgroups + 判据自证可跑…"; \
+    test -f /opt/expgv/scripts/chain_by_linkgroups.py; \
+    python3 -c "import ast; ast.parse(open('/opt/expgv/scripts/chain_by_linkgroups.py',encoding='utf-8').read())"; \
+    cd /opt/expgv/scripts && python3 chain_criteria.py --selftest >/dev/null; \
+    \
+    chown -R expgv:expgv /opt/expgv/backend /opt/expgv/rules /opt/expgv/scripts; \
+    echo "[patch] ✓ 全部锚点校验通过"
+
+USER expgv

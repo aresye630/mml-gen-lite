@@ -1,0 +1,100 @@
+{
+  "feature_name": "激活静态地址用户路由冗余",
+  "feature_description": "当需要保证静态IP地址网段内的用户选择到UPF的可靠性时，激活静态地址用户路由冗余功能。\n\n**说明** \n\n适用于GGSN、PGW-C、SMF。",
+  "full_nav": [
+    [
+      {
+        "name": "网络部署"
+      },
+      {
+        "docId": null,
+        "naviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "parentNaviId": "docnav2",
+        "pidId": null,
+        "naviTag": "navItem",
+        "issuedate": null,
+        "name": "特性部署",
+        "nameIdList": [],
+        "valueIdList": [],
+        "metaMap": null,
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "naviId": "DOCNAVCF9663D513B94A83960D53C4F10B461E",
+        "parentNaviId": "DOCNAV9105C136773242468538F744B5137A4B",
+        "pidId": "pid_bookmap_0000002193953722",
+        "naviTag": "doc",
+        "issuedate": "2026-03-23 07:49:17",
+        "name": "UNC特性指南",
+        "nameIdList": [
+          "release",
+          "pid_type",
+          "application_type",
+          "DC.Audience.Job"
+        ],
+        "valueIdList": [
+          "release_5729",
+          "release_5748",
+          "release_5749",
+          "pid_type_7905",
+          "application_type_19",
+          "DC.Audience.Job_383"
+        ],
+        "metaMap": {
+          "application_type": [
+            "application_type_19"
+          ],
+          "release": [
+            "release_5729",
+            "release_5748",
+            "release_5749"
+          ],
+          "DC.Audience.Job": [
+            "DC.Audience.Job_383"
+          ],
+          "pid_type": [
+            "pid_type_7905"
+          ]
+        },
+        "properties": {}
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0248450965",
+        "topicUrl": "toctopics/zh-cn_topic_0248450965.html",
+        "name": "分布式网络功能",
+        "parentTopicId": "",
+        "position": "27",
+        "parentPosition": "",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "TOPIC_0276652605",
+        "topicUrl": "desc/unc_2000_feature_desc_route_redundancy_01.html",
+        "name": "WSFD-107021 静态地址用户路由冗余",
+        "parentTopicId": "TOPIC_0248450965",
+        "position": "27.6",
+        "parentPosition": "27",
+        "isParent": "true",
+        "metaList": null
+      },
+      {
+        "docId": "HWICS1000004935",
+        "pidId": "pid_bookmap_0000002193953722",
+        "topicId": "OPI_0276652607",
+        "topicUrl": "desc/unc_2000_feature_desc_route_redundancy_03.html",
+        "name": "激活静态地址用户路由冗余",
+        "parentTopicId": "TOPIC_0276652605",
+        "position": "27.6.2",
+        "parentPosition": "27.6",
+        "isParent": "false",
+        "metaList": null
+      }
+    ]
+  ]
+}
