@@ -58,12 +58,58 @@ ENV EXP_SESSIONS_ROOT=/data/sessions \
 RUN mkdir -p /data/sessions \
     && chown -R expgv:expgv /data /opt/expgv
 
+# ── 预装 Node.js（必须，否则每次启动卡 10+ 分钟）────────────
+# 本地缓存（可选）：把 node 文件夹放到项目根的 .node-cache，构建时自动使用
+COPY .node-cache/ /tmp/node-dist/
+
+# ★ 血泪教训（旧镜像踩过，重写时丢了，重新踩一遍）：
+#   hermes 的 install.sh::check_node() **不检查 HERMES_SKIP_NODE_BOOTSTRAP**，
+#   只检查 `command -v node` 和 `$HERMES_HOME/node/bin/node`。
+#   两条都不满足就无条件 install_node → 内网下载 node22 tar.xz → 卡死。
+#   而且安装日志会混进 stdout，污染 SSE 事件解析。
+#   解法：构建期装好，运行期 shutil.which("node") 直接命中。
+#
+# 安装方式（二选一）：
+#   A. 有本地缓存（推荐，离线可用）：把 node 目录放到 ../.build-cache/node，
+#      构建时用 --build-arg NODE_CACHE=../.build-cache/node 不方便，
+#      改为挂载：docker build --build-context nodecache=../.build-cache/node
+#   B. 联网下载（镜像源：npmmirror，国内快）
+
+# 先试本地缓存（通过 build context 传入，没有则联网下载）
+ARG TARGETARCH=arm64
+RUN set -eux; \
+    mkdir -p /home/expgv/.hermes/node; \
+    if [ -x /tmp/node-dist/bin/node ]; then \
+      echo "使用本地 node 缓存"; \
+      cp -a /tmp/node-dist/. /home/expgv/.hermes/node/; \
+    else \
+      echo "联网下载 node"; \
+      case "$TARGETARCH" in \
+        amd64) NODE_ARCH=x64 ;; \
+        arm64) NODE_ARCH=arm64 ;; \
+        *)     NODE_ARCH=$TARGETARCH ;; \
+      esac; \
+      NODE_VER=v22.23.4; \
+      curl -fsSL --connect-timeout 30 --max-time 600 \
+           "https://npmmirror.com/mirrors/node/${NODE_VER}/node-${NODE_VER}-linux-${NODE_ARCH}.tar.xz" \
+           -o /tmp/node.tar.xz; \
+      tar -xJf /tmp/node.tar.xz -C /tmp; \
+      cp -a /tmp/node-${NODE_VER}-linux-${NODE_ARCH}/. /home/expgv/.hermes/node/; \
+      rm -rf /tmp/node.tar.xz /tmp/node-${NODE_VER}-linux-${NODE_ARCH}; \
+    fi; \
+    ln -sf /home/expgv/.hermes/node/bin/node /usr/local/bin/node; \
+    ln -sf /home/expgv/.hermes/node/bin/npm  /usr/local/bin/npm; \
+    chmod -R a+rX /home/expgv/.hermes/node; \
+    chmod 755 /home/expgv/.hermes/node/bin/node; \
+    /home/expgv/.hermes/node/bin/node --version
+
+# hermes agent 运行时目录（必须在 USER 切换前建，expgv 无权限 root 目录）
+COPY --chown=expgv:expgv dockerfiles/config.template.yaml /opt/expgv/config.template.yaml
+RUN mkdir -p /home/expgv/.hermes/logs /home/expgv/.hermes/skills \
+    && chown -R expgv:expgv /home/expgv/.hermes
+
 USER expgv
 WORKDIR /opt/expgv
-
-# hermes agent 运行时（配置模板在首次启动时由 entrypoint 展开）
-COPY --chown=expgv:expgv dockerfiles/config.template.yaml /opt/expgv/config.template.yaml
-RUN mkdir -p /home/expgv/.hermes/logs /home/expgv/.hermes/skills
 
 EXPOSE 8600
 

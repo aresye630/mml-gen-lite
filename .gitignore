@@ -32,3 +32,6 @@ test_output/
 
 # 大型临时文件（如需提交请用 Git LFS）
 *.tmp
+
+# Node.js 二进制缓存（196MB，不进 git）
+.node-cache/
