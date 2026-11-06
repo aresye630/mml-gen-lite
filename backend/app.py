@@ -930,7 +930,14 @@ def index():
     p = WEB_DIR / 'app_v3.html'
     if not p.exists():
         return HTMLResponse('<h1>前端未部署</h1>', status_code=404)
-    return HTMLResponse(p.read_text(encoding='utf-8'))
+    html = p.read_text(encoding='utf-8')
+    # ★ 2026-11-06：加 no-cache 头。实测用户浏览器缓存了旧版页面，
+    #   看到的是「输入框看不见 / 产物大小 NaN」等已修好的老问题。
+    return HTMLResponse(html, headers={
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+    })
 
 
 # ═══════════════════════════════════════════════════════════

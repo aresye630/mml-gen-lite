@@ -180,6 +180,15 @@ body.resizing iframe,body.resizing pre{pointer-events:none}
 .clarify-q:last-child{border-bottom:none}
 .clarify-q .qq{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
 .clarify-q .qw{font-size:12px;color:#92400e;line-height:1.6;margin-bottom:10px}
+/* ★ 2026-11-06 新增：多选累积相关样式 */
+.clarify-tip{padding:8px 14px;font-size:11.5px;color:#92400e;background:#fffbeb;
+             border-bottom:1px solid #fde68a}
+.opt.is-def{border-color:#86efac !important;background:#f0fdf4}
+.opt.is-def .def-mark{display:inline-block;margin-left:6px;padding:0 5px;
+                      font-size:10px;color:#166534;background:#dcfce7;border-radius:3px}
+.pick-bar{display:flex;align-items:center;gap:12px;padding:12px 14px;
+          background:#fff;border-top:1px solid #fde68a}
+.pick-bar .pb-info{font-size:12px;color:var(--muted);flex:1}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
 .opt{padding:7px 14px;border:1px solid var(--amber-border);border-radius:var(--radius-sm);
      background:#fff;font-size:12.5px;color:var(--ink-2);transition:.15s;text-align:left}
@@ -379,6 +388,8 @@ const S = {
   uploads: [],
   arts: [],           // ★ 2026-11-06：覆盖式产物列表（原 gens 已废弃）
   msgs: [],           // {role, text, trace?, clarify?, placeholders?, result?}
+  picks: {},          // ★ 2026-11-06：澄清卡片的多选累积 {msgIndex: {qIndex: {label, reply}}}
+  busy: false,
   polling: null,
   curGen: null,
   selFile: null,
@@ -863,23 +874,27 @@ function renderTrace(t, mi){
 }
 
 function renderClarify(items, mi){
-  return `<div class="clarify">
+  // ★ 2026-11-06：卡片加 data-mi（多选累积需要），默认选项带 is_default 标记
+  return `<div class="clarify" data-mi="${mi}">
     <div class="clarify-h">❓ 方案待确认（${items.length} 项）</div>
+    <div class="clarify-tip">配置已按默认方案生成。下面是可调整的点，选完点下方按钮一次提交。</div>
     ${items.map((q, qi) => `
       <div class="clarify-q" data-mi="${mi}" data-qi="${qi}">
         <div class="qq">${qi+1}. ${esc(q.question)}</div>
         ${q.why ? `<div class="qw">${esc(q.why)}</div>` : ''}
         <div class="opts">
-          ${(q.options||[]).map((o, oi) =>
-            `<button class="opt" data-reply="${esc(o.reply)}" onclick="pickOpt(this)">${esc(o.label)}</button>`
+          ${(q.options||[]).map(o =>
+            `<button class="opt${o.is_default ? ' is-def' : ''}"
+                     data-reply="${esc(o.reply||'')}"
+                     onclick="pickOpt(this)">${esc(o.label)}${o.is_default ? '<span class="def-mark">默认</span>' : ''}</button>`
           ).join('')}
           <button class="opt-edit" onclick="editOpt(this)">✎ 自己写</button>
         </div>
         <div class="opt-input">
-          <textarea placeholder="用你自己的话描述这个选择…">${''}</textarea>
+          <textarea placeholder="用你自己的话描述这个选择…"></textarea>
           <div class="row">
             <button class="btn sm" onclick="cancelOpt(this)">取消</button>
-            <button class="btn sm primary" onclick="sendOptInput(this)">发送</button>
+            <button class="btn sm primary" onclick="sendOptInput(this)">确定这一项</button>
           </div>
         </div>
       </div>`).join('')}
@@ -966,34 +981,108 @@ function renderResult(r){
 
 function bindMsgEvents(){ /* 事件用 inline onclick，这里留空 */ }
 
+/* ★ 2026-11-06 重做：澄清卡片支持「多选累积，一次性提交」
+   原实现：每次点选都直接覆盖输入框 → 只能选最后一个 → 其他问题没答案
+            → agent 把没选的重新问一遍
+   新实现：每张卡片的选择先记到 S.picks[msgIndex][qid]，
+           底部出现「提交全部选择（N/M）」按钮，一次带全部答案发送。 */
 function pickOpt(btn){
-  const reply = btn.dataset.reply;
-  btn.parentElement.querySelectorAll('.opt').forEach(b => b.classList.remove('chosen'));
+  const qEl = btn.closest('.clarify-q');
+  const mi = parseInt(qEl.dataset.mi, 10);
+  const qi = parseInt(qEl.dataset.qi, 10);
+  const reply = btn.dataset.reply || '';
+  const label = btn.textContent.trim();
+
+  S.picks = S.picks || {};
+  S.picks[mi] = S.picks[mi] || {};
+  S.picks[mi][qi] = { label, reply };
+
+  // 视觉：本卡内单选高亮
+  qEl.querySelectorAll('.opt').forEach(b => b.classList.remove('chosen'));
   btn.classList.add('chosen');
-  $('input').value = reply;
-  $('input').focus();
-  autoGrow();
-  toast('已填入输入框，可直接发送');
+  // 如果之前是「自己写」状态，收起输入区
+  qEl.querySelector('.opt-input')?.classList.remove('on');
+
+  refreshPickBar(mi);
 }
 
+/* 「自己写」：展开输入区，提交时用输入内容 */
 function editOpt(btn){
-  const box = btn.closest('.clarify-q').querySelector('.opt-input');
-  box.classList.add('on');
-  box.querySelector('textarea').focus();
+  const qEl = btn.closest('.clarify-q');
+  qEl.querySelector('.opt-input')?.classList.add('on');
+  qEl.querySelector('.opt-input textarea')?.focus();
 }
 
 function cancelOpt(btn){
-  btn.closest('.opt-input').classList.remove('on');
+  btn.closest('.opt-input')?.classList.remove('on');
 }
 
 function sendOptInput(btn){
-  const box = btn.closest('.opt-input');
-  const v = box.querySelector('textarea').value.trim();
-  if (!v) { toast('请输入内容'); return; }
-  $('input').value = v;
-  autoGrow();
-  send();
+  const qEl = btn.closest('.clarify-q');
+  const mi = parseInt(qEl.dataset.mi, 10);
+  const qi = parseInt(qEl.dataset.qi, 10);
+  const ta = qEl.querySelector('.opt-input textarea');
+  const txt = (ta?.value || '').trim();
+  if (!txt) { toast('请先写你的选择'); return; }
+
+  S.picks = S.picks || {};
+  S.picks[mi] = S.picks[mi] || {};
+  S.picks[mi][qi] = { label: txt, reply: txt, custom: true };
+
+  qEl.querySelectorAll('.opt').forEach(b => b.classList.remove('chosen'));
+  qEl.querySelector('.opt-input')?.classList.remove('on');
+  refreshPickBar(mi);
 }
+
+/* 更新「提交全部选择」按钮的状态 */
+function refreshPickBar(mi){
+  const msg = S.msgs[mi];
+  if (!msg || !msg.clarify) return;
+  const total = msg.clarify.length;
+  const picked = Object.keys(S.picks?.[mi] || {}).length;
+
+  let bar = document.querySelector(`.pick-bar[data-mi="${mi}"]`);
+  if (!bar) {
+    const card = document.querySelector(`.clarify[data-mi="${mi}"]`) ||
+                 document.querySelector('.clarify');
+    if (!card) return;
+    bar = document.createElement('div');
+    bar.className = 'pick-bar';
+    bar.dataset.mi = mi;
+    card.appendChild(bar);
+  }
+  bar.innerHTML = `
+    <span class="pb-info">已选 ${picked} / ${total} 项</span>
+    <button class="btn sm primary" ${picked === 0 ? 'disabled' : ''}
+            onclick="submitPicks(${mi})">
+      提交全部选择${picked < total ? `（还有 ${total - picked} 项未选）` : ''}
+    </button>`;
+}
+
+/* 一次性提交这张卡片上的所有选择 */
+async function submitPicks(mi){
+  const msg = S.msgs[mi];
+  const picks = S.picks?.[mi] || {};
+  if (!msg || !msg.clarify) return;
+
+  const lines = [];
+  msg.clarify.forEach((q, qi) => {
+    const p = picks[qi];
+    if (p) {
+      lines.push(`${qi + 1}. ${q.question}\n   → ${p.label}`);
+    }
+  });
+  if (!lines.length) { toast('还没选择任何项'); return; }
+
+  const text = '针对你提出的方案问题，我的选择是：\n' + lines.join('\n');
+  $('input').value = text;
+  autoGrow();
+  toast(`已汇总 ${lines.length} 项选择，点发送提交`);
+  $('input').focus();
+}
+
+
+
 
 function scrollBottom(){
   const b = $('chatBody');
