@@ -260,6 +260,25 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  · 不要反复「读自己的产物 → 跑脚本分析 → 再改」的循环。')
     lines.append('    想清楚要改成什么，一次改完。')
     lines.append('  · 单轮总耗时控制在 10 分钟内。超过说明陷入循环了，立刻收尾。')
+    lines.append('')
+    lines.append('【⚠⚠ 产物落盘硬要求（最容易出错的地方）】')
+    lines.append('  · 4 个产物必须用 artifact_write 写到 analysis_code/，')
+    lines.append('    名字严格是：mml.txt / params.csv / 配置分析.md / 方案澄清.json')
+    lines.append('  · 禁止往 /tmp/ 写 mml2.txt、params2.csv 这种临时文件当"草稿"再指望转换。')
+    lines.append('    实测过这样做的结果：任务结束只写出 mml.txt，params.csv 全丢。')
+    lines.append('')
+    lines.append('  ★★ 大文件必须分块写（否则会被模型的输出长度上限截断，产物直接丢失）')
+    lines.append('    params.csv 动辄几百行、十几 KB。一次性写完必然触发')
+    lines.append('    「Response truncated (finish_reason=length)」，工具调用被截断，写不出来。')
+    lines.append('    正确做法：')
+    lines.append('      1) artifact_write(filename="params.csv", content="表头+前30行", mode="overwrite")')
+    lines.append('      2) artifact_write(filename="params.csv", content="第31-60行", mode="append")')
+    lines.append('      3) 重复 append 直到写完')
+    lines.append('      4) artifact_write(filename="params.csv", content="", mode="finalize")')
+    lines.append('    每次 append 控制在 30-50 行以内。mml.txt 超过 100 行时同理。')
+    lines.append('')
+    lines.append('  · 需要迭代修改时：重新 overwrite 同名文件，不要另起文件名。')
+    lines.append('  · 交付前必须自己确认这 4 个文件都写过了（缺一个任务就算失败）。')
     return '\n'.join(lines)
 
 
@@ -583,10 +602,55 @@ def run_guard(sess_dir, exp_path='', intent_path=''):
                 'warnings': []}
 
 
+def rescue_tmp_artifacts(sess_dir):
+    """兜底：把 agent 遗留在 /tmp 里的草稿捞回 analysis_code/。
+
+    ★ 2026-11-06 实测：agent 有时把 params2.csv / mml2.txt 写在 /tmp/，
+      最后只 artifact_write 了 mml.txt，params.csv 全丢，3 轮后任务失败。
+      这里按文件名相似度捞回（params*.csv → params.csv），
+      只在目标产物缺失时才捞，不覆盖 agent 正常写的。
+    """
+    adir = Path(sess_dir) / 'analysis_code'
+    adir.mkdir(parents=True, exist_ok=True)
+    recovered = []
+    tmp = Path('/tmp')
+    if not tmp.is_dir():
+        return recovered
+
+    patterns = {
+        'params.csv': ['params*.csv', '*params*.csv'],
+        'mml.txt': ['mml*.txt', '*mml*.txt'],
+        '配置分析.md': ['*分析*.md', '*analysis*.md'],
+        '方案澄清.json': ['*澄清*.json', '*clarify*.json'],
+    }
+    for target, pats in patterns.items():
+        dst = adir / target
+        if dst.exists() and dst.stat().st_size > 0:
+            continue
+        cands = []
+        for pat in pats:
+            for f in tmp.glob(pat):
+                if f.is_file() and f.stat().st_size > 100:
+                    cands.append(f)
+        if not cands:
+            continue
+        # 取最新、最大的
+        cands.sort(key=lambda f: (f.stat().st_mtime, f.stat().st_size), reverse=True)
+        try:
+            dst.write_text(cands[0].read_text(encoding='utf-8', errors='replace'),
+                           encoding='utf-8')
+            recovered.append(f'{target} ← /tmp/{cands[0].name} '
+                             f'({cands[0].stat().st_size}B)')
+        except Exception:
+            continue
+    return recovered
+
+
 def check_artifacts(sess_dir):
     """检查必需产物是否齐全。"""
     adir = Path(sess_dir) / 'analysis_code'
-    missing = [n for n in REQUIRED_ARTIFACTS if not (adir / n).exists()]
+    missing = [n for n in REQUIRED_ARTIFACTS
+               if not (adir / n).exists() or (adir / n).stat().st_size == 0]
     return missing
 
 
@@ -694,6 +758,12 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                 rounds.append({'round': rnd, 'ok': False, 'elapsed': elapsed,
                                'error': 'round_slow_loop', 'fatal_limit': True})
                 break
+
+            # ★ 2026-11-06：先尝试从 /tmp 捞回 agent 遗留的草稿
+            _rescued = rescue_tmp_artifacts(sess_dir)
+            if _rescued:
+                emit({'type': 'meta', 'event': 'rescue',
+                      'round': rnd, 'files': _rescued})
 
             # 检查产物
             missing = check_artifacts(sess_dir)

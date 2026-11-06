@@ -324,10 +324,22 @@ def tool_file_parse(args):
 # 工具 4：artifact_write
 # ═══════════════════════════════════════════════════════════
 def tool_artifact_write(args):
-    """写产物到 analysis_code/（只允许 4 个固定名字）。"""
+    """写产物到 analysis_code/（只允许 4 个固定名字）。
+
+    ★ 2026-11-06 新增 append 模式：
+      实测 params.csv 十几 KB、几百行，agent 一次写完会超模型 max output tokens，
+      触发「Response truncated (finish_reason='length')」→ 工具调用被截断 → 产物写不出来。
+      现在支持分块写：
+        artifact_write(filename='params.csv', content='表头+前50行', mode='overwrite')
+        artifact_write(filename='params.csv', content='第51-100行', mode='append')
+        ...
+        artifact_write(filename='params.csv', content='', mode='finalize')
+      也支持 mode='overwrite'（默认，整文件覆盖）。
+    """
     sid = args.get('session_id')
     name = args.get('filename') or ''
     content = args.get('content')
+    mode = (args.get('mode') or 'overwrite').lower()
 
     if name not in ALLOWED_ARTIFACTS:
         return {
@@ -335,12 +347,43 @@ def tool_artifact_write(args):
             'allowed': {k: v for k, v in ALLOWED_ARTIFACTS.items()},
         }
     if not isinstance(content, str):
-        return {'error': 'content 必须是字符串'}
+        content = '' if content is None else str(content)
 
     d = _sess_dir(sid)
     adir = d / 'analysis_code'
     adir.mkdir(exist_ok=True)
     target = adir / name
+    try:
+        os.chmod(adir, 0o755)
+    except Exception:
+        pass
+
+    if mode == 'append':
+        if not target.exists():
+            return {'error': f'{name} 还不存在，第一次写请用 mode=overwrite'}
+        with target.open('a', encoding='utf-8') as f:
+            f.write(content)
+        size = target.stat().st_size
+        return {
+            'appended': name, 'mode': 'append',
+            'bytes_added': len(content.encode('utf-8')),
+            'total_bytes': size,
+            'lines': target.read_text(encoding='utf-8', errors='replace').count('\n') + 1,
+            'hint': '继续 append 剩余内容，写完调 mode=finalize 确认',
+        }
+
+    if mode == 'finalize':
+        if not target.exists():
+            return {'error': f'{name} 不存在，无法 finalize'}
+        txt = target.read_text(encoding='utf-8', errors='replace')
+        return {
+            'finalized': name,
+            'bytes': len(txt.encode('utf-8')),
+            'lines': txt.count('\n') + 1,
+            'ok': len(txt) > 0,
+        }
+
+    # overwrite（默认）
     target.write_text(content, encoding='utf-8')
     try:
         os.chmod(target, 0o644)
@@ -349,6 +392,7 @@ def tool_artifact_write(args):
 
     return {
         'written': name,
+        'mode': 'overwrite',
         'path': str(target.relative_to(d)),
         'bytes': len(content.encode('utf-8')),
         'lines': content.count('\n') + 1,
@@ -556,6 +600,13 @@ TOOLS = [
             '  params.csv      参数收集表（必须）\n'
             '  配置分析.md      配置分析说明（必须）\n'
             '  方案澄清.json    方案级澄清问题（可选，没有就给 []）\n'
+            '\n'
+            '★ 大文件（如 params.csv 超过 100 行）必须分块写，否则会超出模型\n'
+            '  单次输出上限导致工具调用被截断、产物写不出来：\n'
+            '   1) mode=overwrite  写表头 + 前 N 行\n'
+            '   2) mode=append     接着写第 N+1 行起的内容（可多次）\n'
+            '   3) mode=finalize   确认写完\n'
+            '  小文件直接用 mode=overwrite 一次写完即可。\n'
             '写完后应该调 guard_check 自检。'
         ),
         'inputSchema': {
@@ -564,8 +615,13 @@ TOOLS = [
                 'session_id': {'type': 'string'},
                 'filename': {'type': 'string', 'enum': list(ALLOWED_ARTIFACTS.keys())},
                 'content': {'type': 'string'},
+                'mode': {
+                    'type': 'string',
+                    'enum': ['overwrite', 'append', 'finalize'],
+                    'description': 'overwrite=整文件覆盖（默认）；append=追加；finalize=确认写完',
+                },
             },
-            'required': ['session_id', 'filename', 'content'],
+            'required': ['session_id', 'filename'],
         },
     },
     {
