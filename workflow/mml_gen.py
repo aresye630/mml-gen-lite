@@ -177,11 +177,19 @@ def build_command(group_rows_):
     fam = group_rows_[0]['family']
     if not fam:
         return None
-    # ★ 2026-11-05：族名别名归一（agent 可能写 REFRESH，实际是 REFRESHSRV）
-    fam = FAMILY_ALIAS.get(fam, fam)
-    # ★ 2026-11-05：动词不能写死 ADD。URRGRPBINDING / REFRESHSRV 等用 SET。
-    #   agent 写对了，生成器写错会导致 G21 误报「csv 参数没体现在 mml」。
-    verb = 'SET' if fam in SET_FAMILIES else 'ADD'
+
+    # ★ 2026-11-06：族名可以带动词前缀（"ADD FILTER" / "RMV FILTER" / "SET URR"）
+    #   实测 GT 里删除命令占不小比例（87 工单 18257 条里 RMV 有上千条），
+    #   原来动词写死 ADD/SET，根本表达不出删除意图。
+    verb = ''
+    m = re.match(r'^(ADD|RMV|SET|MOD)\s+([A-Za-z0-9_]+)$', fam.strip(), re.I)
+    if m:
+        verb = m.group(1).upper()
+        fam = m.group(2).upper()
+    else:
+        fam = FAMILY_ALIAS.get(fam, fam)
+        verb = 'SET' if fam in SET_FAMILIES else 'ADD'
+
     parts = []
     for r in group_rows_:
         p = r['param']

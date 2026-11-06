@@ -1,0 +1,1081 @@
+{
+ "_comment": "命令族 → 官方中文名。由知识库自动提取（UDG/UEG/UNC 三产品），用于把意图里的中文业务说法映射到 MML 命令族。",
+ "_generated": "2026-11-06",
+ "_source": "kb_search_command(name=<命令>) 的文档标题 \"# 增加XX（ADD XX）\"",
+ "_coverage": "268/276 个 GT 实际出现的命令族（缺 8 个 LICX* 系列）",
+ "_note": "同一中文名可能对应多个族（如「增加APN配置」对应 ADD CPAN[UEG] 和 ADD APN[UDG]），反向映射时需结合网元判断。",
+ "families": {
+  "ADD AGGREGATEROUTE": {
+   "cn": "增加BGP聚合路由",
+   "product": "UDG"
+  },
+  "ADD APN": {
+   "cn": "添加APN配置",
+   "product": "UDG"
+  },
+  "ADD APNDEACTQFPLCY": {
+   "cn": "增加基于APN去活用户面专有QoS Flow策略",
+   "product": "UEG"
+  },
+  "ADD APNIMSSIGFLTR": {
+   "cn": "添加APN的IMS分类器",
+   "product": "UDG"
+  },
+  "ADD APNINTELSHUNT": {
+   "cn": "增加APN智能分流关键词",
+   "product": "UEG"
+  },
+  "ADD APNUPFINFO": {
+   "cn": "增加指定APN的UPF节点信息",
+   "product": "UEG"
+  },
+  "ADD APNUSRPROFG": {
+   "cn": "增加APN用户模板组绑定关系",
+   "product": "UEG"
+  },
+  "ADD APPPOLICYCTRL": {
+   "cn": "增加基于应用的质差上报策略",
+   "product": "UDG"
+  },
+  "ADD AUTOSCALINGBFD": {
+   "cn": "增加BFD会话自动化配置模板",
+   "product": "UDG"
+  },
+  "ADD AUTOSCALINGETHTRUNK": {
+   "cn": "增加以太网隧道自动化多虚拟网卡配置模板",
+   "product": "UDG"
+  },
+  "ADD AUTOSCALINGSERVICE": {
+   "cn": "增加自动化配置参数",
+   "product": "UDG"
+  },
+  "ADD AUTOSCALINGSRROUTE": {
+   "cn": "增加静态路由自动化配置模板",
+   "product": "UDG"
+  },
+  "ADD BGPPEER": {
+   "cn": "增加BGP对等体",
+   "product": "UDG"
+  },
+  "ADD BGPVRF": {
+   "cn": "增加BGP VPN实例",
+   "product": "UDG"
+  },
+  "ADD BGPVRFAF": {
+   "cn": "增加BGP VPN地址族",
+   "product": "UDG"
+  },
+  "ADD CONFLICTIPV6": {
+   "cn": "添加本地地址池中冲突IPv6地址",
+   "product": "UDG"
+  },
+  "ADD CPAPN": {
+   "cn": "增加APN配置",
+   "product": "UEG"
+  },
+  "ADD CPASSOCIATION": {
+   "cn": "添加CP",
+   "product": "UDG"
+  },
+  "ADD CPNODEID": {
+   "cn": "添加SMF的NodeID",
+   "product": "UDG"
+  },
+  "ADD DNAI": {
+   "cn": "添加DNAI配置",
+   "product": "UDG"
+  },
+  "ADD ECHOIPLIST": {
+   "cn": "配置GTP路径管理IP地址",
+   "product": "UDG"
+  },
+  "ADD EMGCFG": {
+   "cn": "增加运营商紧急呼叫功能配置",
+   "product": "UEG"
+  },
+  "ADD FILTER": {
+   "cn": "增加过滤器",
+   "product": "UDG"
+  },
+  "ADD FILTERIPV6": {
+   "cn": "增加IPv6过滤器",
+   "product": "UDG"
+  },
+  "ADD FLOWFILTER": {
+   "cn": "增加流过滤器",
+   "product": "UDG"
+  },
+  "ADD FLOWFILTERGRP": {
+   "cn": "增加流过滤器组",
+   "product": "UDG"
+  },
+  "ADD FLTBINDFLOWF": {
+   "cn": "增加流过滤器的过滤器绑定关系",
+   "product": "UDG"
+  },
+  "ADD FWPOLICY": {
+   "cn": "增加防火墙策略",
+   "product": "UDG"
+  },
+  "ADD GRETUNNEL": {
+   "cn": "增加GRE隧道",
+   "product": "UDG"
+  },
+  "ADD GRPNGLANFUNC": {
+   "cn": "增加指定群组的5G LAN会话扩展参数",
+   "product": "UEG"
+  },
+  "ADD HOST": {
+   "cn": "增加Host",
+   "product": "UDG"
+  },
+  "ADD HTTPLE": {
+   "cn": "增加HTTP本端实体",
+   "product": "UDG"
+  },
+  "ADD HTTPLEGRP": {
+   "cn": "增加HTTP本端实体组",
+   "product": "UDG"
+  },
+  "ADD IFIPV4ADDRESS": {
+   "cn": "增加接口IPv4地址",
+   "product": "UDG"
+  },
+  "ADD IFIPV4ADDRESSIPSEC": {
+   "cn": "增加接口IPv4地址",
+   "product": "UDG"
+  },
+  "ADD IFIPV6ADDRESS": {
+   "cn": "增加接口IPv6地址",
+   "product": "UDG"
+  },
+  "ADD IMPORTROUTE": {
+   "cn": "增加指定协议中的入口路由配置",
+   "product": "UDG"
+  },
+  "ADD IMSIBINDUP": {
+   "cn": "增加用户和UPF的绑定关系",
+   "product": "UEG"
+  },
+  "ADD INTERFACE": {
+   "cn": "增加接口",
+   "product": "UDG"
+  },
+  "ADD INTERFACEIPSEC": {
+   "cn": "增加接口",
+   "product": "UDG"
+  },
+  "ADD IPBINDVPN": {
+   "cn": "增加接口绑定VPN",
+   "product": "UDG"
+  },
+  "ADD IPBINDVPNIPSEC": {
+   "cn": "增加接口绑定VPN",
+   "product": "UDG"
+  },
+  "ADD IPFARM": {
+   "cn": "增加IPFarm",
+   "product": "UDG"
+  },
+  "ADD IPFARMSERVER": {
+   "cn": "增加IPFarmServer",
+   "product": "UDG"
+  },
+  "ADD L3VPNINST": {
+   "cn": "增加L3VPN实例",
+   "product": "UDG"
+  },
+  "ADD L3VPNINSTIPSEC": {
+   "cn": "增加L3VPN实例",
+   "product": "UDG"
+  },
+  "ADD L7FILTER": {
+   "cn": "增加七层过滤器",
+   "product": "UDG"
+  },
+  "ADD LOCALNSDNN": {
+   "cn": "增加网络切片或DNN纠正配置",
+   "product": "UEG"
+  },
+  "ADD LOGICINF": {
+   "cn": "增加逻辑接口",
+   "product": "UDG"
+  },
+  "ADD MMEIPTOMMEPOOL": {
+   "cn": "增加MME IP",
+   "product": "UEG"
+  },
+  "ADD N2TACID": {
+   "cn": "在N2TAC组内添加一个N2TAC",
+   "product": "UDG"
+  },
+  "ADD NETWORKROUTE": {
+   "cn": "增加引入路由指定前缀和掩码长度",
+   "product": "UDG"
+  },
+  "ADD NFNS": {
+   "cn": "增加NF支持的网络切片",
+   "product": "UEG"
+  },
+  "ADD NGEMGCFG": {
+   "cn": "增加运营商紧急呼叫功能配置",
+   "product": "UEG"
+  },
+  "ADD NGNILRPARA": {
+   "cn": "增加NI-LR功能参数",
+   "product": "UEG"
+  },
+  "ADD NGVNBINDVXLAN": {
+   "cn": "增加5G LAN实例绑定VXLAN组",
+   "product": "UDG"
+  },
+  "ADD NGVNINSTANCE": {
+   "cn": "增加5G LAN组的配置",
+   "product": "UDG"
+  },
+  "ADD NSDNN": {
+   "cn": "增加网络切片支持的DNN",
+   "product": "UEG"
+  },
+  "ADD OSPFINTERFACEAUTH": {
+   "cn": "创建OSPF接口认证配置",
+   "product": "UDG"
+  },
+  "ADD OSPFV3INTERFACEAUTH": {
+   "cn": "创建OSPFv3接口认证配置",
+   "product": "UDG"
+  },
+  "ADD PCCPOLICYGRP": {
+   "cn": "增加PCC策略组",
+   "product": "UDG"
+  },
+  "ADD PCSCFGROUP": {
+   "cn": "增加P-CSCF组配置",
+   "product": "UEG"
+  },
+  "ADD PCSCFGRPBNDAPN": {
+   "cn": "增加APN和P-CSCF组关联关系",
+   "product": "UEG"
+  },
+  "ADD PCSCFIMSISDNSEG": {
+   "cn": "增加IMSI和MSISDN号段",
+   "product": "UEG"
+  },
+  "ADD PCSCFIP": {
+   "cn": "增加P-CSCF地址配置",
+   "product": "UEG"
+  },
+  "ADD PGWRESEL": {
+   "cn": "增加本地P-GW重选策略",
+   "product": "UEG"
+  },
+  "ADD PLMNNS": {
+   "cn": "增加网络切片",
+   "product": "UEG"
+  },
+  "ADD PNFDNN": {
+   "cn": "增加对端NF的DNN信息",
+   "product": "UEG"
+  },
+  "ADD PNFNS": {
+   "cn": "增加对端NF的切片信息",
+   "product": "UEG"
+  },
+  "ADD PNFPROFILE": {
+   "cn": "增加对端NF实例概述信息",
+   "product": "UEG"
+  },
+  "ADD PNFSMFSERAREA": {
+   "cn": "增加对端NF的SMF服务区域信息",
+   "product": "UEG"
+  },
+  "ADD PNFSUPI": {
+   "cn": "增加对端NF的SUPI信息",
+   "product": "UEG"
+  },
+  "ADD POLICYCONDITION": {
+   "cn": "增加业务质差检测策略",
+   "product": "UDG"
+  },
+  "ADD POOL": {
+   "cn": "添加地址池",
+   "product": "UDG"
+  },
+  "ADD POOLBINDGROUP": {
+   "cn": "绑定地址池到地址池组",
+   "product": "UDG"
+  },
+  "ADD POOLGROUP": {
+   "cn": "添加地址池组",
+   "product": "UDG"
+  },
+  "ADD POOLGRPMAP": {
+   "cn": "添加地址池组映射关系",
+   "product": "UDG"
+  },
+  "ADD PROTBINDFLOWF": {
+   "cn": "增加流过滤器协议绑定关系",
+   "product": "UDG"
+  },
+  "ADD QOSPROP": {
+   "cn": "增加QoS属性",
+   "product": "UDG"
+  },
+  "ADD RDSSTATICIPPARA": {
+   "cn": "增加园区用户IP地址信息",
+   "product": "UEG"
+  },
+  "ADD RPTPOLICY": {
+   "cn": "配置基于策略的报表开关",
+   "product": "UDG"
+  },
+  "ADD RPTSVR": {
+   "cn": "配置报表服务器",
+   "product": "UDG"
+  },
+  "ADD RPTSVRADDR": {
+   "cn": "添加报表服务器接入点配置",
+   "product": "UDG"
+  },
+  "ADD RULE": {
+   "cn": "增加规则",
+   "product": "UDG"
+  },
+  "ADD RULEBINDING": {
+   "cn": "增加用户模板和规则的绑定关系",
+   "product": "UDG"
+  },
+  "ADD S1TACID": {
+   "cn": "在S1TAC组内添加一个S1TAC",
+   "product": "UDG"
+  },
+  "ADD SADEDICBEARER": {
+   "cn": "增加业务感知专有承载配置",
+   "product": "UDG"
+  },
+  "ADD SBIAPLE": {
+   "cn": "增加服务化接口本端实体",
+   "product": "UDG"
+  },
+  "ADD SECTION": {
+   "cn": "添加地址池IP地址段",
+   "product": "UDG"
+  },
+  "ADD SGWIPTOSGWPOOL": {
+   "cn": "增加SGW IP",
+   "product": "UEG"
+  },
+  "ADD SMFEMGCFG": {
+   "cn": "增加运营商紧急呼叫会话功能配置",
+   "product": "UEG"
+  },
+  "ADD SMFPDUREACT": {
+   "cn": "增加跨区域PDU会话重建策略",
+   "product": "UEG"
+  },
+  "ADD SPECURRGRPLIST": {
+   "cn": "增加特殊URR组列表",
+   "product": "UDG"
+  },
+  "ADD SRROUTE": {
+   "cn": "增加IPv4静态路由",
+   "product": "UDG"
+  },
+  "ADD SRVCCLMTPLCY": {
+   "cn": "增加SRVCC流程限制策略",
+   "product": "UEG"
+  },
+  "ADD SRVNODERAT": {
+   "cn": "增加SGSN/SGW IP与RAT类型间的映射关系",
+   "product": "UEG"
+  },
+  "ADD SSUPROTCOLGROUP": {
+   "cn": "增加基于协议的质差检测策略",
+   "product": "UDG"
+  },
+  "ADD TAIRANGELIST": {
+   "cn": "增加NF TAI区域信息",
+   "product": "UEG"
+  },
+  "ADD TCPMSS": {
+   "cn": "添加Tcp Mss配置",
+   "product": "UDG"
+  },
+  "ADD UNCIPRESOUCE": {
+   "cn": "增加UNC接口IP地址",
+   "product": "UEG"
+  },
+  "ADD UPAREABINDN2TAI": {
+   "cn": "增加UPF服务区名称绑定的5G TAI范围",
+   "product": "UEG"
+  },
+  "ADD UPBINDS11": {
+   "cn": "增加SGW-U与SGW-C侧S11接口的绑定关系",
+   "product": "UEG"
+  },
+  "ADD UPBINDUPG": {
+   "cn": "增加用户模板组和用户模板的绑定关系",
+   "product": "UEG"
+  },
+  "ADD UPCMPT": {
+   "cn": "增加UP节点协议兼容性配置",
+   "product": "UEG"
+  },
+  "ADD UPFBINDSELRULE": {
+   "cn": "增加UPF和规则的绑定关系",
+   "product": "UEG"
+  },
+  "ADD UPIPDOMAIN": {
+   "cn": "增加当前UPF绑定的IP域",
+   "product": "UEG"
+  },
+  "ADD UPNODE": {
+   "cn": "增加UPF节点",
+   "product": "UEG"
+  },
+  "ADD URR": {
+   "cn": "增加URR",
+   "product": "UDG"
+  },
+  "ADD URRGROUP": {
+   "cn": "增加URR组",
+   "product": "UDG"
+  },
+  "ADD USERPROFILE": {
+   "cn": "增加用户模板",
+   "product": "UDG"
+  },
+  "ADD USERSELPLCY": {
+   "cn": "添加用户策略选择",
+   "product": "UDG"
+  },
+  "ADD USERSELRANGE": {
+   "cn": "添加用户选择范围列表",
+   "product": "UDG"
+  },
+  "ADD USRPROFGROUP": {
+   "cn": "增加用户模板组",
+   "product": "UEG"
+  },
+  "ADD VIRTUALAPNRULE": {
+   "cn": "增加虚拟APN映射策略配置",
+   "product": "UEG"
+  },
+  "ADD VPNINST": {
+   "cn": "增加VPN实例",
+   "product": "UDG"
+  },
+  "ADD VPNINSTAF": {
+   "cn": "增加L3VPN实例地址族",
+   "product": "UDG"
+  },
+  "ADD VPNINSTAFIPSEC": {
+   "cn": "增加L3VPN实例地址族",
+   "product": "UDG"
+  },
+  "ADD VTEP": {
+   "cn": "增加VXLAN隧道端点配置",
+   "product": "UDG"
+  },
+  "ADD VTEPBINDGRP": {
+   "cn": "增加VXLAN隧道端点绑定隧道组",
+   "product": "UDG"
+  },
+  "ADD VXLANGRP": {
+   "cn": "新增VXLAN组",
+   "product": "UDG"
+  },
+  "MOD APN": {
+   "cn": "修改APN配置",
+   "product": "UDG"
+  },
+  "MOD APNUSRPROFG": {
+   "cn": "修改APN用户模板组绑定关系",
+   "product": "UEG"
+  },
+  "MOD BGPPEER": {
+   "cn": "修改BGP对等体",
+   "product": "UDG"
+  },
+  "MOD BGPPEERAF": {
+   "cn": "修改BGP对等体地址族",
+   "product": "UDG"
+  },
+  "MOD BGPVRF": {
+   "cn": "修改BGP VPN实例",
+   "product": "UDG"
+  },
+  "MOD CONNECTPLMN": {
+   "cn": "修改互联PLMN",
+   "product": "UEG"
+  },
+  "MOD FILTER": {
+   "cn": "修改过滤器",
+   "product": "UDG"
+  },
+  "MOD FILTERIPV6": {
+   "cn": "修改IPv6过滤器",
+   "product": "UDG"
+  },
+  "MOD GRETUNNEL": {
+   "cn": "修改GRE隧道",
+   "product": "UDG"
+  },
+  "MOD HOST": {
+   "cn": "修改Host",
+   "product": "UDG"
+  },
+  "MOD HPLMN": {
+   "cn": "修改本地PLMN",
+   "product": "UEG"
+  },
+  "MOD LOGICINF": {
+   "cn": "修改逻辑接口",
+   "product": "UDG"
+  },
+  "MOD NGCONNECTPLMN": {
+   "cn": "修改5G Connect PLMN",
+   "product": "UEG"
+  },
+  "MOD NGNILRPARA": {
+   "cn": "修改NI-LR功能参数",
+   "product": "UEG"
+  },
+  "MOD PCSCFGRPBNDAPN": {
+   "cn": "修改APN和P-CSCF组关联关系",
+   "product": "UEG"
+  },
+  "MOD PNFDNN": {
+   "cn": "修改对端NF的DNN信息",
+   "product": "UEG"
+  },
+  "MOD POOL": {
+   "cn": "修改地址池",
+   "product": "UDG"
+  },
+  "MOD SECTION": {
+   "cn": "修改地址段信息",
+   "product": "UDG"
+  },
+  "MOD UPIPDOMAIN": {
+   "cn": "修改当前UPF绑定的IP域",
+   "product": "UEG"
+  },
+  "MOD UPNODE": {
+   "cn": "修改UPF节点",
+   "product": "UEG"
+  },
+  "MOD VPNINSTAF": {
+   "cn": "修改L3VPN实例地址族",
+   "product": "UDG"
+  },
+  "RMV APN": {
+   "cn": "删除APN配置",
+   "product": "UDG"
+  },
+  "RMV APNRDSSVRGRP": {
+   "cn": "删除APN Radius服务器组",
+   "product": "UEG"
+  },
+  "RMV APNUSRPROFG": {
+   "cn": "删除APN用户模板组绑定关系",
+   "product": "UEG"
+  },
+  "RMV BSFIPRANGEBIND": {
+   "cn": "删除BSF实例与IPRANGE之间的绑定关系",
+   "product": "UEG"
+  },
+  "RMV CONFLICTIPV6": {
+   "cn": "删除本地地址池中冲突IPv6地址",
+   "product": "UDG"
+  },
+  "RMV CPASSOCIATION": {
+   "cn": "删除CP",
+   "product": "UDG"
+  },
+  "RMV FILTER": {
+   "cn": "删除过滤器",
+   "product": "UDG"
+  },
+  "RMV FLOWFILTER": {
+   "cn": "删除流过滤器",
+   "product": "UDG"
+  },
+  "RMV FLOWFILTERGRP": {
+   "cn": "删除流过滤器组",
+   "product": "UDG"
+  },
+  "RMV FLTBINDFLOWF": {
+   "cn": "删除流过滤器的过滤器绑定关系",
+   "product": "UDG"
+  },
+  "RMV GRETUNNEL": {
+   "cn": "删除GRE隧道",
+   "product": "UDG"
+  },
+  "RMV HOST": {
+   "cn": "删除Host",
+   "product": "UDG"
+  },
+  "RMV INTERFACE": {
+   "cn": "删除接口",
+   "product": "UDG"
+  },
+  "RMV IPBINDVPN": {
+   "cn": "删除接口绑定VPN",
+   "product": "UDG"
+  },
+  "RMV IPFARMSERVER": {
+   "cn": "删除IPFarmServer",
+   "product": "UDG"
+  },
+  "RMV L3VPNINST": {
+   "cn": "删除L3VPN实例",
+   "product": "UDG"
+  },
+  "RMV L7FILTER": {
+   "cn": "删除七层过滤器",
+   "product": "UDG"
+  },
+  "RMV LOCBINDAREA": {
+   "cn": "删除UPF位置信息与该UPF优先支持的服务区的绑定关系",
+   "product": "UEG"
+  },
+  "RMV MMEIPTOMMEPOOL": {
+   "cn": "删除MME IP",
+   "product": "UEG"
+  },
+  "RMV N2TACID": {
+   "cn": "从N2TAC组内删除一个TAC",
+   "product": "UDG"
+  },
+  "RMV NSDNN": {
+   "cn": "删除网络切片支持的DNN",
+   "product": "UEG"
+  },
+  "RMV NTPSVR": {
+   "cn": "删除NTP服务器",
+   "product": "UDG"
+  },
+  "RMV PCCPOLICYGRP": {
+   "cn": "删除PCC策略组",
+   "product": "UDG"
+  },
+  "RMV PCSCFGROUP": {
+   "cn": "删除P-CSCF组配置",
+   "product": "UEG"
+  },
+  "RMV PCSCFGRPBNDAPN": {
+   "cn": "删除APN和P-CSCF组关联关系",
+   "product": "UEG"
+  },
+  "RMV PCSCFIMSISDNSEG": {
+   "cn": "删除IMSI和MSISDN号段",
+   "product": "UEG"
+  },
+  "RMV PCSCFIP": {
+   "cn": "删除P-CSCF地址配置",
+   "product": "UEG"
+  },
+  "RMV PEERNFIPLIST": {
+   "cn": "删除对端局向连接列表",
+   "product": "UEG"
+  },
+  "RMV PNFDNN": {
+   "cn": "删除对端NF的DNN信息",
+   "product": "UEG"
+  },
+  "RMV PNFNS": {
+   "cn": "删除对端NF的切片信息",
+   "product": "UEG"
+  },
+  "RMV PNFPROFILE": {
+   "cn": "删除对端NF实例概述信息",
+   "product": "UEG"
+  },
+  "RMV PNFSMFSERAREA": {
+   "cn": "删除对端NF的SMF服务区域信息",
+   "product": "UEG"
+  },
+  "RMV PNFSUPI": {
+   "cn": "删除对端NF的SUPI信息",
+   "product": "UEG"
+  },
+  "RMV PNFTAIRANGE": {
+   "cn": "删除对端NF的TAI范围",
+   "product": "UEG"
+  },
+  "RMV POOL": {
+   "cn": "删除地址池",
+   "product": "UDG"
+  },
+  "RMV POOLBINDGROUP": {
+   "cn": "将地址池从地址池组中移除",
+   "product": "UDG"
+  },
+  "RMV POOLGROUP": {
+   "cn": "删除地址池组",
+   "product": "UDG"
+  },
+  "RMV POOLGRPMAP": {
+   "cn": "移除地址池组映射关系",
+   "product": "UDG"
+  },
+  "RMV PROTBINDFLOWF": {
+   "cn": "删除流过滤器协议绑定关系",
+   "product": "UDG"
+  },
+  "RMV RULE": {
+   "cn": "删除规则",
+   "product": "UDG"
+  },
+  "RMV RULEBINDING": {
+   "cn": "删除用户模板和规则的绑定关系",
+   "product": "UDG"
+  },
+  "RMV S1TACID": {
+   "cn": "从S1TAC组内删除一个S1TAC",
+   "product": "UDG"
+  },
+  "RMV SECTION": {
+   "cn": "删除地址池IP地址段",
+   "product": "UDG"
+  },
+  "RMV SPECURRGRPLIST": {
+   "cn": "删除特殊URR组列表",
+   "product": "UDG"
+  },
+  "RMV SRROUTE": {
+   "cn": "删除IPv4静态路由",
+   "product": "UDG"
+  },
+  "RMV TACRANGE": {
+   "cn": "删除NF TAC区域信息",
+   "product": "UEG"
+  },
+  "RMV TAIRANGELIST": {
+   "cn": "删除NF TAI区域信息",
+   "product": "UEG"
+  },
+  "RMV TCPMSS": {
+   "cn": "删除Tcp Mss配置",
+   "product": "UDG"
+  },
+  "RMV UNCIPRESOUCE": {
+   "cn": "删除UNC接口IP地址",
+   "product": "UEG"
+  },
+  "RMV UPAREA": {
+   "cn": "删除UPF服务区",
+   "product": "UEG"
+  },
+  "RMV UPAREABINDN2TAI": {
+   "cn": "删除UPF服务区名称绑定的5G TAI范围",
+   "product": "UEG"
+  },
+  "RMV UPBINDS11": {
+   "cn": "删除SGW-U与SGW-C侧S11接口的绑定关系",
+   "product": "UEG"
+  },
+  "RMV UPBINDUPG": {
+   "cn": "删除用户模板组和用户模板的绑定关系",
+   "product": "UEG"
+  },
+  "RMV UPIPDOMAIN": {
+   "cn": "删除当前UPF绑定的IP域",
+   "product": "UEG"
+  },
+  "RMV UPNODE": {
+   "cn": "删除UPF节点",
+   "product": "UEG"
+  },
+  "RMV URR": {
+   "cn": "删除URR",
+   "product": "UDG"
+  },
+  "RMV URRGROUP": {
+   "cn": "删除URR组",
+   "product": "UDG"
+  },
+  "RMV URRGRPBINDING": {
+   "cn": "删除用户模板的URR组绑定关系",
+   "product": "UDG"
+  },
+  "RMV USERPROFILE": {
+   "cn": "删除用户模板",
+   "product": "UDG"
+  },
+  "RMV USRPROFGROUP": {
+   "cn": "删除用户模板组",
+   "product": "UEG"
+  },
+  "RMV VPNINST": {
+   "cn": "删除VPN实例",
+   "product": "UDG"
+  },
+  "RMV VPNINSTAF": {
+   "cn": "删除L3VPN实例地址族",
+   "product": "UDG"
+  },
+  "SET ADDRESSATTR": {
+   "cn": "设置全局地址分配属性",
+   "product": "UDG"
+  },
+  "SET ALMINFO": {
+   "cn": "设置告警配置信息",
+   "product": "UDG"
+  },
+  "SET AMFSOFTPARAOFBIT": {
+   "cn": "设置AMF软件参数比特位",
+   "product": "UEG"
+  },
+  "SET APNADDRESSATTR": {
+   "cn": "设置ApnAddressAttr配置",
+   "product": "UDG"
+  },
+  "SET APNAFFUNC": {
+   "cn": "设置APN防欺诈功能",
+   "product": "UDG"
+  },
+  "SET APNCHARGECTRL": {
+   "cn": "设置APN的计费配置",
+   "product": "UEG"
+  },
+  "SET APNIDLETIME": {
+   "cn": "设置APN空闲上下文定时器配置",
+   "product": "UEG"
+  },
+  "SET APNIMSATTR": {
+   "cn": "设置ApnImsAttr配置",
+   "product": "UDG"
+  },
+  "SET APNIPALLOCRULE": {
+   "cn": "基于APN配置地址分配规则",
+   "product": "UDG"
+  },
+  "SET APNPCCFUNC": {
+   "cn": "设置APN PCC功能",
+   "product": "UEG"
+  },
+  "SET APNQOSATTR": {
+   "cn": "设置ApnQosAttr配置",
+   "product": "UDG"
+  },
+  "SET APNREPORTATTR": {
+   "cn": "设置ApnReportAttr配置",
+   "product": "UDG"
+  },
+  "SET APNSGLPASS": {
+   "cn": "设置APN单通检测开关",
+   "product": "UDG"
+  },
+  "SET APNSOFTPARA": {
+   "cn": "配置APN软参记录",
+   "product": "UDG"
+  },
+  "SET APNUPSELPLY": {
+   "cn": "设置APN粒度的UP选择策略",
+   "product": "UEG"
+  },
+  "SET APPTRAFFICPARA": {
+   "cn": "设置应用流量参数",
+   "product": "UDG"
+  },
+  "SET AUTOCONFIG": {
+   "cn": "设置自动配置开关",
+   "product": "UDG"
+  },
+  "SET BACKOFFTIME": {
+   "cn": "设置Back-off Time信息",
+   "product": "UEG"
+  },
+  "SET BFD": {
+   "cn": "设置BFD全局属性",
+   "product": "UDG"
+  },
+  "SET BGP": {
+   "cn": "设置BGP",
+   "product": "UDG"
+  },
+  "SET CPAPNADDRESSATTR": {
+   "cn": "设置基于APN的地址分配属性",
+   "product": "UEG"
+  },
+  "SET CTXSTARTRATING": {
+   "cn": "设置给OCS/CHF发送的消息初始携带的计费属性",
+   "product": "UNC"
+  },
+  "SET DBPARAS": {
+   "cn": "设置DB参数",
+   "product": "UEG"
+  },
+  "SET DEACTIVERATE": {
+   "cn": "配置去活用户会话的速率",
+   "product": "UDG"
+  },
+  "SET EDGESMCOMMFUNC": {
+   "cn": "设置通用会话拓展功能",
+   "product": "UEG"
+  },
+  "SET EXPBASICFUNC": {
+   "cn": "设置体验业务上报基本功能",
+   "product": "UDG"
+  },
+  "SET EXPEXTRPT": {
+   "cn": "设置体验分析增强上报功能",
+   "product": "UDG"
+  },
+  "SET HTTPCONF": {
+   "cn": "设置HTTP属性",
+   "product": "UDG"
+  },
+  "SET IFIPV6ENABLE": {
+   "cn": "修改接口IPv6使能",
+   "product": "UDG"
+  },
+  "SET IPALLOCBYSMFSW": {
+   "cn": "设置基于SMF分配地址的开关",
+   "product": "UDG"
+  },
+  "SET LICENSESWITCH": {
+   "cn": "设置License项的开关",
+   "product": "UDG"
+  },
+  "SET LOGCLEANPOLICY": {
+   "cn": "设置日志老化策略",
+   "product": "UDG"
+  },
+  "SET MMFUNC": {
+   "cn": "设置移动性管理扩展功能",
+   "product": "UEG"
+  },
+  "SET NGALMRPTMODE": {
+   "cn": "设置5G告警上报模式",
+   "product": "UEG"
+  },
+  "SET NGCBSFUNC": {
+   "cn": "设置小区广播功能",
+   "product": "UEG"
+  },
+  "SET NGEMGSRVFUNC": {
+   "cn": "设置5G紧急服务功能",
+   "product": "UEG"
+  },
+  "SET NGLANCHGCTRL": {
+   "cn": "设置5G LAN计费控制相关参数",
+   "product": "UDG"
+  },
+  "SET NGLANFUNC": {
+   "cn": "设置5G LAN功能配置",
+   "product": "UDG"
+  },
+  "SET NGLOOPDETFUNC": {
+   "cn": "设置5G LAN环路检测配置",
+   "product": "UDG"
+  },
+  "SET NGMMFUNC": {
+   "cn": "设置5G移动性管理功能",
+   "product": "UEG"
+  },
+  "SET NODEHEALCTRL": {
+   "cn": "设置Node自愈策略控制参数",
+   "product": "UDG"
+  },
+  "SET NODEREPSWITCH": {
+   "cn": "节点设置自动修复开关",
+   "product": "UDG"
+  },
+  "SET PFCPPVTEXT": {
+   "cn": "设置PFCP私有信元携带配置",
+   "product": "UEG"
+  },
+  "SET PODHEALCTRL": {
+   "cn": "设置自愈功能开关状态",
+   "product": "UDG"
+  },
+  "SET REFRESHSRV": {
+   "cn": "业务刷新",
+   "product": "UDG"
+  },
+  "SET RPTGLBCFG": {
+   "cn": "设置报表功能全局开关",
+   "product": "UDG"
+  },
+  "SET RPTGLBPARA": {
+   "cn": "设置报表功能全局参数",
+   "product": "UDG"
+  },
+  "SET SACOMMONPARA": {
+   "cn": "设置SA业务公共参数",
+   "product": "UDG"
+  },
+  "SET SFEPASSGREFRAG": {
+   "cn": "设置SFE透传GRE分片报文使能配置",
+   "product": "UDG"
+  },
+  "SET SMCOMMTIMER": {
+   "cn": "设置通用会话管理定时器参数",
+   "product": "UEG"
+  },
+  "SET SMFFUNC": {
+   "cn": "设置SMF扩展功能",
+   "product": "UEG"
+  },
+  "SET SOFTPARA": {
+   "cn": "配置软参记录",
+   "product": "UDG"
+  },
+  "SET SOFTPARAOFBIT": {
+   "cn": "设置软件参数表比特位的值",
+   "product": "UDG"
+  },
+  "SET SPECTRAFURRGRP": {
+   "cn": "设置全局缺省费率的流量使用量上报规则组",
+   "product": "UDG"
+  },
+  "SET SRVNODERATPRI": {
+   "cn": "设置获取RAT Type的优先级",
+   "product": "UEG"
+  },
+  "SET SSUBIGFLOWCTRL": {
+   "cn": "设置智能板的大流判断速率阈值",
+   "product": "UDG"
+  },
+  "SET SSURPTCFG": {
+   "cn": "设置SSU基础报表功能开关",
+   "product": "UDG"
+  },
+  "SET UPETHSRVPARA": {
+   "cn": "设置用户面以太业务参数",
+   "product": "UDG"
+  },
+  "SET UPGTPPATH": {
+   "cn": "设置GTP路径相关属性",
+   "product": "UDG"
+  },
+  "SET UPUSRPROFCHG": {
+   "cn": "设置User Profile的计费配置",
+   "product": "UDG"
+  },
+  "SET URRGRPBINDING": {
+   "cn": "设置用户模板的URR组绑定关系",
+   "product": "UDG"
+  },
+  "SET USERPROFILELOCK": {
+   "cn": "设置用户模板的锁定",
+   "product": "UNC"
+  },
+  "SET USRPROFCHARGE": {
+   "cn": "设置User Profile的计费配置",
+   "product": "UEG"
+  },
+  "SET VVIPBASICFUNC": {
+   "cn": "设置重点业务保障基本功能",
+   "product": "UDG"
+  },
+  "SET VVIPEXTRPT": {
+   "cn": "设置重点业务保障增强上报功能",
+   "product": "UDG"
+  }
+ }
+}

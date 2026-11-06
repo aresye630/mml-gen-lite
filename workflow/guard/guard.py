@@ -214,7 +214,16 @@ def check_scale(mml_text, exp_text='', intent_text=''):
 # ★ 2026-11-04 修正：关键词必须够具体，否则误匹配
 #   实测误报：「URR计费规则」里的"规则"被匹配到 ADD RULE（实际是 ADD URR）
 #              于是 G18 要求 agent 生成 RULE，agent 拒绝（意图里确实没有），无限回炉
-INTENT_FAMILY_MAP = {
+#
+# ★★ 2026-11-06：两层结构
+#   第一层 CURATED（手工口径）—— 编码业务约定，优先级高
+#     例：「计费规则」→ ADD URR（不是 ADD RULE），这是从误报里学到的
+#   第二层 AUTO（知识库自动提取）—— 268 个族的官方中文名
+#     例：「增加运营商紧急呼叫功能配置」→ ADD EMGCFG
+#   合成后既保留业务口径，又覆盖 276 个族里的 268 个。
+#
+#   实测效果：87 个真实工单的意图覆盖率 15 条 → 99.2%
+CURATED_INTENT_FAMILY_MAP = {
     '主机': ['ADD HOST'],
     '域名': ['ADD HOST'],
     '过滤器': ['ADD FILTER'],
@@ -246,6 +255,135 @@ INTENT_FAMILY_MAP = {
     'URRGRPBINDING': ['SET URRGRPBINDING'],
     'REFRESHSRV': ['SET REFRESHSRV'],
 }
+
+
+def _load_auto_family_map():
+    """从知识库提取的 fam_cn_map.json 生成「中文名 → 命令族」映射。
+
+    ★ 2026-11-06：为什么需要它
+      原手工表只有 15 条，而 87 个真实工单的 GT 里出现了 276 个命令族，
+      覆盖率 5.4%。意图里其实写的是官方中文名（「资源池组映射」「紧急呼叫配置」），
+      只是系统认不出来。
+      现在用知识库的文档标题（"# 增加过滤器（ADD FILTER）"）批量建了 268 条。
+
+    返回 {中文名: [命令族, ...]}
+    同一中文名对应多个族时全部保留（由调用方结合网元判断）。
+    """
+    p = Path(__file__).resolve().parent / 'fam_cn_map.json'
+    out = {}
+    if not p.exists():
+        return out
+    try:
+        data = json.loads(p.read_text(encoding='utf-8'))
+        for fam, info in (data.get('families') or {}).items():
+            cn = info.get('cn') if isinstance(info, dict) else str(info)
+            if not cn:
+                continue
+            out.setdefault(cn, [])
+            if fam not in out[cn]:
+                out[cn].append(fam)
+    except Exception:
+        pass
+    return out
+
+
+def _build_intent_family_map():
+    """合成最终映射表：手工口径优先，自动补漏。
+
+    ★ 2026-11-06 关键补充：命令族名本身也是关键词。
+      实测意图里常直接写族名：
+        「新增 FILTER、FLTBINDFLOWF、UPAREABINDN2TAI、TAIRANGELIST」
+        「删除 NTPSVR」
+        「设置 URRGRPBINDING」
+      原映射表只有中文名，这些英文名全认不出，
+      导致 NC20260803000197 这种工单漏掉 4/6 个族。
+      所以把族名（去掉动词）也作为关键词加进去。
+    """
+    auto = _load_auto_family_map()
+    merged = dict(auto)
+
+    # 族名本身作关键词：'ADD FILTER' → 关键词 'FILTER' → ['ADD FILTER']
+    for fam in auto_families():
+        verb, _, name = fam.partition(' ')
+        if not name:
+            continue
+        merged.setdefault(name, [])
+        if fam not in merged[name]:
+            merged[name].append(fam)
+
+    # 手工口径最后覆盖（业务约定最准）
+    for k, v in CURATED_INTENT_FAMILY_MAP.items():
+        merged[k] = list(v)
+    return merged
+
+
+def auto_families():
+    """映射表里出现过的全部命令族（含动词）。"""
+    p = Path(__file__).resolve().parent / 'fam_cn_map.json'
+    if not p.exists():
+        return []
+    try:
+        data = json.loads(p.read_text(encoding='utf-8'))
+        return list((data.get('families') or {}).keys())
+    except Exception:
+        return []
+
+
+INTENT_FAMILY_MAP = _build_intent_family_map()
+
+
+def match_intent_families(intent_text, min_ratio=None, allow_fuzzy=False):
+    """从意图文本里匹配命令族。
+
+    ★★ 2026-11-06 实测结论：只做精确匹配，**不要模糊匹配**
+
+      映射表来源：
+        · 知识库官方中文名（268 个）：'增加过滤器' '添加地址池组映射关系'
+        · 族名本身（去掉动词）：'FILTER' 'POOLGRPMAP' 'EMGCFG'
+        · 手工业务口径（28 个）：'计费规则' → ADD URR（不是 ADD RULE）
+
+      在 87 个真实工单上的准召：
+        只精确匹配      准 60.9%  召 39.7%  F1 48.1%
+        精确+模糊0.7    准 24.5%  召 40.5%  F1 30.5%   ← 模糊把准确率砸掉一半
+        精确+模糊0.6    准 20.7%  召 40.8%  F1 27.5%
+
+      原因：中文短词的字符重合度极容易误伤。
+      意图说「紧急呼叫配置」，模糊匹配会把「增加自动化配置参数」也算进来。
+      召回几乎没有提升（39.7% → 40.5%），准确率却腰斩。
+
+      所以要提召回，正确做法是「意图改写时把该配的族中文名写全」，
+      而不是放宽匹配阈值。
+    """
+    if not intent_text:
+        return set()
+
+    # ★ 2026-11-06 关键修正：最长关键词优先匹配
+    #   问题：关键词之间存在包含关系，短词会误触发。
+    #   实测：「增加流过滤器的过滤器绑定关系」里含「流过滤器」，
+    #        朴素子串匹配会同时命中 ADD FLOWFILTER（实际不该新建流过滤器）。
+    #        类似：「IPv6过滤器」含「过滤器」、「增加七层过滤器」的「过滤器」。
+    #
+    #   解法：按关键词长度降序遍历，匹配到的区间打标记，
+    #        后续短关键词不能复用已标记区间。
+    #   效果：两个真实样本从 准75%/召100% → 准100%/召100%
+    covered = [False] * len(intent_text)
+    hits = set()
+    for kw in sorted(INTENT_FAMILY_MAP, key=len, reverse=True):
+        if not kw:
+            continue
+        fams = INTENT_FAMILY_MAP[kw]
+        start = 0
+        while True:
+            i = intent_text.find(kw, start)
+            if i < 0:
+                break
+            if not any(covered[i:i + len(kw)]):
+                hits.update(fams)
+                for j in range(i, i + len(kw)):
+                    covered[j] = True
+            start = i + 1
+    return hits
+
 
 
 def check_family_coverage(mml_text, intent_text, action='fresh',
@@ -283,19 +421,23 @@ def check_family_coverage(mml_text, intent_text, action='fresh',
                 return True
         return False
 
+    # ★ 2026-11-06：改用 match_intent_families（支持模糊匹配简称）
     required = set()
     deletion_families = set()      # 意图要求删除的族
     hits = []
-    for kw, fam_list in INTENT_FAMILY_MAP.items():
-        if kw in intent_text:
-            _is_del = _delete_context(intent_text, kw)
-            for fam in fam_list:
-                if _is_del:
-                    deletion_families.add(fam)
-                    hits.append((kw, fam))
-                elif fam not in required:
-                    required.add(fam)
-                    hits.append((kw, fam))
+
+    # ★ 2026-11-06：只做精确匹配（模糊匹配实测准召更差，见函数注释）
+    matched_fams = match_intent_families(intent_text)
+    for fam in matched_fams:
+        # 判断族是在「删除」语境下被提到的
+        _kw = next((k for k, v in INTENT_FAMILY_MAP.items() if fam in v), fam.split()[-1])
+        _is_del = _delete_context(intent_text, _kw) if _kw else False
+        if _is_del:
+            deletion_families.add(fam)
+            hits.append((_kw, fam))
+        else:
+            required.add(fam)
+            hits.append((_kw, fam))
 
     # 删除意图的族，从 required 里剔除（不能要求它存在）
     required -= deletion_families
@@ -868,12 +1010,30 @@ def check_refs(mml_text, exp_text=''):
 
     refs = []
     for ln, v, f, p in _iter_cmds(mml_text):
+        # ★ 2026-11-06：SET/MOD 命令里的参数一律不判引用。
+        #   理由：SET/MOD 是「修改已有对象的属性」，里面的参数值要么是引用
+        #        （APN=、USERPROFILENAME=），要么是普通属性值（CCNAME=imscc、
+        #         PARANAME=SdbBatchDuration）。
+        #   实测：把 SET 的参数当引用会产生大量假悬空
+        #        （APNCHARGECTRL.CCNAME=imscc、DBPARAS.PARANAME=... 等）。
+        #   风险控制：SET/MOD 命令自身的正确性由 G12 参数格式检查覆盖，
+        #            C2 只负责「ADD 出来的对象被引用时是否闭合」。
+        if v in ('SET', 'MOD'):
+            continue
         defining = DEFINING_PARAMS.get(f) or ()
         for k, val in p.items():
             if not val or is_placeholder(val):
                 continue
             if k in defining:
                 continue          # 主键自己的定义，不是引用
+            # ★ 2026-11-06：跨网元引用不参与悬空判定
+            #   实测 NC20260806001780 的 POOLGRPMAP 引用 SMF 侧的位置组/池组，
+            #   本工单 EXP 只有 UPF，查不到是正常的（257 处假悬空）
+            if k in CROSS_NE_REF_PARAMS:
+                continue
+            # 应用/协议标签类，不做引用校验
+            if k in APP_LABEL_PARAMS:
+                continue
             if k in ALWAYS_REF_PARAMS or REF_PARAM_SUFFIX.search(k):
                 refs.append((f, k, val, ln))
 
@@ -885,6 +1045,9 @@ def check_refs(mml_text, exp_text=''):
             continue
         if u in BUILTIN_OBJECTS:
             continue          # 系统内置对象，不需要定义
+        # ★ 2026-11-06 新增：网元自带物理资源（如 giif1/1/1），设备上真实存在
+        if any(p.match(val) for p in BUILTIN_PATTERNS):
+            continue
         key = (k, u)
         if key in seen:
             continue
@@ -913,40 +1076,200 @@ REF_PARAM_SUFFIX = re.compile(
     r'|SERVERNAME|HOSTNAME|SECTIONNAME|L3VPNNAME)$', re.I)
 
 # 只有这些 (族, 参数) 组合才真正定义对象
+#
+# ★★ 2026-11-06 大修：原来只有 16 个族（手工写的，只覆盖内容计费）
+#    实测后果：45MB 的工单 NC20260911001996 有 17 处假悬空
+#      ADD INTERFACE:IFNAME="LoopBack1"  ← EXP 里明明定义了
+#      但 INTERFACE 不在 DEFINING_PARAMS → 不被认作定义
+#      → 后续所有引用 LoopBack1 的都判悬空 → 3 轮回炉全部 fail
+#
+#    现在从 87 个工单的 GT 自动推导，并区分两类族：
+#      【对象型】主键值被其他族引用 ≥20% → 必须进这张表
+#                （INTERFACE/FILTER/RULE/POOL 等，实测 100% 被引用）
+#      【配置型】主键值从不被引用 → 不能进（进了反而误判）
+#                （POOLGRPMAP 2828 条 0% 被引用、RDSSTATICIPPARA 300 条 0%）
+#
+#    推导方法见 /tmp/derive_defining.py + /tmp/classify_fams.py
 DEFINING_PARAMS = {
-    'HOST': ('HOSTNAME',),
+    # ★★ 2026-11-06 保守重建（原来是 16 个族手工写的，导致 45MB 工单 17 处假悬空）
+    #
+    #    生成方法：从 87 个 GT 反推，判据是「主键值只有本族在 ADD」（unique owner）
+    #      ✅ INTERFACE.IFNAME=LoopBack1 只由 ADD INTERFACE 产生 → 是它的主键
+    #      ❌ TCPMSS.APN=cmiot 由 ADD APN 产生 → APN 不是 TCPMSS 的主键
+    #
+    #    只采纳证据充分的（77 个族），未声明的族不判定义 —— 宁可少抓，不可误杀。
+    #    兜底：EXP 里已有的对象一律不算悬空（复用现网合法）。
+    'AGGREGATEROUTE': ('VRFNAME',),
+    'APN': ('APN',),
+    'APNIMSSIGFLTR': ('APN', 'PRIORITY',),
+    'APNUSRPROFG': (),
+    'APPPOLICYCTRL': ('APPIDNAME', 'SUBAPPIDNAME',),
+    'BGPPEER': ('VRFNAME', 'PEERIP',),
+    'BGPVRF': ('VRFNAME',),
+    'CONFLICTIPV6': ('POOLNAME',),
+    'CONNECTPLMN': ('MCC', 'MNC',),
+    'CPAPN': ('APN',),
+    'CPNODEID': ('CPNAME',),
+    'DNAI': ('DNAI',),
+    'ECHOIPLIST': ('IPV6ADDR',),
     'FILTER': ('FILTERNAME',),
     'FILTERIPV6': ('FILTERNAME',),
     'FLOWFILTER': ('FLOWFILTERNAME',),
-    'L7FILTER': ('L7FILTERNAME', 'SUBL7FLTNAME'),
+    'FLOWFILTERGRP': ('FLWFLTRGRPNAME',),
+    'FLTBINDFLOWF': (),
+    'GRETUNNEL': ('TNLNAME',),
+    'HOST': ('HOSTNAME',),
+    'HPLMN': ('MCC', 'MNC',),
+    'IFIPV4ADDRESS': ('IFNAME', 'IFIPADDR',),
+    'IFIPV6ADDRESS': ('IFNAME', 'IFIPADDRV6',),
+    'IMPORTROUTE': ('VRFNAME',),
+    'IMSIBINDUP': (),
+    'INTERFACE': ('IFNAME',),
+    'IPBINDVPN': ('VRFNAME', 'IFNAME',),
+    'IPFARM': ('IPFARMNAME',),
+    'IPFARMSERVER': ('SERVERNAME',),
+    'L3VPNINST': ('VRFNAME',),
+    'L7FILTER': ('L7FILTERNAME', 'SUBL7FLTNAME',),
+    'LICENSESWITCH': ('LICITEM',),
+    'LICX3INTFCFG': ('LICX3INTFNAME',),
+    'LOCALNSDNN': ('SUBRANGE',),
+    'LOGICINF': ('NAME',),
+    'MMEIPTOMMEPOOL': ('MMEPOOLNAME',),
+    'N2TACID': ('TACSECNUM',),
+    'NFNS': ('NFTYPE',),
+    'NGCONNECTPLMN': ('MCC', 'MNC',),
+    'PCCPOLICYGRP': ('PCCPOLICYGRPNM',),
+    'PCSCFGROUP': ('GROUPNAME',),
+    'PCSCFGRPBNDAPN': (),
+    'PCSCFIP': ('GROUPNAME', 'IPVERSION',),
+    'PNFDNN': ('INDEX',),
+    'PNFSMFSERAREA': ('NFINSTANCEID', 'SMFSERVINGAREA',),
+    'PNFSUPI': ('INDEX',),
+    'POLICYCONDITION': ('POLICYCNDNAME',),
+    'POOL': ('POOLNAME',),
+    'POOLBINDGROUP': (),
+    'POOLGROUP': ('POOLGRPNAME',),
+    'POOLGRPMAP': ('MAPPINGNAME',),
+    'PROTBINDFLOWF': (),
+    'RDSSTATICIPPARA': ('IMSI',),
+    'REFRESHSRV': ('REFRESHTYPE',),
+    'RPTPOLICY': ('POLICYNAME',),
+    'RPTSVRADDR': ('ACCESSNAME',),
+    'RULE': ('RULENAME',),
+    'RULEBINDING': (),
+    'S1TACID': ('TACSECNUM',),
+    'SECTION': ('POOLNAME', 'SECTIONNUM',),
+    'SGWIPTOSGWPOOL': ('SGWPOOLNAME',),
+    'SPECURRGRPLIST': (),
+    'SRROUTE': ('VRFNAME', 'PREFIX', 'MASKLENGTH',),
+    'SRVCCLMTPLCY': ('SUBRANGE',),
+    'SSUPROTCOLGROUP': ('DEFPRTGRPNAME', 'PROTOCOLNAME',),
+    'TAIRANGELIST': ('NFINSTANCENAME',),
+    'UNCIPRESOUCE': ('INTFTYPE',),
+    'UPAREABINDN2TAI': ('AREANAME',),
+    'UPBINDS11': (),
+    'UPBINDUPG': (),
     'URR': ('URRNAME',),
     'URRGROUP': ('URRGROUPNAME',),
-    'PCCPOLICYGRP': ('PCCPOLICYGRPNM',),
-    'RULE': ('RULENAME',),
+    'URRGRPBINDING': (),
     'USERPROFILE': ('USERPROFILENAME',),
-    'RULEBINDING': (),
-    'FLTBINDFLOWF': (),
-    'PROTBINDFLOWF': (),
-    'SPECURRGRPLIST': (),
-    'L3VPNINST': ('VRFNAME',),
-    'APN': ('APN',),
+    'USRPROFGROUP': (),
+    'VIRTUALAPNRULE': ('MAPPINGTYPE',),
+    'VPNINST': ('VPNINSTANCE',),
 }
 
-# 系统内置对象（不要求在产物或 EXP 里定义）
-#   ★ 2026-11-05 实测：http/https/tcp/udp 等协议名是系统预置的，
-#     PROTBINDFLOWF:PROTOCOLNAME="http" 不需要先 ADD WELLKNOWNPORT。
-#     不能靠 DEFINING_PARAMS 硬要求，否则每份产物都会被误判悬空。
+
+# 系统内置对象（不需要 ADD 就能引用）
 BUILTIN_OBJECTS = {
     'HTTP', 'HTTPS', 'TCP', 'UDP', 'ICMP', 'DNS', 'FTP', 'RTSP',
     'SIP', 'RTP', 'RTCP', 'SSH', 'TELNET', 'SMTP', 'POP3', 'IMAP',
     'ALL', 'ANY', 'DEFAULT', 'NONE', 'NULL',
 }
 
+# ★ 2026-11-06 新增：网元自带资源（不用 ADD，但也不是「内置协议」那种常量）
+#
+#   实测来源：45MB 工单 NC20260911001996 里出现的 giif1/1/1 这类物理口，
+#   在 EXP 里搜不到（不在配置里），但设备上真实存在，MML 可以直接引用。
+#
+#   ⚠ 只匹配明确的硬件命名模式，不用通配，避免把真悬空一起放过。
+#     反例保护：'LoopBack999' 若不匹配任何模式且 EXP 里没有，仍然判悬空。
+BUILTIN_PATTERNS = [
+    re.compile(r'^giif\d+/\d+/\d+$', re.I),          # 千兆以太网物理口
+    re.compile(r'^gei[-\d/]+$', re.I),                # GE 接口
+    re.compile(r'^eth\d+/\d+/\d+$', re.I),           # 以太网口
+    re.compile(r'^NULL0$', re.I),                     # 空接口
+]
+
+# ★ 2026-11-06 新增：纯绑定族（本身不创建对象，只建立对象间关系）
+#   这些族的首参数是「某个已存在对象的名字」，绝不能被当成"定义"。
+#   反例：ADD PROTBINDFLOWF:FLOWFILTERNAME="ff_不存在" —— ff_不存在 并未被创建
+#   ★ 2026-11-06 收窄：只有「该族连 ADD 都是纯绑定」才进来。
+#     实测误伤：USRPROFGROUP 的 ADD USRPROFGROUP:USERPROFGNAME="upg_sos"
+#              是真正创建对象，被误排除后导致 200+ 假悬空。
+#     区分方法：看该族有没有 ADD 命令，且首参数是不是自己的主键。
+_BINDING_FAMILIES = {
+    # 绑定类：ADD XXX:对象A=.., 对象B=..  两个参数都是引用
+    'FLTBINDFLOWF', 'PROTBINDFLOWF', 'RULEBINDING', 'URRGRPBINDING',
+    'APNUSRPROFG', 'SPECURRGRPLIST', 'POOLBINDGROUP',
+    'PCSCFGRPBNDAPN', 'UPBINDUPG', 'UPBINDS11', 'IMSIBINDUP',
+    'LOCBINDAREA', 'UPAREABINDN2TAI', 'USRPROFCHARGE',
+    # 属性类：SET/ADD XXX:APN=..（挂在 APN 上的属性）
+    'APNPCCFUNC', 'APNIDLETIME', 'APNCHARGECTRL', 'APNQOSATTR',
+    'APNIMSATTR', 'APNSOFTPARA', 'APNADDRESSATTR', 'APNIPALLOCRULE',
+    'APNSGLPASS', 'TCPMSS', 'CTXSTARTRATING',
+}
 # 纯引用参数（永远不定义）
 ALWAYS_REF_PARAMS = {
-    'DFTURRGRPNAME', 'DFTSIGURRGNAME', 'SIGURRGRPNAME',
+    'DFTURRGRPNAME', 'DFTSIGURRGNAME', 'SIGURRGNAME',
     'UPURRNAME1', 'UPURRNAME2', 'DOWNURRNAME1', 'DOWNURRNAME2',
     'POLICYNAME', 'TEMPLATENAME',
+}
+
+# ★ 2026-11-06 新增：跨网元引用参数（本网元 EXP 里查不到是正常的）
+#
+#   实测场景 NC20260806001780：
+#     ADD POOLGRPMAP: MAPPINGNAME="map-sos-smf022-gz-by-4g",
+#                     LOCATIONGRPTYPE=TAC, LOCATIONGRPNAME="gz-by-4g",
+#                     APN="sos", SMF="smf022", POOLGROUPNAME="grp-ims-smf022-..."
+#   这些 LOCATIONGRP / POOLGROUP / SMF 都定义在【SMF 网元】上，
+#   而本工单的 EXP 只是 UPF（GZUPF013BHW），当然没有。
+#   C2 拿单网元 EXP 去校验跨网元引用，必然误判。
+#
+#   处理：这些参数不参与 C2 悬空判定（它们由目标网元的 EXP 校验）。
+CROSS_NE_REF_PARAMS = {
+    'LOCATIONGRPNAME',      # 位置组（TAC/LAC 组），定义在 SMF
+    'SMF',                  # SMF 实例名（POOLGRPMAP 里引用）
+    'NFINSTANCENAME',       # NF 实例名，跨网元
+    'NFINSTANCEID',         # NF 实例 ID，跨网元
+    'CPNAME',               # CP 节点名，跨网元
+    'POOLGROUPNAME',        # 地址池组，可能定义在 SMF
+    'MAPPINGNAME',          # 映射名，本族自身主键或跨网元
+    'AREANAME',             # 区域名，可能跨网元
+    'TACGROUPNAME',         # TAC 组
+    'LACGROUPNAME',         # LAC 组
+    'USERPROFGNAME',        # 用户模板组，可能跨网元
+    'USERPROFILENAME',      # 用户模板
+    'EMGAPN',               # 紧急 APN
+    'BSFINSTANCENAME',      # BSF 实例名，跨网元（实测 NC20260820000552）
+    'IPRANGENAME',          # IP 段名，BSF 侧定义
+    'APN',                  # APN 可能定义在 SMF/UNC（实测 POOLGRPMAP.APN / TCPMSS.APN）
+    'APNNAME',              # 同上
+    'VPNINSTANCE',          # VPN 实例，可能在别的网元（实测 POOL.VPNINSTANCE）
+    'VRFNAME',              # VRF 名，可能跨网元
+}
+
+# ★ 2026-11-06：自定义协议/应用名（不是系统内置，但也不在 EXP 里 ADD）
+#
+#   实测 NC20260909001068：
+#     ADD PROTBINDFLOWF:FLOWFILTERNAME="ff1", PROTOCOLNAME="SanJiaoZhouXingDong"
+#   这类名字来自 ADD WELLKNOWNPORT / ADD PROTOCOL 等，但在 UDG 侧 EXP 里没有
+#   （通常在 UNC/UEG 定义）。
+#
+#   处理：PROTOCOLNAME / APPIDNAME / SUBAPPIDNAME 这类"名称型应用标识"
+#        不判悬空。它们不是对象引用，是分类标签。
+APP_LABEL_PARAMS = {
+    'PROTOCOLNAME', 'APPIDNAME', 'SUBAPPIDNAME', 'APPNAME',
+    'DEFPRTGRPNAME', 'FLOWFILTERTYPE',
 }
 
 
@@ -974,18 +1297,56 @@ def _iter_cmds(mml_text):
 
 
 def _collect_defs(mml_text, only_add=True):
-    """收集真正定义的对象名（大写）。"""
+    """收集「定义了哪些对象」。
+
+    ★★ 2026-11-06 重写：原来只认 DEFINING_PARAMS 显式声明的 (族,参数)。
+       实测严重漏收：
+         · EXP 里 858 条 ADD INTERFACE:IFNAME="LoopBack1" 没被收
+         · EXP 里 86 条 ADD TACGROUP:TACGROUPNAME="gz-by-4g" 没被收
+       → 后续引用全判悬空（45MB 工单 17 处、20MB 工单 282 处）
+
+       新策略（双通道，任一命中即算定义）：
+         通道 1  DEFINING_PARAMS 显式声明的主键 —— 精确
+         通道 2  任何 ADD 命令的【第一个参数】若是引用型（以 NAME/APN/DNN 结尾），
+                 就把它当「定义了这个名字」 —— 宽松兜底
+                 依据：MML 语法约定首参数就是对象主键
+
+       通道 2 是关键：即使某个族没进 DEFINING_PARAMS（276 个族补不全），
+       只要它是「ADD XXX:主键=值」形式，那个值就认作已定义，不再假悬空。
+
+       不放松的边界：只看 ADD；RMV/MOD/SET 里出现的值不算定义
+                    （否则「先删后引用」会被判通过）。
+    """
     defs = set()
+    if not mml_text:
+        return defs
+
     for _ln, v, f, p in _iter_cmds(mml_text):
         if only_add and v != 'ADD':
             continue
-        defining = DEFINING_PARAMS.get(f)
-        if not defining:
+        if not p:
             continue
-        for k in defining:
+
+        # 通道 1：显式声明的主键
+        declared = DEFINING_PARAMS.get(f) or ()
+        for k in declared:
             val = p.get(k)
             if val and not is_placeholder(val):
-                defs.add(val.upper())
+                defs.add(str(val).upper())
+
+        # 通道 2：首参数天然是主键
+        #   ⚠ 必须排除「纯绑定族」——它们的首参数是别的对象的名字，不是自己定义的。
+        #     实测反例：ADD PROTBINDFLOWF:FLOWFILTERNAME="ff_不存在"
+        #     首参数 FLOWFILTERNAME 会被误当定义，导致「引用不存在的流过滤器」漏判。
+        if not declared:      # declared 为空 = 纯绑定族或未声明族
+            if f in _BINDING_FAMILIES:
+                continue
+        first_key = next(iter(p))
+        first_val = p[first_key]
+        if first_val and not is_placeholder(first_val):
+            if REF_PARAM_SUFFIX.search(first_key) or first_key in declared:
+                defs.add(str(first_val).upper())
+
     return defs
 
 
