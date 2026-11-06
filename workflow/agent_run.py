@@ -42,6 +42,9 @@ ROUND_HARD_LIMIT = int(os.environ.get('AGENT_ROUND_HARD_LIMIT', '900'))
 #     真死循环：Guard 27 次 / 总 149 次，且集中在 Code↔Guard 交替
 #   所以不能只卡总数（会误伤多网元），主要靠 guard 次数 + 耗时判。
 MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '8'))
+# ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
+#   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
+STALL_SECONDS = int(os.environ.get('AGENT_STALL_SECONDS', '300'))
 MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
 
 # 产物清单
@@ -353,7 +356,34 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
             # ★ 2026-11-05 死循环防护（代码层，不依赖 prompt 自觉）
             #   统计 MCP guard 调用次数 + 总工具调用数 + Code↔Guard 交替，
             #   超限直接杀进程。
+            # ★★ 2026-11-06 修正：原来每行非空输出都 +1，把 agent 的
+            #   **思考文字**也当成了工具调用。实测 c1 只有 16 个真实工具行，
+            #   却因为 356 行输出被判「301 次调用」误杀。
+            #   现在只对「真正的工具行」（含 ┊ 前缀）计数。
+            _is_tool_line = '┊' in line
+            if not _is_tool_line:
+                continue
             _tool_cnt['total'] += 1
+
+            # ★★ 2026-11-06 无进展检测
+            #   实测：c4 用例 agent 反复查 EXP 35 次、一个产物都没写，
+            #   工具只花 8.5s 却耗满 905s，只能等时间上限。
+            #   判据：超过 STALL_SECONDS 且产物一个都没写出 → 判卡住。
+            if time.time() - t0 > STALL_SECONDS:
+                _adir = Path(workdir) / 'analysis_code'
+                _n_art = 0
+                if _adir.is_dir():
+                    _n_art = len([p for p in _adir.iterdir()
+                                  if p.is_file() and not p.name.startswith('.')])
+                if _n_art == 0:
+                    loop_killed = (
+                        f'agent 运行 {int(time.time() - t0)}s 仍无任何产物写出'
+                        f'（已调用工具 {_tool_cnt["total"]} 次），判为卡住')
+                    try:
+                        proc.kill()
+                    except Exception:
+                        pass
+                    break
 
             # 识别动作类型（用于判断 Code↔Guard 交替）
             _act = ''
@@ -574,7 +604,14 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
     adir.mkdir(parents=True, exist_ok=True)
     wfdir = sess_dir / '.agent'
     wfdir.mkdir(exist_ok=True)
-    events_path = wfdir / 'events.jsonl'
+    # ★ 2026-11-06：每次 run 用独立子目录，避免多轮对话时互相覆盖。
+    #   实测：二次意图场景连跑 3 次 run，都写 round1_out.txt，前两次被覆盖，
+    #   事后无法统计每轮的真实工具调用。
+    _runs = [d for d in wfdir.iterdir() if d.is_dir() and d.name.startswith('run')]
+    _run_no = len(_runs) + 1
+    rundir = wfdir / f'run{_run_no}'
+    rundir.mkdir(exist_ok=True)
+    events_path = rundir / 'events.jsonl'
     events_path.touch()
 
     # 落意图（guard 的 G18 需要）
@@ -611,7 +648,7 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
 
     prompt = build_prompt(session_id, intent_text, files_info, product_hint,
                           workdir=sess_dir)
-    (wfdir / 'prompt_r1.txt').write_text(prompt, encoding='utf-8')
+    (rundir / 'prompt_r1.txt').write_text(prompt, encoding='utf-8')
 
     events_fp = open(events_path, 'a', encoding='utf-8')
     t_start = time.time()
@@ -638,7 +675,7 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                 # pipe 环境下 hermes 不打印 Session 行，从 sessions list 取最新
                 agent_sid = _latest_session_id()
 
-            (wfdir / f'round{rnd}_out.txt').write_text(out or '', encoding='utf-8')
+            (rundir / f'round{rnd}_out.txt').write_text(out or '', encoding='utf-8')
 
             if err:
                 error = f'第{rnd}轮: {err}'

@@ -484,15 +484,19 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None,
                     return False, f'family-{family}-not-in-range'
             return True, 'derive-range-ok'
 
-        # 核验：值/族是否在区间内出现
-        if value and not is_placeholder(value):
-            v = str(value).strip().strip('"').strip("'").lower()
-            if not any(v in ln.lower() for ln in seg):
-                return False, 'value-not-in-range'
+        # 核验：族是否在区间内出现
+        # ★★ 2026-11-06 与单行分支统一语义：
+        #   区间引用（exp:L11886-L11889）通常是「参照这一段里同类命令的写法」，
+        #   对象名是新造的，值当然不在区间里。
+        #   所以：族匹配即通过；值也对得上 → 升级为强依据。
         if family:
             if not any(re.search(rf'^\s*(ADD|SET|MOD|RMV)\s+{family}\b', ln, re.I)
                        for ln in seg):
                 return False, f'family-{family}-not-in-range'
+        if value and not is_placeholder(value):
+            v = str(value).strip().strip('"').strip("'").lower()
+            if not any(v in ln.lower() for ln in seg):
+                return True, 'range-family-ref-only'
         return True, 'range-verified'
 
     try:

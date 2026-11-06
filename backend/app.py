@@ -335,7 +335,10 @@ def _append_event(sid: str, ev: dict):
     d = sess_dir(sid)
     wf = d / '.agent'
     wf.mkdir(exist_ok=True)
-    with (wf / 'events.jsonl').open('a', encoding='utf-8') as f:
+    # ★ 写到最新 run 目录（与 agent_run 一致）
+    evf = _latest_events_file(d)
+    evf.parent.mkdir(parents=True, exist_ok=True)
+    with evf.open('a', encoding='utf-8') as f:
         f.write(json.dumps(ev, ensure_ascii=False) + '\n')
 
 
@@ -491,7 +494,10 @@ async def api_run(sid: str, request: Request):
     # 事件流每轮重置（这是本轮的过程记录，不是产物）
     wf = d / '.agent'
     wf.mkdir(exist_ok=True)
-    (wf / 'events.jsonl').write_text('', encoding='utf-8')
+    # 清空最新 run 的 events（agent_run 会新建 runN 目录，这里清的是上一个）
+    _prev = _latest_events_file(d)
+    _prev.parent.mkdir(parents=True, exist_ok=True)
+    _prev.write_text('', encoding='utf-8')
 
     # 二次意图：把上一版产物摘要写进 .agent/prev_summary.md，供 agent 参考
     if action in ('revise', 'append') and has_prev:
@@ -577,11 +583,26 @@ def api_run_status(sid: str):
             'last_run': meta.get('last_run')}
 
 
+def _latest_events_file(d: Path) -> Path:
+    """定位最新一次 run 的 events.jsonl。
+
+    ★ 2026-11-06：每次 run 写 .agent/runN/events.jsonl（避免多轮对话覆盖）。
+      兼容旧布局 .agent/events.jsonl。
+    """
+    wf = d / '.agent'
+    runs = sorted([p for p in wf.iterdir()
+                   if p.is_dir() and p.name.startswith('run')],
+                  key=lambda p: int(re.sub(r'\D', '', p.name) or 0))
+    if runs:
+        return runs[-1] / 'events.jsonl'
+    return wf / 'events.jsonl'
+
+
 @app.get('/api/v1/sessions/{sid}/events')
 async def api_events(sid: str, follow: int = 1):
     """SSE 实时事件流。"""
     d = sess_dir(sid)
-    evfile = d / '.agent' / 'events.jsonl'
+    evfile = _latest_events_file(d)
 
     async def gen():
         yield 'event: open\ndata: {"sid":"%s"}\n\n' % sid
