@@ -8,7 +8,22 @@ python-multipart==0.0.32
 PyYAML==6.0.3
 
 # ── 向量检索 ──────────────────────────────────────────
+# ★ 踩坑记录（2026-11-05，缺一个都跑不起来）：
+#   pymilvus 3.x 把 Milvus Lite 拆成独立包 milvus-lite
+#   → 否则 MilvusClient(本地db路径) 崩：No module named 'milvus_lite'
+#   milvus-lite 内部依赖 pyarrow 做列式存储
+#   → 否则 collection.py 崩：No module named 'pyarrow'
+#   索引是 HNSW，必须要 faiss-cpu
+#   → 否则 load_collection 崩：index_type='HNSW' requires faiss-cpu
+#   集合用了 JiebaAnalyzer 分词
+#   → 否则 load_collection 崩：JiebaAnalyzer requires the 'jieba' package
+#   faiss-cpu 依赖系统库 libgomp（apt: libgomp1，Dockerfile 已装）
 pymilvus==3.0.2
+milvus-lite==3.2.2
+pyarrow==26.0.1
+jieba==0.42.1
+faiss-cpu==1.15.1
+cloudpickle==3.1.2
 onnxruntime==1.31.1
 transformers==5.22.1
 numpy==2.5.4

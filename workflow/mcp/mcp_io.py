@@ -367,30 +367,50 @@ def tool_guard_check(args):
     if not mml.exists():
         return {'error': 'analysis_code/mml.txt 不存在，先写产物'}
 
-    # 找 EXP（可选）
-    exp_path = ''
+    # 找 EXP（可选，支持多个 —— 多网元场景）
+    exp_paths = []
     idx = d / 'uploads_index.json'
     if idx.exists():
         try:
             data = json.loads(idx.read_text(encoding='utf-8'))
             for f in data.get('files') or []:
-                if f.get('is_exp') and f.get('parsed'):
-                    # ★ parsed 已含 uploads_text/ 前缀（如 uploads_text/EXP.md）
-                    #   不要再拼一次，否则路径变成 uploads_text/uploads_text/EXP.md
-                    _rel = f['parsed']
-                    cand = d / _rel if '/' in _rel else d / 'uploads_text' / _rel
-                    if cand.exists():
-                        exp_path = str(cand)
+                if not f.get('is_exp'):
+                    continue
+                # ★★ 2026-11-05 关键修正：必须用**原始 .txt**，不能用 markitdown
+                #   转换后的 .md —— md 会加头部注释，行号整体偏移。
+                #   实测：EXP md 16471 行 / txt 16469 行，agent grep 原始 txt
+                #   拿到 L12125 是对的，但 guard 核验 md 时错位，误报「行号不是
+                #   URRGROUP」（实际就是 URRGROUP）。
+                #   G19 的行号核验依赖「和 agent 看到的完全同一个文件」。
+                _raw = d / (f.get('path') or '')
+                _cands = []
+                if _raw.exists():
+                    _cands.append(_raw)
+                _rel = f.get('parsed') or ''
+                if _rel:
+                    _cands.append(d / _rel if '/' in _rel else d / 'uploads_text' / _rel)
+                for cand in _cands:
+                    if cand.exists() and cand.suffix.lower() in ('.txt', '.mml', '.cfg'):
+                        exp_paths.append(str(cand))
                         break
+                else:
+                    # 只有 md 可用时退回（行号会不准，但至少有依据）
+                    for cand in _cands:
+                        if cand.exists():
+                            exp_paths.append(str(cand))
+                            break
         except Exception:
             pass
     # 兜底：exp_v1
-    if not exp_path:
+    if not exp_paths:
         ev = d / 'exp_v1'
         if ev.is_dir():
             fs = sorted(ev.glob('*.txt'))
             if fs:
-                exp_path = str(fs[0])
+                exp_paths = [str(f) for f in fs]
+
+    exp_path = ';'.join(exp_paths) if len(exp_paths) > 1 else (
+        exp_paths[0] if exp_paths else '')
 
     # 意图文件
     intent_path = ''
@@ -403,7 +423,10 @@ def tool_guard_check(args):
 
     cmd = [sys.executable, str(GUARD_PY), '--mml', str(mml), '--json']
     if exp_path:
-        cmd += ['--exp', exp_path]
+        if ';' in exp_path:
+            cmd += ['--exp-multi', exp_path]
+        else:
+            cmd += ['--exp', exp_path]
     if intent_path:
         cmd += ['--intent', intent_path]
 
@@ -419,6 +442,7 @@ def tool_guard_check(args):
             'checks': {k: (v.get('ok') if isinstance(v, dict) else None)
                        for k, v in (result.get('checks') or {}).items()},
             'exp_used': bool(exp_path),
+            'exp_count': len(exp_paths),
         }
     except subprocess.TimeoutExpired:
         return {'error': 'guard 超时（>300s）'}

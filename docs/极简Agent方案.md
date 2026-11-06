@@ -585,19 +585,6 @@ markitdown 解析失败 → 直接报错给 agent，不静默兜底。
 
 ---
 
-## 16. 备份
-
-移除的代码已备份到：
-
-```
-~/workspace/expgv-buildkit-legacy-20261105/
-├── backend/     （35 项，含 e2e/selfcheck/app_v2.html）
-├── workflow/    （38 项，含九步残留）
-└── BACKUP_INFO.json  （git head: 9fc5761f7）
-```
-
----
-
 ## 附录 A：hermes 关键命令
 
 ```bash

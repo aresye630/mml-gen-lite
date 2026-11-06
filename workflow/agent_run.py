@@ -31,6 +31,18 @@ GUARD_PY = WORKFLOW_ROOT / 'guard' / 'guard.py'
 
 MAX_ROUNDS = int(os.environ.get('AGENT_MAX_ROUNDS', '3'))
 ROUND_TIMEOUT = int(os.environ.get('AGENT_ROUND_TIMEOUT', '1800'))
+# ★ 2026-11-05：单轮硬上限。超过就判定为 agent 死循环，强制停。
+#   实测：正常单轮 100-400s；陷入「改产物↔自检」循环的单轮能跑满 1800s。
+ROUND_HARD_LIMIT = int(os.environ.get('AGENT_ROUND_HARD_LIMIT', '900'))
+
+# ★ 2026-11-05 死循环防护上限
+#   实测校准：
+#     单网元正常探索 30-60 次工具调用
+#     多网元（2 个 EXP）正常探索 80-120 次
+#     真死循环：Guard 27 次 / 总 149 次，且集中在 Code↔Guard 交替
+#   所以不能只卡总数（会误伤多网元），主要靠 guard 次数 + 耗时判。
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '8'))
+MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
 
 # 产物清单
 REQUIRED_ARTIFACTS = ['mml.txt', 'params.csv', '配置分析.md']
@@ -77,7 +89,7 @@ _SID_PATTERNS = [
 # ═══════════════════════════════════════════════════════════
 # prompt 构造
 # ═══════════════════════════════════════════════════════════
-def build_prompt(session_id, intent_text, files_info, product_hint=''):
+def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=None):
     """构造首轮 prompt。"""
     lines = []
     lines.append('你是 5G 核心网 MML 配置专家。')
@@ -107,6 +119,18 @@ def build_prompt(session_id, intent_text, files_info, product_hint=''):
         lines.append('  （没有上传文件）')
     lines.append('')
 
+    # 二次意图：上一版产物摘要
+    prev_summary = Path(workdir) / '.agent' / 'prev_summary.md' if workdir else None
+    if prev_summary and prev_summary.exists():
+        lines.append('【上一版产物（本轮是二次意图，基于此修改）】')
+        lines.append(prev_summary.read_text(encoding='utf-8', errors='replace')[:4000])
+        lines.append('')
+        lines.append('⚠ 修改规则：')
+        lines.append('  · 上一版已有的正确命令全部保留，只改需要改的部分')
+        lines.append('  · 不要整体重写，除非用户明确要求重做')
+        lines.append('  · 改完后 artifact_write 覆盖对应文件')
+        lines.append('')
+
     lines.append('【可用工具】')
     lines.append('  exp_detect / exp_stats / exp_query / exp_refs / exp_baseline   EXP 分析')
     lines.append('  kb_search_feature / kb_search_command / kb_get_naming         知识检索')
@@ -125,9 +149,60 @@ def build_prompt(session_id, intent_text, files_info, product_hint=''):
 
     lines.append('【产物要求】写到 analysis_code/，一共这几个文件：')
     lines.append('  1. mml.txt        可执行 MML。按 Phase 分注释；引用必须闭合（后引用的对象必须先定义）')
-    lines.append('  2. params.csv     参数表。列：序号,命令族,参数,值,来源,说明；需人工确认的填【待填写】')
+    lines.append('  2. params.csv     参数表。列：序号,组,网元,命令族,参数,值,来源,说明')
+    lines.append('       ★ params.csv 是 MML 的**唯一数据源** —— mml.txt 要能由它机械生成')
+    lines.append('       ★ 需人工确认的值填【待填写】，不要编造')
+    lines.append('')
+    lines.append('  【params.csv 写法（重要）】')
+    lines.append('    一行一个参数。同一个「组」的多行 = 一条 MML 命令。')
+    lines.append('    组名格式：<命令族>#<序号>，如 HOST#1 / FILTER#1 / URR#2')
+    lines.append('')
+    lines.append('    例：')
+    lines.append('      序号,组,网元,命令族,参数,值,来源,说明')
+    lines.append('      1,HOST#1,UDG,HOST,HOSTNAME,hncatv_00_h_001,plan:域名规划#1,')
+    lines.append('      2,HOST#1,UDG,HOST,DOMAINVALUE,video.hncatv.com,plan:域名规划#1,')
+    lines.append('      3,HOST#1,UDG,HOST,PRIORITY,10600,exp:derive L1103,')
+    lines.append('      4,FILTER#1,UDG,FILTER,FILTERNAME,hncatv_00_f_h_001,exp:derive,')
+    lines.append('      5,FILTER#1,UDG,FILTER,SVRIPMODE,HOSTNAME,doc:F352,')
+    lines.append('      6,FILTER#1,UDG,FILTER,HOSTNAME,@HOST#1.HOSTNAME,infer 引用HOST#1,')
+    lines.append('')
+    lines.append('    ⇒ 生成结果：')
+    lines.append('      ADD HOST:HOSTNAME="hncatv_00_h_001", DOMAINVALUE="video.hncatv.com", PRIORITY=10600;')
+    lines.append('      ADD FILTER:FILTERNAME="hncatv_00_f_h_001", SVRIPMODE=HOSTNAME, HOSTNAME="hncatv_00_h_001";')
+    lines.append('')
+    lines.append('    ★ 关联参数用引用语法 @<组名>.<参数名>，不要重复写值')
+    lines.append('      这样用户改 HOST#1 的 HOSTNAME，FILTER 会自动跟着变')
+    lines.append('    ★ 来源列格式：')
+    lines.append('      plan:<规划文件名>#<行号>   取自数据规划表第 N 行（G20 靠这个校验覆盖率）')
+    lines.append('      exp:L1101 / exp:derive L1101-L1107   取自现网')
+    lines.append('      doc:<文档>:<章节>          取自特性文档')
+    lines.append('      intent:<要素>              意图明确给出的')
+    lines.append('      infer <规则说明>           业务推导')
+    lines.append('')
     lines.append('  3. 配置分析.md    用了哪些依据、为什么选这些族、命名来源、注意事项')
     lines.append('  4. 方案澄清.json  （可选）只放方案级问题，没有就给 []')
+    lines.append('')
+    lines.append('【多网元场景的产物格式（重要）】')
+    lines.append('  如果这次要配多个网元（如 UDG + UNC），仍然只写上面这几个文件，但要按网元分段：')
+    lines.append('')
+    lines.append('  mml.txt 用注释分段，每段一个网元（**分段标记必须带 ===== **）：')
+    lines.append('    /* ===== 网元: UDG  UPF-HN-01  10.20.1.10 ===== */')
+    lines.append('    ADD HOST:...')
+    lines.append('    /* ===== 网元: UNC  SMF-HN-01  10.20.2.10 ===== */')
+    lines.append('    ADD RULE:...')
+    lines.append('')
+    lines.append('  ★ 文件头的说明文字里不要用「网元: XXX」这种写法，')
+    lines.append('    否则会被当成分段标记（后端按 /* ===== 网元: 来切分）。')
+    lines.append('    想描述网元清单就写在 配置分析.md 里。')
+    lines.append('')
+    lines.append('  params.csv 的「网元」列（第 3 列）按网元填：')
+    lines.append('    序号,组,网元,命令族,参数,值,来源,说明')
+    lines.append('    1,HOST#1,UDG,HOST,HOSTNAME,xxx,plan:域名规划#1,')
+    lines.append('    2,RULE#1,UNC,RULE,RULENAME,xxx,exp:derive L12902,')
+    lines.append('')
+    lines.append('  ★ 同一对象在不同网元下可以同名（各自网元独立），')
+    lines.append('    但同一网元内不得重复定义。')
+    lines.append('  ★ 单网元时网元列填该网元类型即可（如全部填 UDG）。')
     lines.append('')
 
     lines.append('【@src 来源标注（mml.txt 里每条命令都要标）】')
@@ -173,6 +248,15 @@ def build_prompt(session_id, intent_text, files_info, product_hint=''):
     lines.append('  · 单工单规模合理：同一个族一般不超过 20-30 条（除非意图明确要求批量）')
     lines.append('  · 写完产物后调一次 guard_check；有 fatal 自己修完再调，直到通过')
     lines.append('  · 完成后简述：做了什么、哪些需要人工确认')
+    lines.append('')
+    lines.append('【⚠ 效率硬要求（违反会导致任务失败）】')
+    lines.append('  · guard_check 最多调 3 次。第 3 次还有 fatal，就把当前状态写进产物然后收尾，')
+    lines.append('    不要继续改。剩下的问题在 配置分析.md 里列出来，交给人判断。')
+    lines.append('  · 不要用 execute_code / terminal 写脚本去批量修改 mml.txt。')
+    lines.append('    改产物只用 artifact_write（整文件覆盖）。')
+    lines.append('  · 不要反复「读自己的产物 → 跑脚本分析 → 再改」的循环。')
+    lines.append('    想清楚要改成什么，一次改完。')
+    lines.append('  · 单轮总耗时控制在 10 分钟内。超过说明陷入循环了，立刻收尾。')
     return '\n'.join(lines)
 
 
@@ -241,6 +325,8 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
     out_lines = []
     proc = None
     timed_out = False
+    loop_killed = None
+    _tool_cnt = {'total': 0, 'guard': 0, 'seq': []}
 
     try:
         proc = subprocess.Popen(
@@ -263,6 +349,56 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
             line = raw.rstrip('\r\n')
             if not line.strip():
                 continue
+
+            # ★ 2026-11-05 死循环防护（代码层，不依赖 prompt 自觉）
+            #   统计 MCP guard 调用次数 + 总工具调用数 + Code↔Guard 交替，
+            #   超限直接杀进程。
+            _tool_cnt['total'] += 1
+
+            # 识别动作类型（用于判断 Code↔Guard 交替）
+            _act = ''
+            if 'mcp_io_gu' in line:
+                _act = 'guard'
+            elif '🐍 exec' in line or 'mcp_io_ar' in line:
+                _act = 'code' if '🐍 exec' in line else 'write'
+
+            if _act:
+                _tool_cnt['seq'].append(_act)
+                if len(_tool_cnt['seq']) > 12:
+                    _tool_cnt['seq'] = _tool_cnt['seq'][-12:]
+                # 最近 10 个动作里，code/guard 交替出现 ≥4 次 → 死循环
+                _s = _tool_cnt['seq'][-10:]
+                _alt = sum(1 for i in range(len(_s) - 1)
+                           if {_s[i], _s[i+1]} == {'code', 'guard'})
+                if _alt >= 4:
+                    loop_killed = (f'检测到 Code↔Guard 反复交替（最近 10 次动作中 '
+                                   f'{_alt} 次），判定为死循环，已终止')
+                    try:
+                        proc.kill()
+                    except Exception:
+                        pass
+                    break
+
+            if _act == 'guard':
+                _tool_cnt['guard'] += 1
+                emit({'type': 'meta', 'event': 'guard_call',
+                      'n': _tool_cnt['guard'], 't': round(time.time() - t0, 1)})
+                if _tool_cnt['guard'] > MAX_GUARD_CALLS:
+                    loop_killed = (f'guard_check 被调用 {_tool_cnt["guard"]} 次'
+                                   f'（上限 {MAX_GUARD_CALLS}），判定为死循环')
+                    try:
+                        proc.kill()
+                    except Exception:
+                        pass
+                    break
+            if _tool_cnt['total'] > MAX_TOOL_CALLS:
+                loop_killed = (f'工具调用 {_tool_cnt["total"]} 次'
+                               f'（上限 {MAX_TOOL_CALLS}），判定为死循环')
+                try:
+                    proc.kill()
+                except Exception:
+                    pass
+                break
 
             m = _TOOL_LINE.search(line)
             if m:
@@ -321,6 +457,10 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
         if timed_out:
             return False, out, round(time.time() - t0, 1), None, f'超时 {timeout}s'
 
+        # 死循环被主动终止：out 仍然返回（产物可能已写出，交给 guard 判）
+        if loop_killed:
+            return False, out, round(time.time() - t0, 1), None, loop_killed
+
         # 抽 session id
         sid = None
         for pat in _SID_PATTERNS:
@@ -369,6 +509,9 @@ def _latest_session_id():
 # guard
 # ═══════════════════════════════════════════════════════════
 def run_guard(sess_dir, exp_path='', intent_path=''):
+    """
+    ★ exp_path 支持多个：用 ; 分隔，内部转成 --exp-multi
+    """
     """跑 guard，返回结构化结果。"""
     mml = Path(sess_dir) / 'analysis_code' / 'mml.txt'
     if not mml.exists():
@@ -382,8 +525,13 @@ def run_guard(sess_dir, exp_path='', intent_path=''):
                 'warnings': []}
 
     cmd = ['python3', str(GUARD_PY), '--mml', str(mml), '--json']
-    if exp_path and Path(exp_path).exists():
-        cmd += ['--exp', str(exp_path)]
+    if exp_path:
+        _paths = [x for x in str(exp_path).split(';') if x.strip()]
+        _paths = [x for x in _paths if Path(x).exists()]
+        if len(_paths) > 1:
+            cmd += ['--exp-multi', ';'.join(_paths)]
+        elif _paths:
+            cmd += ['--exp', _paths[0]]
     if intent_path and Path(intent_path).exists():
         cmd += ['--intent', str(intent_path)]
 
@@ -415,7 +563,8 @@ def check_artifacts(sess_dir):
 # ═══════════════════════════════════════════════════════════
 # 主流程
 # ═══════════════════════════════════════════════════════════
-def run_agent(session_id, intent_text, product_hint='', on_event=None):
+def run_agent(session_id, intent_text, product_hint='', on_event=None,
+              resume_agent_session=None):
     """跑 agent 主流程（含 3 轮校验闭环）。
 
     Returns dict: {status, rounds, elapsed, produced, guard, error, session_id}
@@ -441,22 +590,33 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None):
         except Exception:
             pass
 
-    # 找 EXP
-    exp_path = ''
+    # 找 EXP（支持多个 —— 多网元场景）
+    # ★★ 2026-11-05：必须用原始 .txt，不能用 markitdown 转换后的 .md
+    #   md 会加头部，行号整体偏移，G19 行号核验会全部误报
+    exp_paths = []
     for f in files_info:
-        if f.get('is_exp') and f.get('parsed'):
-            rel = f['parsed']
-            cand = sess_dir / rel if '/' in rel else sess_dir / 'uploads_text' / rel
-            if cand.exists():
-                exp_path = str(cand)
-                break
+        if not f.get('is_exp'):
+            continue
+        _raw = sess_dir / (f.get('path') or '')
+        if _raw.exists() and _raw.suffix.lower() in ('.txt', '.mml', '.cfg'):
+            exp_paths.append(str(_raw))
+            continue
+        _rel = f.get('parsed') or ''
+        if _rel:
+            _parsed = sess_dir / _rel if '/' in _rel else sess_dir / 'uploads_text' / _rel
+            if _parsed.exists():
+                exp_paths.append(str(_parsed))
+    exp_path = ';'.join(exp_paths) if len(exp_paths) > 1 else (
+        exp_paths[0] if exp_paths else '')
 
-    prompt = build_prompt(session_id, intent_text, files_info, product_hint)
+    prompt = build_prompt(session_id, intent_text, files_info, product_hint,
+                          workdir=sess_dir)
     (wfdir / 'prompt_r1.txt').write_text(prompt, encoding='utf-8')
 
     events_fp = open(events_path, 'a', encoding='utf-8')
     t_start = time.time()
-    agent_sid = None
+    # ★ 二次意图：接着上一轮的 agent 会话跑（保留完整上下文，不用重新探索）
+    agent_sid = resume_agent_session or None
     rounds = []
     final_guard = None
     error = None
@@ -484,6 +644,18 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None):
                 error = f'第{rnd}轮: {err}'
                 rounds.append({'round': rnd, 'ok': False, 'elapsed': elapsed,
                                'error': err})
+                break
+
+            # ★ 2026-11-05 死循环防护
+            #   实测：多网元 case agent 陷入「execute_code 改产物 → guard_check
+            #   → 又改 → 又 check」，149 条事件里 Code 91 次 Guard 27 次，
+            #   最后 execute_code 跑满 300s 被杀，整轮 1814s 超时。
+            #   这里检测「本轮耗时」和「fatal 是否在减少」，异常就强制停。
+            if elapsed > ROUND_HARD_LIMIT:
+                error = (f'第{rnd}轮耗时 {elapsed}s 超过 {ROUND_HARD_LIMIT}s 上限，'
+                         f'判定为 agent 陷入循环（反复改产物+自检）')
+                rounds.append({'round': rnd, 'ok': False, 'elapsed': elapsed,
+                               'error': 'round_slow_loop', 'fatal_limit': True})
                 break
 
             # 检查产物

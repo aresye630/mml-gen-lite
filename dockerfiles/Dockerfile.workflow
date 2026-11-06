@@ -19,8 +19,10 @@ RUN sed -i 's|deb.debian.org|mirrors.tuna.tsinghua.edu.cn|g' \
         /etc/apt/sources.list.d/*.sources 2>/dev/null || true
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        curl ca-certificates xz-utils tini git procps \
+        curl ca-certificates xz-utils tini git procps libgomp1 \
     && rm -rf /var/lib/apt/lists/*
+# ★ libgomp1：faiss-cpu 依赖的 OpenMP 运行库，缺了会报
+#   ImportError: libgomp-xxx.so.1.0.0: cannot open shared object file
 
 # 非 root 用户
 RUN groupadd -g 1000 expgv \

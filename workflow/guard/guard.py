@@ -22,12 +22,17 @@
 """
 import argparse
 import json
+import os
 import re
 import sys
 from collections import Counter
 from pathlib import Path
 
-sys.path.insert(0, '/opt/expgv/tools')
+# tools 目录（gen_selfcheck 所在）—— 支持环境变量覆盖，默认按容器布局
+_TOOLS_DIR = os.environ.get('MML_GEN_TOOLS_DIR', '/opt/expgv/tools')
+sys.path.insert(0, _TOOLS_DIR)
+# 本地开发布局兜底：仓库根的 tools/
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / 'tools'))
 
 
 # ═══════════════════════════════════════════════════════════
@@ -214,6 +219,8 @@ INTENT_FAMILY_MAP = {
     '域名': ['ADD HOST'],
     '过滤器': ['ADD FILTER'],
     'IPv6': ['ADD FILTERIPV6'],
+    'IPV6': ['ADD FILTERIPV6'],
+    'FILTERIPV6': ['ADD FILTERIPV6'],
     '流量过滤': ['ADD FLOWFILTER'],
     '流过滤器': ['ADD FLOWFILTER'],
     '过滤绑定': ['ADD FLTBINDFLOWF'],
@@ -261,14 +268,37 @@ def check_family_coverage(mml_text, intent_text, action='fresh',
         if v and f:
             fams.add(f'{v} {f}')
 
+    # ★ 2026-11-05：区分「要建」和「要删」
+    #   实测：意图「去掉 IPv6 相关的配置（FILTERIPV6 ...）」被 G18 判成
+    #   「意图点名了 ADD FILTERIPV6 但产物没有」，逼 agent 反向加回来。
+    #   修法：删除意图命中的族不要求存在，反而应该检查它确实被删了。
+    _DEL_WORDS = ('去掉', '删除', '删掉', '移除', '不要', '取消', '下掉',
+                  '去除', '清理', '撤掉', 'no need', 'remove', 'delete')
+
+    def _delete_context(text, kw, window=20):
+        """判断某个关键词是否处在删除语境里。"""
+        for m in re.finditer(re.escape(kw), text):
+            seg = text[max(0, m.start() - window): m.start()]
+            if any(w in seg for w in _DEL_WORDS):
+                return True
+        return False
+
     required = set()
+    deletion_families = set()      # 意图要求删除的族
     hits = []
     for kw, fam_list in INTENT_FAMILY_MAP.items():
         if kw in intent_text:
+            _is_del = _delete_context(intent_text, kw)
             for fam in fam_list:
-                if fam not in required:
+                if _is_del:
+                    deletion_families.add(fam)
+                    hits.append((kw, fam))
+                elif fam not in required:
                     required.add(fam)
                     hits.append((kw, fam))
+
+    # 删除意图的族，从 required 里剔除（不能要求它存在）
+    required -= deletion_families
 
     # revise 场景：前代已有的族不强制（增量修改不重写全量）
     prior_fams = set()
@@ -279,11 +309,17 @@ def check_family_coverage(mml_text, intent_text, action='fresh',
                 prior_fams.add(f'{v} {f}')
 
     missing = sorted(required - fams - prior_fams)
+
+    # 删除意图：产物里不该再有这些族
+    still_present = sorted(deletion_families & fams)
+
     return {
-        'ok': not missing,
+        'ok': not missing and not still_present,
         'required': sorted(required),
         'prior_had': sorted(prior_fams & required),
         'missing': missing,
+        'deletion_requested': sorted(deletion_families),
+        'still_present': still_present,
         'triggered_by': {kw: fam for kw, fam in hits},
     }
 
@@ -295,7 +331,9 @@ def check_family_coverage(mml_text, intent_text, action='fresh',
 #   类型：exp | doc | intent | plan | infer
 #   规则：有注释 = 有依据；无注释 = 无依据（含【待填写】）
 # 详见 SOURCE_ANNOTATION.md
-SRC_RE = re.compile(r'@src=([a-z]+)(?::([^\s,;]+))?(?:\s*,?\s*([^;\n]*))?', re.I)
+SRC_RE = re.compile(
+    r'@src=([a-z]+)(?::([^\s,;]+))?(?:\s*,?\s*((?:(?!@src=)[^;\n])*))?',
+    re.I)
 
 # 参数名 → 它所属对象的族（命名规律核验时用）
 #   ★ 一个参数可能出现在多个族的命令里（如 USERPROFILENAME 出现在
@@ -340,16 +378,38 @@ def _parse_line_src(line):
 
 
 def _parse_all_src(line):
-    """解析一行里的全部 @src 标注，返回 [(type, locator, note), ...]。"""
+    """解析一行里的全部 @src 标注，返回 [(type, locator, note), ...]。
+
+    ★ 2026-11-05 修：agent 常写成 `@src=exp:deriveL6592-6677`（derive 后没空格），
+      原正则把 `deriveL6592-6677` 整个当 locator，核验时报
+      「family-URR-not-in-range」。正确解析应为：type=exp, locator=L6592-6677,
+      note=derive（说明这是派生，不是精确行号）。
+    """
     out = []
     for m in SRC_RE.finditer(line or ''):
-        out.append((m.group(1).lower(),
-                    (m.group(2) or '').strip(),
-                    (m.group(3) or '').strip()))
+        stype = m.group(1).lower()
+        locator = (m.group(2) or '').strip()
+        note = (m.group(3) or '').strip()
+
+        # `derive` 紧贴行号：deriveL1101 / deriveL1101-L1107
+        if locator.lower().startswith('derive'):
+            note = ('derive ' + note).strip()
+            locator = locator[len('derive'):].strip()
+
+        # ★ derive 后面有空格时，行号跑到 note 里了：`@src=exp:derive L1101-L1107 说明`
+        #   从 note 开头提取 L### / L###-L### / L###-#### 形式的行号
+        if stype == 'exp' and not locator and note:
+            _lm = re.match(r'^\s*(?:derive\s+)?(L?\d+(?:\s*-\s*L?\d+)?)\b', note, re.I)
+            if _lm:
+                locator = _lm.group(1).replace(' ', '')
+                note = 'derive'
+
+        out.append((stype, locator, note))
     return out
 
 
-def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None):
+def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None,
+                    is_derive=False):
     """核验 @src=exp:L### 是否真实（纯代码，不调 LLM）。
 
     核验层次（由弱到强）：
@@ -358,10 +418,41 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None):
       3. 值确实出现在该行（value 匹配）
       4. 参数名+值同时出现在该行（param 级精确匹配）
 
+    ★ is_derive=True 时（@src=exp:derive L1101-L1107）：
+      derive 语义是「命名/格式派生自这段现网统计」，**值本身是新造的**，
+      所以不核验 value，只核验：
+        · 行号区间在范围内
+        · 该区间里确实有同族的命令（证明这段确实是同类写法的样本）
+      2026-11-05 实测：多网元场景 agent 标 L1425-L5117 derive，
+      值（新建的 hngd_00_f_h_001）当然不在现网，原逻辑误判为虚假依据。
+
     返回 (ok: bool, reason: str)
     """
     if not lineno:
         return False, 'no-line-ref'
+
+    # ★ 多 EXP：如果传进来的 exp_lines 是拼接的（含 EXP-SEP 标记），
+    #   拆成多段，任意一段核验通过即算通过。
+    _seps = [i for i, ln in enumerate(exp_lines)
+             if 'EXP-SEP:' in ln]
+    if _seps:
+        segs = []
+        starts = _seps
+        ends = _seps[1:] + [len(exp_lines)]
+        for a, b in zip(starts, ends):
+            # 跳过 SEP 行本身
+            segs.append(exp_lines[a + 1:b])
+        last_reason = ''
+        for sg in segs:
+            if not sg:
+                continue
+            _ok, _why = _verify_exp_ref(sg, lineno, value, family=family,
+                                        param=param, is_derive=is_derive)
+            if _ok:
+                return True, _why
+            last_reason = _why
+        return False, (last_reason or 'not-in-any-exp')
+
     ref = lineno.strip()
     if not ref.upper().startswith('L'):
         return False, 'bad-line-ref'
@@ -382,6 +473,17 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None):
         seg = exp_lines[n1 - 1:n2]
         if not seg:
             return False, 'empty-range'
+
+        # derive 模式：只要求区间里有同族命令，不要求值出现（值是新造的）
+        if is_derive:
+            if family:
+                fam_ok = any(
+                    re.search(rf'\b(?:ADD|SET|MOD|RMV)\s+{re.escape(family)}\b',
+                              ln, re.I) for ln in seg)
+                if not fam_ok:
+                    return False, f'family-{family}-not-in-range'
+            return True, 'derive-range-ok'
+
         # 核验：值/族是否在区间内出现
         if value and not is_placeholder(value):
             v = str(value).strip().strip('"').strip("'").lower()
@@ -408,6 +510,14 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None):
             return False, f'line-is-not-{family}'
 
     # 2) 值核验
+    # ★ 2026-11-05 语义修正：
+    #   @src=exp:L### 有两种正当用法，不能都要求「值必须出现在那一行」：
+    #     A. 参照格式 —— 「FILTER 的参数模板照 L1513 的写」，对象名是新造的
+    #        实测：agent 写 @src=exp:L1513 给新建的 hncatv_00_f_h_001，
+    #        原逻辑判 value-not-in-line → 误报虚假依据
+    #     B. 复用现网对象 —— 值和参数都能对上
+    #   所以：族匹配 + 行号在范围内 → 通过（弱依据 referenced）；
+    #        值/参数也能对上 → 升级为强依据（value-found / param-value-found）。
     if not value:
         return True, 'line-exists'
     v = str(value).strip().strip('"').strip("'")
@@ -415,12 +525,13 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None):
         return True, 'placeholder'
 
     if v.lower() not in line.lower():
-        return False, 'value-not-in-line'
+        # 值不在这一行：不算虚假依据，只是「参照格式」而非「复用对象」
+        return True, 'line-family-ref-only'
 
     # 3) 参数级核验（最强）：PARAM="value" 同时出现
     if param:
         if not re.search(rf'{param}\s*=\s*"?{re.escape(v)}"?', line, re.I):
-            return False, 'param-value-mismatch'
+            return True, 'value-found-param-differs'
 
     return True, 'value-found'
 
@@ -598,7 +709,12 @@ def check_source_annotation(mml_text, exp_text=''):
         #     @src=exp:derive <说明>              仅说明，不核验
         #     @src=exp:derive@L1101-L1107 <说明>  核验行号区间真实且同族
         #   另：若说明里提到 "L1101"，也自动提取做区间核验
-        if stype == 'exp' and locator.lower().startswith('derive'):
+        # ★ 2026-11-05：_parse_all_src 已把 derive 从 locator 里剥出来放进 note，
+        #   所以这里要同时看 locator 和 note（否则 derive 会掉进普通行号分支，
+        #   导致「值必须在现网那段里存在」的误报）
+        _is_derive_mark = (locator.lower().startswith('derive')
+                           or (note or '').lower().startswith('derive'))
+        if stype == 'exp' and _is_derive_mark:
             stats['derived'] += 1
             detail = (locator + ' ' + (note or '')).strip()
 
@@ -619,7 +735,8 @@ def check_source_annotation(mml_text, exp_text=''):
             line_ref = 'L' + mref.group(1)
             if mref.group(2):
                 line_ref += '-' + mref.group(2)
-            ok, why = _verify_exp_ref(exp_lines, line_ref, '', family=c['family'])
+            ok, why = _verify_exp_ref(exp_lines, line_ref, '',
+                                      family=c['family'], is_derive=True)
             if ok:
                 stats['derived'] += 1
                 # 额外：命名规律核验
@@ -897,48 +1014,81 @@ SINGLE_KEY = {
 }
 
 
+def _split_by_unit(mml_text):
+    """按 /* ===== 网元: XXX ... ===== */ 分段。
+
+    ★ 2026-11-05：多网元场景，同一对象在不同网元下可以同名。
+      返回 [(unit_name, segment_text), ...]；无分段标记则返回 [('', 全文)]。
+    """
+    import re as _re
+    marks = list(_re.finditer(
+        r'/\*\s*={3,}\s*网元[:：]\s*([A-Za-z0-9_\-\u4e00-\u9fa5]+)', mml_text))
+    if not marks:
+        return [('', mml_text)]
+    segs = []
+    for i, m in enumerate(marks):
+        start = m.start()
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(mml_text)
+        segs.append((m.group(1).strip(), mml_text[start:end]))
+    # 分段之前的内容（文件头注释）单独作为公共段
+    if marks[0].start() > 0:
+        head = mml_text[:marks[0].start()]
+        if any(k in head for k in ('ADD ', 'SET ', 'MOD ')):
+            segs.insert(0, ('', head))
+    return segs
+
+
 def check_unique_keys(mml_text):
-    """同族同主键不能出现两次（复合键族按多参数组合判定）。"""
+    """同族同主键不能出现两次（复合键族按多参数组合判定）。
+
+    ★ 2026-11-05：按网元分段后分别检查 —— 跨网元同名不算重复。
+    """
     seen = {}
     dups = []
-    for c in parse_mml(mml_text):
-        v, f, p = split_cmd(c)
-        if not v or not f or v != 'ADD':
-            continue
-
-        # 复合键族
-        if f in COMPOSITE_KEYS:
-            parts = []
-            for k in COMPOSITE_KEYS[f]:
-                val = p.get(k)
-                if not val or is_placeholder(val):
-                    parts = None
-                    break
-                parts.append(f'{k}={val}')
-            if not parts:
+    segs = _split_by_unit(mml_text)
+    for unit, seg_text in segs:
+        for c in parse_mml(seg_text):
+            v, f, p = split_cmd(c)
+            if not v or not f or v != 'ADD':
                 continue
-            key = (f, '|'.join(parts))
+            _u = (unit or '').upper()
+
+            # 复合键族
+            if f in COMPOSITE_KEYS:
+                parts = []
+                for k in COMPOSITE_KEYS[f]:
+                    val = p.get(k)
+                    if not val or is_placeholder(val):
+                        parts = None
+                        break
+                    parts.append(f'{k}={val}')
+                if not parts:
+                    continue
+                key = (_u, f, '|'.join(parts))
+                if key in seen:
+                    dups.append({'family': f, 'unit': unit or '(未分段)',
+                                 'param': COMPOSITE_KEYS[f][0],
+                                 'value': parts[0].split('=', 1)[1]})
+                else:
+                    seen[key] = True
+                continue
+
+            # 单主键族
+            k = SINGLE_KEY.get(f)
+            if not k:
+                continue
+            val = p.get(k)
+            if not val or is_placeholder(val):
+                continue
+            key = (_u, f, val)
             if key in seen:
-                dups.append({'family': f, 'param': COMPOSITE_KEYS[f][0],
-                             'value': parts[0].split('=', 1)[1]})
+                dups.append({'family': f, 'unit': unit or '(未分段)',
+                             'param': k, 'value': val})
             else:
                 seen[key] = True
-            continue
 
-        # 单主键族
-        k = SINGLE_KEY.get(f)
-        if not k:
-            continue
-        val = p.get(k)
-        if not val or is_placeholder(val):
-            continue
-        key = (f, val)
-        if key in seen:
-            dups.append({'family': f, 'param': k, 'value': val})
-        else:
-            seen[key] = True
-
-    return {'ok': not dups, 'duplicates': dups[:10], 'n_duplicates': len(dups)}
+    return {'ok': not dups, 'duplicates': dups[:10], 'n_duplicates': len(dups),
+            'units': [u for u, _ in segs if u]}
 
 
 # ═══════════════════════════════════════════════════════════
@@ -1050,7 +1200,8 @@ def clarify_intent(intent_text, exp_text='', mml_text=''):
 # 主流程
 # ═══════════════════════════════════════════════════════════
 def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
-              allowed_remove=None, action='fresh'):
+              allowed_remove=None, action='fresh', session_dir=None,
+              params_csv=None):
     checks = {}
     checks['C2_refs'] = check_refs(mml_text, exp_text)
     checks['G11_unique'] = check_unique_keys(mml_text)
@@ -1062,6 +1213,50 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
     if prior_mml:
         checks['G16_prior'] = check_prior_kept(prior_mml, mml_text, allowed_remove)
     checks['clarify'] = clarify_intent(intent_text, exp_text, mml_text)
+
+    # ★ 2026-11-05 新增：csv 相关校验
+    #   G20 数据规划覆盖：规划表每行是否被参数表引用
+    #   G21 csv↔mml 一致性：从 params.csv 生成的 mml 是否和 agent 写的一致
+    if session_dir and params_csv:
+        # ★ 2026-11-05：脚本直接运行（python3 guard/guard.py）时
+        #   `from guard.plan_check` 会失败（guard 目录不是顶层包）。
+        #   显式把本文件所在目录加进 sys.path，用模块名直连导入。
+        import sys as _sys2
+        _here = str(Path(__file__).resolve().parent)
+        if _here not in _sys2.path:
+            _sys2.path.insert(0, _here)
+        try:
+            from plan_check import check_plan_coverage
+            checks['G20_plan'] = check_plan_coverage(session_dir, params_csv)
+        except Exception as e:
+            checks['G20_plan'] = {'ok': True, 'skipped': True,
+                                  'reason': f'G20 执行失败: {e}'}
+        try:
+            import sys as _sys
+            _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+            from mml_gen import gen_mml, compare_mml
+            _g = gen_mml(params_csv)
+            if _g.get('errors'):
+                checks['G21_consistency'] = {
+                    'ok': False, 'errors': _g['errors'],
+                    'detail': 'csv 生不出 mml（组/引用有问题）'}
+            else:
+                _c = compare_mml(mml_text, _g['text'])
+                _c['generated_cmds'] = _g['n_commands']
+                checks['G21_consistency'] = _c
+        except Exception as e:
+            checks['G21_consistency'] = {'ok': True, 'skipped': True,
+                                         'reason': f'G21 执行失败: {e}'}
+        # ★ G22 占位符一致性
+        try:
+            import importlib as _il2
+            _mg2 = _il2.import_module('mml_gen')
+            _rows2 = _mg2.read_params(params_csv)
+            checks['G22_placeholder'] = _mg2.check_placeholders(_rows2)
+        except Exception as e:
+            checks['G22_placeholder'] = {'ok': True, 'skipped': True,
+                                         'reason': f'G22 执行失败: {e}'}
+
 
     # 判定严重性
     fatal = []
@@ -1097,6 +1292,39 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
     for w in checks['clarify']['warnings']:
         warn.append(f"C 澄清: {w['detail']}")
 
+    # ★ G20 数据规划覆盖（未覆盖是 warn，引用不存在才是 fatal）
+    _g20 = checks.get('G20_plan') or {}
+    if _g20 and not _g20.get('skipped'):
+        for _e in (_g20.get('errors') or [])[:3]:
+            fatal.append(f'G20 {_e}')
+        for _w in (_g20.get('warnings') or [])[:3]:
+            warn.append(f'G20 {_w}')
+
+    # ★ G21 csv↔mml 一致性
+    _g21 = checks.get('G21_consistency') or {}
+    if _g21 and not _g21.get('skipped'):
+        if _g21.get('errors'):
+            fatal.append(f"G21 csv 生成失败: {_g21['errors'][:2]}")
+        elif not _g21.get('ok', True):
+            _no_a = _g21.get('n_only_agent', 0)
+            _no_g = _g21.get('n_only_gen', 0)
+            if _no_g:
+                fatal.append(
+                    f'G21 params.csv 里的参数没有体现在 mml.txt（{_no_g} 条）：'
+                    + '；'.join(_g21.get('only_in_gen', [])[:2]))
+            if _no_a:
+                warn.append(
+                    f'G21 mml.txt 里有些命令在 params.csv 里没有（{_no_a} 条）：'
+                    + '；'.join(_g21.get('only_in_agent', [])[:2]))
+
+    # ★ G22 占位符一致性
+    _g22 = checks.get('G22_placeholder') or {}
+    if _g22 and not _g22.get('skipped'):
+        for _e in (_g22.get('errors') or [])[:3]:
+            fatal.append(f'G22 {_e}')
+        for _w in (_g22.get('warnings') or [])[:2]:
+            warn.append(f'G22 {_w}')
+
     verdict = 'pass'
     if fatal:
         verdict = 'fail'
@@ -1115,20 +1343,54 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--mml', required=True)
-    ap.add_argument('--exp', default='')
+    ap.add_argument('--exp', default='',
+                    help='EXP 文件路径，多网元用逗号分隔')
+    ap.add_argument('--exp-multi', default='',
+                    help='多 EXP 路径，用 ; 分隔（优先级高于 --exp）')
     ap.add_argument('--intent', default='')
     ap.add_argument('--prior-mml', default='')
     ap.add_argument('--action', default='fresh',
                     choices=['fresh', 'revise', 'append'])
     ap.add_argument('--json', action='store_true')
+    ap.add_argument('--session-dir', default='',
+                    help='会话目录（G20/G21 需要，用来找数据规划文件）')
+    ap.add_argument('--params', default='',
+                    help='params.csv 路径（G20/G21 需要）')
     a = ap.parse_args()
 
     mml = Path(a.mml).read_text(encoding='utf-8', errors='replace')
-    exp = Path(a.exp).read_text(encoding='utf-8', errors='replace') if a.exp else ''
+
+    # ★ 2026-11-05：多网元支持
+    #   实测：跨网元配置时 agent 会引用不同 EXP 的行号
+    #   （如 PCC 在 UNC EXP 的 L6721，URR 在 UNC EXP 的 L6592），
+    #   只传一个 EXP 会导致「family-not-in-range」误报。
+    #   这里把多个 EXP 顺序拼接（用分隔注释隔开），
+    #   行号核验时按「任意一个 EXP 命中即算通过」处理。
+    _exp_paths = []
+    if a.exp_multi:
+        _exp_paths = [x.strip() for x in a.exp_multi.split(';') if x.strip()]
+    elif a.exp:
+        _exp_paths = [x.strip() for x in a.exp.split(',') if x.strip()]
+
+    if len(_exp_paths) <= 1:
+        exp = (Path(_exp_paths[0]).read_text(encoding='utf-8', errors='replace')
+               if _exp_paths else '')
+    else:
+        _parts = []
+        for _p in _exp_paths:
+            try:
+                _parts.append(
+                    f'/* ===== EXP-SEP: {Path(_p).name} ===== */\n' +
+                    Path(_p).read_text(encoding='utf-8', errors='replace'))
+            except Exception:
+                continue
+        exp = '\n'.join(_parts)
     intent = Path(a.intent).read_text(encoding='utf-8', errors='replace') if a.intent else ''
     prior = Path(a.prior_mml).read_text(encoding='utf-8', errors='replace') if a.prior_mml else ''
 
-    r = run_guard(mml, exp, intent, prior, action=a.action)
+    r = run_guard(mml, exp, intent, prior, action=a.action,
+                  session_dir=(a.session_dir or None),
+                  params_csv=(a.params or None))
 
     if a.json:
         print(json.dumps(r, ensure_ascii=False, indent=1))
