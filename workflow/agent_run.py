@@ -41,7 +41,9 @@ ROUND_HARD_LIMIT = int(os.environ.get('AGENT_ROUND_HARD_LIMIT', '900'))
 #     多网元（2 个 EXP）正常探索 80-120 次
 #     真死循环：Guard 27 次 / 总 149 次，且集中在 Code↔Guard 交替
 #   所以不能只卡总数（会误伤多网元），主要靠 guard 次数 + 耗时判。
-MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '8'))
+# ★ 2026-11-06 调整：8 → 10。实测正常修产物时 guard 会调 4-5 次，
+#   留 10 次余量；真死循环靠「严格连续交替」判定更准。
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '10'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
 STALL_SECONDS = int(os.environ.get('AGENT_STALL_SECONDS', '300'))
@@ -254,9 +256,13 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  why 里写清楚：为什么这么选、另一个选项的代价是什么。')
     lines.append('')
 
-    lines.append('【硬要求】')
+    lines.append('【hard 要求】')
     lines.append('  · 命名：有 EXP 沿用现网统计规律（不要照抄文档示例）；无 EXP 按文档示例或用户规划')
     lines.append('  · 不要编造没有依据的数值')
+    lines.append('  · ★ EXP 里的 *** 是脱敏值，绝对不要照抄到产物里！')
+    lines.append('    正确做法：用 exp_stats / exp_query 统计同族其他实例的取值，')
+    lines.append('    取多数值；或查文档取默认值。例：TOKENFUNCFLAG 现网 101 条全是 DISABLE，')
+    lines.append('    如果看到某行是 ***，说明那行被脱敏了，要按 DISABLE 写。')
     lines.append('  · 区分「现网已有」和「本次新增」：现网已有的对象不要重复创建')
     lines.append('  · 单工单规模合理：同一个族一般不超过 20-30 条（除非意图明确要求批量）')
     lines.append('  · 写完产物后调一次 guard_check；有 fatal 自己修完再调，直到通过')
@@ -292,40 +298,68 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     return '\n'.join(lines)
 
 
+def _explain_guard(guard_result, has_artifacts=True):
+    """把 guard 结果翻成人话（失败时降级为原始结构）。"""
+    try:
+        import importlib
+        import sys as _sys
+        _here = str(Path(__file__).resolve().parent / 'guard')
+        if _here not in _sys.path:
+            _sys.path.insert(0, _here)
+        _ex = importlib.import_module('explain')
+        gr = dict(guard_result or {})
+        gr['has_artifacts'] = has_artifacts
+        return _ex.explain_guard(gr)
+    except Exception as e:
+        return {
+            'verdict': (guard_result or {}).get('verdict'),
+            'summary': f'{len((guard_result or {}).get("fatal") or [])} 个问题（解释生成失败: {e}）',
+            'items': [],
+            'n_fatal': len((guard_result or {}).get('fatal') or []),
+            'n_warn': len((guard_result or {}).get('warnings') or []),
+            'has_artifacts': has_artifacts,
+        }
+
+
 def build_feedback(guard_result):
-    """把 guard 的 fatal 转成给 agent 的修正指令。"""
-    fatal = guard_result.get('fatal') or []
-    warnings = guard_result.get('warnings') or []
+    """把 guard 的 fatal 转成给 agent 的修正指令。
 
-    lines = ['【上一轮产物未通过代码校验，请修正】', '']
-
-    if fatal:
-        lines.append('发现以下必须修正的问题：')
-        for f in fatal[:10]:
-            if isinstance(f, dict):
-                code = f.get('code') or ''
-                msg = f.get('message') or f.get('msg') or ''
-                lines.append(f'  · [{code}] {msg}')
-            else:
-                lines.append(f'  · {f}')
-        lines.append('')
-
-    if warnings:
-        lines.append('另有以下告警（建议一并处理）：')
-        for w in warnings[:5]:
-            if isinstance(w, dict):
-                lines.append(f"  · [{w.get('code','')}] {w.get('message') or w.get('msg') or ''}")
-            else:
+    ★ 2026-11-06：改用 explain.py 生成结构化说明，
+      每条问题都带「现象 / 为什么不对 / 怎么改」，
+      避免 agent 只看到「G21 主键重复」这种代码看不懂在改什么。
+    """
+    try:
+        import importlib
+        import sys as _sys
+        _here = str(Path(__file__).resolve().parent / 'guard')
+        if _here not in _sys.path:
+            _sys.path.insert(0, _here)
+        _ex = importlib.import_module('explain')
+        return _ex.to_agent_instruction(guard_result)
+    except Exception:
+        # 兜底：用旧格式
+        fatal = guard_result.get('fatal') or []
+        warnings = guard_result.get('warnings') or []
+        lines = ['【上一轮产物未通过代码校验，请修正】', '']
+        if fatal:
+            lines.append('发现以下必须修正的问题：')
+            for f in fatal[:10]:
+                if isinstance(f, dict):
+                    lines.append(f"  · [{f.get('code','')}] {f.get('message') or f.get('msg') or ''}")
+                else:
+                    lines.append(f'  · {f}')
+            lines.append('')
+        if warnings:
+            lines.append('另有以下告警（建议一并处理）：')
+            for w in warnings[:5]:
                 lines.append(f'  · {w}')
-        lines.append('')
-
-    lines.append('【修正要求】')
-    lines.append('  1. 上一轮已有的正确命令全部保留，只在需要的地方增/改')
-    lines.append('  2. 不能为了消除某个告警就删掉整族命令')
-    lines.append('  3. 缺的对象要补上（先用 exp_query 确认现网有没有，有就复用）')
-    lines.append('  4. 修完后用 artifact_write 重新写对应的产物文件')
-    lines.append('  5. 再调一次 guard_check 确认')
-    return '\n'.join(lines)
+            lines.append('')
+        lines.append('【修正要求】')
+        lines.append('  1. 上一轮已有的正确命令全部保留，只在需要的地方增/改')
+        lines.append('  2. 不能为了消除某个告警就删掉整族命令')
+        lines.append('  3. 修完后用 artifact_write 重新写对应的产物文件')
+        lines.append('  4. 再调一次 guard_check 确认')
+        return '\n'.join(lines)
 
 
 # ═══════════════════════════════════════════════════════════
@@ -423,15 +457,28 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
 
             if _act:
                 _tool_cnt['seq'].append(_act)
-                if len(_tool_cnt['seq']) > 12:
-                    _tool_cnt['seq'] = _tool_cnt['seq'][-12:]
-                # 最近 10 个动作里，code/guard 交替出现 ≥4 次 → 死循环
-                _s = _tool_cnt['seq'][-10:]
-                _alt = sum(1 for i in range(len(_s) - 1)
-                           if {_s[i], _s[i+1]} == {'code', 'guard'})
-                if _alt >= 4:
-                    loop_killed = (f'检测到 Code↔Guard 反复交替（最近 10 次动作中 '
-                                   f'{_alt} 次），判定为死循环，已终止')
+                if len(_tool_cnt['seq']) > 20:
+                    _tool_cnt['seq'] = _tool_cnt['seq'][-20:]
+
+                # ★★ 2026-11-06 修正：原判定过激，误杀正常调试
+                #   原逻辑：最近 10 个动作里 {code,guard} 相邻出现 ≥4 次
+                #   实测误杀：末尾是 Code,Tool,Tool,Code,Guard,Tool,Code,Code,Guard
+                #            —— 中间隔着 Tool，根本不算「反复交替」，却因计数方式被判死循环。
+                #
+                #   新逻辑：要求 **严格连续** 交替，即 C,G,C,G,C 或 G,C,G,C,G
+                #   （中间不能有 Tool/Write 打断），才判为死循环。
+                #   同时 guard 总次数上限仍然保留（>8 次）作为兜底。
+                _s = _tool_cnt['seq']
+                _strict = 0
+                for i in range(len(_s) - 1, 0, -1):
+                    prev, cur = _s[i - 1], _s[i]
+                    if {prev, cur} == {'code', 'guard'}:
+                        _strict += 1
+                    else:
+                        break          # 一旦被打断就停，只数尾部连续交替
+                if _strict >= 4:
+                    loop_killed = (f'检测到 Code↔Guard 连续交替 {_strict} 次，'
+                                   f'判定为死循环，已终止')
                     try:
                         proc.kill()
                     except Exception:
@@ -841,6 +888,9 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
             'verdict': verdict,
             'fatal': (final_guard or {}).get('fatal') or [],
             'warnings': ((final_guard or {}).get('warnings') or [])[:10],
+            # ★ 2026-11-06：附上人话解释，前端直接展示
+            'explain': _explain_guard(final_guard or {},
+                                      has_artifacts=bool(produced)),
         },
         'error': error,
     }

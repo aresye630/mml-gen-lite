@@ -1329,6 +1329,30 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         for _w in (_g22.get('warnings') or [])[:2]:
             warn.append(f'G22 {_w}')
 
+    # ★ 2026-11-06 新增：脱敏残留检测
+    #   实测：EXP 里部分字段被脱敏成 ***，agent 会照抄进产物：
+    #     TOKENFUNCFLAG=*** （现网 101 条其实全是 DISABLE）
+    #   这种值不可下发，必须按同族多数值或文档默认值重写。
+    _sanitize_hits = []
+    for _idx, _c in enumerate(parse_mml(mml_text), 1):
+        _v, _f, _p = split_cmd(_c)
+        if not _v or not _f:
+            continue
+        for _k, _val in (_p or {}).items():
+            if '***' in str(_val):
+                _sanitize_hits.append({
+                    'family': _f, 'param': _k, 'value': str(_val),
+                    'line_no': _idx,
+                })
+    if _sanitize_hits:
+        for _h in _sanitize_hits[:5]:
+            fatal.append(
+                f"G19 脱敏残留：第 {_h['line_no']} 行 {_h['family']}.{_h['param']}="
+                f"{_h['value']} 是从 EXP 照抄的脱敏值，不可下发"
+                f"（要按同族多数值或文档默认值重写）")
+        if isinstance(checks.get('G19_source'), dict):
+            checks['G19_source']['sanitized_residual'] = len(_sanitize_hits)
+
     verdict = 'pass'
     if fatal:
         verdict = 'fail'

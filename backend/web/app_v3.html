@@ -258,6 +258,30 @@ body.resizing iframe,body.resizing pre{pointer-events:none}
 #dropMask .dm-t{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px}
 #dropMask .dm-s{font-size:12.5px;color:var(--muted)}
 
+/* ★ 2026-11-06 新增：守门未过时的「人话解释」卡片 */
+.explain-box{margin-top:10px;border:1px solid #fecaca;border-radius:8px;
+             background:#fef2f2;overflow:hidden}
+.explain-box .ex-head{padding:10px 14px;font-size:13px;font-weight:600;
+                      color:#991b1b;background:#fee2e2;border-bottom:1px solid #fecaca}
+.explain-box .ex-sum{padding:10px 14px;font-size:12.5px;color:#7f1d1d;line-height:1.6}
+.explain-box .ex-item{padding:10px 14px;border-top:1px solid #fee2e2;background:#fff}
+.explain-box .ex-t{font-size:12.5px;color:var(--ink);margin-bottom:6px;
+                   display:flex;align-items:center;gap:8px}
+.explain-box .ex-code{font-size:10.5px;padding:1px 5px;border-radius:3px;
+                      background:#fee2e2;color:#991b1b;font-family:monospace}
+.explain-box .ex-row{font-size:12px;color:var(--ink-2);line-height:1.65;
+                     padding:3px 0;display:flex;gap:8px}
+.explain-box .ex-row .ex-k{flex-shrink:0;color:var(--faint);width:64px}
+.explain-box .ex-row.fix{color:#166534;background:#f0fdf4;padding:6px 8px;
+                         border-radius:4px;margin-top:4px}
+.explain-box .ex-row.fix .ex-k{color:#15803d}
+.explain-box .ex-act{display:flex;align-items:center;gap:12px;padding:12px 14px;
+                     background:#fff;border-top:1px solid #fee2e2}
+.explain-box .ex-hint{font-size:11.5px;color:var(--faint)}
+
+.result{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.result .explain-box{flex-basis:100%}
+
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
        background:#1f2937;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;
        box-shadow:0 4px 16px rgba(0,0,0,.18);opacity:0;transition:.25s;z-index:999;pointer-events:none}
@@ -971,12 +995,65 @@ function renderResult(r){
   const chips = [];
   if (r.cmds != null) chips.push(`<span class="chip">${r.cmds} 条命令</span>`);
   if (r.families != null) chips.push(`<span class="chip">${r.families} 个族</span>`);
+  if (r.units && r.units.length > 1)
+    chips.push(`<span class="chip">${r.units.length} 个网元</span>`);
   if (r.guard) {
-    chips.push(`<span class="chip ${r.guard==='pass'?'ok':'err'}">守门 ${r.guard.toUpperCase()}</span>`);
+    const cls = r.guard === 'pass' ? 'ok' : (r.guard === 'warn' ? 'warn' : 'err');
+    const txt = r.guard === 'pass' ? '守门通过'
+              : r.guard === 'warn' ? '守门有提示' : '需要修复';
+    chips.push(`<span class="chip ${cls}">${txt}</span>`);
   }
   if (r.elapsed != null) chips.push(`<span class="chip">耗时 ${fmtDur(r.elapsed)}</span>`);
   if (r.rounds > 1) chips.push(`<span class="chip warn">${r.rounds} 轮</span>`);
-  return chips.length ? `<div class="result">${chips.join('')}</div>` : '';
+
+  // ★ 2026-11-06：fail 时展示人话解释，而不是只给一个「守门 FAIL」
+  let explainHtml = '';
+  const ex = r.explain;
+  if (r.guard === 'fail' && ex) {
+    const hasArt = ex.has_artifacts !== false;
+    explainHtml = `
+      <div class="explain-box">
+        <div class="ex-head">
+          ${hasArt ? `📦 产物已生成，但有 ${ex.n_fatal || 0} 个问题需要修复`
+                   : '❌ 没有生成出可用产物'}
+        </div>
+        <div class="ex-sum">${esc(ex.summary || '')}</div>
+        ${(ex.items || []).map((it, i) => `
+          <div class="ex-item">
+            <div class="ex-t"><b>${i+1}. ${esc(it.title)}</b>
+              <span class="ex-code">${esc(it.code || '')}</span></div>
+            ${it.detail ? `<div class="ex-row"><span class="ex-k">现象</span>${esc(it.detail)}</div>` : ''}
+            ${it.why_bad ? `<div class="ex-row"><span class="ex-k">为什么不对</span>${esc(it.why_bad)}</div>` : ''}
+            ${it.how_to_fix ? `<div class="ex-row fix"><span class="ex-k">怎么改</span>${esc(it.how_to_fix)}</div>` : ''}
+          </div>`).join('')}
+        ${hasArt ? `
+        <div class="ex-act">
+          <button class="btn sm primary" onclick="retryWithFeedback()">
+            让 agent 按上面说明自动修复
+          </button>
+          <span class="ex-hint">也可以自己看左侧产物、改 params.csv 后重新生成</span>
+        </div>` : ''}
+      </div>`;
+  }
+
+  if (!chips.length && !explainHtml) return '';
+  return `<div class="result">
+    ${chips.join('')}
+    ${explainHtml}
+  </div>`;
+}
+
+/* ★ 2026-11-06 新增：一键让 agent 按说明修复 */
+async function retryWithFeedback(){
+  if (!S.sid || S.busy) return;
+  const lastUser = [...S.msgs].reverse().find(m => m.role === 'user');
+  if (!lastUser) { toast('找不到上次的意图'); return; }
+  $('input').value = lastUser.text +
+    '\n\n上次生成后自检发现了问题，请按上一轮反馈里「怎么改」的说明修复，' +
+    '修完重新写产物并再调 guard_check 确认。';
+  autoGrow();
+  toast('已填入修复请求，点发送执行');
+  $('input').focus();
 }
 
 function bindMsgEvents(){ /* 事件用 inline onclick，这里留空 */ }
@@ -1345,9 +1422,29 @@ function buildTrace(t){ return t; }
 async function onTaskDone(state, genId, trace){
   await refreshSide();
   const last = S.msgs[S.msgs.length - 1];
+
+  // ★ 2026-11-06：统一先取运行结果（含 guard 解释）
+  let runInfo = null;
+  try { runInfo = await api(`/sessions/${S.sid}/run`); } catch(e){}
+  const lr = (runInfo && runInfo.last_run) || {};
+  const guardExplain = (lr.guard || {}).explain || null;
+  const hasArtifacts = (S.arts || []).length > 0;
+
   if (state === 'failed') {
-    last.text = '生成失败，请查看错误详情后重试。';
-    last.result = {guard:'fail'};
+    // 有产物 = 生成了但需要修；无产物 = 真的没生成出来
+    if (hasArtifacts && guardExplain) {
+      last.text = guardExplain.summary ||
+        `产物已生成，但有 ${guardExplain.n_fatal || 0} 个问题需要修复。`;
+      last.result = {
+        guard: 'fail',
+        explain: guardExplain,
+        cmds: null, families: null,
+        elapsed: lr.elapsed,
+      };
+    } else {
+      last.text = (lr.error || '生成失败') + '\n产物还没生成出来，可以重试或调整意图。';
+      last.result = {guard: 'fail', explain: null};
+    }
     renderMsgs();
     return;
   }
@@ -1413,6 +1510,7 @@ async function onTaskDone(state, genId, trace){
   last.result = {
     cmds, families: fams,
     guard: (lr.guard || {}).verdict || null,
+    explain: guardExplain,
     elapsed: lr.elapsed,
     rounds: (lr.rounds || []).length,
     units: parts_units,

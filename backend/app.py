@@ -548,7 +548,18 @@ async def api_run(sid: str, request: Request):
         try:
             res = t.result()
         except Exception as e:
-            res = {'status': 'failed', 'error': str(e)}
+            # ★ 2026-11-06：带上完整 traceback，否则只能看到一句
+            #   "TypeError: 'dict' object is not callable" 不知道在哪
+            import traceback
+            tb = traceback.format_exc()
+            print(f'[agent_run failed] {tb}', flush=True)
+            try:
+                (d / '.agent' / 'error.log').write_text(tb, encoding='utf-8')
+            except Exception:
+                pass
+            res = {'status': 'failed',
+                   'error': f'{type(e).__name__}: {e}',
+                   'traceback': tb[-3000:]}
         m = load_meta(sid)
         m['status'] = res.get('status') or 'failed'
         if res.get('agent_session'):
