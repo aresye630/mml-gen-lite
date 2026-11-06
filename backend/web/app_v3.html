@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>expgv · 配置生成工作台</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
 <style>
 /* ═══════════ 设计基线 ═══════════ */
 :root{
@@ -339,8 +340,8 @@ const S = {
   sid: null,
   product: 'UDG',
   uploads: [],
-  gens: [],
-  msgs: [],           // {role, text, trace?, clarify?, params?, result?}
+  arts: [],           // ★ 2026-11-06：覆盖式产物列表（原 gens 已废弃）
+  msgs: [],           // {role, text, trace?, clarify?, placeholders?, result?}
   polling: null,
   curGen: null,
   selFile: null,
@@ -350,9 +351,12 @@ const S = {
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fmtSize = n => n < 1024 ? n + 'B'
-  : n < 1048576 ? (n/1024).toFixed(0) + 'K'
-  : (n/1048576).toFixed(1) + 'M';
+// ★ 2026-11-06：兼容字符串输入（renderTree 里可能传已格式化的值）
+const fmtSize = n => (n == null || n === '') ? ''
+  : typeof n === 'string' ? n
+  : (!isFinite(Number(n)) ? '' : (Number(n) < 1024 ? n + 'B'
+    : Number(n) < 1048576 ? (n/1024).toFixed(0) + 'K'
+    : (n/1048576).toFixed(1) + 'M'));
 const fmtDur = s => s == null ? '' : s < 60 ? Math.round(s) + 's'
   : Math.floor(s/60) + 'm' + String(Math.round(s%60)).padStart(2,'0') + 's';
 
@@ -423,10 +427,12 @@ async function uploadFiles(files){
   files.forEach(f => fd.append('files', f, f.name));
 
   try {
-    const d = await api(`/sessions/${S.sid}/uploads`, {method:'POST', body:fd});
-    const okN = d.index?.summary?.ok ?? files.length;
-    const failN = d.index?.summary?.failed ?? 0;
-    const expN = d.index?.summary?.exp_count ?? 0;
+    // ★ 2026-11-06：新接口 POST /sessions/{sid}/files，返回 {saved, files, summary}
+    const d = await api(`/sessions/${S.sid}/files`, {method:'POST', body:fd});
+    const sm = d.summary || {};
+    const okN = sm.ok ?? files.length;
+    const failN = sm.failed ?? 0;
+    const expN = sm.exp_count ?? 0;
 
     let msg = `已上传 ${okN} 个文件`;
     if (expN) msg += `（含 ${expN} 个 EXP 快照）`;
@@ -519,16 +525,19 @@ async function refreshSide(){
 
 async function loadUploads(){
   try {
-    const d = await api('/sessions/' + S.sid + '/uploads');
+    // ★ 2026-11-06：新接口 GET /sessions/{sid}/files
+    const d = await api('/sessions/' + S.sid + '/files');
     S.uploads = d.files || [];
   } catch(e) { S.uploads = []; }
 }
 
 async function loadGens(){
+  // ★ 2026-11-06：新后端没有 generations 概念，产物是覆盖式的一套
+  //   GET /sessions/{sid}/artifacts → {artifacts:[{name,size,parts}]}
   try {
-    const d = await api('/sessions/' + S.sid + '/generations');
-    S.gens = (d.generations || d.items || []).slice().reverse();   // 新的在上
-  } catch(e) { S.gens = []; }
+    const d = await api('/sessions/' + S.sid + '/artifacts');
+    S.arts = d.artifacts || [];
+  } catch(e) { S.arts = []; }
 }
 
 function renderTree(){
@@ -537,8 +546,10 @@ function renderTree(){
   // ① 输入文件
   const ups = S.uploads;
   parts.push(group('① 输入文件', '📥', ups.length, ups.map(f => {
+    // ★ 2026-11-06：新后端用 is_exp / me_type，不再是 role
+    const isExp = f.is_exp || f.role === 'exp';
     const badge = f.error ? '<span class="badge err">解析失败</span>'
-      : f.role === 'exp' ? '<span class="badge exp">EXP</span>' : '';
+      : isExp ? `<span class="badge exp">EXP${f.me_type ? ' · ' + f.me_type : ''}</span>` : '';
     return fileItem({
       name: f.name, size: f.size, badge,
       icon: f.kind === 'doc' ? '📘' : f.kind === 'sheet' ? '📊'
@@ -548,45 +559,42 @@ function renderTree(){
     });
   }).join('') || '<div class="empty-hint">还没有上传文件<br>点右上角「上传」或直接拖进来</div>'));
 
-  // ② 产物（最新一代）
-  const g = S.gens[0];
-  if (g) {
-    const prods = g.produced || [];
-    const artMap = {
-      'mml.txt': {icon:'📜', path:'mml.txt'},
-      'params.csv': {icon:'📊', path:'params.csv'},
-      '配置分析_workflow.md': {icon:'📝', path:'配置分析_workflow.md'},
-      '配置分析.md': {icon:'📝', path:'配置分析_workflow.md'},
-      '方案澄清.json': {icon:'❓', path:'方案澄清.json'},
-      '确认清单.md': {icon:'✅', path:'确认清单.md'},
-    };
-    const items = prods.map(p => {
-      const m = artMap[p] || {icon:'📄', path:p};
-      const badge = p === '确认清单.md'
-        ? '<span class="badge warn">看这里</span>' : '';
-      return fileItem({
-        name: p, size: null, badge, icon: m.icon,
-        path: g.gen_id + '/' + p,
-        preview: () => previewGen(g.gen_id, p),
-      });
-    }).join('');
-    parts.push(group('② 生成产物', '📦', prods.length, items
-      || '<div class="empty-hint">还没有产物<br>在右边描述意图开始生成</div>'));
+  // ② 产物（覆盖式，一套）
+  const arts = S.arts || [];
+  const mainArts = arts.filter(a => !a.parts);
+  const partArts = arts.filter(a => a.parts);
+  const artIcon = (n) =>
+    n === 'mml.txt' ? '📜' : n === 'params.csv' ? '📊'
+    : n === '方案澄清.json' ? '❓' : n.endsWith('.md') ? '📝' : '📄';
+
+  if (mainArts.length) {
+    const items = mainArts.map(a => fileItem({
+      name: a.name,
+      size: fmtSize(a.size),
+      badge: a.name === '方案澄清.json' ? '<span class="badge warn">待确认</span>' : '',
+      icon: artIcon(a.name),
+      path: a.name,
+      preview: () => previewGen(null, a.name),
+    })).join('');
+    parts.push(group('② 生成产物', '📦', mainArts.length, items));
   } else {
     parts.push(group('② 生成产物', '📦', 0,
-      '<div class="empty-hint">还没有产物</div>'));
+      '<div class="empty-hint">还没有产物<br>在右边描述意图开始生成</div>'));
   }
 
-  // ③ 历史生成
-  if (S.gens.length > 1) {
-    parts.push(group('③ 历史生成', '🕘', S.gens.length,
-      S.gens.map(g2 => fileItem({
-        name: `${g2.gen_id} · ${g2.status || ''}`,
-        size: null,
-        icon: g2.status === 'draft' ? '✅' : g2.status === 'failed' ? '❌' : '⏳',
-        path: g2.gen_id,
-        preview: () => previewGen(g2.gen_id, '确认清单.md'),
-      })).join('')));
+  // ②b 多网元拆分产物（导入直接用）
+  if (partArts.length) {
+    const units = new Set(partArts.map(a =>
+      a.name.replace('parts/mml_', '').replace('parts/params_', '').replace(/\.(txt|csv)$/, '')));
+    const items = partArts.map(a => fileItem({
+      name: a.name.replace('parts/', ''),
+      size: fmtSize(a.size),
+      badge: '<span class="badge exp">可导入</span>',
+      icon: a.name.endsWith('.csv') ? '📊' : '📜',
+      path: a.name,
+      preview: () => previewGen(null, a.name),
+    })).join('');
+    parts.push(group(`②b 按网元拆分（${units.size} 个网元）`, '🗂️', partArts.length, items));
   }
 
   $('wsBody').innerHTML = parts.join('');
@@ -623,11 +631,20 @@ async function pickFile(key){
 }
 
 function findFileItem(key){
-  // 简单做法：重新走一遍渲染逻辑找对应 preview
+  // 上传文件：uploads/<name>
   const up = S.uploads.find(f => ('uploads/' + f.name) === key);
   if (up) return {preview: () => previewUpload(up)};
+
+  // ★ 2026-11-06：新后端产物是覆盖式一套，key 就是产物名
+  //   - 「mml.txt」「params.csv」等主产物
+  //   - 「parts/mml_UDG.txt」等拆分产物
+  const art = (S.arts || []).find(a => a.name === key);
+  if (art) return {preview: () => previewGen(null, art.name)};
+
+  // 兼容旧格式 g1/mml.txt
   const m = key.match(/^(g\d+)\/(.+)$/);
   if (m) return {preview: () => previewGen(m[1], m[2])};
+
   return null;
 }
 
@@ -635,7 +652,7 @@ async function previewUpload(f){
   showPreview(f.name, '加载中…');
   if (f.parsed) {
     try {
-      const r = await fetch(`${API}/sessions/${S.sid}/file?name=uploads_text/${f.parsed}`);
+      const r = await fetch(`${API}/sessions/${S.sid}/file?path=uploads_text/${f.parsed}`);
       if (r.ok) {
         const t = await r.text();
         showPreview(f.name + ' → ' + f.parsed, t.slice(0, 200000));
@@ -649,17 +666,17 @@ async function previewUpload(f){
 
 async function previewGen(gid, name){
   showPreview(name, '加载中…');
-  const kindMap = {
-    'mml.txt':'mml', 'params.csv':'csv',
-    '配置分析_workflow.md':'analysis-md', '配置分析.md':'analysis-md',
-    '确认清单.md':'analysis-md', '方案澄清.json':'analysis-md',
-  };
-  const kind = kindMap[name] || 'mml';
+  // ★ 2026-11-06 新接口：GET /sessions/{sid}/artifacts/{name}
+  //   name 可以是「mml.txt」或 parts/ 下的拆分产物
   try {
-    const r = await fetch(`${API}/sessions/${S.sid}/generations/${gid}/artifacts/${kind}`);
+    const r = await fetch(`${API}/sessions/${S.sid}/artifacts/${encodeURIComponent(name)}`);
     if (r.ok) {
-      const t = await r.text();
-      showPreview(name, t.slice(0, 200000));
+      const j = await r.json();
+      showPreview(name, (j.content || '').slice(0, 200000));
+      return;
+    }
+    if (r.status === 404) {
+      showPreview(name, '（产物不存在，可能还没生成）');
       return;
     }
   } catch(e) {}
@@ -685,9 +702,10 @@ function hideEmpty(){
 }
 
 async function loadHistory(){
+  // ★ 2026-11-06：新接口 GET /sessions/{sid}/chat
   try {
-    const d = await api('/sessions/' + S.sid + '/chat/history');
-    const arr = d.messages || d.history || [];
+    const d = await api('/sessions/' + S.sid + '/chat');
+    const arr = d.messages || [];
     if (arr.length) {
       hideEmpty();
       S.msgs = arr.map(m => ({
@@ -720,7 +738,7 @@ function renderMsg(m, i){
     extra += renderTrace(m.trace, i);
   }
   if (m.clarify && m.clarify.length) extra += renderClarify(m.clarify, i);
-  if (m.params) extra += renderParams(m.params, i);
+  if (m.placeholders) extra += renderPlaceholders(m.placeholders, i);
   if (m.result) extra += renderResult(m.result);
   return `<div class="msg bot">
     <div class="av">🤖</div>
@@ -795,10 +813,64 @@ function renderParams(p, mi){
     <div class="params-b">
       参数值请统一在 <code>params.csv</code> 里填写，不用在这里逐个说明。
       <div class="act">
-        <button class="btn sm" onclick="pickFile('${S.curGen || 'g1'}/params.csv')">打开 params.csv</button>
+        <button class="btn sm" onclick="previewGen(null,'params.csv')">打开 params.csv</button>
       </div>
     </div>
   </div>`;
+}
+
+/* ★ 2026-11-06 新增：占位符待填卡片
+   params.csv 是唯一数据源，一个占位符【XXX】可能对应多处（URR + URRGROUP），
+   填一处即可全部关联。这里把「哪些占位符没填」「各影响几处」列清楚。 */
+function renderPlaceholders(ph, mi){
+  const items = ph.items || [];
+  if (!items.length) return '';
+  return `<div class="params-card">
+    <div class="params-h">🔖 占位符待填（${ph.n_unfilled} 项 / 共 ${ph.n_placeholders_total} 个）</div>
+    <div class="params-b">
+      <div style="margin-bottom:8px;color:#666">
+        在 <code>params.csv</code> 里把「值」列的占位符替换成真实值即可，
+        同一个占位符出现多处时改一处就全部生效。
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <tr style="background:#f5f5f5">
+          <th style="text-align:left;padding:4px">占位符</th>
+          <th style="padding:4px">出现</th>
+          <th style="text-align:left;padding:4px">影响</th>
+          <th style="text-align:left;padding:4px">说明</th>
+        </tr>
+        ${items.map(it => `<tr style="border-top:1px solid #eee">
+          <td style="padding:4px"><code>${esc(it.placeholder)}</code></td>
+          <td style="padding:4px;text-align:center">${it.count} 处</td>
+          <td style="padding:4px;color:#888">${esc((it.params||[]).slice(0,3).join(', '))}${it.params.length>3?' …':''}</td>
+          <td style="padding:4px">${esc(it.note||'')}</td>
+        </tr>`).join('')}
+      </table>
+      <div class="act" style="margin-top:8px">
+        <button class="btn sm" onclick="previewGen(null,'params.csv')">打开 params.csv</button>
+        <button class="btn sm primary" onclick="regenerate()">填好了，重新生成 MML</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ★ 改完 csv 后秒级重生成 mml（不跑 agent） */
+async function regenerate(){
+  if (!S.sid) return;
+  toast('正在重新生成…');
+  try {
+    const r = await api('/sessions/' + S.sid + '/regenerate', {method:'POST'});
+    if (r.error) throw new Error(r.error);
+    await refreshSide();
+    S.msgs.push({role:'bot', text:
+      `${r.message}\n${r.n_commands} 条命令 / ${r.n_groups} 组` +
+      (r.guard ? `\n自检：${r.guard.verdict}` : '')});
+    renderMsgs();
+    scrollBottom();
+    toast(r.executable ? '已生成，可直接下发' : '仍有余项未填');
+  } catch(e) {
+    toast('重新生成失败：' + e.message);
+  }
 }
 
 function renderResult(r){
@@ -867,38 +939,29 @@ async function send(){
   const text = inputEl.value.trim();
   if (!text) return;
   if (!S.sid) { await newSession(); if (!S.sid) return; }
-  if (S.polling) { toast('上一步还在执行，请稍候'); return; }
+  if (S.busy) { toast('上一步还在执行，请稍候'); return; }
 
   hideEmpty();
   inputEl.value = '';
   autoGrow();
   S.msgs.push({role:'user', text});
-  S.msgs.push({role:'bot', text:'正在理解你的需求…', trace:{steps:[
-    {name:'理解意图', status:'run', desc:'…'}
-  ]}});
+  S.msgs.push({role:'bot', text:'正在生成…', trace:{steps:[]}});
   renderMsgs();
   setBusy(true);
 
+  // ★ 2026-11-06：不再区分「对话」和「生成」，统一走 /run
+  //   有产物 = revise（增量修改），无产物 = fresh（全新生成）
+  const hasArtifacts = (S.arts || []).length > 0;
+  const action = hasArtifacts ? 'revise' : 'fresh';
+
   try {
-    const r = await api('/sessions/' + S.sid + '/chat', {
+    const r = await api('/sessions/' + S.sid + '/run', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({question:text, history:[]}),
+      body: JSON.stringify({intent:text, product:S.product, action}),
     });
-    const dispatch = r.dispatch || null;
-    const reply = r.reply || r.answer || r.message || '';
-    const last = S.msgs[S.msgs.length - 1];
-    last.text = reply || '已提交';
-    if (dispatch && dispatch.task_id) {
-      last.text = '已提交生成任务。';
-      S.curGen = dispatch.gen_id || 'g1';
-      renderMsgs();
-      startPoll(dispatch.task_id, dispatch.gen_id);
-    } else {
-      last.trace = null;
-      renderMsgs();
-      setBusy(false);
-    }
+    if (r.error) throw new Error(r.error);
+    startSSE();
   } catch(e) {
     const last = S.msgs[S.msgs.length - 1];
     last.text = '出错了：' + e.message;
@@ -909,6 +972,7 @@ async function send(){
 }
 
 function setBusy(b){
+  S.busy = !!b;                 // ★ 2026-11-06：send() 里用它挡重复提交
   $('send').disabled = b;
   $('send').innerHTML = b ? '<span class="spin"></span>' : '发送';
 }
@@ -916,7 +980,7 @@ function setBusy(b){
 /* ═══════════ 实时事件流（SSE）═══════════ */
 let sseConn = null;
 
-function startSSE(genId){
+function startSSE(){
   if (sseConn) { try { sseConn.close(); } catch(e){} sseConn = null; }
 
   const last = S.msgs[S.msgs.length - 1];
@@ -924,19 +988,30 @@ function startSSE(genId){
   last.elapsed = 0;
   const t0 = Date.now();
 
-  const url = `${API}/sessions/${S.sid}/generations/${genId}/events`;
+  // ★ 2026-11-06 新接口：GET /sessions/{sid}/events
+  const url = `${API}/sessions/${S.sid}/events`;
   const es = new EventSource(url);
   sseConn = es;
 
   es.onmessage = ev => {
     let d;
     try { d = JSON.parse(ev.data); } catch(e) { return; }
-    if (d.type !== 'step') return;
-
     last.elapsed = Math.round((Date.now() - t0) / 1000);
 
+    if (d.type === 'meta') {
+      // meta 事件：round_start / spawn / guard_call
+      if (d.event === 'round_start') {
+        last.steps.push({action:'Round', target:'第 ' + d.round + ' 轮', dur:null});
+        renderMsgs(); scrollBottom();
+      } else if (d.event === 'guard_call') {
+        last.steps.push({action:'Guard', target:'第 ' + d.n + ' 次自检', dur:null});
+        renderMsgs(); scrollBottom();
+      }
+      return;
+    }
+    if (d.type !== 'step') return;
+
     if (d.kind === 'think') {
-      // Think 节拍：合并连续的空 think，只保留一个"思考中"
       const prev = last.steps[last.steps.length - 1];
       if (prev && prev.action === 'Think' && !prev.target) {
         prev.dur = d.dur;
@@ -946,11 +1021,9 @@ function startSSE(genId){
     } else {
       last.steps.push({
         action: d.action || 'Tool',
-        target: d.target || d.tool || '',
-        tool: d.tool,
+        target: d.target || '',
+        server: d.server,
         dur: d.dur,
-        chars: d.chars,
-        ok: d.ok !== false,
         ts: d.ts,
       });
     }
@@ -958,59 +1031,46 @@ function startSSE(genId){
     scrollBottom();
   };
 
-  es.addEventListener('done', async ev => {
-    try { es.close(); } catch(e){}
-    sseConn = null;
-    let d = {};
-    try { d = JSON.parse(ev.data); } catch(e){}
-    setBusy(false);
-    await onTaskDone(d.status || 'succeeded', genId, null);
-  });
-
-  es.addEventListener('timeout', () => {
-    try { es.close(); } catch(e){}
-    sseConn = null;
-    setBusy(false);
-    toast('事件流超时，请刷新查看结果');
-  });
+  // ★ 新后端没有 done 事件，改为轮询 /run 状态
+  const poll = setInterval(async () => {
+    try {
+      const st = await api('/sessions/' + S.sid + '/run');
+      const status = st.status;
+      if (status === 'done' || status === 'failed') {
+        clearInterval(poll);
+        try { es.close(); } catch(e){}
+        sseConn = null;
+        setBusy(false);
+        await onTaskDone(status, null, null);
+      }
+    } catch(e) {}
+  }, 3000);
+  S._ssePoll = poll;
 
   es.onerror = () => {
-    // 连接断了：查一次任务状态决定是否重连
-    setTimeout(async () => {
-      if (!sseConn) return;
-      try {
-        const t = await api('/sessions/' + S.sid + '/generations/' + genId);
-        if (t.status === 'draft' || t.status === 'failed') {
-          try { es.close(); } catch(e){}
-          sseConn = null;
-          setBusy(false);
-          await onTaskDone(t.status, genId, null);
-        }
-      } catch(e) {}
-    }, 1500);
+    // 连接断了不立即关闭，等轮询判定终态
   };
 }
 
 /* 兼容：无 SSE 时降级到轮询 */
-function startPoll(taskId, genId){
-  if (window.EventSource) { startSSE(genId); return; }
-  // 老浏览器降级
+function startPoll(){
+  // ★ 2026-11-06：老浏览器降级——直接轮询 /run 状态
+  if (window.EventSource) { startSSE(); return; }
   let n = 0;
   S.polling = setInterval(async () => {
     n++;
     try {
-      const t = await api('/tasks/' + taskId);
-      const state = t.state || t.status;
-      if (state === 'succeeded' || state === 'failed' || state === 'cancelled') {
+      const st = await api('/sessions/' + S.sid + '/run');
+      if (st.status === 'done' || st.status === 'failed') {
         clearInterval(S.polling); S.polling = null;
         setBusy(false);
-        await onTaskDone(state, genId, null);
+        await onTaskDone(st.status, null, null);
       }
-      if (n > 200) { clearInterval(S.polling); S.polling = null; setBusy(false); }
+      if (n > 400) { clearInterval(S.polling); S.polling = null; setBusy(false); }
     } catch(e) {
       if (n > 5) { clearInterval(S.polling); S.polling = null; setBusy(false); }
     }
-  }, 2000);
+  }, 3000);
 }
 
 function buildTrace(t){ return t; }
@@ -1025,70 +1085,76 @@ async function onTaskDone(state, genId, trace){
     return;
   }
 
-  // 读产物
-  let clarify = [];
-  let gmeta = null;
-  try { gmeta = await api(`/sessions/${S.sid}/generations/${genId}`); } catch(e){}
-  try {
-    const c = await api(`/sessions/${S.sid}/generations/${genId}/artifacts/mml?raw=1`);
-    // 只是探测产物是否存在
-  } catch(e){}
+  // ★ 2026-11-06 新接口：产物统一在 /artifacts/<name>
+  const readArtifact = async (name) => {
+    try {
+      const r = await fetch(`${API}/sessions/${S.sid}/artifacts/${encodeURIComponent(name)}`);
+      if (!r.ok) return null;
+      const j = await r.json();
+      return j.content || '';
+    } catch(e){ return null; }
+  };
+
+  // 运行状态（含 guard / 轮次 / 耗时）
+  let runInfo = null;
+  try { runInfo = await api(`/sessions/${S.sid}/run`); } catch(e){}
 
   // 方案澄清
+  let clarify = [];
+  const clarifyTxt = await readArtifact('方案澄清.json');
+  if (clarifyTxt) {
+    try {
+      const j = JSON.parse(clarifyTxt);
+      if (Array.isArray(j)) clarify = j;
+    } catch(e){}
+  }
+
+  // 占位符未填清单（新接口）
+  let ph = null;
+  try { ph = await api(`/sessions/${S.sid}/placeholders`); } catch(e){}
+
+  // 产物统计
+  let cmds = null, fams = null, parts_units = [];
+  const mmlTxt = await readArtifact('mml.txt');
+  if (mmlTxt) {
+    const lines = mmlTxt.split('\n').filter(l => /^\s*(ADD|SET|MOD|RMV)\s/.test(l));
+    cmds = lines.length;
+    fams = new Set(lines.map(l => {
+      const mm = l.match(/^\s*(?:ADD|SET|MOD|RMV)\s+([A-Z0-9_]+)/);
+      return mm ? mm[1] : null;
+    }).filter(Boolean)).size;
+  }
+  // 多网元拆分
   try {
-    const r = await fetch(`${API}/sessions/${S.sid}/generations/${genId}/artifacts/analysis-md?file=方案澄清.json`);
-    if (r.ok) {
-      const txt = await r.text();
-      try { clarify = JSON.parse(txt); } catch(e){}
-      if (!Array.isArray(clarify)) clarify = [];
-    }
+    const al = await api(`/sessions/${S.sid}/artifacts`);
+    parts_units = (al.artifacts || [])
+      .filter(a => a.parts && a.name.startsWith('parts/mml_'))
+      .map(a => a.name.replace('parts/mml_', '').replace('.txt', ''));
   } catch(e){}
 
-  // 参数待填数
-  let paramCount = 0;
-  try {
-    const r = await fetch(`${API}/sessions/${S.sid}/generations/${genId}/artifacts/csv`);
-    if (r.ok) {
-      const csv = await r.text();
-      paramCount = (csv.match(/【待填写】|TBD/g) || []).length;
-    }
-  } catch(e){}
+  const lr = (runInfo && runInfo.last_run) || {};
+  const txt = [];
+  txt.push('已生成配置。');
+  if (cmds) txt.push(`${cmds} 条命令 / ${fams} 个族`);
+  if (parts_units.length > 1) txt.push(`${parts_units.length} 个网元：${parts_units.join(' + ')}`);
+  if (clarify.length) txt.push(`有 ${clarify.length} 个方案问题需要你确认`);
+  if (ph && ph.n_unfilled) txt.push(`${ph.n_unfilled} 项占位符待填`);
 
-  // 统计
-  let cmds = null, fams = null;
-  try {
-    const r = await fetch(`${API}/sessions/${S.sid}/generations/${genId}/artifacts/mml?raw=1`);
-    if (r.ok) {
-      const m = await r.text();
-      const lines = m.split('\n').filter(l => /^\s*(ADD|SET|MOD|RMV)\s/.test(l));
-      cmds = lines.length;
-      fams = new Set(lines.map(l => {
-        const mm = l.match(/^\s*(?:ADD|SET|MOD|RMV)\s+([A-Z0-9_]+)/);
-        return mm ? mm[1] : null;
-      }).filter(Boolean)).size;
-    }
-  } catch(e){}
-
-  const parts = [];
-  parts.push(`已生成配置。`);
-  if (cmds) parts.push(`${cmds} 条命令 / ${fams} 个族`);
-  if (clarify.length) parts.push(`有 ${clarify.length} 个方案问题需要你确认`);
-  if (paramCount) parts.push(`${paramCount} 个参数待填`);
-
-  last.text = parts.join('\n');
+  last.text = txt.join('\n');
   last.clarify = clarify;
-  last.params = paramCount ? {count: paramCount} : null;
+  last.placeholders = (ph && ph.n_unfilled) ? ph : null;
   last.result = {
     cmds, families: fams,
-    guard: gmeta?.guard?.verdict || (gmeta?.status === 'draft' ? 'pass' : null),
-    elapsed: gmeta?.elapsed_sec,
-    rounds: gmeta?.rounds,
+    guard: (lr.guard || {}).verdict || null,
+    elapsed: lr.elapsed,
+    rounds: (lr.rounds || []).length,
+    units: parts_units,
+    executable: ph ? ph.all_filled : null,
   };
   renderMsgs();
 
-  if (!clarify.length && !paramCount) {
-    parts.push('可以直接使用了。');
-    last.text = parts.join('\n');
+  if (!clarify.length && !(ph && ph.n_unfilled)) {
+    last.text += '\n可以直接使用了。';
     renderMsgs();
   }
 }

@@ -59,6 +59,10 @@ sys.path.insert(0, str(WF_ROOT))
 
 ALLOWED_ARTIFACTS = ['mml.txt', 'params.csv', '配置分析.md', '方案澄清.json']
 
+# 运行中的任务：sid -> asyncio.Task
+#   ★ 2026-11-06：提前定义，会话列表接口要用它判断 running 是否为残留状态
+_RUNNING: dict = {}
+
 app = FastAPI(title='expgv', docs_url='/docs')
 
 
@@ -142,7 +146,12 @@ def append_chat(sid: str, role: str, content: str, extra: Optional[dict] = None)
 # 会话接口
 # ═══════════════════════════════════════════════════════════
 @app.get('/api/v1/sessions')
-def api_list_sessions():
+def api_list_sessions(limit: int = 0):
+    """会话列表，按创建时间倒序。
+
+    ★ 2026-11-06：补 limit 参数（前端 boot() 会传 limit=1 取最近会话，
+      原来被忽略导致返回全部）。
+    """
     items = []
     if SESSIONS_ROOT.exists():
         for d in sorted(SESSIONS_ROOT.iterdir(), reverse=True):
@@ -167,8 +176,15 @@ def api_list_sessions():
             if adir.is_dir():
                 meta['artifact_count'] = sum(
                     1 for n in ALLOWED_ARTIFACTS if (adir / n).exists())
+            # ★ 容器重启后残留的 running 状态要纠正（没有活进程就是 stale）
+            if meta.get('status') == 'running' and d.name not in _RUNNING:
+                meta['status'] = 'idle'
+                meta['stale_running'] = True
             items.append(meta)
-    return {'items': items, 'total': len(items)}
+    total = len(items)
+    if limit and limit > 0:
+        items = items[:limit]
+    return {'items': items, 'total': total}
 
 
 @app.post('/api/v1/sessions')
@@ -327,9 +343,6 @@ def api_delete_file(sid: str, name: str):
 # ═══════════════════════════════════════════════════════════
 # 运行接口（核心）
 # ═══════════════════════════════════════════════════════════
-# 运行中的任务：sid -> asyncio.Task
-_RUNNING: dict = {}
-
 
 def _append_event(sid: str, ev: dict):
     d = sess_dir(sid)
