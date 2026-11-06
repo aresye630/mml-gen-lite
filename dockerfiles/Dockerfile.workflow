@@ -40,6 +40,15 @@ COPY --chown=expgv:expgv scripts/          /opt/expgv/scripts/
 COPY --chown=expgv:expgv rules/            /opt/expgv/rules/
 COPY --chown=expgv:expgv tools/            /opt/expgv/tools/
 
+# ★ 2026-11-06：统一文件权限。
+#   COPY 会把宿主机的权限带进镜像，实测有文件是 600（-rw-------），
+#   别的用户/进程读不了，运行时 import 会失败。全部放开成 644 / 755。
+RUN find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
+         /opt/expgv/tools -type d -exec chmod 755 {} + \
+ && find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
+         /opt/expgv/tools -type f -exec chmod 644 {} + \
+ && find /opt/expgv/scripts -name '*.sh' -exec chmod 755 {} +
+
 # ── 知识库与模型 ──────────────────────────────────────
 COPY kb/                                        /opt/expgv/kb/
 COPY kb111/                                     /opt/expgv/kb111/
