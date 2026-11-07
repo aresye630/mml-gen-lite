@@ -473,7 +473,31 @@ def check_family_coverage(mml_text, intent_text, action='fresh',
             if v and f:
                 prior_fams.add(f'{v} {f}')
 
-    missing = sorted(required - fams - prior_fams)
+    # ★ 2026-11-07：同族多动词变体只要求命中任一
+    #   实测 NC20260911000610：意图写「APN 配置」，
+    #   match_intent_families 返回 ['ADD APN', 'MOD APN', 'RMV APN'] 三个，
+    #   产物只有 ADD CPAPN（另一个族），于是被判缺 MOD APN / RMV APN。
+    #   但意图说「APN 配置」只是表达要动 APN 相关，不是三个动词都要。
+    #   规则：把 required 按「族名」分组，同组只要有任一变体出现在产物里就算满足。
+    from collections import defaultdict as _dd
+    _by_base = _dd(set)
+    for _fam in required:
+        _parts = _fam.split(' ', 1)
+        _base = _parts[1] if len(_parts) > 1 else _fam
+        _by_base[_base].add(_fam)
+
+    _cand = fams | prior_fams
+    _satisfied = set()
+    _unsatisfied = []
+    for _base, _variants in _by_base.items():
+        _hit = _variants & _cand
+        if _hit:
+            _satisfied |= _variants
+        else:
+            _unsatisfied.append(_base)
+
+    # missing 只报「完全没命中的族名」（不带动词，便于人阅读）
+    missing = sorted(_unsatisfied)
 
     # 删除意图：产物里不该再有这些族
     still_present = sorted(deletion_families & fams)
@@ -1052,6 +1076,12 @@ def check_refs(mml_text, exp_text=''):
             # 应用/协议标签类，不做引用校验（PROTOCOLNAME=SanJiaoZhouXingDong 等）
             if k in APP_LABEL_PARAMS:
                 continue
+            # ★ 2026-11-07：先排除枚举值
+            #   实测 NC20260803002122：ADD APN:..., VIRTUALAPN=DISABLE, ...
+            #   VIRTUALAPN 以 APN 结尾被 REF_PARAM_SUFFIX 命中，
+            #   但值是 DISABLE（枚举开关），不是对象名 → 误判悬空
+            if str(val).strip().upper() in ENUM_VALUE_BLACKLIST:
+                continue
             if k in ALWAYS_REF_PARAMS or REF_PARAM_SUFFIX.search(k):
                 # ★ 2026-11-06：跨网元参数仍然检查，但标记为 cross_ne
                 #   原实现直接 continue（完全跳过），导致编造对象也判通过。
@@ -1254,6 +1284,12 @@ BUILTIN_PATTERNS = [
     re.compile(r'^gei[-\d/]+$', re.I),                # GE 接口
     re.compile(r'^eth\d+/\d+/\d+$', re.I),           # 以太网口
     re.compile(r'^NULL0$', re.I),                     # 空接口
+    # ★ 2026-11-08 实测补充（NC20260823000103）：
+    #   IPFARM.INTERFACENAME="phif1/0/7" 被判悬空。
+    #   phif = physical interface，是单板上的物理口，不需要 ADD INTERFACE。
+    re.compile(r'^phif\d+/\d+/\d+$', re.I),          # 物理接口
+    re.compile(r'^Eth-Trunk\d+(\.\d+)?$', re.I),    # Eth-Trunk 及其子接口
+    re.compile(r'^Vlanif\d+$', re.I),                # VLAN 接口
 ]
 
 # ★ 2026-11-06 新增：纯绑定族（本身不创建对象，只建立对象间关系）
@@ -1274,6 +1310,17 @@ _BINDING_FAMILIES = {
     'APNIMSATTR', 'APNSOFTPARA', 'APNADDRESSATTR', 'APNIPALLOCRULE',
     'APNSGLPASS', 'TCPMSS', 'CTXSTARTRATING',
 }
+# ★ 2026-11-07：枚举值黑名单
+#   有些参数名以 NAME/APN 结尾（被 REF_PARAM_SUFFIX 命中），
+#   但取值是开关枚举，不是对象名。
+#   实测：ADD APN:..., VIRTUALAPN=DISABLE → 被判悬空（DISABLE 当然没有定义）
+ENUM_VALUE_BLACKLIST = {
+    'ENABLE', 'DISABLE', 'ENABLED', 'DISABLED',
+    'TRUE', 'FALSE', 'YES', 'NO', 'ON', 'OFF',
+    'INHERIT', 'AUTO', 'MANUAL', 'NONE', 'NULL',
+    'IPV4', 'IPV6', 'IPV4V6', 'ALL', 'ANY', 'DEFAULT',
+}
+
 # 纯引用参数（永远不定义）
 ALWAYS_REF_PARAMS = {
     'DFTURRGRPNAME', 'DFTSIGURRGNAME', 'SIGURRGNAME',

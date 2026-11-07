@@ -35,6 +35,40 @@ ROUND_TIMEOUT = int(os.environ.get('AGENT_ROUND_TIMEOUT', '1800'))
 #   实测：正常单轮 100-400s；陷入「改产物↔自检」循环的单轮能跑满 1800s。
 ROUND_HARD_LIMIT = int(os.environ.get('AGENT_ROUND_HARD_LIMIT', '900'))
 
+
+def round_hard_limit_for(sess_dir):
+    """按工单复杂度返回单轮硬上限（秒）。
+
+    ★ 2026-11-08 新增：原来固定 900s，复杂工单正常就需要 15-25 分钟，
+      被误判成死循环。实测失败案例：
+        NC20260806001780  单轮 912s（154 条命令）
+        NC20260825001638  单轮 1245s
+        NC20260828000360  单轮 1560s（1227 条命令）
+      重跑时同一工单分别 702s / 1233s / 1103s 通过 —— 说明不是死循环，就是慢。
+
+      复杂度判据：params.csv 行数（agent 生成前就能看到）
+        实测相关性：params.csv 行数 vs GT 命令数 = 0.98
+        （对比 EXP 大小只有 0.23，不能用）
+    """
+    try:
+        import csv as _csv
+        from pathlib import Path as _P
+        csv_p = _P(sess_dir) / 'analysis_code' / 'params.csv'
+        if not csv_p.exists():
+            # 还没写产物 → 用上传的 params.csv
+            ups = list(_P(sess_dir).glob('uploads/*params*.csv'))
+            csv_p = ups[0] if ups else None
+        if not csv_p or not csv_p.exists():
+            return ROUND_HARD_LIMIT
+        n = sum(1 for _ in open(csv_p, encoding='utf-8', errors='replace'))
+        if n > 500:
+            return 1800      # 复杂：>500 行
+        if n > 100:
+            return 1200      # 中等：100-500 行
+        return ROUND_HARD_LIMIT   # 简单：<100 行
+    except Exception:
+        return ROUND_HARD_LIMIT
+
 # ★ 2026-11-05 死循环防护上限
 #   实测校准：
 #     单网元正常探索 30-60 次工具调用
@@ -43,7 +77,7 @@ ROUND_HARD_LIMIT = int(os.environ.get('AGENT_ROUND_HARD_LIMIT', '900'))
 #   所以不能只卡总数（会误伤多网元），主要靠 guard 次数 + 耗时判。
 # ★ 2026-11-06 调整：8 → 10。实测正常修产物时 guard 会调 4-5 次，
 #   留 10 次余量；真死循环靠「严格连续交替」判定更准。
-MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '10'))
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '15'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
 # ★ 2026-11-06 调整 300 → 480：大 EXP（40MB+）的正常探索就会超过 300 秒，
@@ -61,11 +95,13 @@ MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
 #     Code 事件的内容都是 "import csv, collections" —— 在反复分析自己的产物
 #
 #   结论：Code 超过 N 次基本就是陷入「读产物→跑脚本→改→再读」循环，该杀。
-#   ★ 2026-11-07 调整 60 → 100：
-#     实测 NC20260819001887（1294 条 GT 命令的超大工单）需要 61+ 次 Code
-#     且它产物确实写出来了 920 条命令，只是被 60 卡掉
-#     100 = 给超大工单留余量，同时仍能拦住 114 次那种真失控
-MAX_CODE_CALLS = int(os.environ.get('AGENT_MAX_CODE_CALLS', '100'))
+#   ★ 2026-11-07 调整 60 → 100 → 200：
+#     实测 NC20260819001887（1294 条 GT 命令的超大工单）：
+#       单跑一次 Code 0 次通过（466s）
+#       批量跑时 Code 101 次超限（1280s）
+#     → 同一输入 agent 行为不可复现，Code 用量从 0 到 101 都出现过
+#     200 是为了让这类超大工单能跑完（真死循环还有 ROUND_HARD_LIMIT 900s 兜底）
+MAX_CODE_CALLS = int(os.environ.get('AGENT_MAX_CODE_CALLS', '200'))
 
 # 产物清单
 REQUIRED_ARTIFACTS = ['mml.txt', 'params.csv', '配置分析.md']
@@ -435,7 +471,7 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
     proc = None
     timed_out = False
     loop_killed = None
-    _tool_cnt = {'total': 0, 'guard': 0, 'code': 0, 'seq': []}
+    _tool_cnt = {'total': 0, 'guard': 0, 'code': 0, 'seq': [], 'guard_fatals': []}
 
     try:
         proc = subprocess.Popen(
@@ -534,19 +570,42 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
                         _strict += 1
                     else:
                         break          # 一旦被打断就停，只数尾部连续交替
+                # ★ 2026-11-08 改进：不只看交替次数，还要看错误是否相同
+                #   原逻辑：Code↔Guard 交替 4 次就杀
+                #   实测误杀：agent 在逐步收敛（每次 Guard 报不同的错，
+                #           说明每次都在修不同的问题），却被判死循环
+                #   新逻辑：交替 ≥4 次 且 最近 3 次 Guard 的 fatal 内容完全相同
+                #           → 才是真死循环（改不动同一个错）
                 if _strict >= 4:
-                    loop_killed = (f'检测到 Code↔Guard 连续交替 {_strict} 次，'
-                                   f'判定为死循环，已终止')
-                    try:
-                        proc.kill()
-                    except Exception:
-                        pass
-                    break
+                    _gf = _tool_cnt.get('guard_fatals') or []
+                    _same_err = (len(_gf) >= 3 and _gf[-1] and
+                                 len(set(_gf[-3:])) == 1)
+                    if _same_err:
+                        loop_killed = (
+                            f'检测到 Code↔Guard 连续交替 {_strict} 次，'
+                            f'且最近 3 次 Guard 报同一个错「{_gf[-1][:60]}」，'
+                            f'判定为死循环，已终止')
+                        try:
+                            proc.kill()
+                        except Exception:
+                            pass
+                        break
+                    # 错误不同 → 在逐步收敛，放行（但仍在 seq 里记录）
 
             if _act == 'guard':
                 _tool_cnt['guard'] += 1
+                # ★ 2026-11-08：记录本次 guard 的 fatal 内容（供死循环判定比对）
+                _fatal_sig = ''
+                _m_fatal = re.search(r'(?:fatal|致命)[:：]\s*([^\n]{0,120})', line, re.I)
+                if _m_fatal:
+                    _fatal_sig = _m_fatal.group(1).strip()
+                _tool_cnt['guard_fatals'].append(_fatal_sig)
+                if len(_tool_cnt['guard_fatals']) > 10:
+                    _tool_cnt['guard_fatals'] = _tool_cnt['guard_fatals'][-10:]
+
                 emit({'type': 'meta', 'event': 'guard_call',
                       'n': _tool_cnt['guard'], 't': round(time.time() - t0, 1)})
+                # MAX_GUARD_CALLS 10 → 15（多条 fatal 逐步修需要更多轮）
                 if _tool_cnt['guard'] > MAX_GUARD_CALLS:
                     loop_killed = (f'guard_check 被调用 {_tool_cnt["guard"]} 次'
                                    f'（上限 {MAX_GUARD_CALLS}），判定为死循环')
@@ -870,8 +929,9 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
             #   → 又改 → 又 check」，149 条事件里 Code 91 次 Guard 27 次，
             #   最后 execute_code 跑满 300s 被杀，整轮 1814s 超时。
             #   这里检测「本轮耗时」和「fatal 是否在减少」，异常就强制停。
-            if elapsed > ROUND_HARD_LIMIT:
-                error = (f'第{rnd}轮耗时 {elapsed}s 超过 {ROUND_HARD_LIMIT}s 上限，'
+            _rh = round_hard_limit_for(sess_dir)
+            if elapsed > _rh:
+                error = (f'第{rnd}轮耗时 {elapsed}s 超过 {_rh}s 上限，'
                          f'判定为 agent 陷入循环（反复改产物+自检）')
                 rounds.append({'round': rnd, 'ok': False, 'elapsed': elapsed,
                                'error': 'round_slow_loop', 'fatal_limit': True})
