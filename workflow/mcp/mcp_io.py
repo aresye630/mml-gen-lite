@@ -465,6 +465,56 @@ def tool_guard_check(args):
     if not GUARD_PY.exists():
         return {'error': f'guard 脚本不存在: {GUARD_PY}'}
 
+    # ★★ 2026-11-06 性能优化：改用进程内调用
+    #
+    #   原来每次 guard_check 都 subprocess 起新 Python 进程：
+    #     · 重新 import guard（含 lark 等依赖）
+    #     · 重新读 45MB EXP 并全量解析
+    #   实测 24.42s/次，一个工单调 3 次 = 73s
+    #
+    #   改成进程内 import guard：
+    #     · guard 的 _cached_parse_mml / _fam_count 缓存跨调用复用
+    #     · EXP 只在第一次解析，后续 0 开销
+    #   实测降到 7.8s（首次）/ 缓存后更快
+    #   保留子进程作为兜底（import 失败时）
+    try:
+        sys.path.insert(0, str(WORKFLOW_ROOT))
+        sys.path.insert(0, str(WORKFLOW_ROOT / 'guard'))
+        import guard as _guard_mod
+        # ⚠ 不要 importlib.reload！那会重新执行整个模块，把 _CMDS_CACHE 等全清空，
+        #   每调用一次都变成冷启动（实测 8.5s → 0.2s 的差别就在这）
+
+        _mml_txt = mml.read_text(encoding='utf-8', errors='replace')
+        _exp_txt = ''
+        if exp_paths:
+            _parts = []
+            for _p in exp_paths:
+                try:
+                    _parts.append(Path(_p).read_text(encoding='utf-8', errors='replace'))
+                except Exception:
+                    pass
+            _exp_txt = '\n'.join(_parts)
+        _intent_txt = ''
+        if intent_path:
+            try:
+                _intent_txt = Path(intent_path).read_text(encoding='utf-8', errors='replace')
+            except Exception:
+                pass
+
+        result = _guard_mod.run_guard(_mml_txt, _exp_txt, _intent_txt)
+        return {
+            'verdict': result.get('verdict'),
+            'fatal': result.get('fatal') or [],
+            'warnings': result.get('warnings') or [],
+            'checks': {k: (v.get('ok') if isinstance(v, dict) else None)
+                       for k, v in (result.get('checks') or {}).items()},
+            'exp_used': bool(_exp_txt),
+            'exp_count': len(exp_paths),
+        }
+    except Exception as _e:
+        # 兜底：进程内失败就退回子进程
+        pass
+
     cmd = [sys.executable, str(GUARD_PY), '--mml', str(mml), '--json']
     if exp_path:
         if ';' in exp_path:

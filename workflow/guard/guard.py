@@ -148,6 +148,39 @@ G17_RULES = {
 }
 
 
+# ★ 2026-11-06 性能优化：族计数缓存
+#
+#   实测：G17 是 guard 里最慢的一道（6.46s）
+#   原因：对 EXP 的 12 万条命令逐条 split_cmd（正则匹配），
+#        而且每次 guard 都要重算一遍
+#   优化：按 (id(text), len) 缓存 Counter，只算 verb+family，不解析参数
+_FAMCNT_CACHE = {}
+
+
+def _fam_count(text):
+    """统计 {verb family: count}，带缓存。"""
+    if not text:
+        return Counter()
+    try:
+        key = (hash(text), len(text))
+        if key in _FAMCNT_CACHE:
+            return _FAMCNT_CACHE[key]
+    except Exception:
+        key = None
+
+    cnt = Counter()
+    for c in _cached_parse_mml(text):
+        m = re.match(r'^(\w+)\s+([A-Za-z0-9_]+)\s*:', c)
+        if m:
+            cnt[f'{m.group(1).upper()} {m.group(2).upper()}'] += 1
+
+    if key:
+        if len(_FAMCNT_CACHE) >= 6:
+            _FAMCNT_CACHE.pop(next(iter(_FAMCNT_CACHE)))
+        _FAMCNT_CACHE[key] = cnt
+    return cnt
+
+
 def check_scale(mml_text, exp_text='', intent_text=''):
     """G17：数量级检查。
 
@@ -157,19 +190,9 @@ def check_scale(mml_text, exp_text='', intent_text=''):
         2. 与 EXP 同族实例数相比，新增量 > 现网 50%（说明在复制现网）
         3. 意图里没有明显的批量信号（如「全部」「所有」「每个」）
     """
-    cmds = parse_mml(mml_text)
-    fam_cnt = Counter()
-    for c in cmds:
-        v, f, _ = split_cmd(c)
-        if v and f:
-            fam_cnt[f'{v} {f}'] += 1
-
-    exp_cnt = Counter()
-    if exp_text:
-        for c in _cached_parse_mml(exp_text):
-            v, f, _ = split_cmd(c)
-            if v and f:
-                exp_cnt[f'{v} {f}'] += 1
+    cmds = _cached_parse_mml(mml_text)
+    fam_cnt = _fam_count(mml_text)
+    exp_cnt = _fam_count(exp_text) if exp_text else Counter()
 
     # 批量信号：意图里明确说要批量
     batch_signal = bool(re.search(
@@ -1353,6 +1376,7 @@ def _iter_cmds(mml_text):
 #   同一份 exp_text 字符串对象复用同一 id；len 防 id 复用误判。
 _CMDS_CACHE = {}
 _PARSED_CACHE = {}      # parse_mml 结果缓存
+_G12_CACHE = {}         # G12 参数格式校验结果缓存
 
 
 def _cached_iter_cmds(mml_text):
@@ -1363,7 +1387,7 @@ def _cached_iter_cmds(mml_text):
         size = len(mml_text)
         if size < 1024 * 1024:
             return list(_iter_cmds(mml_text))
-        key = (id(mml_text), size)
+        key = (hash(mml_text), size)
         if key in _CMDS_CACHE:
             return _CMDS_CACHE[key]
         val = list(_iter_cmds(mml_text))
@@ -1383,7 +1407,7 @@ def _cached_parse_mml(text):
         size = len(text)
         if size < 1024 * 1024:
             return parse_mml(text)
-        key = (id(text), size)
+        key = (hash(text), size)
         if key in _PARSED_CACHE:
             return _PARSED_CACHE[key]
         val = parse_mml(text)
@@ -1582,14 +1606,33 @@ def check_unique_keys(mml_text):
 # G12 参数格式（复用 gen_selfcheck）
 # ═══════════════════════════════════════════════════════════
 def check_param_fmt(mml_text, exp_text=''):
+    """G12：参数名格式校验。
+
+    ★ 2026-11-06 性能优化：结果缓存
+      gen_selfcheck 内部对 EXP 重跑一遍 parse_mml（12 万条），实测 4.70s。
+      同样输入的结果完全一样 → 按 (id, len) 缓存，重复调 0 开销。
+    """
+    try:
+        key = (hash(mml_text), len(mml_text), hash(exp_text), len(exp_text))
+        if key in _G12_CACHE:
+            return _G12_CACHE[key]
+    except Exception:
+        key = None
+
     try:
         import gen_selfcheck as gs
         r = gs.check_param_format(mml_text, exp_text)
-        return {'ok': r.get('ok', True),
-                'issues': (r.get('issues') or [])[:10],
-                'n_issues': len(r.get('issues') or [])}
+        val = {'ok': r.get('ok', True),
+               'issues': (r.get('issues') or [])[:10],
+               'n_issues': len(r.get('issues') or [])}
     except Exception as e:
-        return {'ok': True, 'error': f'{type(e).__name__}: {e}'}
+        val = {'ok': True, 'error': f'{type(e).__name__}: {e}'}
+
+    if key:
+        if len(_G12_CACHE) >= 6:
+            _G12_CACHE.pop(next(iter(_G12_CACHE)))
+        _G12_CACHE[key] = val
+    return val
 
 
 # ═══════════════════════════════════════════════════════════

@@ -38,6 +38,36 @@ DEFAULT_PRODUCT = os.environ.get('MML_DEFAULT_PRODUCT', 'UDG')
 # ═══════════════════════════════════════════════════════════
 # 调用检索脚本
 # ═══════════════════════════════════════════════════════════
+# ★ 2026-11-06 性能优化：进程内调用检索脚本
+#
+#   实测：kb_search_command 每次 1.37s，8 个命令 10.9s
+#   原因：_run_script 每次都 subprocess 启动新 Python 进程，
+#        而脚本模块级就 `emb = Emb()`（加载嵌入模型）→ 每次 1.3s
+#
+#   改成进程内 import（只加载一次模型）：
+#     首次 ~1.5s（加载模型），之后每次 0.05-0.1s
+_SCRIPT_MOD = {}
+
+
+def _get_script_module(script_path):
+    """进程内导入检索脚本，复用已加载的嵌入模型。"""
+    import importlib.util
+    key = str(script_path)
+    if key in _SCRIPT_MOD:
+        mod, fn = _SCRIPT_MOD[key]
+        return mod, fn
+    # 脚本同目录下的依赖（get_embeddings）要能 import
+    sdir = str(Path(script_path).parent)
+    if sdir not in sys.path:
+        sys.path.insert(0, sdir)
+    spec = importlib.util.spec_from_file_location(
+        f'_kb_script_{abs(hash(key))}', script_path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    _SCRIPT_MOD[key] = (mod, None)
+    return mod, None
+
+
 def _run_script(script, mode, query, product, top_k=5, timeout=120):
     """调检索脚本，返回 stdout 文本。
 
@@ -46,6 +76,39 @@ def _run_script(script, mode, query, product, top_k=5, timeout=120):
     """
     if not Path(script).exists():
         return None, f'检索脚本不存在: {script}'
+
+    # ★ 进程内优先（复用已加载的嵌入模型，每命令从 1.37s 降到 0.1s）
+    try:
+        mod, _ = _get_script_module(script)
+        DB = getattr(mod, 'MMLSupportDB', None)
+        if DB is not None:
+            pkey = (str(script), product or DEFAULT_PRODUCT)
+            if pkey not in _SCRIPT_MOD:
+                pass
+            cache_key = ('db', str(script), product or DEFAULT_PRODUCT)
+            db = _SCRIPT_MOD.get(cache_key)
+            if db is None:
+                db = DB(product=product or DEFAULT_PRODUCT)
+                _SCRIPT_MOD[cache_key] = db
+            if mode == 'semantic':
+                results = db.search_by_semantic(query, int(top_k or 5))
+                if not results:
+                    return '未检索到结果，建议改写语义或者跟用户再确认', None
+                out = []
+                for i, r in enumerate(results):
+                    out.append(f'第{i}个结果：\n{r[1]}\n' + '-' * 20)
+                return '\n'.join(out), None
+            else:
+                results = db.search_by_command_name(query)
+                if not results:
+                    return '未检索到结果，请确认命令名是否输入正确', None
+                out = []
+                for i, r in enumerate(results):
+                    out.append(f'第{i}个结果：\n{r[1]}\n' + '-' * 20)
+                return '\n'.join(out), None
+    except Exception:
+        # 进程内失败就回退子进程
+        pass
 
     cmd = [sys.executable, script, mode, query,
            '--product', product or DEFAULT_PRODUCT]
