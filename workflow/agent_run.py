@@ -60,9 +60,12 @@ MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
 #     失败超时的 9 个里，NC20260819001887 用了 114 次、NC20260909000612 用了 100+ 次
 #     Code 事件的内容都是 "import csv, collections" —— 在反复分析自己的产物
 #
-#   结论：Code 超过 60 次基本就是陷入「读产物→跑脚本→改→再读」循环，
-#        该杀。60 = 实测通过最大值 49 × 1.2 余量。
-MAX_CODE_CALLS = int(os.environ.get('AGENT_MAX_CODE_CALLS', '60'))
+#   结论：Code 超过 N 次基本就是陷入「读产物→跑脚本→改→再读」循环，该杀。
+#   ★ 2026-11-07 调整 60 → 100：
+#     实测 NC20260819001887（1294 条 GT 命令的超大工单）需要 61+ 次 Code
+#     且它产物确实写出来了 920 条命令，只是被 60 卡掉
+#     100 = 给超大工单留余量，同时仍能拦住 114 次那种真失控
+MAX_CODE_CALLS = int(os.environ.get('AGENT_MAX_CODE_CALLS', '100'))
 
 # 产物清单
 REQUIRED_ARTIFACTS = ['mml.txt', 'params.csv', '配置分析.md']
@@ -875,10 +878,21 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                 break
 
             # ★ 2026-11-06：先尝试从 /tmp 捞回 agent 遗留的草稿
+            #
+            # ⚠ 这里原来调 emit(...)，但 emit 是 call_hermes 内部的闭包，
+            #   run_agent 里访问不到 → NameError: name 'emit' is not defined
+            #   （只有在真捞到草稿时才触发，所以之前一直是偶发）
+            #   直接写 events_fp 即可，run_agent 有这个文件句柄
             _rescued = rescue_tmp_artifacts(sess_dir)
             if _rescued:
-                emit({'type': 'meta', 'event': 'rescue',
-                      'round': rnd, 'files': _rescued})
+                try:
+                    events_fp.write(json.dumps(
+                        {'type': 'meta', 'event': 'rescue',
+                         'round': rnd, 'files': _rescued},
+                        ensure_ascii=False) + '\n')
+                    events_fp.flush()
+                except Exception:
+                    pass
 
             # 检查产物
             missing = check_artifacts(sess_dir)
