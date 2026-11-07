@@ -537,6 +537,15 @@ async def api_run(sid: str, request: Request):
             return agent_run.run_agent(sid, intent, product_hint=product,
                                        resume_agent_session=_prev_agent)
         except Exception as e:
+            # ★ 2026-11-06：把完整 traceback 写进日志，只报 'dict' not callable 查不出位置
+            import traceback
+            tb = traceback.format_exc()
+            try:
+                (d / '.agent').mkdir(parents=True, exist_ok=True)
+                (d / '.agent' / 'worker_error.log').write_text(tb, encoding='utf-8')
+            except Exception:
+                pass
+            print(f'[worker_error] {tb}', flush=True)
             return {'status': 'failed', 'error': f'{type(e).__name__}: {e}',
                     'rounds': [], 'produced': [],
                     'guard': {'verdict': None, 'fatal': [], 'warnings': []}}

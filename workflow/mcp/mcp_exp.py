@@ -174,15 +174,70 @@ def tool_exp_detect(args):
 # ═══════════════════════════════════════════════════════════
 # 工具 2：exp_stats
 # ═══════════════════════════════════════════════════════════
+# ★ 2026-11-06 性能优化：EXP 解析结果内存缓存
+#
+#   实测（86 工单）：
+#     EXP 查询是最大耗时项，平均 15-38 次/工单
+#     agent 逐族查（FILTER、FILTERIPV6、POOLGRPMAP…），每次都重读重解析
+#     42MB EXP 单次 1.97s，20 次 = 40 秒纯浪费
+#
+#   缓存策略：按 (path, size, mtime) 作 key，同一文件只解析一次
+#     mcp server 是常驻进程（for line in sys.stdin），缓存跨请求有效
+#     换 EXP（size/mtime 变）自动失效
+_PARSE_CACHE = {}
+_RESULT_CACHE = {}  # exp_stats 结果缓存（同文件同参数）
+_CACHE_MAX = 8      # 最多缓存 8 份 EXP，防内存爆（8 × 300MB 解析结果）
+
+
+def _get_parsed(path):
+    """读取并解析 EXP，带缓存。返回 (text, enc, cmds)。"""
+    import os
+    p = Path(path)
+    try:
+        st = p.stat()
+        key = (str(p), st.st_size, st.st_mtime)
+    except Exception:
+        key = (str(p), 0, 0)
+
+    if key in _PARSE_CACHE:
+        return _PARSE_CACHE[key]
+
+    text, enc = read_text(p)
+    cmds = list(iter_commands(text))
+    val = (text, enc, cmds)
+
+    if len(_PARSE_CACHE) >= _CACHE_MAX:
+        _PARSE_CACHE.pop(next(iter(_PARSE_CACHE)))
+    _PARSE_CACHE[key] = val
+    return val
+
+
 def tool_exp_stats(args):
-    """统计 EXP 的命令族分布、命名规律、优先级区间、枚举分布。"""
+    """统计 EXP 的命令族分布、命名规律、优先级区间、枚举分布。
+
+    ★ 2026-11-06 性能优化：结果缓存
+      实测：45MB EXP 冷查 3.69s，热查 1.98s（解析已缓存但统计还要遍历 10 万条）
+      agent 一单会调 15-38 次 exp_stats，如果参数相同结果完全一样
+      → 按 (path, size, mtime, family) 缓存完整结果，重复查询 0.00s
+    """
     path = args.get('path') or ''
     want_families = args.get('family')
     p = Path(path)
     if not p.exists():
         return {'error': f'文件不存在: {path}'}
 
-    text, enc = read_text(p)
+    # 结果缓存
+    try:
+        st = p.stat()
+        fam_key = want_families if isinstance(want_families, str) else (
+            tuple(want_families) if want_families else None)
+        res_key = ('stats', str(p), st.st_size, st.st_mtime, fam_key)
+        if res_key in _RESULT_CACHE:
+            return _RESULT_CACHE[res_key]
+    except Exception:
+        res_key = None
+
+    text, enc, _all_cmds = _get_parsed(p)
 
     fam_cnt = Counter()
     fam_names = defaultdict(list)       # family -> [首个参数值（名字）]
@@ -260,13 +315,19 @@ def tool_exp_stats(args):
 
         families[fam] = entry
 
-    return {
+    result = {
         'path': str(p),
         'encoding': enc,
         'total_cmds': sum(fam_cnt.values()),
         'family_count': len(families),
         'families': families,
     }
+    # 写入结果缓存（同文件同参数重复查 → 0 开销）
+    if res_key:
+        if len(_RESULT_CACHE) >= _CACHE_MAX * 4:
+            _RESULT_CACHE.pop(next(iter(_RESULT_CACHE)))
+        _RESULT_CACHE[res_key] = result
+    return result
 
 
 # ═══════════════════════════════════════════════════════════
@@ -284,9 +345,9 @@ def tool_exp_query(args):
     if not p.exists():
         return {'error': f'文件不存在: {path}'}
 
-    text, _ = read_text(p)
+    text, _, _all_cmds = _get_parsed(p)
     hits = []
-    for ln, v, f, params, raw in iter_commands(text):
+    for ln, v, f, params, raw in _all_cmds:
         if fam and f != fam:
             continue
         if param:
@@ -319,13 +380,13 @@ def tool_exp_refs(args):
     if not name:
         return {'error': 'object_name 必填'}
 
-    text, _ = read_text(p)
+    text, _, _all_cmds = _get_parsed(p)
 
     defined_by = []      # 谁定义了它
     referenced_by = []   # 谁引用了它
     refs_of = {}         # 它引用了谁（只对定义它的那条命令）
 
-    for ln, v, f, params, raw in iter_commands(text):
+    for ln, v, f, params, raw in _all_cmds:
         # 是不是定义（ADD 的第一个参数等于 name）
         if v == 'ADD' and params:
             first_k = next(iter(params))
@@ -369,10 +430,10 @@ def tool_exp_baseline(args):
         fams = [fams]
     fams = [f.upper() for f in fams]
 
-    text, _ = read_text(p)
+    text, _, _all_cmds = _get_parsed(p)
     buckets = defaultdict(list)
 
-    for ln, v, f, params, raw in iter_commands(text):
+    for ln, v, f, params, raw in _all_cmds:
         if v != 'ADD':
             continue
         if fams and f not in fams:

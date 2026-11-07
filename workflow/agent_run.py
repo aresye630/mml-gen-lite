@@ -46,8 +46,23 @@ ROUND_HARD_LIMIT = int(os.environ.get('AGENT_ROUND_HARD_LIMIT', '900'))
 MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '10'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
-STALL_SECONDS = int(os.environ.get('AGENT_STALL_SECONDS', '300'))
+# ★ 2026-11-06 调整 300 → 480：大 EXP（40MB+）的正常探索就会超过 300 秒，
+#   实测 NC20260819001887 在 304 秒被杀时还在正常探索（只是探索方式不对）。
+#   现在配合「禁止用 execute_code 解析 EXP」的 prompt 约束，
+#   给 480 秒余量让 agent 走正确路径（exp_query）。
+STALL_SECONDS = int(os.environ.get('AGENT_STALL_SECONDS', '480'))
 MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
+
+# ★ 2026-11-06 新增：Code 调用单独限额
+#
+#   实测（86 工单批量）：
+#     通过的 case 里 Code 用得最多的用了 49 次（792s 通过）
+#     失败超时的 9 个里，NC20260819001887 用了 114 次、NC20260909000612 用了 100+ 次
+#     Code 事件的内容都是 "import csv, collections" —— 在反复分析自己的产物
+#
+#   结论：Code 超过 60 次基本就是陷入「读产物→跑脚本→改→再读」循环，
+#        该杀。60 = 实测通过最大值 49 × 1.2 余量。
+MAX_CODE_CALLS = int(os.environ.get('AGENT_MAX_CODE_CALLS', '60'))
 
 # 产物清单
 REQUIRED_ARTIFACTS = ['mml.txt', 'params.csv', '配置分析.md']
@@ -145,7 +160,11 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
 
     lines.append('【建议流程】（你自己判断是否需要，不必机械执行）')
     lines.append('  1. file_list 看有什么资料；有 EXP 就 exp_detect 确认')
-    lines.append('  2. exp_stats / kb_get_naming 摸现网命名规律和取值')
+    lines.append('  2. ⚠ 摸现网规律：调【一次】exp_stats 不带 family 参数，一次拿全量')
+    lines.append('     实测对比（86 工单）：逐族查（FILTER、FILTERIPV6、POOLGRPMAP…）')
+    lines.append('     平均要 15-38 次 EXP 调用、每次 6.5 秒 = 100-250 秒；')
+    lines.append('     一次不带参 exp_stats 返回全部 101 个族的规律，只需 1 次调用。')
+    lines.append('     只有确实需要看某族全部实例明细时，才用 exp_query 定向查。')
     lines.append('  3. kb_search_feature 查特性文档；kb_search_command 查命令参数')
     lines.append('  4. 推理出配置方案')
     lines.append('  5. artifact_write 写产物')
@@ -273,7 +292,27 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('    不要继续改。剩下的问题在 配置分析.md 里列出来，交给人判断。')
     lines.append('  · 不要用 execute_code / terminal 写脚本去批量修改 mml.txt。')
     lines.append('    改产物只用 artifact_write（整文件覆盖）。')
-    lines.append('  · 不要反复「读自己的产物 → 跑脚本分析 → 再改」的循环。')
+    lines.append('  · ⚠⚠ 禁止用 execute_code 分析自己的产物！')
+    lines.append('    实测反例（NC20260819001887）：agent 反复跑')
+    lines.append('      import csv, collections / 读 params.csv 统计 / 读 mml.txt 比对')
+    lines.append('    共调用 114 次，耗时 22 分钟被强杀，产物质量没有提升。')
+    lines.append('    正确做法：')
+    lines.append('      - 要改产物 → 直接 artifact_write 重写整份')
+    lines.append('      - 要核对 → 用 guard_check（它会给结构化的检查结果）')
+    lines.append('      - 要统计 → 不需要，guard_check 已经报了命令数和族数')
+    lines.append('  · ⚠ 禁止往会话目录写临时文件（c_*.txt / final.csv / FINAL.txt 等）')
+    lines.append('    这些文件不会被收集，只会浪费轮次。')
+    lines.append('')
+    lines.append('  · ⚠⚠⚠ 查 EXP 只能用 exp_* 工具，禁止用 execute_code 解析 EXP 文件！')
+    lines.append('    实测反例（NC20260819001887，42MB EXP）：')
+    lines.append('      agent 反复 execute_code: "import json" / "import csv, collections"')
+    lines.append('      去自己解析 45MB 的 EXP 文本 → 55 次 Code 调用、304 秒、一个产物没写出')
+    lines.append('    正确工具：')
+    lines.append('      - 找某族有哪些实例     → exp_query(family="FILTER")')
+    lines.append('      - 统计命名规律/取值    → exp_stats(family="HOST")')
+    lines.append('      - 查引用关系           → exp_refs(...)')
+    lines.append('      - 摸现网基线           → exp_baseline(...)')
+    lines.append('    这些工具已内置索引，比你自己 read+parse 快 100 倍。')
     lines.append('    想清楚要改成什么，一次改完。')
     lines.append('  · 单轮总耗时控制在 10 分钟内。超过说明陷入循环了，立刻收尾。')
     lines.append('')
@@ -283,15 +322,16 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  · 禁止往 /tmp/ 写 mml2.txt、params2.csv 这种临时文件当"草稿"再指望转换。')
     lines.append('    实测过这样做的结果：任务结束只写出 mml.txt，params.csv 全丢。')
     lines.append('')
-    lines.append('  ★★ 大文件必须分块写（否则会被模型的输出长度上限截断，产物直接丢失）')
-    lines.append('    params.csv 动辄几百行、十几 KB。一次性写完必然触发')
-    lines.append('    「Response truncated (finish_reason=length)」，工具调用被截断，写不出来。')
+    lines.append('  ★★ 大文件分块写（每块尽量大，减少轮次）')
+    lines.append('    实测：本模型单次可输出约 5900 token / 200 行 CSV / 12000 字符，')
+    lines.append('    所以每块写 150-200 行最合适 —— 写太少会浪费轮次。')
     lines.append('    正确做法：')
-    lines.append('      1) artifact_write(filename="params.csv", content="表头+前30行", mode="overwrite")')
-    lines.append('      2) artifact_write(filename="params.csv", content="第31-60行", mode="append")')
-    lines.append('      3) 重复 append 直到写完')
+    lines.append('      1) artifact_write(filename="params.csv", content="表头+前150行", mode="overwrite")')
+    lines.append('      2) artifact_write(filename="params.csv", content="第151-300行", mode="append")')
+    lines.append('      3) 重复 append 直到写完（每块 150-200 行，不要更小）')
     lines.append('      4) artifact_write(filename="params.csv", content="", mode="finalize")')
-    lines.append('    每次 append 控制在 30-50 行以内。mml.txt 超过 100 行时同理。')
+    lines.append('    ⚠ 不要一次写超过 200 行（会超模型输出上限被截断）')
+    lines.append('    ⚠ 也不要一次只写 30 行（浪费轮次，实测一份 600 行 CSV 会被拆成 20 次）')
     lines.append('')
     lines.append('  · 需要迭代修改时：重新 overwrite 同名文件，不要另起文件名。')
     lines.append('  · 交付前必须自己确认这 4 个文件都写过了（缺一个任务就算失败）。')
@@ -392,7 +432,7 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
     proc = None
     timed_out = False
     loop_killed = None
-    _tool_cnt = {'total': 0, 'guard': 0, 'seq': []}
+    _tool_cnt = {'total': 0, 'guard': 0, 'code': 0, 'seq': []}
 
     try:
         proc = subprocess.Popen(
@@ -459,6 +499,21 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
                 _tool_cnt['seq'].append(_act)
                 if len(_tool_cnt['seq']) > 20:
                     _tool_cnt['seq'] = _tool_cnt['seq'][-20:]
+
+                # ★ 2026-11-06 第3项：Code 调用单独限额
+                #   实测 Code 事件全是 "import csv, collections"（分析自己的产物），
+                #   通过的 case 最多 49 次，失败的用了 114 次。
+                #   超 60 次直接杀，不等 900s 超时（省 10 分钟/单）。
+                if _act == 'code':
+                    _tool_cnt['code'] += 1
+                    if _tool_cnt['code'] > MAX_CODE_CALLS:
+                        loop_killed = (f'Code 调用 {_tool_cnt["code"]} 次超过上限 '
+                                       f'{MAX_CODE_CALLS}（在反复分析产物而非直接修改），已终止')
+                        try:
+                            proc.kill()
+                        except Exception:
+                            pass
+                        break
 
                 # ★★ 2026-11-06 修正：原判定过激，误杀正常调试
                 #   原逻辑：最近 10 个动作里 {code,guard} 相邻出现 ≥4 次
@@ -781,8 +836,11 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
 
     try:
         for rnd in range(1, MAX_ROUNDS + 1):
-            emit = {'type': 'meta', 'event': 'round_start', 'round': rnd}
-            events_fp.write(json.dumps(emit, ensure_ascii=False) + '\n')
+            # ★ 2026-11-06 修 bug：这里原来写成 `emit = {...}`，
+            #   把函数 emit 覆盖成了 dict，后面 rescue 分支调 emit(...) 就炸
+            #   TypeError: 'dict' object is not callable（偶发，只在有 /tmp 草稿时触发）
+            _ev_round_start = {'type': 'meta', 'event': 'round_start', 'round': rnd}
+            events_fp.write(json.dumps(_ev_round_start, ensure_ascii=False) + '\n')
             events_fp.flush()
 
             cur_prompt = prompt if rnd == 1 else build_feedback(final_guard or {})

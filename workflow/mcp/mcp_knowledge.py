@@ -72,6 +72,40 @@ def _run_script(script, mode, query, product, top_k=5, timeout=120):
 # ═══════════════════════════════════════════════════════════
 # 工具 1：kb_search_feature
 # ═══════════════════════════════════════════════════════════
+# ★ 2026-11-06 性能优化：知识库检索结果缓存
+#
+#   实测：单次 kb_search_command 1.4s（向量检索 + 文档读取）
+#        agent 一单会调 14 次 KB，同样的问题反复查
+#        同一查询重复 3 次都是 1.4s —— 没有任何缓存
+#   加缓存后重复查询 0.00s
+_KB_CACHE = {}
+_KB_CACHE_MAX = 200
+
+
+def _kb_cached(fn):
+    """给 kb 工具加结果缓存（按函数名 + 参数指纹）。"""
+    import functools
+    import hashlib
+
+    @functools.wraps(fn)
+    def wrapper(args):
+        try:
+            key = (fn.__name__,
+                   hashlib.md5(json.dumps(args, sort_keys=True,
+                                          ensure_ascii=False).encode()).hexdigest())
+        except Exception:
+            return fn(args)
+        if key in _KB_CACHE:
+            return _KB_CACHE[key]
+        val = fn(args)
+        if len(_KB_CACHE) >= _KB_CACHE_MAX:
+            _KB_CACHE.pop(next(iter(_KB_CACHE)))
+        _KB_CACHE[key] = val
+        return val
+    return wrapper
+
+
+@_kb_cached
 def tool_kb_search_feature(args):
     """查特性文档。"""
     query = (args.get('query') or '').strip()
@@ -135,6 +169,7 @@ def tool_kb_search_feature(args):
 # ═══════════════════════════════════════════════════════════
 # 工具 2：kb_search_command
 # ═══════════════════════════════════════════════════════════
+@_kb_cached
 def tool_kb_search_command(args):
     """查 MML 命令文档（参数表 + 使用实例）。"""
     # 支持两种调用：name（精确命令名）或 query（语义）
@@ -187,6 +222,7 @@ def tool_kb_search_command(args):
 # ═══════════════════════════════════════════════════════════
 # 工具 3：kb_get_naming
 # ═══════════════════════════════════════════════════════════
+@_kb_cached
 def tool_kb_get_naming(args):
     """查某族的命名规律（从 EXP 统计）。"""
     exp_path = (args.get('exp_path') or '').strip()

@@ -166,7 +166,7 @@ def check_scale(mml_text, exp_text='', intent_text=''):
 
     exp_cnt = Counter()
     if exp_text:
-        for c in parse_mml(exp_text):
+        for c in _cached_parse_mml(exp_text):
             v, f, _ = split_cmd(c)
             if v and f:
                 exp_cnt[f'{v} {f}'] += 1
@@ -1026,20 +1026,31 @@ def check_refs(mml_text, exp_text=''):
                 continue
             if k in defining:
                 continue          # 主键自己的定义，不是引用
-            # ★ 2026-11-06：跨网元引用不参与悬空判定
-            #   实测 NC20260806001780 的 POOLGRPMAP 引用 SMF 侧的位置组/池组，
-            #   本工单 EXP 只有 UPF，查不到是正常的（257 处假悬空）
-            if k in CROSS_NE_REF_PARAMS:
-                continue
-            # 应用/协议标签类，不做引用校验
+            # 应用/协议标签类，不做引用校验（PROTOCOLNAME=SanJiaoZhouXingDong 等）
             if k in APP_LABEL_PARAMS:
                 continue
             if k in ALWAYS_REF_PARAMS or REF_PARAM_SUFFIX.search(k):
-                refs.append((f, k, val, ln))
+                # ★ 2026-11-06：跨网元参数仍然检查，但标记为 cross_ne
+                #   原实现直接 continue（完全跳过），导致编造对象也判通过。
+                #   实测反例：ADD SRROUTE:...IFNAME="LoopBack999" → 被当通过。
+                #   现在：照常收集引用，只是悬空时降级为 warn。
+                is_cross = k in CROSS_NE_REF_PARAMS
+                # ★ 2026-11-06 第2项：RMV 引用的悬空降级
+                #   RMV X 里的对象查不到，可能的原因：
+                #     · EXP 上传不全（只传了一台网元）
+                #     · 对象本来就在别的网元
+                #     · 工单写错或现网确实缺
+                #   这些都不该让整份配置判失败，降级为提示即可。
+                #   反例保护：ADD 命令里引用的父对象不存在 → 仍判 fatal
+                #            （挂不上就是真的配不成）
+                is_rmv = (v == 'RMV')
+                refs.append((f, k, val, ln, is_cross, is_rmv))
 
     dangling = []
+    cross_ne = []      # ★ 跨网元参数的悬空：不算 fatal，只提示
+    rmv_missing = []   # ★ RMV 引用的对象查不到：不算 fatal，只提示
     seen = set()
-    for f, k, val, ln in refs:
+    for f, k, val, ln, is_cross, is_rmv in refs:
         u = val.upper()
         if u in all_defs:
             continue
@@ -1052,16 +1063,38 @@ def check_refs(mml_text, exp_text=''):
         if key in seen:
             continue
         seen.add(key)
-        dangling.append({
+        item = {
             'family': f, 'param': k, 'value': val, 'line': ln,
             'in_product': u in prod_defs,
             'in_exp': u in exp_defs,
-        })
+        }
+
+        # 分类优先级：RMV > 跨网元 > fatal
+        if is_rmv:
+            # RMV 要删的对象查不到 → 提示即可
+            # （可能是 EXP 不全 / 对象在别处 / 现网确实没有）
+            rmv_missing.append(item)
+        elif is_cross:
+            # 跨网元参数：本网元 EXP 查不到是常态 → 提示
+            # 但如果是明显“本网元资源”的编造名（LoopBack999），仍判 fatal
+            is_local_resource = bool(re.match(
+                r'^(LoopBack|Tunnel|giif|gei|eth|NULL|Vlanif)\d',
+                val, re.I))
+            if is_local_resource:
+                dangling.append(item)
+            else:
+                cross_ne.append(item)
+        else:
+            dangling.append(item)
 
     return {
         'ok': not dangling,
         'dangling': dangling[:20],
         'n_dangling': len(dangling),
+        'cross_ne_missing': cross_ne[:10],
+        'n_cross_ne_missing': len(cross_ne),
+        'rmv_missing': rmv_missing[:10],
+        'n_rmv_missing': len(rmv_missing),
         'n_defs_product': len(prod_defs),
         'n_defs_exp': len(exp_defs),
         'n_refs': len(refs),
@@ -1256,6 +1289,18 @@ CROSS_NE_REF_PARAMS = {
     'APNNAME',              # 同上
     'VPNINSTANCE',          # VPN 实例，可能在别的网元（实测 POOL.VPNINSTANCE）
     'VRFNAME',              # VRF 名，可能跨网元
+    'IFNAME',               # 接口名：SRROUTE/GRETUNNEL/IPBINDVPN 里都是引用
+                            #   （接口由 ADD INTERFACE 定义，不在别的族的 ADD 里定义）
+    'SRCIFNAME',            # 源接口名，GRETUNNEL 里引用
+    # ★ 2026-11-06 回归验证补充（69 个基线 case 里剩下的 6 处）
+    'TEMPLATENAME',         # 自动化模板名（AUTOSCALINGBFD.BFDTEMPLATENAME 等）
+    'BFDTEMPLATENAME',      # 同上，带前缀的变体
+    'POLICYNAME',           # 策略名（USERSELPLCY.POLICYNAME）
+    'USERSELPLYNAME',       # 用户选择策略名（RPTPOLICY 引用）
+    'PAUPNFINSTNAME',       # PA-UPF NF 实例名（IMSIBINDUP 里引用）
+    'IMUPNFINSTNAME',       # I-UPF NF 实例名
+    'CCNAME',               # 计费特性名
+    'CCTEMPLATE',           # 计费模板名
 }
 
 # ★ 2026-11-06：自定义协议/应用名（不是系统内置，但也不在 EXP 里 ADD）
@@ -1296,6 +1341,60 @@ def _iter_cmds(mml_text):
             yield ln, v, f, p
 
 
+# ★ 2026-11-06 性能优化：命令解析缓存
+#
+#   问题：同一个 EXP 在一次 guard 里被解析 2-3 遍
+#     · check_refs     → _collect_defs(exp_text)
+#     · check_scale    → parse_mml(exp_text)
+#     · clarify_intent → parse_mml(exp_text)
+#   45MB EXP 每次全量解析约 2s，重复 3 次 = 6s 纯浪费
+#
+#   缓存 key 用 (id(文本对象), len(text))，因为 guard 在单进程内处理，
+#   同一份 exp_text 字符串对象复用同一 id；len 防 id 复用误判。
+_CMDS_CACHE = {}
+_PARSED_CACHE = {}      # parse_mml 结果缓存
+
+
+def _cached_iter_cmds(mml_text):
+    """带缓存的 _iter_cmds（只对 >1MB 的大文本缓存，小文本不缓存省内存）。"""
+    if not mml_text:
+        return []
+    try:
+        size = len(mml_text)
+        if size < 1024 * 1024:
+            return list(_iter_cmds(mml_text))
+        key = (id(mml_text), size)
+        if key in _CMDS_CACHE:
+            return _CMDS_CACHE[key]
+        val = list(_iter_cmds(mml_text))
+        if len(_CMDS_CACHE) >= 6:
+            _CMDS_CACHE.pop(next(iter(_CMDS_CACHE)))
+        _CMDS_CACHE[key] = val
+        return val
+    except Exception:
+        return list(_iter_cmds(mml_text))
+
+
+def _cached_parse_mml(text):
+    """带缓存的 parse_mml（只对 >1MB 大文本缓存）。"""
+    if not text:
+        return []
+    try:
+        size = len(text)
+        if size < 1024 * 1024:
+            return parse_mml(text)
+        key = (id(text), size)
+        if key in _PARSED_CACHE:
+            return _PARSED_CACHE[key]
+        val = parse_mml(text)
+        if len(_PARSED_CACHE) >= 6:
+            _PARSED_CACHE.pop(next(iter(_PARSED_CACHE)))
+        _PARSED_CACHE[key] = val
+        return val
+    except Exception:
+        return parse_mml(text)
+
+
 def _collect_defs(mml_text, only_add=True):
     """收集「定义了哪些对象」。
 
@@ -1321,7 +1420,7 @@ def _collect_defs(mml_text, only_add=True):
     if not mml_text:
         return defs
 
-    for _ln, v, f, p in _iter_cmds(mml_text):
+    for _ln, v, f, p in _cached_iter_cmds(mml_text):
         if only_add and v != 'ADD':
             continue
         if not p:
@@ -1334,18 +1433,41 @@ def _collect_defs(mml_text, only_add=True):
             if val and not is_placeholder(val):
                 defs.add(str(val).upper())
 
-        # 通道 2：首参数天然是主键
-        #   ⚠ 必须排除「纯绑定族」——它们的首参数是别的对象的名字，不是自己定义的。
-        #     实测反例：ADD PROTBINDFLOWF:FLOWFILTERNAME="ff_不存在"
-        #     首参数 FLOWFILTERNAME 会被误当定义，导致「引用不存在的流过滤器」漏判。
-        if not declared:      # declared 为空 = 纯绑定族或未声明族
-            if f in _BINDING_FAMILIES:
-                continue
-        first_key = next(iter(p))
-        first_val = p[first_key]
-        if first_val and not is_placeholder(first_val):
-            if REF_PARAM_SUFFIX.search(first_key) or first_key in declared:
-                defs.add(str(first_val).upper())
+        # 通道 2：ADD 命令里**主键位置**的参数值算定义
+        #
+        #   ★★ 2026-11-06 修正两次：
+        #   第一版只认【首参数】→ 漏收 NTPSVR（主键 SVRNAME 在第 5 位）
+        #   第二版认【全部引用型参数】→ 致命缺陷：
+        #       ADD SRROUTE:VRFNAME="v", ..., IFNAME="LoopBack999"
+        #       IFNAME 也被当定义 → LoopBack999 自引用自己 → 编造对象判通过
+        #
+        #   最终方案：区分「主键参数」和「引用参数」
+        #     · 用 DEFINING_PARAMS 声明的 → 是主键
+        #     · 无声明时，用「该族在 EXP 里定义过哪些名字」反查：
+        #       如果某参数在 EXP 的 ADD 命令里出现过且值互不相同（每个对象一个值），
+        #       那就是主键参数
+        #   简化实现：优先用 DEFINING_PARAMS；未声明的族，只取
+        #   「不在 CROSS_NE_REF_PARAMS / ALWAYS_REF_PARAMS 里」且
+        #   「位于参数列表第一个引用型位置」的参数作为主键。
+        if f in _BINDING_FAMILIES:
+            continue
+
+        # 主键候选：显式声明的优先
+        key_params = list(declared)
+
+        # 未声明时，从参数里挑一个当主键（排除已知的纯引用参数）
+        if not key_params:
+            for k in p:
+                if k in CROSS_NE_REF_PARAMS or k in ALWAYS_REF_PARAMS:
+                    continue
+                if REF_PARAM_SUFFIX.search(k):
+                    key_params = [k]
+                    break
+
+        for k in key_params:
+            val = p.get(k)
+            if val and not is_placeholder(val):
+                defs.add(str(val).upper())
 
     return defs
 
@@ -1534,7 +1656,7 @@ def clarify_intent(intent_text, exp_text='', mml_text=''):
     # 3) 产物里对象名与 EXP 重复 → 不是错误，但要提示
     if mml_text and exp_text:
         exp_names = set()
-        for c in parse_mml(exp_text):
+        for c in _cached_parse_mml(exp_text):
             v, f, p = split_cmd(c)
             for k in ('FILTERNAME', 'HOSTNAME', 'URRNAME', 'URRGROUPNAME',
                       'RULENAME', 'USERPROFILENAME', 'FLOWFILTERNAME'):
@@ -1629,6 +1751,16 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
     if not checks['C2_refs']['ok']:
         n = checks['C2_refs'].get('n_dangling', 0)
         fatal.append(f'C2 引用悬空 {n} 处')
+    # ★ 2026-11-06 第2项：C2 的两类「查不到」降级为提示
+    _c2 = checks['C2_refs']
+    _n_rmv = _c2.get('n_rmv_missing', 0)
+    if _n_rmv:
+        warn.append(f'C2 {_n_rmv} 个要删除的对象在现网 EXP 里查不到'
+                    f'（可能 EXP 上传不全，或对象在别的网元）')
+    _n_cross = _c2.get('n_cross_ne_missing', 0)
+    if _n_cross:
+        warn.append(f'C2 {_n_cross} 个跨网元引用在本网元 EXP 里查不到'
+                    f'（属正常，需在目标网元侧确认）')
     if not checks['G11_unique']['ok']:
         fatal.append(f"G11 主键重复 {checks['G11_unique']['n_duplicates']} 处")
     if not checks['G17_scale']['ok']:
