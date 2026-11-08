@@ -501,7 +501,18 @@ def tool_guard_check(args):
             except Exception:
                 pass
 
-        result = _guard_mod.run_guard(_mml_txt, _exp_txt, _intent_txt)
+        # ★ 2026-11-08 修回归：必须传 session_dir 和 params_csv
+        #   原来只传了 3 个参数 → run_guard 里
+        #     `if session_dir and params_csv:` 不成立
+        #   → G20(规划覆盖) / G21(CSV↔mml 一致性) / G22(占位符) 全部 skipped
+        #   后果：CSV 里有 280 组、agent 只写 15 组，G21 本应报 fatal 却完全没跑。
+        #   实测 86 工单漏配 6324 个对象（49.4%），根因就是这个。
+        _params_csv = d / 'analysis_code' / 'params.csv'
+        result = _guard_mod.run_guard(
+            _mml_txt, _exp_txt, _intent_txt,
+            session_dir=str(d),
+            params_csv=str(_params_csv) if _params_csv.exists() else None,
+        )
         return {
             'verdict': result.get('verdict'),
             'fatal': result.get('fatal') or [],
