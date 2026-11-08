@@ -1866,7 +1866,11 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         #   推断性要求（从"等12项"倒推的族）缺失 → warning
         _missing18 = _g18.get('missing') or []
         if _missing18:
-            fatal.append('G18 意图点名的族缺失: ' + '、'.join(_missing18[:6]))
+            # ★ 2026-11-08 从 fatal 降为 warn（用户裁定）
+            #   原因：意图理解可能有偏差，不配某个族是合理判断，不该阻断。
+            warn.append('G18 意图点名的族在产物里没有: '
+                        + '、'.join(_missing18[:6])
+                        + '（如果是有意不配可忽略；如果遗漏请补充）')
     _g19 = checks.get('G19_source') or {}
     if _g19 and not _g19.get('ok', True):
         for _f in (_g19.get('fatal') or [])[:3]:
@@ -1896,7 +1900,12 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             _no_a = _g21.get('n_only_agent', 0)
             _no_g = _g21.get('n_only_gen', 0)
             if _no_g:
-                fatal.append(
+                # ★ 2026-11-08 从 fatal 降为 warn（用户裁定）
+                #   原因：G21 比的是「agent 自己的 csv」vs「agent 自己的 mml」，
+                #   不一致说明内部有问题，但不代表配置不能用。
+                #   派生算子写错一处就 fatal → 整批回炉 15-20 分钟 → 死循环风险。
+                #   降为 warn 后：提示给用户看，不阻断下发。
+                warn.append(
                     f'G21 params.csv 里的参数没有体现在 mml.txt（{_no_g} 条）：'
                     + '；'.join(_g21.get('only_in_gen', [])[:2]))
             if _no_a:

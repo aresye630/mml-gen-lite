@@ -185,6 +185,11 @@ def apply_ops(value, ops, ctx=None):
 
 
 _INLINE_RE = re.compile(r'\$\{CSV\.([^}]+)\}')
+# 受限脚本：${SCRIPT.列名} <python expr>
+#   显式指定 x 绑定哪个 CSV 列（不猜，避免歧义）
+_SCRIPT_RE = re.compile(r'^\$\{SCRIPT\.([^}]+)\}\s*(.+)$', re.S)
+# 兼容不带列名的旧写法：${SCRIPT} <expr>，此时 x 为空
+_SCRIPT_BARE_RE = re.compile(r'^\$\{SCRIPT\}\s*(.+)$', re.S)
 _SELF_INLINE_RE = re.compile(r'\$\{SELF\}')
 # 值表达式开头的算子链：${CSV.x}|OPS(...)
 _LEADING_REF_RE = re.compile(r'^\$\{CSV\.([^}]+)\}(?:\|(.*))?$', re.S)
@@ -216,6 +221,36 @@ def resolve(expr, ctx):
     expr = (expr or '').strip()
     if not expr:
         return ''
+
+    # 0) 受限脚本：${SCRIPT.列名} <expr>
+    #    ★ 2026-11-08 新增：固定算子写不出来时用
+    #    安全由 safe_expr.safe_eval 保证（AST 白名单 + SafeStr 代理 + 超时）
+    #    x 绑定到 ${SCRIPT.列名} 指定的 CSV 列
+    ms = _SCRIPT_RE.match(expr)
+    if ms:
+        from safe_expr import safe_eval, SecurityError, DeriveError
+        col = ms.group(1).strip()
+        code = ms.group(2).strip()
+        if col not in ctx:
+            raise OpError(f'CSV 里没有列 {col!r}')
+        c2 = dict(ctx)
+        c2['_self'] = ctx[col]
+        try:
+            return safe_eval(code, c2)
+        except SecurityError as e:
+            raise OpError(f'受限脚本不安全: {e}')
+        except DeriveError as e:
+            raise OpError(f'受限脚本执行失败: {e}')
+    # 兼容裸 ${SCRIPT}（x 为空）
+    mb = _SCRIPT_BARE_RE.match(expr)
+    if mb:
+        from safe_expr import safe_eval, SecurityError, DeriveError
+        try:
+            return safe_eval(mb.group(1).strip(), ctx)
+        except SecurityError as e:
+            raise OpError(f'受限脚本不安全: {e}')
+        except DeriveError as e:
+            raise OpError(f'受限脚本执行失败: {e}')
 
     # 1) 整体表达式：${CSV.x}|OPS
     m = _LEADING_REF_RE.match(expr)

@@ -159,6 +159,7 @@ def expand(prod_csv_text, user_csv_text):
     #   item   —— 每行 CSV 是同一对象的子项，组名全实例共用（L7FILTER#1）
     #             item 组只展开一次（用第 1 个实例的上下文），但值可引用其他 instance 组
     out_rows = []
+    failed_rows = []   # 派生失败的行（不进产物，单独返回）
 
     # 先确定每个模板组的粒度
     gran = {}
@@ -264,6 +265,15 @@ def expand(prod_csv_text, user_csv_text):
                     resolved = _resolve_ref(val_expr, inst_idx, local_map)
                     val = resolve(resolved, ctx)
                 except OpError as e:
+                    # ★ 2026-11-08：派生失败的行不进入产物，单独记录
+                    #   不中断整批（用户裁定：不接受一个表达式错就整批判死）
+                    failed_rows.append({
+                        'inst': inst_idx,
+                        'group': actual_g,
+                        'param': r.get('参数', ''),
+                        'expr': (r.get('值', '') or '')[:120],
+                        'error': str(e)[:200],
+                    })
                     errors.append(f'实例{inst_idx} {actual_g}.{r.get("参数","")}: {e}')
                     continue
                 out_rows.append({
@@ -299,6 +309,13 @@ def expand(prod_csv_text, user_csv_text):
                     resolved = _resolve_ref(val_expr, inst_idx, local_map)
                     val = resolve(resolved, ctx)
                 except OpError as e:
+                    failed_rows.append({
+                        'inst': inst_idx,
+                        'group': actual_g,
+                        'param': r.get('参数', ''),
+                        'expr': (r.get('值', '') or '')[:120],
+                        'error': str(e)[:200],
+                    })
                     errors.append(f'子项{inst_idx} {actual_g}.{r.get("参数","")}: {e}')
                     continue
                 out_rows.append({
@@ -363,10 +380,14 @@ def expand(prod_csv_text, user_csv_text):
         'rows': out_rows,
         'csv_text': buf.getvalue(),
         'errors': errors,
+        # ★ 2026-11-08：派生失败的行（不进产物，供 UI 展示让人工确认）
+        'failed_rows': failed_rows,
+        'n_failed_rows': len(failed_rows),
         'stats': {
             'n_instances': len(instances),
             'n_template_groups': len(ordered),
             'n_output_rows': len(out_rows),
+            'n_failed_rows': len(failed_rows),
             'multi_cols': sorted(multi_cols),
         },
     }
