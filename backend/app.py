@@ -44,7 +44,7 @@ import uuid
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form, Body
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
 
 # ═══════════════════════════════════════════════════════════
@@ -850,6 +850,101 @@ async def api_regenerate(sid: str):
 # ═══════════════════════════════════════════════════════════
 # 产物接口
 # ═══════════════════════════════════════════════════════════
+@app.post('/api/v1/sessions/{sid}/expand')
+async def api_expand(sid: str, payload: dict = Body(...)):
+    """模板批量展开：产物 params.csv（模板）+ 用户 CSV（实例清单） → 完整 params.csv。
+
+    ★ 2026-11-08 新增
+    背景：大工单本质是「一套模板 × N 个业务对象」。
+         agent 只写模板，代码按用户 CSV 展开实例。
+
+    payload:
+      user_csv:      用户 CSV 文本（业务清单，不含命令族）
+      write:         是否写回 analysis_code/params.csv（默认 false，只预演）
+      regenerate:    展开后是否自动重新生成 mml（默认 false）
+
+    产物 params.csv 的约定：
+      · 组名带 #T 后缀 → 模板组
+      · 值列写 ${CSV.列名} 或 ${CSV.列名}|算子链 或 ${SCRIPT.列名} 表达式
+      · 「实例化」列指定粒度：object / item / dedup:列名
+    """
+    d = sess_dir(sid)
+    adir = d / 'analysis_code'
+    prod_csv = adir / 'params.csv'
+    if not prod_csv.exists():
+        raise HTTPException(400, '产物 params.csv 不存在，先生成方案')
+
+    user_csv = payload.get('user_csv') or ''
+    if not user_csv.strip():
+        raise HTTPException(400, '缺少 user_csv')
+
+    do_write = bool(payload.get('write'))
+    do_regen = bool(payload.get('regenerate'))
+
+    try:
+        sys.path.insert(0, str(WF_ROOT))
+        import importlib
+        import expander as _ex
+        import derivation as _dv
+        import safe_expr as _se
+        # 热重载：开发期改代码后不用重启服务
+        for _m in (_se, _dv, _ex):
+            importlib.reload(_m)
+        r = _ex.expand(prod_csv.read_text(encoding='utf-8'), user_csv)
+    except Exception as e:
+        raise HTTPException(500, f'展开失败: {type(e).__name__}: {e}')
+
+    resp = {
+        'session_id': sid,
+        'stats': r.get('stats') or {},
+        'errors': r.get('errors') or [],
+        'failed_rows': r.get('failed_rows') or [],
+        'n_failed_rows': r.get('n_failed_rows', 0),
+        'preview': (r.get('csv_text') or '')[:4000],
+        'written': False,
+        'regenerated': False,
+    }
+
+    if do_write:
+        # 备份原模板
+        bak = adir / 'params.template.csv'
+        try:
+            bak.write_text(prod_csv.read_text(encoding='utf-8'), encoding='utf-8')
+            resp['template_backup'] = bak.name
+        except Exception:
+            pass
+        prod_csv.write_text(r.get('csv_text') or '', encoding='utf-8')
+        resp['written'] = True
+
+        if do_regen:
+            try:
+                import mml_gen as _mg
+                importlib.reload(_mg)
+                g = _mg.gen_mml(str(prod_csv))
+                if g.get('errors'):
+                    resp['regen_errors'] = g['errors'][:5]
+                else:
+                    (adir / 'mml.txt').write_text(g['text'], encoding='utf-8')
+                    resp['regenerated'] = True
+                    resp['n_commands'] = g.get('n_commands')
+            except Exception as e:
+                resp['regen_errors'] = [f'{type(e).__name__}: {e}']
+
+    return resp
+
+
+@app.post('/api/v1/sessions/{sid}/expand/rollback')
+async def api_expand_rollback(sid: str):
+    """回滚展开：把 params.template.csv 还原成 params.csv。"""
+    d = sess_dir(sid)
+    adir = d / 'analysis_code'
+    bak = adir / 'params.template.csv'
+    if not bak.exists():
+        raise HTTPException(400, '没有可回滚的模板备份')
+    (adir / 'params.csv').write_text(bak.read_text(encoding='utf-8'), encoding='utf-8')
+    return {'session_id': sid, 'rolled_back': True}
+
+
 @app.get('/api/v1/sessions/{sid}/artifacts')
 def api_list_artifacts(sid: str):
     d = sess_dir(sid)

@@ -301,6 +301,19 @@ body.resizing iframe,body.resizing pre{pointer-events:none}
   #ws{width:260px}
   #empty{margin-top:4vh}
 }
+
+/* ★ 2026-11-08 弹窗样式（批量展开用） */
+.modal-mask{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:900;
+            display:flex;align-items:center;justify-content:center}
+.modal{background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.18);
+       display:flex;flex-direction:column;max-height:88vh}
+.modal-head{display:flex;align-items:center;justify-content:space-between;
+            padding:12px 16px;border-bottom:1px solid var(--border,#e5e7eb);
+            font-size:14px;font-weight:600}
+.modal-body{flex:1;overflow:auto}
+.modal-foot{display:flex;justify-content:flex-end;gap:8px;
+            border-top:1px solid var(--border,#e5e7eb)}
+
 </style>
 </head>
 <body>
@@ -686,7 +699,10 @@ function renderTree(){
       path: a.name,
       preview: () => previewGen(null, a.name),
     })).join('');
-    parts.push(group('② 生成产物', '📦', mainArts.length, items));
+    parts.push(group('② 生成产物', '📦', mainArts.length,
+      items + `<div class="act" style="padding:6px 10px">
+        <button class="btn sm" onclick="openExpand()" title="用模板 + 业务清单批量展开实例">批量展开</button>
+      </div>`));
   } else {
     parts.push(group('② 生成产物', '📦', 0,
       '<div class="empty-hint">还没有产物<br>在右边描述意图开始生成</div>'));
@@ -988,6 +1004,88 @@ async function regenerate(){
     toast(r.executable ? '已生成，可直接下发' : '仍有余项未填');
   } catch(e) {
     toast('重新生成失败：' + e.message);
+  }
+}
+
+/* ★ 批量展开：产物模板 + 用户 CSV（业务清单）→ 完整 params.csv */
+function openExpand(){
+  if (!S.sid) return;
+  const html = `
+    <div class="modal-mask" id="expandMask" onclick="if(event.target.id==='expandMask')closeExpand()">
+      <div class="modal" style="width:720px;max-width:92vw">
+        <div class="modal-head">
+          <span>批量展开</span>
+          <button class="btn sm" onclick="closeExpand()">关闭</button>
+        </div>
+        <div class="modal-body" style="padding:14px">
+          <div style="font-size:12px;color:#666;line-height:1.7;margin-bottom:10px">
+            产物 params.csv 里用 <code>#T</code> 标记的组是模板，
+            值列用 <code>${'$'}{CSV.列名}</code> 引用用户表、用
+            <code>@组#T.参数</code> 做引用。
+            下面粘用户表（每行一个业务对象，一列多值用 <code>;</code> 分隔）：
+          </div>
+          <textarea id="expandCsv" spellcheck="false"
+            style="width:100%;height:260px;font-family:ui-monospace,Menlo,monospace;
+                   font-size:12px;padding:10px;border:1px solid #ddd;border-radius:8px"
+            placeholder="池组名,SMF,区,制式&#10;grp-cmnet-ipv6-smf01,lfsmf01,bcq,2g;4g;5g&#10;..."></textarea>
+          <div id="expandResult" style="margin-top:12px;font-size:12px"></div>
+        </div>
+        <div class="modal-foot" style="padding:10px 14px">
+          <button class="btn sm" onclick="doExpand(false)">预演</button>
+          <button class="btn sm primary" onclick="doExpand(true)">展开并写回</button>
+        </div>
+      </div>
+    </div>`;
+  const d = document.createElement('div');
+  d.innerHTML = html;
+  document.body.appendChild(d.firstElementChild);
+  setTimeout(() => document.getElementById('expandCsv').focus(), 100);
+}
+
+function closeExpand(){
+  const m = document.getElementById('expandMask');
+  if (m) m.remove();
+}
+
+async function doExpand(write){
+  const csv = document.getElementById('expandCsv').value;
+  if (!csv.trim()) { toast('请先粘贴用户表'); return; }
+  const out = document.getElementById('expandResult');
+  out.innerHTML = '<div style="color:#888">处理中…</div>';
+  try {
+    const r = await api('/sessions/' + S.sid + '/expand',
+      {method:'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify({user_csv: csv, write: !!write, regenerate: !!write})});
+    if (r.error) throw new Error(r.error);
+    const st = r.stats || {};
+    let h = `<div style="padding:10px;background:#f6f8fa;border-radius:8px;line-height:1.8">
+      <b>实例 ${st.n_instances || 0} 个</b> · 输出 ${st.n_output_rows || 0} 行
+      ${st.n_failed_rows ? ` · <span style="color:#c00">失败 ${st.n_failed_rows} 行</span>` : ''}
+      ${r.written ? ' · 已写回' : ''}
+      ${r.regenerated ? ` · 已生成 ${r.n_commands || 0} 条命令` : ''}
+    </div>`;
+    if (r.failed_rows && r.failed_rows.length) {
+      h += `<div style="margin-top:8px;color:#c00">派生失败的行（未写入产物，需人工确认）：</div>
+        <div style="max-height:120px;overflow:auto;background:#fff5f5;padding:8px;
+                    border-radius:6px;font-family:ui-monospace,monospace;font-size:11px">
+        ${r.failed_rows.slice(0,20).map(f =>
+          `<div>${esc(f.group)}.${esc(f.param)}: ${esc(f.error)}</div>`).join('')}
+        </div>`;
+    }
+    if (r.regen_errors) {
+      h += `<div style="margin-top:8px;color:#c00">生成失败：${esc(JSON.stringify(r.regen_errors).slice(0,300))}</div>`;
+    }
+    out.innerHTML = h;
+    if (write && r.regenerated) {
+      await refreshSide();
+      toast('已展开并重新生成');
+      setTimeout(closeExpand, 1200);
+    } else {
+      toast('预演完成');
+    }
+  } catch(e) {
+    out.innerHTML = `<div style="color:#c00">失败：${esc(e.message)}</div>`;
   }
 }
 
