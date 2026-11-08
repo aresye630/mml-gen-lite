@@ -456,6 +456,324 @@ def tool_exp_baseline(args):
 # ═══════════════════════════════════════════════════════════
 # MCP 协议（stdio，JSON-RPC 2.0）
 # ═══════════════════════════════════════════════════════════
+
+
+def tool_exp_siblings(args):
+    """发现与指定命令族「配套」的其他族（从现网 EXP 数量共现学）。
+
+    ★ 2026-11-08 新增
+    问题：agent 建 ADD POOL 时不知道还要建 POOLGROUP / POOLBINDGROUP / POOLGRPMAP，
+         导致大工单只配了表层（SECTION），漏掉整条业务链。
+         实测 NC20260824002208：GT 645 条（POOL 97 + POOLGROUP 97 +
+         POOLBINDGROUP 97 + POOLGRPMAP 247 + SECTION 98），
+         产物只配了 SECTION 98 条。
+
+    原理：如果现网里族 A 和族 B 的对象数量接近（比值 ≥ 阈值），
+         说明它们总是成对出现，属于配套关系。
+         实测：ADD POOL ↔ POOLGROUP 0.98、POOL ↔ POOLBINDGROUP 0.99、
+               POOLGROUP ↔ POOLBINDGROUP 0.97
+
+    ★ 不硬编码任何族名，全靠 EXP 统计。
+
+    args:
+      path:       EXP 文件路径（必填）
+      families:   要查的族，如 ["ADD POOL"]；不填则返回全部高共现对
+      min_ratio:  配套判定阈值，默认 0.7
+      min_count:  最小对象数（过滤样本太少的族），默认 20
+
+    returns:
+      {families: {族: {count, siblings: [{family, ratio, count}]}}}
+    """
+    path = args.get('path') or ''
+    fams = args.get('families') or []
+    min_ratio = float(args.get('min_ratio') or 0.7)
+    min_count = int(args.get('min_count') or 20)
+
+    p = Path(path)
+    if not p.exists():
+        return {'error': f'文件不存在: {path}'}
+
+    if isinstance(fams, str):
+        fams = [fams]
+    # 查询参数可能带动词（如 'ADD POOL'），归一化成纯族名
+    def _bare_fam(x):
+        parts = str(x).strip().upper().split()
+        return parts[-1] if parts else ''
+
+    fams = [_bare_fam(f) for f in fams if f and str(f).strip()]
+    fams = [f for f in fams if f]
+
+    text, _, all_cmds = _get_parsed(p)
+
+    # 统计每族 ADD 数量
+    #   cnt 的 key 是纯族名（如 'POOL'），不带动词
+    cnt = Counter()
+    for ln, v, f, params, raw in all_cmds:
+        if v == 'ADD':
+            cnt[f] += 1
+
+    # 过滤样本太少的族（噪音）
+    cand = {f: n for f, n in cnt.items() if n >= min_count}
+
+    # ★ 2026-11-08：加互信息权重，过滤「数量碰巧接近」的假配套
+    #   实测反例：ADD POOL ↔ URR ratio=0.985，但二者毫无业务关系，
+    #   只是现网里 URR 数量和 POOL 数量碰巧接近。
+    #   真配套的特征：A 出现的地方 B 也出现（同一条命令/同一对象内），
+    #   或者 A 和 B 的参数值互相引用。
+    #   这里用「参数值交集」做交叉验证：A 的参数值里有 B 的某个参数值的比例。
+
+    # 收集每族的参数值集合（取样，避免内存爆）
+    fam_vals = defaultdict(set)
+    fam_val_count = Counter()
+    _SAMPLE_PER_FAM = 500
+    for ln, v, f, params, raw in all_cmds:
+        if v != 'ADD':
+            continue
+        if fam_val_count[f] >= _SAMPLE_PER_FAM:
+            continue
+        fam_val_count[f] += 1
+        for _k, _v in params.items():
+            if _v and len(_v) < 200:
+                fam_vals[f].add(_v.upper())
+
+    def value_overlap(a, b):
+        """两族的参数值交集比例（取小的当分母）。"""
+        va, vb = fam_vals.get(a) or set(), fam_vals.get(b) or set()
+        if not va or not vb:
+            return 0.0
+        inter = len(va & vb)
+        return inter / min(len(va), len(vb))
+
+    # ★★ 2026-11-08 最终判据：参数值引用关系（最可靠）
+    #   实测 POOL 的配套族：
+    #     ADD POOLGROUP:POOLGRPNAME="grp-x"
+    #     ADD POOLBINDGROUP:POOLGROUPNAME="grp-x", POOLNAME="pool-y"  ← 引用 POOLGROUP
+    #     ADD SECTION:SECTIONNUM=0, POOLNAME="pool-y"                ← 引用 POOL
+    #   这种「A 的主键值出现在 B 的参数值里」是真实的配置依赖，
+    #   比数量巧合（POOL↔URR 0.985 但毫无关系）可靠得多。
+
+    # 采集每族的主键值（第一个参数值）
+    fam_pks = defaultdict(set)
+    for ln, v, f, params, raw in all_cmds:
+        if v != 'ADD' or not params:
+            continue
+        if len(fam_pks[f]) >= 2000:
+            continue
+        first_val = next(iter(params.values()))
+        if first_val and len(first_val) < 200:
+            fam_pks[f].add(first_val.upper())
+
+    # ★ 2026-11-08 修正：只认「主键值」被引用，不认普通参数值
+    #   反例：POOL 和 SRROUTE6 都有 VPNINSTANCE="ChinaMobile_SGi"，
+    #        于是误判 POOL↔SRROUTE6 配套（GT 里共现 0 次）。
+    #   正确的是：A 的主键值出现在 B 的「主键以外的参数」里，且该参数名带 A 的族名特征。
+    #
+    #   实现：把每族的「非主键参数值」建索引，看 target 的主键值能否在里面找到
+    fam_nonpk_vals = defaultdict(set)
+    for ln, v, f, params, raw in all_cmds:
+        if v != 'ADD' or not params:
+            continue
+        if len(fam_nonpk_vals[f]) >= 5000:
+            continue
+        vals = list(params.values())
+        for _v in vals[1:]:     # 跳过第一个（主键）
+            if _v and len(_v) < 200:
+                fam_nonpk_vals[f].add(_v.upper())
+
+    # ★★ 2026-11-08 终极判据：参数名指向（MML 语法约定）
+    #   MML 里引用别的对象时，参数名就是目标族名 + NAME/NAMES/INSTANCE 后缀：
+    #     ADD POOLBINDGROUP:POOLGROUPNAME="grp-x", POOLNAME="pool-y"
+    #                       ^^^^^^^^^^^^^ 指向 POOLGROUP   ^^^^^^^^ 指向 POOL
+    #     ADD SECTION:SECTIONNUM=0, POOLNAME="pool-y"     ← 指向 POOL
+    #     ADD POOLGRPMAP:MAPPINGNAME="m", APN="a", POOLGROUPNAME="grp-x" ← 指向 POOLGROUP
+    #
+    #   这个判据不受共享值影响（VRF/VPN 名是值相同，但参数名不指向对方族）。
+    #   实测验证：POOL↔SRROUTE6 用值交集会误判 33%，
+    #            用参数名指向则是 0（SRROUTE6 没有 POOLNAME 参数）。
+
+    # 采集每族的参数名集合
+    fam_params = defaultdict(set)
+    for ln, v, f, params, raw in all_cmds:
+        if v != 'ADD':
+            continue
+        for _k in params.keys():
+            fam_params[f].add(_k.upper())
+
+    def param_refs(a, b):
+        """b 里有多少参数名指向 a（如 b 有 POOLNAME/POGROUPNAME 之类）。"""
+        params_b = fam_params.get(b) or set()
+        if not params_b:
+            return 0.0
+        a_up = a.upper()
+        # 目标族名可能带下划线变体：POOL → POOLNAME / POOLNAMES
+        hits = 0
+        for pn in params_b:
+            if pn == a_up or pn.startswith(a_up + 'NAME') or pn.startswith(a_up + 'NAMES'):
+                hits += 1
+            elif pn.startswith(a_up) and pn.endswith(('NAME', 'NAMES', 'INSTANCE', 'INSTANCENAME')):
+                hits += 1
+        return 1.0 if hits else 0.0
+
+    def refs_of(a, b):
+        """保留旧接口（值交集），但只作为辅助判据。"""
+        pks = fam_pks.get(a) or set()
+        vals_b = fam_nonpk_vals.get(b) or set()
+        if not pks or not vals_b:
+            return 0.0
+        inter = len(pks & vals_b)
+        return inter / len(pks)
+
+    def siblings_of(target):
+        """找 target 的配套族。
+
+        判据优先级：
+          1. 引用关系（target 的主键值出现在 other 的参数里，或反之）→ high
+          2. 数量接近 + 参数值有交集 → medium
+          3. 仅数量接近 → low（大概率巧合，如 POOL↔URR）
+        """
+        base_n = cand.get(target, 0)
+        if not base_n:
+            return []
+        out = []
+        for other, other_n in cand.items():
+            if other == target:
+                continue
+            ratio = min(base_n, other_n) / max(base_n, other_n)
+
+            # ★ 2026-11-08：先查参数名引用，再判数量比值
+            #   原因：一对多关系（POOLGROUP 274 ↔ POOLGRPMAP 794，比值 0.34）
+            #        数量差很大，但 POOLGRPMAP 确实用 POOLGROUPNAME 引用 POOLGROUP，
+            #        是必须配套的。所以有引用关系时不看比值。
+            p_out = param_refs(target, other)   # other 有指向 target 的参数名
+            p_in = param_refs(other, target)    # target 有指向 other 的参数名
+
+            # 有引用关系 → 直接采纳（不看比值）
+            # 无引用关系 → 才用比值筛（过滤噪音）
+            if not (p_out or p_in) and ratio < min_ratio:
+                continue
+
+            # 辅助判据
+            r_out = refs_of(target, other)
+            r_in = refs_of(other, target)
+            vo = value_overlap(target, other)
+
+            if p_out or p_in:
+                conf = 'high'
+                who = other if p_out else target
+                who_target = target if p_out else other
+                why = f'{who} 有指向 {who_target} 的参数名（MML 引用关系）'
+            elif (r_out >= 0.3 or r_in >= 0.3) and vo >= 0.3:
+                conf = 'medium'
+                why = f'主键值被引用 {max(r_out, r_in)*100:.0f}% + 参数值交集 {vo*100:.0f}%'
+            elif ratio >= 0.97:
+                conf = 'low'
+                why = '数量接近但无引用关系（可能巧合）'
+            else:
+                continue
+
+            out.append({
+                'family': other,
+                'count': other_n,
+                'ratio': round(ratio, 3),
+                'ref_out': round(r_out, 3),
+                'ref_in': round(r_in, 3),
+                'value_overlap': round(vo, 3),
+                'confidence': conf,
+                'why': why,
+            })
+        _order = {'high': 0, 'medium': 1, 'low': 2}
+        out.sort(key=lambda x: (_order[x['confidence']], -x['ratio']))
+        return out
+
+    def chain_of(target, depth=2):
+        """传递闭包：找 target 的完整业务链。
+
+        A -> B -> C 表示 A 的配置需要 B 配合，B 又需要 C 配合。
+        实测：POOL <- POOLBINDGROUP（引用 POOL）
+              POOLGROUP <- POOLBINDGROUP（引用 POOLGROUP）
+              POOLGROUP <- POOLGRPMAP（引用 POOLGROUP）
+              → 建 POOL 时应该连 POOLGROUP/POOLBINDGROUP/POOLGRPMAP 一起建
+        """
+        direct = siblings_of(target)
+        reached = {target: {'family': target, 'depth': 0, 'confidence': 'self'}}
+        frontier = [(target, 0)]
+
+        for _ in range(depth):
+            nxt = []
+            for node, d in frontier:
+                for sib in siblings_of(node):
+                    f = sib['family']
+                    if f in reached:
+                        continue
+                    # 只传播 high/medium（低置信度不传播，避免噪音扩散）
+                    if sib['confidence'] not in ('high', 'medium'):
+                        continue
+                    reached[f] = {
+                        'family': f,
+                        'depth': d + 1,
+                        'confidence': sib['confidence'],
+                        'via': node,
+                        'ratio': sib['ratio'],
+                        'why': sib['why'],
+                    }
+                    nxt.append((f, d + 1))
+            frontier = nxt
+            if not frontier:
+                break
+
+        return [v for v in reached.values() if v['family'] != target]
+
+    if fams:
+        result = {}
+        for f in fams:
+            n = cnt.get(f, 0)
+            if n == 0:
+                result[f] = {'count': 0, 'siblings': [],
+                             'note': f'现网 EXP 里没有 {f}，无法判断配套关系'}
+                continue
+                # 直接配套（1 跳）
+            sibs = siblings_of(f)
+            # 完整业务链（2 跳闭包）
+            chain = chain_of(f, depth=2)
+            result[f] = {
+                'count': n,
+                'siblings': sibs[:10],
+                'n_siblings': len(sibs),
+                'chain': sorted(chain, key=lambda x: (x['depth'], x['family']))[:20],
+                'n_chain': len(chain),
+            }
+        return {
+            'path': str(p),
+            'min_ratio': min_ratio,
+            'families': result,
+            'hint': ('配套族 = 现网中与目标族对象数量接近的族，'
+                     '通常需要一起配置才能形成完整业务链。'
+                     '建议先用 exp_baseline 看配套族的典型写法。'),
+        }
+
+    # 不填 families：返回全局高共现对（用于一次性看全貌）
+    pairs = []
+    keys = list(cand.keys())
+    for i, a in enumerate(keys):
+        for b in keys[i + 1:]:
+            ra = cand[a]
+            rb = cand[b]
+            ratio = min(ra, rb) / max(ra, rb)
+            if ratio >= 0.95 and min(ra, rb) >= 50:
+                pairs.append({
+                    'a': a, 'b': b,
+                    'count_a': ra, 'count_b': rb,
+                    'ratio': round(ratio, 3),
+                })
+    pairs.sort(key=lambda x: (-x['ratio'], -min(x['count_a'], x['count_b'])))
+    return {
+        'path': str(p),
+        'n_families': len(cand),
+        'strong_pairs': pairs[:60],
+        'note': 'strong_pairs = 数量比值 ≥0.95 的族对（几乎总是成对出现）',
+    }
+
+
 TOOLS = [
     {
         'name': 'exp_detect',
@@ -547,6 +865,32 @@ TOOLS = [
             'required': ['path', 'families'],
         },
     },
+    {
+        'name': 'exp_siblings',
+        'description': (
+            '★ 配置前必查：找出与目标命令族「配套」的其他族。'
+            '原理：现网 EXP 里两个族的对象数量接近（比值>=阈值），'
+            '说明它们总是成对出现，属于配套关系。'
+            '实测：ADD POOL <-> POOLGROUP 0.98、POOL <-> POOLBINDGROUP 0.99。'
+            '典型用途：要建地址池时先查 ADD POOL 的配套族，'
+            '会发现还要建 POOLGROUP / POOLBINDGROUP / POOLGRPMAP，'
+            '避免只配了 SECTION 漏掉整条业务链。'
+            '不填 families 则返回全局高共现族对。'
+        ),
+        'inputSchema': {
+            'type': 'object',
+            'properties': {
+                'path': {'type': 'string', 'description': 'EXP 文件路径'},
+                'families': {
+                    'type': 'array', 'items': {'type': 'string'},
+                    'description': '要查的族，如 ["ADD POOL"]；不填返回全局高共现对',
+                },
+                'min_ratio': {'type': 'number', 'description': '配套判定阈值，默认 0.7'},
+                'min_count': {'type': 'integer', 'description': '过滤样本太少的族，默认 20'},
+            },
+            'required': ['path'],
+        },
+    },
 ]
 
 HANDLERS = {
@@ -555,6 +899,7 @@ HANDLERS = {
     'exp_query': tool_exp_query,
     'exp_refs': tool_exp_refs,
     'exp_baseline': tool_exp_baseline,
+    'exp_siblings': tool_exp_siblings,
 }
 
 
