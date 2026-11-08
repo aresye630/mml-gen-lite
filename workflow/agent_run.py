@@ -161,6 +161,24 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append(intent_text.strip())
     lines.append('')
 
+    # ★ 2026-11-08 新增：操作清单（代码从意图解析）
+    #   实测 10 个有删除意图的工单里 8 个把 RMV 配成了 ADD，
+    #   靠 prompt 说「删除要用 RMV」不可靠，改成把解析结果显式列出。
+    try:
+        import sys as _sys_io
+        _wf = str(Path(__file__).resolve().parent)
+        if _wf not in _sys_io.path:
+            _sys_io.path.insert(0, _wf)
+        from intent_ops import parse_intent_ops, format_ops_text
+        _ops = parse_intent_ops(intent_text)
+        _ops_txt = format_ops_text(_ops)
+        if _ops_txt:
+            lines.append(_ops_txt)
+            lines.append('')
+    except Exception as _e:
+        lines.append(f'（操作清单解析失败: {_e}，请按意图文字自行判断动词）')
+        lines.append('')
+
     # workspace 文件清单
     lines.append('【workspace 文件】')
     if files_info:

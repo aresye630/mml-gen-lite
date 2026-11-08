@@ -1824,6 +1824,29 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         except Exception as e:
             checks['G21_consistency'] = {'ok': True, 'skipped': True,
                                          'reason': f'G21 执行失败: {e}'}
+        # ★ 2026-11-08 新增 G23：ADD 已存在对象检测
+        #   配置生成场景下，ADD 一个 EXP 里已存在的主键通常应改用 MOD。
+        #   用户裁定：不自动改（可能故意覆盖），只提示 + 在 mml 加注释。
+        try:
+            import sys as _sys23
+            _here23 = str(Path(__file__).resolve().parent)
+            if _here23 not in _sys23.path:
+                _sys23.path.insert(0, _here23)
+            from add_existing import check_add_existing
+            checks['G23_add_existing'] = check_add_existing(mml_text, exp_text)
+        except Exception as e:
+            checks['G23_add_existing'] = {'ok': True, 'skipped': True,
+                                          'reason': f'G23 执行失败: {e}'}
+
+        # ★ 2026-11-08 新增 G24：省略说明检测
+        #   配置分析里说「不做/跳过」但方案澄清里没对应的，提示用户。
+        try:
+            from omission_check import check_omission_explained
+            checks['G24_omission'] = check_omission_explained(session_dir)
+        except Exception as e:
+            checks['G24_omission'] = {'ok': True, 'skipped': True,
+                                     'reason': f'G24 执行失败: {e}'}
+
         # ★ G22 占位符一致性
         try:
             import importlib as _il2
@@ -1912,6 +1935,27 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                 warn.append(
                     f'G21 mml.txt 里有些命令在 params.csv 里没有（{_no_a} 条）：'
                     + '；'.join(_g21.get('only_in_agent', [])[:2]))
+
+    # ★ G23 ADD 已存在对象（warn，不阻断）
+    _g23 = checks.get('G23_add_existing') or {}
+    if _g23 and not _g23.get('skipped') and not _g23.get('ok', True):
+        _n23 = _g23.get('n_conflict', 0)
+        _samples = '；'.join(
+            f"{c['family']}:{c['key']}" for c in (_g23.get('conflicts') or [])[:2])
+        warn.append(
+            f"G23 有 {_n23} 条 ADD 了 EXP 已存在的对象（{_samples}）："
+            f"配置生成场景下通常应改用 MOD。如果是有意覆盖可忽略。")
+
+    # ★ G24 省略未说明（warn，不阻断，但要用户看到）
+    _g24 = checks.get('G24_omission') or {}
+    if _g24 and not _g24.get('skipped') and not _g24.get('ok', True):
+        _n24 = _g24.get('n_unexplained', 0)
+        _s24 = (_g24.get('unexplained') or [])[:1]
+        _samp = _s24[0]['sentence'][:60] if _s24 else ''
+        warn.append(
+            f"G24 配置分析里有 {_n24} 处「不做/跳过/代替」但方案澄清里没有说明"
+            f"（如：{_samp}）。如果是有意省略，请在方案澄清里加一条，"
+            f"让用户知道并可以补充要求。")
 
     # ★ G22 占位符一致性
     _g22 = checks.get('G22_placeholder') or {}
