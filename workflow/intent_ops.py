@@ -170,6 +170,11 @@ def format_ops_text(parsed):
         v = op['verb']
         ts = '、'.join(op['targets'][:20])
         lines.append(f"  {v}（{verb_cn.get(v, v)}）: {ts}")
+    lines.append('  ★ 上面这些是【业务描述】，不是 MML 命令族名。')
+    lines.append('    你需要结合 EXP 现网已有对象和知识库，自己判断它们对应哪个命令族。')
+    lines.append('    动词（RMV/ADD/MOD）照上面用，族名由你判断。')
+    lines.append('    不要为了「精确匹配某个族名」反复检索——查 2-3 次仍找不到，')
+    lines.append('    就把该项写进方案澄清，说明「业务名词 X 找不到对应命令族」，不要卡住。')
     lines.append('  ⚠ 动词必须照上面用：删除用 RMV，修改用 MOD，新增用 ADD。')
     if any(o['verb'] == 'ADD_OR_MOD' for o in ops):
         lines.append('  ⚠ 标「新增或修改」的项：先查现网有没有该对象，'

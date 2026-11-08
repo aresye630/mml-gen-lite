@@ -525,15 +525,12 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
             #   **思考文字**也当成了工具调用。实测 c1 只有 16 个真实工具行，
             #   却因为 356 行输出被判「301 次调用」误杀。
             #   现在只对「真正的工具行」（含 ┊ 前缀）计数。
-            _is_tool_line = '┊' in line
-            if not _is_tool_line:
-                continue
-            _tool_cnt['total'] += 1
-
-            # ★★ 2026-11-06 无进展检测
-            #   实测：c4 用例 agent 反复查 EXP 35 次、一个产物都没写，
-            #   工具只花 8.5s 却耗满 905s，只能等时间上限。
-            #   判据：超过 STALL_SECONDS 且产物一个都没写出 → 判卡住。
+            # ★★ 2026-11-08 修复：STALL 检测提到工具行判断之前
+            #   原 bug：检测代码放在 `if not _is_tool_line: continue` 之后，
+            #   agent 如果长时间只「思考」不产生工具行（例如反复纠结
+            #   「业务名词对应哪个命令族」），STALL 永远不触发。
+            #   实测 NC20260820000552 跑了 34 分钟、产物 0 个仍未被杀。
+            #   现在每读到一行就检查一次时间，不依赖工具行。
             if time.time() - t0 > STALL_SECONDS:
                 _adir = Path(workdir) / 'analysis_code'
                 _n_art = 0
@@ -549,6 +546,11 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
                     except Exception:
                         pass
                     break
+
+            _is_tool_line = '┊' in line
+            if not _is_tool_line:
+                continue
+            _tool_cnt['total'] += 1
 
             # 识别动作类型（用于判断 Code↔Guard 交替）
             _act = ''
