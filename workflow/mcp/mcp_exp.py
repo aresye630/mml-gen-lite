@@ -774,6 +774,249 @@ def tool_exp_siblings(args):
     }
 
 
+def _classify_pair(a, b):
+    """尝试用单个算子描述 a -> b。返回 (op_name, args) 或 None。"""
+    if a == b:
+        return ('IDENTITY', [])
+
+    # PREFIX_REPLACE: grp-x -> pool-x
+    ma = re.match(r'^([A-Za-z]+)[-_](.+)$', a)
+    mb = re.match(r'^([A-Za-z]+)[-_](.+)$', b)
+    if ma and mb and ma.group(2) == mb.group(2):
+        return ('PREFIX_REPLACE', [ma.group(1), mb.group(1)])
+
+    # APPEND: sos -> sos_001
+    if b.startswith(a):
+        return ('APPEND', [b[len(a):]])
+
+    # PREPEND: sos -> up_sos
+    if b.endswith(a):
+        return ('PREPEND', [b[:-len(a)]])
+
+    return None
+
+
+def _try_rule_chain(a, b):
+    """尝试用两段算子链描述 a -> b。
+
+    例: grp-sos-smf001-deft -> map-sos-smf001-deft-2g
+        等于 PREFIX_REPLACE(grp,map) + APPEND(-2g)
+    """
+    ma = re.match(r'^([A-Za-z]+)[-_](.+)$', a)
+    if ma:
+        prefix = ma.group(1)
+        rest = ma.group(2)
+        idx = b.find(rest)
+        if idx > 0:
+            new_prefix = b[:idx].rstrip('-_')
+            tail = b[idx + len(rest):]
+            ops = []
+            if new_prefix != prefix:
+                ops.append(('PREFIX_REPLACE', [prefix, new_prefix]))
+            if tail:
+                ops.append(('APPEND', [tail]))
+            if ops:
+                return ops
+
+    if a in b:
+        idx = b.find(a)
+        pre, suf = b[:idx], b[idx + len(a):]
+        ops = []
+        if pre:
+            ops.append(('PREPEND', [pre]))
+        if suf:
+            ops.append(('APPEND', [suf]))
+        if ops:
+            return ops
+
+    return None
+
+
+def _format_ops(ops):
+    """把算子链格式化成模板可用的写法。"""
+    if not ops:
+        return ''
+    parts = []
+    for name, args in ops:
+        if name == 'IDENTITY':
+            return ''
+        parts.append(name + '(' + ','.join(str(x) for x in args) + ')')
+    return '|'.join(parts)
+
+
+def tool_exp_pairs(args):
+    """归纳 A 族到 B 族的命名派生规律（供 agent 写批量模板用）。
+
+    问题：agent 写模板时，需要知道 A 族对象名怎么变成 B 族对象名。
+         只看几个样本容易猜错。
+    做法：找出现网真实配对（B 的参数引用了 A 的主键值），
+         用 derivation 的算子反向试探，归纳规律并给出覆盖率。
+
+    args:
+      path:      EXP 文件路径（必填）
+      family_a:  源族名，如 "POOLGROUP"（也可写 "ADD POOLGROUP"）
+      family_b:  目标族名，如 "POOL"
+      limit:     最多返回多少对样本（默认 10）
+
+    returns:
+      inferred_rules 里每条的 template_suffix 可直接拼进模板：
+        ${CSV.列名}|<template_suffix>
+      coverage 是覆盖率，100% 才可放心用。
+      unmatched 是残留配对（可能需人工确认）。
+    """
+    path = args.get('path') or ''
+    fa = (args.get('family_a') or '').strip().upper()
+    fb = (args.get('family_b') or '').strip().upper()
+    limit = int(args.get('limit') or 10)
+
+    fa = fa.split()[-1] if fa else ''
+    fb = fb.split()[-1] if fb else ''
+
+    if not fa or not fb:
+        return {'error': '需要 family_a 和 family_b'}
+
+    p = Path(path)
+    if not p.exists():
+        return {'error': '文件不存在: ' + path}
+
+    text, _, all_cmds = _get_parsed(p)
+
+    pks_a = set()
+    for ln, v, f, params, raw in all_cmds:
+        if v == 'ADD' and f == fa and params:
+            first = next(iter(params.values()))
+            if first:
+                pks_a.add(first)
+    # 记录 A 的主键参数名（有些族的主键名与族名不同，如 POOLGROUP 的 POOLGRPNAME）
+    pk_names_a = set()
+    for ln, v, f, params, raw in all_cmds:
+        if v == 'ADD' and f == fa and params:
+            pk_names_a.add(next(iter(params.keys())))
+
+    if not pks_a:
+        return {
+            'error': '现网 EXP 里没有 ' + fa + ' 的定义',
+            'family_a': fa, 'family_b': fb, 'n_pairs': 0,
+        }
+
+    pairs = []
+    seen = set()
+    for ln, v, f, params, raw in all_cmds:
+        if v != 'ADD' or f != fb or not params:
+            continue
+        vals = list(params.values())
+        if not vals:
+            continue
+        b_pk = vals[0]
+        # 遍历所有参数找引用（不只 vals[1:]）
+        # 反例：POOLBINDGROUP 的主键就是 POOLGROUPNAME，引用值在 vals[0] 里，
+        #      原来从 vals[1:] 找就永远找不到。
+        for other in vals:
+            if other in pks_a and other != b_pk:
+                key = (other, b_pk)
+                if key not in seen:
+                    seen.add(key)
+                    pairs.append({'a': other, 'b': b_pk, 'line': ln})
+                break
+        if len(pairs) >= 2000:
+            break
+
+    # ★ 2026-11-08：两跳配对
+    #   有些族之间没有直接引用，通过中间族间接关联。
+    #   实测：POOLGROUP 和 POOL 无直接引用，但 POOLBINDGROUP 同时引用了两者：
+    #     ADD POOLBINDGROUP:POOLGROUPNAME="grp-x", POOLNAME="pool-x"
+    #   所以两族可以通过「中间族的两个参数同时命中」配对。
+    matched_via = 'direct'
+    if not pairs:
+        # 找同时引用 A 和 B 的族
+        for bridge_cand in set():
+            pass
+        bridge_hits = []
+        for ln, v, f, params, raw in all_cmds:
+            if v != 'ADD' or not params or f in (fa, fb):
+                continue
+            vals = list(params.values())
+            hit_a = [x for x in vals if x in pks_a]
+            if not hit_a:
+                continue
+            # 该族的这个实例是否也引用了 B 的主键？
+            # 需要先知道 B 的主键全集
+            bridge_hits.append((f, ln, hit_a, vals))
+
+        # 先收集 B 的主键全集
+        pks_b = set()
+        for ln, v, f, params, raw in all_cmds:
+            if v == 'ADD' and f == fb and params:
+                first = next(iter(params.values()))
+                if first:
+                    pks_b.add(first)
+
+        seen = set()
+        for f, ln, hit_a, vals in bridge_hits:
+            hit_b = [x for x in vals if x in pks_b]
+            if hit_b:
+                for ax in hit_a:
+                    for bx in hit_b:
+                        key = (ax, bx)
+                        if key not in seen:
+                            seen.add(key)
+                            pairs.append({'a': ax, 'b': bx, 'line': ln, 'via': f})
+        if pairs:
+            matched_via = 'bridge'
+            bridge_fams = sorted({p['via'] for p in pairs})
+
+    if not pairs:
+        return {
+            'error': fb + ' 里没有引用 ' + fa + ' 主键的实例（含两跳）',
+            'family_a': fa, 'family_b': fb, 'n_pairs': 0,
+            'hint': '先用 exp_siblings 确认两族是否真的配套',
+        }
+
+    rule_counter = Counter()
+    rule_examples = defaultdict(list)
+    unmatched = []
+
+    for pr in pairs:
+        a_val, b_val = pr['a'], pr['b']
+        single = _classify_pair(a_val, b_val)
+        chain = None if single else _try_rule_chain(a_val, b_val)
+
+        ops = [single] if single else chain
+        if ops:
+            expr = _format_ops(ops)
+            rule_counter[expr] += 1
+            if len(rule_examples[expr]) < 3:
+                rule_examples[expr].append(a_val + ' -> ' + b_val)
+        else:
+            if len(unmatched) < 8:
+                unmatched.append({'a': a_val, 'b': b_val})
+
+    total = len(pairs)
+    rules = []
+    for expr, cnt in rule_counter.most_common(10):
+        rules.append({
+            'template_suffix': expr,
+            'coverage': str(cnt) + '/' + str(total),
+            'coverage_pct': round(cnt / total * 100, 1),
+            'examples': rule_examples[expr],
+        })
+
+    return {
+        'family_a': fa,
+        'family_b': fb,
+        'n_pairs': total,
+        'matched_via': matched_via,
+        'inferred_rules': rules,
+        'n_rules': len(rules),
+        'unmatched': unmatched,
+        'n_unmatched': len(unmatched),
+        'usage': ('把 template_suffix 直接拼在模板值的列引用后面：'
+                  '${CSV.<列名>}|<template_suffix>。'
+                  'coverage 100% 才可放心用；unmatched 是残留，可能需人工确认。'),
+        'samples': pairs[:limit],
+    }
+
+
 TOOLS = [
     {
         'name': 'exp_detect',
@@ -891,6 +1134,26 @@ TOOLS = [
             'required': ['path'],
         },
     },
+    {
+        'name': 'exp_pairs',
+        'description': (
+            '归纳 A 族到 B 族的命名派生规律（写批量模板时用）。'
+            '找出本网元现网里真实配对的实例（B 的参数引用了 A 的主键值），'
+            '用固定算子反向试探，返回可直接抄进模板的规则和覆盖率。'
+            '例：exp_pairs(POOLGROUP, POOL) 返回 PREFIX_REPLACE(grp,pool) coverage=97/97。'
+            'coverage 100% 才可放心用；unmatched 里是残留，可能需人工确认。'
+        ),
+        'inputSchema': {
+            'type': 'object',
+            'properties': {
+                'path': {'type': 'string', 'description': 'EXP 文件路径'},
+                'family_a': {'type': 'string', 'description': '源族名，如 POOLGROUP'},
+                'family_b': {'type': 'string', 'description': '目标族名，如 POOL'},
+                'limit': {'type': 'integer', 'description': '返回样本数，默认 10'},
+            },
+            'required': ['path', 'family_a', 'family_b'],
+        },
+    },
 ]
 
 HANDLERS = {
@@ -900,6 +1163,7 @@ HANDLERS = {
     'exp_refs': tool_exp_refs,
     'exp_baseline': tool_exp_baseline,
     'exp_siblings': tool_exp_siblings,
+    'exp_pairs': tool_exp_pairs,
 }
 
 
