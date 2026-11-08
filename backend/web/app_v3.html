@@ -1460,8 +1460,10 @@ async function onTaskDone(state, genId, trace){
   };
 
   // 运行状态（含 guard / 轮次 / 耗时）
-  let runInfo = null;
-  try { runInfo = await api(`/sessions/${S.sid}/run`); } catch(e){}
+  // ★ 2026-11-08 修 bug：这里原来又写了一遍 `let runInfo = null;`
+  //   与函数开头第 1427 行重复声明 → SyntaxError: Identifier 'runInfo' has already been declared
+  //   → 整个 <script> 不执行，页面所有交互失效
+  //   （runInfo 已在函数开头取过，这里直接用）
 
   // 方案澄清
   let clarify = [];
@@ -1496,7 +1498,9 @@ async function onTaskDone(state, genId, trace){
       .map(a => a.name.replace('parts/mml_', '').replace('.txt', ''));
   } catch(e){}
 
-  const lr = (runInfo && runInfo.last_run) || {};
+  // ★ 2026-11-08 修 bug：这里原来又声明了一遍 const lr
+  //   与函数开头第 1429 行重复 → SyntaxError: Identifier 'lr' has already been declared
+  //   （lr 已在函数开头取过，直接用）
   const txt = [];
   txt.push('已生成配置。');
   if (cmds) txt.push(`${cmds} 条命令 / ${fams} 个族`);
