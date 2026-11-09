@@ -1847,6 +1847,17 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             checks['G24_omission'] = {'ok': True, 'skipped': True,
                                      'reason': f'G24 执行失败: {e}'}
 
+        # ★ 2026-11-09 新增 G25：配套族缺失检测
+        #   prompt 说了要查 exp_siblings，实测 agent 调用 0 次。
+        #   改成判据：产物里的族如果有配套族（high 置信度）但一个没配，报警。
+        try:
+            from sibling_check import check_sibling_missing
+            checks['G25_siblings'] = check_sibling_missing(
+                mml_text, exp_text, session_dir)
+        except Exception as e:
+            checks['G25_siblings'] = {'ok': True, 'skipped': True,
+                                     'reason': f'G25 执行失败: {e}'}
+
         # ★ G22 占位符一致性
         try:
             import importlib as _il2
@@ -1958,6 +1969,16 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             f"让用户知道并可以补充要求。")
 
     # ★ G22 占位符一致性
+
+    # ★ G25 配套族缺失（warn，列出该配但没配的族）
+    _g25 = checks.get('G25_siblings') or {}
+    if _g25 and not _g25.get('skipped') and not _g25.get('ok', True):
+        _items = (_g25.get('missing') or [])[:4]
+        _desc = '；'.join(
+            f"{m['family']} 少了 {'/'.join(m['siblings'][:3])}" for m in _items)
+        warn.append(
+            f"G25 有 {_g25.get('n_missing', 0)} 个族的配套族没配（{_desc}）："
+            f"现网里有强配套关系，建议一起配。如果是有意不配，请写进方案澄清。")
     _g22 = checks.get('G22_placeholder') or {}
     if _g22 and not _g22.get('skipped'):
         for _e in (_g22.get('errors') or [])[:3]:
