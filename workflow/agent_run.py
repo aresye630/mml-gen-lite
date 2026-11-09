@@ -61,11 +61,22 @@ def round_hard_limit_for(sess_dir):
         if not csv_p or not csv_p.exists():
             return ROUND_HARD_LIMIT
         n = sum(1 for _ in open(csv_p, encoding='utf-8', errors='replace'))
-        if n > 500:
-            return 1800      # 复杂：>500 行
+        # ★ 2026-11-09 调整：新判据让配置量变大
+        #   同名前缀属性族判据生效后，配 1 个 APN 要写 32 条命令
+        #   （ADD APN + 31 个 SET APNxxx），params.csv 行数暴涨，
+        #   原阈值（>500 → 1800s）不够用。
+        #   实测第三轮全量：
+        #     NC20260824002020  1512s 超 1200s 上限失败
+        #     NC20260907000688  1472s 超 1200s 上限失败
+        #     NC20260909000612  1422s（超了但完成了）
+        #   新阈值：整体上抬一档，避免把「活干多了」误判成死循环。
+        if n > 800:
+            return 2400      # 很复杂：>800 行
+        if n > 300:
+            return 1800      # 复杂：300-800 行
         if n > 100:
-            return 1200      # 中等：100-500 行
-        return ROUND_HARD_LIMIT   # 简单：<100 行
+            return 1500      # 中等：100-300 行
+        return ROUND_HARD_LIMIT   # 简单：<100 行（900s）
     except Exception:
         return ROUND_HARD_LIMIT
 
