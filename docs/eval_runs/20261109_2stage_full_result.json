@@ -1,0 +1,2832 @@
+[
+ {
+  "ticket": "NC20260817001652",
+  "gt_cmds": 0,
+  "gt_fams": 0,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_185629_91bb",
+  "s1_status": "done",
+  "s1_sec": 50.1,
+  "s1_plan_len": 2859,
+  "s1_plan_n": 19,
+  "s1_hit_n": 0,
+  "s1_recall": 0.0,
+  "s1_precision": 0.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 80.1,
+  "s2_prod_n": 0,
+  "s2_hit_n": 0,
+  "s2_fam_rate": 0.0,
+  "s2_prod_cmds": 28,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260804001955",
+  "gt_cmds": 12,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_185629_ff42",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3662,
+  "s1_plan_n": 2,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.5,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 170.2,
+  "s2_prod_n": 5,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 8,
+  "s2_extra_n": 4,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260804001796",
+  "gt_cmds": 44,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_185629_38b6",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 5073,
+  "s1_plan_n": 4,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 200.3,
+  "s2_prod_n": 2,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 42,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260803000378",
+  "gt_cmds": 1,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_190101_b376",
+  "s1_status": "done",
+  "s1_sec": 50.1,
+  "s1_plan_len": 2395,
+  "s1_plan_n": 2,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.5,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 50.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 1,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260808000433",
+  "gt_cmds": 25,
+  "gt_fams": 1,
+  "no_support_fams": 5,
+  "level": "simple",
+  "sid": "20261109_185840_b545",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 4114,
+  "s1_plan_n": 9,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.111,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 13,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260817001781",
+  "gt_cmds": 2,
+  "gt_fams": 0,
+  "no_support_fams": 1,
+  "level": "simple",
+  "sid": "20261109_190241_1e7a",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 8017,
+  "s1_plan_n": 13,
+  "s1_hit_n": 0,
+  "s1_recall": 0.0,
+  "s1_precision": 0.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 280.4,
+  "s2_prod_n": 38,
+  "s2_hit_n": 0,
+  "s2_fam_rate": 0.0,
+  "s2_prod_cmds": 54,
+  "s2_extra_n": 38,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260812000824",
+  "gt_cmds": 52,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_190912_5560",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 4126,
+  "s1_plan_n": 1,
+  "s1_hit_n": 0,
+  "s1_recall": 0.0,
+  "s1_precision": 0.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 170.3,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 52,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260810002261",
+  "gt_cmds": 436,
+  "gt_fams": 30,
+  "no_support_fams": 27,
+  "level": "complex",
+  "sid": "20261109_190030_9c55",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 11462,
+  "s1_plan_n": 37,
+  "s1_hit_n": 24,
+  "s1_recall": 0.923,
+  "s1_precision": 0.649,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 1201.8,
+  "s2_prod_n": 28,
+  "s2_hit_n": 22,
+  "s2_fam_rate": 0.846,
+  "s2_prod_cmds": 36,
+  "s2_extra_n": 6,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "fail"
+   ],
+   [
+    2,
+    "fail"
+   ],
+   [
+    3,
+    "fail"
+   ]
+  ],
+  "s2_fatal": [
+   "C2 引用悬空 2 处"
+  ]
+ },
+ {
+  "ticket": "NC20260806001438",
+  "gt_cmds": 321,
+  "gt_fams": 27,
+  "no_support_fams": 28,
+  "level": "complex",
+  "sid": "20261109_191343_f74d",
+  "s1_status": "done",
+  "s1_sec": 320.5,
+  "s1_plan_len": 10993,
+  "s1_plan_n": 34,
+  "s1_hit_n": 23,
+  "s1_recall": 0.852,
+  "s1_precision": 0.676,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 650.9,
+  "s2_prod_n": 28,
+  "s2_hit_n": 23,
+  "s2_fam_rate": 0.852,
+  "s2_prod_cmds": 185,
+  "s2_extra_n": 5,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260811002706",
+  "gt_cmds": 1164,
+  "gt_fams": 27,
+  "no_support_fams": 32,
+  "level": "complex",
+  "sid": "20261109_185629_41e2",
+  "s1_status": "done",
+  "s1_sec": 220.3,
+  "s1_plan_len": 12096,
+  "s1_plan_n": 44,
+  "s1_hit_n": 25,
+  "s1_recall": 0.926,
+  "s1_precision": 0.568,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 1812.6,
+  "s2_prod_n": 17,
+  "s2_hit_n": 9,
+  "s2_fam_rate": 0.333,
+  "s2_prod_cmds": 21,
+  "s2_extra_n": 8,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260803002122",
+  "gt_cmds": 52,
+  "gt_fams": 16,
+  "no_support_fams": 8,
+  "level": "medium",
+  "sid": "20261109_192253_c0ad",
+  "s1_status": "done",
+  "s1_sec": 220.3,
+  "s1_plan_len": 11869,
+  "s1_plan_n": 25,
+  "s1_hit_n": 15,
+  "s1_recall": 1.0,
+  "s1_precision": 0.6,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 310.4,
+  "s2_prod_n": 48,
+  "s2_hit_n": 15,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 71,
+  "s2_extra_n": 33,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260814000425",
+  "gt_cmds": 1,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_193023_58a6",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3027,
+  "s1_plan_n": 4,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 130.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 21,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260817001454",
+  "gt_cmds": 3,
+  "gt_fams": 1,
+  "no_support_fams": 1,
+  "level": "simple",
+  "sid": "20261109_193144_96dd",
+  "s1_status": "done",
+  "s1_sec": 90.1,
+  "s1_plan_len": 3402,
+  "s1_plan_n": 16,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.062,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 70.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 1,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260805000498",
+  "gt_cmds": 739,
+  "gt_fams": 13,
+  "no_support_fams": 0,
+  "level": "complex",
+  "sid": "20261109_190301_8672",
+  "s1_status": "done",
+  "s1_sec": 160.2,
+  "s1_plan_len": 8738,
+  "s1_plan_n": 13,
+  "s1_hit_n": 13,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 1802.4,
+  "s2_prod_n": 13,
+  "s2_hit_n": 13,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 686,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260811002152",
+  "gt_cmds": 166,
+  "gt_fams": 5,
+  "no_support_fams": 10,
+  "level": "medium",
+  "sid": "20261109_192955_5a99",
+  "s1_status": "done",
+  "s1_sec": 110.1,
+  "s1_plan_len": 5422,
+  "s1_plan_n": 14,
+  "s1_hit_n": 5,
+  "s1_recall": 1.0,
+  "s1_precision": 0.357,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 240.3,
+  "s2_prod_n": 6,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 0.4,
+  "s2_prod_cmds": 1110,
+  "s2_extra_n": 4,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    null
+   ],
+   [
+    3,
+    null
+   ]
+  ],
+  "s2_fatal": [
+   {
+    "code": "MISSING_ARTIFACT",
+    "message": "缺少产物: 配置分析.md"
+   }
+  ]
+ },
+ {
+  "ticket": "NC20260804001027",
+  "gt_cmds": 21,
+  "gt_fams": 11,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_193544_528b",
+  "s1_status": "done",
+  "s1_sec": 60.1,
+  "s1_plan_len": 4992,
+  "s1_plan_n": 10,
+  "s1_hit_n": 10,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 160.2,
+  "s2_prod_n": 10,
+  "s2_hit_n": 10,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 26,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260814000701",
+  "gt_cmds": 30,
+  "gt_fams": 10,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_193425_3371",
+  "s1_status": "done",
+  "s1_sec": 80.1,
+  "s1_plan_len": 6128,
+  "s1_plan_n": 8,
+  "s1_hit_n": 8,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 220.3,
+  "s2_prod_n": 8,
+  "s2_hit_n": 8,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 27,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260803000197",
+  "gt_cmds": 15,
+  "gt_fams": 4,
+  "no_support_fams": 2,
+  "level": "simple",
+  "sid": "20261109_193546_8457",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 5412,
+  "s1_plan_n": 13,
+  "s1_hit_n": 4,
+  "s1_recall": 1.0,
+  "s1_precision": 0.308,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 150.2,
+  "s2_prod_n": 4,
+  "s2_hit_n": 4,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 20,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260805002150",
+  "gt_cmds": 30,
+  "gt_fams": 14,
+  "no_support_fams": 10,
+  "level": "simple",
+  "sid": "20261109_193344_c3f0",
+  "s1_status": "done",
+  "s1_sec": 170.2,
+  "s1_plan_len": 12235,
+  "s1_plan_n": 76,
+  "s1_hit_n": 14,
+  "s1_recall": 1.0,
+  "s1_precision": 0.184,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 300.4,
+  "s2_prod_n": 69,
+  "s2_hit_n": 12,
+  "s2_fam_rate": 0.857,
+  "s2_prod_cmds": 85,
+  "s2_extra_n": 57,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260814001250",
+  "gt_cmds": 16,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_193957_93b2",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 4816,
+  "s1_plan_n": 8,
+  "s1_hit_n": 2,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 160.3,
+  "s2_prod_n": 2,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 4,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260803001614",
+  "gt_cmds": 184,
+  "gt_fams": 14,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_193925_76b5",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 5767,
+  "s1_plan_n": 10,
+  "s1_hit_n": 10,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 410.6,
+  "s2_prod_n": 10,
+  "s2_hit_n": 10,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 130,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260806001514",
+  "gt_cmds": 12,
+  "gt_fams": 5,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_194348_ff44",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 5191,
+  "s1_plan_n": 8,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.375,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 230.3,
+  "s2_prod_n": 3,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 25,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260811001048",
+  "gt_cmds": 261,
+  "gt_fams": 5,
+  "no_support_fams": 0,
+  "level": "complex",
+  "sid": "20261109_193926_9851",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 4948,
+  "s1_plan_n": 1,
+  "s1_hit_n": 0,
+  "s1_recall": 0.0,
+  "s1_precision": 0.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 580.8,
+  "s2_prod_n": 5,
+  "s2_hit_n": 5,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 274,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260812000714",
+  "gt_cmds": 9,
+  "gt_fams": 2,
+  "no_support_fams": 1,
+  "level": "simple",
+  "sid": "20261109_194836_1e56",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 4735,
+  "s1_plan_n": 6,
+  "s1_hit_n": 2,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 290.4,
+  "s2_prod_n": 17,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 114,
+  "s2_extra_n": 15,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260817001844",
+  "gt_cmds": 81,
+  "gt_fams": 8,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_194929_6da7",
+  "s1_status": "done",
+  "s1_sec": 180.3,
+  "s1_plan_len": 7219,
+  "s1_plan_n": 9,
+  "s1_hit_n": 8,
+  "s1_recall": 1.0,
+  "s1_precision": 0.889,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 320.4,
+  "s2_prod_n": 14,
+  "s2_hit_n": 6,
+  "s2_fam_rate": 0.75,
+  "s2_prod_cmds": 320,
+  "s2_extra_n": 8,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    null
+   ],
+   [
+    3,
+    null
+   ]
+  ],
+  "s2_fatal": [
+   {
+    "code": "MISSING_ARTIFACT",
+    "message": "缺少产物: 配置分析.md"
+   }
+  ]
+ },
+ {
+  "ticket": "NC20260828000380",
+  "gt_cmds": 7,
+  "gt_fams": 6,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_195437_56a9",
+  "s1_status": "done",
+  "s1_sec": 90.1,
+  "s1_plan_len": 7775,
+  "s1_plan_n": 10,
+  "s1_hit_n": 6,
+  "s1_recall": 1.0,
+  "s1_precision": 0.6,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.1,
+  "s2_prod_n": 7,
+  "s2_hit_n": 6,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 9,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260901002241",
+  "gt_cmds": 4,
+  "gt_fams": 2,
+  "no_support_fams": 1,
+  "level": "simple",
+  "sid": "20261109_195750_481e",
+  "s1_status": "done",
+  "s1_sec": 90.1,
+  "s1_plan_len": 4705,
+  "s1_plan_n": 8,
+  "s1_hit_n": 2,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 2,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 44,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260831000389",
+  "gt_cmds": 23,
+  "gt_fams": 12,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_195807_eeb2",
+  "s1_status": "done",
+  "s1_sec": 110.1,
+  "s1_plan_len": 9443,
+  "s1_plan_n": 16,
+  "s1_hit_n": 12,
+  "s1_recall": 1.0,
+  "s1_precision": 0.75,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 180.3,
+  "s2_prod_n": 12,
+  "s2_hit_n": 12,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 27,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260806001780",
+  "gt_cmds": 412,
+  "gt_fams": 27,
+  "no_support_fams": 21,
+  "level": "complex",
+  "sid": "20261109_195017_29a4",
+  "s1_status": "done",
+  "s1_sec": 160.2,
+  "s1_plan_len": 12215,
+  "s1_plan_n": 35,
+  "s1_hit_n": 22,
+  "s1_recall": 0.88,
+  "s1_precision": 0.629,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 861.1,
+  "s2_prod_n": 49,
+  "s2_hit_n": 24,
+  "s2_fam_rate": 0.96,
+  "s2_prod_cmds": 347,
+  "s2_extra_n": 25,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    "fail"
+   ],
+   [
+    3,
+    "fail"
+   ]
+  ],
+  "s2_fatal": [
+   "G19 虚假依据：第 31 行标了 @src=exp:L112925，但 EXP 核验失败（line-is-not-APNTRFCDFDSWITCH）",
+   "G19 虚假依据：第 35 行标了 @src=exp:L119293-L119294，但 EXP 核验失败（family-APNPPPACCESS-not-in-range）"
+  ]
+ },
+ {
+  "ticket": "NC20260903002185",
+  "gt_cmds": 90,
+  "gt_fams": 15,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_200719_6d70",
+  "s1_status": "done",
+  "s1_sec": 130.2,
+  "s1_plan_len": 9116,
+  "s1_plan_n": 12,
+  "s1_hit_n": 12,
+  "s1_recall": 0.8,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 290.3,
+  "s2_prod_n": 15,
+  "s2_hit_n": 15,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 81,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260824000430",
+  "gt_cmds": 15,
+  "gt_fams": 3,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_201420_89ae",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3251,
+  "s1_plan_n": 9,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 150.2,
+  "s2_prod_n": 3,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 22,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260824002208",
+  "gt_cmds": 645,
+  "gt_fams": 10,
+  "no_support_fams": 0,
+  "level": "complex",
+  "sid": "20261109_200258_7ac4",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 7718,
+  "s1_plan_n": 8,
+  "s1_hit_n": 7,
+  "s1_recall": 1.0,
+  "s1_precision": 0.875,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 841.0,
+  "s2_prod_n": 4,
+  "s2_hit_n": 4,
+  "s2_fam_rate": 0.571,
+  "s2_prod_cmds": 207,
+  "s2_extra_n": 0,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    null
+   ],
+   [
+    3,
+    null
+   ]
+  ],
+  "s2_fatal": [
+   {
+    "code": "MISSING_ARTIFACT",
+    "message": "缺少产物: 配置分析.md"
+   }
+  ]
+ },
+ {
+  "ticket": "NC20260826001129",
+  "gt_cmds": 3,
+  "gt_fams": 3,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_201801_64ec",
+  "s1_status": "done",
+  "s1_sec": 60.1,
+  "s1_plan_len": 3645,
+  "s1_plan_n": 3,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 90.1,
+  "s2_prod_n": 3,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 9,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260831000131",
+  "gt_cmds": 26,
+  "gt_fams": 12,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_202031_6b81",
+  "s1_status": "done",
+  "s1_sec": 80.1,
+  "s1_plan_len": 6032,
+  "s1_plan_n": 12,
+  "s1_hit_n": 12,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 140.2,
+  "s2_prod_n": 12,
+  "s2_hit_n": 12,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 54,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260819001887",
+  "gt_cmds": 1294,
+  "gt_fams": 5,
+  "no_support_fams": 0,
+  "level": "complex",
+  "sid": "20261109_200121_aab3",
+  "s1_status": "done",
+  "s1_sec": 210.3,
+  "s1_plan_len": 5383,
+  "s1_plan_n": 7,
+  "s1_hit_n": 5,
+  "s1_recall": 1.0,
+  "s1_precision": 0.714,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 1411.6,
+  "s2_prod_n": 6,
+  "s2_hit_n": 5,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 1121,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260824002020",
+  "gt_cmds": 976,
+  "gt_fams": 13,
+  "no_support_fams": 0,
+  "level": "complex",
+  "sid": "20261109_202412_4f01",
+  "s1_status": "done",
+  "s1_sec": 130.1,
+  "s1_plan_len": 7006,
+  "s1_plan_n": 8,
+  "s1_hit_n": 8,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 300.3,
+  "s2_prod_n": 8,
+  "s2_hit_n": 8,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 289,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260827000471",
+  "gt_cmds": 5,
+  "gt_fams": 3,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_202823_d566",
+  "s1_status": "done",
+  "s1_sec": 90.1,
+  "s1_plan_len": 5883,
+  "s1_plan_n": 3,
+  "s1_hit_n": 2,
+  "s1_recall": 0.667,
+  "s1_precision": 0.667,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.1,
+  "s2_prod_n": 2,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 0.667,
+  "s2_prod_cmds": 8,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260810001746",
+  "gt_cmds": 74,
+  "gt_fams": 14,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_194135_3214",
+  "s1_status": "done",
+  "s1_sec": 130.2,
+  "s1_plan_len": 7820,
+  "s1_plan_n": 16,
+  "s1_hit_n": 14,
+  "s1_recall": 1.0,
+  "s1_precision": 0.875,
+  "s1_bad_arts": [],
+  "s2_status": "timeout",
+  "s2_sec": 3003.7,
+  "s2_prod_n": 14,
+  "s2_hit_n": 14,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 82,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260828001294",
+  "gt_cmds": 5,
+  "gt_fams": 3,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_203154_3d36",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3247,
+  "s1_plan_n": 6,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.5,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 100.1,
+  "s2_prod_n": 3,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 15,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260903000972",
+  "gt_cmds": 11,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_203445_a1ae",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 5049,
+  "s1_plan_n": 9,
+  "s1_hit_n": 2,
+  "s1_recall": 1.0,
+  "s1_precision": 0.222,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 220.3,
+  "s2_prod_n": 2,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 0.5,
+  "s2_prod_cmds": 33,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "fail"
+   ],
+   [
+    2,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260828000360",
+  "gt_cmds": 1035,
+  "gt_fams": 26,
+  "no_support_fams": 29,
+  "level": "complex",
+  "sid": "20261109_203123_48a0",
+  "s1_status": "done",
+  "s1_sec": 250.3,
+  "s1_plan_len": 9598,
+  "s1_plan_n": 44,
+  "s1_hit_n": 16,
+  "s1_recall": 0.727,
+  "s1_precision": 0.364,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 300.5,
+  "s2_prod_n": 26,
+  "s2_hit_n": 8,
+  "s2_fam_rate": 0.364,
+  "s2_prod_cmds": 225,
+  "s2_extra_n": 18,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    null
+   ],
+   [
+    3,
+    null
+   ]
+  ],
+  "s2_fatal": [
+   {
+    "code": "MISSING_ARTIFACT",
+    "message": "缺少产物: 配置分析.md"
+   }
+  ]
+ },
+ {
+  "ticket": "NC20260820000552",
+  "gt_cmds": 341,
+  "gt_fams": 1,
+  "no_support_fams": 16,
+  "level": "complex",
+  "sid": "20261109_204016_0bd7",
+  "s1_status": "done",
+  "s1_sec": 150.2,
+  "s1_plan_len": 7631,
+  "s1_plan_n": 19,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.053,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 250.4,
+  "s2_prod_n": 13,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 159,
+  "s2_extra_n": 2,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260823000103",
+  "gt_cmds": 765,
+  "gt_fams": 27,
+  "no_support_fams": 27,
+  "level": "complex",
+  "sid": "20261109_201920_a2b3",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 13752,
+  "s1_plan_n": 42,
+  "s1_hit_n": 25,
+  "s1_recall": 0.926,
+  "s1_precision": 0.595,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 1622.1,
+  "s2_prod_n": 29,
+  "s2_hit_n": 21,
+  "s2_fam_rate": 0.778,
+  "s2_prod_cmds": 302,
+  "s2_extra_n": 8,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    null
+   ],
+   [
+    3,
+    null
+   ]
+  ],
+  "s2_fatal": [
+   {
+    "code": "MISSING_ARTIFACT",
+    "message": "缺少产物: 配置分析.md"
+   }
+  ]
+ },
+ {
+  "ticket": "NC20260818000342",
+  "gt_cmds": 20,
+  "gt_fams": 12,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_204657_baea",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 6373,
+  "s1_plan_n": 12,
+  "s1_hit_n": 12,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 100.1,
+  "s2_prod_n": 12,
+  "s2_hit_n": 12,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 29,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260901001321",
+  "gt_cmds": 160,
+  "gt_fams": 9,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_205018_8b2b",
+  "s1_status": "done",
+  "s1_sec": 90.1,
+  "s1_plan_len": 5671,
+  "s1_plan_n": 11,
+  "s1_hit_n": 8,
+  "s1_recall": 0.889,
+  "s1_precision": 0.727,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 330.5,
+  "s2_prod_n": 8,
+  "s2_hit_n": 8,
+  "s2_fam_rate": 0.889,
+  "s2_prod_cmds": 130,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260825001638",
+  "gt_cmds": 227,
+  "gt_fams": 15,
+  "no_support_fams": 2,
+  "level": "complex",
+  "sid": "20261109_204034_3214",
+  "s1_status": "done",
+  "s1_sec": 160.3,
+  "s1_plan_len": 8564,
+  "s1_plan_n": 20,
+  "s1_hit_n": 15,
+  "s1_recall": 1.0,
+  "s1_precision": 0.75,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 981.4,
+  "s2_prod_n": 15,
+  "s2_hit_n": 13,
+  "s2_fam_rate": 0.867,
+  "s2_prod_cmds": 139,
+  "s2_extra_n": 2,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    "fail"
+   ],
+   [
+    3,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260828001504",
+  "gt_cmds": 12,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_205719_a2a4",
+  "s1_status": "done",
+  "s1_sec": 120.2,
+  "s1_plan_len": 3330,
+  "s1_plan_n": 2,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.5,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 160.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 29,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260821000822",
+  "gt_cmds": 10,
+  "gt_fams": 4,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_205936_7b13",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3387,
+  "s1_plan_n": 2,
+  "s1_hit_n": 2,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 100.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 0.5,
+  "s2_prod_cmds": 25,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260828000409",
+  "gt_cmds": 148,
+  "gt_fams": 30,
+  "no_support_fams": 6,
+  "level": "medium",
+  "sid": "20261109_204843_ef55",
+  "s1_status": "done",
+  "s1_sec": 150.2,
+  "s1_plan_len": 10595,
+  "s1_plan_n": 26,
+  "s1_hit_n": 17,
+  "s1_recall": 1.0,
+  "s1_precision": 0.654,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 791.1,
+  "s2_prod_n": 20,
+  "s2_hit_n": 17,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 127,
+  "s2_extra_n": 3,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    null
+   ],
+   [
+    3,
+    null
+   ]
+  ],
+  "s2_fatal": [
+   {
+    "code": "MISSING_ARTIFACT",
+    "message": "缺少产物: 配置分析.md"
+   }
+  ]
+ },
+ {
+  "ticket": "NC20260902001374",
+  "gt_cmds": 7,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_210227_5f83",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3324,
+  "s1_plan_n": 5,
+  "s1_hit_n": 2,
+  "s1_recall": 1.0,
+  "s1_precision": 0.4,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 80.1,
+  "s2_prod_n": 2,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 7,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260828000371",
+  "gt_cmds": 646,
+  "gt_fams": 13,
+  "no_support_fams": 0,
+  "level": "complex",
+  "sid": "20261109_203349_971f",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 6082,
+  "s1_plan_n": 17,
+  "s1_hit_n": 13,
+  "s1_recall": 1.0,
+  "s1_precision": 0.765,
+  "s1_bad_arts": [],
+  "s2_status": "failed",
+  "s2_sec": 1812.6,
+  "s2_prod_n": 10,
+  "s2_hit_n": 10,
+  "s2_fam_rate": 0.769,
+  "s2_prod_cmds": 646,
+  "s2_extra_n": 0,
+  "s2_has_all": false,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260818001932",
+  "gt_cmds": 2,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_210542_9a52",
+  "s1_status": "done",
+  "s1_sec": 60.1,
+  "s1_plan_len": 2823,
+  "s1_plan_n": 3,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 90.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 20,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260828001156",
+  "gt_cmds": 360,
+  "gt_fams": 10,
+  "no_support_fams": 3,
+  "level": "complex",
+  "sid": "20261109_210200_c93e",
+  "s1_status": "done",
+  "s1_sec": 130.2,
+  "s1_plan_len": 7638,
+  "s1_plan_n": 12,
+  "s1_hit_n": 9,
+  "s1_recall": 1.0,
+  "s1_precision": 0.75,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 260.4,
+  "s2_prod_n": 8,
+  "s2_hit_n": 8,
+  "s2_fam_rate": 0.889,
+  "s2_prod_cmds": 36,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260914002657",
+  "gt_cmds": 2,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_210831_b62e",
+  "s1_status": "done",
+  "s1_sec": 60.1,
+  "s1_plan_len": 3629,
+  "s1_plan_n": 4,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 150.2,
+  "s2_prod_n": 4,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 56,
+  "s2_extra_n": 3,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260909000612",
+  "gt_cmds": 192,
+  "gt_fams": 3,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_211202_d7c3",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3639,
+  "s1_plan_n": 9,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 110.2,
+  "s2_prod_n": 3,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 11,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260820001773",
+  "gt_cmds": 67,
+  "gt_fams": 28,
+  "no_support_fams": 14,
+  "level": "medium",
+  "sid": "20261109_210425_1bc8",
+  "s1_status": "done",
+  "s1_sec": 350.5,
+  "s1_plan_len": 11063,
+  "s1_plan_n": 62,
+  "s1_hit_n": 27,
+  "s1_recall": 1.0,
+  "s1_precision": 0.435,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 330.5,
+  "s2_prod_n": 56,
+  "s2_hit_n": 26,
+  "s2_fam_rate": 0.963,
+  "s2_prod_cmds": 110,
+  "s2_extra_n": 30,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260901002294",
+  "gt_cmds": 98,
+  "gt_fams": 10,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_210813_650a",
+  "s1_status": "done",
+  "s1_sec": 160.2,
+  "s1_plan_len": 7890,
+  "s1_plan_n": 8,
+  "s1_hit_n": 6,
+  "s1_recall": 0.857,
+  "s1_precision": 0.75,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 320.4,
+  "s2_prod_n": 4,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 0.429,
+  "s2_prod_cmds": 11,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260913000170",
+  "gt_cmds": 1,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_211503_76ae",
+  "s1_status": "done",
+  "s1_sec": 60.1,
+  "s1_plan_len": 2629,
+  "s1_plan_n": 3,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 20,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "fail"
+   ],
+   [
+    2,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260826001298",
+  "gt_cmds": 12,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_210458_4cd8",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 3780,
+  "s1_plan_n": 1,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 761.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 577,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "fail"
+   ],
+   [
+    2,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260904002179",
+  "gt_cmds": 1,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_211614_539b",
+  "s1_status": "done",
+  "s1_sec": 50.1,
+  "s1_plan_len": 3513,
+  "s1_plan_n": 6,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.167,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 150.2,
+  "s2_prod_n": 3,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 19,
+  "s2_extra_n": 2,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260904002114",
+  "gt_cmds": 12,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_211804_2a65",
+  "s1_status": "done",
+  "s1_sec": 80.1,
+  "s1_plan_len": 3719,
+  "s1_plan_n": 3,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 70.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 9,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260914002167",
+  "gt_cmds": 17,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_211929_fdb8",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 4098,
+  "s1_plan_n": 2,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.5,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 80.1,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 3,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260911002023",
+  "gt_cmds": 52,
+  "gt_fams": 14,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_211546_2a67",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 8771,
+  "s1_plan_n": 15,
+  "s1_hit_n": 14,
+  "s1_recall": 1.0,
+  "s1_precision": 0.933,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 300.5,
+  "s2_prod_n": 14,
+  "s2_hit_n": 14,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 63,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260911000614",
+  "gt_cmds": 2,
+  "gt_fams": 2,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_212034_4a21",
+  "s1_status": "done",
+  "s1_sec": 80.1,
+  "s1_plan_len": 5324,
+  "s1_plan_n": 8,
+  "s1_hit_n": 1,
+  "s1_recall": 0.5,
+  "s1_precision": 0.125,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 2,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 0.5,
+  "s2_prod_cmds": 14,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260909001068",
+  "gt_cmds": 128,
+  "gt_fams": 11,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_211934_ca90",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 6654,
+  "s1_plan_n": 13,
+  "s1_hit_n": 10,
+  "s1_recall": 0.909,
+  "s1_precision": 0.769,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 310.4,
+  "s2_prod_n": 15,
+  "s2_hit_n": 11,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 101,
+  "s2_extra_n": 4,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260908000841",
+  "gt_cmds": 1,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_212355_e14b",
+  "s1_status": "done",
+  "s1_sec": 90.2,
+  "s1_plan_len": 4383,
+  "s1_plan_n": 3,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.333,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 31,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260911000486",
+  "gt_cmds": 34,
+  "gt_fams": 15,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_212240_3e74",
+  "s1_status": "done",
+  "s1_sec": 60.1,
+  "s1_plan_len": 6094,
+  "s1_plan_n": 15,
+  "s1_hit_n": 13,
+  "s1_recall": 1.0,
+  "s1_precision": 0.867,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 260.4,
+  "s2_prod_n": 13,
+  "s2_hit_n": 12,
+  "s2_fam_rate": 0.923,
+  "s2_prod_cmds": 40,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "fail"
+   ],
+   [
+    2,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260908001994",
+  "gt_cmds": 48,
+  "gt_fams": 1,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_212726_cfe3",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 4624,
+  "s1_plan_n": 5,
+  "s1_hit_n": 1,
+  "s1_recall": 1.0,
+  "s1_precision": 0.2,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 100.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 28,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260909002012",
+  "gt_cmds": 33,
+  "gt_fams": 5,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_212705_9c72",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 5342,
+  "s1_plan_n": 8,
+  "s1_hit_n": 5,
+  "s1_recall": 1.0,
+  "s1_precision": 0.625,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 280.4,
+  "s2_prod_n": 5,
+  "s2_hit_n": 5,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 56,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260915001368",
+  "gt_cmds": 45,
+  "gt_fams": 4,
+  "no_support_fams": 5,
+  "level": "simple",
+  "sid": "20261109_212801_18c3",
+  "s1_status": "done",
+  "s1_sec": 160.2,
+  "s1_plan_len": 4949,
+  "s1_plan_n": 12,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 340.5,
+  "s2_prod_n": 6,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 151,
+  "s2_extra_n": 3,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260907000242",
+  "gt_cmds": 30,
+  "gt_fams": 12,
+  "no_support_fams": 4,
+  "level": "simple",
+  "sid": "20261109_213046_0355",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 7658,
+  "s1_plan_n": 25,
+  "s1_hit_n": 12,
+  "s1_recall": 1.0,
+  "s1_precision": 0.48,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 230.3,
+  "s2_prod_n": 14,
+  "s2_hit_n": 12,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 25,
+  "s2_extra_n": 2,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260917001992",
+  "gt_cmds": 37,
+  "gt_fams": 6,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_213327_b993",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 4708,
+  "s1_plan_n": 7,
+  "s1_hit_n": 4,
+  "s1_recall": 1.0,
+  "s1_precision": 0.571,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 160.2,
+  "s2_prod_n": 5,
+  "s2_hit_n": 4,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 58,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260911001671",
+  "gt_cmds": 2,
+  "gt_fams": 0,
+  "no_support_fams": 2,
+  "level": "simple",
+  "sid": "20261109_213622_0232",
+  "s1_status": "done",
+  "s1_sec": 180.3,
+  "s1_plan_len": 4726,
+  "s1_plan_n": 7,
+  "s1_hit_n": 0,
+  "s1_recall": 0.0,
+  "s1_precision": 0.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 110.2,
+  "s2_prod_n": 1,
+  "s2_hit_n": 0,
+  "s2_fam_rate": 0.0,
+  "s2_prod_cmds": 28,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260916001600",
+  "gt_cmds": 12,
+  "gt_fams": 5,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_213748_90a9",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 5078,
+  "s1_plan_n": 5,
+  "s1_hit_n": 5,
+  "s1_recall": 1.0,
+  "s1_precision": 1.0,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 5,
+  "s2_hit_n": 5,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 15,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260907000688",
+  "gt_cmds": 209,
+  "gt_fams": 9,
+  "no_support_fams": 3,
+  "level": "complex",
+  "sid": "20261109_213657_8762",
+  "s1_status": "done",
+  "s1_sec": 130.2,
+  "s1_plan_len": 7911,
+  "s1_plan_n": 20,
+  "s1_hit_n": 9,
+  "s1_recall": 1.0,
+  "s1_precision": 0.45,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 470.7,
+  "s2_prod_n": 12,
+  "s2_hit_n": 9,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 278,
+  "s2_extra_n": 3,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    null
+   ],
+   [
+    2,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260917001603",
+  "gt_cmds": 8,
+  "gt_fams": 5,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_214208_1743",
+  "s1_status": "done",
+  "s1_sec": 80.1,
+  "s1_plan_len": 4216,
+  "s1_plan_n": 5,
+  "s1_hit_n": 4,
+  "s1_recall": 1.0,
+  "s1_precision": 0.8,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 240.3,
+  "s2_prod_n": 5,
+  "s2_hit_n": 4,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 18,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "fail"
+   ],
+   [
+    2,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260920001139",
+  "gt_cmds": 6,
+  "gt_fams": 3,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_214658_c630",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 7620,
+  "s1_plan_n": 13,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.231,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 120.2,
+  "s2_prod_n": 3,
+  "s2_hit_n": 2,
+  "s2_fam_rate": 0.667,
+  "s2_prod_cmds": 9,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260917001054",
+  "gt_cmds": 31,
+  "gt_fams": 15,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_214729_240f",
+  "s1_status": "done",
+  "s1_sec": 100.2,
+  "s1_plan_len": 7998,
+  "s1_plan_n": 17,
+  "s1_hit_n": 13,
+  "s1_recall": 1.0,
+  "s1_precision": 0.765,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 170.3,
+  "s2_prod_n": 14,
+  "s2_hit_n": 13,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 34,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260909000645",
+  "gt_cmds": 128,
+  "gt_fams": 11,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_214113_ddbd",
+  "s1_status": "done",
+  "s1_sec": 100.1,
+  "s1_plan_len": 7686,
+  "s1_plan_n": 14,
+  "s1_hit_n": 11,
+  "s1_recall": 1.0,
+  "s1_precision": 0.786,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 550.8,
+  "s2_prod_n": 11,
+  "s2_hit_n": 11,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 65,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260908001586",
+  "gt_cmds": 23,
+  "gt_fams": 9,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_215049_cd85",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 7928,
+  "s1_plan_n": 13,
+  "s1_hit_n": 8,
+  "s1_recall": 1.0,
+  "s1_precision": 0.615,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 210.3,
+  "s2_prod_n": 15,
+  "s2_hit_n": 8,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 47,
+  "s2_extra_n": 7,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260913000295",
+  "gt_cmds": 7,
+  "gt_fams": 4,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_215200_6e9a",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 4718,
+  "s1_plan_n": 6,
+  "s1_hit_n": 4,
+  "s1_recall": 1.0,
+  "s1_precision": 0.667,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 210.3,
+  "s2_prod_n": 4,
+  "s2_hit_n": 4,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 60,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260911000610",
+  "gt_cmds": 323,
+  "gt_fams": 5,
+  "no_support_fams": 6,
+  "level": "complex",
+  "sid": "20261109_215205_925e",
+  "s1_status": "done",
+  "s1_sec": 250.3,
+  "s1_plan_len": 6762,
+  "s1_plan_n": 11,
+  "s1_hit_n": 1,
+  "s1_recall": 0.2,
+  "s1_precision": 0.091,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 300.5,
+  "s2_prod_n": 8,
+  "s2_hit_n": 1,
+  "s2_fam_rate": 0.2,
+  "s2_prod_cmds": 60,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260907001683",
+  "gt_cmds": 50,
+  "gt_fams": 3,
+  "no_support_fams": 3,
+  "level": "medium",
+  "sid": "20261109_215640_5509",
+  "s1_status": "done",
+  "s1_sec": 140.2,
+  "s1_plan_len": 5238,
+  "s1_plan_n": 12,
+  "s1_hit_n": 3,
+  "s1_recall": 1.0,
+  "s1_precision": 0.25,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 140.2,
+  "s2_prod_n": 3,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 6,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260911001996",
+  "gt_cmds": 58,
+  "gt_fams": 10,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_215641_5d2c",
+  "s1_status": "done",
+  "s1_sec": 90.1,
+  "s1_plan_len": 5572,
+  "s1_plan_n": 9,
+  "s1_hit_n": 5,
+  "s1_recall": 0.5,
+  "s1_precision": 0.556,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 270.4,
+  "s2_prod_n": 4,
+  "s2_hit_n": 3,
+  "s2_fam_rate": 0.3,
+  "s2_prod_cmds": 37,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260907002110",
+  "gt_cmds": 19,
+  "gt_fams": 8,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_220121_4a6b",
+  "s1_status": "done",
+  "s1_sec": 70.1,
+  "s1_plan_len": 3126,
+  "s1_plan_n": 36,
+  "s1_hit_n": 2,
+  "s1_recall": 0.5,
+  "s1_precision": 0.056,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 60.1,
+  "s2_prod_n": 0,
+  "s2_hit_n": 0,
+  "s2_fam_rate": 0.0,
+  "s2_prod_cmds": 11,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "pass"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260921001905",
+  "gt_cmds": 41,
+  "gt_fams": 9,
+  "no_support_fams": 0,
+  "level": "simple",
+  "sid": "20261109_220116_f671",
+  "s1_status": "done",
+  "s1_sec": 80.1,
+  "s1_plan_len": 5497,
+  "s1_plan_n": 9,
+  "s1_hit_n": 7,
+  "s1_recall": 1.0,
+  "s1_precision": 0.778,
+  "s1_bad_arts": [],
+  "s2_status": "done",
+  "s2_sec": 140.2,
+  "s2_prod_n": 6,
+  "s2_hit_n": 5,
+  "s2_fam_rate": 0.714,
+  "s2_prod_cmds": 21,
+  "s2_extra_n": 1,
+  "s2_has_all": true,
+  "s2_rounds": [
+   [
+    1,
+    "warn"
+   ]
+  ],
+  "s2_fatal": []
+ },
+ {
+  "ticket": "NC20260908000848",
+  "gt_cmds": 73,
+  "gt_fams": 32,
+  "no_support_fams": 0,
+  "level": "medium",
+  "sid": "20261109_212307_b051",
+  "s1_status": "done",
+  "s1_sec": 110.2,
+  "s1_plan_len": 10624,
+  "s1_plan_n": 30,
+  "s1_hit_n": 23,
+  "s1_recall": 0.767,
+  "s1_precision": 0.767,
+  "s1_bad_arts": [],
+  "s2_status": "timeout",
+  "s2_sec": 3004.5,
+  "s2_prod_n": 30,
+  "s2_hit_n": 30,
+  "s2_fam_rate": 1.0,
+  "s2_prod_cmds": 66,
+  "s2_extra_n": 0,
+  "s2_has_all": true,
+  "s2_rounds": [],
+  "s2_fatal": []
+ }
+]
