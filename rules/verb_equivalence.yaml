@@ -1,0 +1,15 @@
+# 动词等价组（评估口径）
+#
+# 用途：评估判断「族是否命中」时，把等价的动词视为同一个。
+# 用户裁定（2026-11-09）：{ADD, MOD, SET} 等价，RMV 独立。
+#
+# 理由：ADD 字段多能一次配全，MOD 限制多只能改部分字段，
+#      用户习惯用 ADD；CSV 与 EXP 对不上时只能用 ADD。
+#      只要族名对、对象对、参数能覆盖，ADD/MOD/SET 就算同一个动作。
+#      RMV 与它们是相反操作，不能等价。
+
+equivalence_groups:
+  - [ADD, MOD, SET]
+
+independent_verbs:
+  - RMV

@@ -508,12 +508,25 @@ def tool_exp_siblings(args):
     # 统计每族 ADD 数量
     #   cnt 的 key 是纯族名（如 'POOL'），不带动词
     cnt = Counter()
+    # ★ 2026-11-09：SET/MOD 族单独统计
+    #   问题：ADD APN 615 条，配套的 SET APNxxx 31 个族各 615 条，
+    #        但 SET 族完全不在 ADD 的 cnt 里，
+    #        siblings_of 遍历 cand 时看不见它们，
+    #        导致 agent 只配 ADD APN 主体、漏掉 31 个属性命令。
+    #   修法：SET/MOD 族也纳入候选池（分开统计，配对时按族名匹配）。
+    cnt_set = Counter()
     for ln, v, f, params, raw in all_cmds:
         if v == 'ADD':
             cnt[f] += 1
+        elif v in ('SET', 'MOD'):
+            cnt_set[f] += 1
 
     # 过滤样本太少的族（噪音）
     cand = {f: n for f, n in cnt.items() if n >= min_count}
+    # SET/MOD 族并入候选池（用 add 计数为 0 的键占位，后续按名词前缀配对）
+    for f, n in cnt_set.items():
+        if n >= min_count and f not in cand:
+            cand[f] = n
 
     # ★ 2026-11-08：加互信息权重，过滤「数量碰巧接近」的假配套
     #   实测反例：ADD POOL ↔ URR ratio=0.985，但二者毫无业务关系，
@@ -657,11 +670,31 @@ def tool_exp_siblings(args):
             r_in = refs_of(other, target)
             vo = value_overlap(target, other)
 
+            # ★ 2026-11-09：同名前缀属性族判据（用户裁定 ratio >= 0.9）
+            #   场景：ADD APN 615 条，SET APNxxx 31 个族各 615 条，ratio=1.00。
+            #   这些 SET 族没有指向 APN 的参数名（它们自己就是 APN 的属性命令），
+            #   「参数名指向」判据完全看不见，导致 agent 只配 ADD APN 主体，
+            #   漏掉 31 个属性命令（实测三个大工单缺 35-51 族全是这类）。
+            #   判据：属性族名前缀 == 目标族名 且 数量比值 >= 0.9。
+            _prop_of = None
+            # 情况 A：other 是 target 的前缀扩展（ADD APN → SET APNxxx）
+            if (other != target and other.startswith(target)
+                    and len(other) > len(target) and ratio >= 0.9):
+                _prop_of = target
+            # 情况 B：target 是 other 的前缀扩展（查 SET APNxxx 时反查 ADD APN）
+            elif (target != other and target.startswith(other)
+                    and len(target) > len(other) and ratio >= 0.9):
+                _prop_of = other
+
             if p_out or p_in:
                 conf = 'high'
                 who = other if p_out else target
                 who_target = target if p_out else other
                 why = f'{who} 有指向 {who_target} 的参数名（MML 引用关系）'
+            elif _prop_of:
+                conf = 'high'
+                why = (f'{other} 是 {_prop_of} 的同名前缀属性族'
+                       f'（数量比值 {ratio:.2f} ≥ 0.9，通常是同一对象的属性命令）')
             elif (r_out >= 0.3 or r_in >= 0.3) and vo >= 0.3:
                 conf = 'medium'
                 why = f'主键值被引用 {max(r_out, r_in)*100:.0f}% + 参数值交集 {vo*100:.0f}%'
@@ -1112,12 +1145,15 @@ TOOLS = [
         'name': 'exp_siblings',
         'description': (
             '★ 配置前必查：找出与目标命令族「配套」的其他族。'
-            '原理：现网 EXP 里两个族的对象数量接近（比值>=阈值），'
-            '说明它们总是成对出现，属于配套关系。'
-            '实测：ADD POOL <-> POOLGROUP 0.98、POOL <-> POOLBINDGROUP 0.99。'
-            '典型用途：要建地址池时先查 ADD POOL 的配套族，'
-            '会发现还要建 POOLGROUP / POOLBINDGROUP / POOLGRPMAP，'
-            '避免只配了 SECTION 漏掉整条业务链。'
+            '三种判据：'
+            '(1) 参数名指向：B 族有指向 A 族的参数名（如 POOLBINDGROUP 的 POOLNAME）；'
+            '(2) 同名前缀属性族：SET <A>xxx 与 ADD <A> 前缀相同且数量 1:1，'
+            '    这类是同一对象的属性命令，必须一起配'
+            '    （实测 ADD APN 615 条对应 31 个 SET APNxxx 各 615 条，'
+            '     此前「参数名指向」判据完全看不见，导致大面积漏配）；'
+            '(3) 数量接近 + 参数值交集（辅助）。'
+            '典型用途：要配 APN 时查 ADD APN，会返回 31 个属性族；'
+            '要建地址池时查 ADD POOL，会返回 POOLGROUP/POOLBINDGROUP/POOLGRPMAP。'
             '不填 families 则返回全局高共现族对。'
         ),
         'inputSchema': {
