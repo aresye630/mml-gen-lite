@@ -984,16 +984,23 @@ def tool_exp_pairs(args):
                 if first:
                     pks_b.add(first)
 
+        # ★ 2026-11-09 修复跨积 bug：中间族的**一条实例**只产生**一个**配对。
+        #   原实现对同一条 POOLBINDGROUP 里的所有 A 值和所有 B 值做笛卡尔积，
+        #   实测产生大量错误配对：
+        #     POOLBINDGROUP:POOLGROUPNAME="5gcuiot_group", POOLNAME="scuiot_pool_ipv4"
+        #     → 5gcuiot_group → scuiot_pool_ipv4   （名字毫无关系）
+        #     → 5gscuiot_group → scuiot_pool_ipv4
+        #     → cuiot_group → scuiot_pool_ipv4     （多对一，全是错的）
+        #   正确做法：一条实例只取「第一个 A 值」和「第一个 B 值」配对。
         seen = set()
         for f, ln, hit_a, vals in bridge_hits:
             hit_b = [x for x in vals if x in pks_b]
-            if hit_b:
-                for ax in hit_a:
-                    for bx in hit_b:
-                        key = (ax, bx)
-                        if key not in seen:
-                            seen.add(key)
-                            pairs.append({'a': ax, 'b': bx, 'line': ln, 'via': f})
+            if hit_a and hit_b:
+                ax, bx = hit_a[0], hit_b[0]
+                key = (ax, bx)
+                if key not in seen:
+                    seen.add(key)
+                    pairs.append({'a': ax, 'b': bx, 'line': ln, 'via': f})
         if pairs:
             matched_via = 'bridge'
             bridge_fams = sorted({p['via'] for p in pairs})
