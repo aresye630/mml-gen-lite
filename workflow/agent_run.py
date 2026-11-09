@@ -159,8 +159,13 @@ _SID_PATTERNS = [
 # ═══════════════════════════════════════════════════════════
 # prompt 构造
 # ═══════════════════════════════════════════════════════════
-def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=None):
-    """构造首轮 prompt。"""
+def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=None,
+                 stage='fill'):
+    """构造首轮 prompt。
+
+    stage='plan'  只做命令族规划（产物只有 命令族规划.md + 方案澄清.json）
+    stage='fill'  按已有规划填充配置
+    """
     lines = []
     lines.append('你是 5G 核心网 MML 配置专家。')
     lines.append('')
@@ -177,6 +182,66 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     #        再套一层 verb 解析会重复且可能冲突（意图写「调整」被解析成 ADD_OR_MOD）。
     #        旧机制是为「意图只有业务名词」的场景设计的（如【新增/修改】- 地址池），
     #        新意图不再有这个问题。
+
+    # ★ 2026-11-09 两阶段生成：阶段专属说明
+    if stage == 'plan':
+        lines.append('【★ 本轮只做命令族规划，不写配置】')
+        lines.append('  你的唯一产物是 analysis_code/命令族规划.md。')
+        lines.append('  禁止写 mml.txt / params.csv / 配置分析.md（写了会被拒绝）。')
+        lines.append('')
+        lines.append('  规划要做的事：')
+        lines.append('  1. 数据清单里每个表 → 判断对应哪类业务对象 → 选命令族')
+        lines.append('  2. 用 exp_query 查该族在现网有多少条、对象名是什么')
+        lines.append('  3. 现网已有 → MOD；现网无 → ADD；要删除 → RMV')
+        lines.append('  4. 用 exp_siblings 查配套族，列出来一起配')
+        lines.append('  5. 数据清单有多少行，规划的对象数量就必须是多少')
+        lines.append('')
+        lines.append('  规划表格式（必须完全按这个结构）：')
+        lines.append('    # 命令族规划')
+        lines.append('')
+        lines.append('    ## 总览')
+        lines.append('    | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |')
+        lines.append('    |---|---|---|---|---|---|---|---|---|')
+        lines.append('    | 1 | 地址池清单 | 地址池 | 190 | 190 | MOD POOL | 修改 | 现网同池名190条 | 确认 |')
+        lines.append('')
+        lines.append('    ## 配套关系')
+        lines.append('    | 主族 | 配套族 | 置信度 | 是否需要 | 说明 |')
+        lines.append('    |---|---|---|---|---|')
+        lines.append('')
+        lines.append('    ## 不确定项')
+        lines.append('    ## 待人工确认')
+        lines.append('')
+        lines.append('  ★ 状态列取值：确认 / 待定 / 跳过')
+        lines.append('  ★ 拿不准的族写到「不确定项」，不要硬凑')
+        lines.append('')
+        lines.append('  ⚠⚠ 严禁写配置：')
+        lines.append('    · 不要调 artifact_write 写 mml.txt / params.csv / 配置分析.md')
+        lines.append('      （会被拒绝，且浪费轮次）')
+        lines.append('    · 也不要用 execute_code / terminal 的 open() 直接写文件到')
+        lines.append('      analysis_code/ —— 阶段1 只产出规划，配置留到阶段2')
+        lines.append('    · 如果发现自己在写 MML 命令，说明超范围了，立刻停手只写规划表')
+        lines.append('')
+    elif stage == 'fill':
+        # 阶段2：把规划表全文注入（从文件读，不截断）
+        _plan_txt = ''
+        if workdir:
+            _pf = Path(workdir) / 'analysis_code' / '命令族规划.md'
+            if _pf.exists():
+                _plan_txt = _pf.read_text(encoding='utf-8', errors='replace')
+        if _plan_txt:
+            lines.append('【★ 已确认的命令族规划（必须严格按此执行）】')
+            lines.append(_plan_txt[:12000])
+            lines.append('')
+            lines.append('  ★ 执行规则：')
+            lines.append('    · 状态=确认 或 ★人工调整 的，必须配')
+            lines.append('    · 状态=跳过的，不配')
+            lines.append('    · 状态=待定的，写进方案澄清，不要擅自决定')
+            lines.append('    · 对象数量严格按规划表，不要多配也不要少配')
+            lines.append('    · 不要在规划之外增加命令族；认为规划有问题就写澄清，不要自己改')
+            lines.append('')
+        else:
+            lines.append('⚠ 警告：找不到 命令族规划.md，请按意图自行判断（不推荐）')
+            lines.append('')
 
     # ★ 2026-11-09 新增：数据清单用法说明
     #   客户上传的业务数据表（IP 列表 / 名称清单 / 规划表），
@@ -259,6 +324,15 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  5. artifact_write 写产物')
     lines.append('  6. guard_check 自检；有 fatal 自己修完再检')
     lines.append('')
+
+    if stage == 'plan':
+        lines.append('【产物要求】阶段1（规划）只写这一个文件：')
+        lines.append('  1. 命令族规划.md  按上面的格式写命令族规划表')
+        lines.append('  2. 方案澄清.json  （可选）规划阶段拿不准的写这里')
+        lines.append('')
+        lines.append('  ★ 不要写 mml.txt / params.csv / 配置分析.md')
+        lines.append('')
+        return '\n'.join(lines)
 
     lines.append('【产物要求】写到 analysis_code/，一共这几个文件：')
     lines.append('  1. mml.txt        可执行 MML。按 Phase 分注释；引用必须闭合（后引用的对象必须先定义）')
@@ -505,6 +579,14 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
     """
     env = dict(os.environ)
     env['HERMES_SKIP_NODE_BOOTSTRAP'] = '1'
+    # ★ 2026-11-09 两阶段：把 stage 传给 MCP 工具
+    #   env 方式不可靠：MCP server 由 hermes 按 config.yaml 启动，
+    #   不继承这里的环境变量（config 里 mcp_servers.io 无 env 字段）。
+    #   → 真正生效的是 <session>/.agent/stage 文件（在 run_agent 开头写）。
+    try:
+        env['AGENT_STAGE'] = str(stage or 'fill')
+    except Exception:
+        pass
     t0 = time.time()
 
     cmd = ['hermes', 'chat', '-q', prompt, '--yolo', '--pass-session-id']
@@ -786,11 +868,19 @@ def _latest_session_id():
 # ═══════════════════════════════════════════════════════════
 # guard
 # ═══════════════════════════════════════════════════════════
-def run_guard(sess_dir, exp_path='', intent_path=''):
+def run_guard(sess_dir, exp_path='', intent_path='', stage='fill'):
     """
     ★ exp_path 支持多个：用 ; 分隔，内部转成 --exp-multi
     """
-    """跑 guard，返回结构化结果。"""
+    """跑 guard，返回结构化结果。
+
+    ★ 2026-11-09 两阶段：stage='plan' 时不跑 guard
+      （阶段1 没有 mml.txt，跑 guard 只会报 NO_MML，导致 agent 死循环改产物）
+    """
+    if stage == 'plan':
+        return {'verdict': 'pass', 'fatal': [], 'warnings': [],
+                'skipped': True, 'reason': '阶段1（命令族规划）不跑配置校验'}
+
     mml = Path(sess_dir) / 'analysis_code' / 'mml.txt'
     if not mml.exists():
         return {'verdict': 'fail',
@@ -875,10 +965,19 @@ def rescue_tmp_artifacts(sess_dir):
     return recovered
 
 
-def check_artifacts(sess_dir):
-    """检查必需产物是否齐全。"""
+def check_artifacts(sess_dir, stage='fill'):
+    """检查必需产物是否齐全。
+
+    ★ 2026-11-09 两阶段：
+      stage='plan'  只要求 命令族规划.md（配置类产物本来就不该有）
+      stage='fill'  要求 4 个标准产物
+    """
     adir = Path(sess_dir) / 'analysis_code'
-    missing = [n for n in REQUIRED_ARTIFACTS
+    if stage == 'plan':
+        required = ['命令族规划.md']
+    else:
+        required = REQUIRED_ARTIFACTS
+    missing = [n for n in required
                if not (adir / n).exists() or (adir / n).stat().st_size == 0]
     return missing
 
@@ -887,7 +986,7 @@ def check_artifacts(sess_dir):
 # 主流程
 # ═══════════════════════════════════════════════════════════
 def run_agent(session_id, intent_text, product_hint='', on_event=None,
-              resume_agent_session=None):
+              resume_agent_session=None, stage='fill'):
     """跑 agent 主流程（含 3 轮校验闭环）。
 
     Returns dict: {status, rounds, elapsed, produced, guard, error, session_id}
@@ -897,6 +996,11 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
     adir.mkdir(parents=True, exist_ok=True)
     wfdir = sess_dir / '.agent'
     wfdir.mkdir(exist_ok=True)
+    # ★ 两阶段：写 stage 标记文件，供 MCP 工具（artifact_write）读取判白名单
+    try:
+        (wfdir / 'stage').write_text(str(stage or 'fill'), encoding='utf-8')
+    except Exception:
+        pass
     # ★ 2026-11-06：每次 run 用独立子目录，避免多轮对话时互相覆盖。
     #   实测：二次意图场景连跑 3 次 run，都写 round1_out.txt，前两次被覆盖，
     #   事后无法统计每轮的真实工具调用。
@@ -940,7 +1044,7 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
         exp_paths[0] if exp_paths else '')
 
     prompt = build_prompt(session_id, intent_text, files_info, product_hint,
-                          workdir=sess_dir)
+                          workdir=sess_dir, stage=stage)
     (rundir / 'prompt_r1.txt').write_text(prompt, encoding='utf-8')
 
     events_fp = open(events_path, 'a', encoding='utf-8')
@@ -1009,8 +1113,25 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                 except Exception:
                     pass
 
-            # 检查产物
-            missing = check_artifacts(sess_dir)
+            # ★ 两阶段：阶段1 结束后清理越界产物
+            #   agent 可能用 execute_code + open() 绕过 artifact_write 白名单
+            #   直接写文件，这里事后清理，保证阶段1 产物干净
+            if stage == 'plan':
+                for _n in ('mml.txt', 'params.csv', '配置分析.md'):
+                    _f = adir / _n
+                    if _f.exists():
+                        try:
+                            _f.unlink()
+                            events_fp.write(json.dumps(
+                                {'type': 'meta', 'event': 'stage_cleanup',
+                                 'removed': _n, 'round': rnd},
+                                ensure_ascii=False) + '\n')
+                            events_fp.flush()
+                        except Exception:
+                            pass
+
+            # 检查产物（★ 两阶段：阶段1 只要求 命令族规划.md）
+            missing = check_artifacts(sess_dir, stage=stage)
             if missing:
                 final_guard = {'fatal': [{'code': 'MISSING_ARTIFACT',
                                           'message': f'缺少产物: {", ".join(missing)}'}],
@@ -1022,7 +1143,7 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                 continue
 
             # 跑 guard
-            final_guard = run_guard(sess_dir, exp_path, str(intent_file))
+            final_guard = run_guard(sess_dir, exp_path, str(intent_file), stage=stage)
             verdict = final_guard.get('verdict')
             rounds.append({'round': rnd, 'elapsed': elapsed,
                            'verdict': verdict,

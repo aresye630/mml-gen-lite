@@ -485,6 +485,16 @@ async def api_run(sid: str, request: Request):
 
     product = body.get('product') or meta.get('product') or ''
 
+    # ★ 2026-11-09 两阶段生成（用户裁定）
+    #   stage='plan'  只做命令族规划，产物只有 命令族规划.md（+ 方案澄清.json）
+    #   stage='fill'  按已有规划填充配置（默认值，兼容旧行为）
+    #
+    #   Handover 设计：两阶段都走 fresh，不依赖 agent 会话上下文
+    #   （用户明确担心：纯靠 context 有风险，必须落盘）
+    stage = (body.get('stage') or 'fill').lower()
+    if stage not in ('plan', 'fill'):
+        stage = 'fill'
+
     # ★ 2026-11-05：区分首次生成 vs 二次意图
     #   fresh  = 全新生成，清空产物
     #   revise = 基于上一版改，**保留产物**（agent 要看到上一版才知道怎么改）
@@ -493,15 +503,34 @@ async def api_run(sid: str, request: Request):
     adir = d / 'analysis_code'
     adir.mkdir(exist_ok=True)
 
+    # 两阶段：强制 fresh（不复用会话、不基于上一版产物）
+    if stage in ('plan', 'fill'):
+        action = 'fresh'
+
     has_prev = bool(list(adir.glob('mml.txt')))
     if action == 'auto':
         action = 'revise' if has_prev else 'fresh'
 
     if action == 'fresh':
-        for n in ALLOWED_ARTIFACTS:
-            f = adir / n
-            if f.exists():
-                f.unlink()
+        if stage == 'plan':
+            # 阶段1：只清规划相关产物，保留上传文件
+            for n in ALLOWED_ARTIFACTS:
+                f = adir / n
+                if f.exists():
+                    f.unlink()
+        elif stage == 'fill':
+            # 阶段2：保留 命令族规划.md（这是 handover 载体），清其他产物
+            for n in ALLOWED_ARTIFACTS:
+                if n == '命令族规划.md':
+                    continue
+                f = adir / n
+                if f.exists():
+                    f.unlink()
+        else:
+            for n in ALLOWED_ARTIFACTS:
+                f = adir / n
+                if f.exists():
+                    f.unlink()
     # revise / append：产物原样保留，agent 读得到
 
     # 事件流每轮重置（这是本轮的过程记录，不是产物）
@@ -520,11 +549,23 @@ async def api_run(sid: str, request: Request):
         except Exception:
             pass
 
+    # 阶段2 前置检查：必须有命令族规划.md
+    plan_file = adir / '命令族规划.md'
+    if stage == 'fill' and not plan_file.exists():
+        # 允许 body 里直接带 plan（前端可编辑后回传）
+        _plan_body = (body.get('plan') or '').strip()
+        if _plan_body:
+            plan_file.write_text(_plan_body, encoding='utf-8')
+        else:
+            raise HTTPException(
+                400, '缺少 命令族规划.md，请先跑 stage=plan 生成规划')
+
     append_chat(sid, 'user', intent)
 
     meta['status'] = 'running'
     meta['intent'] = intent
     meta['action'] = action
+    meta['stage'] = stage
     save_meta(sid, meta)
 
     import agent_run
@@ -535,7 +576,8 @@ async def api_run(sid: str, request: Request):
     def _worker():
         try:
             return agent_run.run_agent(sid, intent, product_hint=product,
-                                       resume_agent_session=_prev_agent)
+                                       resume_agent_session=_prev_agent,
+                                       stage=stage)
         except Exception as e:
             # ★ 2026-11-06：把完整 traceback 写进日志，只报 'dict' not callable 查不出位置
             import traceback

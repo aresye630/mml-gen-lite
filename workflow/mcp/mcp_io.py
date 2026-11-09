@@ -34,7 +34,12 @@ ALLOWED_ARTIFACTS = {
     'params.csv': '参数收集表',
     '配置分析.md': '配置分析说明',
     '方案澄清.json': '方案级澄清问题（JSON 数组）',
+    # ★ 2026-11-09 两阶段生成：阶段1 的产物
+    '命令族规划.md': '命令族规划表（阶段1 产物，阶段2 的 handover 载体）',
 }
+
+# ★ 2026-11-09 两阶段：阶段1 只允许写这些
+PLAN_STAGE_ALLOWED = {'命令族规划.md', '方案澄清.json'}
 
 # EXP 头部校验（与 mcp_exp 保持一致）
 EXP_HEADER_PATTERNS = [
@@ -345,6 +350,25 @@ def tool_artifact_write(args):
         return {
             'error': f'不允许的产物名: {name}',
             'allowed': {k: v for k, v in ALLOWED_ARTIFACTS.items()},
+        }
+
+    # ★ 2026-11-09 两阶段：阶段1（规划）只允许写规划表和澄清
+    #   从 <session>/.agent/stage 读（env 不可靠：MCP server 由 hermes 按
+    #   config.yaml 启动，不继承 agent_run 的环境变量）
+    _stage = 'fill'
+    try:
+        _sf = _sess_dir(sid) / '.agent' / 'stage'
+        if _sf.exists():
+            _stage = _sf.read_text(encoding='utf-8').strip().lower() or 'fill'
+    except Exception:
+        _stage = (os.environ.get('AGENT_STAGE') or 'fill').lower()
+    if _stage == 'plan' and name not in PLAN_STAGE_ALLOWED:
+        return {
+            'error': (f'阶段1（命令族规划）只允许写 '
+                      f'{sorted(PLAN_STAGE_ALLOWED)}，不能写 {name}。'
+                      f'请先把命令族规划.md 写好，配置在阶段2 再写。'),
+            'stage': 'plan',
+            'allowed_now': sorted(PLAN_STAGE_ALLOWED),
         }
     if not isinstance(content, str):
         content = '' if content is None else str(content)
