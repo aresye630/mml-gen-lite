@@ -172,22 +172,30 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append(intent_text.strip())
     lines.append('')
 
-    # ★ 2026-11-08 新增：操作清单（代码从意图解析）
-    #   实测 10 个有删除意图的工单里 8 个把 RMV 配成了 ADD，
-    #   靠 prompt 说「删除要用 RMV」不可靠，改成把解析结果显式列出。
-    try:
-        import sys as _sys_io
-        _wf = str(Path(__file__).resolve().parent)
-        if _wf not in _sys_io.path:
-            _sys_io.path.insert(0, _wf)
-        from intent_ops import parse_intent_ops, format_ops_text
-        _ops = parse_intent_ops(intent_text)
-        _ops_txt = format_ops_text(_ops)
-        if _ops_txt:
-            lines.append(_ops_txt)
-            lines.append('')
-    except Exception as _e:
-        lines.append(f'（操作清单解析失败: {_e}，请按意图文字自行判断动词）')
+    # ★ 2026-11-09 移除操作清单
+    #   原因：意图已改为「按业务链路分组 + 明确动词」的写法（如【计费链】- 新增 URR，2 个），
+    #        再套一层 verb 解析会重复且可能冲突（意图写「调整」被解析成 ADD_OR_MOD）。
+    #        旧机制是为「意图只有业务名词」的场景设计的（如【新增/修改】- 地址池），
+    #        新意图不再有这个问题。
+
+    # ★ 2026-11-09 新增：数据清单用法说明
+    #   客户上传的业务数据表（IP 列表 / 名称清单 / 规划表），
+    #   列名是业务说法（如「隧道名称」「目的地址」），不是 MML 参数名。
+    _has_dataset = any(
+        f.get('is_dataset') or
+        (f.get('name') or '').endswith(('数据清单.md', '数据清单.xlsx', '数据清单.csv', '数据清单.csv'))
+        for f in (files_info or []))
+    if _has_dataset:
+        lines.append('【数据清单】')
+        lines.append('  客户提供的业务数据表（IP 列表、名称清单、规划表等）。')
+        lines.append('  ★ 列名是业务说法（如「隧道名称」「目的地址」「池类型」），')
+        lines.append('    不是 MML 参数名，需要你自己判断对应哪个命令族的哪个参数。')
+        lines.append('  ★ 用法：')
+        lines.append('    1. 先识别每一列对应哪类业务对象、哪个参数')
+        lines.append('    2. 逐行填充到 params.csv（一行数据 = 一个对象实例）')
+        lines.append('    3. 数据清单没给、但配置必需的值：按现网规律或文档补，')
+        lines.append('       补不了的填【待填写】，不要编造')
+        lines.append('  ★ 数据清单里有多少行，产物就要有多少个对应对象——不要只配样本。')
         lines.append('')
 
     # workspace 文件清单
@@ -364,7 +372,9 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('    取多数值；或查文档取默认值。例：TOKENFUNCFLAG 现网 101 条全是 DISABLE，')
     lines.append('    如果看到某行是 ***，说明那行被脱敏了，要按 DISABLE 写。')
     lines.append('  · 区分「现网已有」和「本次新增」：现网已有的对象不要重复创建')
-    lines.append('  · 单工单规模合理：同一个族一般不超过 20-30 条（除非意图明确要求批量）')
+    lines.append('  · ★ 按意图给的对象数量配全：意图说「约 190 个地址池」就配 190 个，')
+    lines.append('    说「约 184 个 GRE 隧道」就配 184 个，不要只配几个样本。')
+    lines.append('    数量多时用 params.csv 分块写（150-200 行/块），不要因为量大就省略。')
     lines.append('  · 写完产物后调一次 guard_check；有 fatal 自己修完再调，直到通过')
     lines.append('  · 完成后简述：做了什么、哪些需要人工确认')
     lines.append('')
