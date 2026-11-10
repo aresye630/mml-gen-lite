@@ -115,7 +115,11 @@ MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
 MAX_CODE_CALLS = int(os.environ.get('AGENT_MAX_CODE_CALLS', '200'))
 
 # 产物清单
-REQUIRED_ARTIFACTS = ['mml.txt', 'params.csv', '配置分析.md']
+# ★ 2026-11-09 按「错了会怎样」分级（用户裁定）
+#   REQUIRED：缺了配置不可用 → fatal
+#   RECOMMENDED：只是说明性内容 → warn
+REQUIRED_ARTIFACTS = ['mml.txt', 'params.csv']
+RECOMMENDED_ARTIFACTS = ['配置分析.md']
 
 # hermes 工具预览行：┊ 💻 $  <命令>  0.2s
 _TOOL_LINE = re.compile(
@@ -488,19 +492,40 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  · 禁止往 /tmp/ 写 mml2.txt、params2.csv 这种临时文件当"草稿"再指望转换。')
     lines.append('    实测过这样做的结果：任务结束只写出 mml.txt，params.csv 全丢。')
     lines.append('')
-    lines.append('  ★★ 大文件分块写（每块尽量大，减少轮次）')
+    lines.append('  ★★★ 大文件必须分块写（params.csv 和 mml.txt 都一样，最容易出错）')
     lines.append('    实测：本模型单次可输出约 5900 token / 200 行 CSV / 12000 字符，')
     lines.append('    所以每块写 150-200 行最合适 —— 写太少会浪费轮次。')
-    lines.append('    正确做法：')
+    lines.append('')
+    lines.append('    【params.csv 分块】')
     lines.append('      1) artifact_write(filename="params.csv", content="表头+前150行", mode="overwrite")')
     lines.append('      2) artifact_write(filename="params.csv", content="第151-300行", mode="append")')
     lines.append('      3) 重复 append 直到写完（每块 150-200 行，不要更小）')
     lines.append('      4) artifact_write(filename="params.csv", content="", mode="finalize")')
+    lines.append('')
+    lines.append('    【mml.txt 分块 —— 实测大量漏配的根因】')
+    lines.append('      实测反例（NC20260811002706，GT 1164 条）：')
+    lines.append('        agent 写了 params.csv 1102 行（数据齐全），')
+    lines.append('        但 mml.txt 只写了 21 行（只完成 2 个 Phase 就停），')
+    lines.append('        后面 4 个 Phase 全部缺失 → 命令数只有 2%')
+    lines.append('      正确做法：按 Phase 分块 append')
+    lines.append('        1) artifact_write(filename="mml.txt", content="Phase1 的命令", mode="overwrite")')
+    lines.append('        2) artifact_write(filename="mml.txt", content="Phase2 的命令", mode="append")')
+    lines.append('        3) 重复 append 直到所有 Phase 写完')
+    lines.append('        4) artifact_write(filename="mml.txt", content="", mode="finalize")')
+    lines.append('')
     lines.append('    ⚠ 不要一次写超过 200 行（会超模型输出上限被截断）')
     lines.append('    ⚠ 也不要一次只写 30 行（浪费轮次，实测一份 600 行 CSV 会被拆成 20 次）')
     lines.append('')
+    lines.append('  ★★ 交付前自检（必做，不做会漏配）')
+    lines.append('    1. 数一数 params.csv 里有多少个不同的「组」= N 条 MML 命令')
+    lines.append('    2. 数一数 mml.txt 里有多少条命令 = M')
+    lines.append('    3. 如果 M < N（差超过 10%），说明 mml.txt 没写完，继续 append')
+    lines.append('       —— 这是最常见的失败模式，务必检查')
+    lines.append('    4. 4 个产物文件名必须齐全：')
+    lines.append('       mml.txt / params.csv / 配置分析.md / 方案澄清.json')
+    lines.append('       ★ 配置分析.md 经常被忘，写完 mml 后立刻补上（哪怕很简短）')
+    lines.append('')
     lines.append('  · 需要迭代修改时：重新 overwrite 同名文件，不要另起文件名。')
-    lines.append('  · 交付前必须自己确认这 4 个文件都写过了（缺一个任务就算失败）。')
     return '\n'.join(lines)
 
 
@@ -965,20 +990,32 @@ def rescue_tmp_artifacts(sess_dir):
     return recovered
 
 
-def check_artifacts(sess_dir, stage='fill'):
+def check_artifacts(sess_dir, stage='fill', with_recommended=False):
     """检查必需产物是否齐全。
 
     ★ 2026-11-09 两阶段：
       stage='plan'  只要求 命令族规划.md（配置类产物本来就不该有）
-      stage='fill'  要求 4 个标准产物
+      stage='fill'  要求 mml.txt + params.csv（配置本体）
+
+    ★ 2026-11-09 分级（用户裁定「按错了会怎样分级」）：
+      · mml.txt / params.csv 缺失 → 配置不可用 → fatal
+      · 配置分析.md 缺失        → 只是缺说明 → warn（不判失败）
+      实测：87 工单里 6 个因为忘写 配置分析.md 被整单判失败，
+           但它们的 mml.txt 和 params.csv 都是完整的。
     """
     adir = Path(sess_dir) / 'analysis_code'
     if stage == 'plan':
-        required = ['命令族规划.md']
+        required, recommended = ['命令族规划.md'], []
     else:
         required = REQUIRED_ARTIFACTS
+        recommended = RECOMMENDED_ARTIFACTS
+
     missing = [n for n in required
                if not (adir / n).exists() or (adir / n).stat().st_size == 0]
+    if with_recommended:
+        miss_rec = [n for n in recommended
+                    if not (adir / n).exists() or (adir / n).stat().st_size == 0]
+        return missing, miss_rec
     return missing
 
 
@@ -1131,11 +1168,17 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                             pass
 
             # 检查产物（★ 两阶段：阶段1 只要求 命令族规划.md）
-            missing = check_artifacts(sess_dir, stage=stage)
+            # ★ 分级：mml.txt/params.csv 缺 → fatal；配置分析.md 缺 → warn
+            missing, missing_rec = check_artifacts(sess_dir, stage=stage,
+                                                   with_recommended=True)
+            _rec_warn = []
+            if missing_rec:
+                _rec_warn = [f'缺少 {", ".join(missing_rec)}'
+                             f'（不影响配置可用性，只是缺依据说明）']
             if missing:
                 final_guard = {'fatal': [{'code': 'MISSING_ARTIFACT',
                                           'message': f'缺少产物: {", ".join(missing)}'}],
-                               'warnings': []}
+                               'warnings': _rec_warn}
                 rounds.append({'round': rnd, 'ok': False, 'elapsed': elapsed,
                                'missing': missing})
                 if rnd == MAX_ROUNDS:

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<title>MML 生成评估报告（两阶段）</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+ margin:0;padding:20px;background:#f6f8fa;color:#1f2328;font-size:13px;line-height:1.6}
+h1{font-size:20px;margin:0 0 4px}
+h2{font-size:15px;margin:24px 0 10px;padding-bottom:6px;border-bottom:2px solid #d0d7de}
+.sub{color:#656d76;font-size:12px;margin-bottom:16px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.kpi div{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:12px}
+.kpi .l{font-size:11px;color:#656d76;margin-bottom:4px}
+.kpi .v{font-size:20px;font-weight:600;font-family:ui-monospace,monospace}
+.kpi .n{font-size:10px;color:#8c959f;margin-top:2px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12px;
+ border:1px solid #d0d7de;border-radius:6px;overflow:hidden}
+th{background:#f6f8fa;text-align:left;padding:7px 8px;font-weight:600;
+ border-bottom:1px solid #d0d7de;font-size:11px;color:#57606a;white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid #eaeef2;vertical-align:top}
+tr.row{cursor:pointer}
+tr.row:hover{background:#f6f8fa}
+tr.row.open{background:#ddf4ff}
+tr.detail{display:none}
+tr.detail.open{display:table-row}
+tr.detail>td{padding:0;background:#fbfcfd}
+.right{text-align:right;font-family:ui-monospace,monospace}
+.mono{font-family:ui-monospace,SFMono-Regular,monospace}
+.bar{height:6px;background:#eaeef2;border-radius:3px;overflow:hidden;min-width:60px}
+.bar>i{display:block;height:100%;border-radius:3px}
+.tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:10px;
+ margin:1px 2px 1px 0;font-family:ui-monospace,monospace}
+.hit{background:#dafbe1;color:#1a7f37;border:1px solid #aceebb}
+.miss{background:#ffebe9;color:#cf222e;border:1px solid #ffcecb}
+.extra{background:#fff8c5;color:#9a6700;border:1px solid #eed888}
+.done{color:#1a7f37;font-weight:600}
+.failed{color:#cf222e;font-weight:600}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.box{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:10px}
+.box h4{margin:0 0 8px;font-size:12px;color:#57606a;font-weight:600}
+pre{margin:0;padding:8px;background:#f6f8fa;border-radius:4px;font-size:11px;
+ font-family:ui-monospace,monospace;overflow:auto;max-height:300px;white-space:pre-wrap;
+ word-break:break-all;line-height:1.5}
+.filters{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:10px;
+ margin-bottom:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px}
+input[type=text]{padding:5px 8px;border:1px solid #d0d7de;border-radius:4px;font-size:12px;width:180px}
+select{padding:5px 8px;border:1px solid #d0d7de;border-radius:4px;font-size:12px}
+.note{background:#fff8c5;border-left:3px solid #d4a72c;padding:8px 12px;margin:12px 0;
+ border-radius:0 4px 4px 0;font-size:12px}
+.warnrow{background:#fff5f5}
+</style></head><body>
+
+<h1>MML 生成评估报告（两阶段）</h1>
+<div class="sub">__SUBTITLE__</div>
+
+<div class="kpi">__KPI__</div>
+
+<div class="note"><b>口径说明</b>__SCOPE_NOTE__</div>
+
+<h2>按 EXP 质量分档</h2>
+<table><thead><tr><th>EXP 覆盖</th><th>工单数</th><th>说明</th></tr></thead>
+<tbody>__EXP_BANDS__</tbody></table>
+
+<h2>按 GT 规模分档</h2>
+<table><thead><tr>
+<th>档位</th><th>工单</th><th>可评估族</th><th>规划召回</th><th>族完备</th><th>命令数</th>
+</tr></thead><tbody>__SIZE_BANDS__</tbody></table>
+
+<h2>工单明细</h2>
+
+<div class="filters">
+<input type="text" id="q" placeholder="搜索工单号">
+<select id="fl">
+<option value="">族完备 全部</option>
+<option value="100">= 100%</option>
+<option value="80">≥ 80%</option>
+<option value="50">≥ 50%</option>
+<option value="0">&lt; 50%</option>
+</select>
+<select id="fe">
+<option value="">EXP 覆盖 全部</option>
+<option value="1">= 100%</option>
+<option value="0.5">≥ 50%</option>
+<option value="-1">&lt; 50%</option>
+</select>
+<label><input type="checkbox" id="fb"> 只看大工单（GT≥200）</label>
+<label><input type="checkbox" id="ff"> 只看失败</label>
+<span id="cnt" class="sub" style="margin:0"></span>
+</div>
+
+<table><thead><tr>
+<th style="width:130px">工单</th>
+<th class="right" style="width:76px">GT条/族</th>
+<th class="right" style="width:76px">产物条/族</th>
+<th style="width:110px">族完备</th>
+<th style="width:70px">EXP覆盖</th>
+<th class="right" style="width:56px">耗时</th>
+<th>缺的族</th>
+</tr></thead><tbody id="tb"></tbody></table>
+
+<script>
+const D = __DATA__;
+
+function pct(a, b) { return b ? Math.round(a / b * 100) : 0; }
+
+function bar(p) {
+  const c = p >= 90 ? '#1a7f37' : p >= 70 ? '#bf8700' : p >= 40 ? '#bc4c00' : '#cf222e';
+  return '<div class="bar"><i style="width:' + Math.min(p, 100) + '%;background:' + c + '"></i></div>';
+}
+
+function esc(s) {
+  return (s || '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+}
+
+function detail(r) {
+  const gtf = Object.keys(r.gt_fams), pf = Object.keys(r.prod_fams);
+  const hit = gtf.filter(f => pf.includes(f));
+  const miss = gtf.filter(f => !pf.includes(f));
+  const extra = pf.filter(f => !gtf.includes(f));
+  const tags = (arr, cls) => arr.map(f =>
+    '<span class="tag ' + cls + '">' + f + '(' + (r.gt_fams[f] || r.prod_fams[f]) + ')</span>').join('');
+
+  const expMiss = r.exp_missing || [];
+  let h = '<tr class="detail" data-tk="' + r.tk + '"><td colspan="7"><div class="panel">';
+
+  h += '<div class="box"><h4>族对比（GT ' + gtf.length + ' / 产物 ' + pf.length + '）</h4>';
+  h += '<div><b style="color:#1a7f37">命中 ' + hit.length + '</b>：' + (tags(hit, 'hit') || '无') + '</div>';
+  h += '<div style="margin-top:6px"><b style="color:#cf222e">缺失 ' + miss.length + '</b>：' + (tags(miss, 'miss') || '无') + '</div>';
+  h += '<div style="margin-top:6px"><b style="color:#9a6700">多余 ' + extra.length + '</b>：' + (tags(extra, 'extra') || '无') + '</div>';
+  h += '</div>';
+
+  h += '<div class="box"><h4>EXP 覆盖</h4>';
+  h += '<div>GT 族 ' + gtf.length + ' 个，EXP 里出现过 ' + (gtf.length - expMiss.length) +
+       ' 个（' + Math.round((r.exp_rate || 0) * 100) + '%）· EXP 共 ' +
+       (r.exp_fams_n || 0) + ' 族 / ' + (r.exp_mb || 0) + 'MB</div>';
+  if (expMiss.length) {
+    h += '<div style="margin-top:6px"><b>不在 EXP 里的族</b>：' +
+         expMiss.slice(0, 20).map(f => '<span class="tag miss">' + f + '</span>').join('') + '</div>';
+  }
+  h += '</div>';
+
+  h += '<div class="box" style="grid-column:1/-1"><h4>意图（' + (r.intent || '').length + ' 字）</h4><pre>' +
+       esc(r.intent) + '</pre></div>';
+
+  if (r.dataset) {
+    h += '<div class="box" style="grid-column:1/-1"><h4>数据清单（' + r.dataset.length + ' 字）</h4><pre>' +
+         esc(r.dataset.slice(0, 8000)) + '</pre></div>';
+  }
+
+  h += '<div class="box" style="grid-column:1/-1"><h4>阶段1 命令族规划（' + (r.plan || '').length +
+       ' 字）</h4><pre>' + esc((r.plan || '').slice(0, 6000)) + '</pre></div>';
+
+  h += '<div class="box"><h4>产物 mml.txt</h4><pre>' + esc((r.mml || '').slice(0, 5000)) + '</pre></div>';
+  h += '<div class="box"><h4>GT 命令</h4><pre>' + esc(r.gt_cmds.slice(0, 40).join('\n')) + '</pre></div>';
+
+  if (r.s2_fatal && r.s2_fatal.length) {
+    h += '<div class="box" style="grid-column:1/-1"><h4>失败原因</h4><pre>' +
+         esc(JSON.stringify(r.s2_fatal, null, 1)) + '</pre></div>';
+  }
+
+  h += '</div></td></tr>';
+  return h;
+}
+
+function render() {
+  const q = document.getElementById('q').value.trim().toUpperCase();
+  const fl = document.getElementById('fl').value;
+  const fe = document.getElementById('fe').value;
+  const fb = document.getElementById('fb').checked;
+  const ff = document.getElementById('ff').checked;
+
+  const rows = D.filter(r => {
+    const rate = pct(r.s2_hit || 0, r.gt_fams_n || 0);
+    if (q && !r.tk.toUpperCase().includes(q)) return false;
+    if (fl === '100' && rate !== 100) return false;
+    if (fl === '80' && rate < 80) return false;
+    if (fl === '50' && rate < 50) return false;
+    if (fl === '0' && rate >= 50) return false;
+    if (fe === '1' && (r.exp_rate || 0) < 1) return false;
+    if (fe === '0.5' && (r.exp_rate || 0) < 0.5) return false;
+    if (fe === '-1' && (r.exp_rate || 0) >= 0.5) return false;
+    if (fb && r.gt_cmds_n < 200) return false;
+    if (ff && r.s2_status !== 'failed') return false;
+    return true;
+  });
+
+  document.getElementById('cnt').textContent = '显示 ' + rows.length + ' / ' + D.length;
+
+  const tb = document.getElementById('tb');
+  tb.innerHTML = rows.map(r => {
+    const rate = pct(r.s2_hit || 0, r.gt_fams_n || 0);
+    const er = Math.round((r.exp_rate || 0) * 100);
+    const gtf = Object.keys(r.gt_fams), pf = Object.keys(r.prod_fams);
+    const allMiss = gtf.filter(f => !pf.includes(f));
+    const miss = allMiss.slice(0, 5);
+    const ec = er >= 90 ? '#1a7f37' : er >= 50 ? '#bf8700' : '#cf222e';
+    return '<tr class="row ' + (r.s2_status === 'failed' ? 'warnrow' : '') +
+      '" data-tk="' + r.tk + '">' +
+      '<td class="mono">' + r.tk + '</td>' +
+      '<td class="right">' + r.gt_cmds_n + '/' + gtf.length + '</td>' +
+      '<td class="right">' + r.prod_cmds_n + '/' + pf.length + '</td>' +
+      '<td>' + bar(rate) + '<span style="font-size:11px">' + rate + '%</span></td>' +
+      '<td class="right" style="color:' + ec + '">' + er + '%</td>' +
+      '<td class="right">' + Math.round(r.s2_sec || 0) + 's</td>' +
+      '<td style="font-size:10px">' +
+        miss.map(f => '<span class="tag miss">' + f + '</span>').join('') +
+        (allMiss.length > miss.length ? ' …' : '') + '</td></tr>' + detail(r);
+  }).join('');
+
+  tb.querySelectorAll('tr.row').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const d = tr.nextElementSibling;
+      tr.classList.toggle('open');
+      d.classList.toggle('open');
+    });
+  });
+}
+
+['q', 'fl', 'fe', 'fb', 'ff'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener(el.type === 'text' || el.tagName === 'SELECT' ? 'input' : 'change', render);
+  if (el.tagName === 'SELECT') el.addEventListener('change', render);
+});
+render();
+</script>
+</body></html>
