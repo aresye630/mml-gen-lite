@@ -1996,12 +1996,27 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
     # ★ G23 ADD 已存在对象（warn，不阻断）
     _g23 = checks.get('G23_add_existing') or {}
     if _g23 and not _g23.get('skipped') and not _g23.get('ok', True):
-        _n23 = _g23.get('n_conflict', 0)
-        _samples = '；'.join(
-            f"{c['family']}:{c['key']}" for c in (_g23.get('conflicts') or [])[:2])
-        warn.append(
-            f"G23 有 {_n23} 条 ADD 了 EXP 已存在的对象（{_samples}）："
-            f"配置生成场景下通常应改用 MOD。如果是有意覆盖可忽略。")
+        # ★ 2026-11-10 扩展：区分「参数一致（冗余）」和「参数有差异（该用 MOD）」
+        _n_diff = _g23.get('n_diff', 0)
+        _n_ident = _g23.get('n_identical', _g23.get('n_conflict', 0))
+
+        if _n_diff:
+            _sd = '；'.join(
+                f"{c['family']}:{c['key'][:24]}（{c['n_changes']} 处参数不同）"
+                for c in (_g23.get('diffs') or [])[:2])
+            warn.append(
+                f"G23 有 {_n_diff} 条 ADD 的对象在 EXP 里已存在，但**参数有差异**"
+                f"（{_sd}）—— 这种情况应该用 MOD 而不是 ADD。"
+                f"如果确实要重建该对象，请写进方案澄清说明。")
+
+        if _n_ident:
+            _si = '；'.join(
+                f"{c['family']}:{c['key'][:24]}"
+                for c in (_g23.get('conflicts') or [])[:2])
+            warn.append(
+                f"G23 有 {_n_ident} 条 ADD 的对象在 EXP 里完全一致"
+                f"（{_si}）—— 属冗余 ADD，可以删掉。"
+                f"如果是有意覆盖可忽略。")
 
     # ★ G24 省略未说明（warn，不阻断，但要用户看到）
     _g24 = checks.get('G24_omission') or {}
