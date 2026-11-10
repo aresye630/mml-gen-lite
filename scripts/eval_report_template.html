@@ -85,17 +85,20 @@ select{padding:5px 8px;border:1px solid #d0d7de;border-radius:4px;font-size:12px
 </select>
 <label><input type="checkbox" id="fb"> 只看大工单（GT≥200）</label>
 <label><input type="checkbox" id="ff"> 只看失败</label>
+<label><input type="checkbox" id="fd"> 只看有数据清单</label>
 <span id="cnt" class="sub" style="margin:0"></span>
 </div>
 
 <table><thead><tr>
-<th style="width:130px">工单</th>
-<th class="right" style="width:76px">GT条/族</th>
-<th class="right" style="width:76px">产物条/族</th>
-<th style="width:110px">族完备</th>
-<th style="width:70px">EXP覆盖</th>
-<th class="right" style="width:56px">耗时</th>
-<th>缺的族</th>
+<th style="width:126px">工单</th>
+<th class="right" style="width:70px">GT条/族</th>
+<th class="right" style="width:70px">产物条/族</th>
+<th style="width:110px">族覆盖<br><span style="font-weight:400;color:#8c959f">命中 / GT全部族</span></th>
+<th style="width:64px">EXP覆盖</th>
+<th class="right" style="width:52px">耗时</th>
+<th style="width:46px">清单</th>
+<th style="width:220px">缺的族<br><span style="font-weight:400;color:#8c959f">可评估族里缺</span></th>
+<th>多出的族<br><span style="font-weight:400;color:#8c959f">GT 里没有</span></th>
 </tr></thead><tbody id="tb"></tbody></table>
 
 <script>
@@ -114,19 +117,29 @@ function esc(s) {
 
 function detail(r) {
   const gtf = Object.keys(r.gt_fams), pf = Object.keys(r.prod_fams);
-  const hit = gtf.filter(f => pf.includes(f));
-  const miss = gtf.filter(f => !pf.includes(f));
-  const extra = pf.filter(f => !gtf.includes(f));
+  const ns = r.no_support_fams || [];
+  const hit = r.hit_fams || gtf.filter(f => pf.includes(f));
+  const miss = r.miss_fams || gtf.filter(f => !pf.includes(f));
+  const extra = r.extra_fams || pf.filter(f => !gtf.includes(f));
   const tags = (arr, cls) => arr.map(f =>
-    '<span class="tag ' + cls + '">' + f + '(' + (r.gt_fams[f] || r.prod_fams[f]) + ')</span>').join('');
+    '<span class="tag ' + cls + '">' + f + '(' + (r.gt_fams[f] || r.prod_fams[f] || '') + ')</span>').join('');
 
   const expMiss = r.exp_missing || [];
   let h = '<tr class="detail" data-tk="' + r.tk + '"><td colspan="7"><div class="panel">';
 
-  h += '<div class="box"><h4>族对比（GT ' + gtf.length + ' / 产物 ' + pf.length + '）</h4>';
-  h += '<div><b style="color:#1a7f37">命中 ' + hit.length + '</b>：' + (tags(hit, 'hit') || '无') + '</div>';
+  h += '<div class="box"><h4>族对比（GT ' + gtf.length + ' 族 / 产物 ' + pf.length + ' 族）</h4>';
+  h += '<div><b style="color:#1a7f37">命中 ' + hit.length + ' / ' + gtf.length +
+       '（族覆盖 ' + Math.round(hit.length / Math.max(1, gtf.length) * 100) + '%）</b>：' +
+       (tags(hit, 'hit') || '无') + '</div>';
   h += '<div style="margin-top:6px"><b style="color:#cf222e">缺失 ' + miss.length + '</b>：' + (tags(miss, 'miss') || '无') + '</div>';
   h += '<div style="margin-top:6px"><b style="color:#9a6700">多余 ' + extra.length + '</b>：' + (tags(extra, 'extra') || '无') + '</div>';
+  if (ns.length) {
+    h += '<div style="margin-top:8px;padding-top:8px;border-top:1px dashed #d0d7de">' +
+         '<b style="color:#8c959f">无 EXP 支撑 ' + ns.length + ' 个族</b>' +
+         '<span style="color:#8c959f;font-size:11px">（不计入评分，UNC 侧族不在 UDG 的 EXP 里）</span>：' +
+         ns.slice(0, 20).map(f => '<span class="tag" style="background:#f6f8fa;color:#8c959f;border:1px solid #d0d7de">' + f + '</span>').join('') +
+         '</div>';
+  }
   h += '</div>';
 
   h += '<div class="box"><h4>EXP 覆盖</h4>';
@@ -139,12 +152,29 @@ function detail(r) {
   }
   h += '</div>';
 
-  h += '<div class="box" style="grid-column:1/-1"><h4>意图（' + (r.intent || '').length + ' 字）</h4><pre>' +
+  // ★ 两个意图并排：左边原始工单意图，右边 GT 还原意图（实际输入给 agent 的）
+  h += '<div class="box"><h4>原始工单意图（' + (r.raw_intent || '').length +
+       ' 字）<span style="font-weight:400;color:#8c959f"> · 工单原文，未加工</span></h4><pre>' +
+       (esc(r.raw_intent) || '<span style="color:#8c959f">（无）</span>') + '</pre></div>';
+
+  h += '<div class="box"><h4>GT 还原意图（' + (r.intent || '').length +
+       ' 字）<span style="font-weight:400;color:#8c959f"> · 实际输入给 agent</span></h4><pre>' +
        esc(r.intent) + '</pre></div>';
 
-  if (r.dataset) {
-    h += '<div class="box" style="grid-column:1/-1"><h4>数据清单（' + r.dataset.length + ' 字）</h4><pre>' +
+  // ★ 数据清单面板始终显示（没有时说明原因，避免误以为丢了）
+  if (r.dataset && r.dataset.trim()) {
+    const dsLines = r.dataset.split('\n').length;
+    h += '<div class="box" style="grid-column:1/-1"><h4>数据清单（' + r.dataset.length +
+         ' 字 / ' + dsLines + ' 行）<span style="font-weight:400;color:#8c959f"> · 上传给 agent 的文件，列名是业务说法，不是 MML 参数名</span></h4><pre>' +
          esc(r.dataset.slice(0, 8000)) + '</pre></div>';
+  } else {
+    h += '<div class="box" style="grid-column:1/-1"><h4>数据清单</h4>' +
+         '<div style="color:#8c959f;padding:8px">' +
+         '本工单无数据清单。' +
+         (r.level === 'simple'
+           ? '（简单工单：对象少，参数已直接写在意图里）'
+           : '（⚠ 中/复杂工单应该有清单，可能生成时遗漏）') +
+         '</div></div>';
   }
 
   h += '<div class="box" style="grid-column:1/-1"><h4>阶段1 命令族规划（' + (r.plan || '').length +
@@ -168,9 +198,10 @@ function render() {
   const fe = document.getElementById('fe').value;
   const fb = document.getElementById('fb').checked;
   const ff = document.getElementById('ff').checked;
+  const fd = document.getElementById('fd').checked;
 
   const rows = D.filter(r => {
-    const rate = pct(r.s2_hit || 0, r.gt_fams_n || 0);
+    const rate = Math.round((r.fam_cov_rate || 0) * 100);
     if (q && !r.tk.toUpperCase().includes(q)) return false;
     if (fl === '100' && rate !== 100) return false;
     if (fl === '80' && rate < 80) return false;
@@ -181,6 +212,7 @@ function render() {
     if (fe === '-1' && (r.exp_rate || 0) >= 0.5) return false;
     if (fb && r.gt_cmds_n < 200) return false;
     if (ff && r.s2_status !== 'failed') return false;
+    if (fd && !(r.dataset && r.dataset.trim())) return false;
     return true;
   });
 
@@ -188,12 +220,12 @@ function render() {
 
   const tb = document.getElementById('tb');
   tb.innerHTML = rows.map(r => {
-    const rate = pct(r.s2_hit || 0, r.gt_fams_n || 0);
+    const rate = Math.round((r.fam_cov_rate || 0) * 100);
     const er = Math.round((r.exp_rate || 0) * 100);
     const gtf = Object.keys(r.gt_fams), pf = Object.keys(r.prod_fams);
-    const allMiss = gtf.filter(f => !pf.includes(f));
-    const miss = allMiss.slice(0, 5);
     const ec = er >= 90 ? '#1a7f37' : er >= 50 ? '#bf8700' : '#cf222e';
+    const missList = (r.miss_fams || []).slice(0, 6);
+    const extraList = (r.extra_fams || []).slice(0, 4);
     return '<tr class="row ' + (r.s2_status === 'failed' ? 'warnrow' : '') +
       '" data-tk="' + r.tk + '">' +
       '<td class="mono">' + r.tk + '</td>' +
@@ -202,9 +234,17 @@ function render() {
       '<td>' + bar(rate) + '<span style="font-size:11px">' + rate + '%</span></td>' +
       '<td class="right" style="color:' + ec + '">' + er + '%</td>' +
       '<td class="right">' + Math.round(r.s2_sec || 0) + 's</td>' +
+      '<td>' + ((r.dataset && r.dataset.trim())
+        ? '<span style="color:#1a7f37;font-size:11px">有</span>'
+        : '<span style="color:#8c959f;font-size:11px">—</span>') + '</td>' +
       '<td style="font-size:10px">' +
-        miss.map(f => '<span class="tag miss">' + f + '</span>').join('') +
-        (allMiss.length > miss.length ? ' …' : '') + '</td></tr>' + detail(r);
+        (missList.map(f => '<span class="tag miss">' + f + '</span>').join('') || '<span style="color:#8c959f">—</span>') +
+        ((r.miss_fams || []).length > missList.length ? ' <span style="color:#8c959f">+' + ((r.miss_fams || []).length - missList.length) + '</span>' : '') +
+      '</td>' +
+      '<td style="font-size:10px">' +
+        (extraList.map(f => '<span class="tag extra">' + f + '</span>').join('') || '<span style="color:#8c959f">—</span>') +
+        ((r.extra_fams || []).length > extraList.length ? ' <span style="color:#8c959f">+' + ((r.extra_fams || []).length - extraList.length) + '</span>' : '') +
+      '</td></tr>' + detail(r);
   }).join('');
 
   tb.querySelectorAll('tr.row').forEach(tr => {
@@ -216,7 +256,7 @@ function render() {
   });
 }
 
-['q', 'fl', 'fe', 'fb', 'ff'].forEach(id => {
+['q', 'fl', 'fe', 'fb', 'ff', 'fd'].forEach(id => {
   const el = document.getElementById(id);
   el.addEventListener(el.type === 'text' || el.tagName === 'SELECT' ? 'input' : 'change', render);
   if (el.tagName === 'SELECT') el.addEventListener('change', render);

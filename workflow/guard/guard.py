@@ -1858,6 +1858,23 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             checks['G25_siblings'] = {'ok': True, 'skipped': True,
                                      'reason': f'G25 执行失败: {e}'}
 
+        # ★ 2026-11-10 新增 G26：规划表 vs params.csv 一致性
+        #   背景（实测 NC20260828001156）：
+        #     规划表标「确认」的 7 个族（MOD APN / MOD TCPMSS / MOD APNIPALLOCRULE /
+        #     MOD APNSOFTPARA / MOD APNADDRESSATTR / MOD APNIMSATTR / MOD APNQOSATTR）
+        #     params.csv 里一条都没有；反而规划标「待定」的 2 个族它配了。
+        #   思路（用户裁定）：规划表是 agent 自己写的，用它校验自己的产物 —— 逻辑闭环。
+        try:
+            if session_dir and Path(session_dir).exists():
+                from plan_vs_csv import check_plan_vs_csv
+                checks['G26_plan_csv'] = check_plan_vs_csv(session_dir)
+            else:
+                checks['G26_plan_csv'] = {'ok': True, 'skipped': True,
+                                          'reason': '无 session_dir'}
+        except Exception as e:
+            checks['G26_plan_csv'] = {'ok': True, 'skipped': True,
+                                      'reason': f'G26 执行失败: {e}'}
+
         # ★ G22 占位符一致性
         try:
             import importlib as _il2

@@ -927,6 +927,13 @@ def run_guard(sess_dir, exp_path='', intent_path='', stage='fill'):
             cmd += ['--exp', _paths[0]]
     if intent_path and Path(intent_path).exists():
         cmd += ['--intent', str(intent_path)]
+    # ★ 2026-11-10：必须传 --session-dir 和 --params，否则 G20/G21/G26 全部 skipped
+    #   （历史坑：2026-11-08 也踩过一次，G20/G21 因为没传 session_dir 而全 skipped）
+    if sess_dir and Path(sess_dir).exists():
+        cmd += ['--session-dir', str(sess_dir)]
+        _pcsv = Path(sess_dir) / 'analysis_code' / 'params.csv'
+        if _pcsv.exists():
+            cmd += ['--params', str(_pcsv)]
 
     try:
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)

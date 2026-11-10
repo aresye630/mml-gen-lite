@@ -23,7 +23,8 @@ GT = json.loads(Path('/tmp/gt_cleaned.json').read_text(encoding='utf-8'))
 RES = json.loads(Path('/tmp/eval_2stage_v2_result.json').read_text(encoding='utf-8'))
 EXPQ_PATH = Path('/tmp/exp_quality.json')
 EXPQ = json.loads(EXPQ_PATH.read_text(encoding='utf-8')) if EXPQ_PATH.exists() else []
-INTENT = Path('/tmp/intent_dataset')
+INTENT = Path('/tmp/intent_dataset')      # GT 还原意图 + 数据清单（实际输入）
+RAW_INTENT = Path('/Users/alesc/workspace/gt-rewrite-samples/86个意图_v5')  # 原始工单意图
 ART = Path('/tmp/eval_2stage_v2_out')
 
 GT_MAP = {g['ticket']: g for g in GT}
@@ -47,6 +48,30 @@ def parse_fams(text):
     return c
 
 
+def parse_plan_fams(plan_text):
+    """从规划表提取族名（规划表的命令族列是裸族名，动词在动作列）。"""
+    out = set()
+    if not plan_text:
+        return out
+    for line in plan_text.split('\n'):
+        line = line.strip()
+        if not line.startswith('|'):
+            continue
+        cells = [c.strip() for c in line.split('|')]
+        if len(cells) < 10:
+            continue
+        body = cells[1:-1]
+        if len(body) < 9:
+            continue
+        for part in re.split(r'[/,、]', body[5]):
+            t = part.strip().upper()
+            if re.fullmatch(r'[A-Z][A-Z0-9_]{2,}', t):
+                out.add(t)
+    for m in re.finditer(r'\b(?:ADD|RMV|MOD|SET)\s+([A-Z][A-Z0-9_]{2,})\b', plan_text):
+        out.add(m.group(1))
+    return out
+
+
 def build_rows():
     rows = []
     for r in RES:
@@ -58,16 +83,41 @@ def build_rows():
         gt_fams = Counter(f for _, v, f, p, _ in g['kept'])
         prod_fams = parse_fams(load_text(ART / tk / 'mml.txt'))
 
+        # ★ 2026-11-10 用户裁定：不要「族完备」（可评估族口径），改成「族覆盖」
+        #   理由：族完备把「EXP 里没有的族」排除了，
+        #        导致 GT 6 族只配对 1 族也显示 100%，看不到真实情况。
+        #        族覆盖直接按 GT 全部族算。
+        _miss_in_exp = set(eq.get('missing') or [])
+        ns_set = set(gt_fams) & _miss_in_exp   # 仅用于展示「无 EXP 支撑」
+
+        prod_bare = set(prod_fams)
+        hit = set(gt_fams) & prod_bare          # 命中（GT 全部族口径）
+        miss = set(gt_fams) - prod_bare         # 缺失（GT 全部族口径）
+        extra = prod_bare - set(gt_fams)        # 多余
+
+        # 阶段1 规划表里的族（算规划召回/精确用）
+        plan_fams = parse_plan_fams(load_text(ART / tk / '命令族规划.md'))
+        s1_hit = set(gt_fams) & plan_fams
+
         rows.append({
             'tk': tk,
             'gt_cmds_n': len(g['kept']),
             'gt_fams': dict(gt_fams),
+            'no_support_fams': sorted(ns_set),   # 无 EXP 支撑族（仅展示）
+            's1_hit_fams': sorted(s1_hit),       # 规划命中族
+            's1_plan_fams': sorted(plan_fams),   # 规划表里的族
+            'hit_fams': sorted(hit),             # GT 全部族里命中的
+            'miss_fams': sorted(miss),           # GT 全部族里缺的
+            'extra_fams': sorted(extra),         # 产物多出来的
+            # ★ 族覆盖率 = 命中族 / GT 全部族（用户裁定的主指标）
+            'fam_cov_rate': round(len(hit) / max(1, len(gt_fams)), 3),
             'gt_cmds': [raw for _, v, f, p, raw in g['kept']],
             'plan': load_text(ART / tk / '命令族规划.md'),
             'mml': load_text(ART / tk / 'mml.txt'),
             'prod_fams': dict(prod_fams),
             'prod_cmds_n': sum(prod_fams.values()),
-            'intent': load_text(INTENT / f'{tk}_意图.md'),
+            'intent': load_text(INTENT / f'{tk}_意图.md'),          # GT 还原（实际输入）
+            'raw_intent': load_text(RAW_INTENT / f'{tk}_意图.md'),  # 原始工单意图
             'dataset': load_text(INTENT / f'{tk}_数据清单.md'),
             's1_status': r.get('s1_status'),
             's1_sec': r.get('s1_sec'),
@@ -93,21 +143,22 @@ def build_rows():
 
 def kpi_html(ok):
     ev = sum(r['gt_fams_n'] or 0 for r in ok)
-    s1 = sum(r['s1_hit'] or 0 for r in ok)
-    s2 = sum(r['s2_hit'] or 0 for r in ok)
-    pn = sum(r['s1_plan_n'] or 0 for r in ok)
+    s1 = sum(len(r['s1_hit_fams']) for r in ok)
+    s2 = sum(len(r['hit_fams']) for r in ok)
+    pn = sum(len(r['s1_plan_fams']) for r in ok)
     gc = sum(r['gt_cmds_n'] for r in ok)
     pc = sum(r['prod_cmds_n'] for r in ok)
-    perfect = sum(1 for r in ok if r['s2_hit'] == r['gt_fams_n'])
+    perfect = sum(1 for r in ok if len(r['hit_fams']) == r['gt_fams_n'])
     done = sum(1 for r in ok if r['s2_status'] == 'done')
 
     items = [
         ('工单总数', len(ok), f'成功 {done}'),
+        ('GT 命令族总数', ev, '全部工单合计'),
         ('阶段1 规划召回', f'{s1/max(1,ev)*100:.1f}%', f'{s1}/{ev} 族'),
         ('阶段1 规划精确', f'{s1/max(1,pn)*100:.1f}%', f'规划 {pn} 族'),
-        ('阶段2 族完备', f'{s2/max(1,ev)*100:.1f}%', f'{s2}/{ev} 族'),
+        ('阶段2 族覆盖', f'{s2/max(1,ev)*100:.1f}%', f'{s2}/{ev} 族'),
         ('命令数完成度', f'{pc/max(1,gc)*100:.0f}%', f'{pc}/{gc} 条'),
-        ('工单级全对', perfect, '族完备 100%'),
+        ('工单级全覆盖', perfect, '族覆盖 100%'),
     ]
     return ''.join(
         f'<div><div class="l">{a}</div><div class="v">{b}</div><div class="n">{c}</div></div>'
@@ -139,15 +190,16 @@ def size_bands_html(ok):
         if not sub:
             continue
         ev = sum(r['gt_fams_n'] or 0 for r in sub)
-        s1 = sum(r['s1_hit'] or 0 for r in sub)
-        s2 = sum(r['s2_hit'] or 0 for r in sub)
+        # ★ 族覆盖用 GT 全部族口径（用户裁定）
+        s1 = sum(len(r['s1_hit_fams']) for r in sub)
+        s2 = sum(len(r['hit_fams']) for r in sub)
         gc = sum(r['gt_cmds_n'] for r in sub)
         pc = sum(r['prod_cmds_n'] for r in sub)
         out.append(
             f'<tr><td>{label}</td><td class="right">{len(sub)}</td>'
             f'<td class="right">{ev}</td>'
             f'<td class="right">{s1/max(1,ev)*100:.1f}%</td>'
-            f'<td class="right">{s2/max(1,ev)*100:.1f}%</td>'
+            f'<td class="right"><b>{s2/max(1,ev)*100:.1f}%</b></td>'
             f'<td class="right">{pc/max(1,gc)*100:.0f}%</td></tr>')
     return ''.join(out)
 

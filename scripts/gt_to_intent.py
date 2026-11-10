@@ -82,11 +82,26 @@ def analyze(g, idx):
     fam_groups = defaultdict(list)      # {业务组: [(族名, 中文名, 命令数, 对象数)]}
     unmapped = []
 
+    # 手工补充的中文名（KB 库里查不到的少数族）
+    EXTRA_CN = {
+        'CPAPN': 'CP侧APN',
+        'CPAPNADDRESSATTR': 'CP侧APN地址属性',
+        'EDGESMCOMMFUNC': '边缘会话管理通用功能',
+        'LICX1INFO': 'License扩展信息1',
+        'LICX2INFO': 'License扩展信息2',
+        'LICX3CFG': 'License扩展配置',
+        'LICX3INTFCFG': 'License扩展接口配置',
+        'RDSSTATICIPPARA': 'RADIUS静态IP参数',
+    }
+
     for fam, items in by_fam.items():
-        cn = cn_name(fam, idx)
+        cn = cn_name(fam, idx) or EXTRA_CN.get(fam)
         if cn is None:
+            # ★ 2026-11-10 修复：查不到中文名时不能整族跳过
+            #   实测 NC20260907002110：4 个 LICX* 族都没中文名 → 整段意图变空
+            #   现在用族名原文代替（这仍是业务标识，不是 MML 参数名）
             unmapped.append(fam)
-            continue
+            cn = fam
         n_objs = len({next(iter(it['params'].values())) for it in items if it['params']})
         gname = group_of_family(fam)
         fam_groups[gname].append({
