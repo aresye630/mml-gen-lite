@@ -1,0 +1,411 @@
+{
+ "meta": {
+  "title": "MML 生成系统 · 版本修正历史与改进效果",
+  "updated": "2026-11-10",
+  "note": "本文件是长期维护的版本记录。新增版本时在 versions 数组末尾追加一条即可，不需要改脚本代码。",
+  "metrics_note": "注：v1-v5 用「族完备（可评估族）」口径，v6 起改为「族覆盖（GT 全部族）」；v7 命令数下降 11pp 主要是「过度配置被纠正」，不是能力退化。",
+  "lessons": [
+   "<b>prompt 约束靠不住，必须有判据兜底。</b>实测：prompt 写「删除用 RMV」，agent 10 单里 8 单配成 ADD；写「要调 exp_siblings」，实际调用 0 次。",
+   "<b>判据写了不等于生效。</b>G26 的第一版只有汇总逻辑，检测代码没插进去，读一个永远不会写入的 key，永远 skipped。G24-G27 还曾被包在 <span class=\"mono\">if session_dir and params_csv</span> 分支里，不传 params 就全跳过。",
+   "<b>额外 LLM 调用会拖垮主任务。</b>Hermes 的 curator（skill 库自更新）每次任务后跑一次 review，4 容器合计 178 次，与主任务抢 API 配额，导致 5 个工单卡满 3000 秒超时。关闭后阶段1 耗时从 3003s 降到 140s。",
+   "<b>指标口径必须统一。</b>「族完备（可评估族）」会出现「GT 6 族只配 1 族却显示 100%」，改成「族覆盖（GT 全部族）」才看得到真实情况。",
+   "<b>数据不全时，能力无法评估。</b>45/87 工单的 GT 里有意图和数据清单都没有的 IP，agent 只能编造。补数据清单后（30→72 工单）才可评估。"
+  ]
+ },
+ "versions": [
+  {
+   "ver": "v1",
+   "date": "2026-11-06",
+   "commit": "2b0a5f1",
+   "title": "单阶段生成 + 原始意图",
+   "changes": [
+    "agent 一次性生成 mml.txt + params.csv + 配置分析.md",
+    "意图用原始工单意图（模糊，只有业务名词）"
+   ],
+   "metrics": {
+    "fam_cov": 0.479,
+    "cmds": null,
+    "n": 87
+   },
+   "problems": [
+    "大工单只配样本（agent 看到「同一族不超过 20-30 条」就只配 20 条）",
+    "mml.txt 手写被输出长度截断"
+   ]
+  },
+  {
+   "ver": "v2",
+   "date": "2026-11-07",
+   "commit": "24186a6",
+   "title": "修 STALL 检测 + 意图操作清单",
+   "changes": [
+    "修 STALL 检测：原代码在 continue 之后，纯思考时不触发 → 卡 34 分钟",
+    "意图加「操作清单」（代码从意图解析动词 + 对象）"
+   ],
+   "metrics": {
+    "fam_cov": 0.429,
+    "cmds": 3350,
+    "n": 86
+   },
+   "problems": [
+    "族完备下降 5pp（操作清单把业务名词当族名，误导 agent）",
+    "大工单系统性下降 13-30pp"
+   ]
+  },
+  {
+   "ver": "v3",
+   "date": "2026-11-08",
+   "commit": "9cf3417",
+   "title": "exp_siblings 同名前缀判据 + 动词等价组",
+   "changes": [
+    "exp_siblings 加同名前缀属性族判据（SET APNxxx 31 个族，ratio 1.00）",
+    "补 cnt_set：原 cand 只统计 ADD，SET 族 344 个不在候选池",
+    "新增 rules/verb_equivalence.yaml（ADD/MOD/SET 等价，RMV 独立）",
+    "工具 description + prompt 说明两种判据"
+   ],
+   "metrics": {
+    "fam_cov": 0.511,
+    "cmds": 4760,
+    "n": 87
+   },
+   "problems": [
+    "agent 调用 exp_siblings 次数 0（prompt 没说要调）→ 补说明后 19.8%→36.4%"
+   ]
+  },
+  {
+   "ver": "v4",
+   "date": "2026-11-09",
+   "commit": "35f9f8f",
+   "title": "exp_pairs 跨积修复 + 轮次上限分档",
+   "changes": [
+    "修 exp_pairs 两跳配对跨积 bug（一条中间实例只产生一个配对）",
+    "轮次硬上限分档：<100行900s / 100-300行1500s / 300-800行1800s / >800行2400s"
+   ],
+   "metrics": {
+    "fam_cov": 0.492,
+    "cmds": 3579,
+    "n": 87
+   },
+   "problems": [
+    "5 个工单超 1200s 上限被 kill → 分档后 5/5 全部救回"
+   ]
+  },
+  {
+   "ver": "v5",
+   "date": "2026-11-09",
+   "commit": "9161ed3",
+   "title": "G25 配套族缺失 + GT 还原意图",
+   "changes": [
+    "新增 G25：扫产物族用 exp_siblings 查配套族，high 置信度一个没配就 warn",
+    "意图从 GT 反推（业务链路分组 + 对象数量），不再用原始意图",
+    "数据清单：45 列名业务化，不含 MML 参数名"
+   ],
+   "metrics": {
+    "fam_cov": 0.511,
+    "cmds": 4760,
+    "n": 87
+   },
+   "problems": [
+    "意图泄露 MML 参数名（IPVERSION=IPV6 / POOLTYPE=EXTERNAL）→ 修",
+    "数据清单主键选错（选第一个参数 AFTYPE，184 行全一样）→ 改成选变化最多的"
+   ]
+  },
+  {
+   "ver": "v6",
+   "date": "2026-11-09",
+   "commit": "cfff1af",
+   "title": "两阶段生成（规划 → 填充）",
+   "changes": [
+    "阶段1 只写 命令族规划.md（白名单 + 事后清理越界产物）",
+    "阶段2 读规划全文，写 params.csv；mml.txt 由代码生成",
+    "修 4 个 bug：AGENT_STAGE 环境变量传不到 MCP / execute_code 绕过白名单 / check_artifacts 不按 stage / run_guard 报 NO_MML 死循环"
+   ],
+   "metrics": {
+    "fam_cov": 0.781,
+    "cmds": 9714,
+    "n": 87,
+    "stage1": 0.837
+   },
+   "problems": [
+    "阶段1 规划覆盖率是新指标，首次可用"
+   ]
+  },
+  {
+   "ver": "v7",
+   "date": "2026-11-10",
+   "commit": "9ad29af",
+   "title": "方案B（代码生成 mml）+ G26 规划一致性",
+   "changes": [
+    "方案B：agent 只写 params.csv，mml.txt 由 mml_gen 代码生成",
+    "实测 NC20260811002706：csv 826 组 → mml 由 21 条变 826 条",
+    "G26：规划表「确认」的族 vs params.csv，没配就 fatal",
+    "G26 检测代码真正插入（原来只有汇总逻辑，读一个永不写入的 key）",
+    "agent_run 调 guard 补传 --session-dir（G20/G21/G26/G27 之前全 skipped）"
+   ],
+   "metrics": {
+    "fam_cov": 0.651,
+    "cmds": 7613,
+    "n": 86
+   },
+   "problems": [
+    "命令数下降 11pp，但主要是「过度配置被纠正」：",
+    "NC20260811002152 GT 166 从 1110→152（原超配 7 倍）",
+    "NC20260826001298 GT 12 从 577→12（原超配 48 倍）"
+   ]
+  },
+  {
+   "ver": "v8",
+   "date": "2026-11-10",
+   "commit": "304ff9c",
+   "title": "数据清单补 IP/命名 + 两阶段分开统计",
+   "changes": [
+    "数据清单补齐 IP 地址和命名（_fallback_biz 兜底映射）",
+    "修 3 个解析 bug：无状态列 / 族名带动词 / 配套表误解析",
+    "有数据清单的工单 30 → 72",
+    "报告改「族覆盖」（GT 全部族），不再用「族完备」（可评估族）"
+   ],
+   "metrics": {
+    "fam_cov": 0.651,
+    "cmds": 0.61,
+    "n": 86,
+    "stage1": 0.632
+   },
+   "problems": [
+    "阶段1 63.2% / 阶段2 65.1%，族数 >20 时断崖下降"
+   ]
+  },
+  {
+   "ver": "v9",
+   "date": "2026-11-10",
+   "commit": "faa8109",
+   "title": "G28 族名张冠李戴 + G23 扩展 + GT 清洗",
+   "changes": [
+    "G28：业务对象中文词根 ↔ 族名英文词块 语义匹配（不绑定产品名）",
+    "G23 扩展：区分「冗余 ADD（参数一致）」vs「应为 MOD（参数有差异）」",
+    "G23 补复合主键：FLTBINDFLOWF(FLOWFILTERNAME,FILTERNAME) 等，误报 47→6",
+    "GT 清洗：剔除「ADD 且与 EXP 完全一致」的噪音，12802→12765（0.3%）",
+    "prompt：对象已存在时必须逐参数比对，有差异要 MOD",
+    "prompt：找不到对应族时不许用相近名顶替"
+   ],
+   "metrics": {
+    "fam_cov": 0.651,
+    "cmds": 0.61,
+    "n": 86,
+    "stage1": 0.632
+   },
+   "problems": [
+    "G28 实测 NC20260803000197 检出 3 个真问题，误报 0",
+    "G23 实测 NC20260803001614 冗余 25 条 + 应为MOD 6 条"
+   ]
+  },
+  {
+   "ver": "v10",
+   "date": "2026-11-10",
+   "commit": "待提交",
+   "title": "G29 SET属性族 + G30 RMV检测 + 大工单分片规划",
+   "changes": [
+    "G29：规划表标「确认」的 SET 族，产物没配就 warn（判别力 4/4）",
+    "G30：意图要删的对象，产物却 ADD 或漏删 → warn（判别力 5/5）",
+    "修 EXEC_ONLY_FAMS：LICENSESWITCH 是持久配置，不该跳过",
+    "prompt：大工单分片规划（每片 8-12 族，append 写入）",
+    "G28 判据清单补「触发场景/实测反例」列（15 条判据的经验来源）"
+   ],
+   "metrics": {
+    "fam_cov": 0.651,
+    "cmds": 0.61,
+    "n": 86,
+    "stage1": 0.632
+   },
+   "problems": [
+    "G29 判别力 4/4",
+    "分片策略数据依据：GT 20-29 族时覆盖率 51.5%，40-59 族时 44.3%"
+   ],
+   "latest": true
+  }
+ ],
+ "bottlenecks": [
+  {
+   "name": "UNC 独有族",
+   "n_fams": 69,
+   "n_tickets": 26,
+   "n_cmds": 3158,
+   "why": "工单跨 UDG+UNC，只提供 UDG 侧 EXP",
+   "fix": "补齐 UNC 侧 EXP（数据层面）",
+   "status": "待办"
+  },
+  {
+   "name": "阶段1 大工单断崖",
+   "n_fams": null,
+   "n_tickets": 24,
+   "n_cmds": null,
+   "why": "GT 族数 >20 时覆盖率从 74.6% 掉到 51.5%",
+   "fix": "prompt 分片规划",
+   "status": "本轮已加（待验证）"
+  },
+  {
+   "name": "SET 属性族漏配",
+   "n_fams": 15,
+   "n_tickets": null,
+   "n_cmds": 36,
+   "why": "agent 倾向 ADD 建对象，不愿 SET 设属性",
+   "fix": "G29 判据",
+   "status": "本轮已加（待验证）"
+  },
+  {
+   "name": "族名张冠李戴",
+   "n_fams": null,
+   "n_tickets": 2,
+   "n_cmds": null,
+   "why": "找不到族时用相近名顶替（TAIGROUP vs TAIRANGELIST）",
+   "fix": "prompt 原则 + G28 兜底",
+   "status": "已加（G28 验证过）"
+  },
+  {
+   "name": "冗余 ADD",
+   "n_fams": null,
+   "n_tickets": 4,
+   "n_cmds": 37,
+   "why": "GT 里混入「已存在且值完全相同」的 ADD",
+   "fix": "GT 清洗",
+   "status": "已完成"
+  },
+  {
+   "name": "该 MOD 却 ADD/跳过",
+   "n_fams": null,
+   "n_tickets": null,
+   "n_cmds": 6,
+   "why": "对象已存在但参数有差异时，agent 跳过不配",
+   "fix": "G23 扩展 + prompt",
+   "status": "已加（验证过）"
+  }
+ ],
+ "checks": [
+  {
+   "code": "G11",
+   "what": "主键唯一性",
+   "how": "规则",
+   "level": "fatal",
+   "power": "已有",
+   "why": "同一族的主键值重复出现 → 典型是 agent 把同名对象配了两遍"
+  },
+  {
+   "code": "G12",
+   "what": "参数格式与现网一致",
+   "how": "规则",
+   "level": "fatal",
+   "power": "已有",
+   "why": "参数名写错（FARMNAME vs IPFARMNAME）或取值形态不符"
+  },
+  {
+   "code": "G17",
+   "what": "规模合理性",
+   "how": "规则",
+   "level": "warn",
+   "power": "已有",
+   "why": "命令数远少于意图说的对象数量（如意图 190 个池只配 20 个）"
+  },
+  {
+   "code": "G18",
+   "what": "意图点名的族是否都配了",
+   "how": "规则",
+   "level": "warn",
+   "power": "已有",
+   "why": "意图里点了业务对象（地址池/隧道/过滤器），产物里没有对应族"
+  },
+  {
+   "code": "G19",
+   "what": "编造值 / 空壳族",
+   "how": "规则",
+   "level": "fatal",
+   "power": "已有",
+   "why": "主键有值但无 @src 依据标注；整个族一条依据都没有"
+  },
+  {
+   "code": "G20",
+   "what": "数据规划覆盖",
+   "how": "规则",
+   "level": "warn",
+   "power": "已有",
+   "why": "规划表的数据清单表没被 params.csv 引用"
+  },
+  {
+   "code": "G21",
+   "what": "csv↔mml 一致性",
+   "how": "规则",
+   "level": "warn",
+   "power": "已有",
+   "why": "agent 手写的 mml 和从 csv 生成的不一致"
+  },
+  {
+   "code": "G22",
+   "what": "占位符一致性",
+   "how": "规则",
+   "level": "warn",
+   "power": "已有",
+   "why": "同一占位符【待填写】在多处使用但语义不同"
+  },
+  {
+   "code": "G23",
+   "what": "ADD 已存在对象 / 冗余 vs 应为MOD",
+   "how": "规则",
+   "level": "warn",
+   "power": "2 类实测",
+   "why": "实测 NC20260803001614：25 条 ADD 的对象与现网完全一致（冗余），6 条参数有差异（应改 MOD）。原版只报前者，分不出后者"
+  },
+  {
+   "code": "G24",
+   "what": "省略要说明",
+   "how": "正则",
+   "level": "warn",
+   "power": "4/4",
+   "why": "配置分析里写「不做/跳过/用XXX代替」但方案澄清没对应条目"
+  },
+  {
+   "code": "G25",
+   "what": "配套族缺失",
+   "how": "规则",
+   "level": "warn",
+   "power": "5/5",
+   "why": "prompt 要求调 exp_siblings，实测 agent 调用 0 次 → 改判据兜底"
+  },
+  {
+   "code": "G26",
+   "what": "规划确认的族是否配了",
+   "how": "规则",
+   "level": "fatal",
+   "power": "5/5",
+   "why": "实测 NC20260828001156：规划标确认的 7 个族，params.csv 一条没有；反而规划标待定的 2 个族全配了"
+  },
+  {
+   "code": "G27",
+   "what": "配不了的项是否说明",
+   "how": "正则",
+   "level": "warn",
+   "power": "4/4",
+   "why": "实测 NC20260820000552：16 族里 15 个不在本网元 EXP，agent 静默跳过 → 要求写「本网元无法配置的项」表"
+  },
+  {
+   "code": "G28",
+   "what": "族名张冠李戴",
+   "how": "语义匹配",
+   "level": "warn",
+   "power": "3/3 实测",
+   "why": "实测 NC20260803000197：意图要「NF TAI 区域」（UNC 的 TAIRANGELIST），agent 选了 UDG 的 TAIGROUP 顶替，且标「确认」"
+  },
+  {
+   "code": "G29",
+   "what": "SET 属性族漏配",
+   "how": "规则",
+   "level": "warn",
+   "power": "4/4（本轮新增）",
+   "why": "实测 27 个低覆盖工单里 15 个漏配的族是纯 SET：ALMINFO 8 / APNSGLPASS 6 / LICENSESWITCH 5。agent 倾向 ADD 建对象，不愿 SET 设属性"
+  },
+  {
+   "code": "G30",
+   "what": "意图要删却 ADD / 漏删",
+   "how": "规则",
+   "level": "warn",
+   "power": "5/5（本轮新增）",
+   "why": "长期高频问题：prompt 写了「删除用 RMV」，实测 10 单里 8 单配成 ADD。意图已解析成结构化操作清单，所以用规则比对即可，不需要 LLM 校验"
+  }
+ ]
+}

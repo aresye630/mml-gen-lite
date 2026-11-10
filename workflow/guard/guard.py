@@ -1904,6 +1904,36 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             checks['G28_substitution'] = {'ok': True, 'skipped': True,
                                           'reason': f'G28 执行失败: {e}'}
 
+        # ★ 2026-11-10 G29：SET 属性族漏配检测
+        #   实测 27 个阶段1 低覆盖工单里，15 个漏配的族是纯 SET 属性命令
+        #   （ALMINFO 8 / APNSGLPASS 6 / LICENSESWITCH 5 / REFRESHSRV 3 ...）
+        #   agent 倾向建新对象（ADD），不愿给已有对象设属性（SET）。
+        try:
+            if session_dir and Path(session_dir).exists():
+                from set_missing import check_set_missing
+                checks['G29_set'] = check_set_missing(session_dir)
+            else:
+                checks['G29_set'] = {'ok': True, 'skipped': True,
+                                     'reason': '无 session_dir'}
+        except Exception as e:
+            checks['G29_set'] = {'ok': True, 'skipped': True,
+                                 'reason': f'G29 执行失败: {e}'}
+
+        # ★ 2026-11-10 G30：意图要删的对象，产物却 ADD 或漏删
+        #   长期高频问题（记录在 MEMORY）：prompt 写了「删除用 RMV」，
+        #   实测 10 单里 8 单把 RMV 配成了 ADD。
+        #   意图已解析成结构化操作清单，所以可用规则做，不需要 LLM。
+        try:
+            if session_dir and Path(session_dir).exists():
+                from rmv_vs_add import check_rmv_vs_add
+                checks['G30_rmv'] = check_rmv_vs_add(sess_dir=session_dir)
+            else:
+                checks['G30_rmv'] = {'ok': True, 'skipped': True,
+                                     'reason': '无 session_dir'}
+        except Exception as e:
+            checks['G30_rmv'] = {'ok': True, 'skipped': True,
+                                 'reason': f'G30 执行失败: {e}'}
+
         # ★ G22 占位符一致性
         try:
             import importlib as _il2
@@ -2079,6 +2109,32 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             f"G28 规划表里有 {len(_s)} 行的命令族和业务对象对不上（{_desc}）。"
             f"如果本网元确实没有对应族，该行应标「未找到/待确认」，"
             f"不要用名字相近的族顶替 —— 那会生成一条错误的配置。")
+
+    # ★ G29 规划了 SET 族但产物没配（warn）
+    _g29 = checks.get('G29_set') or {}
+    if _g29 and not _g29.get('skipped') and not _g29.get('ok', True):
+        _m29 = _g29.get('missing') or []
+        _d29 = '；'.join(f"{x['family']}（{x['biz'][:20]}）" for x in _m29[:3])
+        warn.append(
+            f"G29 规划表里有 {len(_m29)} 个 SET 属性族标了「确认」但产物没配（{_d29}）。"
+            f"SET 命令是给已有对象设属性，漏了他功能不完整。")
+
+    # ★ G30 意图要删却 ADD / 漏删（warn）
+    _g30 = checks.get('G30_rmv') or {}
+    if _g30 and not _g30.get('skipped') and not _g30.get('ok', True):
+        _rev = _g30.get('reversed') or []
+        _mis = _g30.get('missed') or []
+        if _rev:
+            _d = '；'.join(f"{x['biz'][:16]}→{x['family']}({x['n']}条ADD)"
+                          for x in _rev[:2])
+            warn.append(
+                f"G30 意图要求**删除**的对象，产物里却用了 ADD（{_d}）。"
+                f"删除类变更应该用 RMV，用 ADD 会把该删的对象重新建出来。")
+        if _mis:
+            _d = '；'.join(f"{x['biz'][:16]}→{x['family']}" for x in _mis[:2])
+            warn.append(
+                f"G30 意图要求删除的对象，产物里没有任何 RMV（{_d}）。"
+                f"漏删会导致旧配置残留。")
 
     _g22 = checks.get('G22_placeholder') or {}
     if _g22 and not _g22.get('skipped'):
