@@ -339,10 +339,20 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
         return '\n'.join(lines)
 
     lines.append('【产物要求】写到 analysis_code/，一共这几个文件：')
-    lines.append('  1. mml.txt        可执行 MML。按 Phase 分注释；引用必须闭合（后引用的对象必须先定义）')
-    lines.append('  2. params.csv     参数表。列：序号,组,网元,命令族,参数,值,来源,说明')
-    lines.append('       ★ params.csv 是 MML 的**唯一数据源** —— mml.txt 要能由它机械生成')
-    lines.append('       ★ 需人工确认的值填【待填写】，不要编造')
+    lines.append('  1. params.csv     参数表（★ 这是你的核心产物，写全）')
+    lines.append('       列：序号,组,网元,命令族,参数,值,来源,说明')
+    lines.append('  2. 配置分析.md    用了哪些依据、为什么选这些族、命名来源、注意事项')
+    lines.append('  3. 方案澄清.json  （可选）只放方案级问题，没有就给 []')
+    lines.append('')
+    lines.append('  ★★★ 不要写 mml.txt —— 它由代码从 params.csv 自动生成')
+    lines.append('    实测反例（NC20260811002706，GT 1164 条）：')
+    lines.append('      agent 手写 mml.txt 只写出 21 条就停了（被输出长度截断），')
+    lines.append('      而它写的 params.csv 有 826 组（数据是齐全的）。')
+    lines.append('      现在改成：你只负责 params.csv，代码会把它 1:1 转成 MML 命令，')
+    lines.append('      有多少组就生成多少条，不会被截断。')
+    lines.append('    ⚠ 写 mml.txt 是浪费轮次，而且会和 params.csv 不一致。')
+    lines.append('    ⚠ 唯一例外：如果你需要特殊的 Phase 分组注释，写在 params.csv 的')
+    lines.append('      「说明」列里，代码会带出来。')
     lines.append('')
     lines.append('  【params.csv 写法（重要）】')
     lines.append('    一行一个参数。同一个「组」的多行 = 一条 MML 命令。')
@@ -370,8 +380,7 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('      intent:<要素>              意图明确给出的')
     lines.append('      infer <规则说明>           业务推导')
     lines.append('')
-    lines.append('  3. 配置分析.md    用了哪些依据、为什么选这些族、命名来源、注意事项')
-    lines.append('  4. 方案澄清.json  （可选）只放方案级问题，没有就给 []')
+
     lines.append('')
     lines.append('【多网元场景的产物格式（重要）】')
     lines.append('  如果这次要配多个网元（如 UDG + UNC），仍然只写上面这几个文件，但要按网元分段：')
@@ -502,28 +511,19 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('      3) 重复 append 直到写完（每块 150-200 行，不要更小）')
     lines.append('      4) artifact_write(filename="params.csv", content="", mode="finalize")')
     lines.append('')
-    lines.append('    【mml.txt 分块 —— 实测大量漏配的根因】')
-    lines.append('      实测反例（NC20260811002706，GT 1164 条）：')
-    lines.append('        agent 写了 params.csv 1102 行（数据齐全），')
-    lines.append('        但 mml.txt 只写了 21 行（只完成 2 个 Phase 就停），')
-    lines.append('        后面 4 个 Phase 全部缺失 → 命令数只有 2%')
-    lines.append('      正确做法：按 Phase 分块 append')
-    lines.append('        1) artifact_write(filename="mml.txt", content="Phase1 的命令", mode="overwrite")')
-    lines.append('        2) artifact_write(filename="mml.txt", content="Phase2 的命令", mode="append")')
-    lines.append('        3) 重复 append 直到所有 Phase 写完')
-    lines.append('        4) artifact_write(filename="mml.txt", content="", mode="finalize")')
+    lines.append('    （mml.txt 不需要你写 —— 代码会从 params.csv 生成）')
     lines.append('')
     lines.append('    ⚠ 不要一次写超过 200 行（会超模型输出上限被截断）')
     lines.append('    ⚠ 也不要一次只写 30 行（浪费轮次，实测一份 600 行 CSV 会被拆成 20 次）')
     lines.append('')
     lines.append('  ★★ 交付前自检（必做，不做会漏配）')
-    lines.append('    1. 数一数 params.csv 里有多少个不同的「组」= N 条 MML 命令')
-    lines.append('    2. 数一数 mml.txt 里有多少条命令 = M')
-    lines.append('    3. 如果 M < N（差超过 10%），说明 mml.txt 没写完，继续 append')
-    lines.append('       —— 这是最常见的失败模式，务必检查')
-    lines.append('    4. 4 个产物文件名必须齐全：')
-    lines.append('       mml.txt / params.csv / 配置分析.md / 方案澄清.json')
-    lines.append('       ★ 配置分析.md 经常被忘，写完 mml 后立刻补上（哪怕很简短）')
+    lines.append('    1. params.csv 里有多少个不同的「组」，等于会生成多少条 MML 命令')
+    lines.append('       对照意图里说的对象数量：意图说「约 190 个地址池」，')
+    lines.append('       就应该有 190 个 POOL#N 组。数量差太多说明漏配了。')
+    lines.append('    2. 每个「组」的参数是否齐全（主键 + 必要属性）')
+    lines.append('    3. 3 个产物文件名必须齐全：')
+    lines.append('       params.csv / 配置分析.md / 方案澄清.json')
+    lines.append('       ★ 配置分析.md 经常被忘，写完 csv 后立刻补上（哪怕很简短）')
     lines.append('')
     lines.append('  · 需要迭代修改时：重新 overwrite 同名文件，不要另起文件名。')
     return '\n'.join(lines)
@@ -990,6 +990,71 @@ def rescue_tmp_artifacts(sess_dir):
     return recovered
 
 
+def _gen_mml_from_params(adir):
+    """从 params.csv 机械生成 mml.txt（纯代码，不调 LLM）。
+
+    ★ 2026-11-09 方案B（用户裁定）：
+      agent 只负责 params.csv（理解意图、选族、填参数是它的强项），
+      mml.txt 由代码生成 —— 确定性、不会因输出长度上限被截断。
+
+    实测对比（NC20260811002706）：
+      params.csv 1102 行 / 826 组 → 代码生成 826 条 / 132KB / 0 错误
+      agent 手写 mml.txt → 21 条 / 3.7KB（只完成 2 个 Phase）
+    """
+    csv_path = Path(adir) / 'params.csv'
+    if not csv_path.exists() or csv_path.stat().st_size == 0:
+        return None
+    try:
+        import sys as _s
+        _wf = str(Path(__file__).resolve().parent)
+        if _wf not in _s.path:
+            _s.path.insert(0, _wf)
+        import importlib
+        import mml_gen as _mg
+        importlib.reload(_mg)
+        r = _mg.gen_mml(str(csv_path))
+    except Exception as e:
+        return {'ok': False, 'error': f'{type(e).__name__}: {e}'}
+
+    text = (r or {}).get('text') or ''
+    n_cmd = (r or {}).get('n_commands') or 0
+    if not text.strip() or n_cmd == 0:
+        return {'ok': False, 'error': '生成结果为空',
+                'errors': (r or {}).get('errors') or []}
+
+    # 写 mml.txt（保留 agent 写过的头部注释，如果有）
+    target = Path(adir) / 'mml.txt'
+    header = ''
+    if target.exists():
+        try:
+            old = target.read_text(encoding='utf-8', errors='replace')
+            # 取开头连续的 /* */ 注释块作为头部
+            lines = old.split('\n')
+            hl = []
+            for ln in lines[:20]:
+                if ln.strip().startswith('/*') or ln.strip().startswith('*') \
+                        or ln.strip().startswith('*/') or ln.strip().startswith('   '):
+                    hl.append(ln)
+                elif ln.strip() == '' and hl:
+                    hl.append(ln)
+                else:
+                    break
+            header = '\n'.join(hl).rstrip() + '\n\n' if hl else ''
+        except Exception:
+            header = ''
+
+    body = (r or {}).get('text') or ''
+    note = ('/* ===== 本文件由 params.csv 自动生成（代码，非 agent 手写）===== */\n'
+            f'/* 数据源：params.csv（{{n_groups}} 组）→ 生成 {{n_commands}} 条命令 */\n\n')
+    note = note.replace('{n_groups}', str((r or {}).get('n_groups') or 0))
+    note = note.replace('{n_commands}', str(n_cmd))
+    target.write_text(header + note + body, encoding='utf-8')
+
+    return {'ok': True, 'n_commands': n_cmd,
+            'n_groups': (r or {}).get('n_groups') or 0,
+            'errors': (r or {}).get('errors') or []}
+
+
 def check_artifacts(sess_dir, stage='fill', with_recommended=False):
     """检查必需产物是否齐全。
 
@@ -1166,6 +1231,24 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                             events_fp.flush()
                         except Exception:
                             pass
+
+            # ★★ 2026-11-09 方案B：mml.txt 由代码从 params.csv 生成
+            #   实测 NC20260811002706：params.csv 826 组（数据齐全），
+            #   但 agent 手写 mml.txt 只写了 21 条（被输出长度截断）。
+            #   改为 agent 只负责 params.csv，代码机械生成 mml.txt。
+            if stage == 'fill':
+                _gen = _gen_mml_from_params(adir)
+                if _gen and _gen.get('ok'):
+                    try:
+                        events_fp.write(json.dumps(
+                            {'type': 'meta', 'event': 'mml_generated',
+                             'round': rnd, 'n_commands': _gen.get('n_commands'),
+                             'n_groups': _gen.get('n_groups'),
+                             'errors': len(_gen.get('errors') or [])},
+                            ensure_ascii=False) + '\n')
+                        events_fp.flush()
+                    except Exception:
+                        pass
 
             # 检查产物（★ 两阶段：阶段1 只要求 命令族规划.md）
             # ★ 分级：mml.txt/params.csv 缺 → fatal；配置分析.md 缺 → warn

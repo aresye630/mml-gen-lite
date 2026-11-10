@@ -30,7 +30,8 @@ GUARD_PY = WORKFLOW_ROOT / 'guard' / 'guard.py'
 
 # 允许写的产物名（硬约束）
 ALLOWED_ARTIFACTS = {
-    'mml.txt': '可执行 MML 配置命令',
+    # ★ 2026-11-09 方案B：mml.txt 由代码从 params.csv 生成，agent 不写
+    'mml.txt': '可执行 MML 配置命令（由代码从 params.csv 生成）',
     'params.csv': '参数收集表',
     '配置分析.md': '配置分析说明',
     '方案澄清.json': '方案级澄清问题（JSON 数组）',

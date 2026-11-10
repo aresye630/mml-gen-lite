@@ -1979,6 +1979,25 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         warn.append(
             f"G25 有 {_g25.get('n_missing', 0)} 个族的配套族没配（{_desc}）："
             f"现网里有强配套关系，建议一起配。如果是有意不配，请写进方案澄清。")
+    # ★ G26 规划表 vs params.csv（fatal：规划说要配但 csv 里没有）
+    _g26 = checks.get('G26_plan_csv') or {}
+    if _g26 and not _g26.get('skipped'):
+        _miss = _g26.get('missing') or []
+        if _miss:
+            _desc = '；'.join(
+                f"{m['family']}（规划 {m['qty']} 个）" for m in _miss[:4])
+            fatal.append(
+                f"G26 规划表里确认要配的 {len(_miss)} 个族，params.csv 里一个都没配"
+                f"（{_desc}）。规划与产物不一致，会漏配。")
+        _cm = _g26.get('count_mismatch') or []
+        if _cm:
+            _desc2 = '；'.join(
+                f"{m['family']} 规划 {m['planned']} 个但只配了 {m['actual']} 个"
+                for m in _cm[:3])
+            warn.append(
+                f"G26 有 {len(_cm)} 个族的数量明显少于规划（{_desc2}）："
+                f"请检查是否漏配了对象。")
+
     _g22 = checks.get('G22_placeholder') or {}
     if _g22 and not _g22.get('skipped'):
         for _e in (_g22.get('errors') or [])[:3]:
