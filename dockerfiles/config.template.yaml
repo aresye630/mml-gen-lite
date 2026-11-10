@@ -324,7 +324,11 @@ skills:
   inline_shell_timeout: 10
   guard_agent_created: false
 curator:
-  enabled: true
+  # ★ 2026-11-10 关闭：实测每个 agent 任务结束后会额外跑一次 LLM review
+  #   （bg-review 线程），4 个容器合计触发 178 次，与主任务抢 API 配额，
+  #   导致模型响应排队，5 个工单卡满 3000 秒轮次上限。
+  #   关闭后重跑这 4 个工单，阶段1 耗时从 3003s 降到 140s。
+  enabled: false
   interval_hours: 168
   min_idle_hours: 2
   stale_after_days: 30
