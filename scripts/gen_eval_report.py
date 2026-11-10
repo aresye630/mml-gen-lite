@@ -20,7 +20,28 @@ TEMPLATE = BASE / 'scripts/eval_report_template.html'
 HTML_OUT = Path('/tmp/eval_report_final.html')
 
 GT = json.loads(Path('/tmp/gt_cleaned.json').read_text(encoding='utf-8'))
-RES = json.loads(Path('/tmp/eval_2stage_v2_result.json').read_text(encoding='utf-8'))
+# ★ 2026-11-10：结果 JSON 会被单工单重跑覆盖，改成直接从产物目录构造
+#   产物目录 /tmp/eval_2stage_v2_out/<ticket>/ 里有 命令族规划.md 和 mml.txt
+RES_PATH = Path('/tmp/eval_2stage_v2_result.json')
+_raw_res = json.loads(RES_PATH.read_text(encoding='utf-8')) if RES_PATH.exists() else []
+
+# 从产物目录补全（有产物就当 done）
+_seen = {r.get('ticket') for r in _raw_res}
+for _d in Path('/tmp/eval_2stage_v2_out').iterdir() if Path('/tmp/eval_2stage_v2_out').exists() else []:
+    if not _d.is_dir():
+        continue
+    _tk = _d.name
+    if _tk in _seen:
+        continue
+    if not (_d / 'mml.txt').exists():
+        continue
+    _raw_res.append({
+        'ticket': _tk,
+        's1_status': 'done' if (_d / '命令族规划.md').exists() else None,
+        's2_status': 'done',
+        's1_sec': 0, 's2_sec': 0,
+    })
+RES = _raw_res
 EXPQ_PATH = Path('/tmp/exp_quality.json')
 EXPQ = json.loads(EXPQ_PATH.read_text(encoding='utf-8')) if EXPQ_PATH.exists() else []
 INTENT = Path('/tmp/intent_dataset')      # GT 还原意图 + 数据清单（实际输入）
@@ -29,6 +50,9 @@ ART = Path('/tmp/eval_2stage_v2_out')
 
 GT_MAP = {g['ticket']: g for g in GT}
 EXPQ_MAP = {r['tk']: r for r in EXPQ}
+
+
+TWOSTAGE = Path('/tmp/twostage_stat.json')
 
 
 def load_text(p):
@@ -49,25 +73,61 @@ def parse_fams(text):
 
 
 def parse_plan_fams(plan_text):
-    """从规划表提取族名（规划表的命令族列是裸族名，动词在动作列）。"""
+    """从规划表提取族名。
+
+    ★ 2026-11-10 修两个 bug：
+      1. 有的规划表没有「状态」列（9 列），硬编码 len(cells)>=10 会全跳过
+      2. 命令族列有「ADD TAIGROUP」带动词形式，原正则只认裸族名
+    改为：按表头定位列 + 剥动词。
+    """
     out = set()
     if not plan_text:
         return out
-    for line in plan_text.split('\n'):
-        line = line.strip()
+
+    lines = plan_text.split('\n')
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
         if not line.startswith('|'):
+            i += 1
             continue
-        cells = [c.strip() for c in line.split('|')]
-        if len(cells) < 10:
+        header = [c.strip() for c in line.strip().strip('|').split('|')]
+        if '命令族' not in header:
+            i += 1
             continue
-        body = cells[1:-1]
-        if len(body) < 9:
-            continue
-        for part in re.split(r'[/,、]', body[5]):
-            t = part.strip().upper()
-            if re.fullmatch(r'[A-Z][A-Z0-9_]{2,}', t):
-                out.add(t)
-    for m in re.finditer(r'\b(?:ADD|RMV|MOD|SET)\s+([A-Z][A-Z0-9_]{2,})\b', plan_text):
+
+        fam_idx = header.index('命令族')
+        st_idx = header.index('状态') if '状态' in header else None
+        ncol = len(header)
+
+        i += 1
+        if i < len(lines) and re.fullmatch(r'[|\s\-:]+', lines[i].strip()):
+            i += 1
+
+        while i < len(lines):
+            row = lines[i].strip()
+            if not row.startswith('|'):
+                break
+            cells = [c.strip() for c in row.strip().strip('|').split('|')]
+            if len(cells) < ncol:
+                i += 1
+                continue
+            status = cells[st_idx] if (st_idx is not None and st_idx < len(cells)) else ''
+            if '跳过' in status:
+                i += 1
+                continue
+            fam_cell = cells[fam_idx] if fam_idx < len(cells) else ''
+            for part in re.split(r'[/,、]', fam_cell):
+                t = part.strip().upper()
+                m2 = re.match(r'^(?:ADD|RMV|MOD|SET)\s+([A-Z][A-Z0-9_]{2,})$', t)
+                if m2:
+                    out.add(m2.group(1))
+                elif re.fullmatch(r'[A-Z][A-Z0-9_]{2,}', t):
+                    out.add(t)
+            i += 1
+        continue
+
+    for m in re.finditer(r'`(?:ADD|RMV|MOD|SET)\s+([A-Z][A-Z0-9_]{2,})', plan_text):
         out.add(m.group(1))
     return out
 
@@ -132,7 +192,10 @@ def build_rows():
             'gt_fams_n': r.get('gt_fams'),
             'no_support': r.get('no_support_fams'),
             's2_fatal': r.get('s2_fatal') or [],
-            'level': r.get('level'),
+            # ★ 2026-11-10：level 从 GT 命令数算，不依赖 RES 字段
+            #   （补全的条目没有 level；且 GT 规模是客观的）
+            'level': ('complex' if len(g['kept']) > 200
+                      else ('medium' if len(g['kept']) >= 50 else 'simple')),
             'exp_rate': eq.get('rate'),
             'exp_fams_n': eq.get('exp_fams'),
             'exp_missing': eq.get('missing') or [],
@@ -154,9 +217,11 @@ def kpi_html(ok):
     items = [
         ('工单总数', len(ok), f'成功 {done}'),
         ('GT 命令族总数', ev, '全部工单合计'),
-        ('阶段1 规划召回', f'{s1/max(1,ev)*100:.1f}%', f'{s1}/{ev} 族'),
+        # ★ 2026-11-10 两阶段分开报（用户要求）
+        ('阶段1 规划覆盖', f'{s1/max(1,ev)*100:.1f}%', f'{s1}/{ev} 族（数据不全，只看族和逻辑）'),
         ('阶段1 规划精确', f'{s1/max(1,pn)*100:.1f}%', f'规划 {pn} 族'),
-        ('阶段2 族覆盖', f'{s2/max(1,ev)*100:.1f}%', f'{s2}/{ev} 族'),
+        ('阶段2 产物覆盖', f'{s2/max(1,ev)*100:.1f}%', f'{s2}/{ev} 族（补全数据后看细节）'),
+        ('阶段损耗', s1 - s2, '规划了但没配出来'),
         ('命令数完成度', f'{pc/max(1,gc)*100:.0f}%', f'{pc}/{gc} 条'),
         ('工单级全覆盖', perfect, '族覆盖 100%'),
     ]
@@ -190,16 +255,18 @@ def size_bands_html(ok):
         if not sub:
             continue
         ev = sum(r['gt_fams_n'] or 0 for r in sub)
-        # ★ 族覆盖用 GT 全部族口径（用户裁定）
+        # ★ 两阶段分开（用户要求）
         s1 = sum(len(r['s1_hit_fams']) for r in sub)
         s2 = sum(len(r['hit_fams']) for r in sub)
         gc = sum(r['gt_cmds_n'] for r in sub)
         pc = sum(r['prod_cmds_n'] for r in sub)
+        loss = s1 - s2
         out.append(
             f'<tr><td>{label}</td><td class="right">{len(sub)}</td>'
             f'<td class="right">{ev}</td>'
-            f'<td class="right">{s1/max(1,ev)*100:.1f}%</td>'
+            f'<td class="right"><b>{s1/max(1,ev)*100:.1f}%</b></td>'
             f'<td class="right"><b>{s2/max(1,ev)*100:.1f}%</b></td>'
+            f'<td class="right">{loss:+d}</td>'
             f'<td class="right">{pc/max(1,gc)*100:.0f}%</td></tr>')
     return ''.join(out)
 

@@ -1889,6 +1889,21 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                                 'reason': f'G27 执行失败: {e}'}
 
 
+        # ★ 2026-11-10 新增 G28：族名张冠李戴检测（prompt 的兜底）
+        #   用户要求：「prompt 增强不一定稳定解决问题，要有对应的兜底策略」
+        #   实测 NC20260803000197：意图要「NF TAI 区域」，agent 选了 TAIGROUP
+        #   （正确族是 TAIRANGELIST，但那份 EXP 里没有，agent 用相近名顶替）
+        try:
+            if session_dir and Path(session_dir).exists():
+                from family_substitution import check_family_substitution
+                checks['G28_substitution'] = check_family_substitution(session_dir)
+            else:
+                checks['G28_substitution'] = {'ok': True, 'skipped': True,
+                                              'reason': '无 session_dir'}
+        except Exception as e:
+            checks['G28_substitution'] = {'ok': True, 'skipped': True,
+                                          'reason': f'G28 执行失败: {e}'}
+
         # ★ G22 占位符一致性
         try:
             import importlib as _il2
@@ -2039,6 +2054,16 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             f"但 配置分析.md 没说明为什么配不了（如：{_desc}）。"
             f"跨网元或本网元族不存在时，必须在配置分析里单独说明，"
             f"否则用户不知道为什么少了这些配置。")
+
+    # ★ G28 族名和业务对象对不上（warn）
+    _g28 = checks.get('G28_substitution') or {}
+    if _g28 and not _g28.get('skipped') and not _g28.get('ok', True):
+        _s = _g28.get('suspicious') or []
+        _desc = '；'.join(f"{x['biz'][:20]}→{x['family']}" for x in _s[:3])
+        warn.append(
+            f"G28 规划表里有 {len(_s)} 行的命令族和业务对象对不上（{_desc}）。"
+            f"如果本网元确实没有对应族，该行应标「未找到/待确认」，"
+            f"不要用名字相近的族顶替 —— 那会生成一条错误的配置。")
 
     _g22 = checks.get('G22_placeholder') or {}
     if _g22 and not _g22.get('skipped'):
