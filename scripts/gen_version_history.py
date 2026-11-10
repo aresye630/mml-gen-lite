@@ -21,6 +21,162 @@ DATA = PROJ / 'docs' / 'version_history.json'
 DEFAULT_OUT = Path('/tmp/version_history.html')
 
 
+
+
+def gen_perf_chart(perf):
+    """生成性能条形图（按规模分档的阶段1/阶段2 耗时）。"""
+    scales = perf.get('by_scale') or []
+    if not scales:
+        return ''
+
+    W = 1100
+    row_h = 54
+    H = 40 + row_h * len(scales) + 30
+    PAD_L, PAD_R = 130, 170
+    plot_w = W - PAD_L - PAD_R
+
+    max_val = max((x.get('total_median') or 0) for x in scales) or 1
+    max_val = max_val * 1.15
+
+    out = [f'<svg viewBox="0 0 {W} {H}" style="width:100%;max-width:{W}px;'
+           f'background:#fff;border:1px solid #eaeef2;border-radius:6px">']
+
+    for i, sc in enumerate(scales):
+        y = 34 + i * row_h
+        s1 = sc.get('s1_median') or 0
+        s2 = sc.get('s2_median') or 0
+        tot = sc.get('total_median') or 0
+        n = sc.get('n') or 0
+
+        # 标签
+        out.append(f'<text x="{PAD_L - 10}" y="{y + 14}" text-anchor="end" '
+                   f'font-size="11" fill="#1f2328">{sc.get("level","")}</text>')
+        out.append(f'<text x="{PAD_L - 10}" y="{y + 28}" text-anchor="end" '
+                   f'font-size="10" fill="#8c959f">{n} 单</text>')
+
+        # 阶段1 段
+        w1 = plot_w * s1 / max_val
+        if w1 > 0:
+            out.append(f'<rect x="{PAD_L}" y="{y}" width="{w1:.1f}" height="20" '
+                       f'fill="#1a7f37" rx="2"/>')
+        # 阶段2 段
+        w2 = plot_w * s2 / max_val
+        if w2 > 0:
+            out.append(f'<rect x="{PAD_L + w1:.1f}" y="{y}" width="{w2:.1f}" '
+                       f'height="20" fill="#1f6feb" rx="2"/>')
+
+        # 数值
+        label = f'{tot:.0f}s'
+        out.append(f'<text x="{PAD_L + w1 + w2 + 8:.1f}" y="{y + 14}" '
+                   f'font-size="11" font-weight="600" fill="#1f2328">{label}</text>')
+        out.append(f'<text x="{PAD_L + w1 + w2 + 8:.1f}" y="{y + 27}" '
+                   f'font-size="9" fill="#8c959f">'
+                   f'P90 {sc.get("total_p90",0):.0f}s</text>')
+
+    # 图例
+    ly = H - 14
+    out.append(f'<rect x="{PAD_L}" y="{ly - 9}" width="10" height="10" fill="#1a7f37" rx="2"/>')
+    out.append(f'<text x="{PAD_L + 16}" y="{ly}" font-size="10" fill="#1a7f37">'
+               f'阶段1 规划（中位）</text>')
+    out.append(f'<rect x="{PAD_L + 136}" y="{ly - 9}" width="10" height="10" fill="#1f6feb" rx="2"/>')
+    out.append(f'<text x="{PAD_L + 152}" y="{ly}" font-size="10" fill="#1f6feb">'
+               f'阶段2 填充（中位）</text>')
+
+    out.append('</svg>')
+    return '\n'.join(out)
+
+
+def gen_chart(versions):
+    """生成 SVG 折线图（阶段1 / 阶段2 覆盖率趋势）。"""
+    W, H = 1100, 320
+    PAD_L, PAD_R, PAD_T, PAD_B = 60, 130, 20, 46
+    plot_w = W - PAD_L - PAD_R
+    plot_h = H - PAD_T - PAD_B
+
+    # 收集数据点（只取有值的）
+    pts_s1, pts_s2 = [], []
+    for i, v in enumerate(versions):
+        m = v.get('metrics') or {}
+        if m.get('stage1') is not None:
+            pts_s1.append((i, m['stage1']))
+        if m.get('fam_cov') is not None:
+            pts_s2.append((i, m['fam_cov']))
+
+    n = max(1, len(versions) - 1)
+
+    def X(idx):
+        return PAD_L + plot_w * idx / n
+
+    def Y(val):
+        return PAD_T + plot_h * (1 - val)
+
+    def poly(pts, dash=''):
+        if not pts:
+            return ''
+        d = ' '.join(f'{X(i):.1f},{Y(v):.1f}' for i, v in pts)
+        dd = f' stroke-dasharray="{dash}"' if dash else ''
+        return (f'<polyline points="{d}" fill="none" stroke-width="2.2"'
+                f'{dd} stroke-linejoin="round"/>')
+
+    out = [f'<svg viewBox="0 0 {W} {H}" style="width:100%;max-width:{W}px;'
+           f'background:#fff;border:1px solid #eaeef2;border-radius:6px">']
+
+    # Y 轴网格 + 标签（0% - 100%，每 20%）
+    for pct in range(0, 101, 20):
+        y = Y(pct / 100)
+        out.append(f'<line x1="{PAD_L}" y1="{y:.1f}" x2="{PAD_L + plot_w}" '
+                   f'y2="{y:.1f}" stroke="#eaeef2" stroke-width="1"/>')
+        out.append(f'<text x="{PAD_L - 8}" y="{y + 4:.1f}" text-anchor="end" '
+                   f'font-size="10" fill="#8c959f">{pct}%</text>')
+
+    # X 轴标签
+    for i, v in enumerate(versions):
+        x = X(i)
+        out.append(f'<text x="{x:.1f}" y="{H - PAD_B + 18}" text-anchor="middle" '
+                   f'font-size="10" fill="#57606a">{v.get("ver", "")}</text>')
+        if v.get('latest'):
+            out.append(f'<circle cx="{x:.1f}" cy="{H - PAD_B + 30}" r="2.5" fill="#1f6feb"/>')
+
+    # 折线（阶段1 实线绿，阶段2 虚线蓝）
+    out.append(poly(pts_s1).replace('stroke-width',
+                                    'stroke="#1a7f37" stroke-width', 1))
+    out.append(poly(pts_s2, '6,4').replace('stroke-width',
+                                           'stroke="#1f6feb" stroke-width', 1))
+
+    # 数据点 + 数值标签
+    for i, val in pts_s1:
+        out.append(f'<circle cx="{X(i):.1f}" cy="{Y(val):.1f}" r="3.5" fill="#1a7f37"/>')
+        out.append(f'<text x="{X(i):.1f}" y="{Y(val) - 9:.1f}" text-anchor="middle" '
+                   f'font-size="9" fill="#1a7f37">{val * 100:.0f}</text>')
+    for i, val in pts_s2:
+        out.append(f'<circle cx="{X(i):.1f}" cy="{Y(val):.1f}" r="3.5" fill="#1f6feb"/>')
+        out.append(f'<text x="{X(i):.1f}" y="{Y(val) + 15:.1f}" text-anchor="middle" '
+                   f'font-size="9" fill="#1f6feb">{val * 100:.0f}</text>')
+
+    # 图例
+    lx = PAD_L + plot_w + 16
+    out.append(f'<line x1="{lx}" y1="{PAD_T + 14}" x2="{lx + 22}" y2="{PAD_T + 14}" '
+               f'stroke="#1a7f37" stroke-width="2.2"/>')
+    out.append(f'<text x="{lx + 28}" y="{PAD_T + 18}" font-size="10" fill="#1a7f37">'
+               f'阶段1 规划覆盖</text>')
+    out.append(f'<line x1="{lx}" y1="{PAD_T + 40}" x2="{lx + 22}" y2="{PAD_T + 40}" '
+               f'stroke="#1f6feb" stroke-width="2.2" stroke-dasharray="6,4"/>')
+    out.append(f'<text x="{lx + 28}" y="{PAD_T + 44}" font-size="10" fill="#1f6feb">'
+               f'阶段2 族覆盖</text>')
+
+    # v6 口径切换标注
+    for i, v in enumerate(versions):
+        if v.get('ver') == 'v6':
+            out.append(f'<line x1="{X(i):.1f}" y1="{PAD_T}" x2="{X(i):.1f}" '
+                       f'y2="{PAD_T + plot_h}" stroke="#bf8700" stroke-width="1" '
+                       f'stroke-dasharray="3,3"/>')
+            out.append(f'<text x="{X(i) + 4:.1f}" y="{PAD_T + 12}" font-size="9" '
+                       f'fill="#bf8700">v6 原记录 78%(可评估族口径)</text>')
+
+    out.append('</svg>')
+    return '\n'.join(out)
+
+
 def load_data():
     if not DATA.exists():
         raise SystemExit(f'数据文件不存在: {DATA}')
@@ -116,8 +272,220 @@ li{font-size:12px;margin:2px 0}
                  f'{meta["metrics_note"]}</div>')
     h.append('</div>')
 
-    # ── 二、版本明细 ──
-    h.append('<div class="card"><h2>二、版本明细</h2>')
+    # ── 二、问题分类矩阵（机制进化 / Bug / 输入问题）──
+    h.append('<div class="card"><h2>二、各版本修改了什么问题</h2>')
+    h.append('<div style="font-size:12px;color:#57606a;margin-bottom:10px">'
+             '把每个版本的改动按性质分类。<b>机制进化</b>=架构/流程/能力增强；'
+             '<b>Bug</b>=代码缺陷（判据没生效、解析错、条件写错）；'
+             '<b>输入问题</b>=数据和材料层面的发现（不是代码能修的）。</div>')
+    h.append('<table><thead><tr>'
+             '<th style="width:52px">版本</th>'
+             '<th style="width:26%">机制进化</th>'
+             '<th style="width:30%">Bug 修复</th>'
+             '<th>输入问题发现</th>'
+             '</tr></thead><tbody>')
+    for v in versions:
+        cats = v.get('categories') or {}
+        mech = cats.get('mechanism') or []
+        bugs = cats.get('bug') or []
+        inp = cats.get('input') or []
+
+        def cell(items, color):
+            if not items:
+                return '<span style="color:#c9d1d9">—</span>'
+            return '<br>'.join(f'<span style="color:{color}">·</span> {x}' for x in items)
+
+        h.append('<tr>')
+        h.append(f'<td class="ver">{v.get("ver","")}<br>'
+                 f'<span style="font-weight:400;color:#8c959f;font-size:10px">'
+                 f'{v.get("date","")}</span></td>')
+        h.append(f'<td style="font-size:11px">{cell(mech, "#1a7f37")}</td>')
+        h.append(f'<td style="font-size:11px">{cell(bugs, "#cf222e")}</td>')
+        h.append(f'<td style="font-size:11px">{cell(inp, "#0969da")}</td>')
+        h.append('</tr>')
+    h.append('</tbody></table>')
+
+    # 统计
+    n_mech = sum(len((v.get('categories') or {}).get('mechanism') or []) for v in versions)
+    n_bug = sum(len((v.get('categories') or {}).get('bug') or []) for v in versions)
+    n_inp = sum(len((v.get('categories') or {}).get('input') or []) for v in versions)
+    h.append(f'<div style="font-size:11px;color:#57606a;margin-top:10px">'
+             f'10 个版本累计：机制进化 <b>{n_mech}</b> 项、'
+             f'Bug 修复 <b>{n_bug}</b> 项、输入问题发现 <b>{n_inp}</b> 项。'
+             f'<br>注：Bug 占比高说明「能力」不是主要瓶颈 —— '
+             f'很多指标上不去是因为判据没生效、解析写错、条件写错，'
+             f'而不是模型配不出来。</div>')
+    h.append('</div>')
+
+    # ── 三、趋势曲线 ──
+    h.append('<div class="card"><h2>三、迭代趋势</h2>')
+    h.append(gen_chart(versions))
+    h.append('<div style="font-size:11px;color:#8c959f;margin-top:8px">'
+             '实线=阶段1 规划覆盖，虚线=阶段2 族覆盖（均为 GT 全部族口径）。'
+             'v6 原记录 78.1% 是「可评估族」口径，本图已统一重算为 62.5%，'
+             '所以 v6 看起来没有原记录那么高。'
+             'v7 起的下滑主要是「过度配置被纠正」+ 口径统一，不是能力退化。</div>')
+    h.append('</div>')
+
+    # ── 四、性能指标 ──
+    perf = data.get('performance') or {}
+    if perf.get('by_scale'):
+        h.append('<div class="card"><h2>四、性能指标</h2>')
+        h.append(f'<div style="font-size:12px;color:#57606a;margin-bottom:12px">'
+                 f'{perf.get("summary","")}'
+                 f'<br><span style="color:#8c959f;font-size:11px">'
+                 f'数据来源：{perf.get("source","")}</span></div>')
+
+        # 分档表
+        h.append('<table><thead><tr>'
+                 '<th style="width:130px">规模档位</th>'
+                 '<th class="right" style="width:56px">单数</th>'
+                 '<th class="right" style="width:96px">阶段1 中位</th>'
+                 '<th class="right" style="width:96px">阶段2 中位</th>'
+                 '<th class="right" style="width:100px">合计中位</th>'
+                 '<th class="right" style="width:92px">合计 P90</th>'
+                 '<th class="right" style="width:100px">合计最大</th>'
+                 '</tr></thead><tbody>')
+        for sc in perf['by_scale']:
+            h.append('<tr>')
+            h.append(f'<td><b>{sc.get("level","")}</b></td>')
+            h.append(f'<td class="right">{sc.get("n",0)}</td>')
+            h.append(f'<td class="right"><span class="metric good">{sc.get("s1_median",0):.0f}s</span></td>')
+            h.append(f'<td class="right"><span class="metric" style="color:#1f6feb">{sc.get("s2_median",0):.0f}s</span></td>')
+            h.append(f'<td class="right"><span class="metric">{sc.get("total_median",0):.0f}s</span></td>')
+            h.append(f'<td class="right">{sc.get("total_p90",0):.0f}s</td>')
+            mx = sc.get("total_max", 0)
+            mcls = 'bad' if mx > 2000 else ''
+            h.append(f'<td class="right"><span class="{mcls}">{mx:.0f}s</span></td>')
+            h.append('</tr>')
+        h.append('</tbody></table>')
+
+        # 条形图
+        h.append('<div style="margin-top:16px">' + gen_perf_chart(perf) + '</div>')
+
+        # 分位数
+        pc = perf.get('percentiles') or {}
+        if pc:
+            h.append('<div style="margin-top:14px;font-size:12px">'
+                     '<b>全量合计耗时分位数：</b>')
+            for k, label in [('p50', 'P50'), ('p75', 'P75'), ('p90', 'P90'),
+                             ('p95', 'P95'), ('p99', 'P99')]:
+                v = pc.get(k)
+                if v:
+                    cls = 'bad' if v > 2000 else ('warn' if v > 900 else 'good')
+                    h.append(f'　<span class="metric {cls}">{label} {v:.0f}s</span>')
+            h.append('</div>')
+
+        # 超时
+        tmo = perf.get('timeout') or {}
+        if tmo.get('count'):
+            h.append(f'<div style="margin-top:6px;font-size:12px;color:#cf222e">'
+                     f'超 {tmo.get("threshold")}s 的工单：<b>{tmo.get("count")} 单'
+                     f'（{tmo.get("ratio",0)*100:.0f}%）</b>　{tmo.get("note","")}</div>')
+
+        # 性能问题
+        probs = perf.get('problems') or []
+        if probs:
+            h.append('<div style="font-size:12px;font-weight:600;margin-top:16px">'
+                     '性能相关的问题与处理：</div>')
+            h.append('<table style="margin-top:6px"><thead><tr>'
+                     '<th style="width:200px">问题</th><th>细节</th>'
+                     '<th style="width:190px">影响</th>'
+                     '<th style="width:230px">处理</th></tr></thead><tbody>')
+            for pr in probs:
+                h.append(f'<tr><td><b>{pr.get("issue","")}</b></td>'
+                         f'<td style="font-size:11px">{pr.get("detail","")}</td>'
+                         f'<td style="font-size:11px">{pr.get("impact","")}</td>'
+                         f'<td style="font-size:11px">{pr.get("fix","")}</td></tr>')
+            h.append('</tbody></table>')
+        h.append('</div>')
+
+    # ── 五、关键提升节点 ──
+    hl = data.get('highlights') or {}
+    if hl.get('items'):
+        h.append('<div class="card"><h2>五、关键提升节点（哪些版本真的带来了提升）</h2>')
+        h.append(f'<div style="font-size:12px;color:#57606a;margin-bottom:12px">'
+                 f'{hl.get("summary", "")}</div>')
+
+        h.append('<table><thead><tr>'
+                 '<th style="width:48px">版本</th>'
+                 '<th style="width:70px">提升幅度</th>'
+                 '<th style="width:56px">性质</th>'
+                 '<th style="width:180px">做了什么</th>'
+                 '<th>为什么有效</th>'
+                 '<th style="width:200px">实测证据</th>'
+                 '<th style="width:90px">代价</th>'
+                 '</tr></thead><tbody>')
+        for it in hl['items']:
+            h.append('<tr>')
+            h.append(f'<td class="ver">{it.get("ver","")}</td>')
+            h.append(f'<td><span class="metric good">{it.get("delta","")}</span></td>')
+            h.append(f'<td><span class="tag t-done">{it.get("type","")}</span></td>')
+            h.append(f'<td style="font-size:11px"><b>{it.get("title","")}</b></td>')
+            h.append(f'<td style="font-size:11px">{it.get("why","")}</td>')
+            h.append(f'<td style="font-size:11px;color:#1a7f37">{it.get("evidence","")}</td>')
+            h.append(f'<td style="font-size:11px;color:#8c959f">{it.get("cost","")}</td>')
+            h.append('</tr>')
+        h.append('</tbody></table>')
+
+        if hl.get('no_gain'):
+            h.append('<div style="font-size:12px;margin-top:14px;font-weight:600">'
+                     '其余版本的指标变化（基本没涨，或者只是没来得及重跑）：</div>')
+            h.append('<table style="margin-top:6px"><thead><tr>'
+                     '<th style="width:48px">版本</th>'
+                     '<th style="width:70px">变化</th>'
+                     '<th>说明</th></tr></thead><tbody>')
+            for ng in hl['no_gain']:
+                d = ng.get('delta', '')
+                cls = 'bad' if d.startswith('-') else ('gray' if d == '0pp' else '')
+                h.append(f'<tr><td class="ver">{ng.get("ver","")}</td>'
+                         f'<td><span class="metric {cls}">{d}</span></td>'
+                         f'<td style="font-size:11px">{ng.get("why","")}</td></tr>')
+            h.append('</tbody></table>')
+
+        h.append('<div style="font-size:11px;color:#8c959f;margin-top:10px">'
+                 '<b>结论：</b>10 个版本里，真正拉指标的是 v3（+8.2pp）、v6（+11.4pp）、v7（+2.6pp）'
+                 '三个机制性改动，合计 +22pp。剩下的版本主要是修 bug、补数据、加后端判据 —— '
+                 '这些不直接涨指标，但是让「涨上去的能稳住」的前提。</div>')
+        h.append('</div>')
+
+    # ── 五、已发现未修正的问题 ──
+    oi = data.get('open_issues') or []
+    if oi:
+        h.append('<div class="card"><h2>六、已发现但未修正的问题</h2>')
+        h.append('<div style="font-size:12px;color:#57606a;margin-bottom:12px">'
+                 '这些是已知问题，按优先级排列。用户明确说「暂不动」的会标注。</div>')
+        h.append('<table><thead><tr>'
+                 '<th style="width:40px">编号</th>'
+                 '<th style="width:170px">问题</th>'
+                 '<th style="width:120px">影响范围</th>'
+                 '<th>为什么还没修</th>'
+                 '<th style="width:190px">影响</th>'
+                 '<th style="width:190px">修复路径</th>'
+                 '<th style="width:44px">优先级</th>'
+                 '</tr></thead><tbody>')
+        for it in oi:
+            pr = it.get('priority', '')
+            pcls = 'bad' if pr == 'P0' else ('warn' if pr == 'P1' else 't-gray')
+            h.append('<tr>')
+            h.append(f'<td class="ver">{it.get("id","")}</td>')
+            h.append(f'<td><b>{it.get("issue","")}</b></td>')
+            h.append(f'<td style="font-size:11px">{it.get("scope","")}</td>')
+            blocker = it.get('blocker') or ''
+            blocker_html = ''
+            if blocker and blocker != '无':
+                blocker_html = ('<br><span style="color:#cf222e">阻塞：'
+                                + blocker + '</span>')
+            why = it.get('why_open', '')
+            h.append(f'<td style="font-size:11px">{why}{blocker_html}</td>')
+            h.append(f'<td style="font-size:11px">{it.get("impact","")}</td>')
+            h.append(f'<td style="font-size:11px">{it.get("fix_path","")}</td>')
+            h.append(f'<td><span class="tag {pcls}">{pr}</span></td>')
+            h.append('</tr>')
+        h.append('</tbody></table></div>')
+
+    # ── 六、版本明细 ──
+    h.append('<div class="card"><h2>七、版本明细</h2>')
     for v in reversed(versions):     # 最新的在前
         border = '#1f6feb' if v.get('latest') else '#d0d7de'
         h.append(f'<div style="border-left:3px solid {border};padding-left:12px;'
@@ -143,7 +511,7 @@ li{font-size:12px;margin:2px 0}
 
     # ── 三、瓶颈 ──
     if bottlenecks:
-        h.append('<div class="card"><h2>三、当前瓶颈与对策</h2>')
+        h.append('<div class="card"><h2>八、当前瓶颈与对策</h2>')
         h.append('<table><thead><tr>'
                  '<th style="width:150px">瓶颈</th>'
                  '<th class="right" style="width:56px">族数</th>'
@@ -168,7 +536,7 @@ li{font-size:12px;margin:2px 0}
 
     # ── 四、判据清单 ──
     if checks:
-        h.append('<div class="card"><h2>四、判据清单（prompt 要求的兜底）</h2>')
+        h.append('<div class="card"><h2>九、判据清单（prompt 要求的兜底）</h2>')
         h.append('<table><thead><tr>'
                  '<th style="width:52px">编号</th>'
                  '<th style="width:170px">检查什么</th>'
@@ -197,7 +565,7 @@ li{font-size:12px;margin:2px 0}
 
     # ── 五、教训 ──
     if meta.get('lessons'):
-        h.append('<div class="card"><h2>五、关键教训</h2><ul>')
+        h.append('<div class="card"><h2>十、关键教训</h2><ul>')
         for l in meta['lessons']:
             h.append(f'<li>{l}</li>')
         h.append('</ul></div>')

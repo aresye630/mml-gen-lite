@@ -3,13 +3,14 @@
   "title": "MML 生成系统 · 版本修正历史与改进效果",
   "updated": "2026-11-10",
   "note": "本文件是长期维护的版本记录。新增版本时在 versions 数组末尾追加一条即可，不需要改脚本代码。",
-  "metrics_note": "注：v1-v5 用「族完备（可评估族）」口径，v6 起改为「族覆盖（GT 全部族）」；v7 命令数下降 11pp 主要是「过度配置被纠正」，不是能力退化。",
+  "metrics_note": "★ 2026-11-10 口径修正：v6 原记录 78.1% 是「可评估族」口径（分母 730，已排除无 EXP 支撑的 267 个族）。为让趋势可比，本表统一用「GT 全部族」口径重算 —— v6 为 570/912 = 62.5%。v7 命令数下降 11pp 主要是「过度配置被纠正」，不是能力退化。",
   "lessons": [
    "<b>prompt 约束靠不住，必须有判据兜底。</b>实测：prompt 写「删除用 RMV」，agent 10 单里 8 单配成 ADD；写「要调 exp_siblings」，实际调用 0 次。",
    "<b>判据写了不等于生效。</b>G26 的第一版只有汇总逻辑，检测代码没插进去，读一个永远不会写入的 key，永远 skipped。G24-G27 还曾被包在 <span class=\"mono\">if session_dir and params_csv</span> 分支里，不传 params 就全跳过。",
    "<b>额外 LLM 调用会拖垮主任务。</b>Hermes 的 curator（skill 库自更新）每次任务后跑一次 review，4 容器合计 178 次，与主任务抢 API 配额，导致 5 个工单卡满 3000 秒超时。关闭后阶段1 耗时从 3003s 降到 140s。",
-   "<b>指标口径必须统一。</b>「族完备（可评估族）」会出现「GT 6 族只配 1 族却显示 100%」，改成「族覆盖（GT 全部族）」才看得到真实情况。",
-   "<b>数据不全时，能力无法评估。</b>45/87 工单的 GT 里有意图和数据清单都没有的 IP，agent 只能编造。补数据清单后（30→72 工单）才可评估。"
+   "<b>指标口径必须统一。</b>「族完备（可评估族）」会出现「GT 6 族只配 1 族却显示 100%」，改成「族覆盖（GT 全部族）」才看得到真实情况。口径切换时，历史数据必须重算，否则趋势图会出现假断崖。",
+   "<b>数据不全时，能力无法评估。</b>45/87 工单的 GT 里有意图和数据清单都没有的 IP，agent 只能编造。补数据清单后（30→72 工单）才可评估。",
+   "<b>网络类问题不等于能力问题。</b>26 个工单跨 UDG+UNC，但只给了 UDG 侧 EXP。agent 在 UDG 找不到对应族，只能用名字相近的族顶替 —— 这是数据缺陷，不是模型缺陷。"
   ]
  },
  "versions": [
@@ -18,14 +19,26 @@
    "date": "2026-11-06",
    "commit": "2b0a5f1",
    "title": "单阶段生成 + 原始意图",
+   "categories": {
+    "mechanism": [
+     "agent 一次性生成 mml.txt + params.csv + 配置分析.md"
+    ],
+    "bug": [],
+    "input": [
+     "意图用原始工单意图（模糊，只有业务名词，无对象数量）"
+    ]
+   },
    "changes": [
     "agent 一次性生成 mml.txt + params.csv + 配置分析.md",
     "意图用原始工单意图（模糊，只有业务名词）"
    ],
    "metrics": {
+    "stage1": null,
     "fam_cov": 0.479,
     "cmds": null,
-    "n": 87
+    "n": 87,
+    "fam_cov_raw": 0.479,
+    "fam_cov_raw_label": "可评估族口径"
    },
    "problems": [
     "大工单只配样本（agent 看到「同一族不超过 20-30 条」就只配 20 条）",
@@ -37,14 +50,26 @@
    "date": "2026-11-07",
    "commit": "24186a6",
    "title": "修 STALL 检测 + 意图操作清单",
+   "categories": {
+    "mechanism": [
+     "意图加「操作清单」（代码从意图解析动词 + 对象）"
+    ],
+    "bug": [
+     "STALL 检测代码在 continue 之后 → 纯思考时永不触发 → NC20260820000552 卡死 34 分钟，修复后 482s 完成"
+    ],
+    "input": []
+   },
    "changes": [
     "修 STALL 检测：原代码在 continue 之后，纯思考时不触发 → 卡 34 分钟",
     "意图加「操作清单」（代码从意图解析动词 + 对象）"
    ],
    "metrics": {
+    "stage1": null,
     "fam_cov": 0.429,
     "cmds": 3350,
-    "n": 86
+    "n": 86,
+    "fam_cov_raw": 0.429,
+    "fam_cov_raw_label": "可评估族口径"
    },
    "problems": [
     "族完备下降 5pp（操作清单把业务名词当族名，误导 agent）",
@@ -56,6 +81,17 @@
    "date": "2026-11-08",
    "commit": "9cf3417",
    "title": "exp_siblings 同名前缀判据 + 动词等价组",
+   "categories": {
+    "mechanism": [
+     "exp_siblings 加同名前缀属性族判据（SET APNxxx 31 个族，ratio 1.00）",
+     "新增 rules/verb_equivalence.yaml（ADD/MOD/SET 等价，RMV 独立）"
+    ],
+    "bug": [
+     "cand 字典只统计 ADD 命令（70 族），SET 族 344 个完全不在候选池 → 补 cnt_set",
+     "工具 description 和 prompt 都没说明新判据 → agent 调用 exp_siblings 0 次"
+    ],
+    "input": []
+   },
    "changes": [
     "exp_siblings 加同名前缀属性族判据（SET APNxxx 31 个族，ratio 1.00）",
     "补 cnt_set：原 cand 只统计 ADD，SET 族 344 个不在候选池",
@@ -63,9 +99,12 @@
     "工具 description + prompt 说明两种判据"
    ],
    "metrics": {
+    "stage1": null,
     "fam_cov": 0.511,
     "cmds": 4760,
-    "n": 87
+    "n": 87,
+    "fam_cov_raw": 0.511,
+    "fam_cov_raw_label": "可评估族口径"
    },
    "problems": [
     "agent 调用 exp_siblings 次数 0（prompt 没说要调）→ 补说明后 19.8%→36.4%"
@@ -76,14 +115,26 @@
    "date": "2026-11-09",
    "commit": "35f9f8f",
    "title": "exp_pairs 跨积修复 + 轮次上限分档",
+   "categories": {
+    "mechanism": [
+     "轮次硬上限分档：<100行900s / 100-300行1500s / 300-800行1800s / >800行2400s"
+    ],
+    "bug": [
+     "exp_pairs 两跳配对跨积 bug：一条中间实例产生 A×B 个假配对 → 改为一对一"
+    ],
+    "input": []
+   },
    "changes": [
     "修 exp_pairs 两跳配对跨积 bug（一条中间实例只产生一个配对）",
     "轮次硬上限分档：<100行900s / 100-300行1500s / 300-800行1800s / >800行2400s"
    ],
    "metrics": {
+    "stage1": null,
     "fam_cov": 0.492,
     "cmds": 3579,
-    "n": 87
+    "n": 87,
+    "fam_cov_raw": 0.492,
+    "fam_cov_raw_label": "可评估族口径"
    },
    "problems": [
     "5 个工单超 1200s 上限被 kill → 分档后 5/5 全部救回"
@@ -94,15 +145,33 @@
    "date": "2026-11-09",
    "commit": "9161ed3",
    "title": "G25 配套族缺失 + GT 还原意图",
+   "categories": {
+    "mechanism": [
+     "新增 G25：产物里的族用 exp_siblings 查配套族，high 置信度一个没配就 warn",
+     "意图从 GT 反推（业务链路分组 + 对象数量），不再用原始意图",
+     "数据清单 45 列名业务化，不含 MML 参数名"
+    ],
+    "bug": [
+     "意图泄露 MML 参数名（IPVERSION=IPV6 / POOLTYPE=EXTERNAL）",
+     "数据清单主键选错（选第一个参数 AFTYPE，184 行全一样）→ 改成选变化最多的"
+    ],
+    "input": [
+     "发现跨网元问题：GT 族跨 UDG/UEG/UNC 三产品，只查 UDG 文档库覆盖率仅 76%，跨产品查后 96%（193/201）"
+    ]
+   },
    "changes": [
     "新增 G25：扫产物族用 exp_siblings 查配套族，high 置信度一个没配就 warn",
     "意图从 GT 反推（业务链路分组 + 对象数量），不再用原始意图",
-    "数据清单：45 列名业务化，不含 MML 参数名"
+    "数据清单列名业务化，不含 MML 参数名",
+    "跨产品族名索引：UDG/UEG/UNC 三库合并，GT 族覆盖 96%"
    ],
    "metrics": {
+    "stage1": null,
     "fam_cov": 0.511,
     "cmds": 4760,
-    "n": 87
+    "n": 87,
+    "fam_cov_raw": 0.511,
+    "fam_cov_raw_label": "可评估族口径"
    },
    "problems": [
     "意图泄露 MML 参数名（IPVERSION=IPV6 / POOLTYPE=EXTERNAL）→ 修",
@@ -114,19 +183,37 @@
    "date": "2026-11-09",
    "commit": "cfff1af",
    "title": "两阶段生成（规划 → 填充）",
+   "categories": {
+    "mechanism": [
+     "阶段1 只写 命令族规划.md（白名单 + 事后清理越界产物）",
+     "阶段2 读规划全文，写 params.csv；mml.txt 由代码生成",
+     "规划表作为 file-based handover，不用 --resume 会话复用"
+    ],
+    "bug": [
+     "AGENT_STAGE 环境变量传不到 MCP server（config.yaml 里 mcp_servers 无 env 字段）→ 改成 .agent/stage 文件",
+     "agent 用 execute_code + open() 绕过 artifact_write 白名单 → 加事后清理",
+     "check_artifacts 按 4 个标准产物检查，阶段1 应该只有规划表 → 加 stage 参数",
+     "run_guard 开头检查 mml.txt，阶段1 报 NO_MML → 死循环 13 分钟 → 阶段1 直接跳过 guard"
+    ],
+    "input": []
+   },
    "changes": [
     "阶段1 只写 命令族规划.md（白名单 + 事后清理越界产物）",
     "阶段2 读规划全文，写 params.csv；mml.txt 由代码生成",
     "修 4 个 bug：AGENT_STAGE 环境变量传不到 MCP / execute_code 绕过白名单 / check_artifacts 不按 stage / run_guard 报 NO_MML 死循环"
    ],
    "metrics": {
-    "fam_cov": 0.781,
-    "cmds": 9714,
+    "stage1": 0.67,
+    "fam_cov": 0.625,
+    "cmds": 0.76,
     "n": 87,
-    "stage1": 0.837
+    "fam_cov_raw": 0.781,
+    "fam_cov_raw_label": "可评估族口径（原记录 570/730）",
+    "note": "原记录 78.1% 用可评估族口径（分母 730）；统一到 GT 全部族口径后为 570/912 = 62.5%"
    },
    "problems": [
-    "阶段1 规划覆盖率是新指标，首次可用"
+    "阶段1 规划覆盖率首次可用（67.0%）",
+    "原记录 78.1% 是「可评估族」口径，与 v7 起的「GT 全部族」口径不可比 —— 本表已统一重算为 62.5%"
    ]
   },
   {
@@ -134,6 +221,20 @@
    "date": "2026-11-10",
    "commit": "9ad29af",
    "title": "方案B（代码生成 mml）+ G26 规划一致性",
+   "categories": {
+    "mechanism": [
+     "方案B：agent 只写 params.csv，mml.txt 由 mml_gen 代码生成",
+     "G26：规划表「确认」的族 vs params.csv，没配就 fatal"
+    ],
+    "bug": [
+     "G26 检测代码根本没插入（只有汇总逻辑，读一个永不写入的 key）→ 永远 skipped",
+     "agent_run 调 guard 没传 --session-dir → G20/G21/G26/G27 全部 skipped",
+     "G24-G27 被包在 if session_dir and params_csv 里 → 不传 params 就全跳过"
+    ],
+    "input": [
+     "发现 EXP 质量分层：52 单 100% 覆盖 / 4 单 80-99% / 15 单 50-79% / 16 单 <50%"
+    ]
+   },
    "changes": [
     "方案B：agent 只写 params.csv，mml.txt 由 mml_gen 代码生成",
     "实测 NC20260811002706：csv 826 组 → mml 由 21 条变 826 条",
@@ -142,8 +243,9 @@
     "agent_run 调 guard 补传 --session-dir（G20/G21/G26/G27 之前全 skipped）"
    ],
    "metrics": {
+    "stage1": null,
     "fam_cov": 0.651,
-    "cmds": 7613,
+    "cmds": 0.61,
     "n": 86
    },
    "problems": [
@@ -157,6 +259,19 @@
    "date": "2026-11-10",
    "commit": "304ff9c",
    "title": "数据清单补 IP/命名 + 两阶段分开统计",
+   "categories": {
+    "mechanism": [
+     "数据清单补齐 IP 地址和命名（_fallback_biz 兜底映射）",
+     "报告改「族覆盖」（GT 全部族），不再用「族完备」（可评估族）"
+    ],
+    "bug": [
+     "规划表解析 3 个 bug：有的表没有「状态」列（9 列）/ 命令族列有「ADD TAIGROUP」带动词形式 / 配套关系表（7 列）被误当规划表"
+    ],
+    "input": [
+     "★ 发现 45/87 工单的 GT 里有意图和数据清单都没有的 IP → 补数据清单，有清单的工单 30→72",
+     "★ 发现 26/87 工单跨 UDG+UNC，但只提供 UDG 侧 EXP"
+    ]
+   },
    "changes": [
     "数据清单补齐 IP 地址和命名（_fallback_biz 兜底映射）",
     "修 3 个解析 bug：无状态列 / 族名带动词 / 配套表误解析",
@@ -164,13 +279,14 @@
     "报告改「族覆盖」（GT 全部族），不再用「族完备」（可评估族）"
    ],
    "metrics": {
+    "stage1": 0.632,
     "fam_cov": 0.651,
     "cmds": 0.61,
-    "n": 86,
-    "stage1": 0.632
+    "n": 86
    },
    "problems": [
-    "阶段1 63.2% / 阶段2 65.1%，族数 >20 时断崖下降"
+    "阶段1 63.2% / 阶段2 65.1%，族数 >20 时断崖下降（20-29 族 51.5% / 40-59 族 44.3%）",
+    "参数名泄露 0，数据清单 72 单"
    ]
   },
   {
@@ -178,6 +294,20 @@
    "date": "2026-11-10",
    "commit": "faa8109",
    "title": "G28 族名张冠李戴 + G23 扩展 + GT 清洗",
+   "categories": {
+    "mechanism": [
+     "G28：业务对象中文词根 ↔ 族名英文词块 语义匹配（不绑定产品名）",
+     "G23 扩展：区分「冗余 ADD（参数一致）」vs「应为 MOD（参数有差异）」",
+     "GT 清洗：剔除「ADD 且与 EXP 完全一致」的噪音"
+    ],
+    "bug": [
+     "G23 主键只取第一个参数 → FLTBINDFLOWF 等绑定类族误报 47 条 → 补复合主键后降到 6 条"
+    ],
+    "input": [
+     "★ 锚点案例 NC20260803000197：意图要「NF TAI 区域」，GT 是 UNC 的 TAIRANGELIST，agent 选了 UDG 的 TAIGROUP —— 名字相近但完全是两个产品的东西",
+     "★ 锚点案例 NC20260803001614：GT 里 25 条 ADD 是重复（EXP 里已存在且值完全一致），6 条参数有差异才是真实变更"
+    ]
+   },
    "changes": [
     "G28：业务对象中文词根 ↔ 族名英文词块 语义匹配（不绑定产品名）",
     "G23 扩展：区分「冗余 ADD（参数一致）」vs「应为 MOD（参数有差异）」",
@@ -187,10 +317,10 @@
     "prompt：找不到对应族时不许用相近名顶替"
    ],
    "metrics": {
+    "stage1": 0.632,
     "fam_cov": 0.651,
     "cmds": 0.61,
-    "n": 86,
-    "stage1": 0.632
+    "n": 86
    },
    "problems": [
     "G28 实测 NC20260803000197 检出 3 个真问题，误报 0",
@@ -200,26 +330,42 @@
   {
    "ver": "v10",
    "date": "2026-11-10",
-   "commit": "待提交",
-   "title": "G29 SET属性族 + G30 RMV检测 + 大工单分片规划",
+   "commit": "cbb3923",
+   "title": "G29 SET属性族 + G30 删除检测 + 大工单分片",
+   "latest": true,
+   "categories": {
+    "mechanism": [
+     "G29：规划表标「确认」的 SET 族，产物没配就 warn",
+     "G30：意图要删的对象，产物却 ADD 或漏删 → warn",
+     "prompt：大工单分片规划（每片 8-12 族，append 写入）"
+    ],
+    "bug": [
+     "EXEC_ONLY_FAMS 误把 LICENSESWITCH 列进去（它是持久配置）→ 导致该判据永远不检查"
+    ],
+    "input": [
+     "★ 发现 CURATOR 拖垮主任务：Hermes 的 skill 库自更新每次任务后跑一次 LLM review，4 容器合计 178 次，与主任务抢 API 配额 → 5 单卡满 3000s 超时。关闭后阶段1 从 3003s 降到 140s",
+     "★ UNC 清单整理：26 工单 / 69 族 / 3158 条命令，最大缺口 CONNECTPLMN 单族 674 条"
+    ]
+   },
    "changes": [
     "G29：规划表标「确认」的 SET 族，产物没配就 warn（判别力 4/4）",
     "G30：意图要删的对象，产物却 ADD 或漏删 → warn（判别力 5/5）",
     "修 EXEC_ONLY_FAMS：LICENSESWITCH 是持久配置，不该跳过",
     "prompt：大工单分片规划（每片 8-12 族，append 写入）",
-    "G28 判据清单补「触发场景/实测反例」列（15 条判据的经验来源）"
+    "关闭 Hermes curator，修复 5 单 3000s 超时",
+    "G28 判据清单补「触发场景/实测反例」列（16 条判据的经验来源）",
+    "版本历史改为数据驱动（docs/version_history.json + 渲染脚本）"
    ],
    "metrics": {
+    "stage1": 0.632,
     "fam_cov": 0.651,
     "cmds": 0.61,
-    "n": 86,
-    "stage1": 0.632
+    "n": 86
    },
    "problems": [
-    "G29 判别力 4/4",
+    "G29 判别力 4/4、G30 判别力 5/5，4 容器逐台验证通过",
     "分片策略数据依据：GT 20-29 族时覆盖率 51.5%，40-59 族时 44.3%"
-   ],
-   "latest": true
+   ]
   }
  ],
  "bottlenecks": [
@@ -228,8 +374,8 @@
    "n_fams": 69,
    "n_tickets": 26,
    "n_cmds": 3158,
-   "why": "工单跨 UDG+UNC，只提供 UDG 侧 EXP",
-   "fix": "补齐 UNC 侧 EXP（数据层面）",
+   "why": "工单跨 UDG+UNC，只提供 UDG 侧 EXP。最大缺口 CONNECTPLMN 单族 674 条",
+   "fix": "补齐 UNC 侧 EXP（数据层面，非代码问题）",
    "status": "待办"
   },
   {
@@ -237,8 +383,8 @@
    "n_fams": null,
    "n_tickets": 24,
    "n_cmds": null,
-   "why": "GT 族数 >20 时覆盖率从 74.6% 掉到 51.5%",
-   "fix": "prompt 分片规划",
+   "why": "GT 族数 >20 时覆盖率从 74.6% 掉到 51.5%，40-59 族时仅 44.3%",
+   "fix": "prompt 分片规划（每片 8-12 族，append 写入）",
    "status": "本轮已加（待验证）"
   },
   {
@@ -246,8 +392,17 @@
    "n_fams": 15,
    "n_tickets": null,
    "n_cmds": 36,
-   "why": "agent 倾向 ADD 建对象，不愿 SET 设属性",
+   "why": "agent 倾向 ADD 建对象，不愿 SET 设属性。ALMINFO 8 / APNSGLPASS 6 / LICENSESWITCH 5 / REFRESHSRV 3",
    "fix": "G29 判据",
+   "status": "本轮已加（待验证）"
+  },
+  {
+   "name": "删除却配成 ADD",
+   "n_fams": null,
+   "n_tickets": null,
+   "n_cmds": null,
+   "why": "长期问题：prompt 写了「删除用 RMV」，实测 10 单里 8 单配成 ADD",
+   "fix": "G30 判据（规则比对，不用 LLM）",
    "status": "本轮已加（待验证）"
   },
   {
@@ -255,25 +410,25 @@
    "n_fams": null,
    "n_tickets": 2,
    "n_cmds": null,
-   "why": "找不到族时用相近名顶替（TAIGROUP vs TAIRANGELIST）",
+   "why": "找不到族时用相近名顶替（要 TAIRANGELIST 却选了 TAIGROUP），且标「确认」",
    "fix": "prompt 原则 + G28 兜底",
    "status": "已加（G28 验证过）"
   },
   {
-   "name": "冗余 ADD",
+   "name": "冗余 ADD 噪音",
    "n_fams": null,
    "n_tickets": 4,
    "n_cmds": 37,
-   "why": "GT 里混入「已存在且值完全相同」的 ADD",
-   "fix": "GT 清洗",
+   "why": "GT 里混入「已存在且值完全相同」的 ADD，agent 判断「已存在不用配」反而是对的",
+   "fix": "GT 清洗（12802→12765）",
    "status": "已完成"
   },
   {
-   "name": "该 MOD 却 ADD/跳过",
+   "name": "该 MOD 却跳过",
    "n_fams": null,
    "n_tickets": null,
    "n_cmds": 6,
-   "why": "对象已存在但参数有差异时，agent 跳过不配",
+   "why": "对象已存在但参数有差异时，agent 直接跳过不配",
    "fix": "G23 扩展 + prompt",
    "status": "已加（验证过）"
   }
@@ -396,7 +551,7 @@
    "what": "SET 属性族漏配",
    "how": "规则",
    "level": "warn",
-   "power": "4/4（本轮新增）",
+   "power": "4/4（v10 新增）",
    "why": "实测 27 个低覆盖工单里 15 个漏配的族是纯 SET：ALMINFO 8 / APNSGLPASS 6 / LICENSESWITCH 5。agent 倾向 ADD 建对象，不愿 SET 设属性"
   },
   {
@@ -404,8 +559,195 @@
    "what": "意图要删却 ADD / 漏删",
    "how": "规则",
    "level": "warn",
-   "power": "5/5（本轮新增）",
+   "power": "5/5（v10 新增）",
    "why": "长期高频问题：prompt 写了「删除用 RMV」，实测 10 单里 8 单配成 ADD。意图已解析成结构化操作清单，所以用规则比对即可，不需要 LLM 校验"
   }
- ]
+ ],
+ "highlights": {
+  "summary": "从 47.9% 到 65.1%，真正带来提升的只有 3 个节点；其余版本主要是在修 bug 和补数据。",
+  "items": [
+   {
+    "ver": "v3",
+    "delta": "+8.2pp",
+    "type": "机制",
+    "title": "exp_siblings 同名前缀判据",
+    "why": "原来 exp_siblings 返回的本网元族很少，导致 agent 不知道还有哪些属性族要配。补了「同名前缀 + 数量比值 ≥ 0.9」判据后，ADD APN 的配套族从 4 个变 31 个。",
+    "evidence": "实测 4 个大工单：族完备 19.8% → 36.4%",
+    "cost": "中（改了 exp 检索逻辑，1 天）"
+   },
+   {
+    "ver": "v6",
+    "delta": "+11.4pp",
+    "type": "机制",
+    "title": "两阶段生成（规划 → 人工审核 → 填充）",
+    "why": "这是最大的单点提升。根因是「一个 agent 既要选族又要填参数」，大工单时注意力被参数细节占满，顾不上族。拆成两阶段后，阶段1 只负责族规划，阶段2 才填参数。",
+    "evidence": "阶段1 规划覆盖首次可测（67.0%）；族覆盖 51.1% → 62.5%",
+    "cost": "高（改架构，重写了 agent_run 主流程，3 天）"
+   },
+   {
+    "ver": "v7",
+    "delta": "+2.6pp",
+    "type": "机制",
+    "title": "方案B：mml.txt 由代码生成",
+    "why": "agent 手写 mml.txt 会被输出长度截断。实测 NC20260811002706：params.csv 有 826 组数据，手写 mml 只写出 21 条。改成代码从 csv 1:1 生成后该工单命令数 21 → 439。",
+    "evidence": "NC20260824002208 命令数 32% → 92%；NC20260828001156 10% → 42%",
+    "cost": "中（复用已有 mml_gen，2 天）"
+   }
+  ],
+  "no_gain": [
+   {
+    "ver": "v2",
+    "delta": "-5.0pp",
+    "why": "意图操作清单把业务名词当族名，误导 agent → 后废弃"
+   },
+   {
+    "ver": "v4",
+    "delta": "-1.9pp",
+    "why": "只修 bug（exp_pairs 跨积、轮次上限），能力未变"
+   },
+   {
+    "ver": "v8",
+    "delta": "0pp",
+    "why": "补数据清单（30→72 单）+ 口径统一，指标未动但可评估面扩大"
+   },
+   {
+    "ver": "v9",
+    "delta": "0pp",
+    "why": "新增 G28/G23 扩展 + GT 清洗，都是后端拦截，没重跑全量"
+   },
+   {
+    "ver": "v10",
+    "delta": "0pp",
+    "why": "新增 G29/G30 + 分片策略，待验证"
+   }
+  ]
+ },
+ "open_issues": [
+  {
+   "id": "O1",
+   "issue": "UNC 侧 EXP 缺失",
+   "scope": "26 个工单 / 69 个族 / 3158 条命令",
+   "why_open": "这是数据缺陷，不是代码能修的。工单材料本来就要求导出 UNC+UDG 两份，数据集只给了 UDG 那份。",
+   "impact": "阶段1 覆盖上限被压住。最大缺口 CONNECTPLMN 单族 674 条。",
+   "fix_path": "补齐对应 UNC 网元的 EXP。已验证工作区的 UNC EXP 里能查到这些族。",
+   "blocker": "需要原始工单的 UNC 网元清单 + 实际导出",
+   "priority": "P0"
+  },
+  {
+   "id": "O2",
+   "issue": "复杂工单阶段1 覆盖断崖（族数 >20）",
+   "scope": "24 个工单",
+   "why_open": "一次让模型列几十个族会漏。已加 prompt 分片策略（每片 8-12 族），但尚未验证效果。",
+   "impact": "20-29 族时 51.5%，40-59 族时 44.3%（简单工单 80.0%）",
+   "fix_path": "prompt 分片已加，待跑全量验证",
+   "blocker": "需要重跑全量才知道分片策略是否有效",
+   "priority": "P1"
+  },
+  {
+   "id": "O3",
+   "issue": "params.csv 本身不完整",
+   "scope": "41 个工单",
+   "why_open": "实测分类：csv 齐全但 mml 缺失只有 1 单，csv 本身不够有 41 单。agent 写 csv 时就省略了对象。",
+   "impact": "代码生成 mml 只能照着 csv 生成，源头少了后面全少",
+   "fix_path": "G26 已能检测「规划确认但 csv 没配」，但 agent 回炉后能否补齐待验证",
+   "blocker": "需要验证 G26 回炉的实际补救率",
+   "priority": "P1"
+  },
+  {
+   "id": "O4",
+   "issue": "规划精确度偏低（54.9%）",
+   "scope": "全量",
+   "why_open": "规划表倾向保守多列族，产物里出现不必要的族。用户裁定「暂不动」。",
+   "impact": "不影响覆盖率，但会带来多余的配置",
+   "fix_path": "规划表的「配套关系」表加「是否配」判定依据",
+   "blocker": "用户明示暂不处理",
+   "priority": "P3"
+  },
+  {
+   "id": "O5",
+   "issue": "意图意图覆盖度无法用规则校验",
+   "scope": "全量",
+   "why_open": "「意图点名的每个业务对象都要有对应族」这条，涉及自然语言理解，规则判据做不准。G18 只能查「点了族名的」，不能查「点了业务描述的」。",
+   "impact": "部分漏配无法被自动发现",
+   "fix_path": "LLM 校验器 R2（已在方案分析文档里列出设计），成本高，暂未实施",
+   "blocker": "成本与稳定性权衡中",
+   "priority": "P2"
+  },
+  {
+   "id": "O6",
+   "issue": "NC20260817001652 空工单导致空转",
+   "scope": "1 个工单",
+   "why_open": "GT 0 条、意图为空，agent 无内容可做但仍跑满轮次",
+   "impact": "浪费一次评估时间（3000s）",
+   "fix_path": "评估脚本预检：GT 为空的工单直接跳过",
+   "blocker": "无",
+   "priority": "P3"
+  }
+ ],
+ "performance": {
+  "summary": "两阶段流程把「族规划」和「参数填充」拆开后，阶段1 的中位耗时只有 85-150 秒，阶段2 才按工单规模线性增长。复杂工单阶段2 中位 841 秒，是简单工单的 5.8 倍。",
+  "source": "基于 v6 全量评估（87 单，2026-11-09，4 容器并发）",
+  "by_scale": [
+   {
+    "level": "简单 <50 条",
+    "n": 52,
+    "s1_median": 85,
+    "s2_median": 145,
+    "total_median": 225,
+    "total_p90": 370,
+    "total_max": 871
+   },
+   {
+    "level": "中等 50-200 条",
+    "n": 18,
+    "s1_median": 135,
+    "s2_median": 315,
+    "total_median": 466,
+    "total_p90": 1593,
+    "total_max": 3134
+   },
+   {
+    "level": "复杂 >200 条",
+    "n": 17,
+    "s1_median": 150,
+    "s2_median": 841,
+    "total_median": 981,
+    "total_p90": 1933,
+    "total_max": 2033
+   }
+  ],
+  "percentiles": {
+   "p50": 320,
+   "p75": 516,
+   "p90": 1069,
+   "p95": 1868,
+   "p99": 3117
+  },
+  "timeout": {
+   "count": 13,
+   "ratio": 0.15,
+   "threshold": 900,
+   "note": "超 900s 的 13 单（15%），主要是复杂工单和跨网元工单"
+  },
+  "problems": [
+   {
+    "issue": "阶段2 耗时随规模线性增长",
+    "detail": "简单工单 145s → 复杂工单 841s，5.8 倍。主要成本是 agent 逐族填参数，对象越多轮次越多。",
+    "impact": "复杂工单全量跑一次约 3 小时（4 容器并发）",
+    "fix": "暂无优化计划（用户裁定优先保证准确率）"
+   },
+   {
+    "issue": "curator 曾导致 5 单卡满 3000s",
+    "detail": "Hermes 的 skill 库自更新每次任务后跑一次 LLM review，4 容器合计 178 次，与主任务抢 API 配额。",
+    "impact": "5 个工单超时（占 6%），拉高全部均值",
+    "fix": "已关闭（config.template.yaml curator.enabled: false），修复后阶段1 从 3003s 降到 140s"
+   },
+   {
+    "issue": "NC20260817001652 空工单空转 3000s",
+    "detail": "GT 0 条、意图为空，agent 无内容可做但仍跑满轮次上限",
+    "impact": "浪费一次评估时间",
+    "fix": "待修（评估脚本预检 GT 为空的工单直接跳过）"
+   }
+  ]
+ }
 }
