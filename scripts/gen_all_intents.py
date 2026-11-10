@@ -66,12 +66,80 @@ SHEET_NAME = {
 }
 
 
+def is_placeholder(v):
+    """判断是不是占位符值（<x> / 【待填写】 / *** 等）。"""
+    if not v:
+        return True
+    v = str(v).strip()
+    if not v:
+        return True
+    if v.startswith('<') and v.endswith('>'):
+        return True
+    if '待填写' in v or '待确认' in v or '占位' in v:
+        return True
+    if v.strip('*') == '':
+        return True
+    return False
+
+
+def _fallback_biz(pname):
+    """参数名兜底→业务说法。
+
+    ★ 2026-11-10：用户要求「数据清单补 IP 地址和命名，不补具体参数细节」。
+    原来 biz_param() 返回 None 就整列丢掉，导致 IP/名称类的列全没了。
+    这里对「标识类」参数给中性业务说法（不暴露 MML 参数名），
+    对「配置类」参数仍然返回 None（不补）。
+    """
+    U = pname.upper()
+
+    # IP / 地址类 → 允许
+    if 'STARTIP' in U or 'BEGINIP' in U:
+        return '起始地址'
+    if 'ENDIP' in U:
+        return '结束地址'
+    if 'IPV4' in U and ('ADDR' in U or 'IP' in U):
+        return 'IPv4地址'
+    if 'IPV6' in U and ('ADDR' in U or 'IP' in U):
+        return 'IPv6地址'
+    if 'IPADDR' in U or U.endswith('IP'):
+        return 'IP地址'
+    if 'MASK' in U or 'PREFIXLEN' in U:
+        return '掩码长度'
+    if 'GATEWAY' in U or 'NEXTHOP' in U:
+        return '下一跳'
+    if 'VLAN' in U:
+        return 'VLAN'
+
+    # 名称 / 标识类 → 允许
+    if U.endswith('NAME') or U.endswith('NAMED'):
+        return '名称'
+    if U in ('APN', 'POOLNAME', 'TNLNAME', 'VRFNAME', 'IFNAME',
+             'SECTIONNUM', 'PRIORITY', 'ID', 'INDEX'):
+        return '标识'
+
+    # 端口 / 号段 → 允许
+    if 'PORT' in U:
+        return '端口'
+    if 'TACSTART' in U or 'TACEND' in U or 'TAC' in U:
+        return 'TAC号段'
+    if 'SNSSAI' in U or 'SST' in U or 'SD' in U:
+        return '切片标识'
+
+    # 其余（枚举、开关、属性值）→ 不补，让 agent 自己判断
+    return None
+
+
 def _sheet_name(cnname):
     """中文名 → 业务视角的表名（避免直接用命令名）。"""
     return SHEET_NAME.get(cnname, cnname)
 
 
 # ★ 参数名 → 业务说法（意图里绝不能出现参数名）
+# ★ 2026-11-10 用户裁定：数据清单补 IP 地址和命名，不补具体参数细节
+#   背景：45/87 工单的 GT 里有意图和清单都没有的 IP（如 NC20260911000610 有 300 个），
+#        agent 只能编造，导致对象级指标天然不可能高。
+#   原则：IP、名称、地址段这类「客户能提供的规划数据」要补；
+#        枚举值、开关、具体属性值不补（那是配置决策，让 agent 自己判断）。
 PARAM_BIZ = {
     'IPV6ADDR': '探测地址', 'IPV4ADDR': '地址', 'IFIPADDR': '接口地址',
     'IPV6MASK': '掩码', 'SUBNETMASK': '子网掩码',
@@ -205,21 +273,29 @@ def gen_dataset(tk, gt, idx):
                 intent_lines.append(
                     f'    （{bk}按 {sq["prefix"]}<序号> 递增，从 {sq["prefix"]}{sq["start"]} 起）')
 
-            # ★ 变化值 → 数据清单（列名也用业务说法）
-            if varied and level != 'simple':
+            # ★ 变化值 / 对象清单 → 数据清单（列名也用业务说法）
+            # 2026-11-10 改：原来只有 varied 且非 simple 才生成，
+            #   导致简单工单和「对象名是固定某个值但多对象」的工单没有清单。
+            #   现在：只要对象数 > 1 且有可用主键，就生成对象清单。
+            _cnt = {}
+            for it2 in by_fam[fam]:
+                for _k, _v in it2['params'].items():
+                    if _v and not is_placeholder(_v):
+                        _cnt.setdefault(_k, set()).add(_v)
+            _has_multi_obj = any(len(v) > 1 for v in _cnt.values())
+
+            if (varied or _has_multi_obj) and _cnt:
                 # ★ 主键选择：不能盲取第一个参数（ADD SRROUTE 的第一个是 AFTYPE，
                 #   184 行全一样）。应该选「取值种类最多」的那个参数。
-                _cnt = {}
-                for it2 in by_fam[fam]:
-                    for _k, _v in it2['params'].items():
-                        _cnt.setdefault(_k, set()).add(_v)
                 main_key = max(_cnt.items(), key=lambda kv: len(kv[1]))[0]
                 vary_keys = [k for k in varied if k != main_key]
                 # 列名映射；未映射的列名跳过
-                hdr_main = biz_param(main_key)
+                hdr_main = biz_param(main_key) or _fallback_biz(main_key)
                 if not hdr_main:
                     continue
-                hdr_vary = [(k, biz_param(k)) for k in vary_keys if biz_param(k)]
+                hdr_vary = [(k, biz_param(k) or _fallback_biz(k))
+                            for k in vary_keys
+                            if (biz_param(k) or _fallback_biz(k))]
                 if hdr_vary:
                     headers = [hdr_main] + [h[1] for h in hdr_vary]
                     rows = []

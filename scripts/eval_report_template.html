@@ -35,12 +35,14 @@ tr.detail>td{padding:0;background:#fbfcfd}
 .extra{background:#fff8c5;color:#9a6700;border:1px solid #eed888}
 .done{color:#1a7f37;font-weight:600}
 .failed{color:#cf222e;font-weight:600}
-.panel{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+ gap:12px;padding:14px;width:100%}
+.panel>.wide{grid-column:1/-1}
 .box{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:10px}
 .box h4{margin:0 0 8px;font-size:12px;color:#57606a;font-weight:600}
 pre{margin:0;padding:8px;background:#f6f8fa;border-radius:4px;font-size:11px;
- font-family:ui-monospace,monospace;overflow:auto;max-height:300px;white-space:pre-wrap;
- word-break:break-all;line-height:1.5}
+ font-family:ui-monospace,monospace;overflow:auto;max-height:420px;white-space:pre-wrap;
+ word-break:break-word;line-height:1.5;width:100%;box-sizing:border-box}
 .filters{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:10px;
  margin-bottom:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px}
 input[type=text]{padding:5px 8px;border:1px solid #d0d7de;border-radius:4px;font-size:12px;width:180px}
@@ -125,7 +127,7 @@ function detail(r) {
     '<span class="tag ' + cls + '">' + f + '(' + (r.gt_fams[f] || r.prod_fams[f] || '') + ')</span>').join('');
 
   const expMiss = r.exp_missing || [];
-  let h = '<tr class="detail" data-tk="' + r.tk + '"><td colspan="7"><div class="panel">';
+  let h = '<tr class="detail" data-tk="' + r.tk + '"><td colspan="8"><div class="panel">';
 
   h += '<div class="box"><h4>族对比（GT ' + gtf.length + ' 族 / 产物 ' + pf.length + ' 族）</h4>';
   h += '<div><b style="color:#1a7f37">命中 ' + hit.length + ' / ' + gtf.length +
