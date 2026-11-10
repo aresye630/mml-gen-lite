@@ -1838,42 +1838,56 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             checks['G23_add_existing'] = {'ok': True, 'skipped': True,
                                           'reason': f'G23 执行失败: {e}'}
 
-        # ★ 2026-11-08 新增 G24：省略说明检测
-        #   配置分析里说「不做/跳过」但方案澄清里没对应的，提示用户。
-        try:
-            from omission_check import check_omission_explained
-            checks['G24_omission'] = check_omission_explained(session_dir)
-        except Exception as e:
-            checks['G24_omission'] = {'ok': True, 'skipped': True,
-                                     'reason': f'G24 执行失败: {e}'}
+    # ★ 2026-11-08 新增 G24：省略说明检测
+    #   配置分析里说「不做/跳过」但方案澄清里没对应的，提示用户。
+    try:
+        from omission_check import check_omission_explained
+        checks['G24_omission'] = check_omission_explained(session_dir)
+    except Exception as e:
+        checks['G24_omission'] = {'ok': True, 'skipped': True,
+                                 'reason': f'G24 执行失败: {e}'}
 
-        # ★ 2026-11-09 新增 G25：配套族缺失检测
-        #   prompt 说了要查 exp_siblings，实测 agent 调用 0 次。
-        #   改成判据：产物里的族如果有配套族（high 置信度）但一个没配，报警。
-        try:
-            from sibling_check import check_sibling_missing
-            checks['G25_siblings'] = check_sibling_missing(
-                mml_text, exp_text, session_dir)
-        except Exception as e:
-            checks['G25_siblings'] = {'ok': True, 'skipped': True,
-                                     'reason': f'G25 执行失败: {e}'}
+    # ★ 2026-11-09 新增 G25：配套族缺失检测
+    #   prompt 说了要查 exp_siblings，实测 agent 调用 0 次。
+    #   改成判据：产物里的族如果有配套族（high 置信度）但一个没配，报警。
+    try:
+        from sibling_check import check_sibling_missing
+        checks['G25_siblings'] = check_sibling_missing(
+            mml_text, exp_text, session_dir)
+    except Exception as e:
+        checks['G25_siblings'] = {'ok': True, 'skipped': True,
+                                 'reason': f'G25 执行失败: {e}'}
 
-        # ★ 2026-11-10 新增 G26：规划表 vs params.csv 一致性
-        #   背景（实测 NC20260828001156）：
-        #     规划表标「确认」的 7 个族（MOD APN / MOD TCPMSS / MOD APNIPALLOCRULE /
-        #     MOD APNSOFTPARA / MOD APNADDRESSATTR / MOD APNIMSATTR / MOD APNQOSATTR）
-        #     params.csv 里一条都没有；反而规划标「待定」的 2 个族它配了。
-        #   思路（用户裁定）：规划表是 agent 自己写的，用它校验自己的产物 —— 逻辑闭环。
-        try:
-            if session_dir and Path(session_dir).exists():
-                from plan_vs_csv import check_plan_vs_csv
-                checks['G26_plan_csv'] = check_plan_vs_csv(session_dir)
-            else:
-                checks['G26_plan_csv'] = {'ok': True, 'skipped': True,
-                                          'reason': '无 session_dir'}
-        except Exception as e:
+    # ★ 2026-11-10 新增 G26：规划表 vs params.csv 一致性
+    #   背景（实测 NC20260828001156）：
+    #     规划表标「确认」的 7 个族（MOD APN / MOD TCPMSS / MOD APNIPALLOCRULE /
+    #     MOD APNSOFTPARA / MOD APNADDRESSATTR / MOD APNIMSATTR / MOD APNQOSATTR）
+    #     params.csv 里一条都没有；反而规划标「待定」的 2 个族它配了。
+    #   思路（用户裁定）：规划表是 agent 自己写的，用它校验自己的产物 —— 逻辑闭环。
+    try:
+        if session_dir and Path(session_dir).exists():
+            from plan_vs_csv import check_plan_vs_csv
+            checks['G26_plan_csv'] = check_plan_vs_csv(session_dir)
+        else:
             checks['G26_plan_csv'] = {'ok': True, 'skipped': True,
-                                      'reason': f'G26 执行失败: {e}'}
+                                      'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G26_plan_csv'] = {'ok': True, 'skipped': True,
+                                  'reason': f'G26 执行失败: {e}'}
+
+    # ★ 2026-11-10 新增 G27：配不了的项是否说明了
+    #   用户要求：跨网元无法配置的族，agent 要主动提示，不能默默跳过
+    try:
+        if session_dir and Path(session_dir).exists():
+            from unable_notice import check_unable_notice
+            checks['G27_unable'] = check_unable_notice(session_dir)
+        else:
+            checks['G27_unable'] = {'ok': True, 'skipped': True,
+                                    'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G27_unable'] = {'ok': True, 'skipped': True,
+                                'reason': f'G27 执行失败: {e}'}
+
 
         # ★ G22 占位符一致性
         try:
@@ -2014,6 +2028,17 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             warn.append(
                 f"G26 有 {len(_cm)} 个族的数量明显少于规划（{_desc2}）："
                 f"请检查是否漏配了对象。")
+
+    # ★ G27 配不了的项没说明（warn）
+    _g27 = checks.get('G27_unable') or {}
+    if _g27 and not _g27.get('skipped') and not _g27.get('ok', True):
+        _un = _g27.get('unexplained') or []
+        _desc = '；'.join(x['biz'][:30] for x in _un[:3])
+        warn.append(
+            f"G27 规划里有 {_g27.get('n_plan_skipped', 0)} 项标为跳过，"
+            f"但 配置分析.md 没说明为什么配不了（如：{_desc}）。"
+            f"跨网元或本网元族不存在时，必须在配置分析里单独说明，"
+            f"否则用户不知道为什么少了这些配置。")
 
     _g22 = checks.get('G22_placeholder') or {}
     if _g22 and not _g22.get('skipped'):
