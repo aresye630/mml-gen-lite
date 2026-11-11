@@ -127,8 +127,10 @@ def parse_plan_fams(plan_text):
             i += 1
         continue
 
-    for m in re.finditer(r'`(?:ADD|RMV|MOD|SET)\s+([A-Z][A-Z0-9_]{2,})', plan_text):
-        out.add(m.group(1))
+    # ★ 2026-11-10：去掉正文兜底正则
+    #   原来用 r'`(?:ADD|RMV|MOD|SET)\s+([A-Z]...)' 把正文里提到的族也算进规划，
+    #   导致阶段1 覆盖虚高（65.1% vs stat_dual 的 56.8%）。
+    #   现在只认规划表里的行，与 scripts/stat_dual.py 口径一致。
     return out
 
 
@@ -138,6 +140,10 @@ def build_rows():
         tk = r['ticket']
         g = GT_MAP.get(tk)
         if not g:
+            continue
+        # ★ 2026-11-10：跳过没有任何产物的工单（如阶段1 超时的）
+        #   否则会把它的 GT 计入分母、产物算 0，拉低整体指标
+        if not (ART / tk / 'mml.txt').exists() and not (ART / tk / '命令族规划.md').exists():
             continue
         eq = EXPQ_MAP.get(tk, {})
         gt_fams = Counter(f for _, v, f, p, _ in g['kept'])
@@ -204,25 +210,64 @@ def build_rows():
     return rows
 
 
+def load_restricted():
+    """数据受限工单（缺 SET/MOD/RMV 所需现网数据）。"""
+    p = Path('/tmp/missing_classified.json')
+    if not p.exists():
+        return set()
+    cls = json.loads(p.read_text(encoding='utf-8'))
+    return {x['tk'] for x in cls.get('need_data') or []}
+
+
+def _agg(rows_):
+    """聚合一组工单的指标。
+
+    ★ 2026-11-10：分母用「GT 全部族」（len(gt_fams)），不是 gt_fams_n（可评估族）。
+      gt_fams_n 来自 GT 记录的 gt_fams 字段（已排除无 EXP 支撑的族），
+      会造成「族覆盖」虚高（83.6% vs 实际 66.8%）。
+    """
+    ev = sum(len(r['gt_fams']) for r in rows_)
+    s1 = sum(len(r['s1_hit_fams']) for r in rows_)
+    s2 = sum(len(r['hit_fams']) for r in rows_)
+    gc = sum(r['gt_cmds_n'] for r in rows_)
+    pc = sum(r['prod_cmds_n'] for r in rows_)
+    return {'n': len(rows_), 'ev': ev, 's1': s1, 's2': s2, 'gc': gc, 'pc': pc}
+
+
 def kpi_html(ok):
-    ev = sum(r['gt_fams_n'] or 0 for r in ok)
-    s1 = sum(len(r['s1_hit_fams']) for r in ok)
-    s2 = sum(len(r['hit_fams']) for r in ok)
+    """★ 2026-11-10 双口径（用户要求）：
+       A 全量：所有工单
+       B 排除数据受限：剔除缺 SET/MOD/RMV 现网数据的工单
+    """
+    restricted = load_restricted()
+    ok_b = [r for r in ok if r['tk'] not in restricted]
+
+    A = _agg(ok)
+    B = _agg(ok_b)
     pn = sum(len(r['s1_plan_fams']) for r in ok)
-    gc = sum(r['gt_cmds_n'] for r in ok)
-    pc = sum(r['prod_cmds_n'] for r in ok)
     perfect = sum(1 for r in ok if len(r['hit_fams']) == r['gt_fams_n'])
     done = sum(1 for r in ok if r['s2_status'] == 'done')
 
     items = [
         ('工单总数', len(ok), f'成功 {done}'),
-        ('GT 命令族总数', ev, '全部工单合计'),
-        # ★ 2026-11-10 两阶段分开报（用户要求）
-        ('阶段1 规划覆盖', f'{s1/max(1,ev)*100:.1f}%', f'{s1}/{ev} 族（数据不全，只看族和逻辑）'),
-        ('阶段1 规划精确', f'{s1/max(1,pn)*100:.1f}%', f'规划 {pn} 族'),
-        ('阶段2 产物覆盖', f'{s2/max(1,ev)*100:.1f}%', f'{s2}/{ev} 族（补全数据后看细节）'),
-        ('阶段损耗', s1 - s2, '规划了但没配出来'),
-        ('命令数完成度', f'{pc/max(1,gc)*100:.0f}%', f'{pc}/{gc} 条'),
+
+        # ── 口径 A 全量 ──
+        ('A. 阶段1 规划覆盖', f'{A["s1"]/max(1,A["ev"])*100:.1f}%',
+         f'全量 {A["n"]} 单：{A["s1"]}/{A["ev"]} 族'),
+        ('A. 阶段2 产物覆盖', f'{A["s2"]/max(1,A["ev"])*100:.1f}%',
+         f'{A["s2"]}/{A["ev"]} 族'),
+        ('A. 命令数完成度', f'{A["pc"]/max(1,A["gc"])*100:.0f}%',
+         f'{A["pc"]}/{A["gc"]} 条'),
+
+        # ── 口径 B 排除数据受限 ──
+        ('B. 阶段1 规划覆盖', f'{B["s1"]/max(1,B["ev"])*100:.1f}%',
+         f'排除 {len(restricted)} 单：{B["s1"]}/{B["ev"]} 族'),
+        ('B. 阶段2 产物覆盖', f'{B["s2"]/max(1,B["ev"])*100:.1f}%',
+         f'{B["s2"]}/{B["ev"]} 族'),
+        ('B. 命令数完成度', f'{B["pc"]/max(1,B["gc"])*100:.0f}%',
+         f'{B["pc"]}/{B["gc"]} 条'),
+
+        ('阶段1 规划精确', f'{A["s1"]/max(1,pn)*100:.1f}%', f'规划 {pn} 族'),
         ('工单级全覆盖', perfect, '族覆盖 100%'),
     ]
     return ''.join(
@@ -248,26 +293,50 @@ def exp_bands_html(ok):
 
 
 def size_bands_html(ok):
+    """★ 2026-11-10 双口径：每档显示「全量」和「排除数据受限」两行。"""
+    restricted = load_restricted()
     out = []
     for lv, label in [('simple', '简单 <50'), ('medium', '中等 50-200'),
                       ('complex', '复杂 >200')]:
         sub = [r for r in ok if r['level'] == lv]
         if not sub:
             continue
-        ev = sum(r['gt_fams_n'] or 0 for r in sub)
-        # ★ 两阶段分开（用户要求）
-        s1 = sum(len(r['s1_hit_fams']) for r in sub)
-        s2 = sum(len(r['hit_fams']) for r in sub)
-        gc = sum(r['gt_cmds_n'] for r in sub)
-        pc = sum(r['prod_cmds_n'] for r in sub)
-        loss = s1 - s2
+        sub_b = [r for r in sub if r['tk'] not in restricted]
+
+        A = _agg(sub)
+        B = _agg(sub_b)
+
+        # 全量行
         out.append(
-            f'<tr><td>{label}</td><td class="right">{len(sub)}</td>'
-            f'<td class="right">{ev}</td>'
-            f'<td class="right"><b>{s1/max(1,ev)*100:.1f}%</b></td>'
-            f'<td class="right"><b>{s2/max(1,ev)*100:.1f}%</b></td>'
-            f'<td class="right">{loss:+d}</td>'
-            f'<td class="right">{pc/max(1,gc)*100:.0f}%</td></tr>')
+            f'<tr><td rowspan="2">{label}</td>'
+            f'<td style="font-size:10px;color:#8c959f">全量</td>'
+            f'<td class="right">{A["n"]}</td>'
+            f'<td class="right">{A["ev"]}</td>'
+            f'<td class="right"><b>{A["s1"]/max(1,A["ev"])*100:.1f}%</b></td>'
+            f'<td class="right"><b>{A["s2"]/max(1,A["ev"])*100:.1f}%</b></td>'
+            f'<td class="right">{A["pc"]/max(1,A["gc"])*100:.0f}%</td>'
+            f'<td class="right" style="color:#8c959f">—</td></tr>')
+
+        # 排除数据受限行
+        if B['n']:
+            d1 = (B['s1']/max(1,B['ev']) - A['s1']/max(1,A['ev'])) * 100
+            d2 = (B['s2']/max(1,B['ev']) - A['s2']/max(1,A['ev'])) * 100
+            out.append(
+                f'<tr style="background:#f6f9fb">'
+                f'<td style="font-size:10px;color:#1a7f37">排除受限</td>'
+                f'<td class="right">{B["n"]}</td>'
+                f'<td class="right">{B["ev"]}</td>'
+                f'<td class="right"><b class="good">{B["s1"]/max(1,B["ev"])*100:.1f}%</b></td>'
+                f'<td class="right"><b class="good">{B["s2"]/max(1,B["ev"])*100:.1f}%</b></td>'
+                f'<td class="right">{B["pc"]/max(1,B["gc"])*100:.0f}%</td>'
+                f'<td class="right" style="color:#1a7f37;font-weight:600">'
+                f'{d1:+.1f} / {d2:+.1f}</td></tr>')
+        else:
+            out.append(
+                f'<tr style="background:#f6f9fb">'
+                f'<td style="font-size:10px;color:#8c959f">排除受限</td>'
+                f'<td class="right" colspan="6" style="color:#8c959f">'
+                f'本档全部为数据受限工单</td></tr>')
     return ''.join(out)
 
 
@@ -275,19 +344,22 @@ def main():
     rows = build_rows()
     ok = [r for r in rows if r['s1_status'] and r['s2_status']]
 
-    ev = sum(r['gt_fams_n'] or 0 for r in ok)
-    ns = sum(r['no_support'] or 0 for r in ok)
+    # ★ 2026-11-10：分母统一用 GT 全部族（不用 gt_fams_n 可评估族）
+    ev = sum(len(r['gt_fams']) for r in ok)
+    restricted = load_restricted()
 
     tpl = load_text(TEMPLATE)
     html = (tpl
             .replace('__SUBTITLE__',
                      f'{len(ok)} 工单 · 阶段1 命令族规划 → 阶段2 参数填充 · '
-                     f'口径：可评估族（扣除无 EXP 支撑的 UNC 族）')
+                     f'口径：GT 全部族（双口径：A 全量 / B 排除数据受限）')
             .replace('__KPI__', kpi_html(ok))
             .replace('__SCOPE_NOTE__',
-                     f'：87 工单里 26 个跨 UDG+UNC，但只上传了 UDG 的 EXP。'
-                     f'UNC 独有的 {ns} 个族无现网数据支撑，不计入可评估族。'
-                     f'可评估族 {ev} / GT 总族 {ev + ns}。')
+                     f'（双口径）：<b>A 全量</b> = 全部 {len(ok)} 单，'
+                     f'GT 族 {ev}；'
+                     f'<b>B 排除数据受限</b> = 剔除 {len(restricted)} 个'
+                     f'「缺 SET/MOD/RMV 所需现网数据」的工单。'
+                     f'ADD 类命令不依赖现网数据，仍计入。')
             .replace('__EXP_BANDS__', exp_bands_html(ok))
             .replace('__SIZE_BANDS__', size_bands_html(ok))
             .replace('__DATA__', json.dumps(rows, ensure_ascii=False)))

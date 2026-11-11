@@ -327,77 +327,99 @@ li{font-size:12px;margin:2px 0}
              'v7 起的下滑主要是「过度配置被纠正」+ 口径统一，不是能力退化。</div>')
     h.append('</div>')
 
-    # ── 四、性能指标 ──
+    # ── 四、性能收益 ──
     perf = data.get('performance') or {}
-    if perf.get('by_scale'):
-        h.append('<div class="card"><h2>四、性能指标</h2>')
+    if perf.get('comparison'):
+        h.append('<div class="card"><h2>四、性能收益</h2>')
         h.append(f'<div style="font-size:12px;color:#57606a;margin-bottom:12px">'
-                 f'{perf.get("summary","")}'
-                 f'<br><span style="color:#8c959f;font-size:11px">'
-                 f'数据来源：{perf.get("source","")}</span></div>')
+                 f'{perf.get("summary","")}</div>')
 
-        # 分档表
+        # 架构对比
         h.append('<table><thead><tr>'
-                 '<th style="width:130px">规模档位</th>'
-                 '<th class="right" style="width:56px">单数</th>'
-                 '<th class="right" style="width:96px">阶段1 中位</th>'
-                 '<th class="right" style="width:96px">阶段2 中位</th>'
-                 '<th class="right" style="width:100px">合计中位</th>'
-                 '<th class="right" style="width:92px">合计 P90</th>'
-                 '<th class="right" style="width:100px">合计最大</th>'
-                 '</tr></thead><tbody>')
-        for sc in perf['by_scale']:
-            h.append('<tr>')
-            h.append(f'<td><b>{sc.get("level","")}</b></td>')
-            h.append(f'<td class="right">{sc.get("n",0)}</td>')
-            h.append(f'<td class="right"><span class="metric good">{sc.get("s1_median",0):.0f}s</span></td>')
-            h.append(f'<td class="right"><span class="metric" style="color:#1f6feb">{sc.get("s2_median",0):.0f}s</span></td>')
-            h.append(f'<td class="right"><span class="metric">{sc.get("total_median",0):.0f}s</span></td>')
-            h.append(f'<td class="right">{sc.get("total_p90",0):.0f}s</td>')
-            mx = sc.get("total_max", 0)
-            mcls = 'bad' if mx > 2000 else ''
-            h.append(f'<td class="right"><span class="{mcls}">{mx:.0f}s</span></td>')
-            h.append('</tr>')
+                 '<th style="width:200px">架构</th>'
+                 '<th class="right" style="width:56px">工单数</th>'
+                 '<th class="right" style="width:96px">中位耗时</th>'
+                 '<th class="right" style="width:96px">平均耗时</th>'
+                 '<th>说明</th></tr></thead><tbody>')
+        for c in perf['comparison']:
+            h.append(f'<tr><td><b>{c.get("arch","")}</b></td>'
+                     f'<td class="right">{c.get("n",0)}</td>'
+                     f'<td class="right"><span class="metric">{c.get("median",0):.0f}s</span></td>'
+                     f'<td class="right">{c.get("mean",0):.0f}s</td>'
+                     f'<td style="font-size:11px">{c.get("note","")}</td></tr>')
         h.append('</tbody></table>')
 
-        # 条形图
-        h.append('<div style="margin-top:16px">' + gen_perf_chart(perf) + '</div>')
+        # 代价与收益
+        dl = perf.get('delta') or {}
+        if dl:
+            h.append('<div style="margin-top:14px;padding:12px 14px;'
+                     'background:#f6f9fb;border-left:3px solid #1f6feb;border-radius:4px">'
+                     '<b>性能代价 vs 能力收益：</b>　'
+                     f'耗时 <span class="metric warn">{dl.get("median","")}</span>（中位）'
+                     f' / <span class="metric warn">{dl.get("mean","")}</span>（平均）　→　'
+                     f'换来 <span class="metric good">{dl.get("benefit","")}</span>'
+                     '</div>')
 
-        # 分位数
-        pc = perf.get('percentiles') or {}
-        if pc:
-            h.append('<div style="margin-top:14px;font-size:12px">'
-                     '<b>全量合计耗时分位数：</b>')
-            for k, label in [('p50', 'P50'), ('p75', 'P75'), ('p90', 'P90'),
-                             ('p95', 'P95'), ('p99', 'P99')]:
-                v = pc.get(k)
-                if v:
-                    cls = 'bad' if v > 2000 else ('warn' if v > 900 else 'good')
-                    h.append(f'　<span class="metric {cls}">{label} {v:.0f}s</span>')
-            h.append('</div>')
+        # 迭代记录（简表）
+        log = perf.get('iteration_log') or []
+        if log:
+            h.append('<div style="font-size:12px;font-weight:600;margin-top:16px">'
+                     '性能相关的迭代记录：</div>')
+            h.append('<table style="margin-top:6px"><thead><tr>'
+                     '<th style="width:76px">版本</th>'
+                     '<th style="width:78px">架构</th>'
+                     '<th style="width:220px">性能变化</th>'
+                     '<th>说明</th></tr></thead><tbody>')
+            for lg in log:
+                h.append(f'<tr><td class="ver">{lg.get("ver","")}</td>'
+                         f'<td style="font-size:11px">{lg.get("arch","")}</td>'
+                         f'<td style="font-size:11px">{lg.get("perf","")}</td>'
+                         f'<td style="font-size:11px">{lg.get("note","")}</td></tr>')
+            h.append('</tbody></table>')
 
-        # 超时
-        tmo = perf.get('timeout') or {}
-        if tmo.get('count'):
-            h.append(f'<div style="margin-top:6px;font-size:12px;color:#cf222e">'
-                     f'超 {tmo.get("threshold")}s 的工单：<b>{tmo.get("count")} 单'
-                     f'（{tmo.get("ratio",0)*100:.0f}%）</b>　{tmo.get("note","")}</div>')
+        # 当前分档（简表）
+        cur = perf.get('current') or {}
+        if cur.get('by_scale'):
+            h.append('<div style="font-size:12px;font-weight:600;margin-top:16px">'
+                     '当前耗时分布（按工单规模）：</div>')
+            h.append('<table style="margin-top:6px"><thead><tr>'
+                     '<th style="width:140px">规模档位</th>'
+                     '<th class="right" style="width:56px">单数</th>'
+                     '<th class="right" style="width:90px">阶段1</th>'
+                     '<th class="right" style="width:90px">阶段2</th>'
+                     '<th class="right" style="width:90px">合计</th>'
+                     '</tr></thead><tbody>')
+            for sc in cur['by_scale']:
+                h.append(f'<tr><td>{sc.get("level","")}</td>'
+                         f'<td class="right">{sc.get("n",0)}</td>'
+                         f'<td class="right"><span class="metric good">{sc.get("s1",0):.0f}s</span></td>'
+                         f'<td class="right"><span class="metric" style="color:#1f6feb">{sc.get("s2",0):.0f}s</span></td>'
+                         f'<td class="right"><span class="metric">{sc.get("total",0):.0f}s</span></td></tr>')
+            h.append('</tbody></table>')
+            if cur.get('note'):
+                h.append(f'<div style="font-size:11px;color:#8c959f;margin-top:6px">'
+                         f'{cur["note"]}</div>')
 
-        # 性能问题
-        probs = perf.get('problems') or []
-        if probs:
+        # 结论
+        if perf.get('key_finding'):
+            h.append(f'<div style="margin-top:14px;font-size:12px;color:#0a5c8f;'
+                     f'background:#eef7fc;padding:10px 12px;border-radius:4px">'
+                     f'<b>结论：</b>{perf["key_finding"]}</div>')
+
+        # 问题
+        issues = perf.get('issues') or []
+        if issues:
             h.append('<div style="font-size:12px;font-weight:600;margin-top:16px">'
                      '性能相关的问题与处理：</div>')
             h.append('<table style="margin-top:6px"><thead><tr>'
-                     '<th style="width:200px">问题</th><th>细节</th>'
-                     '<th style="width:190px">影响</th>'
-                     '<th style="width:230px">处理</th></tr></thead><tbody>')
-            for pr in probs:
-                h.append(f'<tr><td><b>{pr.get("issue","")}</b></td>'
-                         f'<td style="font-size:11px">{pr.get("detail","")}</td>'
-                         f'<td style="font-size:11px">{pr.get("impact","")}</td>'
-                         f'<td style="font-size:11px">{pr.get("fix","")}</td></tr>')
+                     '<th style="width:230px">问题</th><th>处理</th>'
+                     '<th style="width:280px">效果</th></tr></thead><tbody>')
+            for it in issues:
+                h.append(f'<tr><td>{it.get("issue","")}</td>'
+                         f'<td style="font-size:11px">{it.get("fix","")}</td>'
+                         f'<td style="font-size:11px;color:#1a7f37">{it.get("effect","")}</td></tr>')
             h.append('</tbody></table>')
+
         h.append('</div>')
 
     # ── 五、关键提升节点 ──
