@@ -145,6 +145,9 @@ def build_rows():
         #   否则会把它的 GT 计入分母、产物算 0，拉低整体指标
         if not (ART / tk / 'mml.txt').exists() and not (ART / tk / '命令族规划.md').exists():
             continue
+        # ★ 2026-11-10：GT 无命令的工单不计入统计（空工单没有可评估内容）
+        if not g['kept']:
+            continue
         eq = EXPQ_MAP.get(tk, {})
         gt_fams = Counter(f for _, v, f, p, _ in g['kept'])
         prod_fams = parse_fams(load_text(ART / tk / 'mml.txt'))
@@ -220,55 +223,64 @@ def load_restricted():
 
 
 def _agg(rows_):
-    """聚合一组工单的指标。
+    """★ 2026-11-10 用户裁定：所有统计的分子分母单位都是「单」。
 
-    ★ 2026-11-10：分母用「GT 全部族」（len(gt_fams)），不是 gt_fams_n（可评估族）。
-      gt_fams_n 来自 GT 记录的 gt_fams 字段（已排除无 EXP 支撑的族），
-      会造成「族覆盖」虚高（83.6% vs 实际 66.8%）。
+      不能再出现「559/903 族」这种按族汇总的写法。
+      每个工单先算自己的百分比，再统计「达标单数 / 总单数」。
     """
-    ev = sum(len(r['gt_fams']) for r in rows_)
-    s1 = sum(len(r['s1_hit_fams']) for r in rows_)
-    s2 = sum(len(r['hit_fams']) for r in rows_)
-    gc = sum(r['gt_cmds_n'] for r in rows_)
-    pc = sum(r['prod_cmds_n'] for r in rows_)
-    return {'n': len(rows_), 'ev': ev, 's1': s1, 's2': s2, 'gc': gc, 'pc': pc}
+    n = len(rows_)
+    if not n:
+        return {'n': 0}
+    p1 = sum(1 for r in rows_ if len(r['s1_hit_fams']) == len(r['gt_fams'])
+             and r['gt_fams'])
+    p2 = sum(1 for r in rows_ if len(r['hit_fams']) == len(r['gt_fams'])
+             and r['gt_fams'])
+    # 单均覆盖率（每单的命中率，再取中位/平均）
+    r1 = [len(r['s1_hit_fams']) / max(1, len(r['gt_fams'])) for r in rows_]
+    r2 = [len(r['hit_fams']) / max(1, len(r['gt_fams'])) for r in rows_]
+    r2s = sorted(r2)
+    med2 = r2s[len(r2s) // 2] if r2s else 0
+    return {
+        'n': n,
+        'perfect1': p1, 'perfect2': p2,
+        'rate1': p1 / n, 'rate2': p2 / n,
+        'med1': sorted(r1)[len(r1)//2] if r1 else 0,
+        'med2': med2,
+        'mean1': sum(r1) / n, 'mean2': sum(r2) / n,
+    }
 
 
 def kpi_html(ok):
-    """★ 2026-11-10 双口径（用户要求）：
-       A 全量：所有工单
-       B 排除数据受限：剔除缺 SET/MOD/RMV 现网数据的工单
+    """★ 2026-11-10 用户裁定：单位是「单」。
+
+      覆盖率 = 达标单数 / 总单数（不再按族汇总）
     """
     restricted = load_restricted()
     ok_b = [r for r in ok if r['tk'] not in restricted]
 
     A = _agg(ok)
     B = _agg(ok_b)
-    pn = sum(len(r['s1_plan_fams']) for r in ok)
-    perfect = sum(1 for r in ok if len(r['hit_fams']) == r['gt_fams_n'])
-    done = sum(1 for r in ok if r['s2_status'] == 'done')
 
     items = [
-        ('工单总数', len(ok), f'成功 {done}'),
+        ('工单总数', A['n'], f'纳入统计（有产物的）'),
 
         # ── 口径 A 全量 ──
-        ('A. 阶段1 规划覆盖', f'{A["s1"]/max(1,A["ev"])*100:.1f}%',
-         f'全量 {A["n"]} 单：{A["s1"]}/{A["ev"]} 族'),
-        ('A. 阶段2 产物覆盖', f'{A["s2"]/max(1,A["ev"])*100:.1f}%',
-         f'{A["s2"]}/{A["ev"]} 族'),
-        ('A. 命令数完成度', f'{A["pc"]/max(1,A["gc"])*100:.0f}%',
-         f'{A["pc"]}/{A["gc"]} 条'),
+        ('A. 阶段1 达标率', f'{A["rate1"]*100:.1f}%',
+         f'{A["perfect1"]}/{A["n"]} 单（族全覆盖）'),
+        ('A. 阶段2 达标率', f'{A["rate2"]*100:.1f}%',
+         f'{A["perfect2"]}/{A["n"]} 单'),
+        ('A. 单均覆盖（中位）', f'{A["med2"]*100:.1f}%',
+         f'阶段2，单均 {A["mean2"]*100:.1f}%'),
 
         # ── 口径 B 排除数据受限 ──
-        ('B. 阶段1 规划覆盖', f'{B["s1"]/max(1,B["ev"])*100:.1f}%',
-         f'排除 {len(restricted)} 单：{B["s1"]}/{B["ev"]} 族'),
-        ('B. 阶段2 产物覆盖', f'{B["s2"]/max(1,B["ev"])*100:.1f}%',
-         f'{B["s2"]}/{B["ev"]} 族'),
-        ('B. 命令数完成度', f'{B["pc"]/max(1,B["gc"])*100:.0f}%',
-         f'{B["pc"]}/{B["gc"]} 条'),
+        ('B. 阶段1 达标率', f'{B["rate1"]*100:.1f}%',
+         f'{B["perfect1"]}/{B["n"]} 单'),
+        ('B. 阶段2 达标率', f'{B["rate2"]*100:.1f}%',
+         f'{B["perfect2"]}/{B["n"]} 单'),
+        ('B. 单均覆盖（中位）', f'{B["med2"]*100:.1f}%',
+         f'阶段2，单均 {B["mean2"]*100:.1f}%'),
 
-        ('阶段1 规划精确', f'{A["s1"]/max(1,pn)*100:.1f}%', f'规划 {pn} 族'),
-        ('工单级全覆盖', perfect, '族覆盖 100%'),
+        ('排除工单数', len(restricted), '缺 SET/MOD/RMV 现网数据'),
     ]
     return ''.join(
         f'<div><div class="l">{a}</div><div class="v">{b}</div><div class="n">{c}</div></div>'
@@ -293,7 +305,7 @@ def exp_bands_html(ok):
 
 
 def size_bands_html(ok):
-    """★ 2026-11-10 双口径：每档显示「全量」和「排除数据受限」两行。"""
+    """★ 2026-11-10 按单统计：每档显示「达标单数 / 该档单数」。"""
     restricted = load_restricted()
     out = []
     for lv, label in [('simple', '简单 <50'), ('medium', '中等 50-200'),
@@ -311,32 +323,26 @@ def size_bands_html(ok):
             f'<tr><td rowspan="2">{label}</td>'
             f'<td style="font-size:10px;color:#8c959f">全量</td>'
             f'<td class="right">{A["n"]}</td>'
-            f'<td class="right">{A["ev"]}</td>'
-            f'<td class="right"><b>{A["s1"]/max(1,A["ev"])*100:.1f}%</b></td>'
-            f'<td class="right"><b>{A["s2"]/max(1,A["ev"])*100:.1f}%</b></td>'
-            f'<td class="right">{A["pc"]/max(1,A["gc"])*100:.0f}%</td>'
+            f'<td class="right">{A["perfect1"]}/{A["n"]} = <b>{A["rate1"]*100:.1f}%</b></td>'
+            f'<td class="right">{A["perfect2"]}/{A["n"]} = <b>{A["rate2"]*100:.1f}%</b></td>'
+            f'<td class="right">{A["med2"]*100:.1f}%</td>'
             f'<td class="right" style="color:#8c959f">—</td></tr>')
 
-        # 排除数据受限行
         if B['n']:
-            d1 = (B['s1']/max(1,B['ev']) - A['s1']/max(1,A['ev'])) * 100
-            d2 = (B['s2']/max(1,B['ev']) - A['s2']/max(1,A['ev'])) * 100
+            d = (B['rate2'] - A['rate2']) * 100
             out.append(
                 f'<tr style="background:#f6f9fb">'
                 f'<td style="font-size:10px;color:#1a7f37">排除受限</td>'
                 f'<td class="right">{B["n"]}</td>'
-                f'<td class="right">{B["ev"]}</td>'
-                f'<td class="right"><b class="good">{B["s1"]/max(1,B["ev"])*100:.1f}%</b></td>'
-                f'<td class="right"><b class="good">{B["s2"]/max(1,B["ev"])*100:.1f}%</b></td>'
-                f'<td class="right">{B["pc"]/max(1,B["gc"])*100:.0f}%</td>'
-                f'<td class="right" style="color:#1a7f37;font-weight:600">'
-                f'{d1:+.1f} / {d2:+.1f}</td></tr>')
+                f'<td class="right">{B["perfect1"]}/{B["n"]} = <b class="good">{B["rate1"]*100:.1f}%</b></td>'
+                f'<td class="right">{B["perfect2"]}/{B["n"]} = <b class="good">{B["rate2"]*100:.1f}%</b></td>'
+                f'<td class="right">{B["med2"]*100:.1f}%</td>'
+                f'<td class="right" style="color:#1a7f37;font-weight:600">{d:+.1f}pp</td></tr>')
         else:
             out.append(
                 f'<tr style="background:#f6f9fb">'
                 f'<td style="font-size:10px;color:#8c959f">排除受限</td>'
-                f'<td class="right" colspan="6" style="color:#8c959f">'
-                f'本档全部为数据受限工单</td></tr>')
+                f'<td class="right" colspan="5" style="color:#8c959f">本档全部为数据受限工单</td></tr>')
     return ''.join(out)
 
 
@@ -352,14 +358,17 @@ def main():
     html = (tpl
             .replace('__SUBTITLE__',
                      f'{len(ok)} 工单 · 阶段1 命令族规划 → 阶段2 参数填充 · '
-                     f'口径：GT 全部族（双口径：A 全量 / B 排除数据受限）')
+                     f'★ 统计单位=单（达标单数/总单数），双口径：A 全量 / B 排除数据受限')
             .replace('__KPI__', kpi_html(ok))
             .replace('__SCOPE_NOTE__',
-                     f'（双口径）：<b>A 全量</b> = 全部 {len(ok)} 单，'
-                     f'GT 族 {ev}；'
+                     f'<b>统计单位 = 单</b>：所有覆盖率/达标率的分子分母都是「单数」，'
+                     f'不再是命令族数或命令数。'
+                     f'每个工单先算自己的「命中族 / 该单 GT 族」，'
+                     f'100% 记为达标，再统计「达标单 / 总单」。'
+                     f'<br><b>A 全量</b> = 全部 {len(ok)} 单；'
                      f'<b>B 排除数据受限</b> = 剔除 {len(restricted)} 个'
-                     f'「缺 SET/MOD/RMV 所需现网数据」的工单。'
-                     f'ADD 类命令不依赖现网数据，仍计入。')
+                     f'「缺 SET/MOD/RMV 所需现网数据」的工单'
+                     f'（ADD 类不依赖现网数据，仍计入）。')
             .replace('__EXP_BANDS__', exp_bands_html(ok))
             .replace('__SIZE_BANDS__', size_bands_html(ok))
             .replace('__DATA__', json.dumps(rows, ensure_ascii=False)))

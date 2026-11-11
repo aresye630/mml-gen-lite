@@ -244,15 +244,34 @@ def gen_dataset(tk, gt, idx):
             # 动作词
             act = {'ADD': '新增', 'MOD': '调整', 'RMV': '删除', 'SET': '设置'}.get(verb, verb)
 
-            # 量级描述
-            if n_obj == 1:
-                qty = ''
-            elif n_obj <= 5:
-                qty = f'{n_obj} 个'
-            else:
-                qty = f'约 {n_obj} 个'
+            # ★ 2026-11-11 用户裁定：不再写个数
+            #   「不需要再描写个数了，如果有数据表就说见数据表，
+            #     如果是简单工单就列举出来」
+            #
+            #   有数据表   → 「【】新增 地址池（见数据清单）」
+            #   简单工单   → 「【】新增 地址池：pool_a、pool_b」
+            #   其他       → 「【】新增 地址池」
+            #
+            #   个数本来也容易被误读：ADD+RMV 混在一个族里时，
+            #   按命令条数算是 9，按对象算是 14，都不是「变更量」。
+            _cnt_pre = {}
+            for it2 in by_fam[fam]:
+                for _k, _v in it2['params'].items():
+                    if _v and not is_placeholder(_v):
+                        _cnt_pre.setdefault(_k, set()).add(_v)
+            _will_have_sheet = bool(varied or any(len(v) > 1 for v in _cnt_pre.values()))
 
-            line = f'- {act} {cnname}{("，" + qty) if qty else ""}'
+            detail = ''
+            if _will_have_sheet:
+                detail = '（见数据清单）'
+            elif level == 'simple' and _cnt_pre:
+                # 简单工单：直接列举对象名（最多 8 个，超出加省略）
+                _mk = max(_cnt_pre.items(), key=lambda kv: len(kv[1]))[0]
+                _vals = sorted(v for v in _cnt_pre[_mk] if v)
+                if 1 <= len(_vals) <= 8:
+                    detail = '：' + '、'.join(str(v) for v in _vals)
+
+            line = f'- {act} {cnname}{detail}'
             intent_lines.append(line)
 
             # ★ 固定值 → 用业务说法描述
@@ -277,8 +296,12 @@ def gen_dataset(tk, gt, idx):
             # 2026-11-10 改：原来只有 varied 且非 simple 才生成，
             #   导致简单工单和「对象名是固定某个值但多对象」的工单没有清单。
             #   现在：只要对象数 > 1 且有可用主键，就生成对象清单。
+            # ★ 2026-11-11 改：按 (族, 动词) 分组生成，
+            #   否则 ADD 的对象和 RMV 的对象会混在同一张表里，
+            #   agent 分不清哪些要新建、哪些要删除。
+            _fams_items = [it2 for it2 in by_fam[fam] if it2['verb'] == verb]
             _cnt = {}
-            for it2 in by_fam[fam]:
+            for it2 in _fams_items:
                 for _k, _v in it2['params'].items():
                     if _v and not is_placeholder(_v):
                         _cnt.setdefault(_k, set()).add(_v)
@@ -296,10 +319,12 @@ def gen_dataset(tk, gt, idx):
                 hdr_vary = [(k, biz_param(k) or _fallback_biz(k))
                             for k in vary_keys
                             if (biz_param(k) or _fallback_biz(k))]
+                # 表名带上动作，避免「新增对象」和「删除对象」混在一张表
+                _sheet_base = cnname
                 if hdr_vary:
                     headers = [hdr_main] + [h[1] for h in hdr_vary]
                     rows = []
-                    for it2 in by_fam[fam]:
+                    for it2 in _fams_items:
                         row = [it2['params'].get(main_key, '')]
                         row += [it2['params'].get(k, '') for k, _ in hdr_vary]
                         rows.append(row)
@@ -311,18 +336,18 @@ def gen_dataset(tk, gt, idx):
                         if key_ not in seen_rows:
                             seen_rows.add(key_)
                             uniq_rows.append(r_)
-                    sheets.append((cnname, headers, uniq_rows))
+                    sheets.append((_sheet_base, headers, uniq_rows, act))
                 else:
                     # 只有对象标识变化
                     rows = []
                     seen_v = set()
-                    for it2 in by_fam[fam]:
+                    for it2 in _fams_items:
                         v_ = it2['params'].get(main_key, '')
                         if v_ and v_ not in seen_v:
                             seen_v.add(v_)
                             rows.append([v_])
                     if rows:
-                        sheets.append((_sheet_name(cnname), [hdr_main], rows))
+                        sheets.append((_sheet_name(cnname), [hdr_main], rows, act))
         intent_lines.append('')
 
     return {
@@ -353,8 +378,9 @@ def write_output(r):
     dp = OUT / f'{tk}_数据清单.md'
     if r['sheets']:
         parts = [f'# {tk} 数据清单\n']
-        for name, headers, rows in r['sheets']:
-            parts.append(f'\n## {name}（{len(rows)} 行）\n')
+        for name, headers, rows, act in r['sheets']:
+            # 表名带动作，避免「新增对象」和「删除对象」混在一张表
+            parts.append(f'\n## {name}（{act}，{len(rows)} 行）\n')
             parts.append('| ' + ' | '.join(headers) + ' |')
             parts.append('|' + '|'.join(['---'] * len(headers)) + '|')
             for row in rows[:200]:      # 最多 200 行，避免文件过大

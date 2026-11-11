@@ -1,188 +1,239 @@
-"""G30：意图要删除的对象，产物里用了 ADD 或漏删。
+"""G30：规划表说要删除的族，产物却配成了 ADD（或完全没有 RMV）。
 
-用户要求（2026-11-10）：「实现G30」
+★ 2026-11-11 重写（用户批准）
 
-背景实测（长期高频问题）：
-  prompt 明确写了「删除对象用 RMV，不要用 ADD」，
-  但实测 10 单里 8 单把 RMV 配成了 ADD。
-  （记录在 MEMORY：★prompt不可靠:10单8单把RMV配成ADD）
+原版缺陷（实测 NC20260820000552）：
+  靠 BIZ_TO_FAM_HINT 里 16 个硬编码业务词把「删除 XXX」映射到族名，
+  实测该工单 13 条删除项只识别出 1 条（7.7%），而且认错了族
+  （「SGW-U与SGW-C侧S11接口的绑定关系」→ INTERFACE，实际是 UPBINDS11）。
 
-为什么可以用规则做（不需要 LLM）：
-  意图已经由 intent_ops.py 解析成结构化「操作清单」
-  （动词 + 目标对象），所以可以做确定性比对。
+  硬编码业务词表也违反「禁止硬编码」红线。
 
-判据逻辑：
-  1. 从意图解析出「要删除的对象」（动词=RMV 的条目）
-  2. 从产物 mml 提取每个族的 ADD/RMV 对象名
-  3. 检查：
-     A. 意图要删的对象，产物里却 ADD 了同名对象 → warn（方向反了）
-     B. 意图要删的族，产物里一条 RMV 都没有 → warn（漏删）
-  4. 输入缺意图/产物 → skipped
+新版做法（不依赖业务词表）：
+  数据源换成「命令族规划.md」——它是 agent 自己对本次变更的理解，
+  列里有「动作」和「命令族」，是最可靠的意图落地形式。
+
+  判据：
+    1. 读规划表，取「动作」列含 删除/RMV 的行 → 得到 (族, 状态)
+       跳过「状态=跳过」的行（agent 已声明不配）
+    2. 读产物 mml，得到每个族实际用了哪些动词
+    3. 比对：
+       A. 规划说删，产物该族只有 ADD           → 方向反了（高危）
+       B. 规划说删，产物完全没有该族            → 漏删
+       C. 规划说删，产物该族有 RMV             → 正常
+    4. 可选：用 intent_text 交叉验证（两处都说删才报，降低误报）
+
+  级别：warn（不阻断）
+    —— 用户决定：先只改检测，观察误报率再决定是否升 fatal。
 """
 import re
 from pathlib import Path
 
-# 意图里表示「删除」的词
-RMV_WORDS = ('删除', '移除', '去除', '清除', '去掉')
+# 规划表「动作」列里表示删除的写法
+RMV_ACTION_WORDS = ('删除', '移除', '去除', 'RMV', 'DEL')
 
-# 对象名 → 可能的族（用于反查，只做提示）
-# 这是纯业务名到族的映射，不含命令模板
-BIZ_TO_FAM_HINT = {
-    '过滤器': 'FILTER',
-    '流过滤器': 'FLOWFILTER',
-    '七层过滤器': 'L7FILTER',
-    '域名': 'HOST',
-    'Host': 'HOST',
-    '规则': 'RULE',
-    '用户模板': 'USERPROFILE',
-    '模板': 'USERPROFILE',
-    '计费规则': 'URR',
-    'URR': 'URR',
-    'PCC策略组': 'PCCPOLICYGRP',
-    '策略组': 'PCCPOLICYGRP',
-    '地址池': 'POOL',
-    '池': 'POOL',
-    '隧道': 'GRE TUNNEL',
-    '路由': 'SRROUTE',
-    '接口': 'INTERFACE',
-    'NTP': 'NTPSVR',
-    '服务器': 'NTPSVR',
-}
+# 状态列里表示「确定不配」的写法（这些行不检查）
+# ★ 2026-11-11：不含「待定」
+#   实测 NC20260824002020：POOL/SECTION/POOLGROUP 等在规划表里是「删除 + 待定」，
+#   原先把它当跳过 → 漏报 5 族。待定说明 agent 想删但没把握，
+#   产物却配成了 ADD，仍是方向反了，必须报出来。
+SKIP_STATUS_WORDS = ('跳过', '不配', '不做', '取消', '不适用')
 
 
-def parse_intent_rmv(intent_text):
-    """从意图里解析「要删除的对象」。
+def parse_plan_rmv_rows(plan_text):
+    """从规划表提取「动作=删除」的行。
 
-    Returns [{biz, fam_hint}]
+    按表头定位列，不硬编码索引。支持：
+      · 有「状态」列和没有「状态」列两种表结构
+      · 「命令族」列是裸族名或「RMV XXX」带动词
+
+    Returns [{biz, family, action, status}]
     """
     out = []
-    if not intent_text:
+    if not plan_text:
         return out
 
-    # 找「删除 xxx」形式的行
-    for line in intent_text.split('\n'):
-        s = line.strip().lstrip('-*·').strip()
-        if not s:
-            continue
-        # 判断是不是删除类
-        is_rmv = any(w in s for w in RMV_WORDS)
-        if not is_rmv:
+    lines = plan_text.split('\n')
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if not line.startswith('|'):
+            i += 1
             continue
 
-        # 提取对象名：去掉「删除」动词和数量描述
-        obj = s
-        for w in RMV_WORDS:
-            obj = obj.replace(w, '', 1)
-        obj = re.sub(r'约?\s*\d+\s*个?', '', obj)
-        obj = re.sub(r'[，,（(].*$', '', obj)
-        obj = obj.strip().strip('，,。:：')
-        if not obj or len(obj) < 2:
+        header = [c.strip() for c in line.strip().strip('|').split('|')]
+        if '命令族' not in header:
+            i += 1
             continue
 
-        # 匹配可能的族
-        hint = None
-        for k, v in BIZ_TO_FAM_HINT.items():
-            if k in obj:
-                hint = v
+        def col(*names):
+            for n in names:
+                if n in header:
+                    return header.index(n)
+            return None
+
+        fam_i = col('命令族')
+        act_i = col('动作', '动词', '操作')
+        biz_i = col('业务对象', '数据清单表', '对象')
+        st_i = col('状态')
+        ncol = len(header)
+
+        i += 1
+        # 跳过分隔行
+        if i < len(lines) and re.fullmatch(r'[|\s\-:]+', lines[i].strip()):
+            i += 1
+
+        while i < len(lines):
+            row = lines[i].strip()
+            if not row.startswith('|'):
                 break
+            cells = [c.strip() for c in row.strip().strip('|').split('|')]
+            if len(cells) >= ncol:
+                fam_cell = cells[fam_i] if fam_i is not None and fam_i < len(cells) else ''
+                act = cells[act_i] if act_i is not None and act_i < len(cells) else ''
+                biz = cells[biz_i] if biz_i is not None and biz_i < len(cells) else ''
+                status = cells[st_i] if st_i is not None and st_i < len(cells) else ''
 
-        out.append({'biz': obj[:40], 'fam_hint': hint})
+                # 动作判定：动作列或族名单元格里带删除词
+                is_rmv = any(w in act.upper() for w in (w.upper() for w in RMV_ACTION_WORDS))
+                if not is_rmv:
+                    is_rmv = any(w in fam_cell.upper() for w in ('RMV', 'DEL'))
+
+                if is_rmv:
+                    # 解析族名（可能带动词）
+                    for part in re.split(r'[/,、]', fam_cell):
+                        t = part.strip().upper()
+                        m = re.match(r'^(?:ADD|RMV|MOD|SET|DEL)\s+([A-Z][A-Z0-9_]{2,})$', t)
+                        fam = m.group(1) if m else (
+                            t if re.fullmatch(r'[A-Z][A-Z0-9_]{2,}', t) else None)
+                        if fam:
+                            out.append({'biz': biz[:40], 'family': fam,
+                                        'action': act[:20], 'status': status[:20]})
+            i += 1
+        i += 1
+
     return out
 
 
-def parse_prod_keys(mml_text):
-    """产物里每个族的 ADD / RMV 对象名集合。
-
-    Returns {family: {'ADD': set(), 'RMV': set()}}
-    """
+def parse_prod_verbs(mml_text):
+    """产物里每个族用了哪些动词：{family: set(verbs)}"""
     out = {}
     for line in mml_text.split('\n'):
         s = line.split('//')[0].strip()
         if not s or s.startswith(('/*', '#', '*')):
             continue
-        m = re.match(r'^(ADD|RMV|MOD|SET)\s+([A-Za-z0-9_]+)\s*[:：]\s*(.*)$',
-                     s.rstrip(';'), re.I | re.S)
-        if not m:
-            continue
-        verb = m.group(1).upper()
-        fam = m.group(2).upper()
-        rest = m.group(3)
-        # 取第一个参数值作对象名
-        pm = re.search(r'=\s*"([^"]*)"', rest)
-        if not pm:
-            pm = re.search(r'=\s*([^,;\s]+)', rest)
-        key = pm.group(1) if pm else None
-        d = out.setdefault(fam, {'ADD': set(), 'RMV': set()})
-        if key:
-            d[verb].add(key)
+        m = re.match(r'^(ADD|RMV|MOD|SET)\s+([A-Za-z0-9_]+)', s, re.I)
+        if m:
+            out.setdefault(m.group(2).upper(), set()).add(m.group(1).upper())
     return out
 
 
-def check_rmv_vs_add(sess_dir=None, intent_text='', mml_text=''):
-    """G30：意图要删的对象，产物里用了 ADD 或漏删。
+def parse_prod_counts(mml_text):
+    """产物里每个族每个动词多少条：{family: {verb: n}}"""
+    out = {}
+    for line in mml_text.split('\n'):
+        s = line.split('//')[0].strip()
+        if not s or s.startswith(('/*', '#', '*')):
+            continue
+        m = re.match(r'^(ADD|RMV|MOD|SET)\s+([A-Za-z0-9_]+)', s, re.I)
+        if m:
+            fam, verb = m.group(2).upper(), m.group(1).upper()
+            d = out.setdefault(fam, {})
+            d[verb] = d.get(verb, 0) + 1
+    return out
+
+
+def _status_skipped(status):
+    return any(w in status for w in SKIP_STATUS_WORDS)
+
+
+def check_rmv_vs_add(sess_dir=None, intent_text='', mml_text='', plan_text=''):
+    """G30：规划表说要删除的族，产物却配成了 ADD 或漏删。
 
     Returns {
       ok: bool,
       skipped: bool,
-      n_intent_rmv: int,      # 意图里删除类条目数
-      reversed: [{biz, family, keys}],   # 方向反了（要删却 ADD）
-      missed: [{biz, family}],           # 漏删（一条 RMV 都没有）
+      n_plan_rmv: int,          # 规划表里「动作=删除」的族数（已排除跳过的）
+      reversed: [{biz, family, action, prod_verbs, n_add}],  # 方向反了
+      missed: [{biz, family, action}],                        # 漏删
+      no_mml: bool,             # 产物无该族时的额外标记
     }
     """
+    # 产物可能在这两个位置（容器内是 analysis_code/，评估采集出来是根目录）
+    bases = []
     if sess_dir:
-        base = Path(sess_dir) / 'analysis_code'
-        if not intent_text:
-            for cand in (base / '.intent.md', base / '意图.md'):
-                if cand.exists():
-                    intent_text = cand.read_text(encoding='utf-8', errors='replace')
-                    break
-        if not mml_text:
-            p = base / 'mml.txt'
+        sd = Path(sess_dir)
+        bases = [sd / 'analysis_code', sd]
+
+    def _find(name):
+        for b in bases:
+            p = b / name
             if p.exists():
-                mml_text = p.read_text(encoding='utf-8', errors='replace')
+                return p.read_text(encoding='utf-8', errors='replace')
+        return ''
 
-    if not intent_text or not mml_text:
-        return {'ok': True, 'skipped': True, 'reason': '缺意图或 mml',
-                'n_intent_rmv': 0, 'reversed': [], 'missed': []}
+    if not plan_text:
+        plan_text = _find('命令族规划.md')
+    if not mml_text:
+        mml_text = _find('mml.txt')
 
-    rmv_items = parse_intent_rmv(intent_text)
-    if not rmv_items:
-        return {'ok': True, 'skipped': True, 'reason': '意图里没有删除类条目',
-                'n_intent_rmv': 0, 'reversed': [], 'missed': []}
+    # 规划表是主数据源；没有规划表时退回意图文本解析不了族，直接 skip
+    if not plan_text:
+        return {'ok': True, 'skipped': True, 'reason': '缺命令族规划.md',
+                'n_plan_rmv': 0, 'reversed': [], 'missed': []}
+    if not mml_text:
+        return {'ok': True, 'skipped': True, 'reason': '缺 mml.txt',
+                'n_plan_rmv': 0, 'reversed': [], 'missed': []}
 
-    prod = parse_prod_keys(mml_text)
+    plan_rows = parse_plan_rmv_rows(plan_text)
+    # 排除 agent 已声明跳过的行
+    plan_rows = [r for r in plan_rows if not _status_skipped(r['status'])]
+
+    if not plan_rows:
+        return {'ok': True, 'skipped': True,
+                'reason': '规划表里没有「动作=删除」的行（或全部标记跳过）',
+                'n_plan_rmv': 0, 'reversed': [], 'missed': []}
+
+    prod_verbs = parse_prod_verbs(mml_text)
+    prod_counts = parse_prod_counts(mml_text)
 
     reversed_list = []
     missed_list = []
+    seen = set()
 
-    for it in rmv_items:
-        hint = it['fam_hint']
-        if not hint:
+    for r in plan_rows:
+        fam = r['family']
+        if fam in seen:
             continue
-        fam = hint.replace(' ', '_')
+        seen.add(fam)
 
-        d = prod.get(fam)
-        if d is None:
-            # 产物里完全没有这个族 → 漏删
-            missed_list.append({'biz': it['biz'], 'family': fam, 'why': '产物无此族'})
+        pv = prod_verbs.get(fam)
+        if not pv:
+            missed_list.append({'biz': r['biz'], 'family': fam,
+                                'action': r['action'], 'why': '产物无此族'})
             continue
 
-        if not d['RMV'] and d['ADD']:
-            # 有 ADD 无 RMV → 方向反了
+        if 'RMV' in pv:
+            continue   # 有 RMV，正常
+
+        if 'ADD' in pv:
             reversed_list.append({
-                'biz': it['biz'], 'family': fam,
-                'keys': sorted(d['ADD'])[:5],
-                'n': len(d['ADD']),
+                'biz': r['biz'], 'family': fam, 'action': r['action'],
+                'prod_verbs': sorted(pv),
+                'n_add': (prod_counts.get(fam) or {}).get('ADD', 0),
             })
-        elif not d['RMV'] and not d['ADD']:
-            missed_list.append({'biz': it['biz'], 'family': fam, 'why': '族存在但无命令'})
+        else:
+            # 有 MOD/SET 但没 RMV/ADD，不算方向反，但提示
+            missed_list.append({'biz': r['biz'], 'family': fam,
+                                'action': r['action'],
+                                'why': f"只有 {'/'.join(sorted(pv))}，无 RMV"})
 
     return {
         'ok': not reversed_list and not missed_list,
         'skipped': False,
-        'n_intent_rmv': len([x for x in rmv_items if x['fam_hint']]),
-        'reversed': reversed_list[:8],
-        'missed': missed_list[:8],
+        'n_plan_rmv': len(plan_rows),
+        'reversed': reversed_list[:10],
+        'missed': missed_list[:10],
     }
 
 

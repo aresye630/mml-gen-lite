@@ -19,10 +19,20 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-BASES = ['http://127.0.0.1:8620', 'http://127.0.0.1:8621',
-         'http://127.0.0.1:8622', 'http://127.0.0.1:8623']
-CONT = {'8620': 'mmlgen-clean', '8621': 'mmlgen-b1',
-        '8622': 'mmlgen-b2', '8623': 'mmlgen-b3'}
+import os as _os
+# ★ 2026-11-10：支持单容器测试（容器清理后只剩一个）
+if _os.environ.get('EVAL_SINGLE'):
+    BASES = ['http://127.0.0.1:8620']
+else:
+    BASES = ['http://127.0.0.1:8620', 'http://127.0.0.1:8621',
+             'http://127.0.0.1:8622', 'http://127.0.0.1:8623']
+import os as _os2
+# ★ 2026-11-10：单容器测试时 8620 对应 mmlgen-test
+if _os2.environ.get('EVAL_SINGLE'):
+    CONT = {'8620': _os2.environ.get('EVAL_CONTAINER', 'mmlgen-test')}
+else:
+    CONT = {'8620': 'mmlgen-clean', '8621': 'mmlgen-b1',
+            '8622': 'mmlgen-b2', '8623': 'mmlgen-b3'}
 INTENT_DIR = Path('/tmp/intent_dataset')
 OUT = Path('/tmp/eval_2stage_v2_out')
 OUT.mkdir(exist_ok=True)
@@ -131,7 +141,11 @@ def run_one(tk, base):
     intent = intent_f.read_text(encoding='utf-8')
     port = base.rsplit(':', 1)[-1]
     cont = CONT.get(port, 'mmlgen-clean')
-    exps = list((Path(g['path']) / '备份附件').glob('EXPMML*.txt'))
+    # ★ 2026-11-10：不能只匹配 EXPMML*.txt
+    #   NC20260820000552 的 UNC EXP 叫 HZZZhbSMF001BHW-05AHW011_20260803.txt，
+    #   有 1021 个族（含 BSFIPRANGEBIND/TAIRANGELIST 等），
+    #   但 glob('EXPMML*.txt') 匹配不到 → agent 以为本网元没有这些族。
+    exps = list((Path(g['path']) / '备份附件').glob('*.txt'))
     if not exps:
         return {'ticket': tk, 'error': '无 EXP'}
 
@@ -152,8 +166,13 @@ def run_one(tk, base):
         sid = json.loads(cp.stdout)['session_id']
         r['sid'] = sid
 
-        subprocess.run(['curl', '-s', '-X', 'POST', '-F', f'files=@{exps[0]}',
-                        f'{base}/api/v1/sessions/{sid}/files'],
+        # ★ 2026-11-10：上传全部 EXP（多网元工单有 UDG+UNC+UEG 多份）
+        #   原来只传 exps[0]，导致 UNC/UEG 侧的族全部查不到
+        _up = []
+        for _e in exps:
+            _up += ['-F', f'files=@{_e}']
+        subprocess.run(['curl', '-s', '-X', 'POST'] + _up +
+                       [f'{base}/api/v1/sessions/{sid}/files'],
                        capture_output=True, timeout=1800)
         if dataset_f.exists():
             subprocess.run(['curl', '-s', '-X', 'POST', '-F', f'files=@{dataset_f}',
@@ -245,8 +264,8 @@ def main():
 
     results = []
     t0 = time.time()
-    with ThreadPoolExecutor(max_workers=4) as ex:
-        futs = {ex.submit(run_one, tk, BASES[i % 4]): tk
+    with ThreadPoolExecutor(max_workers=len(BASES)) as ex:
+        futs = {ex.submit(run_one, tk, BASES[i % len(BASES)]): tk
                 for i, tk in enumerate(targets)}
         done = 0
         for f in as_completed(futs):

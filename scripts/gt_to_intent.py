@@ -102,15 +102,31 @@ def analyze(g, idx):
             #   现在用族名原文代替（这仍是业务标识，不是 MML 参数名）
             unmapped.append(fam)
             cn = fam
-        n_objs = len({next(iter(it['params'].values())) for it in items if it['params']})
+
         gname = group_of_family(fam)
-        fam_groups[gname].append({
-            'family': fam,
-            'biz_name': cn,
-            'n_cmds': len(items),
-            'n_objs': n_objs,
-            'verb': items[0]['verb'],
-        })
+
+        # ★ 2026-11-11 修复致命 bug（用户以 NC20260828000409 为锚点）：
+        #   原来取 items[0]['verb']，同一个族既有 ADD 又有 RMV 时只保留第一个动词。
+        #   实测该工单 POOL 族 ADD 4 + RMV 5，意图只写「新增 地址池」，
+        #   「删除」完全丢失 → agent 按错误意图执行，规划表也就只有 ADD。
+        #   全量影响：12 个工单 / 90 条 RMV 命令在意图里消失。
+        #   修法：按 (族, 动词) 拆成多条记录。
+        by_verb = defaultdict(list)
+        for it in items:
+            by_verb[it['verb']].append(it)
+
+        for verb, vitems in by_verb.items():
+            # 对象数：优先用主键参数（取唯一值的第一个参数），
+            # 同族多动词时各自单独算，避免 ADD+RMV 混算成一个数。
+            n_objs = len({next(iter(it['params'].values()))
+                          for it in vitems if it['params']})
+            fam_groups[gname].append({
+                'family': fam,
+                'biz_name': cn,
+                'n_cmds': len(vitems),
+                'n_objs': n_objs,
+                'verb': verb,
+            })
 
     return {
         'ticket': g['ticket'],

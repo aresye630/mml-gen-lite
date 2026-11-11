@@ -1838,6 +1838,52 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             checks['G23_add_existing'] = {'ok': True, 'skipped': True,
                                           'reason': f'G23 执行失败: {e}'}
 
+
+    # ★ 2026-11-10 新增 G28：族名张冠李戴检测（prompt 的兜底）
+    #   用户要求：「prompt 增强不一定稳定解决问题，要有对应的兜底策略」
+    #   实测 NC20260803000197：意图要「NF TAI 区域」，agent 选了 TAIGROUP
+    #   （正确族是 TAIRANGELIST，但那份 EXP 里没有，agent 用相近名顶替）
+    try:
+        if session_dir and Path(session_dir).exists():
+            from family_substitution import check_family_substitution
+            checks['G28_substitution'] = check_family_substitution(session_dir)
+        else:
+            checks['G28_substitution'] = {'ok': True, 'skipped': True,
+                                          'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G28_substitution'] = {'ok': True, 'skipped': True,
+                                      'reason': f'G28 执行失败: {e}'}
+
+    # ★ 2026-11-10 G29：SET 属性族漏配检测
+    #   实测 27 个阶段1 低覆盖工单里，15 个漏配的族是纯 SET 属性命令
+    #   （ALMINFO 8 / APNSGLPASS 6 / LICENSESWITCH 5 / REFRESHSRV 3 ...）
+    #   agent 倾向建新对象（ADD），不愿给已有对象设属性（SET）。
+    try:
+        if session_dir and Path(session_dir).exists():
+            from set_missing import check_set_missing
+            checks['G29_set'] = check_set_missing(session_dir)
+        else:
+            checks['G29_set'] = {'ok': True, 'skipped': True,
+                                 'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G29_set'] = {'ok': True, 'skipped': True,
+                             'reason': f'G29 执行失败: {e}'}
+
+    # ★ 2026-11-10 G30：意图要删的对象，产物却 ADD 或漏删
+    #   长期高频问题（记录在 MEMORY）：prompt 写了「删除用 RMV」，
+    #   实测 10 单里 8 单把 RMV 配成了 ADD。
+    #   意图已解析成结构化操作清单，所以可用规则做，不需要 LLM。
+    try:
+        if session_dir and Path(session_dir).exists():
+            from rmv_vs_add import check_rmv_vs_add
+            checks['G30_rmv'] = check_rmv_vs_add(sess_dir=session_dir)
+        else:
+            checks['G30_rmv'] = {'ok': True, 'skipped': True,
+                                 'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G30_rmv'] = {'ok': True, 'skipped': True,
+                             'reason': f'G30 执行失败: {e}'}
+
     # ★ 2026-11-08 新增 G24：省略说明检测
     #   配置分析里说「不做/跳过」但方案澄清里没对应的，提示用户。
     try:
@@ -1889,50 +1935,6 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                                 'reason': f'G27 执行失败: {e}'}
 
 
-        # ★ 2026-11-10 新增 G28：族名张冠李戴检测（prompt 的兜底）
-        #   用户要求：「prompt 增强不一定稳定解决问题，要有对应的兜底策略」
-        #   实测 NC20260803000197：意图要「NF TAI 区域」，agent 选了 TAIGROUP
-        #   （正确族是 TAIRANGELIST，但那份 EXP 里没有，agent 用相近名顶替）
-        try:
-            if session_dir and Path(session_dir).exists():
-                from family_substitution import check_family_substitution
-                checks['G28_substitution'] = check_family_substitution(session_dir)
-            else:
-                checks['G28_substitution'] = {'ok': True, 'skipped': True,
-                                              'reason': '无 session_dir'}
-        except Exception as e:
-            checks['G28_substitution'] = {'ok': True, 'skipped': True,
-                                          'reason': f'G28 执行失败: {e}'}
-
-        # ★ 2026-11-10 G29：SET 属性族漏配检测
-        #   实测 27 个阶段1 低覆盖工单里，15 个漏配的族是纯 SET 属性命令
-        #   （ALMINFO 8 / APNSGLPASS 6 / LICENSESWITCH 5 / REFRESHSRV 3 ...）
-        #   agent 倾向建新对象（ADD），不愿给已有对象设属性（SET）。
-        try:
-            if session_dir and Path(session_dir).exists():
-                from set_missing import check_set_missing
-                checks['G29_set'] = check_set_missing(session_dir)
-            else:
-                checks['G29_set'] = {'ok': True, 'skipped': True,
-                                     'reason': '无 session_dir'}
-        except Exception as e:
-            checks['G29_set'] = {'ok': True, 'skipped': True,
-                                 'reason': f'G29 执行失败: {e}'}
-
-        # ★ 2026-11-10 G30：意图要删的对象，产物却 ADD 或漏删
-        #   长期高频问题（记录在 MEMORY）：prompt 写了「删除用 RMV」，
-        #   实测 10 单里 8 单把 RMV 配成了 ADD。
-        #   意图已解析成结构化操作清单，所以可用规则做，不需要 LLM。
-        try:
-            if session_dir and Path(session_dir).exists():
-                from rmv_vs_add import check_rmv_vs_add
-                checks['G30_rmv'] = check_rmv_vs_add(sess_dir=session_dir)
-            else:
-                checks['G30_rmv'] = {'ok': True, 'skipped': True,
-                                     'reason': '无 session_dir'}
-        except Exception as e:
-            checks['G30_rmv'] = {'ok': True, 'skipped': True,
-                                 'reason': f'G30 执行失败: {e}'}
 
         # ★ G22 占位符一致性
         try:
@@ -2125,15 +2127,20 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         _rev = _g30.get('reversed') or []
         _mis = _g30.get('missed') or []
         if _rev:
-            _d = '；'.join(f"{x['biz'][:16]}→{x['family']}({x['n']}条ADD)"
-                          for x in _rev[:2])
+            _d = '；'.join(f"{x['family']}({x.get('n_add', x.get('n', 0))}条ADD)"
+                          for x in _rev[:4])
+            _more = f' 等 {len(_rev)} 个族' if len(_rev) > 4 else ''
             warn.append(
-                f"G30 意图要求**删除**的对象，产物里却用了 ADD（{_d}）。"
-                f"删除类变更应该用 RMV，用 ADD 会把该删的对象重新建出来。")
+                f"G30 规划表把 {len(_rev)} 个族的动作标为**删除**，"
+                f"但产物里用的是 ADD：{_d}{_more}。"
+                f"删除类变更必须用 RMV，用 ADD 会把该删的对象重新建出来，"
+                f"现场执行会报「对象已存在」或把误删的对象重建。")
         if _mis:
-            _d = '；'.join(f"{x['biz'][:16]}→{x['family']}" for x in _mis[:2])
+            _d = '；'.join(f"{x['family']}" for x in _mis[:4])
+            _more = f' 等 {len(_mis)} 个族' if len(_mis) > 4 else ''
             warn.append(
-                f"G30 意图要求删除的对象，产物里没有任何 RMV（{_d}）。"
+                f"G30 规划表把 {len(_mis)} 个族的动作标为删除，"
+                f"但产物里完全没有这些族的命令：{_d}{_more}。"
                 f"漏删会导致旧配置残留。")
 
     _g22 = checks.get('G22_placeholder') or {}
