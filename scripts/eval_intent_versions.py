@@ -51,12 +51,52 @@ def post(base, path, data, timeout=300):
     return api(base, path, 'POST', data, timeout)
 
 
-def upload(base, files):
-    cmd = ['curl', '-s', '-X', 'POST']
-    for f in files:
-        cmd += ['-F', f'files=@{f}']
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
-    return r.stdout
+def upload(base, files, sid, cont, retry=3):
+    """上传文件并校验。
+
+    ★ 2026-11-11 严重 bug：
+      原版只发 curl 不检查返回值。实测 80 次评测里 57 次（71%）上传为空，
+      原因是 4 容器并发上传 15-30MB 的 EXP 时部分请求失败，
+      脚本毫无察觉继续跑阶段1 → agent 拿不到 EXP/数据清单
+      → 只能按意图结构猜族数、全配占位符 → 结果全部不可信。
+
+    修复：
+      1. 上传后查会话 uploads/ 目录的真实文件数，必须 == len(files)
+      2. 不匹配则重试（最多 3 次，每次间隔递增）
+      3. 仍然失败则抛异常，让上层记录 error 而不是静默继续
+    """
+    def _count():
+        r = subprocess.run(
+            ['docker', 'exec', '-u', 'expgv', cont, 'sh', '-c',
+             f'ls /data/sessions/{sid}/uploads/ 2>/dev/null | wc -l'],
+            capture_output=True, text=True, timeout=60)
+        try:
+            return int(r.stdout.strip() or 0)
+        except ValueError:
+            return 0
+
+    last_err = ''
+    for attempt in range(1, retry + 1):
+        cmd = ['curl', '-s', '-X', 'POST']
+        for f in files:
+            cmd += ['-F', f'files=@{f}']
+        r = subprocess.run(cmd + [f'{base}/api/v1/sessions/{sid}/files'],
+                           capture_output=True, text=True, timeout=1800)
+        out = (r.stdout or '').strip()
+
+        n = _count()
+        if n == len(files):
+            return {'ok': True, 'n': n, 'attempt': attempt}
+
+        last_err = f'attempt {attempt}: 期望 {len(files)} 个文件，实际 {n}；curl={out[:120]}'
+        # 清掉可能写了一半的文件再重试
+        subprocess.run(['docker', 'exec', '-u', 'expgv', cont, 'sh', '-c',
+                        f'rm -f /data/sessions/{sid}/uploads/* '
+                        f'/data/sessions/{sid}/uploads_text/*'],
+                       capture_output=True, timeout=60)
+        time.sleep(3 * attempt)
+
+    raise RuntimeError(f'上传失败（重试 {retry} 次）: {last_err}')
 
 
 def wait_done(base, sid, max_wait=None):
@@ -126,7 +166,18 @@ def run_one(tk, ver, base):
         files = list(exps)
         if ds_f.exists():
             files.append(ds_f)
-        upload(base, files)
+        up = upload(base, files, sid, CONT[port])
+        r['n_upload'] = up['n']
+        # ★ 2026-11-11：再确认 EXP 被正常解析（后端会把 txt 转成 md）
+        _chk = subprocess.run(
+            ['docker', 'exec', '-u', 'expgv', CONT[port], 'sh', '-c',
+             f'ls /data/sessions/{sid}/uploads_text/ 2>/dev/null | wc -l'],
+            capture_output=True, text=True, timeout=60)
+        r['n_parsed'] = int(_chk.stdout.strip() or 0)
+        if r['n_parsed'] < len(files):
+            r['error'] = (f'EXP 解析不全: 上传 {up["n"]} 个，'
+                          f'解析 {r["n_parsed"]} 个')
+            return r
 
         # 阶段1
         t1 = time.time()
