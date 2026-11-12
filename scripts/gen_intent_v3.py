@@ -38,6 +38,81 @@ ANCHOR_CN = {
 TH_FULL = 0.90     # >= 90% 认为是"配齐"
 TH_PART = 0.70     # 70-90% 需要补列差额
 
+# ★ 2026-11-12：参数级覆盖阈值（低于此值不建参照）
+TH_PARAM = 0.7
+
+
+def exp_fam_anchor_params(exp_text, param):
+    """EXP 里 {(族, 锚点值): 参数集}。用于参数级覆盖校验。
+
+    ★ 2026-11-12 新增（用户质疑："GT 和 EXP 不一样还写着照着 EXP 配置么？"）
+
+    原判据只看「参照对象覆盖了几个族」，不看「覆盖了 GT 需要的哪些参数」。
+    实测 NC20260806001438：
+      GT 要配 USERPROFILE 的 FREESERONLCHG/FREESEROFFCHG/UPTYPE/PROFILERANGE/QOSANASW...
+      EXP 的 up_ims 只有 ALIASMARKFLAG/DDOSCHECK/CAPMODETHRES/LOCRPTSWITCH/...
+      交集只有 UPSPECTYPE → 参数覆盖 36%
+      但族覆盖率是 100%（USERPROFILE 族存在）
+      于是意图写「按 up_ims 配齐」→ 事实上 up_ims 里没那些参数
+    """
+    out = {}
+    pat = re.compile(rf'{param}\s*=\s*"?([^",;]+)"?', re.I)
+    for line in exp_text.split('\n'):
+        s = line.strip()
+        m = re.match(r'^(ADD|SET|MOD)\s+([A-Z][A-Z0-9_]+)\s*:\s*(.*)$', s)
+        if not m:
+            continue
+        fam, body = m.group(2), m.group(3).rstrip(';')
+        pm = pat.search(body)
+        if not pm:
+            continue
+        key = (fam, pm.group(1).strip())
+        ps = set(re.findall(r'([A-Z][A-Z0-9_]*)\s*=', body))
+        # 同一 (族,锚点值) 多条时取并集
+        out[key] = out.get(key, set()) | ps
+    return out
+
+
+def calc_param_coverage(g, ref_val, anchor_param, exp_params):
+    """算参照对象的【参数级】覆盖率。
+
+    对比对象：
+      GT 侧：本工单该锚点涉及的族，每个族要配的参数集
+      参照侧：参照对象在同族里的参数集
+
+    返回 (coverage_ratio, detail)
+    """
+    gt_map = parse_gt_anchor(g, anchor_param)     # {值: 族集合}
+    my_fams = gt_map.get(None, set())             # 占位，下面重算
+    # 重新算：本工单所有族 + 每族的参数集
+    gt_by_fam = defaultdict(set)
+    for _, v, fam, params, _ in g['kept']:
+        gt_by_fam[fam] |= set(params.keys())
+
+    # 只算「参照对象覆盖到的族」（族级覆盖已经是前提）
+    ref_fams = {f for (f, _i) in exp_params if _i == ref_val}
+    if not ref_fams:
+        return 0.0, {'reason': '参照对象不在任何族里'}
+
+    total_params, covered_params = 0, 0
+    per_fam = {}
+    for fam in ref_fams:
+        need = gt_by_fam.get(fam, set())
+        if not need:
+            continue
+        have = exp_params.get((fam, ref_val), set())
+        total_params += len(need)
+        covered_params += len(need & have)
+        per_fam[fam] = {
+            'need': sorted(need),
+            'have': sorted(have),
+            'missing': sorted(need - have),
+        }
+
+    ratio = covered_params / total_params if total_params else 1.0
+    return ratio, {'total': total_params, 'covered': covered_params,
+                   'per_fam': per_fam}
+
 
 def load_exp(tk):
     g = GT_MAP.get(tk)
@@ -147,6 +222,18 @@ def analyze(tk):
         ratio = len(best_cov) / len(my_fams)
         if ratio < TH_PART:
             continue   # 覆盖太低，不建参照
+
+        # ★ 2026-11-12 参数级覆盖校验（用户质疑："GT 和 EXP 不一样还写着照着 EXP 配置么？"）
+        #   族级覆盖通过不代表参数级覆盖：实测 NC20260806001438 族覆盖 100%
+        #   但参数覆盖只有 36%（up_ims 里没 FREESERONLCHG 等 GT 要配的参数）
+        exp_params = exp_fam_anchor_params(exp, param)
+        p_cov, p_detail = calc_param_coverage(g, best_val, param, exp_params)
+        if p_cov < TH_PARAM:
+            # 参数覆盖不足 → 不建参照（退回逐条列）
+            continue
+        if p_cov < 1.0:
+            # 部分覆盖 → 记录缺的参数，意图里要补说明
+            pass
         # ★ 2026-11-11：只涉及 1 个族的，不需要「参照 XX 配齐」
         #   （实测 NC20260805000498 出现「APN「cmdtj」→ 参照「cmnet」覆盖 1/1」，
         #     一个族的配置直接说就行，参照反而啰嗦）
@@ -156,6 +243,8 @@ def analyze(tk):
         results.append({
             'param': param, 'anchor': val, 'n_anchor': cnt,
             'ref': best_val, 'ratio': ratio,
+            'param_cov': round(p_cov, 3),
+            'param_missing': p_detail.get('per_fam', {}),
             'fams': sorted(my_fams),
             'covered': sorted(best_cov),
             'extra': sorted(my_fams - best_cov),

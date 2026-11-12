@@ -1,0 +1,44 @@
+# 增量重建镜像：在已有 mml-gen-lite:clean 基础上叠加最新代码
+#
+# 为什么不用 Dockerfile.workflow 全量构建：
+#   Docker Hub 不可达（registry-1.docker.io i/o timeout），拉不到 python:3.14-slim
+#
+# 这个 Dockerfile 的做法：
+#   从现有镜像派生（已有 python/node/依赖/kb/models）
+#   只把代码目录覆盖一遍，保证镜像 == 当前工作区
+#
+# 构建：
+#   docker build -f dockerfiles/Dockerfile.incr -t mml-gen-lite:v2 .
+
+FROM mml-gen-lite:clean
+
+# root 才能覆盖 expgv 属主的文件
+USER root
+
+# ── 代码目录全量覆盖 ─────────────────────────────────
+#   为什么全量而不是只拷改动文件：
+#     只拷改动文件容易漏（实测：改了 workflow/stage3/*.py 但忘了拷 guard/*.py）
+#     全量覆盖 1.4MB，构建耗时只多几秒
+COPY --chown=expgv:expgv backend/   /opt/expgv/backend/
+COPY --chown=expgv:expgv workflow/  /opt/expgv/workflow/
+COPY --chown=expgv:expgv scripts/   /opt/expgv/scripts/
+COPY --chown=expgv:expgv rules/     /opt/expgv/rules/
+COPY --chown=expgv:expgv tools/     /opt/expgv/tools/
+
+# ── 权限统一（沿用 Dockerfile.workflow 的教训）──
+#   COPY 会把宿主机权限带进镜像，实测有 600 文件导致 import 失败
+RUN find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
+         /opt/expgv/tools -type d -exec chmod 755 {} + \
+ && find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
+         /opt/expgv/tools -type f -exec chmod 644 {} + \
+ && find /opt/expgv/scripts -name '*.sh' -exec chmod 755 {} +
+
+# ── 清掉 pyc（避免旧字节码覆盖新代码）──
+RUN find /opt/expgv -name '__pycache__' -type d -exec rm -rf {} + 2>/dev/null || true
+
+# ★ 2026-11-12 修：健康检查读 $PORT（原来继承自基础镜像的 8600 是错的）
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+    CMD curl -fsS "http://127.0.0.1:${PORT:-8600}/health" || exit 1
+
+USER expgv
+WORKDIR /opt/expgv

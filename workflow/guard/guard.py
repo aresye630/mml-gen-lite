@@ -1884,6 +1884,46 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         checks['G30_rmv'] = {'ok': True, 'skipped': True,
                              'reason': f'G30 执行失败: {e}'}
 
+    # ★ 2026-11-12 G31：规划表的命令族列用了通配/数量概括
+    #   实测 NC20260810002261：规划表用「SET APN*」一行概括 25 个属性族，
+    #   阶段2 无法可靠展开 → 只配 APN 本体 → 25 族全丢。
+    #   判据是纯规则（扫表格单元格），不调 LLM。
+    try:
+        if session_dir and Path(session_dir).exists():
+            from plan_wildcard import check_plan_wildcard as _g31
+            checks['G31_plan_wildcard'] = _g31(sess_dir=session_dir)
+        else:
+            checks['G31_plan_wildcard'] = {'ok': True, 'skipped': True,
+                                           'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G31_plan_wildcard'] = {'ok': True, 'skipped': True,
+                                       'reason': f'G31 执行失败: {e}'}
+
+    # ★ 2026-11-12 新增 G32：命令族名在 EXP 里不存在（编造/拼错）
+    #   实测 NC20260814000701：agent 把 SET REFRESHSRV 写成 ADD REFREFSHSRV
+    #   （族名多个 REF + 动词用错），guard 全 pass 没抓住。
+    try:
+        from family_exist import check_family_exists
+        checks['G32_family_exist'] = check_family_exists(
+            mml_text, exp_paths=None, exp_text=exp_text)
+    except Exception as e:
+        checks['G32_family_exist'] = {'ok': True, 'skipped': True,
+                                      'reason': f'G32 执行失败: {e}'}
+
+    # ★ 2026-11-12 新增 G33：配置生效的必要命令必须存在且动词正确
+    #   用户裁定：「REFRESHSRV 这个是配置生效的必要命令，加个规则就行了」
+    #   实测 NC20260818000342 缺 REFRESHSRV、NC20260814000701 写成 ADD REFREFSHSRV
+    try:
+        import sys as _sys
+        _WF = str(Path(__file__).parent.parent)
+        if _WF not in _sys.path:
+            _sys.path.insert(0, _WF)
+        from verb_rules import get_rules as _get_vr
+        checks['G33_must_have'] = _get_vr().check_must_have(mml_text)
+    except Exception as e:
+        checks['G33_must_have'] = {'ok': True, 'skipped': True,
+                                   'reason': f'G33 执行失败: {e}'}
+
     # ★ 2026-11-08 新增 G24：省略说明检测
     #   配置分析里说「不做/跳过」但方案澄清里没对应的，提示用户。
     try:
@@ -2142,6 +2182,19 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                 f"G30 规划表把 {len(_mis)} 个族的动作标为删除，"
                 f"但产物里完全没有这些族的命令：{_d}{_more}。"
                 f"漏删会导致旧配置残留。")
+
+    # ★ G31 规划表用通配/数量概括（warn）
+    _g31 = checks.get('G31_plan_wildcard') or {}
+    if _g31 and not _g31.get('skipped') and not _g31.get('ok', True):
+        _hits = _g31.get('hits') or []
+        _d = '；'.join(f"第 {x['row']} 行「{x['fam_cell'][:40]}」"
+                      for x in _hits[:3])
+        _more = f' 等 {len(_hits)} 行' if len(_hits) > 3 else ''
+        warn.append(
+            f"G31 规划表的「命令族」列有 {len(_hits)} 行用了通配或数量概括：{_d}{_more}。"
+            f"阶段2 拿到的就是这张表，写「SET APN*」它无法知道具体有哪些族，"
+            f"保守处理时只配主体族，属性族会整段漏掉。"
+            f"请调 exp_attr_chain 展开成具体族名，一个族写一行。")
 
     _g22 = checks.get('G22_placeholder') or {}
     if _g22 and not _g22.get('skipped'):

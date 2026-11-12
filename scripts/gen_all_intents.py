@@ -13,6 +13,34 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+# ★ 2026-11-12：表头自然语言化（三档映射 + 多样性）
+try:
+    from header_naming import header_for as _header_for_static
+except ImportError:
+    def _header_for_static(pname, use_variant=True):
+        return None
+
+try:
+    import header_llm as _HL
+except ImportError:
+    _HL = None
+
+
+def header_for(pname, seed=None):
+    """参数名 → 自然语言表头（带多样性）。
+
+    ★ 2026-11-12 优先级：
+      1. LLM 缓存（多种变体，按 seed 稳定选择）
+      2. 静态映射（精校 + 语素推导）
+    理由：LLM 生成的描述更准确（INTELSHUNT → 智能分流模式，
+         语素推导给的是「智能旁路」，不准），且有多样性。
+    """
+    if _HL:
+        h = _HL.get_header(pname, seed=seed)
+        if h:
+            return h
+    return _header_for_static(pname)
+
 sys.path.insert(0, '/Users/alesc/workspace/mml-gen-lite/scripts')
 from gt_to_intent import load, analyze, cn_name
 from analyze_gt import seq_like
@@ -134,6 +162,35 @@ def _sheet_name(cnname):
     return SHEET_NAME.get(cnname, cnname)
 
 
+def family_cn(fam, seed=None):
+    """命令族 → 中文业务名（表名用）。
+
+    ★ 2026-11-12
+      原实现只用 SHEET_NAME（23 条）+ EXTRA_CN（8 条），
+      导致 201 个族里大部分表名是英文（URRGROUP / RULE / USERPROFILE），
+      删减脚本按中文表名匹配时匹配不上。
+
+      现在优先用 LLM 缓存（201 个族全有，每族 2 个说法），
+      退回到 SHEET_NAME / EXTRA_CN 静态映射。
+    """
+    key = f'FAMILY::{fam.upper()}'
+    if _HL is not None:
+        try:
+            cache = _HL._load_cache()
+            names = cache.get(key)
+            if names:
+                if isinstance(names, str):
+                    return names
+                if isinstance(names, list) and names:
+                    import hashlib as _hs
+                    h = int(_hs.md5(str(seed or fam).encode()).hexdigest()[:8], 16)
+                    return names[h % len(names)]
+        except Exception:
+            pass
+    # 静态兜底
+    return EXTRA_CN.get(fam) or SHEET_NAME.get(fam) or fam
+
+
 # ★ 参数名 → 业务说法（意图里绝不能出现参数名）
 # ★ 2026-11-10 用户裁定：数据清单补 IP 地址和命名，不补具体参数细节
 #   背景：45/87 工单的 GT 里有意图和清单都没有的 IP（如 NC20260911000610 有 300 个），
@@ -181,6 +238,65 @@ def biz_param(k):
 def biz_value(v):
     """参数值 → 业务说法。"""
     return VALUE_BIZ.get(str(v).upper(), v)
+
+
+# ═══════════════════════════════════════════════════════════
+# ★ 2026-11-12 数据清单只还原「引号值」
+# ═══════════════════════════════════════════════════════════
+# 用户要求：「把引号还原出来就行了」
+#   非引号值（ENABLE/DISABLE/数字）是枚举或常量，不进数据清单
+#   实测 86 单 790 个参数：引号 195 个 / 非引号 596 个 / 交叉 1 个
+
+def is_quoted_value(raw, pname):
+    """判断某个参数在原始命令里是否用引号包起来。
+
+    为什么不能靠 params 字典：解析时引号已被剥掉。
+    必须回 raw 命令里看。
+    """
+    if not raw or not pname:
+        return False
+    m = re.search(rf'\b{re.escape(pname)}\s*=\s*("[^"]*"|[^,\s;]+)', raw, re.I)
+    if not m:
+        return False
+    return m.group(1).startswith('"')
+
+
+def filter_quoted_params(items):
+    """过滤掉非引号参数，只留引号值参数。
+
+    items 结构：[{'params': {...}, 'raw': '...'}]
+    返回：新的 items（params 已过滤）
+    """
+    out = []
+    for it in items:
+        raw = it.get('raw') or ''
+        kept = {k: v for k, v in (it.get('params') or {}).items()
+                if is_quoted_value(raw, k)}
+        if kept:
+            ni = dict(it)
+            ni['params'] = kept
+            out.append(ni)
+    return out
+
+
+def group_by_shape(items):
+    """同族内按「引号参数集合」分组，集合不同的对象分到不同组。
+
+    ★ 2026-11-12：解决空单元格问题
+      NC20260820001773 的 RULE 族有两种形态：
+        有 FLOWFILTERNAME 的（4 个对象）
+        没有的（另一批）
+      原来混在一张表里，导致空单元格。
+
+    返回：[{'shape': frozenset, 'items': [...]}, ...]
+    """
+    groups = {}
+    for it in items:
+        shape = frozenset((it.get('params') or {}).keys())
+        groups.setdefault(shape, []).append(it)
+    # 按对象数降序，保证输出稳定
+    return [{'shape': s, 'items': v}
+            for s, v in sorted(groups.items(), key=lambda kv: -len(kv[1]))]
 
 
 def classify_params(items):
@@ -233,7 +349,7 @@ def gen_dataset(tk, gt, idx):
         intent_lines.append(f'【{gname}】')
         for it in sorted(items, key=lambda x: -x['n_cmds']):
             fam = it['family']
-            cnname = it['biz_name']
+            cnname = family_cn(fam, seed=tk) or it['biz_name']
             verb = it['verb']
             n_obj = it['n_objs']
             n_cmd = it['n_cmds']
@@ -299,55 +415,76 @@ def gen_dataset(tk, gt, idx):
             # ★ 2026-11-11 改：按 (族, 动词) 分组生成，
             #   否则 ADD 的对象和 RMV 的对象会混在同一张表里，
             #   agent 分不清哪些要新建、哪些要删除。
-            _fams_items = [it2 for it2 in by_fam[fam] if it2['verb'] == verb]
-            _cnt = {}
-            for it2 in _fams_items:
-                for _k, _v in it2['params'].items():
-                    if _v and not is_placeholder(_v):
-                        _cnt.setdefault(_k, set()).add(_v)
-            _has_multi_obj = any(len(v) > 1 for v in _cnt.values())
+            _fams_items_all = [it2 for it2 in by_fam[fam] if it2['verb'] == verb]
+            if not _fams_items_all:
+                continue
 
-            if (varied or _has_multi_obj) and _cnt:
-                # ★ 主键选择：不能盲取第一个参数（ADD SRROUTE 的第一个是 AFTYPE，
-                #   184 行全一样）。应该选「取值种类最多」的那个参数。
+            # ★ 2026-11-12 改动 1：只保留「引号值」参数
+            #   用户要求：「把引号还原出来就行了」
+            #   非引号（ENABLE/DISABLE/数字）是枚举或常量，不进清单
+            _fams_items_q = filter_quoted_params(_fams_items_all)
+            if not _fams_items_q:
+                continue    # 该族没有任何引号值 → 不生成清单
+
+            # ★ 2026-11-12 改动 2：同族按「引号参数集合」分表
+            #   解决 NC20260820001773 的 RULE 族空单元格问题
+            _shape_groups = group_by_shape(_fams_items_q)
+
+            for _gi, _grp in enumerate(_shape_groups):
+                _fams_items = _grp['items']
+                _shape = _grp['shape']
+
+                _cnt = {}
+                for it2 in _fams_items:
+                    for _k, _v in it2['params'].items():
+                        if _v and not is_placeholder(_v):
+                            _cnt.setdefault(_k, set()).add(_v)
+                if not _cnt:
+                    continue
+
+                # 主键选择：取「取值种类最多」的参数
                 main_key = max(_cnt.items(), key=lambda kv: len(kv[1]))[0]
-                vary_keys = [k for k in varied if k != main_key]
-                # 列名映射；未映射的列名跳过
-                hdr_main = biz_param(main_key) or _fallback_biz(main_key)
+                # 其余引号参数都作为变列（不再用 varied，因为 varied 混了非引号）
+                vary_keys = [k for k in _shape if k != main_key]
+
+                hdr_main = header_for(main_key, seed=tk) or biz_param(main_key) or _fallback_biz(main_key)
                 if not hdr_main:
                     continue
-                hdr_vary = [(k, biz_param(k) or _fallback_biz(k))
-                            for k in vary_keys
-                            if (biz_param(k) or _fallback_biz(k))]
-                # 表名带上动作，避免「新增对象」和「删除对象」混在一张表
+
+                hdr_vary = []
+                for k in vary_keys:
+                    h = header_for(k, seed=tk) or biz_param(k) or _fallback_biz(k)
+                    if h:
+                        hdr_vary.append((k, h))
+
+                # 表名：多形态时加区分后缀
                 _sheet_base = cnname
-                if hdr_vary:
-                    headers = [hdr_main] + [h[1] for h in hdr_vary]
-                    rows = []
-                    for it2 in _fams_items:
-                        row = [it2['params'].get(main_key, '')]
-                        row += [it2['params'].get(k, '') for k, _ in hdr_vary]
-                        rows.append(row)
-                    # 去重（同值多行合并）
-                    uniq_rows = []
-                    seen_rows = set()
-                    for r_ in rows:
-                        key_ = tuple(r_)
-                        if key_ not in seen_rows:
-                            seen_rows.add(key_)
-                            uniq_rows.append(r_)
-                    sheets.append((_sheet_base, headers, uniq_rows, act))
-                else:
-                    # 只有对象标识变化
-                    rows = []
-                    seen_v = set()
-                    for it2 in _fams_items:
-                        v_ = it2['params'].get(main_key, '')
-                        if v_ and v_ not in seen_v:
-                            seen_v.add(v_)
-                            rows.append([v_])
-                    if rows:
-                        sheets.append((_sheet_name(cnname), [hdr_main], rows, act))
+                if len(_shape_groups) > 1:
+                    # 用「变列的中文名组合」区分，或者用序号
+                    if hdr_vary:
+                        _sheet_base = f'{cnname}（含{"/".join(h[1] for h in hdr_vary[:2])}）'
+                    else:
+                        _sheet_base = f'{cnname}（仅{header_for(main_key, seed=tk) or main_key}）'
+
+                headers = [hdr_main] + [h[1] for h in hdr_vary]
+                rows = []
+                for it2 in _fams_items:
+                    row = [it2['params'].get(main_key, '')]
+                    row += [it2['params'].get(k, '') for k, _ in hdr_vary]
+                    rows.append(row)
+
+                # 去重
+                uniq_rows = []
+                seen_rows = set()
+                for r_ in rows:
+                    key_ = tuple(r_)
+                    if key_ not in seen_rows:
+                        seen_rows.add(key_)
+                        uniq_rows.append(r_)
+
+                if uniq_rows:
+                    # ★ 2026-11-12：第 5 个元素是命令族（供下游精确匹配）
+                    sheets.append((_sheet_base, headers, uniq_rows, act, fam))
         intent_lines.append('')
 
     return {
@@ -378,7 +515,8 @@ def write_output(r):
     dp = OUT / f'{tk}_数据清单.md'
     if r['sheets']:
         parts = [f'# {tk} 数据清单\n']
-        for name, headers, rows, act in r['sheets']:
+        for item in r['sheets']:
+            name, headers, rows, act = item[0], item[1], item[2], item[3]
             # 表名带动作，避免「新增对象」和「删除对象」混在一张表
             parts.append(f'\n## {name}（{act}，{len(rows)} 行）\n')
             parts.append('| ' + ' | '.join(headers) + ' |')

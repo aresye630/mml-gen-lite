@@ -124,8 +124,11 @@ WORKDIR /opt/expgv
 
 EXPOSE 8600
 
+# ★ 2026-11-12 修：原来写死 8600，但容器可能用 -e PORT=862x 启动
+#   导致健康检查永远失败（实测 fails=197，4 个容器全 unhealthy）
+#   改为读环境变量 $PORT，缺省 8600
 HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
-    CMD curl -fsS http://127.0.0.1:8600/health || exit 1
+    CMD curl -fsS "http://127.0.0.1:${PORT:-8600}/health" || exit 1
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/bin/sh", "-c", "bash /opt/expgv/scripts/entrypoint.sh"]

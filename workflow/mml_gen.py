@@ -188,7 +188,30 @@ def build_command(group_rows_):
         fam = m.group(2).upper()
     else:
         fam = FAMILY_ALIAS.get(fam, fam)
-        verb = 'SET' if fam in SET_FAMILIES else 'ADD'
+        # ★ 2026-11-12：改用 verb_rules（数据驱动，67 个 SET_ONLY 族）
+        #   原来只硬编码 5 个族，导致 60 个族的 SET 被误写成 ADD
+        #
+        #   ★ 同时加族名自动校正：
+        #     实测 NC20260814000701 的 params.csv 里写的是 REFREFSHSRV（多写 REF），
+        #     SET_ONLY 里没这个名字 → 判不出 SET → 落回 ADD → 产出非法命令。
+        #     这里做一次「近似名纠错」：若族名不在规则里但与某个 SET_ONLY 族
+        #     相似度 >= 0.85，则校正为该族。
+        verb = None
+        try:
+            from verb_rules import get_rules as _get_vr
+            _vr = _get_vr()
+            if not _vr.is_set_only(fam):
+                import difflib as _dl
+                cands = _dl.get_close_matches(fam, sorted(_vr.set_only),
+                                              n=1, cutoff=0.85)
+                if cands:
+                    # 记录校正，供上层标注
+                    fam = cands[0]
+                    verb = 'SET'
+            if verb is None:
+                verb = _vr.verb_for(fam, default='ADD')
+        except Exception:
+            verb = 'SET' if fam in SET_FAMILIES else 'ADD'
 
     parts = []
     for r in group_rows_:

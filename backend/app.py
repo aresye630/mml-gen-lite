@@ -624,12 +624,61 @@ async def api_run(sid: str, request: Request):
         except Exception as e:
             m['parts_error'] = f'{type(e).__name__}: {e}'
 
+        # ★ 2026-11-12 阶段3 一致性修复（含 Step3.5 派生补全）
+        #   只在阶段2 成功后跑，且按需触发（不每次都跑）
+        _s3 = None
+        if (res.get('status') == 'done' and stage == 'fill'):
+            try:
+                import sys as _sys
+                _s3dir = str(Path(__file__).parent.parent / 'workflow' / 'stage3')
+                if _s3dir not in _sys.path:
+                    _sys.path.insert(0, _s3dir)
+                import orchestrator as _OR
+
+                _intent_txt = intent
+                _ds_txt = ''
+                for _up in (d / 'uploads_text').glob('*'):
+                    if '清单' in _up.name or 'dataset' in _up.name.lower():
+                        _ds_txt = _up.read_text(encoding='utf-8', errors='replace')
+                        break
+                _exp_paths = [str(x) for x in (d / 'uploads').glob('*.txt')]
+                _checks = (res.get('guard') or {}).get('checks') or {}
+
+                _s3 = _OR.run_stage3(
+                    str(d), intent_text=_intent_txt, dataset_text=_ds_txt,
+                    exp_paths=_exp_paths, guard_checks=_checks, verbose=False)
+
+                # 写修复清单
+                if _s3.get('ran'):
+                    try:
+                        _rep = _OR.render_repair_report(_s3)
+                        (_rep_path := d / 'analysis_code' / '阶段3修复清单.md').write_text(
+                            _rep, encoding='utf-8')
+                    except Exception:
+                        pass
+            except Exception as e:
+                import traceback
+                _s3 = {'error': f'{type(e).__name__}: {e}',
+                       'traceback': traceback.format_exc()[-2000:]}
+                try:
+                    (d / '.agent' / 'stage3_error.log').write_text(
+                        _s3['traceback'], encoding='utf-8')
+                except Exception:
+                    pass
+
         m['last_run'] = {
             'elapsed': res.get('elapsed'),
             'rounds': res.get('rounds'),
             'guard': res.get('guard'),
             'error': res.get('error'),
             'agent_session': res.get('agent_session'),
+            'stage3': ({'ran': _s3.get('ran'),
+                        'trigger': _s3.get('trigger'),
+                        'summary': _s3.get('summary'),
+                        'steps': list((_s3.get('steps') or {}).keys()),
+                        'step3_5': (_s3.get('steps') or {}).get('step3_5_derive'),
+                        'error': _s3.get('error')}
+                       if _s3 else None),
             'finished_at': _now(),
         }
         save_meta(sid, m)

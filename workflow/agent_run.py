@@ -88,7 +88,14 @@ def round_hard_limit_for(sess_dir):
 #   所以不能只卡总数（会误伤多网元），主要靠 guard 次数 + 耗时判。
 # ★ 2026-11-06 调整：8 → 10。实测正常修产物时 guard 会调 4-5 次，
 #   留 10 次余量；真死循环靠「严格连续交替」判定更准。
-MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '15'))
+# ★ 2026-11-12 调整 15 → 25
+#   实测 NC20260828000409（GT 148 条命令）：
+#     agent 调 guard_check 16 次被判死循环，但产物齐全（mml.txt 28KB / params.csv 58KB）
+#     且第 1 轮 guard verdict=pass（n_fatal=0, n_warn=0）
+#   → 16 次是「反复自检试图收敛」，不是死循环
+#   大单（GT > 100 条）需要更多次自检，15 次太紧
+#   真死循环还有 ROUND_HARD_LIMIT 900s 兜底
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '25'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
 # ★ 2026-11-06 调整 300 → 480：大 EXP（40MB+）的正常探索就会超过 300 秒，
@@ -163,6 +170,362 @@ _SID_PATTERNS = [
 # ═══════════════════════════════════════════════════════════
 # prompt 构造
 # ═══════════════════════════════════════════════════════════
+def _build_wildcard_expansion(plan_txt, files_info, workdir):
+    """扫规划表里的通配行，调 exp_attr_chain 展开成具体族名，返回提示文本。
+
+    ★ 2026-11-12 机制保证（用户要求：不能只靠 prompt）
+    问题：规划表写「SET APN*（UNC）」时，阶段2 不知道该配哪些族，
+         加上「不要在规划之外增加命令族」的规则，保守只配主体族，
+         25 个属性族全丢（实测 NC20260810002261）。
+
+    做法：在拼阶段2 prompt 时就调 exp_attr_chain，把展开结果直接附上。
+         agent 拿到的是「SET APNCHARGECTRL / SET APNIDLETIME / ...」的清单，
+         不需要它自己理解通配符，也不需要它去调工具。
+
+    识别通配：复用 guard/plan_wildcard.py 的 parse_plan_rows + 模式匹配。
+    展开方式：exp_attr_chain(owner_family=<通配前缀>)。
+    失败时静默返回空串（不阻塞流程，由 G31 判据兜 warn）。
+    """
+    try:
+        import sys as _sys
+        _gd = str(Path(__file__).parent / 'guard')
+        if _gd not in _sys.path:
+            _sys.path.insert(0, _gd)
+        import plan_wildcard as _pw
+    except Exception:
+        return ''
+
+    try:
+        rows = _pw.parse_plan_rows(plan_txt)
+    except Exception:
+        return ''
+    if not rows:
+        return ''
+
+    # 找出用了通配的行
+    wild_rows = []
+    for r in rows:
+        if '跳过' in (r.get('status') or ''):
+            continue
+        cell = r.get('fam_cell') or ''
+        if not cell:
+            continue
+        for pat, _why in _pw.WILDCARD_PATTERNS:
+            if pat.search(cell):
+                wild_rows.append(r)
+                break
+    if not wild_rows:
+        return ''
+
+    # 推断要展开的 owner family：取通配里的族名前缀
+    import re as _re
+    owners = []
+    for r in wild_rows:
+        cell = r['fam_cell']
+        # ① 通配星号：SET APN*  → APN
+        for m in _re.finditer(r'([A-Z][A-Z0-9_]{2,})\*', cell):
+            owners.append(m.group(1))
+        # ② xxx 占位：SET APNxxx → APN
+        for m in _re.finditer(r'([A-Z][A-Z0-9_]{2,})xxx', cell, _re.I):
+            owners.append(m.group(1).upper())
+        # ③ 「等 N 个」写法：SET APNADDRESSATTR / SET APNIMSATTR 等 23 个
+        #    做法：取所有具体族名的公共前缀（APNADDRESSATTR 和 APNIMSATTR → APN）
+        #    但公共前缀可能是 Apn 全名，需限制长度 3-12 且是已知对象族
+        if _re.search(r'等\s*\d*|\d+\s*个', cell):
+            fams_in_cell = _re.findall(r'\b([A-Z][A-Z0-9_]{3,})\b', cell)
+            # 过滤掉动词
+            fams_in_cell = [f for f in fams_in_cell
+                            if f not in ('ADD', 'MOD', 'SET', 'RMV')]
+            if len(fams_in_cell) >= 2:
+                # 求公共前缀
+                pref = fams_in_cell[0]
+                for f in fams_in_cell[1:]:
+                    while pref and not f.startswith(pref):
+                        pref = pref[:-1]
+                # 公共前缀至少 3 字符，且不能等于某个具体族名
+                if len(pref) >= 3 and pref not in fams_in_cell:
+                    owners.append(pref)
+    owners = list(dict.fromkeys(owners))     # 去重保序
+
+    if not owners:
+        return ''
+
+    # 找 EXP 路径（优先 UNC，因为属性族多在 UNC 侧）
+    exp_paths = []
+    for f in (files_info or []):
+        if f.get('is_exp'):
+            pp = f.get('path') or ''
+            parsed = f.get('parsed') or ''
+            cand = parsed if parsed else pp
+            if workdir and cand and not Path(cand).is_absolute():
+                cand = str(Path(workdir) / cand)
+            if cand and Path(cand).exists():
+                exp_paths.append((f.get('me_type') or '', cand))
+    # UNC 优先
+    exp_paths.sort(key=lambda x: 0 if x[0].upper() == 'UNC' else 1)
+
+    if not exp_paths:
+        return ''
+
+    # 调 exp_attr_chain 展开
+    out_lines = []
+    try:
+        _mcp = str(Path(__file__).parent / 'mcp')
+        if _mcp not in _sys.path:
+            _sys.path.insert(0, _mcp)
+        import mcp_exp
+    except Exception:
+        return ''
+
+    for owner in owners:
+        best = None
+        for me, path in exp_paths:
+            try:
+                r = mcp_exp.tool_exp_attr_chain({
+                    'path': path, 'owner_family': owner})
+                if r.get('error'):
+                    continue
+                fams = [a['family'] for a in (r.get('attribute_families') or [])]
+                if fams and (best is None or len(fams) > len(best[2])):
+                    best = (me, path, fams)
+            except Exception:
+                continue
+        if not best:
+            continue
+        _me, _path, fams = best
+        out_lines.append(
+            f'  · {owner} 的属性族（实测 {len(fams)} 个，来自 {_me} 侧 EXP）：')
+        # 每行 4 个，便于阅读
+        for k in range(0, len(fams), 4):
+            out_lines.append('      ' + ', '.join(fams[k:k + 4]))
+
+    if not out_lines:
+        return ''
+
+    head = [
+        '【⚠ 程序已替你把规划表里的通配展开（不用你自己猜）】',
+        '',
+        '  规划表里有「SET APN*」这类通配写法。下面是从现网 EXP 实测得到的完整族清单，',
+        '  这就是「*」代表的具体族 —— 这些族全部都要配，一个都不能少。',
+        '  展开通配不算「增加规划外的族」，是执行规划的应有之义。',
+        '',
+    ]
+    return '\n'.join(head + out_lines + [''])
+
+
+def _build_plan_prompt(lines, session_id, intent_text, files_info,
+                       product_hint, workdir):
+    """阶段1（只做命令族规划）的专属 prompt。
+
+    ★ 2026-11-11 整体重构
+    旧版问题：阶段1 专属规则只有 46 行，却和 200 行阶段2 规则
+      （params.csv / mml.txt / @src 标注 / 落盘 / 交付自检）混在同一个 prompt 里，
+      agent 要在干扰信息中找重点，导致：
+        · 同一单三次运行规划覆盖率 11 / 33 / 13 族（波动 3 倍）
+        · EXP 工具用法分散在 4 个位置，中间夹着无关内容
+        · 序号断裂（2 → ★★ → ★★ → ★ → 3），读起来迷路
+     新结构（按重要性 + 首尾效应排列）：
+        ① 本轮 4 步硬清单（开头，首因效应）
+        ② 规划表格式（照抄模板）
+        ③ EXP 分析怎么做（工具用法集中一节）
+        ④ 三条处理原则（已存在 / 找不到 / 属性族）
+        ⑤ 禁止事项
+        ⑥ 交付前自检（结尾，近因效应）
+    """
+    # ★ 2026-11-11 版式 A/B 开关（环境变量 PROMPT_STYLE）
+    #   box  = ════ 分节 ════   （默认）
+    #   brk  = 【分节】
+    #   纯文本里两种都能定位，靠实验数据决定，不靠主观判断。
+    import os as _os
+    _style = (_os.environ.get('PROMPT_STYLE') or 'box').lower()
+
+    def _sec(title):
+        if _style == 'brk':
+            return f'【{title}】'
+        return f'════ {title} ════'
+
+    lines.append(_sec('★ 本轮任务：只做命令族规划，不写任何配置'))
+    lines.append('')
+    lines.append('  你的唯一产物是 analysis_code/命令族规划.md')
+    lines.append('  禁止写 mml.txt / params.csv / 配置分析.md（写了会被拒绝，浪费轮次）')
+    lines.append('  如果发现自己在写 MML 命令，立刻停手 —— 那是阶段2 的事')
+    lines.append('')
+    lines.append(_sec('本轮只做这 4 步'))
+    lines.append('')
+    lines.append('  第1步 摸清现网有什么')
+    lines.append('    调一次 exp_stats（不带 family）→ 拿到全部族（对象族 + 属性族）')
+    lines.append('    有多个 EXP（UDG + UNC）时，每个都调一次，或直接调 exp_cross_stats')
+    lines.append('')
+    lines.append('  第2步 意图里的每个业务对象，对应到族')
+    lines.append('    对每个对象（APN / 用户模板 / 地址池 / 接口 ...）：')
+    lines.append('      · 对象本身在哪个族？现网有没有？')
+    lines.append('      · 它挂了哪些属性族？→ 调 exp_attr_chain(owner_family=该族)')
+    lines.append('        这些属性族 全部 都要进规划表，除非写出明确的不配理由')
+    lines.append('      · 该在哪个网元配？→ 调 exp_cross_stats 看分布')
+    lines.append('')
+    lines.append('  第3步 逐个族判断动作')
+    lines.append('    调 exp_query 查现网实例：')
+    lines.append('      · 现网无 → 新增（ADD）')
+    lines.append('      · 现网有且参数一致 → 不配，写明「已存在且一致」')
+    lines.append('      · 现网有但参数有差异 → 修改（MOD），列出差在哪')
+    lines.append('      · 意图要求删除 → 删除（RMV）')
+    lines.append('')
+    lines.append('  第4步 逐对象核对 + 写规划表')
+    lines.append('')
+    lines.append('    ⚠⚠ 写规划表之前，必须先把意图里的业务对象列成清单，')
+    lines.append('       然后对【每一个对象】回答下面三问。漏掉任何一个，规划表就不合格。')
+    lines.append('')
+    lines.append('    ┌─ 逐对象核对表（心里过一遍，也可以写进规划表的「对象清单」节）──')
+    lines.append('    │ 对象：APN「sos」')
+    lines.append('    │   ① 在哪个网元？ → 调 exp_cross_stats 看 APN 各侧条数')
+    lines.append('    │      （实测反例：NC20260810002261 那次没查，')
+    lines.append('    │        误判「APN 只在 UDG」→ 但 UNC 有 333 条、')
+    lines.append('    │        APNCHARGECTRL/APNIDLETIME 也只在 UNC → 整链漏配 9 族）')
+    lines.append('    │   ② 挂了哪些属性族？ → 调 exp_attr_chain(owner_family="APN")')
+    lines.append('    │      （实测：APN 挂 23 个属性族）')
+    lines.append('    │   ③ 这些属性族都进表了吗？ → 每个都要有一行，')
+    lines.append('    │      现网没有实例的写「新增」，有的写「跳过 + 理由」')
+    lines.append('    │')
+    lines.append('    │ 对象：用户模板「up_sos」')
+    lines.append('    │   ①②③ 同上（owner_family="USERPROFILE"）')
+    lines.append('    │')
+    lines.append('    │ 对象：地址池 / 池组 / 接口 / 过滤器 ... 逐个过')
+    lines.append('    └────────────────────────────────────────────────────')
+    lines.append('')
+    lines.append('    ★ 判断某个族该在哪个网元配，必须用 exp_cross_stats 的数字说话，')
+    lines.append('      不能凭「这个族名看起来像 UPF 的」推断。')
+    lines.append('')
+    lines.append('    然后 artifact_write 写 analysis_code/命令族规划.md（格式见下）')
+    lines.append('')
+    lines.append(_sec('规划表格式（必须完全照这个结构）'))
+    lines.append('')
+    lines.append('  # 命令族规划')
+    lines.append('')
+    lines.append('  ## 总览')
+    lines.append('  | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |')
+    lines.append('  |---|---|---|---|---|---|---|---|---|')
+    lines.append('  | 1 | 地址池清单 | 地址池 | 190 | 190 | MOD POOL | 修改 | 现网同池名190条 | 确认 |')
+    lines.append('')
+    lines.append('  ## 配套关系')
+    lines.append('  | 主族 | 配套族 | 置信度 | 是否需要 | 说明 |')
+    lines.append('  |---|---|---|---|---|')
+    lines.append('')
+    lines.append('  ## 不确定项')
+    lines.append('  ## 待人工确认')
+    lines.append('')
+    lines.append('  ★ 状态列只能填：确认 / 待定 / 跳过')
+    lines.append('')
+    lines.append('  ⚠⚠ 「命令族」列必须是【具体的族名】，不许用通配或概括：')
+    lines.append('     ✗ SET APN*（UNC）              ← 一行概括 25 个族')
+    lines.append('     ✗ SET APNxxx 属性族 25 个       ← 数量概括')
+    lines.append('     ✓ SET APNCHARGECTRL（UNC）      ← 一行一个具体族')
+    lines.append('     ✓ SET APNIDLETIME（UNC）')
+    lines.append('')
+    lines.append('     为什么：阶段2 拿到的就是这个表。写通配它就要自己猜有哪些族，')
+    lines.append('     猜错就漏配。实测 NC20260810002261 用「SET APN*」概括后，')
+    lines.append('     阶段2 只配了 APN 本体，25 个属性族全部丢失。')
+    lines.append('')
+    lines.append('     展开方法：调 exp_attr_chain(owner_family="APN") 拿到族清单，')
+    lines.append('     每个族写一行。20-40 行不嫌多 —— 这正是这张表的价值。')
+    lines.append('  ★ 判断依据必须能回溯（写现网第几行、多少条、参数值是什么）')
+    lines.append('')
+    lines.append('  ⚠⚠ 无论有没有把握，都要写成规划表的【行】。')
+    lines.append('     实测反例（NC20260810002261 的一次运行）：')
+    lines.append('      agent 把 23 个族写成了「不确定项」的散文段落，')
+    lines.append('      规划表只填了 36 行 → 阶段2 读不到那 23 个族 → 真的漏配。')
+    lines.append('      正确做法：拿不准就把该行状态写「待定」，但【行必须在表里】。')
+    lines.append('')
+    lines.append(_sec('EXP 分析怎么做'))
+    lines.append('')
+    lines.append('  ★★★ 用 MCP 工具，不要自己写代码扫 EXP')
+    lines.append('    实测反例（NC20260810002261）：agent 用 21 次 execute_code')
+    lines.append('    自己写 Python 解析 EXP，每次 3.2s = 67s，且三次运行结果不一致')
+    lines.append('    （规划覆盖 11 / 33 / 13 族）。工具已经把解析和缓存做好了。')
+    lines.append('')
+    lines.append('  ┌─ 四个工具，各管一件事 ─────────────────────────────')
+    lines.append('  │')
+    lines.append('  │ ① exp_stats(path)                    摸全景')
+    lines.append('  │    一次拿全量族，返回两组：')
+    lines.append('  │      object_families    有 ADD 的族（能独立创建）')
+    lines.append('  │      attribute_families 只有 SET/MOD 的族（挂在 owner_family 上）')
+    lines.append('  │    ⚠ 两组都要看。属性族同样是必须配的，')
+    lines.append('  │      GT 里 32% 的族属于这一类，漏掉就是漏配。')
+    lines.append('  │')
+    lines.append('  │ ② exp_attr_chain(path, owner_family, owner_value?)  查属性族链')
+    lines.append('  │    配某个对象时，它身上挂了哪些属性族？→ 一次回答')
+    lines.append('  │    实测：APN 挂 23 个属性族（APNCHARGECTRL/APNIDLETIME/...）')
+    lines.append('  │    给 owner_value 时还会标出哪些族现网已有该实例、给出样例命令')
+    lines.append('  │    ⚠ 冷调 14s，热调 0ms；千万别自己写代码扫')
+    lines.append('  │')
+    lines.append('  │ ③ exp_cross_stats(paths=[udg, unc])  跨网元分布')
+    lines.append('  │    这个族该在哪个网元配？→ 一次回答')
+    lines.append('  │    实测：POOLGROUP     UDG 659 / UNC 0   → 只在 UDG')
+    lines.append('  │          PCSCFGROUP    UDG 0   / UNC 5   → 只在 UNC')
+    lines.append('  │          USERPROFILE   UDG 19  / UNC 82  → 两侧都要判断')
+    lines.append('  │    ⚠ 冷调 1s，热调 0ms')
+    lines.append('  │')
+    lines.append('  │ ④ exp_query(path, ...)               查具体命令')
+    lines.append('  │    三种模式，按需选：')
+    lines.append('  │      owner 模式（最省事）：')
+    lines.append('  │        exp_query(owner="APN", value="ims.wh")')
+    lines.append('  │        → 一次返回该对象在【所有属性族】里的命令（实测 23 条）')
+    lines.append('  │          代替原来逐族查 23 次')
+    lines.append('  │      prefix 模式：exp_query(family_prefix="APN", param="APN", ...)')
+    lines.append('  │      exact 模式： exp_query(family="URR", param="URRID", value="1040")')
+    lines.append('  │    ⚠ limit 默认 200；结果多时加 family 过滤，别靠反复翻页')
+    lines.append('  │')
+    lines.append('  └────────────────────────────────────────────────────')
+    lines.append('')
+    lines.append('  ★ exp_siblings 也要用：查某族的配套族（会漏配 30-50%）')
+    lines.append('     两种判据都要看：')
+    lines.append('      ① 参数名指向：B 族有指向 A 族的参数名（POOLBINDGROUP 的 POOLNAME）')
+    lines.append('      ② 同名前缀属性族：SET <A>xxx 与 ADD <A> 前缀相同且数量 1:1')
+    lines.append('         例：配 APN 时除 ADD APN 外，还有 20-40 个 SET APNxxx')
+    lines.append('')
+    lines.append(_sec('三条处理原则（实测踩过的坑）'))
+    lines.append('')
+    lines.append('  ★★ 原则1：对象已存在，不等于不用配')
+    lines.append('     必须逐参数比对现网值和意图要求的值：')
+    lines.append('       · 完全一致 → 真不用配，在判断依据里写明')
+    lines.append('       · 参数有差异 → 必须用 MOD，不能跳过')
+    lines.append('     实测反例（NC20260803001614）：意图「新增 Host 约 14 个」，')
+    lines.append('      agent 发现 14 个都已存在就全跳过，但其中 3 个域名要从')
+    lines.append('      「*.edge.agora.io.*」改成三层「*.edge.agora.io」—— 这才是本次核心。')
+    lines.append('')
+    lines.append('  ★★ 原则2：找不到对应族，不许用名字相近的顶替')
+    lines.append('     1) 先按业务对象的【特征值】搜（exp_query 不指定 family，只给 value）')
+    lines.append('     2) 还找不到 → 规划表该行状态=「待定」，族名写「未找到（意图要的是 XXX）」')
+    lines.append('     3) 同时写进「本网元无法配置的项」，说明可能要从其它网元配')
+    lines.append('     ⚠ 绝对不要用名字相近的族替代 —— 会生成错误的配置')
+    lines.append('')
+    lines.append('  ★★ 原则3：大工单必须分片写，但每片都要进表')
+    lines.append('     实测：GT 族数 >20 时一次性写覆盖率断崖下降（80% → 44%）')
+    lines.append('     做法：按业务链路分片，每片 8-12 个族')
+    lines.append('           第1片 artifact_write(mode="overwrite")')
+    lines.append('           第2片起 artifact_write(mode="append")')
+    lines.append('     每片写之前自问：这一片业务链里，意图提到的每个对象都对应到族了吗？')
+    lines.append('')
+    lines.append(_sec('禁止事项'))
+    lines.append('')
+    lines.append('  ✗ 不要写 mml.txt / params.csv / 配置分析.md')
+    lines.append('  ✗ 不要用 execute_code / terminal 的 open() 写文件到 analysis_code/')
+    lines.append('  ✗ 不要自己写代码扫 EXP（Python 解析、grep 统计都算）')
+    lines.append('  ✗ 不要把族写成散文段落 —— 必须是规划表的行')
+    lines.append('')
+    lines.append(_sec('交付前自检（写完规划表后逐条核对）'))
+    lines.append('')
+    lines.append('  □ 意图里每个【】分组，规划表里都有对应行吗？')
+    lines.append('  □ 意图里每个业务对象，都调过 exp_cross_stats 确认网元归属了吗？')
+    lines.append('  □ 意图点名的每个对象，都调过 exp_attr_chain 看它的属性族了吗？')
+    lines.append('  □ 属性族（exp_attr_chain 返回的）都进表了吗？没进的写了理由吗？')
+    lines.append('  □ 每个族的「判断依据」都能回溯到现网（行号 / 条数 / 参数值）吗？')
+    lines.append('  □ 多网元场景，每个族都确认过该在哪侧配吗？')
+    lines.append('  □ 拿不准的族是写在【表的行里】且状态=待定，还是写成了散文？')
+    lines.append('     → 必须是前者')
+    lines.append('')
+    return lines
+
+
 def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=None,
                  stage='fill'):
     """构造首轮 prompt。
@@ -187,44 +550,14 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     #        旧机制是为「意图只有业务名词」的场景设计的（如【新增/修改】- 地址池），
     #        新意图不再有这个问题。
 
-    # ★ 2026-11-09 两阶段生成：阶段专属说明
+    # ★ 2026-11-11 两阶段分离重构：
+    #   阶段1 走专属 prompt（_build_plan_prompt），不再和阶段2 规则混在一起。
+    #   旧版问题：阶段1 专属只有 46 行，共用段却包含 200 行阶段2 规则，
+    #   agent 在干扰里找重点 → 同一单三次运行覆盖 11/33/13 族。
     if stage == 'plan':
-        lines.append('【★ 本轮只做命令族规划，不写配置】')
-        lines.append('  你的唯一产物是 analysis_code/命令族规划.md。')
-        lines.append('  禁止写 mml.txt / params.csv / 配置分析.md（写了会被拒绝）。')
-        lines.append('')
-        lines.append('  规划要做的事：')
-        lines.append('  1. 数据清单里每个表 → 判断对应哪类业务对象 → 选命令族')
-        lines.append('  2. 用 exp_query 查该族在现网有多少条、对象名是什么')
-        lines.append('  3. 现网已有 → MOD；现网无 → ADD；要删除 → RMV')
-        lines.append('  4. 用 exp_siblings 查配套族，列出来一起配')
-        lines.append('  5. 数据清单有多少行，规划的对象数量就必须是多少')
-        lines.append('')
-        lines.append('  规划表格式（必须完全按这个结构）：')
-        lines.append('    # 命令族规划')
-        lines.append('')
-        lines.append('    ## 总览')
-        lines.append('    | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |')
-        lines.append('    |---|---|---|---|---|---|---|---|---|')
-        lines.append('    | 1 | 地址池清单 | 地址池 | 190 | 190 | MOD POOL | 修改 | 现网同池名190条 | 确认 |')
-        lines.append('')
-        lines.append('    ## 配套关系')
-        lines.append('    | 主族 | 配套族 | 置信度 | 是否需要 | 说明 |')
-        lines.append('    |---|---|---|---|---|')
-        lines.append('')
-        lines.append('    ## 不确定项')
-        lines.append('    ## 待人工确认')
-        lines.append('')
-        lines.append('  ★ 状态列取值：确认 / 待定 / 跳过')
-        lines.append('  ★ 拿不准的族写到「不确定项」，不要硬凑')
-        lines.append('')
-        lines.append('  ⚠⚠ 严禁写配置：')
-        lines.append('    · 不要调 artifact_write 写 mml.txt / params.csv / 配置分析.md')
-        lines.append('      （会被拒绝，且浪费轮次）')
-        lines.append('    · 也不要用 execute_code / terminal 的 open() 直接写文件到')
-        lines.append('      analysis_code/ —— 阶段1 只产出规划，配置留到阶段2')
-        lines.append('    · 如果发现自己在写 MML 命令，说明超范围了，立刻停手只写规划表')
-        lines.append('')
+        return '\n'.join(_build_plan_prompt(
+            lines, session_id, intent_text, files_info, product_hint, workdir))
+
     elif stage == 'fill':
         # 阶段2：把规划表全文注入（从文件读，不截断）
         _plan_txt = ''
@@ -236,12 +569,31 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
             lines.append('【★ 已确认的命令族规划（必须严格按此执行）】')
             lines.append(_plan_txt[:12000])
             lines.append('')
+            # ★ 2026-11-12 机制保证：程序替 agent 展开通配，不靠它自己理解
+            #   实测：规划表写「SET APN*」时，阶段2 只配 APN 本体，
+            #        25 个属性族全丢（NC20260810002261）。
+            #   prompt 里写了「必须自己展开」但 agent 不一定执行，
+            #   所以在这里直接把展开结果附上。
+            _exp_hint = _build_wildcard_expansion(_plan_txt, files_info, workdir)
+            if _exp_hint:
+                lines.append(_exp_hint)
+                lines.append('')
             lines.append('  ★ 执行规则：')
             lines.append('    · 状态=确认 或 ★人工调整 的，必须配')
             lines.append('    · 状态=跳过的，不配')
             lines.append('    · 状态=待定的，写进方案澄清，不要擅自决定')
             lines.append('    · 对象数量严格按规划表，不要多配也不要少配')
             lines.append('    · 不要在规划之外增加命令族；认为规划有问题就写澄清，不要自己改')
+            lines.append('')
+            lines.append('  ★★ 规划表里出现通配或数量概括时，必须自己展开（2026-11-11）')
+            lines.append('     例：规划表写「SET APN*（UNC）」或「SET APNxxx 属性族 25 个」')
+            lines.append('     → 这不是让你只配 APN 本体！')
+            lines.append('     → 调 exp_attr_chain(owner_family="APN", owner_value="sos")')
+            lines.append('       拿到全部属性族（实测 20-40 个），逐个配')
+            lines.append('     → 展开通配【不算】「增加规划外的族」，这是执行规划的应有之义')
+            lines.append('')
+            lines.append('     判据：如果规划表某行的命令族列含 * 或「N 个」字样，')
+            lines.append('           该行必须展开成对应的具体族才允许进入下一步。')
             lines.append('')
         else:
             lines.append('⚠ 警告：找不到 命令族规划.md，请按意图自行判断（不推荐）')
@@ -347,6 +699,41 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('     平均要 15-38 次 EXP 调用、每次 6.5 秒 = 100-250 秒；')
     lines.append('     一次不带参 exp_stats 返回全部 101 个族的规律，只需 1 次调用。')
     lines.append('     只有确实需要看某族全部实例明细时，才用 exp_query 定向查。')
+    lines.append('')
+    lines.append('  ★★★ exp_stats 返回两类族，两类都要看（2026-11-11 新增）')
+    lines.append('     object_families    有 ADD 的族（能独立创建，identity_param 是主键）')
+    lines.append('     attribute_families 只有 SET/MOD/RMV 的族（不能独立创建，')
+    lines.append('                        挂在 owner_family 上）')
+    lines.append('')
+    lines.append('     ⚠ attribute_families 最容易被忽略，但它同样是「必须配的」：')
+    lines.append('       GT 里大量 SET 只落在属性族上，漏掉它们就是漏配。')
+    lines.append('       典型：APNCHARGECTRL(owner=APN) / APNIDLETIME(owner=APN) /')
+    lines.append('             IFIPV6ENABLE(owner=INTERFACE) / URRGRPBINDING(owner=USERPROFILE)')
+    lines.append('')
+    lines.append('     规划时的强制做法：')
+    lines.append('       1) 对意图里出现的每个对象（APN / 接口 / 用户模板 ...），')
+    lines.append('          在 attribute_families 里筛 owner_family == 该族，')
+    lines.append('          这些属性族都要进规划表，除非明确写出不配的理由。')
+    lines.append('       2) 对每个族看 references（引用关联），确认上级对象先创建。')
+    lines.append('          例 FLTBINDFLOWF 的 FLOWFILTERNAME/FILTERNAME 指向')
+    lines.append('          FLOWFILTER/FILTER → 必须先有这两个对象。')
+    lines.append('')
+    lines.append('  ★★ 两个专用工具，替代「自己写代码扫 EXP」（2026-11-11 新增）')
+    lines.append('     exp_attr_chain(path, owner_family, owner_value?)')
+    lines.append('       → 查「配某个对象时还要配哪些属性族」。')
+    lines.append('         意图说「APN sos 按现网 ims.wh 存量配齐」时，')
+    lines.append('         调它一次就能拿到 APN 的完整属性族链（实测 23-44 个族），')
+    lines.append('         并标出哪些族现网已有 ims.wh 实例、给出可直接照抄的样例命令。')
+    lines.append('         ⚠ 不要自己写代码扫 EXP 找属性族 —— 冷调 14s，热调 0ms')
+    lines.append('')
+    lines.append('     exp_cross_stats(paths=[...])')
+    lines.append('       → 对比同一个族在多个网元 EXP 里的分布，判断「该在哪配」。')
+    lines.append('         实测：POOLGROUP 在 UDG 659 条、UNC 0 条 → 只在 UDG 配；')
+    lines.append('               PCSCFGROUP 在 UDG 0 条、UNC 5 条 → 只在 UNC 配；')
+    lines.append('               USERPROFILE 双侧都有（UDG 19 / UNC 82）→ 需分别判断')
+    lines.append('         ⚠ 不要自己写代码统计跨网元分布 —— 冷调 1s，热调 0ms')
+    lines.append('')
+    lines.append('  ★ 查什么用哪个工具')
     lines.append('  3. kb_search_feature 查特性文档；kb_search_command 查命令参数')
     lines.append('  4. 推理出配置方案')
     lines.append('  5. artifact_write 写产物')

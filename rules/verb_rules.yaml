@@ -1,0 +1,96 @@
+# 命令族 → 允许的动词（数据驱动，从 EXP/GT 归纳）
+
+# ★ 2026-11-12
+#   背景：SET_FAMILIES 原来硬编码 5 个族（URRGRPBINDING/REFRESHSRV/
+#        LICENSESWITCH/CFGTHRESHOLD/REFRESH），导致其余 60 个族的 SET 命令
+#        被误写成 ADD。
+#
+#   实测（86 单 GT，65 个族有 SET 命令）：
+#     · 65 个族全部【只用 SET】，没有一个混用 ADD
+#     · 说明这些族是「操作类/属性设置类」，不创建对象
+#
+#   本文件从 GT 归纳生成，可人工增补。
+#   验证方式：python3 workflow/gen_verb_rules.py --verify
+
+# 只能用 SET 的族（65 个，实测 100% 一致）
+SET_ONLY:
+  - URRGRPBINDING       # 68 次
+  - LICENSESWITCH       # 46 次
+  - REFRESHSRV          # 43 次  ★ 业务刷新，配置生效的必要命令
+  - IFIPV6ENABLE        # 36 次
+  - APNPCCFUNC          # 18 次
+  - IPALLOCBYSMFSW      # 18 次
+  - APNIDLETIME         # 17 次
+  - APNCHARGECTRL       # 17 次
+  - APNIMSATTR          # 16 次
+  - SOFTPARA            # 16 次
+  - SOFTPARAOFBIT       # 15 次
+  - ALMINFO             # 12 次
+  - APNIPALLOCRULE      # 10 次
+  - APNREPORTATTR       # 10 次
+  - APNSGLPASS          # 8 次
+  - APNADDRESSATTR      # 8 次
+  - APNQOSATTR          # 7 次
+  - UPGTPPATH           # 7 次
+  - AMFSOFTPARAOFBIT    # 6 次
+  - DBPARAS             # 6 次
+  - APNSOFTPARA         # 6 次
+  - DEACTIVERATE        # 6 次
+  - MMFUNC              # 5 次
+  - NGEMGSRVFUNC        # 5 次
+  - NGMMFUNC            # 5 次
+  - CTXSTARTRATING      # 2 次
+  - APNUPSELPLY         # 2 次
+  - UPETHSRVPARA        # 2 次
+  - RPTGLBCFG           # 2 次
+  - APNAFFUNC           # 2 次
+  - SACOMMONPARA        # 2 次
+  - AUTOCONFIG          # 2 次
+  - RPTGLBPARA          # 2 次
+  - NGALMRPTMODE        # 2 次
+  - PODHEALCTRL         # 2 次
+  - NODEHEALCTRL        # 2 次
+  - NODEREPSWITCH       # 2 次
+  - USERPROFILELOCK     # 1 次
+  - USRPROFCHARGE       # 1 次
+  - UPUSRPROFCHG        # 1 次
+  - BACKOFFTIME         # 1 次
+  - NGLANFUNC           # 1 次
+  - NGLANCHGCTRL        # 1 次
+  - NGLOOPDETFUNC       # 1 次
+  - SMFFUNC             # 1 次
+  - PFCPPVTEXT          # 1 次
+  - SPECTRAFURRGRP      # 1 次
+  - HTTPCONF            # 1 次
+  - VVIPBASICFUNC       # 1 次
+  - VVIPEXTRPT          # 1 次
+  - SSUBIGFLOWCTRL      # 1 次
+  - EXPBASICFUNC        # 1 次
+  - EXPEXTRPT           # 1 次
+  - SRVNODERATPRI       # 1 次
+  - ADDRESSATTR         # 1 次
+  - BFD                 # 1 次
+  - BGP                 # 1 次
+  - SSURPTCFG           # 1 次
+  - NGCBSFUNC           # 1 次
+  - LOGCLEANPOLICY      # 1 次
+  - SMCOMMTIMER         # 1 次
+  - CPAPNADDRESSATTR    # 1 次
+  - EDGESMCOMMFUNC      # 1 次
+  - SFEPASSGREFRAG      # 1 次
+  - APPTRAFFICPARA      # 1 次
+  # 手工补充（EXP 里出现过但 GT 未覆盖的）
+  - CFGTHRESHOLD
+  - REFRESH
+
+# 配置生效的必要命令：产物里必须存在（缺了整份配置不生效）
+# ★ 2026-11-12（用户裁定）
+#   「REFRESHSRV 这个是配置生效的必要命令，加个规则就行了」
+MUST_HAVE:
+  REFRESHSRV:
+    verb: SET
+    reason: 新增/修改 Filter、FlowFilter、FilterGroup 后必须刷新才生效
+    when: 产物里出现 FILTER/FILTERIPV6/FLOWFILTER/FLTBINDFLOWF/FILTERGROUP
+          /ACLRULE/ACLGROUP 任一族的 ADD/MOD/SET/RMV
+    severity: warn     # 缺失 → warn（不阻断，但提示）
+    wrong_verb_fatal: true   # 动词不是 SET → fatal（如写成 ADD REFRESHSRV）
