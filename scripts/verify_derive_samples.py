@@ -154,12 +154,40 @@ def run_once(base, cont, tk, version):
         s2 = wait_done(base, sid, timeout=2400)
         lr = s2.get('last_run') or {}
 
+        # ★ 2026-11-13 加幂等豁免评估
+        #   「现网已存在且完全一致 → agent 正确跳过」不应算漏配
+        _cov = None
+        try:
+            import idempotent_check as _IC
+            _mml_p = None
+            for _c in CONT.values():
+                _t = subprocess.run(['docker','exec','-u','expgv',_c,'test','-f',
+                                     f'/data/sessions/{sid}/analysis_code/mml.txt'],
+                                    capture_output=True, timeout=30)
+                if _t.returncode == 0:
+                    _r = subprocess.run(['docker','exec','-u','expgv',_c,'cat',
+                                         f'/data/sessions/{sid}/analysis_code/mml.txt'],
+                                        capture_output=True, text=True, timeout=120)
+                    _mml_p = _r.stdout
+                    break
+            if _mml_p is not None:
+                import json as _j
+                _GT = _j.loads(Path('/tmp/gt_cleaned.json').read_text(encoding='utf-8'))
+                _gt = next((x for x in _GT if x['ticket'] == tk), None)
+                if _gt:
+                    _adir = Path(_gt['path'])/'备份附件'
+                    _exps = [str(x) for x in sorted(_adir.glob('*.txt'))] if _adir.exists() else []
+                    _cov = _IC.evaluate_coverage(_gt['kept'], _mml_p, exp_paths=_exps)
+        except Exception as _e:
+            _cov = {'error': str(_e)[:120]}
+
         return {
             'ticket': tk, 'version': version, 'sid': sid,
             'elapsed': round(time.time()-t0, 1),
             's1_status': s1.get('status'),
             's2_status': s2.get('status'),
             's3': lr.get('stage3'),
+            'coverage': _cov,
         }
     except Exception as e:
         return {'ticket': tk, 'version': version,
