@@ -102,8 +102,14 @@ def round_hard_limit_for(sess_dir):
 #     最终 fatal=0（问题其实已经清零），但因为调用次数超限被判失败。
 #   → 上限 25 太松，agent 觉得「还有余量」就反复自检
 #   → prompt 里写的是「最多调 6 次」，代码上限应该一致
-#   真死循环还有 ROUND_HARD_LIMIT 兜底，8 次足够（正常修 1-3 轮就收敛）
-MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '8'))
+#   真死循环还有 ROUND_HARD_LIMIT 兜底
+#
+# ★ 2026-11-13 调整 8 → 12（8 太紧，误杀正常修复）
+#   实测 8 个小单：
+#     通过的单 guard_check 调用：3, 4, 3, 4, 5 次
+#     失败的单：9, 9 次 ← 刚好被我设的 8 卡掉，但其实还在正常修
+#   → 通过的单最多 5 次，设 12 留 7 次余量
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '12'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
 # ★ 2026-11-06 调整 300 → 480：大 EXP（40MB+）的正常探索就会超过 300 秒，
@@ -929,7 +935,7 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     #     「剩余告警都来自校验规则本身，不是配置错误...按规则收尾」
     #   但那些 fatal 是真错（族名写错、动词错误），本该能改对。
     #   新规则：区分「机械错误」和「规则争议」
-    lines.append('  · guard_check 最多调 6 次。但【机械错误必须在收尾前改完】：')
+    lines.append('  · guard_check 最多调 10 次。但【机械错误必须在收尾前改完】：')
     lines.append('    - G32 族名不存在/动词错误：把族名或动词改成 guard 提示的那个，数值不动')
     lines.append('    - G34 族名写错：把族名改成 guard 提示的 should_be，参数和值都不动')
     lines.append('    - G35 引用不存在的组：按提示三选一（改引用/补组/删命令）')
