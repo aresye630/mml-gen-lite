@@ -1,0 +1,830 @@
+{
+ "version": "1",
+ "created": "2026-11-13",
+ "rule": "n_exp >= 2 AND n_cmd >= 200",
+ "reason": "多网元大单失败率 64%（对照单网元大单 17%），agent 在多 EXP 场景下探索成本高、易 STALL/挂起，单点结果受随机性影响大，暂不纳入自动评测",
+ "baseline_stats": {
+  "multi_ne_large": {
+   "n": 11,
+   "failed": 7,
+   "fail_rate": 0.64
+  },
+  "single_ne_large": {
+   "n": 6,
+   "failed": 1,
+   "fail_rate": 0.17
+  }
+ },
+ "excluded": [
+  {
+   "ticket": "NC20260811002706",
+   "n_exp": 3,
+   "n_fam": 57,
+   "n_cmd": 1157,
+   "baseline_status": "failed",
+   "baseline_elapsed": 2743.5,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260828000360",
+   "n_exp": 3,
+   "n_fam": 49,
+   "n_cmd": 1035,
+   "baseline_status": "failed",
+   "baseline_elapsed": 1612.2,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260823000103",
+   "n_exp": 2,
+   "n_fam": 54,
+   "n_cmd": 765,
+   "baseline_status": "failed",
+   "baseline_elapsed": 981.3,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260810002261",
+   "n_exp": 2,
+   "n_fam": 53,
+   "n_cmd": 435,
+   "baseline_status": "done",
+   "baseline_elapsed": 922.5,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260806001780",
+   "n_exp": 3,
+   "n_fam": 41,
+   "n_cmd": 412,
+   "baseline_status": "done",
+   "baseline_elapsed": 1171.7,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260828001156",
+   "n_exp": 2,
+   "n_fam": 12,
+   "n_cmd": 360,
+   "baseline_status": "timeout",
+   "baseline_elapsed": 2853.3,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260820000552",
+   "n_exp": 2,
+   "n_fam": 16,
+   "n_cmd": 341,
+   "baseline_status": "failed",
+   "baseline_elapsed": 921.5,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260911000610",
+   "n_exp": 4,
+   "n_fam": 11,
+   "n_cmd": 323,
+   "baseline_status": "failed",
+   "baseline_elapsed": 1782.7,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260806001438",
+   "n_exp": 3,
+   "n_fam": 55,
+   "n_cmd": 321,
+   "baseline_status": "failed",
+   "baseline_elapsed": 2283.1,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260825001638",
+   "n_exp": 2,
+   "n_fam": 17,
+   "n_cmd": 227,
+   "baseline_status": "done",
+   "baseline_elapsed": 1261.7,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260907000688",
+   "n_exp": 2,
+   "n_fam": 12,
+   "n_cmd": 209,
+   "baseline_status": "done",
+   "baseline_elapsed": 500.8,
+   "tags": [
+    "multi_ne",
+    "large",
+    "xlarge_multi_ne"
+   ]
+  }
+ ],
+ "kept": [
+  {
+   "ticket": "NC20260803000197",
+   "n_exp": 3,
+   "n_fam": 6,
+   "n_cmd": 15,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260803000378",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 1,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260803001614",
+   "n_exp": 1,
+   "n_fam": 10,
+   "n_cmd": 159,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260803002122",
+   "n_exp": 2,
+   "n_fam": 22,
+   "n_cmd": 52,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260804001027",
+   "n_exp": 1,
+   "n_fam": 10,
+   "n_cmd": 21,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260804001796",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 44,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260804001955",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 8,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260805000498",
+   "n_exp": 1,
+   "n_fam": 13,
+   "n_cmd": 739,
+   "baseline_status": "done",
+   "tags": [
+    "large"
+   ]
+  },
+  {
+   "ticket": "NC20260805002150",
+   "n_exp": 2,
+   "n_fam": 24,
+   "n_cmd": 30,
+   "baseline_status": "failed",
+   "tags": [
+    "multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260806001514",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 12,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260808000433",
+   "n_exp": 2,
+   "n_fam": 6,
+   "n_cmd": 25,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260810001746",
+   "n_exp": 1,
+   "n_fam": 14,
+   "n_cmd": 74,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260811001048",
+   "n_exp": 1,
+   "n_fam": 5,
+   "n_cmd": 261,
+   "baseline_status": "done",
+   "tags": [
+    "large"
+   ]
+  },
+  {
+   "ticket": "NC20260811002152",
+   "n_exp": 2,
+   "n_fam": 12,
+   "n_cmd": 166,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260812000714",
+   "n_exp": 2,
+   "n_fam": 3,
+   "n_cmd": 9,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260812000824",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 52,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260814000425",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 1,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260814000701",
+   "n_exp": 1,
+   "n_fam": 8,
+   "n_cmd": 30,
+   "baseline_status": "failed",
+   "tags": [
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260814001250",
+   "n_exp": 1,
+   "n_fam": 2,
+   "n_cmd": 16,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260817001454",
+   "n_exp": 2,
+   "n_fam": 2,
+   "n_cmd": 3,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260817001781",
+   "n_exp": 3,
+   "n_fam": 1,
+   "n_cmd": 2,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260817001844",
+   "n_exp": 2,
+   "n_fam": 8,
+   "n_cmd": 81,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260818000342",
+   "n_exp": 1,
+   "n_fam": 12,
+   "n_cmd": 20,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260818001932",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 2,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260819001887",
+   "n_exp": 1,
+   "n_fam": 5,
+   "n_cmd": 1294,
+   "baseline_status": "done",
+   "tags": [
+    "large"
+   ]
+  },
+  {
+   "ticket": "NC20260820001773",
+   "n_exp": 2,
+   "n_fam": 41,
+   "n_cmd": 67,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260821000822",
+   "n_exp": 1,
+   "n_fam": 2,
+   "n_cmd": 10,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260824000430",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 15,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260824002020",
+   "n_exp": 1,
+   "n_fam": 8,
+   "n_cmd": 976,
+   "baseline_status": "failed",
+   "tags": [
+    "large",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260824002208",
+   "n_exp": 1,
+   "n_fam": 7,
+   "n_cmd": 645,
+   "baseline_status": "done",
+   "tags": [
+    "large"
+   ]
+  },
+  {
+   "ticket": "NC20260826001129",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 3,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260826001298",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 12,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260827000471",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 5,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260828000371",
+   "n_exp": 1,
+   "n_fam": 13,
+   "n_cmd": 646,
+   "baseline_status": "done",
+   "tags": [
+    "large"
+   ]
+  },
+  {
+   "ticket": "NC20260828000380",
+   "n_exp": 1,
+   "n_fam": 6,
+   "n_cmd": 7,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260828000409",
+   "n_exp": 3,
+   "n_fam": 22,
+   "n_cmd": 148,
+   "baseline_status": "failed",
+   "tags": [
+    "multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260828001294",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 5,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260828001504",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 12,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260831000131",
+   "n_exp": 1,
+   "n_fam": 12,
+   "n_cmd": 26,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260831000389",
+   "n_exp": 1,
+   "n_fam": 12,
+   "n_cmd": 23,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260901001321",
+   "n_exp": 1,
+   "n_fam": 9,
+   "n_cmd": 160,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260901002241",
+   "n_exp": 2,
+   "n_fam": 3,
+   "n_cmd": 4,
+   "baseline_status": "error",
+   "tags": [
+    "multi_ne",
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260901002294",
+   "n_exp": 1,
+   "n_fam": 7,
+   "n_cmd": 98,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260902001374",
+   "n_exp": 2,
+   "n_fam": 2,
+   "n_cmd": 7,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260903000972",
+   "n_exp": 1,
+   "n_fam": 2,
+   "n_cmd": 11,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260903002185",
+   "n_exp": 1,
+   "n_fam": 15,
+   "n_cmd": 90,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260904002114",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 12,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260904002179",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 1,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260907000242",
+   "n_exp": 4,
+   "n_fam": 16,
+   "n_cmd": 30,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260907001683",
+   "n_exp": 2,
+   "n_fam": 5,
+   "n_cmd": 50,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260907002110",
+   "n_exp": 1,
+   "n_fam": 4,
+   "n_cmd": 19,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260908000841",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 1,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260908000848",
+   "n_exp": 1,
+   "n_fam": 30,
+   "n_cmd": 73,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260908001586",
+   "n_exp": 1,
+   "n_fam": 8,
+   "n_cmd": 23,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260908001994",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 48,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260909000612",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 192,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260909000645",
+   "n_exp": 1,
+   "n_fam": 11,
+   "n_cmd": 128,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260909001068",
+   "n_exp": 1,
+   "n_fam": 11,
+   "n_cmd": 128,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260909002012",
+   "n_exp": 1,
+   "n_fam": 5,
+   "n_cmd": 33,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260911000486",
+   "n_exp": 1,
+   "n_fam": 13,
+   "n_cmd": 34,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260911000614",
+   "n_exp": 1,
+   "n_fam": 2,
+   "n_cmd": 2,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260911001671",
+   "n_exp": 3,
+   "n_fam": 2,
+   "n_cmd": 2,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260911001996",
+   "n_exp": 1,
+   "n_fam": 10,
+   "n_cmd": 58,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260911002023",
+   "n_exp": 1,
+   "n_fam": 14,
+   "n_cmd": 52,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260913000170",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 1,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260913000295",
+   "n_exp": 1,
+   "n_fam": 4,
+   "n_cmd": 7,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260914002167",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 17,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260914002657",
+   "n_exp": 1,
+   "n_fam": 1,
+   "n_cmd": 2,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260915001368",
+   "n_exp": 3,
+   "n_fam": 7,
+   "n_cmd": 45,
+   "baseline_status": "done",
+   "tags": [
+    "multi_ne"
+   ]
+  },
+  {
+   "ticket": "NC20260916001600",
+   "n_exp": 1,
+   "n_fam": 5,
+   "n_cmd": 12,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260917001054",
+   "n_exp": 1,
+   "n_fam": 13,
+   "n_cmd": 31,
+   "baseline_status": "timeout",
+   "tags": [
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260917001603",
+   "n_exp": 1,
+   "n_fam": 4,
+   "n_cmd": 8,
+   "baseline_status": "timeout",
+   "tags": [
+    "failed_in_baseline"
+   ]
+  },
+  {
+   "ticket": "NC20260917001992",
+   "n_exp": 1,
+   "n_fam": 4,
+   "n_cmd": 37,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260920001139",
+   "n_exp": 1,
+   "n_fam": 3,
+   "n_cmd": 6,
+   "baseline_status": "done",
+   "tags": []
+  },
+  {
+   "ticket": "NC20260921001905",
+   "n_exp": 1,
+   "n_fam": 7,
+   "n_cmd": 41,
+   "baseline_status": "timeout",
+   "tags": [
+    "failed_in_baseline"
+   ]
+  }
+ ]
+}

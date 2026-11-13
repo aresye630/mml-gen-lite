@@ -43,7 +43,7 @@ BASES = ['http://127.0.0.1:8620', 'http://127.0.0.1:8621',
 CONT = {'8620': 'mmlgen-clean', '8621': 'mmlgen-b1',
         '8622': 'mmlgen-b2', '8623': 'mmlgen-b3'}
 
-OUT = Path('/tmp/eval_retry_ab')
+OUT = Path('/tmp/eval_full_v16')
 
 
 def api_get(base, path, timeout=120):
@@ -189,14 +189,58 @@ def wait_done(base, sid, timeout=1800, poll=10):
     return {'status': 'timeout'}
 
 
+def load_eval_tickets(all_tickets=None, include_excluded=False):
+    """加载测试集工单，按 rules/eval_ticket_tags.json 的标签过滤。
+
+    ★ 2026-11-13（用户裁定）
+      「这些概率失败的大单暂时不跑，从测试集剔除（打上标签即可，不用删除）」
+
+      剔除规则：n_exp >= 2 且 n_cmd >= 200（多网元大单）
+      实测依据：多网元大单失败率 64%，单网元大单 17%
+
+    标签文件：rules/eval_ticket_tags.json
+      excluded[]  —— 剔除的单（含 baseline_status / n_exp / n_cmd / tags）
+      kept[]      —— 保留的单
+
+    返回：(tickets, meta)
+    """
+    import json as _json
+    tag_file = Path(__file__).resolve().parent.parent / 'rules' / 'eval_ticket_tags.json'
+    meta = {'excluded': [], 'source': 'all'}
+    if not tag_file.exists():
+        return (all_tickets or []), meta
+
+    tags = _json.loads(tag_file.read_text(encoding='utf-8'))
+    excluded = {x['ticket'] for x in tags.get('excluded', [])}
+    meta['excluded'] = sorted(excluded)
+
+    pool = all_tickets or [x['ticket'] for x in tags.get('kept', [])]
+    if include_excluded:
+        return pool, meta
+
+    kept = [t for t in pool if t not in excluded]
+    meta['source'] = 'tags'
+    return kept, meta
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     import json as _json
-    # ★ 2026-11-12 重跑 2 单（验证 A=derive 放宽 + B=G35 引用完整性）
-    TICKETS = _json.loads(Path('/tmp/retry_ab_tickets.json').read_text(encoding='utf-8'))
+    import os as _os
+
+    # ★ 2026-11-13：默认跑全量（按标签过滤掉多网元大单）
+    #   TICKETS_JSON=<path>  指定工单清单
+    #   INCLUDE_EXCLUDED=1   包含被剔除的单（调试用）
+    _tk_file = _os.environ.get('TICKETS_JSON', '/tmp/full_v5_tickets.json')
+    _all = _json.loads(Path(_tk_file).read_text(encoding='utf-8'))
+    TICKETS, _meta = load_eval_tickets(
+        _all, include_excluded=bool(_os.environ.get('INCLUDE_EXCLUDED')))
 
     print('=' * 100)
-    print(f'重跑：{len(TICKETS)} 单（验证 A/B 修复），2 容器并行')
+    print(f'评测：{len(TICKETS)} 单（已剔除 {len(_meta["excluded"])} 个多网元大单）')
+    if _meta['excluded']:
+        print(f'  剔除: {", ".join(_meta["excluded"][:5])}'
+              f'{" ..." if len(_meta["excluded"]) > 5 else ""}')
     print('=' * 100)
 
     # ★ 2026-11-12 修：原来串行（i % len(BASES) 但仍是 for 循环顺序执行）
