@@ -109,7 +109,11 @@ def round_hard_limit_for(sess_dir):
 #     通过的单 guard_check 调用：3, 4, 3, 4, 5 次
 #     失败的单：9, 9 次 ← 刚好被我设的 8 卡掉，但其实还在正常修
 #   → 通过的单最多 5 次，设 12 留 7 次余量
-MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '12'))
+# ★ 2026-11-13 最终定档：12 → 40（只作「防无限」极高档兜底）
+#   用户裁定：死循环判据应该看「是不是重复报同一个错」，不是看调了几次。
+#   真正的判据在 call_hermes 里：连续 3 次 fatal 集合完全不变才杀。
+#   这里只防「agent 无限自检」这种极端情况，40 次足够宽松。
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '40'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
 # ★ 2026-11-06 调整 300 → 480：大 EXP（40MB+）的正常探索就会超过 300 秒，
@@ -935,7 +939,8 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     #     「剩余告警都来自校验规则本身，不是配置错误...按规则收尾」
     #   但那些 fatal 是真错（族名写错、动词错误），本该能改对。
     #   新规则：区分「机械错误」和「规则争议」
-    lines.append('  · guard_check 最多调 10 次。但【机械错误必须在收尾前改完】：')
+    lines.append('  · guard_check 调多少次都可以，只要每轮报的错在变/在减少。')
+    lines.append('    但【机械错误必须在收尾前改完】：')
     lines.append('    - G32 族名不存在/动词错误：把族名或动词改成 guard 提示的那个，数值不动')
     lines.append('    - G34 族名写错：把族名改成 guard 提示的 should_be，参数和值都不动')
     lines.append('    - G35 引用不存在的组：按提示三选一（改引用/补组/删命令）')
@@ -1106,7 +1111,10 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
     proc = None
     timed_out = False
     loop_killed = None
-    _tool_cnt = {'total': 0, 'guard': 0, 'code': 0, 'seq': [], 'guard_fatals': []}
+    _tool_cnt = {'total': 0, 'guard': 0, 'code': 0, 'seq': [],
+                 'guard_fatals': [],       # 旧：正则抓的文本（保留兼容）
+                 'guard_fatal_sets': []}   # 新：每次 guard 的 fatal 内容集合
+    _same_count = 0        # 连续「fatal 集合完全不变」的次数
 
     try:
         proc = subprocess.Popen(
@@ -1231,21 +1239,77 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
 
             if _act == 'guard':
                 _tool_cnt['guard'] += 1
-                # ★ 2026-11-08：记录本次 guard 的 fatal 内容（供死循环判定比对）
-                _fatal_sig = ''
-                _m_fatal = re.search(r'(?:fatal|致命)[:：]\s*([^\n]{0,120})', line, re.I)
-                if _m_fatal:
-                    _fatal_sig = _m_fatal.group(1).strip()
-                _tool_cnt['guard_fatals'].append(_fatal_sig)
-                if len(_tool_cnt['guard_fatals']) > 10:
-                    _tool_cnt['guard_fatals'] = _tool_cnt['guard_fatals'][-10:]
+                # ★★ 2026-11-13：改为读 guard_check 落盘的 guard_history.jsonl
+                #   原来靠正则从终端抓 fatal 文本，MCP 返回值不一定完整出现在终端，
+                #   格式一变就抓空 → 3 次空值被判「相同」→ 误杀。
+                _cur_set = None
+                try:
+                    _hist_p = sess_dir / '.agent' / 'guard_history.jsonl'
+                    if _hist_p.exists():
+                        _lines = _hist_p.read_text(encoding='utf-8').strip().split('\n')
+                        if _lines and _lines[-1]:
+                            _last = json.loads(_lines[-1])
+                            _cur_set = frozenset(_last.get('fatal') or [])
+                except Exception:
+                    _cur_set = None
+
+                # 退化：读不到文件时用正则（兼容老行为）
+                if _cur_set is None:
+                    _fatal_sig = ''
+                    _m_fatal = re.search(r'(?:fatal|致命)[:：]\s*([^\n]{0,120})',
+                                         line, re.I)
+                    if _m_fatal:
+                        _fatal_sig = _m_fatal.group(1).strip()
+                    _cur_set = frozenset([_fatal_sig] if _fatal_sig else [])
+
+                _tool_cnt['guard_fatal_sets'].append(_cur_set)
+                if len(_tool_cnt['guard_fatal_sets']) > 10:
+                    _tool_cnt['guard_fatal_sets'] = _tool_cnt['guard_fatal_sets'][-10:]
 
                 emit({'type': 'meta', 'event': 'guard_call',
                       'n': _tool_cnt['guard'], 't': round(time.time() - t0, 1)})
-                # MAX_GUARD_CALLS 10 → 15（多条 fatal 逐步修需要更多轮）
+                # ★★ 2026-11-13 重写死循环判据（用户裁定）
+                #
+                #   用户原话：
+                #     「如果是重复报错就说明修不了还报啥错呢，
+                #       然后即使没有修正错误就没修正呗，提示有这个问题就行了」
+                #     「fatal 一直是一个数值，如果都是不一样的错误不是误杀么」
+                #
+                #   旧逻辑的两个毛病：
+                #     1. 只看 guard 累计次数 > 12 就杀 —— 不管错误有没有在收敛
+                #        实测 NC20260913000295：guard 9 次被杀，但其实在正常修
+                #        （重跑后 210s done，100% 族覆盖）
+                #     2. 判据靠正则从终端输出抓 fatal 文本，格式一变就抓不到
+                #        → 3 次都抓空 → 误判「相同错误」
+                #
+                #   新逻辑：比对「fatal 内容集合」是否真的没变
+                #     · 集合完全相同 → 改了也不变 → 真死循环，杀
+                #     · 集合在变小 / 内容在换 → 在收敛，放行
+                #   累计次数只作极高档兜底（30 次），防止无限自检
+                _gs = _tool_cnt['guard_fatal_sets']
+                if len(_gs) >= 2:
+                    _prev = _gs[-2]
+                    _cur = _gs[-1]
+                    if _cur and _prev == _cur:
+                        # 集合一字不差 → 上一轮改了个寂寞
+                        _same_count += 1
+                    else:
+                        _same_count = 0
+                    if _same_count >= 2:
+                        loop_killed = (
+                            f'连续 {_same_count + 1} 次 guard_check 报'
+                            f'完全相同的 {len(_cur)} 个问题'
+                            f'（首个: {sorted(_cur)[0][:60]}），'
+                            f'改不动了，判定为死循环，已终止')
+                        try:
+                            proc.kill()
+                        except Exception:
+                            pass
+                        break
+
                 if _tool_cnt['guard'] > MAX_GUARD_CALLS:
                     loop_killed = (f'guard_check 被调用 {_tool_cnt["guard"]} 次'
-                                   f'（上限 {MAX_GUARD_CALLS}），判定为死循环')
+                                   f'（极高档兜底 {MAX_GUARD_CALLS}），已终止')
                     try:
                         proc.kill()
                     except Exception:
@@ -1661,6 +1725,7 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
     rounds = []
     final_guard = None
     error = None
+    remaining_fatal = []      # 产物完整但仍有 fatal 的项（待人工确认）
 
     try:
         for rnd in range(1, MAX_ROUNDS + 1):
@@ -1791,15 +1856,38 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
 
             if verdict in ('pass', 'warn'):
                 break
+
+            # ★★ 2026-11-13 用户裁定：fatal 不再作为失败标志
+            #   「即使没有修正错误就没修正呗，提示有这个问题就行了」
+            #
+            #   原逻辑：3 轮后仍有 fatal → error = '...致命问题' → 整单判 failed
+            #   问题：fatal 里有相当一部分是「agent 判断 vs 判据口径」的分歧
+            #        （如跨网元族在本网元配不了、方案选择类），
+            #        产物其实完整可交付，只因 fatal 未清零就判失败太严。
+            #
+            #   新逻辑：
+            #     · 产物完整 → done（fatal 作为「待人工确认项」附在报告里）
+            #     · 产物缺失 / STALL / 崩溃 / 超时 → failed
+            #   留在 fatal 里但不阻断的，写进 remaining_fatal 供报告展示。
             if rnd == MAX_ROUNDS:
-                error = f'3 轮后仍有 {len(final_guard.get("fatal") or [])} 个致命问题'
+                _nf = len(final_guard.get('fatal') or [])
+                if _nf:
+                    remaining_fatal = final_guard.get('fatal') or []
+                    events_fp.write(json.dumps({
+                        'type': 'meta', 'event': 'fatal_not_blocking',
+                        'n': _nf,
+                        'note': '产物完整，fatal 作为待确认项交付，不判失败',
+                    }, ensure_ascii=False) + '\n')
+                    events_fp.flush()
 
     finally:
         try:
+            # ★ 2026-11-13 改：done 只取决于「有没有产出」
+            _has_artifacts = not error
             events_fp.write(json.dumps({
                 'type': 'done',
-                'status': 'done' if (final_guard or {}).get('verdict') in ('pass', 'warn')
-                          else 'failed',
+                'status': 'done' if _has_artifacts else 'failed',
+                'remaining_fatal': len(remaining_fatal),
             }, ensure_ascii=False) + '\n')
             events_fp.flush()
             events_fp.close()
@@ -1808,13 +1896,39 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
 
     # 产物清单
     produced = []
-    for name in ['mml.txt', 'params.csv', '配置分析.md', '方案澄清.json']:
+    # ★ 2026-11-13 修：阶段1 只产出「命令族规划.md」，原来没列入 produced
+    #   → 阶段1 判 status 时 produced=[] → 判 failed（即使 verdict=pass）
+    #   实测：5 单阶段1 全部 verdict=pass、规划表已写出，却被判 failed
+    _ARTIFACT_NAMES = ['命令族规划.md',          # 阶段1 必需
+                       'mml.txt', 'params.csv',   # 阶段2 必需
+                       '配置分析.md', '方案澄清.json',  # 阶段2 建议
+                       '阶段3修复清单.md']          # 阶段3 产出
+    for name in _ARTIFACT_NAMES:
         f = adir / name
         if f.exists():
             produced.append({'name': name, 'size': f.stat().st_size})
 
     verdict = (final_guard or {}).get('verdict')
-    status = 'done' if verdict in ('pass', 'warn') and not error else 'failed'
+    # ★★ 2026-11-13 用户裁定：fatal 不作为失败标志
+    #   「即使没有修正错误就没修正呗，提示有这个问题就行了」
+    #
+    #   旧：verdict in ('pass','warn') 才算 done → 有 fatal 一律 failed
+    #   新：产物齐全就算 done（fatal 作为待人工确认项随报告交付）
+    #       failed 只保留三种真失败：
+    #         · error 非空（STALL / 崩溃 / 超时 / 缺产物）
+    #         · 没有任何产物
+    # ★ 2026-11-13 修：按阶段判断「产物齐全」，不能用统一列表
+    #   阶段1 只看 命令族规划.md
+    #   阶段2 看 params.csv + mml.txt
+    def _stage_ok(st):
+        names = {x['name'] for x in produced}
+        if st == 'plan':
+            return '命令族规划.md' in names
+        # fill / repair：params.csv 和 mml.txt 是核心产物
+        return 'params.csv' in names and 'mml.txt' in names
+
+    _has_produced = _stage_ok(stage)
+    status = 'done' if (not error and _has_produced) else 'failed'
 
     return {
         'status': status,

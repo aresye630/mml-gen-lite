@@ -15,6 +15,7 @@
   · guard 复用 guard/guard.py 的七道门（单一实现）
 """
 import json
+import time
 import os
 import re
 import subprocess
@@ -554,6 +555,26 @@ def tool_guard_check(args):
             session_dir=str(d),
             params_csv=str(_params_csv) if _params_csv.exists() else None,
         )
+        # ★ 2026-11-13：把本次 guard 的 fatal 落盘，供 agent_run 判死循环
+        #
+        #   原来 agent_run 靠正则从 agent 终端输出里抓 fatal 文本：
+        #     _m_fatal = re.search(r'(?:fatal|致命)[:：]\s*([^\n]{0,120})', line)
+        #   问题：MCP 工具的返回值不一定完整出现在终端；格式一变就抓空；
+        #        抓空 3 次会被误判成「3 次同一个错」→ 误杀。
+        #   现在改为结构化落盘，agent_run 直接读文件比对「fatal 内容集合」。
+        try:
+            _hist = d / '.agent' / 'guard_history.jsonl'
+            _hist.parent.mkdir(parents=True, exist_ok=True)
+            with _hist.open('a', encoding='utf-8') as _hf:
+                _hf.write(json.dumps({
+                    'ts': time.time(),
+                    'verdict': result.get('verdict'),
+                    'fatal': [str(x)[:300] for x in (result.get('fatal') or [])],
+                    'n_warn': len(result.get('warnings') or []),
+                }, ensure_ascii=False) + '\n')
+        except Exception:
+            pass
+
         return {
             'verdict': result.get('verdict'),
             'fatal': result.get('fatal') or [],
