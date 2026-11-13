@@ -43,7 +43,7 @@ BASES = ['http://127.0.0.1:8620', 'http://127.0.0.1:8621',
 CONT = {'8620': 'mmlgen-clean', '8621': 'mmlgen-b1',
         '8622': 'mmlgen-b2', '8623': 'mmlgen-b3'}
 
-OUT = Path('/tmp/eval_slim_half')
+OUT = Path('/tmp/eval_retry3')
 
 
 def api_get(base, path, timeout=120):
@@ -192,11 +192,11 @@ def wait_done(base, sid, timeout=1800, poll=10):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     import json as _json
-    # ★ 2026-11-12：跑删减版 14 单（用户裁定「删减版少跑一些，一半吧」）
-    TICKETS = _json.loads(Path('/tmp/slim_half_tickets.json').read_text(encoding='utf-8'))
+    # ★ 2026-11-12 重跑 3 单（验证 G34 族名反推效果）
+    TICKETS = _json.loads(Path('/tmp/retry3_tickets.json').read_text(encoding='utf-8'))
 
     print('=' * 100)
-    print(f'样例验证：{len(TICKETS)} 单（删减版），4 容器并发')
+    print(f'重跑：{len(TICKETS)} 单（验证 G34），3 容器并行')
     print('=' * 100)
 
     # ★ 2026-11-12 修：原来串行（i % len(BASES) 但仍是 for 循环顺序执行）
@@ -205,7 +205,7 @@ def main():
     from concurrent.futures import ThreadPoolExecutor, as_completed
     import threading
 
-    jobs = [('slim', tk) for tk in TICKETS]
+    jobs = [('full', tk) for tk in TICKETS]
     results = []
     lock = threading.Lock()
     slot_free = {b: threading.Semaphore(1) for b in BASES}

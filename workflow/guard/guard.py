@@ -631,7 +631,18 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None,
         for a, b in zip(starts, ends):
             # 跳过 SEP 行本身
             segs.append(exp_lines[a + 1:b])
-        last_reason = ''
+        # ★ 2026-11-12 修：多段核验时，优先返回「有信息量」的失败原因
+        #
+        #   bug：原来 last_reason = _why，最后一段的错误覆盖前面所有段。
+        #   实测 NC20260805002150：
+        #     段1（UDG 121073 行）→ line-is-not-APNAFFUNC(actual=APNTRAFDFUNC)
+        #                             ← 这才是真原因（agent 族名写错了）
+        #     段2（UNC 39470 行）→ line-out-of-range
+        #                             ← 无信息量（这个 EXP 就是没这么长）
+        #     最终返回 line-out-of-range → agent 以为是行号错，去改行号，越改越错
+        #
+        #   现在：收集所有失败原因，优先返回「非越界」的那条。
+        reasons = []
         for sg in segs:
             if not sg:
                 continue
@@ -639,8 +650,19 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None,
                                         param=param, is_derive=is_derive)
             if _ok:
                 return True, _why
-            last_reason = _why
-        return False, (last_reason or 'not-in-any-exp')
+            reasons.append(_why)
+
+        if not reasons:
+            return False, 'not-in-any-exp'
+
+        # 优先级：族不匹配 > 值问题 > 越界/格式问题
+        for r in reasons:
+            if r.startswith('line-is-not-'):
+                return False, r
+        for r in reasons:
+            if 'out-of-range' not in r and 'bad-' not in r:
+                return False, r
+        return False, reasons[0]
 
     ref = lineno.strip()
     if not ref.upper().startswith('L'):
@@ -697,10 +719,18 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None,
     line = exp_lines[n - 1]
 
     # 1) 族核验：该行是不是同族命令
+    # ★ 2026-11-12 修错误信息：原来族不匹配时报 'line-out-of-range'，
+    #   极易误导（实测 agent 因此改行号而不是改族名，越改越错）。
+    #   现在报 'line-is-not-XXX'，且给出该行实际的族名。
     if family:
+        _actual_fam_m = re.match(r'^\s*(?:ADD|SET|MOD|RMV)\s+([A-Z][A-Z0-9_]+)',
+                                 line.strip(), re.I)
+        _actual_fam = _actual_fam_m.group(1) if _actual_fam_m else '?'
         if not re.search(rf'^\s*{family}\b', line.strip(), re.I) and \
            not re.search(rf'\b{family}\b', line, re.I):
-            return False, f'line-is-not-{family}'
+            # ★ 2026-11-12：错误信息带实际族名，方便 agent 直接判断
+            #   「我要的族 vs 那行实际的族」不一致 → 是族名写错，不是行号错
+            return False, f'line-is-not-{family}(actual={_actual_fam})'
 
     # 2) 值核验
     # ★ 2026-11-05 语义修正：
@@ -1923,6 +1953,21 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
     except Exception as e:
         checks['G33_must_have'] = {'ok': True, 'skipped': True,
                                    'reason': f'G33 执行失败: {e}'}
+
+    # ★ 2026-11-12 新增 G34：根据参数反推命令族（族名写错检测）
+    #   实测（15 单失败分析）：agent 反复把 APN 属性族写成 APNAFFUNC
+    #     SET APNAFFUNC:APN="sos", TRAFFICFDSW=DISABLE;
+    #     ↑ 族名错，TRAFFICFDSW 属于 APNTRAFDFUNC
+    #   G34 从 EXP 学「参数 → 族」（1402 参数，85% 唯一归属），
+    #   专有参数全指向另一族 → 报「族名写错，应为 XXX」
+    #   在 3 个失败单真实产物上：检出 5 处，0 误报
+    try:
+        from family_by_param import check_family_by_params
+        checks['G34_family_by_param'] = check_family_by_params(
+            mml_text, exp_paths=None, exp_text=exp_text, strict=True)
+    except Exception as e:
+        checks['G34_family_by_param'] = {'ok': True, 'skipped': True,
+                                         'reason': f'G34 执行失败: {e}'}
 
     # ★ 2026-11-08 新增 G24：省略说明检测
     #   配置分析里说「不做/跳过」但方案澄清里没对应的，提示用户。

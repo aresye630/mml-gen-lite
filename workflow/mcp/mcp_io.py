@@ -512,10 +512,26 @@ def tool_guard_check(args):
         _mml_txt = mml.read_text(encoding='utf-8', errors='replace')
         _exp_txt = ''
         if exp_paths:
+            # ★★ 2026-11-12 关键修复：多 EXP 必须加 EXP-SEP 分隔符
+            #
+            #   bug：原来直接 '\n'.join(_parts)，没有分隔符
+            #   guard 的多段核验逻辑是：
+            #     _seps = [i for i, ln in enumerate(exp_lines) if 'EXP-SEP:' in ln]
+            #     if _seps: 拆段，任意一段通过即算通过
+            #   没有 SEP → 不拆 → 整个拼接文本当成一个文件
+            #   → G19 用「第一个 EXP 的行号范围」核验所有标注
+            #   → 第二个 EXP 的行号全部被判 line-out-of-range
+            #
+            #   实测（全量 86 单）：G19 误报 15 次，占 fatal 的 75%
+            #     NC20260805002150: 2 个 EXP（121072 行 + 39469 行）
+            #       agent 标 @src=exp:L119409（UDG EXP 有效）
+            #       → 拼接后按第一个 EXP 核验... 但实际报越界
+            #     NC20260806001438: 3 个 EXP，同样问题
             _parts = []
             for _p in exp_paths:
                 try:
-                    _parts.append(Path(_p).read_text(encoding='utf-8', errors='replace'))
+                    _body = Path(_p).read_text(encoding='utf-8', errors='replace')
+                    _parts.append(f'/* ===== EXP-SEP: {Path(_p).name} ===== */\n' + _body)
                 except Exception:
                     pass
             _exp_txt = '\n'.join(_parts)
