@@ -43,7 +43,10 @@ BASES = ['http://127.0.0.1:8620', 'http://127.0.0.1:8621',
 CONT = {'8620': 'mmlgen-clean', '8621': 'mmlgen-b1',
         '8622': 'mmlgen-b2', '8623': 'mmlgen-b3'}
 
-OUT = Path('/tmp/eval_full_v16')
+# 输出目录：可用 EVAL_OUT 环境变量指定（默认按时间戳命名，避免覆盖历史结果）
+import os as _os
+OUT = Path(_os.environ.get('EVAL_OUT') or
+           f'/tmp/eval_{__import__("datetime").datetime.now():%Y%m%d_%H%M%S}')
 
 
 def api_get(base, path, timeout=120):
