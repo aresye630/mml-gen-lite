@@ -688,11 +688,63 @@ def _verify_exp_ref(exp_lines, lineno, value, family=None, param=None,
         # derive 模式：只要求区间里有同族命令，不要求值出现（值是新造的）
         if is_derive:
             if family:
-                fam_ok = any(
-                    re.search(rf'\b(?:ADD|SET|MOD|RMV)\s+{re.escape(family)}\b',
-                              ln, re.I) for ln in seg)
-                if not fam_ok:
-                    return False, f'family-{family}-not-in-range'
+                # ★ 2026-11-12 放宽：derive 是「参照这段现网同类写法」，
+                #   不要求区间里有精确同名族，有「同前缀族」也算。
+                #
+                #   实测 NC20260828000360：
+                #     SET APNIMSATTR:IMSSWITCH=ENABLE;  // @src=exp:derive L1628-L1635 APN属性族区段
+                #     区间内容是 APNUEMUTACC(4条) + APNL2TPATTR(4条)
+                #     → 都是 APN 属性族，但不是 APNIMSATTR
+                #     → agent 的意图是「照这一段的 APN 属性族写法」，合理
+                #
+                #   判据：
+                #     1. 精确同名族 → 通过
+                #     2. 同前缀族（如 APN* / URR* / POOL*）→ 通过
+                #     3. 都没 → 报错
+                fam_esc = re.escape(family)
+                if any(re.search(rf'\b(?:ADD|SET|MOD|RMV)\s+{fam_esc}\b', ln, re.I)
+                       for ln in seg):
+                    return True, 'derive-range-ok'
+
+                # 同前缀判定（★ 2026-11-12 修正：用「区间里实际出现的族」求最长公共前缀）
+                #
+                #   第一版用固定长度截取（len-2），APNIMSATTR → 'APNIMSAT'，
+                #   而区间里是 APNUEMUTACC/APNL2TPATTR → 匹配不上。
+                #   正确做法：先提取区间里所有族名，求与目标族的最长公共前缀，
+                #   公共前缀 >= 3 字符即认为「同一类对象属性族」。
+                seg_fams = set()
+                for ln in seg:
+                    mm = re.match(r'^\s*(?:ADD|SET|MOD|RMV)\s+([A-Z][A-Z0-9_]+)',
+                                  ln.strip(), re.I)
+                    if mm:
+                        seg_fams.add(mm.group(1).upper())
+
+                best_prefix = ''
+                for sf in seg_fams:
+                    # 求 family 与 sf 的最长公共前缀
+                    k = 0
+                    while k < min(len(family), len(sf)) and family[k] == sf[k]:
+                        k += 1
+                    if k > len(best_prefix):
+                        best_prefix = family[:k]
+
+                if len(best_prefix) >= 3:
+                    return True, f'derive-range-same-prefix({best_prefix}*)'
+
+                # ★ 2026-11-12 补充：前缀不沾边的族（如 UPAPNCHARGE 与 APN*）
+                #   实测 NC20260828000360：UPAPNCHARGE 业务是「APN 计费」，
+                #   族名以 UP 开头，和 APN* 没有公共前缀，但语义相关。
+                #   判据：目标族名里含有的「区间族名前缀」>= 3 字符
+                #       例：UPAPNCHARGE 含 'APN'，区间有 APN* → 通过
+                for sf in seg_fams:
+                    # 取 sf 去掉尾部数字/下划线后的前 3+ 字符
+                    sf_core = re.sub(r'[0-9_]+$', '', sf)
+                    for L in range(len(sf_core), 2, -1):
+                        cand = sf_core[:L]
+                        if len(cand) >= 3 and cand in family:
+                            return True, f'derive-range-semantic({sf}~{family})'
+
+                return False, f'family-{family}-not-in-range'
             return True, 'derive-range-ok'
 
         # 核验：族是否在区间内出现
@@ -1838,6 +1890,23 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         except Exception as e:
             checks['G20_plan'] = {'ok': True, 'skipped': True,
                                   'reason': f'G20 执行失败: {e}'}
+        # ★ 2026-11-12 新增 G35：params.csv 引用完整性（在生成 mml 之前）
+        #   实测 NC20260823000103：RULEBINDING#2 引用 @USERPROFILE#2，
+        #   但只有 USERPROFILE#1 → G21 报「csv 生成失败」，
+        #   agent 看不懂该改什么，3 轮都改不对。
+        #   G35 给出「三选一」的可操作提示。
+        try:
+            from ref_integrity import check_ref_integrity, format_for_agent
+            _ri = check_ref_integrity(params_csv)
+            if not _ri.get('ok') and (_ri.get('missing_groups')
+                                       or _ri.get('missing_params')
+                                       or _ri.get('cycles')):
+                _ri['hint'] = format_for_agent(_ri)
+            checks['G35_ref_integrity'] = _ri
+        except Exception as e:
+            checks['G35_ref_integrity'] = {'ok': True, 'skipped': True,
+                                           'reason': f'G35 执行失败: {e}'}
+
         try:
             import sys as _sys
             _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -2077,6 +2146,53 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
             warn.append(_w)
     if not checks['G12_param_fmt']['ok']:
         warn.append(f"G12 参数格式 {checks['G12_param_fmt'].get('n_issues', 0)} 处")
+
+    # ★ 2026-11-12 补：G32/G33/G34/G35 的 fatal 汇总
+    #   bug：这几个判据只写了 checks['G3x']，没 append 到 fatal
+    #   → 检出问题但 verdict 还是 pass/warn，agent 收不到修复信号
+    #   实测 NC20260828000360：G34 检出 APNAFFUNC→APNTRAFDFUNC，
+    #   但 fatal=[] → agent 不知道要改 → 3 轮后仍失败
+    _g32 = checks.get('G32_family_exist') or {}
+    for _f in (_g32.get('fatal') or [])[:3]:
+        fatal.append(f"G32 族名不存在: {_f.get('family')}"
+                     f"（{_f.get('suggest', '')}）")
+    for _w in (_g32.get('warn') or [])[:2]:
+        warn.append(f"G32 族名存疑: {_w.get('family')}（{_w.get('suggest', '')}）")
+    for _m in (_g32.get('verb_mismatch') or [])[:3]:
+        fatal.append(f"G32 动词错误: {_m.get('family')} 用了 {_m.get('verb')}，"
+                     f"EXP 里只有 {_m.get('allowed')}")
+
+    _g33 = checks.get('G33_must_have') or {}
+    for _m in (_g33.get('missing') or [])[:2]:
+        # ★ 2026-11-12：缺失 → fatal（配置生效的必要命令，缺了整份配置不生效）
+        fatal.append(f"G33 缺少必要命令 {_m.get('family')}"
+                     f"（{_m.get('reason', '')}）→ 请在产物最后补上")
+    for _m in (_g33.get('missing') or [])[:2]:
+        pass
+    for _w in (_g33.get('wrong_verb') or [])[:2]:
+        fatal.append(f"G33 {_w.get('family')} 动词应为 {_w.get('expected')}，"
+                     f"实际 {_w.get('actual')}")
+
+    _g34 = checks.get('G34_family_by_param') or {}
+    for _s in (_g34.get('suspects') or [])[:3]:
+        fatal.append(
+            f"G34 第 {_s.get('line_no')} 行族名写错: {_s.get('family')} "
+            f"应为 {_s.get('should_be')}"
+            f"（参数 {'/'.join(_s.get('params') or [])} 属于 {_s.get('should_be')}）")
+    if len(_g34.get('suspects') or []) > 3:
+        fatal.append(f"G34 另有 {len(_g34['suspects']) - 3} 处族名写错")
+
+    _g35 = checks.get('G35_ref_integrity') or {}
+    for _m in (_g35.get('missing_groups') or [])[:2]:
+        fatal.append(
+            f"G35 第 {_m.get('line')} 行引用了不存在的组 "
+            f"{_m.get('ref_group')}（{_m.get('suggest', '')}）")
+    for _m in (_g35.get('missing_params') or [])[:2]:
+        fatal.append(
+            f"G35 第 {_m.get('line')} 行引用了 {_m.get('ref_group')} "
+            f"里不存在的参数 {_m.get('ref_param')}")
+    for _c in (_g35.get('cycles') or [])[:2]:
+        fatal.append(f"G35 组 {_c} 存在循环引用")
     for w in checks['clarify']['warnings']:
         warn.append(f"C 澄清: {w['detail']}")
 

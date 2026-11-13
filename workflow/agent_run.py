@@ -95,7 +95,15 @@ def round_hard_limit_for(sess_dir):
 #   → 16 次是「反复自检试图收敛」，不是死循环
 #   大单（GT > 100 条）需要更多次自检，15 次太紧
 #   真死循环还有 ROUND_HARD_LIMIT 900s 兜底
-MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '25'))
+#
+# ★ 2026-11-12 调整 25 → 8（与 prompt 对齐）
+#   实测 NC20260828000360（v15）：agent 调 guard_check 26 次，
+#     从第 22 次起间隔只有 14-17 秒（改一点→立即自检→又改 的循环）
+#     最终 fatal=0（问题其实已经清零），但因为调用次数超限被判失败。
+#   → 上限 25 太松，agent 觉得「还有余量」就反复自检
+#   → prompt 里写的是「最多调 6 次」，代码上限应该一致
+#   真死循环还有 ROUND_HARD_LIMIT 兜底，8 次足够（正常修 1-3 轮就收敛）
+MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '8'))
 # ★ 2026-11-06：无进展判定。超过这个秒数还没写出任何产物 → 判卡住。
 #   实测 c4 卡住 905s 全是反复查 EXP，产物一个没写。
 # ★ 2026-11-06 调整 300 → 480：大 EXP（40MB+）的正常探索就会超过 300 秒，
@@ -916,8 +924,19 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  · 完成后简述：做了什么、哪些需要人工确认')
     lines.append('')
     lines.append('【⚠ 效率硬要求（违反会导致任务失败）】')
-    lines.append('  · guard_check 最多调 3 次。第 3 次还有 fatal，就把当前状态写进产物然后收尾，')
-    lines.append('    不要继续改。剩下的问题在 配置分析.md 里列出来，交给人判断。')
+    # ★ 2026-11-12 修：原规则「3 次后一律收尾」导致 agent 遇到真错也放弃
+    #   实测 NC20260828000360：agent 第 3 次 guard_check 后说
+    #     「剩余告警都来自校验规则本身，不是配置错误...按规则收尾」
+    #   但那些 fatal 是真错（族名写错、动词错误），本该能改对。
+    #   新规则：区分「机械错误」和「规则争议」
+    lines.append('  · guard_check 最多调 6 次。但【机械错误必须在收尾前改完】：')
+    lines.append('    - G32 族名不存在/动词错误：把族名或动词改成 guard 提示的那个，数值不动')
+    lines.append('    - G34 族名写错：把族名改成 guard 提示的 should_be，参数和值都不动')
+    lines.append('    - G35 引用不存在的组：按提示三选一（改引用/补组/删命令）')
+    lines.append('    - G19 虚假依据：改行号，或把 @src=exp:Lxxx 改成 @src=infer 说明规则')
+    lines.append('    这几类都是「照提示直接改」就能过的，不要以「规则有争议」为由跳过。')
+    lines.append('  · 只有【方案选择类】的问题（跨网元配置、意图歧义、配套族要不要配）')
+    lines.append('    才写进 方案澄清.json 交人判断，不要硬改。')
     lines.append('  · 不要用 execute_code / terminal 写脚本去批量修改 mml.txt。')
     lines.append('    改产物只用 artifact_write（整文件覆盖）。')
     lines.append('  · ⚠⚠ 禁止用 execute_code 分析自己的产物！')
@@ -1047,7 +1066,7 @@ def build_feedback(guard_result):
 # 调 hermes（同步 readline + 实时事件）
 # ═══════════════════════════════════════════════════════════
 def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
-                timeout=ROUND_TIMEOUT):
+                timeout=ROUND_TIMEOUT, stage='fill'):
     """调 hermes 跑一轮。
 
     Returns (ok, out_text, elapsed, session_id, error)
@@ -1295,6 +1314,29 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
         # 死循环被主动终止：out 仍然返回（产物可能已写出，交给 guard 判）
         if loop_killed:
             return False, out, round(time.time() - t0, 1), None, loop_killed
+
+        # ★★ 2026-11-12 关键修复：resume 失效检测
+        #
+        #   bug：第 1 轮跑完后 agent_sid 拿到，第 2 轮用 --resume <sid> 续跑。
+        #   但 hermes 的 session 在上下文压缩后会失效：
+        #     "Session not found: compressed"
+        #   → 进程直接 Goodbye 退出，什么也没做。
+        #   → 3 轮循环里第 2、3 轮全是空转，fatal 数一模一样不变。
+        #
+        #   实测 NC20260828000360 / NC20260823000103：
+        #     3 轮 fatal = 8/8/8 和 7/7/7，完全没有变化，
+        #     原因就是第 2、3 轮 agent 根本没启动。
+        #
+        #   修复：检测到 resume 失效 → 不带 resume 重跑（降级为全新会话）
+        if resume_sid and ('Session not found' in out
+                           or 'session ID from a previous CLI run' in out):
+            emit({'type': 'meta', 'event': 'resume_failed',
+                  'resume_sid': resume_sid,
+                  'action': 'retry_without_resume'})
+            # 降级：不带 --resume 重跑
+            return call_hermes(prompt, workdir, resume_sid=None,
+                               events_fp=events_fp, timeout=timeout,
+                               stage=stage)
 
         # 抽 session id
         sid = None
@@ -1626,7 +1668,7 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
             cur_prompt = prompt if rnd == 1 else build_feedback(final_guard or {})
             ok, out, elapsed, got_sid, err = call_hermes(
                 cur_prompt, sess_dir, resume_sid=agent_sid,
-                events_fp=events_fp, timeout=ROUND_TIMEOUT)
+                events_fp=events_fp, timeout=ROUND_TIMEOUT, stage=stage)
 
             if got_sid and not agent_sid:
                 agent_sid = got_sid

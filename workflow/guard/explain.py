@@ -138,6 +138,104 @@ def explain_fatal(item):
             'family': 'ARTIFACT',
         }
 
+    # ── G34 族名写错（参数反推）──
+    #   ★ 2026-11-12 新增：必须给出「改成什么」，否则 agent 不知道该动哪里
+    if raw.startswith('G34'):
+        m = re.search(r'第 (\d+) 行族名写错: (\S+) 应为 (\S+?)(?:（|$)', raw)
+        if m:
+            line_no, wrong, right = m.group(1), m.group(2), m.group(3)
+            return {
+                'code': 'G34', 'severity': 'fatal',
+                'title': f'第 {line_no} 行族名写错：{wrong} 应为 {right}',
+                'detail': (f'这条命令的参数不属于 {wrong} 族，而属于 {right} 族。'
+                           f'参数是照现网抄对的，但命令族名写错了。'),
+                'why_bad': (f'MML 执行时会报「{wrong} 没有这个参数」，'
+                            f'该条命令执行失败。'),
+                'how_to_fix': (f'把这一行的族名从 {wrong} 改成 {right}，'
+                               f'参数和值都不要动。'
+                               f'注意：同一个 {wrong} 可能对应多个正确的族，'
+                               f'逐行按提示的族名改。'),
+                'family': 'G34',
+            }
+        return {'code': 'G34', 'severity': 'fatal', 'title': '族名与参数不匹配',
+                'detail': raw,
+                'why_bad': '命令族名写错，MML 会拒绝执行。',
+                'how_to_fix': '按提示把族名改成正确的族。', 'family': 'G34'}
+
+    # ── G35 引用不存在的组 ──
+    if raw.startswith('G35'):
+        m = re.search(r'第 (\d+) 行引用了不存在的组 (\S+?)(?:（|$)', raw)
+        if m:
+            line_no, grp = m.group(1), m.group(2)
+            return {
+                'code': 'G35', 'severity': 'fatal',
+                'title': f'第 {line_no} 行引用了不存在的组 {grp}',
+                'detail': (f'params.csv 里这条命令引用了 @{grp}.某参数，'
+                           f'但文件里没有定义 {grp} 这个组。'),
+                'why_bad': '引用无法解析，整份 csv 生不出 mml。',
+                'how_to_fix': ('三选一：a) 如果要配的是已有对象，'
+                               '改成引用已存在的组（提示里会给出组名）；'
+                               f'b) 如果确实要配新对象，补上完整的 {grp} 组'
+                               '（含主键参数）；c) 如果这条不需要，直接删掉。'),
+                'family': 'G35',
+            }
+        if '循环引用' in raw:
+            return {
+                'code': 'G35', 'severity': 'fatal',
+                'title': '存在循环引用',
+                'detail': raw,
+                'why_bad': 'A 引用 B、B 又引用 A，无法解析。',
+                'how_to_fix': '把其中一条改成具体值，打断循环。',
+                'family': 'G35',
+            }
+        return {'code': 'G35', 'severity': 'fatal', 'title': '引用有问题',
+                'detail': raw, 'why_bad': '引用无法解析。',
+                'how_to_fix': '检查 @组名.参数名 的组是否真的存在。',
+                'family': 'G35'}
+
+    # ── G32 族名不存在 / 动词错误 ──
+    if raw.startswith('G32'):
+        if '动词错误' in raw:
+            m = re.search(r'动词错误: (\S+) 用了 (\w+)，EXP 里只有 ([\[\]\w, \']+)', raw)
+            if m:
+                fam, used, allowed = m.group(1), m.group(2), m.group(3)
+                return {
+                    'code': 'G32', 'severity': 'fatal',
+                    'title': f'{fam} 的动词用错了（用了 {used}）',
+                    'detail': f'现网 EXP 里 {fam} 只出现过 {allowed} 这些动词。',
+                    'why_bad': f'{fam} 不是可创建的对象族，用 {used} 会执行失败。',
+                    'how_to_fix': f'把这一行的动词从 {used} 改成 {allowed} 里的那个。',
+                    'family': 'G32',
+                }
+        m = re.search(r'族名不存在: (\S+?)（(.*?)）', raw)
+        if m:
+            fam, sug = m.group(1), m.group(2)
+            fix = (f'把族名改成 {sug.split("EXP 里有 ")[-1].strip()}'
+                   if 'EXP 里有' in sug else
+                   '确认这个族是否真的存在；不存在的话改用正确的族名，'
+                   '或去掉这条命令')
+            return {
+                'code': 'G32', 'severity': 'fatal',
+                'title': f'族名 {fam} 在 EXP 里不存在',
+                'detail': sug,
+                'why_bad': 'MML 不认识这个族名，命令会被拒绝。',
+                'how_to_fix': fix,
+                'family': 'G32',
+            }
+        return {'code': 'G32', 'severity': 'fatal', 'title': '族名/动词有问题',
+                'detail': raw, 'why_bad': '', 'how_to_fix': '按提示修正族名或动词',
+                'family': 'G32'}
+
+    # ── G33 缺少必要命令 ──
+    if raw.startswith('G33'):
+        return {
+            'code': 'G33', 'severity': 'fatal', 'title': '缺少配置生效的必要命令',
+            'detail': raw,
+            'why_bad': '这条命令缺失会导致新增的配置不生效。',
+            'how_to_fix': '在产物最后补上该命令（注意动词必须是 SET）。',
+            'family': 'G33',
+        }
+
     # 兜底
     return {
         'code': code or 'UNKNOWN', 'severity': 'fatal',
