@@ -35,61 +35,111 @@ EXEC_ONLY_FAMS = {
 def parse_plan_table(plan_text):
     """从规划表提取 (族名, 状态, 对象数量)。
 
-    表格结构：
-      | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |
-      索引:  0    1          2         3         4       5      6       7        8
+    ★★ 2026-11-13 重写：按表头名定位列，不再硬编码列号
+    ---------------------------------------------------
+    原实现假设固定 9 列布局，但实际规划表有两种形态：
+
+      A. 9 列（带「动作」列）：
+         | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |
+           命令族列=裸族名（N2TACID），动作列=MOD
+
+      B. 9 列（无「动作」列，动词写在命令族里）：
+         | # | 容器自愈控制 | 容器自愈总开关 | 1 | 1 | SET PODHEALCTRL（UEG） | 待定：... | 第1075行... | 待定 |
+           命令族列=SET PODHEALCTRL（UEG）
+
+    原实现按固定下标取 body[5]（命令族）、body[8]（状态），
+    在形态 B 下 body[5] 其实是「待定：目标值...」列，
+    导致 family 被解析成 "1"、状态错位。
+    实测误报：NC20260913000295 正常单被报 9 处 violated。
+
+    新实现：先找表头行，按列名建索引；找不到表头才退回旧的下标法。
     """
-    out = []
-    for line in plan_text.split('\n'):
-        line = line.strip()
+    lines = [l.strip() for l in plan_text.split('\n')]
+
+    # ── 1) 找表头行并建列索引 ─────────────────────────────
+    def _find_col(header_cells, *names):
+        for nm in names:
+            for idx, h in enumerate(header_cells):
+                if nm in h:
+                    return idx
+        return None
+
+    col = {}
+    for line in lines:
         if not line.startswith('|'):
             continue
-        cells = [c.strip() for c in line.split('|')]
-        # cells[0] 和最后一个是空（前后各一个 |）
-        if len(cells) < 10:
+        cells = [c.strip() for c in line.split('|')][1:-1]
+        joined = ''.join(cells)
+        # 表头特征：同时含「命令族」和「状态」
+        if '命令族' in joined and '状态' in joined:
+            col = {
+                'family': _find_col(cells, '命令族', '族'),
+                'status': _find_col(cells, '状态'),
+                'qty': _find_col(cells, '对象数量', '数量'),
+                'action': _find_col(cells, '动作'),
+            }
+            break
+
+    out = []
+    for line in lines:
+        if not line.startswith('|'):
+            continue
+        cells = [c.strip() for c in line.split('|')][1:-1]
+        if len(cells) < 5:
             continue
         # 跳过分隔行 |---|---|
-        if all(re.fullmatch(r':?-+:?', c) for c in cells[1:-1] if c):
+        if all(re.fullmatch(r':?-+:?', c) for c in cells if c):
+            continue
+        # 跳过表头行本身
+        if any('命令族' in c for c in cells):
             continue
 
-        body = cells[1:-1]
-        if len(body) < 9:
-            continue
-
-        # 表头：| # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |
-        # body:  0    1          2         3         4       5      6       7        8
-        fam_cell = body[5]      # 命令族
-        status_cell = body[8]   # 状态
-        qty_cell = body[3]      # 对象数量
-
-        # ★ 规划表的「命令族」列是裸族名（N2TACID），动词在「动作」列（RMV）
-        #   也可能一格里写多个族（EPRPDYN / EPRPDYNIP）
-        action_cell = body[6] if len(body) > 6 else ''
-        verb = ''
-        for v in ('ADD', 'MOD', 'RMV', 'SET'):
-            if v in action_cell.upper():
-                verb = v
-                break
-
-        # 提取族名（支持裸族名 + 多个族用 / 分隔）
-        fams_in_cell = []
-        m = FAM_RE.search(fam_cell)
-        if m:
-            fams_in_cell.append(f'{m.group(1)} {m.group(2)}')
+        # ── 2) 取列（有表头按名取，无表头退回旧下标）────────
+        if col.get('family') is not None and col['family'] < len(cells):
+            fam_cell = cells[col['family']]
+            status_cell = (cells[col['status']]
+                           if col.get('status') is not None and col['status'] < len(cells)
+                           else cells[-1])
+            qty_cell = (cells[col['qty']]
+                        if col.get('qty') is not None and col['qty'] < len(cells)
+                        else '')
+            action_cell = (cells[col['action']]
+                           if col.get('action') is not None and col['action'] < len(cells)
+                           else '')
         else:
-            # 裸族名：全大写+下划线，长度>=3，用 / 或 , 分隔
+            # 旧下标法（形态 A）
+            if len(cells) < 9:
+                continue
+            fam_cell = cells[5]
+            status_cell = cells[8]
+            qty_cell = cells[3]
+            action_cell = cells[6] if len(cells) > 6 else ''
+
+        # ── 3) 从「动作」列（若独立存在）提动词 ──────────────
+        verb = ''
+        if action_cell:
+            for v in ('ADD', 'MOD', 'RMV', 'SET'):
+                if re.search(rf'\b{v}\b', action_cell.upper()):
+                    verb = v
+                    break
+
+        # ── 4) 从命令族列提族名 ────────────────────────────
+        fams_in_cell = []
+        for m in FAM_RE.finditer(fam_cell):
+            _v = m.group(1).upper()
+            _f = m.group(2).upper()
+            fams_in_cell.append(f'{_v} {_f}')
+        if not fams_in_cell:
+            # 裸族名：全大写+下划线，用 / 或 , 分隔
             for part in re.split(r'[/,、]', fam_cell):
                 t = part.strip().upper()
                 if re.fullmatch(r'[A-Z][A-Z0-9_]{2,}', t):
                     fams_in_cell.append(f'{verb} {t}' if verb else t)
 
         if not fams_in_cell:
-            # 命令族列明确写「无」→ agent 已说明理由，跳过
             continue
 
-        # 状态：确认 / 待定 / 跳过 / ★人工调整
         st = status_cell.strip()
-        # 数量
         try:
             qty = int(re.sub(r'[^\d]', '', qty_cell) or '0')
         except Exception:
@@ -174,11 +224,70 @@ def check_plan_vs_csv(sess_dir):
             count_mismatch.append({'family': fam, 'planned': x['qty'],
                                    'actual': n_groups})
 
+    # ★ 2026-11-13 新增反向检查：规划标「跳过」但 csv 里却配了
+    #
+    #   实测 NC20260814000425（膨胀 162x）：
+    #     规划表 #14「位置区分配开关 160 条」状态=不配（已存在且一致）→ 跳过
+    #     但阶段2 agent 又主动重发了 160 条（理由：文档说 INHERIT 时按全局开关生效）
+    #     → 产物 162 条，GT 只要 1 条
+    #
+    #   问题：agent 自我矛盾（规划说不配，实际又配），且 G26 只查单向抓不到
+    #
+    #   判据：状态含「跳过」的行，如果该族在 csv 里有大量组（>= 3 组），报警
+    #   分级：warn（不是配置错误，但会让产物膨胀，需人工确认是否有意重发）
+    # ★★ 2026-11-13 用户裁定：规划表标「跳过」/「待定」的族，产物里不许出现
+    #   「拿 agent 自己写的规划表校验它自己产物」应该做成硬约束，不只是 warn。
+    #
+    #   实测两类膨胀都靠这条堵：
+    #     NC20260814000425（162x）：规划 #14 状态=跳过，阶段2 重发 160 条
+    #     NC20260814001250（4.0x）：规划 #31-35 状态=待定，阶段2 自建 8 族接口
+    #
+    #   例外（不判）：
+    #     · EXEC_ONLY_FAMS：执行类命令族（REFRESHSRV 等），不受对象状态约束
+    #     · 规划表里没写族名（family 为空或是「无」）的行
+    #     · 状态里同时含「确认」的行（agent 既标跳过又标确认，以确认为准）
+    # ★★ 2026-11-13 区分「跳过」和「待定」的语义（实测后修正）
+    #
+    #   「跳过」= agent 明确决定不配 → 产物里出现就是自相矛盾 → fatal
+    #   「待定」= agent 自己也不确定 → 产物里出现说明它做了选择 → 只 warn
+    #
+    #   实测依据：NC20260913000295（正常单，100% 覆盖）的 9 行全是「待定」，
+    #     语义是「目标值=ENABLE 则跳过；=DISABLE 则 MOD」—— agent 不知道目标值，
+    #     阶段2 按现网值配了。这不是矛盾，是信息不足下的合理选择。
+    #     如果也当 fatal，会把正常单误判成失败。
+    def _collect(status_kw):
+        rows = [x for x in planned
+                if status_kw in x['status'] and '确认' not in x['status']
+                and '人工调整' not in x['status']]
+        got = []
+        for x in rows:
+            fam = x['family']
+            if not fam or fam in ('无', '-'):
+                continue
+            bare = fam.split(' ', 1)[1] if ' ' in fam else fam
+            if bare in EXEC_ONLY_FAMS:
+                continue
+            n_groups = len(csv_groups.get(fam, set()) | csv_groups.get(bare, set()))
+            if n_groups == 0:
+                continue
+            got.append({
+                'family': fam,
+                'planned_status': x['status'][:30],
+                'actual_groups': n_groups,
+                'planned_qty': x['qty'],
+            })
+        return got
+
+    violated = _collect('跳过')     # fatal
+    undecided = _collect('待定')    # warn
+
     return {
-        'ok': not missing and not count_mismatch,
+        'ok': not missing and not count_mismatch and not violated,
         'skipped': False,
         'missing': missing,
         'count_mismatch': count_mismatch,
+        'violated': violated,
+        'undecided': undecided,
         'reason': '',
         'n_planned': len(must_do),
     }

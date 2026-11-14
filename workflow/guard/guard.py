@@ -2292,6 +2292,37 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                 f"G26 有 {len(_cm)} 个族的数量明显少于规划（{_desc2}）："
                 f"请检查是否漏配了对象。")
 
+        # ★★ 2026-11-13 用户裁定：规划表标「跳过」/「待定」的族，产物里不许出现
+        #   做成 fatal（硬约束），因为「拿 agent 自己写的规划表校验它自己产物」
+        #   是全流程最可靠的一致性闭环。
+        #
+        #   实测两类膨胀：
+        #     NC20260814000425（162x）：规划 #14 状态=跳过，阶段2 重发 160 条
+        #     NC20260814001250（4.0x）：规划 #31-35 状态=待定，阶段2 自建 8 族接口
+        _vio = _g26.get('violated') or []
+        if _vio:
+            _desc3 = '；'.join(
+                f"{m['family']}（规划标「{m['planned_status']}」，产物里却配了 "
+                f"{m['actual_groups']} 组）"
+                for m in _vio[:3])
+            fatal.append(
+                f"G26 有 {len(_vio)} 个族在规划表里标了「跳过」，但产物里却配了："
+                f"{_desc3}。规划与产物自相矛盾。"
+                f"处理方式二选一："
+                f"a) 如果确实要配，把规划表该行状态改成「确认」并说明理由；"
+                f"b) 如果不需要配，从 params.csv 删除这些组。"
+                f"（值没变的重发只会让产物膨胀）")
+
+        # ★ 2026-11-13：「待定」族配了 → 只 warn（agent 自己不确定，配了算做了选择）
+        _und = _g26.get('undecided') or []
+        if _und:
+            _desc4 = '；'.join(
+                f"{m['family']}（{m['actual_groups']} 组）" for m in _und[:3])
+            warn.append(
+                f"G26 有 {len(_und)} 个族在规划表里标「待定」但产物里配了"
+                f"（{_desc4}）：说明是信息不足下的自主选择，"
+                f"建议在方案澄清里说明依据，方便人工复核。")
+
     # ★ G27 配不了的项没说明（warn）
     _g27 = checks.get('G27_unable') or {}
     if _g27 and not _g27.get('skipped') and not _g27.get('ok', True):
