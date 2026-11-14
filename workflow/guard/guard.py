@@ -2323,6 +2323,24 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                 f"（{_desc4}）：说明是信息不足下的自主选择，"
                 f"建议在方案澄清里说明依据，方便人工复核。")
 
+        # ★★ 2026-11-14 新增：params.csv 动词列 vs 规划表动作列不一致 → fatal
+        #   实测 NC20260819001887：规划表写「MOD POOL 修改」（190 个池改 REDUNDFUNC），
+        #   但当时 params.csv 没动词列，代码按「POOL 现网只有 ADD」推断成 ADD POOL
+        #   → 会新建已存在的 190 个池，全部失败
+        _vm = _g26.get('verb_mismatch') or []
+        if _vm:
+            _desc5 = '；'.join(
+                f"{m['family']}（规划「{m['plan_action']}」={m['plan_verb']}，"
+                f"csv 动词={m['csv_verb']}）" for m in _vm[:3])
+            fatal.append(
+                f"G26 有 {len(_vm)} 个族的 params.csv 动词与规划表「动作」列不一致："
+                f"{_desc5}。"
+                f"改法：把 params.csv 的「动词」列改成与规划表一致——"
+                f"规划写「修改」→ MOD（改现网已有对象），"
+                f"规划写「新增」→ ADD。"
+                f"动词填错会导致：该 MOD 的写成 ADD（新建已存在对象，执行失败），"
+                f"或该 ADD 的写成 MOD（改不存在的对象，执行失败）。")
+
     # ★ G27 配不了的项没说明（warn）
     _g27 = checks.get('G27_unable') or {}
     if _g27 and not _g27.get('skipped') and not _g27.get('ok', True):

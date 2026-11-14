@@ -521,10 +521,21 @@ def write_output(r):
             parts.append(f'\n## {name}（{act}，{len(rows)} 行）\n')
             parts.append('| ' + ' | '.join(headers) + ' |')
             parts.append('|' + '|'.join(['---'] * len(headers)) + '|')
-            for row in rows[:200]:      # 最多 200 行，避免文件过大
+            # ★★ 2026-11-14 去掉 200 行截断（用户要求「先查族覆盖的问题」时发现）
+            #   实测 NC20260819001887：GRE隧道配置表 368 行被截成 200 行
+            #   标题仍写「368 行」，但表格只有 200 行（主 IP 184 + 备 IP 16）
+            #   → agent 只配了 184 条主隧道 + 16 条备隧道
+            #   → 产物 1110 条 vs GT 1294 条（少 184）
+            #   数据清单是 agent 的唯一数据来源，截断 = 直接少配，
+            #   而且提示文字在 200 行表格之后，agent 很容易忽略。
+            #   数据清单本来就是全量给出，不应该截断。
+            import os as _os
+            _max_rows = int(_os.environ.get('DATASET_MAX_ROWS', '0'))
+            _rows_out = rows if _max_rows <= 0 else rows[:_max_rows]
+            for row in _rows_out:
                 parts.append('| ' + ' | '.join(str(x) for x in row) + ' |')
-            if len(rows) > 200:
-                parts.append(f'\n（共 {len(rows)} 行，此处只列前 200 行）')
+            if len(rows) > len(_rows_out):
+                parts.append(f'\n（共 {len(rows)} 行，此处只列前 {len(_rows_out)} 行）')
         dp.write_text('\n'.join(parts), encoding='utf-8')
         return ip, dp
     return ip, None

@@ -72,6 +72,11 @@ def read_params(csv_path):
                 'group': grp,
                 'unit': (r.get('网元') or '').strip().upper(),
                 'family': (r.get('命令族') or '').strip().upper(),
+                # ★ 2026-11-14 新增：动词列（ADD/MOD/SET/RMV），由 agent 按规划表填
+                #   实测 NC20260819001887：规划表写「MOD POOL 修改」（190 个池改 REDUNDFUNC），
+                #   但 params.csv 没记动词，代码按「POOL 现网只有 ADD」推断成 ADD POOL ×190
+                #   → 会新建已存在的 190 个池，全部失败。
+                'verb': (r.get('动词') or '').strip().upper(),
                 'param': (r.get('参数') or '').strip().upper(),
                 'value': (r.get('值') or '').strip(),
                 # ★ 2026-11-05：占位符列。有值=用了命名占位符；空=真实值或组引用
@@ -213,6 +218,23 @@ def build_command(group_rows_):
         except Exception:
             verb = 'SET' if fam in SET_FAMILIES else 'ADD'
 
+    # ★★ 2026-11-14：params.csv 里显式写了动词就用它（优先级最高）
+    #   规划表是 agent 判断的业务动作，规则表只能从现网推断「这个族通常用什么动词」，
+    #   判不了本次要做什么。
+    #   实测 NC20260819001887：POOL 现网只有 ADD（1333 条），规则表推 ADD，
+    #   但本次要 MOD（改 190 个池的 REDUNDFUNC）→ 必须听 agent 的。
+    #
+    # ★ 2026-11-14 补充（用户指出「动词不止这些」）：
+    #   MML 动词远不止 ADD/MOD/SET/RMV。按 KB 的 MML 文档实测分布：
+    #     配置类：add(4008) mod(2726) rmv(4200) set(3014)
+    #     操作类：act(122) dea(32) rtr(322) str(134) rst(82) stp(62)
+    #             clr(102) opr(90) syn(44) lod(46) lck(44) rbl(24) upd
+    #     查询类：lst/dsp/tst/exp —— 只读，不会进产物
+    #   产物生成需要支持「会改变数据/状态」的全部动词，不能只认 4 个。
+    _csv_verb = (group_rows_[0].get('verb') or '').strip().upper() if group_rows_ else ''
+    if _csv_verb in DATA_VERBS:
+        verb = _csv_verb
+
     parts = []
     for r in group_rows_:
         p = r['param']
@@ -233,6 +255,21 @@ def build_command(group_rows_):
         tail = '   // ' + ' '.join(f'@src={s}' if not s.startswith('@src=') else s
                                    for s in srcs[:3])
     return f'{verb} {fam}:{", ".join(parts)};{tail}'
+
+
+# ★ 2026-11-14：MML 会改变数据/状态的动词（产物生成只认这些）
+#   来源：KB 的 MML 文档文件名前缀分布 + 现网 EXP 实测
+#   查询类（lst/dsp/tst/exp）不在此列 —— 只读命令不进配置产物
+DATA_VERBS = frozenset({
+    # 配置类
+    'ADD', 'MOD', 'RMV', 'SET',
+    # 操作类（不改数据结构，但改变运行状态，也属于配置动作）
+    'ACT', 'DEA',          # 激活 / 去激活
+    'RTR', 'RST', 'STR', 'STP',   # 复位 / 重置 / 启动 / 停止
+    'CLR', 'OPR',          # 清除 / 操作
+    'SYN', 'LOD', 'RBL', 'UPD',   # 同步 / 加载 / 重载 / 更新
+    'LCK', 'ULK',          # 锁定 / 解锁
+})
 
 
 def gen_mml(csv_path, with_unit_sections=True):

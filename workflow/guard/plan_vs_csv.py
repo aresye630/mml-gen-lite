@@ -116,12 +116,18 @@ def parse_plan_table(plan_text):
             action_cell = cells[6] if len(cells) > 6 else ''
 
         # ── 3) 从「动作」列（若独立存在）提动词 ──────────────
+        #   形态 B（无动作列）时，从命令族列里提（如「SET PODHEALCTRL（UEG）」）
         verb = ''
+        _act_src = action_cell if action_cell else fam_cell
+        for v in ('ADD', 'MOD', 'RMV', 'SET'):
+            if re.search(rf'\b{v}\b', _act_src.upper()):
+                verb = v
+                break
+        # 动作列写中文（新增/修改/删除/设置）时保留原文，供 verb_mismatch 映射
         if action_cell:
-            for v in ('ADD', 'MOD', 'RMV', 'SET'):
-                if re.search(rf'\b{v}\b', action_cell.upper()):
-                    verb = v
-                    break
+            _act_out = action_cell.strip()
+        else:
+            _act_out = verb
 
         # ── 4) 从命令族列提族名 ────────────────────────────
         fams_in_cell = []
@@ -146,7 +152,8 @@ def parse_plan_table(plan_text):
             qty = 0
 
         for _f in fams_in_cell:
-            out.append({'family': _f, 'status': st, 'qty': qty})
+            out.append({'family': _f, 'status': st, 'qty': qty,
+                        'action': _act_out})
 
     return out
 
@@ -208,7 +215,8 @@ def check_plan_vs_csv(sess_dir):
     missing, count_mismatch = [], []
     for x in must_do:
         fam = x['family']
-        bare = fam.split(' ', 1)[1]
+        # ★ 2026-11-14 修：family 可能只有裸族名（NODEB），split 会越界
+        bare = fam.split(' ', 1)[1] if ' ' in fam else fam
         if bare in EXEC_ONLY_FAMS:
             continue
 
@@ -281,13 +289,81 @@ def check_plan_vs_csv(sess_dir):
     violated = _collect('跳过')     # fatal
     undecided = _collect('待定')    # warn
 
+    # ★★ 2026-11-14 新增：csv 动词列 vs 规划表「动作」列一致性
+    #
+    #   实测 NC20260819001887（1294 命令）：
+    #     规划表 #6：| IP地址池 | 外部地址池冗余开关 REDUNDFUNC=ENABLE | 190 | MOD POOL | 修改 | 确认 |
+    #     params.csv：命令族=POOL，但当时还没有动词列
+    #     mml_gen 按「POOL 现网只有 ADD（1333 条）」推断 → ADD POOL ×190
+    #     → 会新建已存在的 190 个池，全部失败
+    #
+    #   params.csv 加「动词」列后，这里校验它和规划表的「动作」列是否吻合。
+    #   映射（中文动作 → MML 动词）：
+    #   ★ 2026-11-14 扩充（用户指出「动词不止这些，还有 ACT DEA RTR 等等」）
+    #     MML 会改变数据的动词不止 ADD/MOD/SET/RMV，产物生成要支持全部。
+    _ACT_VERB = {
+        # 配置类
+        '新增': 'ADD', '创建': 'ADD', '增加': 'ADD',
+        '修改': 'MOD', '调整': 'MOD', '变更': 'MOD',
+        '删除': 'RMV', '移除': 'RMV',
+        '设置': 'SET', '配置': 'SET',
+        # 操作类
+        '激活': 'ACT', '去激活': 'DEA', '取消激活': 'DEA',
+        '复位': 'RTR', '重启': 'RTR',
+        '重置': 'RST', '启动': 'STR', '开启': 'STR',
+        '停止': 'STP', '关闭': 'STP',
+        '清除': 'CLR', '操作': 'OPR',
+        '同步': 'SYN', '加载': 'LOD', '重载': 'RBL', '更新': 'UPD',
+        '锁定': 'LCK', '解锁': 'ULK',
+    }
+    # 只要规划表动作列能直接提到 MML 动词，就以它为准（覆盖上表）
+    _MML_VERBS = frozenset({
+        'ADD', 'MOD', 'RMV', 'SET',
+        'ACT', 'DEA', 'RTR', 'RST', 'STR', 'STP',
+        'CLR', 'OPR', 'SYN', 'LOD', 'RBL', 'UPD', 'LCK', 'ULK',
+    })
+    verb_mismatch = []
+    try:
+        csv_rows_list = list(csv.DictReader(io.StringIO(csv_text)))
+        # 每个族第一次出现的动词
+        fam_csv_verb = {}
+        for r in csv_rows_list:
+            fam = (r.get('命令族') or '').strip().upper()
+            v = (r.get('动词') or '').strip().upper()
+            if fam and fam not in fam_csv_verb:
+                fam_csv_verb[fam] = v
+        for x in must_do:
+            fam = x['family']
+            bare = fam.split(' ', 1)[1] if ' ' in fam else fam
+            _act = (x.get('action') or '').strip()
+            # 动作列里直接出现 MML 动词（如「MOD」「ACT」）→ 优先用它
+            want = ''
+            for _v in _MML_VERBS:
+                if re.search(rf'\b{_v}\b', _act.upper()):
+                    want = _v
+                    break
+            if not want:
+                want = _ACT_VERB.get(_act, '')
+            got = fam_csv_verb.get(bare) or fam_csv_verb.get(fam) or ''
+            if want and got and want != got:
+                verb_mismatch.append({
+                    'family': bare,
+                    'plan_action': x.get('action', ''),
+                    'plan_verb': want,
+                    'csv_verb': got,
+                })
+    except Exception:
+        pass
+
     return {
-        'ok': not missing and not count_mismatch and not violated,
+        'ok': (not missing and not count_mismatch and not violated
+               and not verb_mismatch),
         'skipped': False,
         'missing': missing,
         'count_mismatch': count_mismatch,
         'violated': violated,
         'undecided': undecided,
+        'verb_mismatch': verb_mismatch,
         'reason': '',
         'n_planned': len(must_do),
     }
