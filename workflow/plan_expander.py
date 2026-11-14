@@ -61,7 +61,17 @@ def parse_datasets(dataset_text):
             continue
         title = lines[0].strip()
         m = _META_RE.match(title)
-        name, action = (m.group(1).strip(), m.group(2).strip()) if m else (title, '')
+        # ★★ 2026-11-14 修（75 单全量暴露，agent 发现）：括号后缀是表名的一部分
+        #   实测「## 接口IP资源（删除）」和「## 接口IP资源（新增）」剥离动作后
+        #   都变成 name='接口IP资源' → tmap 以 name 为键 → 后表覆盖前表
+        #   → RMV 规则整条丢失（NC20260907001683 族覆盖 0%）。
+        #   规则：括号里是动作词就保留在 name 里，让两张表不同名。
+        _ACT_WORDS = ('新增', '删除', '修改', '设置', '调整', '变更', '增加',
+                      '移除', '添加', '新建', '更新')
+        if m and any(w in m.group(2) for w in _ACT_WORDS):
+            name, action = title, m.group(2).strip()
+        else:
+            name, action = (m.group(1).strip(), m.group(2).strip()) if m else (title, '')
         header, rows = None, []
         for line in lines[1:]:
             s = line.strip()
@@ -88,6 +98,52 @@ def parse_datasets(dataset_text):
 _VERB_RE = re.compile(
     r'^(ADD|MOD|RMV|SET|ACT|DEA|RTR|RST|STR|STP|CLR|OPR|SYN|LOD|RBL|UPD|LCK|ULK)'
     r'\s+([A-Z][A-Z0-9_]+)')
+
+
+def _rule_unit(rule, default='UDG'):
+    """从规划表「命令族」单元格里的网元标注取网元，如「ADD X（UNC）」→ UNC。
+
+    ★★ 2026-11-14 新增（agent 发现 / NC20260811002152）：
+      多网元工单必须按行区分网元，否则整份产物落进同一个网元段
+      （params.csv 的「网元」列全是 UDG → UNC 命令被标成 UDG）。
+    支持长名映射：UPF→UDG，SMF→UNC，AMF→UEG；未标注回落 default。
+    """
+    cell = (rule.get('family') or '').upper()
+    m = re.search(r'[（(]\s*([A-Z]{3})\s*[）)]', cell)
+    if not m:
+        return default
+    u = m.group(1)
+    return {'UPF': 'UDG', 'SMF': 'UNC', 'AMF': 'UEG'}.get(u, u)
+
+
+def _verb_from_action(rule):
+    """规划表「命令族」列没写动词前缀时，按「动作」列反推动词。
+
+    ★★ 2026-11-14 新增（agent 发现 / NC20260811002152）：
+      规划表的「命令族」列通常只写裸族名（FILTER / RULE），
+      动词在单独的「动作」列（新增 / 修改 / 删除 / 设置）。
+      原实现只取 rule['verb']（命名前缀解析结果）→ 绝大多数规划表拿不到动词
+      → params.csv 的「动词」列整列为空 → G26 报「N 个族动词与动作列不一致」。
+    映射表复用 verb_rules（YAML 数据驱动，与 guard G26 同一份）。
+    """
+    act = (rule.get('action') or '').strip()
+    if not act:
+        return ''
+    try:
+        import sys as _sys
+        _wf = str(Path(__file__).resolve().parent)
+        if _wf not in _sys.path:
+            _sys.path.insert(0, _wf)
+        from verb_rules import get_rules as _get_vr
+        vr = _get_vr()
+        # 1) 动作列里直接写了 MML 动词（如「新增 ADD」）
+        for v in (vr.data_verbs or ()):
+            if re.search(rf'\b{v}\b', act.upper()):
+                return v
+        # 2) 中文动作 → 动词（YAML 的 ACTION_VERB_MAP）
+        return vr.action_to_verb(act)
+    except Exception:
+        return ''
 
 
 def parse_plan_mapping(plan_text):
@@ -245,8 +301,18 @@ def to_template_rows(rules, tables, unit='UDG'):
     seen = {}
     for rule in rules:
         status = (rule.get('status') or '').strip()
+        # ★★ 2026-11-14 修（agent 发现）：原实现把「待定/跳过」静默丢弃，
+        #   warnings 也不加。实测 NC20260920001139：12 行里 10 行待定
+        #   → 只展开 5 组，agent 和用户都看不到「这些行没进产物」。
+        #   「待定」语义 = 先按默认配出来、由方案澄清让用户复核，
+        #   不是「不要配」（跳过 才是）。故待定照常展开并给 warn。
         if status and '确认' not in status:
-            continue
+            if '待定' in status:
+                warns.append(
+                    f'规划表第 {rule["idx"]} 行（{rule.get("family") or "?"}，'
+                    f'状态={status}）已按默认展开，需人工复核')
+            else:
+                continue
         bare = rule['family_bare']
         mapping = rule['mapping']
         if not bare:
@@ -260,6 +326,14 @@ def to_template_rows(rules, tables, unit='UDG'):
         #   规划表表头是「| # | 业务对象 | 数量 | ... |」，没有数据清单表列）
         #   这时按「业务对象」或「参数映射里 @列名」反查是哪张表。
         tname = rule['table'] or ''
+        # ★★ 2026-11-14 修（agent 发现）：规划表里「没有数据清单」的行习惯写
+        #   「—」「无」「—（意图第 2 条）」等占位符。这种值不能当表名去模糊匹配
+        #   （实测「—（意图第 2 条）」会命中「回声探测地址表」，
+        #    随后该行的 SET 命令被该表的变体关键词过滤掉）。
+        _bare = re.sub(r'[（(][^）)]*[）)]', '', tname)
+        _bare = re.sub(r'[\s\u2014\u2013\-_/：:()（）\[\]【】"\'。，,]', '', _bare)
+        if _bare in ('', '无', 'NA', 'N/A', 'null', 'None'):
+            tname = ''
         tbl = None
         if tname:
             tbl = tmap.get(tname)
@@ -269,8 +343,8 @@ def to_template_rows(rules, tables, unit='UDG'):
                         tbl = v
                         tname = k
                         break
-        if tbl is None:
-            # 兜底1：按业务对象名匹配表名
+        if tbl is None and tname:
+            # 兜底1：按业务对象名匹配表名（只在规划表确实写了表名时启用）
             obj = (rule.get('object') or '').strip()
             if obj:
                 for k, v in tmap.items():
@@ -315,18 +389,48 @@ def to_template_rows(rules, tables, unit='UDG'):
 
         headers = tbl['headers']
         key_col = _detect_key_col(headers, tbl['rows'])
-        tidx[tname] = {'headers': headers, 'rows': tbl['rows'],
-                       'key_col': key_col}
 
         # 模板组名：同族多规则时加后缀区分
-        n_seen = seen.get((rule['verb'], bare), 0)
-        seen[(rule['verb'], bare)] = n_seen + 1
-        gname = f'{bare}{TEMPLATE_MARK}' if n_seen == 0 else f'{bare}v{n_seen + 1}{TEMPLATE_MARK}'
+        # ★★ 2026-11-14 修（agent 发现）：原来按 (动词, 族) 计数，
+        #   但 gname 只由 <族>vN 生成、不与动词绑定
+        #   → RMV IFIPV6ADDRESS 和 ADD IFIPV6ADDRESS 拿到同一个组名
+        #   → 两族参数混在一组（实测生成 133 行 ADD、RMV 全丢）。
+        #   改为按「族」计数：同族第 2 次出现一律 v2（附动词后缀更清晰）。
+        n_seen = seen.get(bare, 0)
+        seen[bare] = n_seen + 1
+        if n_seen == 0:
+            gname = f'{bare}{TEMPLATE_MARK}'
+        else:
+            gname = f'{bare}v{n_seen + 1}{rule["verb"] or ""}{TEMPLATE_MARK}'
 
         # 变体过滤条件（「业务对象」列含判别词）
         variant_kw = ''
         if n_seen > 0 or _has_multi_variant(rules, rule):
             variant_kw = _extract_variant_kw(rule.get('object', ''), tbl.get('rows'))
+
+        # ★★ 2026-11-14 修（agent 发现 / NC20260818000342）：
+        #   同一张表被多行规则当变体用（URR offline / online 都读「用量上报规则」表）。
+        #   原实现 tidx 只存一份整表，expand_from_session 取该表下第一个非空
+        #   _variant_kw 去过滤所有组 → 两个变体展开成同一批行
+        #   （online 组拿到 offline 的名字），占位符也撞名。
+        #   修法：变体在 tidx 里用唯一键（表名~~规则序号），rows 预先按本变体
+        #   的 variant_kw 过滤好，「来源」列同步写该唯一键，使 group_table 精确归位。
+        _src_tname = tname
+        if variant_kw:
+            _rows = tbl['rows']
+            _filt = [rw for rw in _rows
+                     if any(variant_kw.upper() in str(v).upper().replace(' ', '')
+                            for v in rw.values())]
+            if _filt:
+                _rows = _filt
+            _vkey = f'{tname}~~{rule["idx"]}'
+            tidx[_vkey] = {'headers': headers, 'rows': _rows,
+                           'key_col': _detect_key_col(headers, _rows)}
+            _src_tname = _vkey
+        elif tname not in tidx:
+            tidx[tname] = {'headers': headers, 'rows': tbl['rows'],
+                           'key_col': key_col}
+
 
         for pname, src in mapping:
             no += 1
@@ -337,9 +441,17 @@ def to_template_rows(rules, tables, unit='UDG'):
             if key_col and 'key=' not in (_note or ''):
                 _note = f'{_note}|key={key_col}' if _note else f'key={key_col}'
             out.append({
-                '序号': str(no), '组': gname, '网元': unit,
-                '动词': rule['verb'], '命令族': bare, '参数': pname,
-                '值': val, '来源': f'plan:{tname}#{rule["idx"]}',
+                '序号': str(no), '组': gname,
+                # ★ 2026-11-14（agent 发现）：原来整份 params.csv 都写 unit（默认 UDG），
+                #   多网元工单（UNC+UDG）的 UNC 命令被标成 UDG → 生成时全落进 UDG 段。
+                '网元': _rule_unit(rule, unit),
+                # ★ 2026-11-14（agent 发现）：命令族列只有裸族名时 rule['verb'] 为空，
+                #   改用「动作」列反推（verb_rules 的 ACTION_VERB_MAP）
+                '动词': rule['verb'] or _verb_from_action(rule),
+                '命令族': bare, '参数': pname,
+                # ★ 2026-11-14：变体场景用唯一表键（表名~~序号），
+                #   使 expand_from_session 的 group_table 能精确归位
+                '值': val, '来源': f'plan:{_src_tname}#{rule["idx"]}',
                 '说明': _note, '实例化': 'object',
                 '_variant_kw': variant_kw,   # 内部用，写 CSV 时丢
             })
@@ -398,10 +510,13 @@ def _translate_value(src, rule, headers, key_col):
     src = (src or '').strip()
     fam, table = rule['family_bare'], rule['table']
 
+    # ★ 2026-11-14 修：expander 的 ${SELF} 是「当前值自己」，
+    #   参数值本身为空时会被替换成空串（实测 SECTIONNUM="" ）。
+    #   改为用专属标记 @@SEQ@@，展开后按「组内第几条」替换成序号。
     if src == '@seq':
-        return '${SELF}', '行号(1起)'
+        return '@@SEQ1@@', '行号(1起)'
     if src == '@seq0':
-        return '${SELF}|DEC(1)', '行号(0起)'
+        return '@@SEQ0@@', '行号(0起)'
     if src == '@待填写':
         # ★ 占位符按对象唯一 + 带参数名：【族_参数_对象】
         #   实现：模板值先写死标记 @@PH@@，
@@ -528,10 +643,13 @@ def expand_from_session(session_dir, unit='UDG'):
         src = r.get('来源') or ''
         m = re.match(r'plan:(.+?)#', src)
         if m:
-            group_table.setdefault(r['组'], m.group(1))
+            # ★★ 2026-11-14 修（agent 发现）：一个模板组可能被多条规则共用
+            #   （同族不同动词，如 RMV X + ADD X），setdefault 只记住第一个来源表
+            #   → 第二个表的数据永远取不到。改为收集集合。
+            group_table.setdefault(r['组'], set()).add(m.group(1))
 
     for tname, tbl in tidx.items():
-        groups_of_table = {g for g, t in group_table.items() if t == tname}
+        groups_of_table = {g for g, ts in group_table.items() if tname in ts}
         if not groups_of_table:
             continue
         sub_rows = [r for r in tmpl_rows if r['组'] in groups_of_table]
@@ -573,13 +691,37 @@ def expand_from_session(session_dir, unit='UDG'):
                 'warnings': warns}
 
     # 写完整 params.csv
+    # ★ 组 → 实例序号（@seq 用）：按组首次出现顺序，从 1 开始
+    _group_instance_no = {}
+    _seq_counter = 0
+    for _r0 in all_out_rows:
+        _g0 = _r0.get('组', '')
+        if _g0 not in _group_instance_no:
+            _seq_counter += 1
+            _group_instance_no[_g0] = _seq_counter
+
     # ★ 每组 → 动词（expander 输出不含动词列，要补回来）
     group_verb = {}
     group_keycol = {}
+    # ★★ 2026-11-14 修（agent 发现）：模板组名有 3 种形态
+    #     <族>#T（第 1 条）、<族>v2<动词>#T（同族第 2 条）
+    #   expander 展开后组名是 <族>#1 / <族>v2ADD#1
+    #   原实现用 rstrip('#T') 建键，与展开后的 base 对不上
+    #   → 整族动词为空 → mml 里出现没有 ADD/MOD 前缀的裸命令。
+    #   改为：带 #T / 去 #T / 族裸名 三种键都注册。
     for r in tmpl_rows:
-        g_base = r['组'].replace(TEMPLATE_MARK, '')
-        group_verb[r['组'].rstrip(TEMPLATE_MARK)] = r.get('动词', '')
-        # 从说明列里取主键列（@待填写 时写入）
+        g = r['组']
+        g_not = g[:-len(TEMPLATE_MARK)] if g.endswith(TEMPLATE_MARK) else g
+        v = (r.get('动词') or '').strip()
+        fam_bare = (r.get('命令族') or '').strip()
+        for _k in (g, g_not):
+            group_verb[_k] = v
+        if v:
+            group_verb.setdefault(fam_bare, v)
+            mm = re.match(r'^(.+?)v(\d+)([A-Z]*)$', g_not)
+            if mm:
+                group_verb.setdefault(f'{mm.group(1)}v{mm.group(2)}{mm.group(3)}', v)
+        # 从说明列里取主键列（每组都写）
         note = r.get('说明') or ''
         m = re.search(r'key=(\S+)', note)
         if m and m.group(1):
@@ -588,7 +730,16 @@ def expand_from_session(session_dir, unit='UDG'):
     def _verb_of(group):
         g = str(group or '')
         base = g.split('#')[0] if '#' in g else g
-        return group_verb.get(base) or group_verb.get(base + TEMPLATE_MARK) or ''
+        if base in group_verb and group_verb[base]:
+            return group_verb[base]
+        if base + TEMPLATE_MARK in group_verb and group_verb[base + TEMPLATE_MARK]:
+            return group_verb[base + TEMPLATE_MARK]
+        # 变体组名 <族>v2<动词> → 回落到 <族> 的动词
+        mm = re.match(r'^([A-Z][A-Z0-9_]*?)v\d+([A-Z]*)$', base)
+        if mm:
+            fam = mm.group(1)
+            return (group_verb.get(fam) or group_verb.get(fam + TEMPLATE_MARK) or '')
+        return ''
 
     def _keycol_of(group):
         g = str(group or '')
@@ -649,9 +800,17 @@ def expand_from_session(session_dir, unit='UDG'):
     n_ph = 0
     seen_ph = {}
     ph_rows = []
+    # ★★ 2026-11-14：@seq / @seq0 → 组内实例序号
+    #   语义：同一组的参数属于「同一条命令」，共享一个序号；
+    #        下一个组（#2）序号 +1。
+    #   实现：按组的出现顺序编号（组已在 _group_instance_no 里预处理）。
     for i, r in enumerate(all_out_rows, 1):
         val = str(r.get('值', ''))
         grp = r.get('组', '')
+        if '@@SEQ1@@' in val:
+            val = val.replace('@@SEQ1@@', str(_group_instance_no.get(grp, 1)))
+        if '@@SEQ0@@' in val:
+            val = val.replace('@@SEQ0@@', str(_group_instance_no.get(grp, 1) - 1))
         # ★ 重写占位符：@@PH@@ → 【族_参数_对象】
         if '@@PH@@' in val:
             fam = r.get('命令族', '')

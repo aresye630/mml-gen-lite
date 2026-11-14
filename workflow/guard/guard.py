@@ -2105,6 +2105,23 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         checks['G36_param_mapping'] = {'ok': True, 'skipped': True,
                                        'reason': f'G36 执行失败: {e}'}
 
+    # ★★ 2026-11-14 新增 G37：agent 是否越界访问/修改源码
+    #   实测 75 单全量：agent 用 `from hermes_tools import write_file, patch`
+    #   绕过 MCP 直接改 /opt/expgv/workflow/plan_expander.py，
+    #   导致同一镜像的 4 个容器 MD5 各不相同 → 评测结果不可信。
+    try:
+        if session_dir and Path(session_dir).exists():
+            import importlib as _il2
+            import source_guard as _sg
+            _il2.reload(_sg)
+            checks['G37_source_access'] = _sg.check_source_access(str(session_dir))
+        else:
+            checks['G37_source_access'] = {'ok': True, 'skipped': True,
+                                           'reason': 'no session_dir'}
+    except Exception as e:
+        checks['G37_source_access'] = {'ok': True, 'skipped': True,
+                                       'reason': f'G37 执行失败: {e}'}
+
     # ★ 2026-11-10 新增 G27：配不了的项是否说明了
     #   用户要求：跨网元无法配置的族，agent 要主动提示，不能默默跳过
     try:
@@ -2353,7 +2370,15 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                 f"（{_desc4}）：说明是信息不足下的自主选择，"
                 f"建议在方案澄清里说明依据，方便人工复核。")
 
-        # ★★ 2026-11-14 G36：参数映射校验
+        # ★★ 2026-11-14 G37：源码越界访问
+    _g37 = checks.get('G37_source_access') or {}
+    if _g37 and not _g37.get('skipped'):
+        for _f in (_g37.get('fatal') or [])[:3]:
+            fatal.append(f'G37 源码越界：{_f}')
+        for _w in (_g37.get('warn') or [])[:2]:
+            warn.append(f'G37 源码越界：{_w}')
+
+    # ★★ 2026-11-14 G36：参数映射校验
     _g36 = checks.get('G36_param_mapping') or {}
     if _g36 and not _g36.get('skipped'):
         for _f in (_g36.get('fatal') or [])[:4]:

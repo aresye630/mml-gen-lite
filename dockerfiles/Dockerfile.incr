@@ -36,6 +36,36 @@ RUN find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
 # ── 清掉 pyc（避免旧字节码覆盖新代码）──
 RUN find /opt/expgv -name '__pycache__' -type d -exec rm -rf {} + 2>/dev/null || true
 
+# ═══════════════════════════════════════════════════════════════
+# ★★ 2026-11-14 代码只读保护（用户裁：C 方案 A 部分）
+#
+# 背景（75 单全量实测）：
+#   agent 有 Bash / Read / Write 工具，且 expgv 用户对 /opt/expgv 可写，
+#   导致它在生成过程中【直接改生产代码】：
+#     · 205 次 Bash/Read 访问 /opt/expgv/workflow/*
+#     · 实际改写了 plan_expander.py
+#   实测 4 个容器的同一文件 MD5 各不相同：
+#     镜像原始    b4a12a3f1e31dc95  （31875 字节）
+#     mmlgen-b1   b4a12a3f1e31dc95  （未改）
+#     mmlgen-b2   b4a12a3f1e31dc95  （未改）
+#     mmlgen-clean e088f6d7638b1d8e （38988 字节，被改）
+#     mmlgen-b3   6781c5230761234b  （39754 字节，被改）
+#   → 同一镜像的 4 个容器不再一致，评测结果不可信。
+#
+# 修法：代码目录去掉写权限（目录 555，文件 444）。
+#   保留可读是为了让 agent 能查看规则（对排查有益），但物理上写不了。
+#   需要写的地方（/data/sessions、/tmp）权限不受影响。
+# ═══════════════════════════════════════════════════════════════
+RUN find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
+         /opt/expgv/rules /opt/expgv/tools /opt/expgv/mcp -type d -exec chmod 555 {} + 2>/dev/null || true
+RUN find /opt/expgv/backend /opt/expgv/workflow /opt/expgv/scripts \
+         /opt/expgv/rules /opt/expgv/tools /opt/expgv/mcp -type f -exec chmod 444 {} + 2>/dev/null || true
+
+# 预编译字节码到独立目录（避免运行时往只读目录写 __pycache__）
+#   PYTHONPYCACHEPREFIX 让 python 把 .pyc 写到 /tmp/pycache
+ENV PYTHONPYCACHEPREFIX=/tmp/pycache
+RUN mkdir -p /tmp/pycache && chmod 777 /tmp/pycache
+
 # ★ 2026-11-12 修：健康检查读 $PORT（原来继承自基础镜像的 8600 是错的）
 HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
     CMD curl -fsS "http://127.0.0.1:${PORT:-8600}/health" || exit 1

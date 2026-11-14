@@ -51,11 +51,30 @@ def round_hard_limit_for(sess_dir):
         （对比 EXP 大小只有 0.23，不能用）
     """
     try:
-        import csv as _csv
         from pathlib import Path as _P
+        # ★★ 2026-11-14 修（75 单全量实测发现）：
+        #   旧逻辑只看 params.csv 行数。但方案 C 改了流程 ——
+        #   params.csv 是「agent 第 1 轮结束后由代码展开」生成的，
+        #   第 1 轮开始时根本不存在 → round_hard_limit_for 直接返回 900s。
+        #   实测 75 单全量：6 单 S2 failed 全是「第 N 轮: 超时 900s」，
+        #   且产物齐全（只是被 900s 上限提前杀掉）。
+        #      NC20260805002150  第1轮 900s 被杀
+        #      NC20260805000498  第2轮 2400s 被杀（此单 ROUND 读到 csv 了）
+        #      NC20260818000342  第1轮 900s
+        #      NC20260908001586  第2轮 900s
+        #      NC20260915001368  第1轮 900s
+        #      NC20260914002167  第2轮 900s
+        #   改为：先用 perf_scale（按数据清单行数判，上传时就有），
+        #        再退化到 params.csv 行数（兼容老流程/手工放 csv 的场景）。
+        _scale = perf_scale(sess_dir)
+        if _scale in _PERF_TIERS:
+            _round_timeout = _PERF_TIERS[_scale][1]
+            if _round_timeout > ROUND_HARD_LIMIT:
+                return _round_timeout
+
+        # 退化路径：params.csv 行数（老流程）
         csv_p = _P(sess_dir) / 'analysis_code' / 'params.csv'
         if not csv_p.exists():
-            # 还没写产物 → 用上传的 params.csv
             ups = list(_P(sess_dir).glob('uploads/*params*.csv'))
             csv_p = ups[0] if ups else None
         if not csv_p or not csv_p.exists():
@@ -680,6 +699,17 @@ def _build_plan_prompt(lines, session_id, intent_text, files_info,
     lines.append('  ✗ 不要自己写代码扫 EXP（Python 解析、grep 统计都算）')
     lines.append('  ✗ 不要把族写成散文段落 —— 必须是规划表的行')
     lines.append('')
+    lines.append('  ⛔⛔⛔ 绝对禁止访问 /opt/expgv 下的程序代码')
+    lines.append('    ✗ 不要 Read / Bash cat / grep / head / tail 任何 /opt/expgv/**/*.py')
+    lines.append('    ✗ 不要 import / importlib / inspect 加载 /opt/expgv/workflow 下的模块')
+    lines.append('    ✗ 不要修改 /opt/expgv 下的任何文件（代码已是只读，写了会报错）')
+    lines.append('    ✗ 不要用 subprocess / os.system 执行命令')
+    lines.append('')
+    lines.append('    为什么：源码是评测对象本身。你改了它，四个容器的行为就不一致，')
+    lines.append('            评测结果失去意义（实测已有 2 个容器被改得 MD5 不同）。')
+    lines.append('    你能用的只有 MCP 工具（exp_* / kb_* / guard_check / files_*）。')
+    lines.append('    发现源码有 bug？写进「配置分析.md」的备注里，不要自己改。')
+    lines.append('')
     lines.append(_sec('交付前自检（写完规划表后逐条核对）'))
     lines.append('')
     lines.append('  □ 意图里每个【】分组，规划表里都有对应行吗？')
@@ -1108,6 +1138,8 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('    才写进 方案澄清.json 交人判断，不要硬改。')
     lines.append('  · 不要用 execute_code / terminal 写脚本去批量修改 mml.txt。')
     lines.append('    改产物只用 artifact_write（整文件覆盖）。')
+    lines.append('  · ⛔⛔ 禁止访问 /opt/expgv 下的程序代码（Read/Bash/import/subprocess 都不行）')
+    lines.append('    源码是评测对象，改它会让容器间行为不一致、评测失效。')
     lines.append('  · ⚠⚠ 禁止用 execute_code 分析自己的产物！')
     lines.append('    实测反例（NC20260819001887）：agent 反复跑')
     lines.append('      import csv, collections / 读 params.csv 统计 / 读 mml.txt 比对')
