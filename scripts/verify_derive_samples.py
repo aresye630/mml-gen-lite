@@ -141,7 +141,8 @@ def run_once(base, cont, tk, version):
         # 阶段1
         api_post(base, f'/api/v1/sessions/{sid}/run',
                  {'intent': intent_text, 'stage': 'plan', 'product': 'UDG'})
-        s1 = wait_done(base, sid, timeout=1800)
+        # ★ 2026-11-14：阶段1 超时 1800 → 2400（大单探索慢）
+        s1 = wait_done(base, sid, timeout=2400)
         if s1.get('status') != 'done':
             return {'ticket': tk, 'version': version, 'sid': sid,
                     's1_status': s1.get('status'),
@@ -151,7 +152,11 @@ def run_once(base, cont, tk, version):
         # 阶段2（阶段3 自动跟跑）
         api_post(base, f'/api/v1/sessions/{sid}/run',
                  {'intent': intent_text, 'stage': 'fill', 'product': 'UDG'})
-        s2 = wait_done(base, sid, timeout=2400)
+        # ★ 2026-11-14：阶段2 超时 2400 → 5400
+        #   实测 NC20260819001887（1294 命令）：产物 2850s 才写完，
+        #   原 2400s 上限直接判 timeout，其实配置已完整生成
+        #   产品侧 xlarge 单轮超时 3600s + 阶段3 若干分钟 → 留 5400s
+        s2 = wait_done(base, sid, timeout=5400)
         lr = s2.get('last_run') or {}
 
         # ★ 2026-11-13 加幂等豁免评估
