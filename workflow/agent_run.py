@@ -530,9 +530,9 @@ def _build_plan_prompt(lines, session_id, intent_text, files_info,
     lines.append('  # 命令族规划')
     lines.append('')
     lines.append('  ## 总览')
-    lines.append('  | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 判断依据 | 状态 |')
-    lines.append('  |---|---|---|---|---|---|---|---|---|')
-    lines.append('  | 1 | 地址池清单 | 地址池 | 190 | 190 | MOD POOL | 修改 | 现网同池名190条 | 确认 |')
+    lines.append('  | # | 数据清单表 | 业务对象 | 对象数量 | 现网已有 | 命令族 | 动作 | 参数映射 | 判断依据 | 状态 |')
+    lines.append('  |---|---|---|---|---|---|---|---|---|---|')
+    lines.append('  | 1 | 地址池清单 | 地址池 | 190 | 190 | MOD POOL | 修改 | POOLNAME=@池名称; REDUNDFUNC=ENABLE | 现网同池名190条 | 确认 |')
     lines.append('')
     lines.append('  ## 配套关系')
     lines.append('  | 主族 | 配套族 | 置信度 | 是否需要 | 说明 |')
@@ -556,6 +556,49 @@ def _build_plan_prompt(lines, session_id, intent_text, files_info,
     lines.append('     展开方法：调 exp_attr_chain(owner_family="APN") 拿到族清单，')
     lines.append('     每个族写一行。20-40 行不嫌多 —— 这正是这张表的价值。')
     lines.append('  ★ 判断依据必须能回溯（写现网第几行、多少条、参数值是什么）')
+    lines.append('')
+    lines.append(_sec('★★ 参数映射列（本表最重要的一列，阶段2 靠它自动生成配置）'))
+    lines.append('')
+    lines.append('  格式：参数名=来源; 参数名=来源; ...（分号分隔）')
+    lines.append('')
+    lines.append('  值的 5 种来源：')
+    lines.append('')
+    lines.append('  ① 固定值        所有对象都用同一个值')
+    lines.append('       TNLTYPE=gre')
+    lines.append('       KEEPALVEN=TRUE')
+    lines.append('       REDUNDFUNC=ENABLE')
+    lines.append('')
+    lines.append('  ② @列名         从数据清单该列逐行取值（★ 最常用）')
+    lines.append('       TNLNAME=@隧道标识          ← 数据清单表头有「隧道标识」列')
+    lines.append('       DSTIPADDR=@对端IP地址')
+    lines.append('       GREKEY=@隧道识别密钥')
+    lines.append('')
+    lines.append('  ③ @seq          按行序号生成（1,2,3... 或 0,1,2...）')
+    lines.append('       SECTIONNUM=@seq')
+    lines.append('       INDEX=@seq')
+    lines.append('')
+    lines.append('  ④ @seq0         按行序号从 0 开始')
+    lines.append('')
+    lines.append('  ⑤ @待填写       数据清单没有、现网也推不出 → 生成占位符让用户填')
+    lines.append('       RELEASETIME=@待填写')
+    lines.append('')
+    lines.append('  可选参数：不写 = 该参数不出现在命令里（MML 用默认值）')
+    lines.append('')
+    lines.append('  ⚠⚠ 硬规则：')
+    lines.append('    · @列名 里的列名必须和数据清单该表的表头【逐字一致】')
+    lines.append('      表头是「对端IP地址」，就写 @对端IP地址，不能写 @对端IP')
+    lines.append('      写错了会被校验拦下（fatal）')
+    lines.append('    · 数据清单某列没被任何映射用到 → 该列的数据会丢，校验会报警')
+    lines.append('    · 一个族有 2 种以上参数集时，写【多行】，每行一个参数集：')
+    lines.append('      例 SECTION 的 IPv4 段和 IPv6 段参数不同：')
+    lines.append('      | 5a | 地址池段 | IPv4 段 | ... | ADD SECTION | 新增 | POOLNAME=@池名; SECTIONNUM=@seq; IPVERSION=IPV4; V4STARTIP=@起始IP; V4ENDIP=@结束IP | ... |')
+    lines.append('      | 5b | 地址池段 | IPv6 段 | ... | ADD SECTION | 新增 | POOLNAME=@池名; SECTIONNUM=@seq; IPVERSION=IPV6; V6PREFIXSTART=@起始前缀; V6PREFIXLENGTH=@前缀长度; V6PREFIXEND=@结束前缀 | ... |')
+    lines.append('      （用「业务对象」列区分变体，代码按各自参数集过滤数据行）')
+    lines.append('')
+    lines.append('  ⚠ 你不需要把数据展开成一行行命令 —— 代码会按「数据清单每行 × 参数映射」自动展开。')
+    lines.append('    你只需要写清楚「哪个参数从哪来」。')
+    lines.append('    实测 NC20260819001887：5 个族 × 1294 条命令，过去要 agent 手写 6642 行 CSV，')
+    lines.append('    现在只需 5 行参数映射。')
     lines.append('')
     lines.append('  ⚠⚠ 无论有没有把握，都要写成规划表的【行】。')
     lines.append('     实测反例（NC20260810002261 的一次运行）：')
@@ -900,8 +943,18 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
         return '\n'.join(lines)
 
     lines.append('【产物要求】写到 analysis_code/，一共这几个文件：')
-    lines.append('  1. params.csv     参数表（★ 这是你的核心产物，写全）')
-    lines.append('       列：序号,组,网元,动词,命令族,参数,值,来源,说明')
+    lines.append('')
+    lines.append('  ★★★ 2026-11-14 变更：params.csv 不用你写了！')
+    lines.append('    它由代码从「规划表的参数映射列」+「数据清单」自动展开生成。')
+    lines.append('    你只需要确保规划表（命令族规划.md）的【参数映射】列写对了。')
+    lines.append('')
+    lines.append('    实测 NC20260819001887：过去你要手写 8856 行 params.csv（2546 秒），')
+    lines.append('    现在代码 1 秒展开完；你只需在规划表写 5-20 行参数映射。')
+    lines.append('')
+    lines.append('  1. 配置分析.md    用了哪些依据、为什么选这些族、命名来源、注意事项')
+    lines.append('  2. 方案澄清.json  （可选）只放方案级问题，没有就给 []')
+    lines.append('  3. params.csv     ★ 由代码生成，你【不要】写（写了会被覆盖）')
+    lines.append('       如果你想手动调整个别参数值，改完 params.csv 后调 /regen 接口重新生成 mml')
     lines.append('  2. 配置分析.md    用了哪些依据、为什么选这些族、命名来源、注意事项')
     lines.append('  3. 方案澄清.json  （可选）只放方案级问题，没有就给 []')
     lines.append('')
@@ -915,46 +968,29 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('    ⚠ 唯一例外：如果你需要特殊的 Phase 分组注释，写在 params.csv 的')
     lines.append('      「说明」列里，代码会带出来。')
     lines.append('')
-    lines.append('  【params.csv 写法（重要）】')
-    lines.append('    一行一个参数。同一个「组」的多行 = 一条 MML 命令。')
-    lines.append('    组名格式：<命令族>#<序号>，如 HOST#1 / FILTER#1 / URR#2')
+    lines.append('  【你的核心工作：把规划表的「参数映射」列写对】')
     lines.append('')
-    lines.append('    ★★ 动词列必须与规划表的「动作」列一致')
-    lines.append('      MML 动词不止 ADD/MOD/SET/RMV，会改数据/状态的都要支持：')
-    lines.append('        配置类：ADD 新增 / MOD 修改现网已有对象 / RMV 删除 / SET 设置')
-    lines.append('        操作类：ACT 激活 / DEA 去激活 / RTR 复位 / RST 重置')
-    lines.append('                STR 启动 / STP 停止 / CLR 清除 / OPR 操作')
-    lines.append('                SYN 同步 / LOD 加载 / RBL 重载 / UPD 更新')
-    lines.append('                LCK 锁定 / ULK 解锁')
-    lines.append('        （查询类 LST/DSP/TST/EXP 是只读命令，不要写进配置产物）')
-    lines.append('      判断依据：规划表的「动作」列写了什么，动词就填什么。')
-    lines.append('      实测反例 NC20260819001887：规划表写「MOD POOL 修改」')
-    lines.append('        （190 个现网池要改 REDUNDFUNC 开关），但 params.csv 没记动词，')
-    lines.append('        代码按「POOL 现网只有 ADD」推断成 ADD POOL ×190')
-    lines.append('        → 会尝试新建已存在的 190 个池，全部失败。')
-    lines.append('      留空则按现网规则推断（不推荐，容易和规划矛盾）。')
+    lines.append('    映射写对了，代码就能正确展开成数千条命令；写错了全盘皆错。')
     lines.append('')
-    lines.append('    例：')
-    lines.append('      序号,组,网元,动词,命令族,参数,值,来源,说明')
-    lines.append('      1,HOST#1,UDG,ADD,HOST,HOSTNAME,hncatv_00_h_001,plan:域名规划#1,')
-    lines.append('      2,HOST#1,UDG,ADD,HOST,DOMAINVALUE,video.hncatv.com,plan:域名规划#1,')
-    lines.append('      3,HOST#1,UDG,ADD,HOST,PRIORITY,10600,exp:derive L1103,')
-    lines.append('      4,FILTER#1,UDG,ADD,FILTER,FILTERNAME,hncatv_00_f_h_001,exp:derive,')
-    lines.append('      5,FILTER#1,UDG,ADD,FILTER,SVRIPMODE,HOSTNAME,doc:F352,')
-    lines.append('      6,FILTER#1,UDG,ADD,FILTER,HOSTNAME,@HOST#1.HOSTNAME,infer 引用HOST#1,')
+    lines.append('    值的 5 种来源：')
+    lines.append('      ① 固定值      TNLTYPE=gre; KEEPALVEN=TRUE')
+    lines.append('      ② @列名       TNLNAME=@隧道标识')
+    lines.append('                    （列名必须和数据清单表头逐字一致）')
+    lines.append('      ③ @seq        SECTIONNUM=@seq   （行号从 1 开始）')
+    lines.append('      ④ @seq0       SECTIONNUM=@seq0  （行号从 0 开始）')
+    lines.append('      ⑤ @待填写      RELEASETIME=@待填写')
+    lines.append('                    代码生成【族_参数_对象】格式的全局唯一占位符，')
+    lines.append('                    用户用 fill_placeholders.py 一次性批量替换。')
     lines.append('')
-    lines.append('    ⇒ 生成结果：')
-    lines.append('      ADD HOST:HOSTNAME="hncatv_00_h_001", DOMAINVALUE="video.hncatv.com", PRIORITY=10600;')
-    lines.append('      ADD FILTER:FILTERNAME="hncatv_00_f_h_001", SVRIPMODE=HOSTNAME, HOSTNAME="hncatv_00_h_001";')
+    lines.append('    动词（ADD/MOD/SET/RMV/ACT/DEA/RTR...）由代码从「动作」列推断：')
+    lines.append('      新增→ADD 修改→MOD 删除→RMV 设置→SET 激活→ACT 去激活→DEA')
+    lines.append('      所以「动作」列用词要准确。')
     lines.append('')
-    lines.append('    ★ 关联参数用引用语法 @<组名>.<参数名>，不要重复写值')
-    lines.append('      这样用户改 HOST#1 的 HOSTNAME，FILTER 会自动跟着变')
-    lines.append('    ★ 来源列格式：')
-    lines.append('      plan:<规划文件名>#<行号>   取自数据规划表第 N 行（G20 靠这个校验覆盖率）')
-    lines.append('      exp:L1101 / exp:derive L1101-L1107   取自现网')
-    lines.append('      doc:<文档>:<章节>          取自特性文档')
-    lines.append('      intent:<要素>              意图明确给出的')
-    lines.append('      infer <规则说明>           业务推导')
+    lines.append('    ★ 数据清单某列没被任何映射用到 → 该列数据会丢（校验会报警）')
+    lines.append('    ★ 同一族有 2 种以上参数集（如 SECTION 的 IPv4/IPv6）→ 写多行，')
+    lines.append('      用「业务对象」列区分（代码按该列关键词过滤数据行）')
+    lines.append('    ★ 有配套参数（如 FILTER 引用 HOST 的名字）时，用同一列映射即可，')
+    lines.append('      代码会把相同的值填到两处。')
     lines.append('')
 
     lines.append('')
@@ -1718,6 +1754,41 @@ def rescue_tmp_artifacts(sess_dir):
         except Exception:
             continue
     return recovered
+
+
+def _expand_params_from_plan(adir, sess_dir):
+    """从规划表的「参数映射」列 + 数据清单，展开生成 params.csv。
+
+    ★★★ 2026-11-14 方案C（用户裁定）
+
+    背景：原来 agent 手写 params.csv，实测 NC20260819001887（1294 条命令）
+          产生 8856 行参数行，受 LLM token 上限要分 28 批写，
+          总耗时 2546s 其中 94% 在逐字生成。
+
+    现在：agent 只在规划表里写「参数映射」（5-20 行），
+          代码按「数据清单每行 × 参数映射」机械展开成 params.csv（<1 秒）。
+
+    映射语法（agent 在规划表里写）：
+      POOLNAME=@池名称       → 从数据清单该列取值
+      SECTIONNUM=@seq        → 行号（1,2,3...）
+      SECTIONNUM=@seq0       → 行号（0,1,2...）
+      TNLTYPE=gre            → 固定值
+      RELEASETIME=@待填写     → 生成【族_参数_对象】占位符，用户填
+
+    返回 {'ok': bool, 'n_params', 'n_groups', 'n_placeholders',
+          'warnings': [...], 'error': str}
+    """
+    try:
+        import sys as _sys
+        _wf = str(Path(__file__).resolve().parent)
+        if _wf not in _sys.path:
+            _sys.path.insert(0, _wf)
+        import importlib as _il
+        import plan_expander as _pe
+        _il.reload(_pe)
+        return _pe.expand_from_session(str(sess_dir) if sess_dir else str(Path(adir).parent))
+    except Exception as _e:
+        return {'ok': False, 'error': f'{type(_e).__name__}: {_e}', 'warnings': []}
 
 
 def _gen_mml_from_params(adir):

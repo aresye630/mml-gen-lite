@@ -2075,6 +2075,36 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
         checks['G26_plan_csv'] = {'ok': True, 'skipped': True,
                                   'reason': f'G26 执行失败: {e}'}
 
+    # ★★ 2026-11-14 新增 G36：规划表「参数映射」校验
+    #   配合方案C（params.csv 由代码从规划表展开）：
+    #   参数映射成了唯一配置来源，列名写错/表漏配都会导致产物直接错。
+    try:
+        if session_dir and Path(session_dir).exists():
+            import importlib as _il
+            import param_mapping as _pm
+            _il.reload(_pm)
+            _plan_p = Path(session_dir) / 'analysis_code' / '命令族规划.md'
+            _ds_txt = ''
+            for _c in (list((Path(session_dir) / 'uploads_text').glob('*数据清单*.md'))
+                       + list((Path(session_dir) / 'uploads').glob('*数据清单*.md'))):
+                try:
+                    _ds_txt = _c.read_text(encoding='utf-8', errors='replace')
+                    break
+                except Exception:
+                    continue
+            if _plan_p.exists() and _ds_txt:
+                checks['G36_param_mapping'] = _pm.check_param_mapping(
+                    _plan_p.read_text(encoding='utf-8', errors='replace'), _ds_txt)
+            else:
+                checks['G36_param_mapping'] = {'ok': True, 'skipped': True,
+                                               'reason': '缺规划表或数据清单'}
+        else:
+            checks['G36_param_mapping'] = {'ok': True, 'skipped': True,
+                                           'reason': '无 session_dir'}
+    except Exception as e:
+        checks['G36_param_mapping'] = {'ok': True, 'skipped': True,
+                                       'reason': f'G36 执行失败: {e}'}
+
     # ★ 2026-11-10 新增 G27：配不了的项是否说明了
     #   用户要求：跨网元无法配置的族，agent 要主动提示，不能默默跳过
     try:
@@ -2323,7 +2353,15 @@ def run_guard(mml_text, exp_text='', intent_text='', prior_mml='',
                 f"（{_desc4}）：说明是信息不足下的自主选择，"
                 f"建议在方案澄清里说明依据，方便人工复核。")
 
-        # ★★ 2026-11-14 新增：params.csv 动词列 vs 规划表动作列不一致 → fatal
+        # ★★ 2026-11-14 G36：参数映射校验
+    _g36 = checks.get('G36_param_mapping') or {}
+    if _g36 and not _g36.get('skipped'):
+        for _f in (_g36.get('fatal') or [])[:4]:
+            fatal.append(f'G36 参数映射：{_f}')
+        for _w in (_g36.get('warn') or [])[:2]:
+            warn.append(f'G36 参数映射：{_w}')
+
+    # ★★ 2026-11-14 新增：params.csv 动词列 vs 规划表动作列不一致 → fatal
         #   实测 NC20260819001887：规划表写「MOD POOL 修改」（190 个池改 REDUNDFUNC），
         #   但当时 params.csv 没动词列，代码按「POOL 现网只有 ADD」推断成 ADD POOL
         #   → 会新建已存在的 190 个池，全部失败

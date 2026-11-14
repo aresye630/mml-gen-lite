@@ -518,7 +518,11 @@ def write_output(r):
         for item in r['sheets']:
             name, headers, rows, act = item[0], item[1], item[2], item[3]
             # 表名带动作，避免「新增对象」和「删除对象」混在一张表
-            parts.append(f'\n## {name}（{act}，{len(rows)} 行）\n')
+            # ★ 2026-11-14 用户裁定：去掉标题里的条数（避免 agent 依赖条数）
+            #   「意图里的条数说明还在？检查下」→ 意图已清干净；
+            #   数据清单标题原写「## GRE隧道配置（新增，368 行）」，
+            #   去掉行数只留动作。数据量以表格实际行为准。
+            parts.append(f'\n## {name}（{act}）\n')
             parts.append('| ' + ' | '.join(headers) + ' |')
             parts.append('|' + '|'.join(['---'] * len(headers)) + '|')
             # ★★ 2026-11-14 去掉 200 行截断（用户要求「先查族覆盖的问题」时发现）
