@@ -284,14 +284,64 @@ def explain_guard(guard_result):
     }
 
 
+# ═══════════════════════════════════════════════════════════
+# 修正指令的优先级排序 + 条数上限（★ 2026-11-14 优化1）
+#
+# 问题（75 单全量）：6 单 S2 failed 全是「第 N 轮 900s 超时」。
+#   根因是第 1 轮产生的 fatal 太多，第 2 轮要全部改完，900s 不够。
+#   实测反馈里最多一次列了 20+ 条问题，每条都有「现象/为什么/怎么改」
+#   三段说明，光读完就要很久，更别说逐条改。
+#
+# 策略：
+#   1. 按严重度排序：机械性错误（改一个字段就好的）优先于结构性错误
+#      （要重新规划族/表的）
+#   2. 单轮最多给 MAX_ISSUES_PER_ROUND 条（默认 8 条）
+#   3. 明确告诉 agent「先改这 N 条，剩下的下轮再说」，
+#      避免它试图一次改完导致超时
+# ═══════════════════════════════════════════════════════════
+MAX_ISSUES_PER_ROUND = int(__import__('os').environ.get('GUARD_MAX_ISSUES', '8'))
+
+# 严重度权重：数字越小越优先修（机械性错误优先）
+_SEVERITY = {
+    # 一改就好：字段/引用/动词
+    'G19': 1, 'G21': 1, 'G22': 1, 'G26': 1, 'G32': 1, 'G34': 1, 'G35': 1, 'G36': 1,
+    # 要补齐：漏族/漏表
+    'G18': 2, 'G20': 3, 'G25': 3, 'G27': 3, 'G33': 2,
+    # 要重新规划：结构性
+    'G30': 4, 'G31': 4,
+    # 源码越界（必须立刻停）
+    'G37': 0,
+}
+
+
+def _sev(code):
+    return _SEVERITY.get(str(code or '').upper(), 5)
+
+
 def to_agent_instruction(guard_result):
-    """给 agent 的修正指令（比原来的更具体）。"""
+    """给 agent 的修正指令（比原来的更具体）。
+
+    ★ 2026-11-14 优化1：按严重度排序 + 单轮上限，
+      避免「20 个 fatal 一次改完」导致 900s 超时。
+    """
     ex = explain_guard(guard_result)
+    items = list(ex['items'])
+    total = len(items)
+    # 按严重度稳定排序（同严重度保持原顺序）
+    items.sort(key=lambda it: _sev(it.get('code')))
+    shown = items[:MAX_ISSUES_PER_ROUND]
+    hidden = items[MAX_ISSUES_PER_ROUND:]
+
     lines = ['【上一轮产物未通过自检，需要你修正】', '']
     lines.append(f'结论：{ex["summary"]}')
+    if total > len(shown):
+        lines.append('')
+        lines.append(f'⚠ 本轮只列出最需要先修的 {len(shown)} 条（共 {total} 条）。')
+        lines.append(f'  先把这 {len(shown)} 条改完，下一轮会继续给剩下的。')
+        lines.append('  不要试图一次改完所有问题 —— 那样会来不及。')
     lines.append('')
-    lines.append('具体问题：')
-    for i, it in enumerate(ex['items'], 1):
+    lines.append('具体问题（按优先级排序，先修前面的）：')
+    for i, it in enumerate(shown, 1):
         lines.append(f'{i}. 【{it["code"]}】{it["title"]}')
         if it['detail']:
             lines.append(f'   现象：{it["detail"]}')
@@ -299,6 +349,10 @@ def to_agent_instruction(guard_result):
             lines.append(f'   为什么不对：{it["why_bad"]}')
         if it.get('how_to_fix'):
             lines.append(f'   怎么改：{it["how_to_fix"]}')
+        lines.append('')
+    if hidden:
+        lines.append(f'（另有 {len(hidden)} 条暂不列出：'
+                     f'{", ".join(sorted({h.get("code","?") for h in hidden}))}）')
         lines.append('')
     lines.append('【修改原则】')
     lines.append('  · 保留上一轮所有正确的命令，只改有问题的地方')

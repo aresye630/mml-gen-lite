@@ -212,6 +212,29 @@ def _get_parsed(path):
     return val
 
 
+
+
+def _annotate_families_cn(families):
+    """给族名补中文名（供 agent 用业务词对族名）。
+
+    ★ 2026-11-14 优化2：实测「业务词→族名」向量检索不可靠（1/3），
+      但「族名→中文名」100% 可靠（MML 文档第一行）。
+      所以直接给全量【族名 + 中文名】清单，让 agent 自己对照意图，
+      比逐个族试快几十倍。
+    """
+    try:
+        import importlib as _il
+        _wf = str(Path(__file__).resolve().parent.parent)
+        import sys as _sys
+        if _wf not in _sys.path:
+            _sys.path.insert(0, _wf)
+        import family_locator as _fl
+        _il.reload(_fl)
+        return _fl.annotate_families(families)
+    except Exception:
+        return []
+
+
 def tool_exp_stats(args):
     """按四层模型统计 EXP：操作 / 对象与身份 / 引用关联 / 行为参数。
 
@@ -540,6 +563,8 @@ def tool_exp_stats(args):
         'note': ('families 与 object_families 相同（有 ADD 的对象族，'
                  '兼容旧调用）；attribute_families 是只有 SET/MOD/RMV 的'
                  '属性族，它们挂在 owner_family 上，配该对象时必须一并考虑。'),
+        'family_cn': _annotate_families_cn(
+            list(object_families) + list(attribute_families)),
     }
 
     if res_key:
