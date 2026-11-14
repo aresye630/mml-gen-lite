@@ -33,6 +33,55 @@
 import difflib
 import re
 from collections import defaultdict
+from pathlib import Path
+
+
+# ★ 2026-11-13：KB 里 MML 命令文档的索引缓存
+#   判据来源：kb/output_udg_mml/mml/MML/Document/{add,mod,rmv,lst,set}_<族名小写>.md
+#   实测 NC20260814001250：
+#     OSPFINTERFACEAUTH 不在 EXP（新增族），但 KB 有 mod_/lst_/rmv_ 三个文档
+#     → 合法族名，不该被判「拼错」
+#     G32 却因为 EXP 里有 OSPFINTERFACE（相似度 > 0.85）判成拼错 → fatal
+#     → agent 把正确的 OSPFINTERFACEAUTH 改掉 → 产物从 64 条降到 4 条（GT 要 16）
+_KB_FAM_CACHE = None
+
+
+def _kb_family_index(kb_root=None):
+    """扫 KB 的 MML 命令文档，建「族名 → 文档文件列表」索引。
+
+    返回 dict 或 None（找不到 KB 就返回 None，调用方退回旧判据）。
+    """
+    global _KB_FAM_CACHE
+    if _KB_FAM_CACHE is not None:
+        return _KB_FAM_CACHE or None
+
+    import os
+    roots = []
+    if kb_root:
+        roots.append(Path(kb_root))
+    env = os.environ.get('KB_ROOT')
+    if env:
+        roots.append(Path(env))
+    # 常见位置
+    for cand in ('/opt/expgv/kb', '/data/kb'):
+        roots.append(Path(cand))
+
+    idx = {}
+    for root in roots:
+        if not root.exists():
+            continue
+        # 找 output_*_mml/mml/MML/Document 目录
+        for doc_dir in root.glob('output_*_mml/mml/MML/Document'):
+            for f in doc_dir.glob('*.md'):
+                m = re.match(r'^(add|mod|rmv|lst|set)_([a-z0-9_]+)\.md$', f.name.lower())
+                if m:
+                    fam = m.group(2).upper()
+                    idx.setdefault(fam, []).append(str(f))
+        if idx:
+            break
+
+    _KB_FAM_CACHE = idx if idx else {}
+    return idx or None
 
 
 def _norm_cmd(line):
@@ -119,11 +168,22 @@ def check_family_exists(artifact_text, exp_paths=None, mode='mml',
                 'line': it['line'],
                 'similar': similar[0] if similar else None,
             }
-            if similar:
-                entry['suggest'] = f'疑似拼错，EXP 里有 {similar[0]}'
+            # ★ 2026-11-13：先查 KB 有没有该族的 MML 文档
+            #   有文档 = 合法族名（只是现网还没配过）→ warn，不判拼错
+            #   没文档 + EXP 有相似族 = 真拼错 → fatal
+            kb_idx = _kb_family_index()
+            kb_docs = (kb_idx or {}).get(fam) if kb_idx else None
+
+            if kb_docs:
+                entry['suggest'] = (f'KB 有该族的 MML 文档（{len(kb_docs)} 个），'
+                                    f'属新增族（现网未配置过），不是拼错')
+                entry['kb_docs'] = [Path(x).name for x in kb_docs[:3]]
+                warn.append(entry)
+            elif similar:
+                entry['suggest'] = f'疑似拼错，EXP 里有 {similar[0]}（KB 也无该族文档）'
                 fatal.append(entry)
             else:
-                entry['suggest'] = 'EXP 里没有该族（可能是新特性或编造）'
+                entry['suggest'] = 'EXP 里没有该族，KB 也无该族文档（可能编造）'
                 warn.append(entry)
             unknown.append(entry)
             continue
