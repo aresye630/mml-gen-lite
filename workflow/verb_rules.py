@@ -69,6 +69,16 @@ def _parse_simple_yaml(text):
             v = m3.group(2).split('#')[0].strip()
             out[cur_key][cur_sub][k] = v
             continue
+        # ★ 2026-11-14 加：二层 key: value（任意 key 字符，支持中文）
+        #   用于 ACTION_VERB_MAP（'新增: ADD' 这种扁平 map）
+        m4 = re.match(r'^  ([^\s:]+):\s*(\S.*)$', line)
+        if m4 and cur_key:
+            k = m4.group(1).strip()
+            v = m4.group(2).split('#')[0].strip()
+            if not isinstance(out.get(cur_key), dict):
+                out[cur_key] = {}
+            out[cur_key][k] = v
+            continue
 
     return out
 
@@ -80,6 +90,9 @@ class VerbRules:
         self.path = Path(path) if path else _RULES_PATH
         self.set_only = set()
         self.must_have = {}
+        # 2026-11-14 from YAML
+        self.action_verb_map = {}
+        self.data_verbs = frozenset()
         self._load()
 
     def _load(self):
@@ -94,12 +107,44 @@ class VerbRules:
             self.must_have = data.get('MUST_HAVE') or {}
             # 转大写 key
             self.must_have = {k.upper(): v for k, v in self.must_have.items()}
+            _avm = data.get('ACTION_VERB_MAP') or {}
+            self.action_verb_map = {str(k).strip(): str(v).strip().upper()
+                                    for k, v in _avm.items()}
+            _dv = data.get('DATA_VERBS') or []
+            self.data_verbs = frozenset(str(x).strip().upper() for x in _dv)
         except Exception:
             self.set_only = {'REFRESHSRV', 'LICENSESWITCH', 'URRGRPBINDING'}
             self.must_have = {}
 
     def is_set_only(self, family):
         return (family or '').upper() in self.set_only
+
+    def action_to_verb(self, action_text):
+        """把规划表动作列的中文说法翻译成 MML 动词。
+
+        2026-11-14 从 YAML 的 ACTION_VERB_MAP 读（原来硬编码在
+        guard/plan_vs_csv.py，新增业务动作要改代码）。
+
+        规则：
+          1. 动作列直接写了 MML 动词（如 ACT）→ 原样返回
+          2. 动作列含中文关键词 → 查 ACTION_VERB_MAP
+          3. 都匹配不上 → 返回空串
+
+        例：修改 → MOD；跳过（已存在且一致）→ 空串
+        """
+        txt = str(action_text or '').strip()
+        if not txt:
+            return ''
+        up = txt.upper()
+        if self.data_verbs and up in self.data_verbs:
+            return up
+        first = re.split(r'[\s(,;]', up)[0]
+        if self.data_verbs and first in self.data_verbs:
+            return first
+        for kw in sorted(self.action_verb_map, key=len, reverse=True):
+            if kw in txt:
+                return self.action_verb_map[kw]
+        return ''
 
     def verb_for(self, family, default='ADD'):
         """该族应该用什么动词。"""

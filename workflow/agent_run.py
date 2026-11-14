@@ -564,23 +564,20 @@ def _build_plan_prompt(lines, session_id, intent_text, files_info,
     lines.append('  值的 5 种来源：')
     lines.append('')
     lines.append('  ① 固定值        所有对象都用同一个值')
-    lines.append('       TNLTYPE=gre')
-    lines.append('       KEEPALVEN=TRUE')
-    lines.append('       REDUNDFUNC=ENABLE')
+    lines.append('       <参数名>=<固定取值>')
+    lines.append('       例：某开关参数=ENABLE、某类型参数=<枚举值>')
     lines.append('')
     lines.append('  ② @列名         从数据清单该列逐行取值（★ 最常用）')
-    lines.append('       TNLNAME=@隧道标识          ← 数据清单表头有「隧道标识」列')
-    lines.append('       DSTIPADDR=@对端IP地址')
-    lines.append('       GREKEY=@隧道识别密钥')
+    lines.append('       <参数名>=@<数据清单表头列名>')
+    lines.append('       ⚠ 列名必须和数据清单该表表头【逐字一致】')
     lines.append('')
-    lines.append('  ③ @seq          按行序号生成（1,2,3... 或 0,1,2...）')
-    lines.append('       SECTIONNUM=@seq')
-    lines.append('       INDEX=@seq')
+    lines.append('  ③ @seq          按行序号生成（1,2,3...）')
+    lines.append('       <序号类参数名>=@seq')
     lines.append('')
     lines.append('  ④ @seq0         按行序号从 0 开始')
     lines.append('')
     lines.append('  ⑤ @待填写       数据清单没有、现网也推不出 → 生成占位符让用户填')
-    lines.append('       RELEASETIME=@待填写')
+    lines.append('       <参数名>=@待填写')
     lines.append('')
     lines.append('  可选参数：不写 = 该参数不出现在命令里（MML 用默认值）')
     lines.append('')
@@ -590,9 +587,9 @@ def _build_plan_prompt(lines, session_id, intent_text, files_info,
     lines.append('      写错了会被校验拦下（fatal）')
     lines.append('    · 数据清单某列没被任何映射用到 → 该列的数据会丢，校验会报警')
     lines.append('    · 一个族有 2 种以上参数集时，写【多行】，每行一个参数集：')
-    lines.append('      例 SECTION 的 IPv4 段和 IPv6 段参数不同：')
-    lines.append('      | 5a | 地址池段 | IPv4 段 | ... | ADD SECTION | 新增 | POOLNAME=@池名; SECTIONNUM=@seq; IPVERSION=IPV4; V4STARTIP=@起始IP; V4ENDIP=@结束IP | ... |')
-    lines.append('      | 5b | 地址池段 | IPv6 段 | ... | ADD SECTION | 新增 | POOLNAME=@池名; SECTIONNUM=@seq; IPVERSION=IPV6; V6PREFIXSTART=@起始前缀; V6PREFIXLENGTH=@前缀长度; V6PREFIXEND=@结束前缀 | ... |')
+    lines.append('      例某族在 A 场景和 B 场景参数不同：')
+    lines.append('      | 5a | <表名> | A 场景 | ... | <动词> <族名> | <动作> | <参数1>=@<列1>; <参数2>=<固定值> | ... |')
+    lines.append('      | 5b | <表名> | B 场景 | ... | <动词> <族名> | <动作> | <参数3>=@<列2>; <参数4>=<固定值> | ... |')
     lines.append('      （用「业务对象」列区分变体，代码按各自参数集过滤数据行）')
     lines.append('')
     lines.append('  ⚠ 你不需要把数据展开成一行行命令 —— 代码会按「数据清单每行 × 参数映射」自动展开。')
@@ -998,9 +995,9 @@ def build_prompt(session_id, intent_text, files_info, product_hint='', workdir=N
     lines.append('  如果这次要配多个网元（如 UDG + UNC），仍然只写上面这几个文件，但要按网元分段：')
     lines.append('')
     lines.append('  mml.txt 用注释分段，每段一个网元（**分段标记必须带 ===== **）：')
-    lines.append('    /* ===== 网元: UDG  UPF-HN-01  10.20.1.10 ===== */')
+    lines.append('    /* ===== 网元: <网元类型>  <网元名>  <网元IP> ===== */')
     lines.append('    ADD HOST:...')
-    lines.append('    /* ===== 网元: UNC  SMF-HN-01  10.20.2.10 ===== */')
+    lines.append('    /* ===== 网元: <网元类型2>  <网元名2>  <网元IP2> ===== */')
     lines.append('    ADD RULE:...')
     lines.append('')
     lines.append('  ★ 文件头的说明文字里不要用「网元: XXX」这种写法，')
@@ -2034,11 +2031,51 @@ def run_agent(session_id, intent_text, product_hint='', on_event=None,
                         except Exception:
                             pass
 
+            # ★★★ 2026-11-14 方案C：params.csv 由代码从规划表展开
+            #   演进：A(agent 写 mml) → B(agent 写 csv, 代码转 mml) → C(代码展开 csv)
+            #   实测 NC20260819001887（1294 命令）：csv 8856 行，
+            #   agent 分 28 批写、耗时 2400s；代码展开只要 2 秒。
+            #   用户裁定：「params是根据规划+数据表派生出来的」→ 派生归代码。
+            _expand_ok = True
+            _expand_err = ''
+            if stage == 'fill':
+                _exp = _expand_params_from_plan(adir, sess_dir)
+                _expand_ok = bool(_exp.get('ok'))
+                _expand_err = _exp.get('error') or ''
+                if _exp.get('ok'):
+                    try:
+                        events_fp.write(json.dumps(
+                            {'type': 'meta', 'event': 'params_expanded',
+                             'n_params': _exp.get('n_params'),
+                             'n_groups': _exp.get('n_groups'),
+                             'n_placeholders': _exp.get('n_placeholders'),
+                             'warnings': (_exp.get('warnings') or [])[:3]},
+                            ensure_ascii=False) + '\n')
+                        events_fp.flush()
+                    except Exception:
+                        pass
+                else:
+                    try:
+                        events_fp.write(json.dumps(
+                            {'type': 'meta', 'event': 'params_expand_failed',
+                             'error': _exp.get('error'),
+                             'warnings': (_exp.get('warnings') or [])[:5]},
+                            ensure_ascii=False) + '\n')
+                        events_fp.flush()
+                    except Exception:
+                        pass
+
             # ★★ 2026-11-09 方案B：mml.txt 由代码从 params.csv 生成
             #   实测 NC20260811002706：params.csv 826 组（数据齐全），
             #   但 agent 手写 mml.txt 只写了 21 条（被输出长度截断）。
             #   改为 agent 只负责 params.csv，代码机械生成 mml.txt。
-            if stage == 'fill':
+            # ★ 2026-11-14 修：展开失败时不要生成 mml.txt
+            #   实测 mmlgen-b1：第 1 轮规划表缺失参数映射 → 展开失败 →
+            #   仍跑了 mml 生成 → 写出 70 字节空壳 mml.txt →
+            #   agent 第 2 轮以为「产物已存在」，不修规划表。
+            #   现在展开失败就不生成，让 check_artifacts 报缺产物，
+            #   agent 收到 fatal 后去修规划表的参数映射。
+            if stage == 'fill' and _expand_ok:
                 _gen = _gen_mml_from_params(adir)
                 if _gen and _gen.get('ok'):
                     try:

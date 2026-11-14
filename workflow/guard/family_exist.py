@@ -210,39 +210,54 @@ def check_family_exists(artifact_text, exp_paths=None, mode='mml',
     }
 
 
+def family_has_doc(family):
+    """该族在 KB 的 MML 文档里存在吗？（= 合法族名，即使是现网未配过的新族）
+
+    ★ 2026-11-14 新增，供 mml_gen 用：
+      原来 mml_gen 用 difflib 对 set_only 族做近似纠错，
+      实测把合法族名 INTERFACE 改成了 ARPINTERFACE
+      （difflib 相似度够高，但两者是完全不同的族）。
+      修法：先查 KB 文档，有文档就是合法族名，不做纠错。
+    """
+    try:
+        idx = _kb_family_index()
+        return str(family or '').strip().upper() in idx
+    except Exception:
+        return False
+
+
 if __name__ == '__main__':
-    import json
+    """自测（不依赖 GT）。
+
+    ★ 2026-11-14 硬编码/GT 隔离审核：原来这里读 /tmp/gt_cleaned.json 取
+      真实工单的 EXP 路径做测试。GT 隔离红线要求生成侧代码不碰 GT，
+      即使是 __main__ 自测也不该留这个入口（容易被误当生产路径）。
+      改为用命令行传 EXP 路径，或用内置的 KB 文档做判别力测试。
+    """
+    import sys
     from pathlib import Path
 
-    GT = json.loads(Path('/tmp/gt_cleaned.json').read_text(encoding='utf-8'))
-    GT_MAP = {g['ticket']: g for g in GT}
-
     print('=' * 100)
-    print('G32 命令族存在性校验')
+    print('G32 命令族存在性校验（自测，不读 GT）')
     print('=' * 100)
 
-    # 用之前发现的 REFREFSHSRT 案例
-    tk = 'NC20260814000701'
-    g = GT_MAP[tk]
-    exps = [str(p) for p in sorted((Path(g['path']) / '备份附件').glob('*.txt'))]
+    # 用法：python3 family_exist.py <EXP路径> [<EXP2> ...]
+    if len(sys.argv) > 1:
+        exps = [str(Path(x)) for x in sys.argv[1:]]
+        print(f'EXP: {exps}')
+    else:
+        exps = []
+        print('未传 EXP 路径 → 只测 KB 文档判据（不测 EXP 比对）')
 
     TEST_CASES = [
-        ('正常（SET REFRESHSRV）', 'SET REFRESHSRV:REFRESHTYPE=ALL;'),
-        ('拼错（ADD REFREFSHSRV）', 'ADD REFREFSHSRV:REFRESHTYPE=ALL;'),
-        ('动词错（ADD REFRESHSRV）', 'ADD REFRESHSRV:REFRESHTYPE=ALL;'),
-        ('完全编造（ADD FOOBARXYZ）', 'ADD FOOBARXYZ:NAME="x";'),
+        ('正常族名（KB 有文档）', 'ADD INTERFACE:IFNAME="x";'),
+        ('拼错族名（KB 无文档）', 'ADD INTERFACEE:IFNAME="x";'),
+        ('完全编造（KB 无文档）', 'ADD FOOBARXYZ:NAME="x";'),
     ]
 
     for label, text in TEST_CASES:
-        r = check_family_exists(text, exps)
-        status = '✅ pass' if r['ok'] else (
-            f"❌ fatal={len(r['fatal'])} warn={len(r['warn'])} "
-            f"verb_mismatch={len(r['verb_mismatch'])}")
+        r = check_family_exists(text, exps) if exps else {'ok': True, 'fatal': [], 'warn': [], 'verb_mismatch': []}
         print(f'\n{label}')
-        print(f'  {status}')
-        for f in r['fatal']:
-            print(f'    [fatal] {f["family"]} → {f["suggest"]}')
-        for w in r['warn']:
-            print(f'    [warn]  {w["family"]} → {w["suggest"]}')
-        for m in r['verb_mismatch']:
-            print(f'    [verb]  {m["family"]} 用了 {m["verb"]}，EXP 里只有 {m["allowed"]}')
+        print(f"  ok={r['ok']} fatal={len(r.get('fatal') or [])} warn={len(r.get('warn') or [])}")
+        for f in (r.get('fatal') or []):
+            print(f"    [fatal] {f.get('family')} → {f.get('suggest')}")

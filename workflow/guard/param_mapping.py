@@ -103,19 +103,40 @@ def check_param_mapping(plan_text, dataset_text):
                     f'标了「确认」但参数映射列为空 → 会展开出 0 条命令')
             continue
 
-        # 找数据表
+        # 找数据表（与 plan_expander 同一套容错逻辑）
         tname = rule.get('table') or ''
-        tbl = tmap.get(tname)
+        tbl = None
+        if tname:
+            tbl = tmap.get(tname)
+            if tbl is None:
+                for k, v in tmap.items():
+                    if k in tname or tname in k:
+                        tbl, tname = v, k
+                        break
         if tbl is None:
-            for k, v in tmap.items():
-                if k in tname or tname in k:
-                    tbl = v
-                    tname = k
-                    break
+            obj = (rule.get('object') or '').strip()
+            if obj:
+                for k, v in tmap.items():
+                    if k in obj or obj in k:
+                        tbl, tname = v, k
+                        break
+        if tbl is None:
+            _cols = {(v[1:].strip()) for k, v in (rule.get('mapping') or [])
+                     if v.startswith('@') and v not in ('@seq', '@seq0', '@待填写')}
+            if _cols:
+                best, best_hit = None, 0
+                for k, v in tmap.items():
+                    hit = len(_cols & set(v['headers']))
+                    if hit > best_hit:
+                        best, best_hit, tname = v, hit, k
+                if best is not None and best_hit > 0:
+                    tbl = best
         if tbl is None:
             fatal.append(
-                f'规划表第 {rule.get("idx")} 行引用的数据表「{tname}」'
-                f'不在数据清单里（现有表：{list(tmap.keys())[:5]}）')
+                f'规划表第 {rule.get("idx")} 行（{bare}）找不到对应数据表'
+                f'（表名「{tname or "(空)"}」，对象「{rule.get("object")}」，'
+                f'映射里的列 {sorted({v[1:] for k,v in (rule.get("mapping") or []) if v.startswith("@") and v not in ("@seq","@seq0","@待填写")})}）；'
+                f'数据清单现有表：{list(tmap.keys())[:5]}')
             continue
 
         used_tables.add(tname)

@@ -177,15 +177,51 @@ def _sanitize(s):
     return s or 'NA'
 
 
-def _detect_key_col(headers):
-    """猜主键列（用于占位符命名的对象标识）。"""
-    for h in headers:
-        if any(k in h for k in ('名称', '标识', '池名', '隧道名', '接口名', 'IP池')):
-            return h
-    for h in headers:
-        if h.upper().endswith('NAME') or h.upper().endswith('ID'):
-            return h
-    return headers[0] if headers else None
+def _detect_key_col(headers, rows=None):
+    """检测主键列（用于占位符命名的对象标识）。
+
+    ★★ 2026-11-14（硬编码审核）
+      原来硬编码具体业务列名（'名称','标识','池名','隧道名','接口名','IP池'），
+      既是硬编码，也会在「对端IP地址」这类表头上选错列。
+
+    ★ 改为数据驱动，但「值唯一」不足以判定主键：
+      实测 POOL 表只有一列 IP池名称时正确，但两列时
+      POOLTYPE（值都是 EXTERNAL）也可能唯一 → 被选成主键，
+      占位符变成 【POOL_RELEASETIME_EXTERNAL】（错，应该是 pool1）。
+
+    判据（按优先级）：
+      1. 值唯一 + 【不是低基数枚举】：唯一值个数 >= 2 且
+         唯一值数 / 行数 >= 0.8（枚举列的唯一值是 1，会被排除）
+      2. 同分时取「更靠左」的列（数据清单通常主键在首列）
+      3. 都不满足 → 第一列
+    """
+    if not headers:
+        return None
+    if not rows:
+        return headers[0]
+
+    n = len(rows)
+    best, best_score = None, -1
+    for idx, h in enumerate(headers):
+        vals = [str(r.get(h, '')).strip() for r in rows]
+        non_empty = [v for v in vals if v]
+        if not non_empty:
+            continue
+        uniq = len(set(non_empty))
+        # 唯一性得分：唯一值数 / 行数，且必须 > 1（排除常量列）
+        if uniq < 2:
+            continue
+        score = uniq / max(n, 1)
+        # 全部非空加分
+        if len(non_empty) == n:
+            score += 0.01
+        if score > best_score:
+            best, best_score = h, score
+
+    # 只有「足够唯一」的列才算主键（>=0.8 表示 80% 的行值都不同）
+    if best is not None and best_score >= 0.8:
+        return best
+    return headers[0]
 
 
 def to_template_rows(rules, tables, unit='UDG'):
@@ -220,19 +256,65 @@ def to_template_rows(rules, tables, unit='UDG'):
             continue
 
         # 找数据表
-        tname = rule['table']
-        tbl = tmap.get(tname)
+        # ★ 2026-11-14 容错：agent 可能不写「数据清单表」列（实测 NC20260831000389
+        #   规划表表头是「| # | 业务对象 | 数量 | ... |」，没有数据清单表列）
+        #   这时按「业务对象」或「参数映射里 @列名」反查是哪张表。
+        tname = rule['table'] or ''
+        tbl = None
+        if tname:
+            tbl = tmap.get(tname)
+            if tbl is None:
+                for k, v in tmap.items():
+                    if k in tname or tname in k:
+                        tbl = v
+                        tname = k
+                        break
         if tbl is None:
-            for k, v in tmap.items():
-                if k in tname or tname in k:
-                    tbl = v
-                    break
+            # 兜底1：按业务对象名匹配表名
+            obj = (rule.get('object') or '').strip()
+            if obj:
+                for k, v in tmap.items():
+                    if k in obj or obj in k:
+                        tbl = v
+                        tname = k
+                        break
         if tbl is None:
-            warns.append(f'规划表第 {rule["idx"]} 行引用的表「{tname}」不在数据清单里')
-            continue
+            # 兜底2：按参数映射里的 @列名 反查（哪张表有这些列就是哪张）
+            _cols = {(v[1:].strip()) for k, v in rule['mapping']
+                     if v.startswith('@') and v not in ('@seq', '@seq0', '@待填写')}
+            if _cols:
+                best, best_hit = None, 0
+                for k, v in tmap.items():
+                    hit = len(_cols & set(v['headers']))
+                    if hit > best_hit:
+                        best, best_hit = v, hit
+                        tname = k
+                if best is not None and best_hit > 0:
+                    tbl = best
+        if tbl is None:
+            # ★ 2026-11-14 无数据清单的场景（单条全局命令）：
+            #   规划表全是固定值，直接造一行「虚拟数据」展开 1 条命令。
+            #   实测 NC20260803000378：意图只有一句话，规划表
+            #   「SET REFRESHSRV | 跳过 | REFRESHTYPE=ALL（固定值）」
+            has_col_ref = any(v.startswith('@') and v not in ('@seq', '@seq0')
+                              and v != '@待填写'
+                              for _, v in rule['mapping'])
+            if not tables or (not tname and not has_col_ref):
+                # ★ 造一行「虚拟数据」（单条全局命令场景）
+                #   expander 要求 user_csv 至少 1 行数据，所以造一个
+                #   _DUMMY 列，值固定 1；固定值参数照用，@列名 会变占位符。
+                tbl = {'name': tname or '(无数据清单)', 'action': '',
+                       'headers': ['_DUMMY'], 'rows': [{'_DUMMY': '1'}]}
+                tname = tbl['name']
+                tidx[tname] = tbl
+            else:
+                warns.append(f'规划表第 {rule["idx"]} 行'
+                             f'（表「{tname or "(空)"}」/对象「{rule.get("object")}」）'
+                             f'找不到对应数据表')
+                continue
 
         headers = tbl['headers']
-        key_col = _detect_key_col(headers)
+        key_col = _detect_key_col(headers, tbl['rows'])
         tidx[tname] = {'headers': headers, 'rows': tbl['rows'],
                        'key_col': key_col}
 
@@ -244,16 +326,21 @@ def to_template_rows(rules, tables, unit='UDG'):
         # 变体过滤条件（「业务对象」列含判别词）
         variant_kw = ''
         if n_seen > 0 or _has_multi_variant(rules, rule):
-            variant_kw = _extract_variant_kw(rule.get('object', ''))
+            variant_kw = _extract_variant_kw(rule.get('object', ''), tbl.get('rows'))
 
         for pname, src in mapping:
             no += 1
             val, note = _translate_value(src, rule, headers, key_col)
+            # ★ 2026-11-14：把主键列名写进说明列（每组都写，不只 @待填写），
+            #   供后续占位符命名时定位「该用哪一列的值做对象标识」
+            _note = note
+            if key_col and 'key=' not in (_note or ''):
+                _note = f'{_note}|key={key_col}' if _note else f'key={key_col}'
             out.append({
                 '序号': str(no), '组': gname, '网元': unit,
                 '动词': rule['verb'], '命令族': bare, '参数': pname,
                 '值': val, '来源': f'plan:{tname}#{rule["idx"]}',
-                '说明': note, '实例化': 'object',
+                '说明': _note, '实例化': 'object',
                 '_variant_kw': variant_kw,   # 内部用，写 CSV 时丢
             })
 
@@ -268,17 +355,39 @@ def _has_multi_variant(rules, rule):
     return len(same) > 1
 
 
-def _extract_variant_kw(obj_label):
+# 变体的判别词：从「业务对象」标签里提取，但不知道具体有哪些值，
+# 所以改为「标签里的 ASCII 词 / 数字词」作为候选，再拿数据验证。
+_VARIANT_TOKEN_RE = re.compile(r'[A-Za-z][A-Za-z0-9_]{2,}|\d+')
+
+
+def _extract_variant_kw(obj_label, rows=None):
     """从「业务对象」标签提判别关键词，用于过滤数据行。
 
-    例：'IPv4 段' → 'IPv4'；'新增池' → ''
+    ★★ 2026-11-14 改（硬编码审核）：原来硬编码
+      (IPv4|IPv6|V4|V6|IPV4|IPV6|TAC|LAC|新增|删除|调整)，
+      这在遇到新业务（如 PDU/NF 类型）就失效，且是纯枚举硬编码。
+
+    改为数据驱动：
+      1. 从标签里抽 ASCII 词/数字作为候选（不预设有哪些词）
+      2. 若有 rows，验证该候选是否真的能在数据里区分出子集
+      3. 只返回能在数据里命中部分行的候选（= 真的能起过滤作用）
     """
     if not obj_label:
         return ''
-    s = re.sub(r'[（(].*?[）)]', '', obj_label)
-    s = re.sub(r'[段组类]$', '', s).strip()
-    m = re.search(r'(IPv4|IPv6|V4|V6|IPV4|IPV6|TAC|LAC|新增|删除|调整)', s, re.I)
-    return m.group(1) if m else ''
+    label = re.sub(r'[（(].*?[）)]', '', obj_label).strip()
+    cands = _VARIANT_TOKEN_RE.findall(label)
+    if not cands:
+        return ''
+    if not rows:
+        return cands[0]
+    # 用数据验证：能命中部分行（不是全部也不是 0 行）的候选才算判别词
+    for kw in cands:
+        k = kw.upper()
+        hit = sum(1 for r in rows
+                  if any(k in str(v).upper() for v in r.values()))
+        if 0 < hit < len(rows):
+            return kw
+    return cands[0]
 
 
 def _translate_value(src, rule, headers, key_col):
@@ -383,14 +492,19 @@ def expand_from_session(session_dir, unit='UDG'):
             break
         except Exception:
             continue
+    # ★ 2026-11-14 改：数据清单可以为空
+    #   实测 NC20260803000378：意图只有一句话，无数据清单表，
+    #   规划表里全是固定值（REFRESHTYPE=ALL），应该能展开成 1 条命令。
+    #   原来直接返回「缺少数据清单」→ 单条全局命令永远配不出来。
     if not ds_text:
-        return {'ok': False, 'error': '缺少数据清单', 'warnings': []}
+        ds_text = ''   # 空清单：后续按「无表」处理，走固定值路径
 
     plan_text = plan_p.read_text(encoding='utf-8', errors='replace')
-    tables = parse_datasets(ds_text)
+    tables = parse_datasets(ds_text) if ds_text else []
     rules = parse_plan_mapping(plan_text)
     if not rules:
         return {'ok': False, 'error': '规划表里没有「参数映射」列', 'warnings': []}
+    # tables 为空是合法的（无数据清单的单条全局命令）
 
     tmpl_rows, tidx, warns = to_template_rows(rules, tables, unit=unit)
     if not tmpl_rows:
@@ -481,17 +595,52 @@ def expand_from_session(session_dir, unit='UDG'):
         base = g.split('#')[0] if '#' in g else g
         return group_keycol.get(base) or group_keycol.get(base + TEMPLATE_MARK) or ''
 
-    # ★ 每组的对象主键值（用于占位符命名）：
-    #   从该组里「参数名 == 主键列对应参数」的行取，或取该组第一行的值
-    #   简化：取该组中值看起来像对象名的那行（长度最长/非枚举）
+    # ★ 每组的对象主键值（用于占位符命名）
+    #   2026-11-14 修：原来「取值最长的」→ 实测 EXTERNAL(8 字符) 压过 pool1(5 字符)，
+    #   占位符变成 【POOL_RELEASETIME_EXTERNAL】（错）。
+    #   改为：优先用「该组里来源是主键列的那个参数的值」；
+    #   没有的话退化为该组第一个 @列名 来源参数的值。
     group_obj = {}
+    # 先算出每个模板组的主键列名
+    for r in tmpl_rows:
+        gname = r['组']
+        note = r.get('说明') or ''
+        m = re.search(r'key=(\S+)', note)
+        if m and m.group(1):
+            group_keycol[gname.rstrip(TEMPLATE_MARK)] = m.group(1)
+
+    # 组 → 该组参数映射里「来源是 @主键列」的参数名集合
+    keycol_of_group = {}
+    for r in tmpl_rows:
+        gname = r['组'].rstrip(TEMPLATE_MARK)
+        kc = group_keycol.get(gname)
+        if not kc:
+            continue
+        src = (r.get('来源') or '')
+        # 值列写的是 ${CSV.<列>}
+        vcol = ''
+        val_expr = str(r.get('值') or '')
+        mm = re.search(r'\$\{CSV\.([^}|]+)', val_expr)
+        if mm:
+            vcol = mm.group(1).strip()
+        if vcol and vcol == kc:
+            keycol_of_group.setdefault(gname, set()).add(
+                (r.get('参数') or '').strip().upper())
+
     for r in all_out_rows:
         g = r.get('组', '')
+        gbase = g.split('#')[0] if '#' in g else g
         val = str(r.get('值', ''))
-        if val.startswith('【') or val == '@@PH@@':
+        if not val or val.startswith('【') or val == '@@PH@@':
             continue
-        prev = group_obj.get(g)
-        if prev is None or len(val) > len(prev):
+        pname = (r.get('参数') or '').strip().upper()
+        want_params = keycol_of_group.get(gbase) or set()
+        # ① 该参数就是从主键列取的 → 直接用
+        if pname in want_params:
+            group_obj[g] = val
+            continue
+        # ② 没有主键信息时，退化为「该组第一个非占位值」（不是最长）
+        if g not in group_obj:
             group_obj[g] = val
 
     out_buf = io.StringIO()
@@ -552,13 +701,30 @@ def _fill_param_in_placeholder(val, param):
 PH_HEADER = ['占位符', '族', '参数', '对象', '影响命令数', '建议值', '填这里']
 
 
+# 内部 key → CSV 中文表头
+_PH_KEY_MAP = {
+    '占位符': 'ph', '族': 'family', '参数': 'param', '对象': 'object',
+    '影响命令数': 'n_cmds', '建议值': 'suggest', '填这里': '',
+}
+
+
 def _write_ph_csv(rows, path):
+    """写占位符清单.csv。
+
+    ★ 2026-11-14 修：原来用 csv.DictWriter(fieldnames=中文表头) 但 ph_rows 的
+      key 是英文（ph/family/param/...），r.get('占位符') 全是空 → CSV 只有空行。
+    """
     buf = io.StringIO()
     w = csv.DictWriter(buf, fieldnames=PH_HEADER, lineterminator='\n',
                        extrasaction='ignore')
     w.writeheader()
-    for r in sorted(rows, key=lambda x: (x['family'], x['param'], x['object'])):
-        w.writerow({k: r.get(k, '') for k in PH_HEADER})
+    for r in sorted(rows, key=lambda x: (x.get('family', ''), x.get('param', ''),
+                                         x.get('object', ''))):
+        row_out = {}
+        for cn in PH_HEADER:
+            en = _PH_KEY_MAP.get(cn, '')
+            row_out[cn] = r.get(en, '') if en else ''
+        w.writerow(row_out)
     Path(path).write_text(buf.getvalue(), encoding='utf-8')
 
 

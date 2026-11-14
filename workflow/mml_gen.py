@@ -206,13 +206,33 @@ def build_command(group_rows_):
             from verb_rules import get_rules as _get_vr
             _vr = _get_vr()
             if not _vr.is_set_only(fam):
-                import difflib as _dl
-                cands = _dl.get_close_matches(fam, sorted(_vr.set_only),
-                                              n=1, cutoff=0.85)
-                if cands:
-                    # 记录校正，供上层标注
-                    fam = cands[0]
-                    verb = 'SET'
+                # ★★ 2026-11-14 修：difflib 近似纠错误伤合法族名
+                #   实测 NC20260805000498：params.csv 写 INTERFACE（正确），
+                #   difflib.get_close_matches('INTERFACE', set_only, 0.85)
+                #   → ['ARPINTERFACE'] → 族名被改成 ARPINTERFACE
+                #   → 产物生成 ADD ARPINTERFACE 而不是 ADD INTERFACE
+                #   → GT 要的 INTERFACE 族漏配（族覆盖掉到 92%）
+                #
+                #   修法：先查 KB 有没有该族的 MML 文档。有文档 = 合法族名，
+                #   绝不做近似纠错。（同 G32 的处理原则：查 KB 而不是只靠 difflib）
+                _fam_is_legal = False
+                try:
+                    from guard.family_exist import family_has_doc as _fhd
+                    _fam_is_legal = _fhd(fam)
+                except Exception:
+                    try:
+                        from family_exist import family_has_doc as _fhd
+                        _fam_is_legal = _fhd(fam)
+                    except Exception:
+                        _fam_is_legal = False
+                if not _fam_is_legal:
+                    import difflib as _dl
+                    cands = _dl.get_close_matches(fam, sorted(_vr.set_only),
+                                                  n=1, cutoff=0.85)
+                    if cands:
+                        # 记录校正，供上层标注
+                        fam = cands[0]
+                        verb = 'SET'
             if verb is None:
                 verb = _vr.verb_for(fam, default='ADD')
         except Exception:
@@ -260,16 +280,25 @@ def build_command(group_rows_):
 # ★ 2026-11-14：MML 会改变数据/状态的动词（产物生成只认这些）
 #   来源：KB 的 MML 文档文件名前缀分布 + 现网 EXP 实测
 #   查询类（lst/dsp/tst/exp）不在此列 —— 只读命令不进配置产物
-DATA_VERBS = frozenset({
-    # 配置类
-    'ADD', 'MOD', 'RMV', 'SET',
-    # 操作类（不改数据结构，但改变运行状态，也属于配置动作）
-    'ACT', 'DEA',          # 激活 / 去激活
-    'RTR', 'RST', 'STR', 'STP',   # 复位 / 重置 / 启动 / 停止
-    'CLR', 'OPR',          # 清除 / 操作
-    'SYN', 'LOD', 'RBL', 'UPD',   # 同步 / 加载 / 重载 / 更新
-    'LCK', 'ULK',          # 锁定 / 解锁
-})
+# 2026-11-14 从 YAML 读（rules/verb_rules.yaml 的 DATA_VERBS）
+#   原来这里硬编码 18 个动词，新增动词要改代码。
+#   解析失败时用最小兜底（只保 4 个基础动词），不阻断生成。
+def _load_data_verbs():
+    try:
+        import sys as _sys
+        _wf = str(Path(__file__).resolve().parent)
+        if _wf not in _sys.path:
+            _sys.path.insert(0, _wf)
+        from verb_rules import get_rules as _get_vr
+        v = _get_vr().data_verbs
+        if v:
+            return frozenset(v)
+    except Exception:
+        pass
+    return frozenset({'ADD', 'MOD', 'RMV', 'SET'})
+
+
+DATA_VERBS = _load_data_verbs()
 
 
 def gen_mml(csv_path, with_unit_sections=True):

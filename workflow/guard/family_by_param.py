@@ -179,46 +179,47 @@ def check_family_by_params(mml_text, exp_paths=None, exp_text='', strict=True):
 
 
 if __name__ == '__main__':
-    import json
+    """自测（不依赖 GT）。
 
-    GT = json.loads(Path('/tmp/gt_cleaned.json').read_text(encoding='utf-8'))
+    ★ 2026-11-14 GT 隔离审核：原来这里读 /tmp/gt_cleaned.json 拿真实工单的
+      EXP 路径。虽然只在 __main__ 里，但生成侧代码不该有 GT 入口。
+      改为命令行传 EXP 路径。
+    """
+    import sys
+    from pathlib import Path
 
     print('=' * 100)
-    print('G34：根据参数反推命令族')
+    print('G34：根据参数反推命令族（自测，不读 GT）')
     print('=' * 100)
 
-    # 建索引
-    all_exps = []
-    for g in GT[:30]:
-        if not g['kept']:
+    # 用法：python3 family_by_param.py <EXP路径> [<EXP2> ...]
+    exps = [str(Path(x)) for x in sys.argv[1:]]
+    if not exps:
+        print('用法: python3 family_by_param.py <EXP路径> [<EXP2> ...]')
+        sys.exit(0)
+
+    idx = build_param_family_index(exps)
+    print(f'\n索引: {len(idx)} 个参数, 扫 {len(exps)} 个 EXP')
+    if idx:
+        uniq = sum(1 for v in idx.values() if len(v) == 1)
+        print(f'唯一归属: {uniq}/{len(idx)} = {uniq/len(idx)*100:.0f}%')
+
+    # 判别力测试：构造「族名写错但参数对」的命令，看能否反推出正确族
+    print('\n判别力测试（族名写错 → 能否反推）:')
+    ok = 0
+    n = 0
+    for param, fams in list(idx.items())[:20]:
+        if len(fams) != 1:
             continue
-        adir = Path(g['path']) / '备份附件'
-        if adir.exists():
-            all_exps.extend(str(p) for p in sorted(adir.glob('*.txt'))[:1])
-
-    idx = build_param_family_index(all_exps)
-    print(f'\n索引: {len(idx)} 个参数, 扫 {len(all_exps)} 个 EXP')
-    uniq = sum(1 for v in idx.values() if len(v) == 1)
-    print(f'唯一归属: {uniq}/{len(idx)} = {uniq/len(idx)*100:.0f}%')
-
-    # 测试用例
-    TESTS = [
-        ('族名写错（APNAFFUNC + CFSWITCHVALUE）',
-         'SET APNAFFUNC:APNNAME="sos", CFSWITCHVALUE=DISABLE;'),
-        ('族名写错（APNAFFUNC + TRAFFICFDSW）',
-         'SET APNAFFUNC:APN="sos", TRAFFICFDSW=DISABLE;'),
-        ('族名正确（APNCFFUNC + CFSWITCHVALUE）',
-         'SET APNCFFUNC:APNNAME="sos", CFSWITCHVALUE=DISABLE;'),
-        ('族名正确（APNAFFUNC + ISENABLE）',
-         'SET APNAFFUNC:APN="sos", ISENABLE=ENABLE;'),
-        ('正常命令（非属性族）',
-         'ADD POOL:POOLNAME="p1", POOLTYPE=EXTERNAL;'),
-    ]
-
-    for label, mml in TESTS:
-        r = check_family_by_params(mml, all_exps)
-        print(f'\n{label}')
-        print(f'  结果: {"✅ pass" if r["ok"] else "❌ 检出"}')
-        for s in r['suspects']:
-            print(f'    L{s["line_no"]}: {s["family"]} → 应为 {s["should_be"]}')
-            print(f'      {s["why"]}')
+        real_fam = list(fams)[0]
+        # 用错误族名 + 正确参数
+        mml = f'SET WRONGFAMILYXYZ:APN="x", {param}=1;'
+        r = check_family_by_params(mml, exps)
+        suspects = r.get('suspects') or []
+        hit = any((s.get('should_be') or '').upper() == real_fam.upper()
+                  for s in suspects)
+        n += 1
+        ok += hit
+        print(f"  {param} → { suspects[0].get('should_be') if suspects else '(未检出)' }"
+              f"  (实际 {real_fam})  {'✅' if hit else '❌'}")
+    print(f"\n反推准确: {ok}/{n}")

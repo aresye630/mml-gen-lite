@@ -301,27 +301,21 @@ def check_plan_vs_csv(sess_dir):
     #   映射（中文动作 → MML 动词）：
     #   ★ 2026-11-14 扩充（用户指出「动词不止这些，还有 ACT DEA RTR 等等」）
     #     MML 会改变数据的动词不止 ADD/MOD/SET/RMV，产物生成要支持全部。
-    _ACT_VERB = {
-        # 配置类
-        '新增': 'ADD', '创建': 'ADD', '增加': 'ADD',
-        '修改': 'MOD', '调整': 'MOD', '变更': 'MOD',
-        '删除': 'RMV', '移除': 'RMV',
-        '设置': 'SET', '配置': 'SET',
-        # 操作类
-        '激活': 'ACT', '去激活': 'DEA', '取消激活': 'DEA',
-        '复位': 'RTR', '重启': 'RTR',
-        '重置': 'RST', '启动': 'STR', '开启': 'STR',
-        '停止': 'STP', '关闭': 'STP',
-        '清除': 'CLR', '操作': 'OPR',
-        '同步': 'SYN', '加载': 'LOD', '重载': 'RBL', '更新': 'UPD',
-        '锁定': 'LCK', '解锁': 'ULK',
-    }
-    # 只要规划表动作列能直接提到 MML 动词，就以它为准（覆盖上表）
-    _MML_VERBS = frozenset({
-        'ADD', 'MOD', 'RMV', 'SET',
-        'ACT', 'DEA', 'RTR', 'RST', 'STR', 'STP',
-        'CLR', 'OPR', 'SYN', 'LOD', 'RBL', 'UPD', 'LCK', 'ULK',
-    })
+    # 2026-11-14 从 YAML 读（rules/verb_rules.yaml 的 ACTION_VERB_MAP / DATA_VERBS）
+    #   原来这里硬编码 20+ 中文映射 + 18 个 MML 动词，
+    #   新增业务动作要改代码。用户偏好：逻辑数据驱动 YAML。
+    try:
+        import sys as _sys
+        _wf = str(Path(__file__).resolve().parent.parent)
+        if _wf not in _sys.path:
+            _sys.path.insert(0, _wf)
+        from verb_rules import get_rules as _get_vr2
+        _vr2 = _get_vr2()
+        _ACT_VERB = _vr2.action_verb_map or {}
+        _MML_VERBS = _vr2.data_verbs or frozenset()
+    except Exception:
+        _ACT_VERB = {}
+        _MML_VERBS = frozenset()
     verb_mismatch = []
     try:
         csv_rows_list = list(csv.DictReader(io.StringIO(csv_text)))
