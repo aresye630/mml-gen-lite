@@ -123,6 +123,116 @@ MAX_GUARD_CALLS = int(os.environ.get('AGENT_MAX_GUARD_CALLS', '40'))
 STALL_SECONDS = int(os.environ.get('AGENT_STALL_SECONDS', '480'))
 MAX_TOOL_CALLS = int(os.environ.get('AGENT_MAX_TOOL_CALLS', '300'))
 
+
+# ★★ 2026-11-14 性能优化：按工单规模自适应 STALL 阈值和执行超时
+#
+#   问题（75 单全量实测）：
+#     3 单 STALL（NC20260814000701 / NC20260804001027 / NC20260805002150）
+#     都是 20-30 条命令的小单，却在 480s 时还没写出第一个产物
+#     工具调用只有 24-51 次 → 平均每次 10-20s，是 LLM 响应慢，不是死循环
+#
+#     重验 NC20260814000701：
+#       上次：480s 时 0 产物 → STALL 判死
+#       这次：196s 写出第 1 个产物 → 203s 完成（verdict=pass）
+#     → 同一单同一镜像，结果差 2.4 倍，纯 LLM 响应速度波动
+#
+#   数据支撑（75 单）：
+#     按 GT 命令数分档的耗时：
+#       1-30 条：中位 294s，P90 562s，最长 1802s
+#       31-100：中位 572s，P90 1588s，最长 2574s
+#       101-300：中位 917s，P90 2595s
+#       301-800：中位 1459s
+#       >800：中位 1824s，最长 2716s
+#
+#     规模相关性（数据清单行数预测 GT 命令数）：r = 0.950
+#     → 上传清单后就能估出预期耗时，不用等 params.csv（agent 生成后才有）
+#
+#   新策略：
+#     规模估算 perf_scale(sess_dir) → 返回 'small'|'medium'|'large'|'xlarge'
+#     STALL 阈值 = 基准 480s × 规模系数（小 1.0 / 中 1.5 / 大 2.5 / 特大 3.5）
+#     执行超时同理由规模决定，不再依赖 params.csv 行数
+
+# 规模 → (STALL 秒数, 单轮执行超时秒数, 说明)
+_PERF_TIERS = {
+    'small':  (480, 900,  '<=30 条命令'),        # 实测 P90 562s
+    'medium': (720, 1800, '31-300 条命令'),      # 实测 P90 1588s
+    'large':  (1200, 2400, '301-800 条命令'),    # 实测中位 1459s
+    'xlarge': (1680, 3600, '>800 条命令'),       # 实测最长 2716s
+}
+
+
+def perf_scale(sess_dir):
+    """按上传的数据清单规模估算工单复杂度。
+
+    优先看上传的数据清单（上传时就有），没有则看 params.csv/EXP 行数。
+    返回 'small' | 'medium' | 'large' | 'xlarge'
+    """
+    import re as _re
+    from pathlib import Path as _P
+    try:
+        sd = _P(sess_dir)
+
+        # 1) 上传的数据清单（最可靠：与 GT 命令数相关性 0.950）
+        n_rows = 0
+        for f in list(sd.glob('uploads/*清单*.md')) + list(sd.glob('uploads_text/*清单*.md')):
+            try:
+                txt = f.read_text(encoding='utf-8', errors='replace')
+            except Exception:
+                continue
+            cnt = 0
+            for line in txt.split('\n'):
+                s2 = line.strip()
+                if s2.startswith('|') and '---' not in s2:
+                    cnt += 1
+            n_tables = len(_re.findall(r'^## ', txt, _re.M))
+            n_rows = max(n_rows, max(0, cnt - n_tables))
+            if n_rows:
+                break
+
+        # 2) 退化：params.csv 行数
+        if not n_rows:
+            for cand in [sd / 'analysis_code' / 'params.csv'] + list(sd.glob('uploads/*params*.csv')):
+                if cand.exists():
+                    try:
+                        n_rows = sum(1 for _ in open(cand, encoding='utf-8', errors='replace'))
+                    except Exception:
+                        pass
+                    break
+
+        # 3) 全都没有 → 按小单处理
+        if not n_rows:
+            return 'small'
+
+        if n_rows > 800:
+            return 'xlarge'
+        if n_rows > 300:
+            return 'large'
+        if n_rows > 30:
+            return 'medium'
+        return 'small'
+    except Exception:
+        return 'small'
+
+
+def stall_seconds_for(sess_dir):
+    """按规模返回 STALL 阈值（秒）。"""
+    try:
+        if not os.environ.get('AGENT_STALL_SECONDS'):
+            return _PERF_TIERS[perf_scale(sess_dir)][0]
+    except Exception:
+        pass
+    return STALL_SECONDS
+
+
+def round_timeout_for(sess_dir):
+    """按规模返回单轮执行超时（秒）。"""
+    try:
+        if not os.environ.get('AGENT_ROUND_TIMEOUT'):
+            return _PERF_TIERS[perf_scale(sess_dir)][1]
+    except Exception:
+        pass
+    return ROUND_TIMEOUT
+
 # ★ 2026-11-06 新增：Code 调用单独限额
 #
 #   实测（86 工单批量）：
@@ -1092,6 +1202,11 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
         env['AGENT_STAGE'] = str(stage or 'fill')
     except Exception:
         pass
+    # ★ 2026-11-14 按规模自适应 STALL 阈值和执行超时
+    _stall_sec = stall_seconds_for(workdir)
+    # 调用方没显式给 timeout（仍是默认 ROUND_TIMEOUT）时，按规模覆盖
+    if timeout == ROUND_TIMEOUT:
+        timeout = round_timeout_for(workdir)
     t0 = time.time()
 
     cmd = ['hermes', 'chat', '-q', prompt, '--yolo', '--pass-session-id']
@@ -1111,6 +1226,9 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
     proc = None
     timed_out = False
     loop_killed = None
+    # ★ 2026-11-14 STALL 判定状态（Popen 不能挂自定义属性，用局部变量）
+    _stall_base = None          # STALL 计时基准（有进展就前移）
+    _last_ev_size = -1          # 上次看到的 events 字节数
     _tool_cnt = {'total': 0, 'guard': 0, 'code': 0, 'seq': [],
                  'guard_fatals': [],       # 旧：正则抓的文本（保留兼容）
                  'guard_fatal_sets': []}   # 新：每次 guard 的 fatal 内容集合
@@ -1151,16 +1269,44 @@ def call_hermes(prompt, workdir, resume_sid=None, events_fp=None,
             #   「业务名词对应哪个命令族」），STALL 永远不触发。
             #   实测 NC20260820000552 跑了 34 分钟、产物 0 个仍未被杀。
             #   现在每读到一行就检查一次时间，不依赖工具行。
-            if time.time() - t0 > STALL_SECONDS:
+            _sb = _stall_base or t0
+            if time.time() - _sb > _stall_sec:
+                # ★★ 2026-11-14 重写 STALL 判据（原版只看「无产物」，漏了「有产物但不动」）
+                #
+                #   实测 NC20260819001887（v22 重跑）：
+                #     run2 第 2 轮修 G34 报的族名错，agent 收到修正指令后 9 分钟无动作
+                #     events 停在 198 行（10:54），但 analysis_code 已有 5 个文件
+                #     → 原判据 `if _n_art == 0` 不成立 → 完全跳过 STALL 检查 → 卡死没人管
+                #
+                #   新判据：不管有没有产物，只要 events 不增长就算卡住
+                #     · events 在增长 → agent 在工作 → 前移 STALL 基准
+                #     · events 不增长 → 真卡住 → 杀
+                #
+                #   为什么用 events 而不是产物文件：
+                #     产物可能最后一次性写（agent 先探索后落盘），
+                #     events 是每个工具调用都追加，更能反映「有没有在动」
                 _adir = Path(workdir) / 'analysis_code'
                 _n_art = 0
                 if _adir.is_dir():
                     _n_art = len([p for p in _adir.iterdir()
                                   if p.is_file() and not p.name.startswith('.')])
-                if _n_art == 0:
+                _ev_p = Path(workdir).parent / '.agent' / 'events.jsonl'
+                _ev_now = 0
+                try:
+                    if _ev_p.exists():
+                        _ev_now = _ev_p.stat().st_size
+                except Exception:
+                    pass
+                _progressing = (_ev_now > _last_ev_size)
+                _last_ev_size = _ev_now
+                if _progressing:
+                    # 有进展：把 STALL 基准往后推（不动 t0，它用于算总耗时）
+                    _stall_base = time.time()
+                else:
+                    _el = int(time.time() - t0)
                     loop_killed = (
-                        f'agent 运行 {int(time.time() - t0)}s 仍无任何产物写出'
-                        f'（已调用工具 {_tool_cnt["total"]} 次），判为卡住')
+                        f'agent 运行 {_el}s events 无增长'
+                        f'（产物 {_n_art} 个，已调用工具 {_tool_cnt["total"]} 次），判为卡住')
                     try:
                         proc.kill()
                     except Exception:
